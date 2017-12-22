@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="String Munging In Dataframe" />
+<meta property="og:description" content="String munging in dataframe." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://chrisalbon.com/python/data_wrangling/pandas_string_munging/" />
+
+
+
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
+
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="String Munging In Dataframe"/>
+<meta name="twitter:description" content="String munging in dataframe."/>
+<meta name="generator" content="Hugo 0.31.1" />
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "String Munging In Dataframe",
+  "url": "https://chrisalbon.com/python/data_wrangling/pandas_string_munging/",
+  "wordCount": "237",
+  "datePublished": "2017-12-20T11:53:49-07:00",
+  "dateModified": "2017-12-20T11:53:49-07:00",
+  "author": {
+    "@type": "Person",
+    "name": "Chris Albon"
+  },
+  "description": "String munging in dataframe."
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://chrisalbon.com/python/data_wrangling/pandas_string_munging/">
+
+    <title>String Munging In Dataframe | Chris Albon</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://chrisalbon.com/css/style.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+    <link href="https://chrisalbon.com/css/main.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+
+    
+
+    
+
+    <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link" href="https://chrisalbon.com/">Home</a></nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://chrisalbon.com/python/data_wrangling/pandas_string_munging/">String Munging In Dataframe</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-12-20T11:53:49-07:00">Wed Dec 20, 2017</time></p>
+  </header>
+  
+
+<h3 id="import-modules">import modules</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">pandas</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">pd</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">numpy</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">np</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">re</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">re</span></code></pre></div>
+<h3 id="create-dataframe">Create dataframe</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">raw_data <span style="color:#333">=</span> {<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;first_name&#39;</span>: [<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Jason&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Molly&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Tina&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Jake&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Amy&#39;</span>], 
+        <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;last_name&#39;</span>: [<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Miller&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Jacobson&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Ali&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Milner&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Cooze&#39;</span>], 
+        <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;email&#39;</span>: [<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;jas203@gmail.com&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;momomolly@gmail.com&#39;</span>, np<span style="color:#333">.</span>NAN, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;battler@milner.com&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Ames1234@yahoo.com&#39;</span>], 
+        <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;preTestScore&#39;</span>: [<span style="color:#00d;font-weight:bold">4</span>, <span style="color:#00d;font-weight:bold">24</span>, <span style="color:#00d;font-weight:bold">31</span>, <span style="color:#00d;font-weight:bold">2</span>, <span style="color:#00d;font-weight:bold">3</span>],
+        <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;postTestScore&#39;</span>: [<span style="color:#00d;font-weight:bold">25</span>, <span style="color:#00d;font-weight:bold">94</span>, <span style="color:#00d;font-weight:bold">57</span>, <span style="color:#00d;font-weight:bold">62</span>, <span style="color:#00d;font-weight:bold">70</span>]}
+df <span style="color:#333">=</span> pd<span style="color:#333">.</span>DataFrame(raw_data, columns <span style="color:#333">=</span> [<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;first_name&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;last_name&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;email&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;preTestScore&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;postTestScore&#39;</span>])
+df</code></pre></div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>first_name</th>
+      <th>last_name</th>
+      <th>email</th>
+      <th>preTestScore</th>
+      <th>postTestScore</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Jason</td>
+      <td>Miller</td>
+      <td>jas203@gmail.com</td>
+      <td>4</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Molly</td>
+      <td>Jacobson</td>
+      <td>momomolly@gmail.com</td>
+      <td>24</td>
+      <td>94</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Tina</td>
+      <td>Ali</td>
+      <td>NaN</td>
+      <td>31</td>
+      <td>57</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Jake</td>
+      <td>Milner</td>
+      <td>battler@milner.com</td>
+      <td>2</td>
+      <td>62</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Amy</td>
+      <td>Cooze</td>
+      <td>Ames1234@yahoo.com</td>
+      <td>3</td>
+      <td>70</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="which-strings-in-the-email-column-contains-gmail">Which strings in the email column contains &lsquo;gmail&rsquo;</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;email&#39;</span>]<span style="color:#333">.</span><span style="color:#007020">str</span><span style="color:#333">.</span>contains(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;gmail&#39;</span>)</code></pre></div>
+<pre><code>0     True
+1     True
+2      NaN
+3    False
+4    False
+Name: email, dtype: object
+</code></pre>
+
+<h3 id="create-a-regular-expression-pattern-that-breaks-apart-emails">Create a regular expression pattern that breaks apart emails</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">pattern <span style="color:#333">=</span> <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;([A-Z0-9._%+-]+)@([A-Z0-9.-]+)</span><span style="color:#666;background-color:#fff0f0;font-weight:bold">\\</span><span style="background-color:#fff0f0">.([A-Z]{2,4})&#39;</span></code></pre></div>
+<h3 id="find-everything-in-df-email-that-contains-that-pattern">Find everything in df.email that contains that pattern</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;email&#39;</span>]<span style="color:#333">.</span><span style="color:#007020">str</span><span style="color:#333">.</span>findall(pattern, flags<span style="color:#333">=</span>re<span style="color:#333">.</span>IGNORECASE)</code></pre></div>
+<pre><code>0       [(jas203, gmail, com)]
+1    [(momomolly, gmail, com)]
+2                          NaN
+3     [(battler, milner, com)]
+4     [(Ames1234, yahoo, com)]
+Name: email, dtype: object
+</code></pre>
+
+<h3 id="create-a-pandas-series-containing-the-email-elements">Create a pandas series containing the email elements</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">matches <span style="color:#333">=</span> df[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;email&#39;</span>]<span style="color:#333">.</span><span style="color:#007020">str</span><span style="color:#333">.</span>match(pattern, flags<span style="color:#333">=</span>re<span style="color:#333">.</span>IGNORECASE)
+matches</code></pre></div>
+<pre><code>/Users/chrisralbon/anaconda/lib/python3.5/site-packages/ipykernel/__main__.py:1: FutureWarning: In future versions of pandas, match will change to always return a bool indexer.
+  if __name__ == '__main__':
+
+
+
+
+
+0       (jas203, gmail, com)
+1    (momomolly, gmail, com)
+2                        NaN
+3     (battler, milner, com)
+4     (Ames1234, yahoo, com)
+Name: email, dtype: object
+</code></pre>
+
+<h3 id="select-the-domains-of-the-df-email">Select the domains of the df.email</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">matches<span style="color:#333">.</span><span style="color:#007020">str</span>[<span style="color:#00d;font-weight:bold">1</span>]</code></pre></div>
+<pre><code>0     gmail
+1     gmail
+2       NaN
+3    milner
+4     yahoo
+Name: email, dtype: object
+</code></pre>
+
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      Blog template created by <a href="https://twitter.com/mdo">@mdo</a>, ported to Hugo by <a href='https://twitter.com/mralanorth'>@mralanorth</a>.
+      
+      </p>
+    </footer>
+
+  </body>
+
+</html>

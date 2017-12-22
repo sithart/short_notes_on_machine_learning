@@ -1,0 +1,9 @@
+baseURL = "https://chrisalbon.com/"
+languageCode = "en-us"
+title = "Chris Albon"
+theme = "berbera"
+
+pygmentsCodeFences=true
+pygmentsStyle="colorful"
+
+canonifyURLs=true

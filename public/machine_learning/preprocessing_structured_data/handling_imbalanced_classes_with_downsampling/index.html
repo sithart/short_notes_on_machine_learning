@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Handling Imbalanced Classes With Downsampling" />
+<meta property="og:description" content="How to handle imbalanced classes with downsampling during machine learning in Python." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://chrisalbon.com/machine_learning/preprocessing_structured_data/handling_imbalanced_classes_with_downsampling/" />
+
+
+
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
+
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Handling Imbalanced Classes With Downsampling"/>
+<meta name="twitter:description" content="How to handle imbalanced classes with downsampling during machine learning in Python."/>
+<meta name="generator" content="Hugo 0.31.1" />
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Handling Imbalanced Classes With Downsampling",
+  "url": "https://chrisalbon.com/machine_learning/preprocessing_structured_data/handling_imbalanced_classes_with_downsampling/",
+  "wordCount": "307",
+  "datePublished": "2017-12-20T11:53:49-07:00",
+  "dateModified": "2017-12-20T11:53:49-07:00",
+  "author": {
+    "@type": "Person",
+    "name": "Chris Albon"
+  },
+  "description": "How to handle imbalanced classes with downsampling during machine learning in Python."
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://chrisalbon.com/machine_learning/preprocessing_structured_data/handling_imbalanced_classes_with_downsampling/">
+
+    <title>Handling Imbalanced Classes With Downsampling | Chris Albon</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://chrisalbon.com/css/style.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+    <link href="https://chrisalbon.com/css/main.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+
+    
+
+    
+
+    <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link" href="https://chrisalbon.com/">Home</a></nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://chrisalbon.com/machine_learning/preprocessing_structured_data/handling_imbalanced_classes_with_downsampling/">Handling Imbalanced Classes With Downsampling</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-12-20T11:53:49-07:00">Wed Dec 20, 2017</time></p>
+  </header>
+  
+
+<p><a alt="Downsampling" href="https://machinelearningflashcards.com">
+    <img src="handling_imbalanced_classes_with_downsampling/Downsampling_print.png" class="flashcard center-block">
+</a></p>
+
+<p>In downsampling, we randomly sample without replacement from the majority class (i.e. the class with more observations) to create a new subset of observation equal in size to the minority class.</p>
+
+<h2 id="preliminaries">Preliminaries</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Load libraries</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">numpy</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">np</span>
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">sklearn.datasets</span> <span style="color:#080;font-weight:bold">import</span> load_iris</code></pre></div>
+<h2 id="load-iris-dataset">Load Iris Dataset</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Load iris data</span>
+iris <span style="color:#333">=</span> load_iris()
+
+<span style="color:#888"># Create feature matrix</span>
+X <span style="color:#333">=</span> iris<span style="color:#333">.</span>data
+
+<span style="color:#888"># Create target vector</span>
+y <span style="color:#333">=</span> iris<span style="color:#333">.</span>target</code></pre></div>
+<h2 id="make-iris-dataset-imbalanced">Make Iris Dataset Imbalanced</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Remove first 40 observations</span>
+X <span style="color:#333">=</span> X[<span style="color:#00d;font-weight:bold">40</span>:,:]
+y <span style="color:#333">=</span> y[<span style="color:#00d;font-weight:bold">40</span>:]
+
+<span style="color:#888"># Create binary target vector indicating if class 0</span>
+y <span style="color:#333">=</span> np<span style="color:#333">.</span>where((y <span style="color:#333">==</span> <span style="color:#00d;font-weight:bold">0</span>), <span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">1</span>)
+
+<span style="color:#888"># Look at the imbalanced target vector</span>
+y</code></pre></div>
+<pre><code>array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+</code></pre>
+
+<h2 id="downsample-majority-class-to-match-minority-class">Downsample Majority Class To Match Minority Class</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Indicies of each class&#39; observations</span>
+i_class0 <span style="color:#333">=</span> np<span style="color:#333">.</span>where(y <span style="color:#333">==</span> <span style="color:#00d;font-weight:bold">0</span>)[<span style="color:#00d;font-weight:bold">0</span>]
+i_class1 <span style="color:#333">=</span> np<span style="color:#333">.</span>where(y <span style="color:#333">==</span> <span style="color:#00d;font-weight:bold">1</span>)[<span style="color:#00d;font-weight:bold">0</span>]
+
+<span style="color:#888"># Number of observations in each class</span>
+n_class0 <span style="color:#333">=</span> <span style="color:#007020">len</span>(i_class0)
+n_class1 <span style="color:#333">=</span> <span style="color:#007020">len</span>(i_class1)
+
+<span style="color:#888"># For every observation of class 0, randomly sample from class 1 without replacement</span>
+i_class1_downsampled <span style="color:#333">=</span> np<span style="color:#333">.</span>random<span style="color:#333">.</span>choice(i_class1, size<span style="color:#333">=</span>n_class0, replace<span style="color:#333">=</span>False)
+
+<span style="color:#888"># Join together class 0&#39;s target vector with the downsampled class 1&#39;s target vector</span>
+np<span style="color:#333">.</span>hstack((y[i_class0], y[i_class1_downsampled]))</code></pre></div>
+<pre><code>array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+</code></pre>
+
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      Blog template created by <a href="https://twitter.com/mdo">@mdo</a>, ported to Hugo by <a href='https://twitter.com/mralanorth'>@mralanorth</a>.
+      
+      </p>
+    </footer>
+
+  </body>
+
+</html>

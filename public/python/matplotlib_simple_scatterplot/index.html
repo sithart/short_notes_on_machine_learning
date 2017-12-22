@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Scatterplot In MatPlotLib" />
+<meta property="og:description" content="Scatterplot In MatPlotLib." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://chrisalbon.com/python/matplotlib_simple_scatterplot/" />
+
+
+
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
+
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Scatterplot In MatPlotLib"/>
+<meta name="twitter:description" content="Scatterplot In MatPlotLib."/>
+<meta name="generator" content="Hugo 0.31.1" />
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Scatterplot In MatPlotLib",
+  "url": "https://chrisalbon.com/python/matplotlib_simple_scatterplot/",
+  "wordCount": "459",
+  "datePublished": "2017-12-20T11:53:49-07:00",
+  "dateModified": "2017-12-20T11:53:49-07:00",
+  "author": {
+    "@type": "Person",
+    "name": "Chris Albon"
+  },
+  "keywords": "python, Data Visualization",
+  "description": "Scatterplot In MatPlotLib."
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://chrisalbon.com/python/matplotlib_simple_scatterplot/">
+
+    <title>Scatterplot In MatPlotLib | Chris Albon</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://chrisalbon.com/css/style.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+    <link href="https://chrisalbon.com/css/main.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+
+    
+
+    
+
+    <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link" href="https://chrisalbon.com/">Home</a></nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://chrisalbon.com/python/matplotlib_simple_scatterplot/">Scatterplot In MatPlotLib</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-12-20T11:53:49-07:00">Wed Dec 20, 2017</time> in 
+<i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="/categories/python" rel="category tag">python</a>
+
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/data-visualization" rel="tag">Data Visualization</a>
+
+</p>
+  </header>
+  
+
+<h2 id="preliminaries">Preliminaries</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#333">%</span>matplotlib inline
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">pandas</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">pd</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">matplotlib.pyplot</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">plt</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">numpy</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">np</span>
+
+<span style="color:#888"># Set ipython&#39;s max row display</span>
+pd<span style="color:#333">.</span>set_option(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;display.max_row&#39;</span>, <span style="color:#00d;font-weight:bold">1000</span>)
+
+<span style="color:#888"># Set iPython&#39;s max column width to 50</span>
+pd<span style="color:#333">.</span>set_option(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;display.max_columns&#39;</span>, <span style="color:#00d;font-weight:bold">50</span>)</code></pre></div>
+<h2 id="create-dataframe">Create dataframe</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df <span style="color:#333">=</span> pd<span style="color:#333">.</span>read_csv(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;https://raw.githubusercontent.com/chrisalbon/war_of_the_five_kings_dataset/master/5kings_battles_v1.csv&#39;</span>)
+df<span style="color:#333">.</span>head()</code></pre></div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>year</th>
+      <th>battle_number</th>
+      <th>attacker_king</th>
+      <th>defender_king</th>
+      <th>attacker_1</th>
+      <th>attacker_2</th>
+      <th>attacker_3</th>
+      <th>attacker_4</th>
+      <th>defender_1</th>
+      <th>defender_2</th>
+      <th>defender_3</th>
+      <th>defender_4</th>
+      <th>attacker_outcome</th>
+      <th>battle_type</th>
+      <th>major_death</th>
+      <th>major_capture</th>
+      <th>attacker_size</th>
+      <th>defender_size</th>
+      <th>attacker_commander</th>
+      <th>defender_commander</th>
+      <th>summer</th>
+      <th>location</th>
+      <th>region</th>
+      <th>note</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Battle of the Golden Tooth</td>
+      <td>298</td>
+      <td>1</td>
+      <td>Joffrey/Tommen Baratheon</td>
+      <td>Robb Stark</td>
+      <td>Lannister</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Tully</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>win</td>
+      <td>pitched battle</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>15000.0</td>
+      <td>4000.0</td>
+      <td>Jaime Lannister</td>
+      <td>Clement Piper, Vance</td>
+      <td>1.0</td>
+      <td>Golden Tooth</td>
+      <td>The Westerlands</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Battle at the Mummer's Ford</td>
+      <td>298</td>
+      <td>2</td>
+      <td>Joffrey/Tommen Baratheon</td>
+      <td>Robb Stark</td>
+      <td>Lannister</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Baratheon</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>win</td>
+      <td>ambush</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>120.0</td>
+      <td>Gregor Clegane</td>
+      <td>Beric Dondarrion</td>
+      <td>1.0</td>
+      <td>Mummer's Ford</td>
+      <td>The Riverlands</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Battle of Riverrun</td>
+      <td>298</td>
+      <td>3</td>
+      <td>Joffrey/Tommen Baratheon</td>
+      <td>Robb Stark</td>
+      <td>Lannister</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Tully</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>win</td>
+      <td>pitched battle</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>15000.0</td>
+      <td>10000.0</td>
+      <td>Jaime Lannister, Andros Brax</td>
+      <td>Edmure Tully, Tytos Blackwood</td>
+      <td>1.0</td>
+      <td>Riverrun</td>
+      <td>The Riverlands</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Battle of the Green Fork</td>
+      <td>298</td>
+      <td>4</td>
+      <td>Robb Stark</td>
+      <td>Joffrey/Tommen Baratheon</td>
+      <td>Stark</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Lannister</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>loss</td>
+      <td>pitched battle</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>18000.0</td>
+      <td>20000.0</td>
+      <td>Roose Bolton, Wylis Manderly, Medger Cerwyn, H...</td>
+      <td>Tywin Lannister, Gregor Clegane, Kevan Lannist...</td>
+      <td>1.0</td>
+      <td>Green Fork</td>
+      <td>The Riverlands</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Battle of the Whispering Wood</td>
+      <td>298</td>
+      <td>5</td>
+      <td>Robb Stark</td>
+      <td>Joffrey/Tommen Baratheon</td>
+      <td>Stark</td>
+      <td>Tully</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Lannister</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>win</td>
+      <td>ambush</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1875.0</td>
+      <td>6000.0</td>
+      <td>Robb Stark, Brynden Tully</td>
+      <td>Jaime Lannister</td>
+      <td>1.0</td>
+      <td>Whispering Wood</td>
+      <td>The Riverlands</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="make-plot">Make plot</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create a figure</span>
+plt<span style="color:#333">.</span>figure(figsize<span style="color:#333">=</span>(<span style="color:#00d;font-weight:bold">10</span>,<span style="color:#00d;font-weight:bold">8</span>))
+
+<span style="color:#888"># Create a scatterplot of,</span>
+            <span style="color:#888"># attacker size in year 298 as the x axis</span>
+plt<span style="color:#333">.</span>scatter(df[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;attacker_size&#39;</span>][df[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;year&#39;</span>] <span style="color:#333">==</span> <span style="color:#00d;font-weight:bold">298</span>], 
+            <span style="color:#888"># attacker size in year 298 as the y axis</span>
+            df[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;defender_size&#39;</span>][df[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;year&#39;</span>] <span style="color:#333">==</span> <span style="color:#00d;font-weight:bold">298</span>], 
+            <span style="color:#888"># the marker as</span>
+            marker<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;x&#39;</span>, 
+            <span style="color:#888"># the color</span>
+            color<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;b&#39;</span>,
+            <span style="color:#888"># the alpha</span>
+            alpha<span style="color:#333">=</span><span style="color:#60e;font-weight:bold">0.7</span>,
+            <span style="color:#888"># with size</span>
+            s <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">124</span>,
+            <span style="color:#888"># labelled this</span>
+            label<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Year 298&#39;</span>)
+            
+            <span style="color:#888"># attacker size in year 299 as the x axis</span>
+plt<span style="color:#333">.</span>scatter(df[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;attacker_size&#39;</span>][df[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;year&#39;</span>] <span style="color:#333">==</span> <span style="color:#00d;font-weight:bold">299</span>], 
+            <span style="color:#888"># defender size in year 299 as the y axis</span>
+            df[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;defender_size&#39;</span>][df[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;year&#39;</span>] <span style="color:#333">==</span> <span style="color:#00d;font-weight:bold">299</span>], 
+            <span style="color:#888"># the marker as</span>
+            marker<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;o&#39;</span>, 
+            <span style="color:#888"># the color</span>
+            color<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;r&#39;</span>, 
+            <span style="color:#888"># the alpha</span>
+            alpha<span style="color:#333">=</span><span style="color:#60e;font-weight:bold">0.7</span>,
+            <span style="color:#888"># with size</span>
+            s <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">124</span>,
+            <span style="color:#888"># labelled this</span>
+            label<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Year 299&#39;</span>)
+
+            <span style="color:#888"># attacker size in year 300 as the x axis</span>
+plt<span style="color:#333">.</span>scatter(df[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;attacker_size&#39;</span>][df[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;year&#39;</span>] <span style="color:#333">==</span> <span style="color:#00d;font-weight:bold">300</span>], 
+            <span style="color:#888"># defender size in year 300 as the y axis</span>
+            df[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;defender_size&#39;</span>][df[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;year&#39;</span>] <span style="color:#333">==</span> <span style="color:#00d;font-weight:bold">300</span>], 
+            <span style="color:#888"># the marker as</span>
+            marker<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;^&#39;</span>, 
+            <span style="color:#888"># the color</span>
+            color<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;g&#39;</span>, 
+            <span style="color:#888"># the alpha</span>
+            alpha<span style="color:#333">=</span><span style="color:#60e;font-weight:bold">0.7</span>, 
+            <span style="color:#888"># with size</span>
+            s <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">124</span>,
+            <span style="color:#888"># labelled this</span>
+            label<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Year 300&#39;</span>)
+
+<span style="color:#888"># Chart title</span>
+plt<span style="color:#333">.</span>title(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Battles Of The War Of The Five Kings&#39;</span>)
+
+<span style="color:#888"># y label</span>
+plt<span style="color:#333">.</span>ylabel(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Defender Size&#39;</span>)
+
+<span style="color:#888"># x label</span>
+plt<span style="color:#333">.</span>xlabel(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Attacker Size&#39;</span>)
+
+<span style="color:#888"># and a legend</span>
+plt<span style="color:#333">.</span>legend(loc<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;upper right&#39;</span>)
+
+<span style="color:#888"># set the figure boundaries</span>
+plt<span style="color:#333">.</span>xlim([<span style="color:#007020">min</span>(df[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;attacker_size&#39;</span>])<span style="color:#333">-</span><span style="color:#00d;font-weight:bold">1000</span>, <span style="color:#007020">max</span>(df[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;attacker_size&#39;</span>])<span style="color:#333">+</span><span style="color:#00d;font-weight:bold">1000</span>])
+plt<span style="color:#333">.</span>ylim([<span style="color:#007020">min</span>(df[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;defender_size&#39;</span>])<span style="color:#333">-</span><span style="color:#00d;font-weight:bold">1000</span>, <span style="color:#007020">max</span>(df[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;defender_size&#39;</span>])<span style="color:#333">+</span><span style="color:#00d;font-weight:bold">1000</span>])
+
+plt<span style="color:#333">.</span>show()</code></pre></div>
+<p><img src="matplotlib_simple_scatterplot_6_0.png" alt="png" /></p>
+
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      Blog template created by <a href="https://twitter.com/mdo">@mdo</a>, ported to Hugo by <a href='https://twitter.com/mralanorth'>@mralanorth</a>.
+      
+      </p>
+    </footer>
+
+  </body>
+
+</html>

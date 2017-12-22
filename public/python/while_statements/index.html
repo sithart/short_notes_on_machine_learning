@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="while Statement" />
+<meta property="og:description" content="while statement using Python." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://chrisalbon.com/python/while_statements/" />
+
+
+
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
+
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="while Statement"/>
+<meta name="twitter:description" content="while statement using Python."/>
+<meta name="generator" content="Hugo 0.31.1" />
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "while Statement",
+  "url": "https://chrisalbon.com/python/while_statements/",
+  "wordCount": "159",
+  "datePublished": "2017-12-20T11:53:49-07:00",
+  "dateModified": "2017-12-20T11:53:49-07:00",
+  "author": {
+    "@type": "Person",
+    "name": "Chris Albon"
+  },
+  "keywords": "python, Basics",
+  "description": "while statement using Python."
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://chrisalbon.com/python/while_statements/">
+
+    <title>while Statement | Chris Albon</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://chrisalbon.com/css/style.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+    <link href="https://chrisalbon.com/css/main.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+
+    
+
+    
+
+    <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link" href="https://chrisalbon.com/">Home</a></nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://chrisalbon.com/python/while_statements/">while Statement</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-12-20T11:53:49-07:00">Wed Dec 20, 2017</time> in 
+<i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="/categories/python" rel="category tag">python</a>
+
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/basics" rel="tag">Basics</a>
+
+</p>
+  </header>
+  
+
+<h3 id="import-the-random-module">Import the random module</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">random</span></code></pre></div>
+<h3 id="create-a-variable-of-the-true-number-of-deaths-of-an-event">Create a variable of the true number of deaths of an event</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">deaths <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">6</span></code></pre></div>
+<h2 id="create-a-variable-that-is-denotes-if-the-while-loop-should-keep-running">Create a variable that is denotes if the while loop should keep running</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">running <span style="color:#333">=</span> True</code></pre></div>
+<h3 id="while-running-is-true">while running is True</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">while</span> running:
+    <span style="color:#888"># Create a variable that randomly create a integer between 0 and 10.</span>
+    guess <span style="color:#333">=</span> random<span style="color:#333">.</span>randint(<span style="color:#00d;font-weight:bold">0</span>,<span style="color:#00d;font-weight:bold">10</span>)
+
+    <span style="color:#888"># if guess equals deaths,</span>
+    <span style="color:#080;font-weight:bold">if</span> guess <span style="color:#333">==</span> deaths:
+        <span style="color:#888"># then print this</span>
+        <span style="color:#080;font-weight:bold">print</span>(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Correct!&#39;</span>)
+        <span style="color:#888"># and then also change running to False to stop the script</span>
+        running <span style="color:#333">=</span> False
+    <span style="color:#888"># else if guess is lower than deaths</span>
+    <span style="color:#080;font-weight:bold">elif</span> guess <span style="color:#333">&lt;</span> deaths:
+        <span style="color:#888"># then print this</span>
+        <span style="color:#080;font-weight:bold">print</span>(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;No, it is higher.&#39;</span>)
+    <span style="color:#888"># if guess is none of the above</span>
+    <span style="color:#080;font-weight:bold">else</span>:
+        <span style="color:#888"># print this</span>
+        <span style="color:#080;font-weight:bold">print</span>(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;No, it is lower&#39;</span>)</code></pre></div>
+<pre><code>No, it is higher.
+No, it is higher.
+Correct!
+</code></pre>
+
+<p>By the output, you can see that the while script keeping generating guesses and checking them until guess matches deaths, in which case the script stops.</p>
+
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      Blog template created by <a href="https://twitter.com/mdo">@mdo</a>, ported to Hugo by <a href='https://twitter.com/mralanorth'>@mralanorth</a>.
+      
+      </p>
+    </footer>
+
+  </body>
+
+</html>

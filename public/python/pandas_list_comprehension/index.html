@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Using List Comprehensions With pandas" />
+<meta property="og:description" content="Using list comprehensions with pandas." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://chrisalbon.com/python/pandas_list_comprehension/" />
+
+
+
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
+
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Using List Comprehensions With pandas"/>
+<meta name="twitter:description" content="Using list comprehensions with pandas."/>
+<meta name="generator" content="Hugo 0.31.1" />
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Using List Comprehensions With pandas",
+  "url": "https://chrisalbon.com/python/pandas_list_comprehension/",
+  "wordCount": "288",
+  "datePublished": "2017-12-20T11:53:49-07:00",
+  "dateModified": "2017-12-20T11:53:49-07:00",
+  "author": {
+    "@type": "Person",
+    "name": "Chris Albon"
+  },
+  "keywords": "python, Data Wrangling",
+  "description": "Using list comprehensions with pandas."
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://chrisalbon.com/python/pandas_list_comprehension/">
+
+    <title>Using List Comprehensions With pandas | Chris Albon</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://chrisalbon.com/css/style.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+    <link href="https://chrisalbon.com/css/main.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+
+    
+
+    
+
+    <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link" href="https://chrisalbon.com/">Home</a></nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://chrisalbon.com/python/pandas_list_comprehension/">Using List Comprehensions With pandas</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-12-20T11:53:49-07:00">Wed Dec 20, 2017</time> in 
+<i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="/categories/python" rel="category tag">python</a>
+
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/data-wrangling" rel="tag">Data Wrangling</a>
+
+</p>
+  </header>
+  
+
+<h2 id="preliminaries">Preliminaries</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Import modules</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">pandas</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">pd</span>
+
+<span style="color:#888"># Set ipython&#39;s max row display</span>
+pd<span style="color:#333">.</span>set_option(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;display.max_row&#39;</span>, <span style="color:#00d;font-weight:bold">1000</span>)
+
+<span style="color:#888"># Set iPython&#39;s max column width to 50</span>
+pd<span style="color:#333">.</span>set_option(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;display.max_columns&#39;</span>, <span style="color:#00d;font-weight:bold">50</span>)</code></pre></div>
+<h2 id="create-an-example-dataframe">Create an example dataframe</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">data <span style="color:#333">=</span> {<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;name&#39;</span>: [<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Jason&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Molly&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Tina&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Jake&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Amy&#39;</span>], 
+        <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;year&#39;</span>: [<span style="color:#00d;font-weight:bold">2012</span>, <span style="color:#00d;font-weight:bold">2012</span>, <span style="color:#00d;font-weight:bold">2013</span>, <span style="color:#00d;font-weight:bold">2014</span>, <span style="color:#00d;font-weight:bold">2014</span>], 
+        <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;reports&#39;</span>: [<span style="color:#00d;font-weight:bold">4</span>, <span style="color:#00d;font-weight:bold">24</span>, <span style="color:#00d;font-weight:bold">31</span>, <span style="color:#00d;font-weight:bold">2</span>, <span style="color:#00d;font-weight:bold">3</span>]}
+df <span style="color:#333">=</span> pd<span style="color:#333">.</span>DataFrame(data, index <span style="color:#333">=</span> [<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Cochice&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Pima&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Santa Cruz&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Maricopa&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Yuma&#39;</span>])
+df</code></pre></div>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>reports</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Cochice</th>
+      <td>Jason</td>
+      <td>4</td>
+      <td>2012</td>
+    </tr>
+    <tr>
+      <th>Pima</th>
+      <td>Molly</td>
+      <td>24</td>
+      <td>2012</td>
+    </tr>
+    <tr>
+      <th>Santa Cruz</th>
+      <td>Tina</td>
+      <td>31</td>
+      <td>2013</td>
+    </tr>
+    <tr>
+      <th>Maricopa</th>
+      <td>Jake</td>
+      <td>2</td>
+      <td>2014</td>
+    </tr>
+    <tr>
+      <th>Yuma</th>
+      <td>Amy</td>
+      <td>3</td>
+      <td>2014</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="list-comprehensions">List Comprehensions</h2>
+
+<h3 id="as-a-loop">As a loop</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create a variable</span>
+next_year <span style="color:#333">=</span> []
+
+<span style="color:#888"># For each row in df.years,</span>
+<span style="color:#080;font-weight:bold">for</span> row <span style="color:#000;font-weight:bold">in</span> df[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;year&#39;</span>]:
+    <span style="color:#888"># Add 1 to the row and append it to next_year</span>
+    next_year<span style="color:#333">.</span>append(row <span style="color:#333">+</span> <span style="color:#00d;font-weight:bold">1</span>)
+
+<span style="color:#888"># Create df.next_year</span>
+df[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;next_year&#39;</span>] <span style="color:#333">=</span> next_year
+
+<span style="color:#888"># View the dataframe</span>
+df</code></pre></div>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>reports</th>
+      <th>year</th>
+      <th>next_year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Cochice</th>
+      <td>Jason</td>
+      <td>4</td>
+      <td>2012</td>
+      <td>2013</td>
+    </tr>
+    <tr>
+      <th>Pima</th>
+      <td>Molly</td>
+      <td>24</td>
+      <td>2012</td>
+      <td>2013</td>
+    </tr>
+    <tr>
+      <th>Santa Cruz</th>
+      <td>Tina</td>
+      <td>31</td>
+      <td>2013</td>
+      <td>2014</td>
+    </tr>
+    <tr>
+      <th>Maricopa</th>
+      <td>Jake</td>
+      <td>2</td>
+      <td>2014</td>
+      <td>2015</td>
+    </tr>
+    <tr>
+      <th>Yuma</th>
+      <td>Amy</td>
+      <td>3</td>
+      <td>2014</td>
+      <td>2015</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="as-list-comprehension">As list comprehension</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Subtract 1 from row, for each row in df.year</span>
+df[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;previous_year&#39;</span>] <span style="color:#333">=</span> [row<span style="color:#333">-</span><span style="color:#00d;font-weight:bold">1</span> <span style="color:#080;font-weight:bold">for</span> row <span style="color:#000;font-weight:bold">in</span> df[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;year&#39;</span>]]</code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df</code></pre></div>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>reports</th>
+      <th>year</th>
+      <th>next_year</th>
+      <th>previous_year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Cochice</th>
+      <td>Jason</td>
+      <td>4</td>
+      <td>2012</td>
+      <td>2013</td>
+      <td>2011</td>
+    </tr>
+    <tr>
+      <th>Pima</th>
+      <td>Molly</td>
+      <td>24</td>
+      <td>2012</td>
+      <td>2013</td>
+      <td>2011</td>
+    </tr>
+    <tr>
+      <th>Santa Cruz</th>
+      <td>Tina</td>
+      <td>31</td>
+      <td>2013</td>
+      <td>2014</td>
+      <td>2012</td>
+    </tr>
+    <tr>
+      <th>Maricopa</th>
+      <td>Jake</td>
+      <td>2</td>
+      <td>2014</td>
+      <td>2015</td>
+      <td>2013</td>
+    </tr>
+    <tr>
+      <th>Yuma</th>
+      <td>Amy</td>
+      <td>3</td>
+      <td>2014</td>
+      <td>2015</td>
+      <td>2013</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      Blog template created by <a href="https://twitter.com/mdo">@mdo</a>, ported to Hugo by <a href='https://twitter.com/mralanorth'>@mralanorth</a>.
+      
+      </p>
+    </footer>
+
+  </body>
+
+</html>

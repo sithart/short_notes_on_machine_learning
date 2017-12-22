@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Create A Temporary File" />
+<meta property="og:description" content="reate A Temporary File Using Python." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://chrisalbon.com/python/basics/create_a_temporary_file/" />
+
+
+
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
+
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Create A Temporary File"/>
+<meta name="twitter:description" content="reate A Temporary File Using Python."/>
+<meta name="generator" content="Hugo 0.31.1" />
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Create A Temporary File",
+  "url": "https://chrisalbon.com/python/basics/create_a_temporary_file/",
+  "wordCount": "91",
+  "datePublished": "2017-12-20T11:53:49-07:00",
+  "dateModified": "2017-12-20T11:53:49-07:00",
+  "author": {
+    "@type": "Person",
+    "name": "Chris Albon"
+  },
+  "description": "reate A Temporary File Using Python."
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://chrisalbon.com/python/basics/create_a_temporary_file/">
+
+    <title>Create A Temporary File | Chris Albon</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://chrisalbon.com/css/style.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+    <link href="https://chrisalbon.com/css/main.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+
+    
+
+    
+
+    <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link" href="https://chrisalbon.com/">Home</a></nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://chrisalbon.com/python/basics/create_a_temporary_file/">Create A Temporary File</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-12-20T11:53:49-07:00">Wed Dec 20, 2017</time></p>
+  </header>
+  
+
+<h2 id="preliminaries">Preliminaries</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">tempfile</span> <span style="color:#080;font-weight:bold">import</span> NamedTemporaryFile</code></pre></div>
+<h2 id="create-a-temporary-file">Create A Temporary File</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">f <span style="color:#333">=</span> NamedTemporaryFile(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;w+t&#39;</span>)</code></pre></div>
+<h2 id="write-to-the-temp-file">Write To The Temp File</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Write to the file, the output is the number of characters</span>
+f<span style="color:#333">.</span>write(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Nobody lived on Deadweather but us and the pirates. It wasn’t hard to understand why.&#39;</span>)</code></pre></div>
+<pre><code>85
+</code></pre>
+
+<h2 id="view-the-tmp-file-s-name">View The Tmp File&rsquo;s Name</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">f<span style="color:#333">.</span>name</code></pre></div>
+<pre><code>'/var/folders/0b/pj3wsd750fjf8xzfb0n127w80000gn/T/tmphv1dkovx'
+</code></pre>
+
+<h2 id="read-the-file">Read The File</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Go to the top of the file</span>
+f<span style="color:#333">.</span>seek(<span style="color:#00d;font-weight:bold">0</span>)
+
+<span style="color:#888"># Read the file</span>
+f<span style="color:#333">.</span>read()</code></pre></div>
+<pre><code>'Nobody lived on Deadweather but us and the pirates. It wasn’t hard to understand why.'
+</code></pre>
+
+<h2 id="close-and-thus-delete-the-file">Close (And Thus Delete) The File</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">f<span style="color:#333">.</span>close()</code></pre></div>
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      Blog template created by <a href="https://twitter.com/mdo">@mdo</a>, ported to Hugo by <a href='https://twitter.com/mralanorth'>@mralanorth</a>.
+      
+      </p>
+    </footer>
+
+  </body>
+
+</html>

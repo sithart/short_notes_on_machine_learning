@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Selecting pandas DataFrame Rows Based On Conditions" />
+<meta property="og:description" content="Selecting pandas dataFrame rows based on conditions." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://chrisalbon.com/python/data_wrangling/pandas_selecting_rows_on_conditions/" />
+
+
+
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
+
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Selecting pandas DataFrame Rows Based On Conditions"/>
+<meta name="twitter:description" content="Selecting pandas dataFrame rows based on conditions."/>
+<meta name="generator" content="Hugo 0.31.1" />
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Selecting pandas DataFrame Rows Based On Conditions",
+  "url": "https://chrisalbon.com/python/data_wrangling/pandas_selecting_rows_on_conditions/",
+  "wordCount": "162",
+  "datePublished": "2017-12-20T11:53:49-07:00",
+  "dateModified": "2017-12-20T11:53:49-07:00",
+  "author": {
+    "@type": "Person",
+    "name": "Chris Albon"
+  },
+  "description": "Selecting pandas dataFrame rows based on conditions."
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://chrisalbon.com/python/data_wrangling/pandas_selecting_rows_on_conditions/">
+
+    <title>Selecting pandas DataFrame Rows Based On Conditions | Chris Albon</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://chrisalbon.com/css/style.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+    <link href="https://chrisalbon.com/css/main.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+
+    
+
+    
+
+    <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link" href="https://chrisalbon.com/">Home</a></nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://chrisalbon.com/python/data_wrangling/pandas_selecting_rows_on_conditions/">Selecting pandas DataFrame Rows Based On Conditions</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-12-20T11:53:49-07:00">Wed Dec 20, 2017</time></p>
+  </header>
+  
+
+<h2 id="preliminaries">Preliminaries</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Import modules</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">pandas</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">pd</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">numpy</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">np</span></code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create a dataframe</span>
+raw_data <span style="color:#333">=</span> {<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;first_name&#39;</span>: [<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Jason&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Molly&#39;</span>, np<span style="color:#333">.</span>nan, np<span style="color:#333">.</span>nan, np<span style="color:#333">.</span>nan], 
+        <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;nationality&#39;</span>: [<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;USA&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;USA&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;France&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;UK&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;UK&#39;</span>], 
+        <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;age&#39;</span>: [<span style="color:#00d;font-weight:bold">42</span>, <span style="color:#00d;font-weight:bold">52</span>, <span style="color:#00d;font-weight:bold">36</span>, <span style="color:#00d;font-weight:bold">24</span>, <span style="color:#00d;font-weight:bold">70</span>]}
+df <span style="color:#333">=</span> pd<span style="color:#333">.</span>DataFrame(raw_data, columns <span style="color:#333">=</span> [<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;first_name&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;nationality&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;age&#39;</span>])
+df</code></pre></div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>first_name</th>
+      <th>nationality</th>
+      <th>age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Jason</td>
+      <td>USA</td>
+      <td>42</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Molly</td>
+      <td>USA</td>
+      <td>52</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>NaN</td>
+      <td>France</td>
+      <td>36</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>NaN</td>
+      <td>UK</td>
+      <td>24</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>NaN</td>
+      <td>UK</td>
+      <td>70</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="method-1-using-boolean-variables">Method 1: Using Boolean Variables</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create variable with TRUE if nationality is USA</span>
+american <span style="color:#333">=</span> df[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;nationality&#39;</span>] <span style="color:#333">==</span> <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#34;USA&#34;</span>
+
+<span style="color:#888"># Create variable with TRUE if age is greater than 50</span>
+elderly <span style="color:#333">=</span> df[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;age&#39;</span>] <span style="color:#333">&gt;</span> <span style="color:#00d;font-weight:bold">50</span>
+
+<span style="color:#888"># Select all casess where nationality is USA and age is greater than 50</span>
+df[american <span style="color:#333">&amp;</span> elderly]</code></pre></div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>first_name</th>
+      <th>nationality</th>
+      <th>age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>Molly</td>
+      <td>USA</td>
+      <td>52</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="method-2-using-variable-attributes">Method 2: Using variable attributes</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Select all cases where the first name is not missing and nationality is USA </span>
+df[df[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;first_name&#39;</span>]<span style="color:#333">.</span>notnull() <span style="color:#333">&amp;</span> (df[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;nationality&#39;</span>] <span style="color:#333">==</span> <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#34;USA&#34;</span>)]</code></pre></div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>first_name</th>
+      <th>nationality</th>
+      <th>age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Jason</td>
+      <td>USA</td>
+      <td>42</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Molly</td>
+      <td>USA</td>
+      <td>52</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      Blog template created by <a href="https://twitter.com/mdo">@mdo</a>, ported to Hugo by <a href='https://twitter.com/mralanorth'>@mralanorth</a>.
+      
+      </p>
+    </footer>
+
+  </body>
+
+</html>

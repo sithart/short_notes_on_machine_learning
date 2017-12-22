@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Imbalanced Classes In SVM" />
+<meta property="og:description" content="How to handle imbalanced classes in support vector machines in Scikit-Learn" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://chrisalbon.com/machine_learning/support_vector_machines/imbalanced_classes_in_svm/" />
+
+
+
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
+
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Imbalanced Classes In SVM"/>
+<meta name="twitter:description" content="How to handle imbalanced classes in support vector machines in Scikit-Learn"/>
+<meta name="generator" content="Hugo 0.31.1" />
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Imbalanced Classes In SVM",
+  "url": "https://chrisalbon.com/machine_learning/support_vector_machines/imbalanced_classes_in_svm/",
+  "wordCount": "256",
+  "datePublished": "2017-12-20T11:53:49-07:00",
+  "dateModified": "2017-12-20T11:53:49-07:00",
+  "author": {
+    "@type": "Person",
+    "name": "Chris Albon"
+  },
+  "description": "How to handle imbalanced classes in support vector machines in Scikit-Learn"
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://chrisalbon.com/machine_learning/support_vector_machines/imbalanced_classes_in_svm/">
+
+    <title>Imbalanced Classes In SVM | Chris Albon</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://chrisalbon.com/css/style.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+    <link href="https://chrisalbon.com/css/main.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+
+    
+
+    
+
+    <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link" href="https://chrisalbon.com/">Home</a></nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://chrisalbon.com/machine_learning/support_vector_machines/imbalanced_classes_in_svm/">Imbalanced Classes In SVM</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-12-20T11:53:49-07:00">Wed Dec 20, 2017</time></p>
+  </header>
+  
+
+<p>In support vector machines, $C$ is a hyperparameter determining the penalty for misclassifying an observation. One method for handling imbalanced classes in support vector machines is to weight $C$ by classes, so that</p>
+
+<p>$$C_k = C * w_j$$</p>
+
+<p>where $C$ is the penalty for misclassification, $w_j$ is a weight inversely proportional to class $j$&rsquo;s frequency, and $C_j$ is the $C$ value for class $j$. The general idea is to increase the penalty for misclassifying minority classes to prevent them from being &ldquo;overwhelmed&rdquo; by the majority class.</p>
+
+<p>In scikit-learn, when using <code>SVC</code> we can set the values for $C_j$ automatically by setting <code>class_weight='balanced'</code>
+The <code>balanced</code> argument automatically weighs classes such that:</p>
+
+<p>$$w<em>j = \frac{n}{kn</em>{j}}$$</p>
+
+<p>where $w_j$ is the weight to class $j$, $n$ is the number of observations, $n_j$ is the number of observations in class $j$, and $k$ is the total number of classes.</p>
+
+<h2 id="preliminaries">Preliminaries</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Load libraries</span>
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">sklearn.svm</span> <span style="color:#080;font-weight:bold">import</span> SVC
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">sklearn</span> <span style="color:#080;font-weight:bold">import</span> datasets
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">sklearn.preprocessing</span> <span style="color:#080;font-weight:bold">import</span> StandardScaler
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">numpy</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">np</span></code></pre></div>
+<h2 id="load-iris-flower-dataset">Load Iris Flower Dataset</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888">#Load data with only two classes</span>
+iris <span style="color:#333">=</span> datasets<span style="color:#333">.</span>load_iris()
+X <span style="color:#333">=</span> iris<span style="color:#333">.</span>data[:<span style="color:#00d;font-weight:bold">100</span>,:]
+y <span style="color:#333">=</span> iris<span style="color:#333">.</span>target[:<span style="color:#00d;font-weight:bold">100</span>]</code></pre></div>
+<h2 id="imbalanced-iris-flower-classes">Imbalanced Iris Flower Classes</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Make class highly imbalanced by removing first 40 observations</span>
+X <span style="color:#333">=</span> X[<span style="color:#00d;font-weight:bold">40</span>:,:]
+y <span style="color:#333">=</span> y[<span style="color:#00d;font-weight:bold">40</span>:]
+
+<span style="color:#888"># Create target vector indicating if class 0, otherwise 1</span>
+y <span style="color:#333">=</span> np<span style="color:#333">.</span>where((y <span style="color:#333">==</span> <span style="color:#00d;font-weight:bold">0</span>), <span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">1</span>)</code></pre></div>
+<h2 id="standardize-features">Standardize Features</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Standarize features</span>
+scaler <span style="color:#333">=</span> StandardScaler()
+X_std <span style="color:#333">=</span> scaler<span style="color:#333">.</span>fit_transform(X)</code></pre></div>
+<h2 id="train-support-vector-classifier-with-weighted-classes">Train Support Vector Classifier With Weighted Classes</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create support vector classifier</span>
+svc <span style="color:#333">=</span> SVC(kernel<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;linear&#39;</span>, class_weight<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;balanced&#39;</span>, C<span style="color:#333">=</span><span style="color:#60e;font-weight:bold">1.0</span>, random_state<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">0</span>)
+
+<span style="color:#888"># Train classifier</span>
+model <span style="color:#333">=</span> svc<span style="color:#333">.</span>fit(X_std, y)</code></pre></div>
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      Blog template created by <a href="https://twitter.com/mdo">@mdo</a>, ported to Hugo by <a href='https://twitter.com/mralanorth'>@mralanorth</a>.
+      
+      </p>
+    </footer>
+
+  </body>
+
+</html>

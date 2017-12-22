@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Function Basics" />
+<meta property="og:description" content="Function basics in Python." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://chrisalbon.com/python/function_basics/" />
+
+
+
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
+
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Function Basics"/>
+<meta name="twitter:description" content="Function basics in Python."/>
+<meta name="generator" content="Hugo 0.31.1" />
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Function Basics",
+  "url": "https://chrisalbon.com/python/function_basics/",
+  "wordCount": "321",
+  "datePublished": "2017-12-20T11:53:49-07:00",
+  "dateModified": "2017-12-20T11:53:49-07:00",
+  "author": {
+    "@type": "Person",
+    "name": "Chris Albon"
+  },
+  "keywords": "python, Basics",
+  "description": "Function basics in Python."
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://chrisalbon.com/python/function_basics/">
+
+    <title>Function Basics | Chris Albon</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://chrisalbon.com/css/style.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+    <link href="https://chrisalbon.com/css/main.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+
+    
+
+    
+
+    <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link" href="https://chrisalbon.com/">Home</a></nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://chrisalbon.com/python/function_basics/">Function Basics</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-12-20T11:53:49-07:00">Wed Dec 20, 2017</time> in 
+<i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="/categories/python" rel="category tag">python</a>
+
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/basics" rel="tag">Basics</a>
+
+</p>
+  </header>
+  
+
+<h2 id="create-function-called-print-max">Create Function Called print_max</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">print_max</span>(x, y):
+    <span style="color:#888"># if a is larger than b</span>
+    <span style="color:#080;font-weight:bold">if</span> x <span style="color:#333">&gt;</span> y:
+        <span style="color:#888"># then print this</span>
+        <span style="color:#080;font-weight:bold">print</span>(x, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;is maximum&#39;</span>)
+    <span style="color:#888"># if a is equal to b</span>
+    <span style="color:#080;font-weight:bold">elif</span> x <span style="color:#333">==</span> y:
+        <span style="color:#888"># print this</span>
+        <span style="color:#080;font-weight:bold">print</span>(x, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;is equal to&#39;</span>, y)
+    <span style="color:#888"># otherwise</span>
+    <span style="color:#080;font-weight:bold">else</span>:
+        <span style="color:#888"># print this</span>
+        <span style="color:#080;font-weight:bold">print</span>(y, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;is maximum&#39;</span>)</code></pre></div>
+<h2 id="run-function-with-two-arguments">Run Function With Two Arguments</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">print_max(<span style="color:#00d;font-weight:bold">3</span>,<span style="color:#00d;font-weight:bold">4</span>)</code></pre></div>
+<pre><code>4 is maximum
+</code></pre>
+
+<p>Note: By default, variables created within functions are local to the function. But you can create a global function that IS defined outside the function.</p>
+
+<h2 id="create-variable">Create Variable</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">x <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">50</span></code></pre></div>
+<h2 id="create-function-called-func">Create Function Called Func</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create function</span>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">func</span>():
+    <span style="color:#888"># Create a global variable called x</span>
+    <span style="color:#080;font-weight:bold">global</span> x
+
+    <span style="color:#888"># Print this</span>
+    <span style="color:#080;font-weight:bold">print</span>(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;x is&#39;</span>, x)
+    
+    <span style="color:#888"># Set x to 2.</span>
+    x <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">2</span>
+    
+    <span style="color:#888"># Print this</span>
+    <span style="color:#080;font-weight:bold">print</span>(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Changed global x to&#39;</span>, x)</code></pre></div>
+<h2 id="run-func">Run func()</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">func()</code></pre></div>
+<pre><code>x is 50
+Changed global x to 2
+</code></pre>
+
+<h2 id="print-x">Print x</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">x</code></pre></div>
+<pre><code>2
+</code></pre>
+
+<h2 id="create-function-say-displaying-x-with-default-value-of-1">Create Function Say() Displaying x with default value of 1</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create function</span>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">say</span>(x, times <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">1</span>, times2 <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">3</span>):
+    <span style="color:#080;font-weight:bold">print</span>(x <span style="color:#333">*</span> times, x <span style="color:#333">*</span> times2)
+
+<span style="color:#888"># Run the function say() with the default values</span>
+say(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;!&#39;</span>)
+
+<span style="color:#888"># Run the function say() with the non-default values of 5 and 10</span>
+say(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;!&#39;</span>, <span style="color:#00d;font-weight:bold">5</span>, <span style="color:#00d;font-weight:bold">10</span>)</code></pre></div>
+<pre><code>! !!!
+!!!!! !!!!!!!!!!
+</code></pre>
+
+<h2 id="varargs-parameters-i-e-unlimited-number-of-parameters">VarArgs Parameters (i.e. unlimited number of parameters)</h2>
+
+<ul>
+<li>* denotes that all positonal arguments from that point to next arg are used</li>
+<li>** dnotes that all keyword arguments from that point to the next arg are used</li>
+</ul>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create a function called total() with three parameters</span>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">total</span>(initial<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">5</span>, <span style="color:#333">*</span>numbers, <span style="color:#333">**</span>keywords):
+    <span style="color:#888"># Create a variable called count that takes it&#39;s value from initial</span>
+    count <span style="color:#333">=</span> initial
+    <span style="color:#888"># for each item in numbers</span>
+    <span style="color:#080;font-weight:bold">for</span> number <span style="color:#000;font-weight:bold">in</span> numbers:
+        <span style="color:#888"># add count to that number</span>
+        count <span style="color:#333">+=</span> number
+    <span style="color:#888"># for each item in keywords</span>
+    <span style="color:#080;font-weight:bold">for</span> key <span style="color:#000;font-weight:bold">in</span> keywords:
+        <span style="color:#888"># add count to keyword&#39;s value</span>
+        count <span style="color:#333">+=</span> keywords[key]
+    <span style="color:#888"># return counts</span>
+    <span style="color:#080;font-weight:bold">return</span> count
+
+<span style="color:#888"># Run function</span>
+total(<span style="color:#00d;font-weight:bold">10</span>, <span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">2</span>, <span style="color:#00d;font-weight:bold">3</span>, vegetables<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">50</span>, fruits<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">100</span>)</code></pre></div>
+<pre><code>166
+</code></pre>
+
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      Blog template created by <a href="https://twitter.com/mdo">@mdo</a>, ported to Hugo by <a href='https://twitter.com/mralanorth'>@mralanorth</a>.
+      
+      </p>
+    </footer>
+
+  </body>
+
+</html>

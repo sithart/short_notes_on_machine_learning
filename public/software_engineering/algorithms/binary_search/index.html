@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Binary Search" />
+<meta property="og:description" content="Binary Search using Python." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://chrisalbon.com/software_engineering/algorithms/binary_search/" />
+
+
+
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
+
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Binary Search"/>
+<meta name="twitter:description" content="Binary Search using Python."/>
+<meta name="generator" content="Hugo 0.31.1" />
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Binary Search",
+  "url": "https://chrisalbon.com/software_engineering/algorithms/binary_search/",
+  "wordCount": "297",
+  "datePublished": "2017-12-20T11:53:49-07:00",
+  "dateModified": "2017-12-20T11:53:49-07:00",
+  "author": {
+    "@type": "Person",
+    "name": "Chris Albon"
+  },
+  "description": "Binary Search using Python."
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://chrisalbon.com/software_engineering/algorithms/binary_search/">
+
+    <title>Binary Search | Chris Albon</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://chrisalbon.com/css/style.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+    <link href="https://chrisalbon.com/css/main.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+
+    
+
+    
+
+    <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link" href="https://chrisalbon.com/">Home</a></nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://chrisalbon.com/software_engineering/algorithms/binary_search/">Binary Search</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-12-20T11:53:49-07:00">Wed Dec 20, 2017</time></p>
+  </header>
+  
+
+<h2 id="create-sorted-list">Create Sorted List</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">sorted_list <span style="color:#333">=</span> [<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">2</span>, <span style="color:#00d;font-weight:bold">3</span>, <span style="color:#00d;font-weight:bold">4</span>, <span style="color:#00d;font-weight:bold">5</span>, <span style="color:#00d;font-weight:bold">6</span>, <span style="color:#00d;font-weight:bold">7</span>, <span style="color:#00d;font-weight:bold">8</span>, <span style="color:#00d;font-weight:bold">9</span>, <span style="color:#00d;font-weight:bold">10</span>, <span style="color:#00d;font-weight:bold">12</span>, <span style="color:#00d;font-weight:bold">14</span>, <span style="color:#00d;font-weight:bold">16</span>, <span style="color:#00d;font-weight:bold">18</span>, <span style="color:#00d;font-weight:bold">20</span>]
+<span style="color:#080;font-weight:bold">print</span>(sorted_list)</code></pre></div>
+<pre><code>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 16, 18, 20]
+</code></pre>
+
+<h2 id="create-binary-search-algorithm">Create Binary Search Algorithm</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">binary_search</span>(sorted_list, target):
+
+    <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;&#39;&#39;This function inputs a sorted list and a target value to find and returns ....&#39;&#39;&#39;</span>
+
+    <span style="color:#888"># Create variables for the index of the first and last elements</span>
+    start <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">0</span>
+    end <span style="color:#333">=</span> <span style="color:#007020">len</span>(sorted_list) <span style="color:#333">-</span> <span style="color:#00d;font-weight:bold">1</span>
+
+    <span style="color:#080;font-weight:bold">while</span> end <span style="color:#333">&gt;=</span> start:
+
+        <span style="color:#888"># Create a variable for the index of the middle term</span>
+        middle <span style="color:#333">=</span> start <span style="color:#333">+</span> (end <span style="color:#333">-</span> start) <span style="color:#333">//</span> <span style="color:#00d;font-weight:bold">2</span>  <span style="color:#888"># // is integer division in Python 3.X</span>
+
+        <span style="color:#888"># If the target value is less than the middle value of the search area</span>
+        <span style="color:#080;font-weight:bold">if</span> target <span style="color:#333">&lt;</span> sorted_list[middle]:
+            <span style="color:#888"># Cut the list in half by making the new end value the old middle value minus 1</span>
+            <span style="color:#888"># The minus one is because we already ruled the middle value out, so we can ignore it</span>
+            end <span style="color:#333">=</span> middle <span style="color:#333">-</span> <span style="color:#00d;font-weight:bold">1</span>
+
+        <span style="color:#888">#  Else, if the target value is greater than the middle value of the search area</span>
+        <span style="color:#080;font-weight:bold">elif</span> target <span style="color:#333">&gt;</span> sorted_list[middle]:
+            <span style="color:#888"># Cut the list in half by making the new start value the old middle value plus 1</span>
+            <span style="color:#888"># The plus one is because we already ruled the middle value out, so we can ignore it</span>
+            start <span style="color:#333">=</span> middle <span style="color:#333">+</span> <span style="color:#00d;font-weight:bold">1</span>
+
+        <span style="color:#888"># If it&#39;s not too high or too low, it must be just right, return the location</span>
+        <span style="color:#080;font-weight:bold">else</span>:
+            <span style="color:#080;font-weight:bold">return</span> (<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#34;Found it at index: {}&#34;</span><span style="color:#333">.</span>format(middle))
+
+    <span style="color:#888"># If we&#39;ve fallen out of the while loop the target value is not in the list</span>
+    <span style="color:#080;font-weight:bold">return</span> <span style="color:#080;font-weight:bold">print</span>(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#34;Not in list!&#34;</span>)</code></pre></div>
+<h2 id="conduct-binary-search">Conduct Binary Search</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Run binary search</span>
+binary_search(sorted_list, <span style="color:#00d;font-weight:bold">2</span>)</code></pre></div>
+<pre><code>'Found it at index: 1'
+</code></pre>
+
+<p>Thanks for <a href="https://github.com/jss367">Julius</a> for the improved code.</p>
+
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      Blog template created by <a href="https://twitter.com/mdo">@mdo</a>, ported to Hugo by <a href='https://twitter.com/mralanorth'>@mralanorth</a>.
+      
+      </p>
+    </footer>
+
+  </body>
+
+</html>

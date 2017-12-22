@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Priority Queues" />
+<meta property="og:description" content="Priority queues in Python." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://chrisalbon.com/python/priority_queues/" />
+
+
+
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
+
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Priority Queues"/>
+<meta name="twitter:description" content="Priority queues in Python."/>
+<meta name="generator" content="Hugo 0.31.1" />
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Priority Queues",
+  "url": "https://chrisalbon.com/python/priority_queues/",
+  "wordCount": "185",
+  "datePublished": "2017-12-20T11:53:49-07:00",
+  "dateModified": "2017-12-20T11:53:49-07:00",
+  "author": {
+    "@type": "Person",
+    "name": "Chris Albon"
+  },
+  "keywords": "python, Basics",
+  "description": "Priority queues in Python."
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://chrisalbon.com/python/priority_queues/">
+
+    <title>Priority Queues | Chris Albon</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://chrisalbon.com/css/style.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+    <link href="https://chrisalbon.com/css/main.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+
+    
+
+    
+
+    <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link" href="https://chrisalbon.com/">Home</a></nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://chrisalbon.com/python/priority_queues/">Priority Queues</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-12-20T11:53:49-07:00">Wed Dec 20, 2017</time> in 
+<i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="/categories/python" rel="category tag">python</a>
+
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/basics" rel="tag">Basics</a>
+
+</p>
+  </header>
+  
+
+<h2 id="preliminaries">Preliminaries</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">heapq</span></code></pre></div>
+<h2 id="create-a-priority-queue-object">Create A Priority Queue Object</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create a priority queue abstract base class</span>
+<span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">priority_queue</span>:
+    <span style="color:#888"># Initialize the instance</span>
+    <span style="color:#080;font-weight:bold">def</span> __init__(self):
+        <span style="color:#888"># Create a list to use as the queue</span>
+        self<span style="color:#333">.</span>_queue <span style="color:#333">=</span> []
+        <span style="color:#888"># Create an index to use as ordering</span>
+        self<span style="color:#333">.</span>_index <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">0</span>
+
+    <span style="color:#888"># Create a function to add a task to the queue</span>
+    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">add_task</span>(self, item, priority):
+        <span style="color:#888"># Push the arguments to the _queue using a heap</span>
+        heapq<span style="color:#333">.</span>heappush(self<span style="color:#333">.</span>_queue, (<span style="color:#333">-</span>priority, self<span style="color:#333">.</span>_index, item))
+        <span style="color:#888"># Add one to the index</span>
+        self<span style="color:#333">.</span>_index <span style="color:#333">+=</span> <span style="color:#00d;font-weight:bold">1</span>
+
+    <span style="color:#888"># Create a function to get the next item from the queue</span>
+    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">next_task</span>(self):
+        <span style="color:#888"># Return the next item in the queue</span>
+        <span style="color:#080;font-weight:bold">return</span> heapq<span style="color:#333">.</span>heappop(self<span style="color:#333">.</span>_queue)[<span style="color:#333">-</span><span style="color:#00d;font-weight:bold">1</span>]</code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create a priority queue called task_list</span>
+task_list <span style="color:#333">=</span> priority_queue()</code></pre></div>
+<h2 id="add-items-to-queue">Add Items To Queue</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Add an item to the queue</span>
+task_list<span style="color:#333">.</span>add_task(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Clean Dishes&#39;</span>, <span style="color:#00d;font-weight:bold">1</span>)
+
+<span style="color:#888"># Add an item to the queue</span>
+task_list<span style="color:#333">.</span>add_task(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Wash Car&#39;</span>, <span style="color:#00d;font-weight:bold">2</span>)
+
+<span style="color:#888"># Add an item to the queue</span>
+task_list<span style="color:#333">.</span>add_task(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Walk Dog&#39;</span>, <span style="color:#00d;font-weight:bold">3</span>)</code></pre></div>
+<h2 id="retrieve-items-from-queue-by-priority">Retrieve Items From Queue By Priority</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Retrieve items from the queue</span>
+task_list<span style="color:#333">.</span>next_task()</code></pre></div>
+<pre><code>'Walk Dog'
+</code></pre>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Retrieve items from the queue</span>
+task_list<span style="color:#333">.</span>next_task()</code></pre></div>
+<pre><code>'Wash Car'
+</code></pre>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Retrieve items from the queue</span>
+task_list<span style="color:#333">.</span>next_task()</code></pre></div>
+<pre><code>'Clean Dishes'
+</code></pre>
+
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      Blog template created by <a href="https://twitter.com/mdo">@mdo</a>, ported to Hugo by <a href='https://twitter.com/mralanorth'>@mralanorth</a>.
+      
+      </p>
+    </footer>
+
+  </body>
+
+</html>

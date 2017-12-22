@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Mine Twitter&#39;s Stream For Hashtags Or Words" />
+<meta property="og:description" content="Mine Twitter&#39;s stream for hashtags or words." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://chrisalbon.com/python/mine_a_twitter_hashtags_and_words/" />
+
+
+
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
+
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Mine Twitter&#39;s Stream For Hashtags Or Words"/>
+<meta name="twitter:description" content="Mine Twitter&#39;s stream for hashtags or words."/>
+<meta name="generator" content="Hugo 0.31.1" />
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Mine Twitter&#39;s Stream For Hashtags Or Words",
+  "url": "https://chrisalbon.com/python/mine_a_twitter_hashtags_and_words/",
+  "wordCount": "555",
+  "datePublished": "2017-12-20T11:53:49-07:00",
+  "dateModified": "2017-12-20T11:53:49-07:00",
+  "author": {
+    "@type": "Person",
+    "name": "Chris Albon"
+  },
+  "keywords": "python, Other",
+  "description": "Mine Twitter&#39;s stream for hashtags or words."
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://chrisalbon.com/python/mine_a_twitter_hashtags_and_words/">
+
+    <title>Mine Twitter&rsquo;s Stream For Hashtags Or Words | Chris Albon</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://chrisalbon.com/css/style.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+    <link href="https://chrisalbon.com/css/main.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+
+    
+
+    
+
+    <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link" href="https://chrisalbon.com/">Home</a></nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://chrisalbon.com/python/mine_a_twitter_hashtags_and_words/">Mine Twitter&rsquo;s Stream For Hashtags Or Words</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-12-20T11:53:49-07:00">Wed Dec 20, 2017</time> in 
+<i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="/categories/python" rel="category tag">python</a>
+
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/other" rel="tag">Other</a>
+
+</p>
+  </header>
+  
+
+<p>This is a script which monitor&rsquo;s Twitter for tweets containing certain hashtags, words, or phrases. When one of those appears, it saves that tweet, and the user&rsquo;s information to a csv file. A similar version of this script is available on <a href="https://github.com/chrisalbon/twitter_miner">GitHub here</a>. The main difference between the code presented here and the repo is that here I am added extensive comments in the code explaining what is happening. Also, the code below runs as a Jupyter notebook.</p>
+
+<p>To get the code below to run, you need to added your own Twitter API credentials.</p>
+
+<h2 id="preliminaries">Preliminaries</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888">#Import libraries</span>
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">tweepy.streaming</span> <span style="color:#080;font-weight:bold">import</span> StreamListener
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">tweepy</span> <span style="color:#080;font-weight:bold">import</span> OAuthHandler
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">tweepy</span> <span style="color:#080;font-weight:bold">import</span> Stream
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">time</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">csv</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">sys</span></code></pre></div>
+<h2 id="create-a-twitter-stream-miner">Create A Twitter Stream Miner</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create a streamer object</span>
+<span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">StdOutListener</span>(StreamListener):
+    
+    <span style="color:#888"># Define a function that is initialized when the miner is called</span>
+    <span style="color:#080;font-weight:bold">def</span> __init__(self, api <span style="color:#333">=</span> None):
+        <span style="color:#888"># That sets the api</span>
+        self<span style="color:#333">.</span>api <span style="color:#333">=</span> api
+        <span style="color:#888"># Create a file with &#39;data_&#39; and the current time</span>
+        self<span style="color:#333">.</span>filename <span style="color:#333">=</span> <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;data&#39;</span><span style="color:#333">+</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;_&#39;</span><span style="color:#333">+</span>time<span style="color:#333">.</span>strftime(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;%Y%m</span><span style="background-color:#eee">%d</span><span style="background-color:#fff0f0">-%H%M%S&#39;</span>)<span style="color:#333">+</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;.csv&#39;</span>
+        <span style="color:#888"># Create a new file with that filename</span>
+        csvFile <span style="color:#333">=</span> <span style="color:#007020">open</span>(self<span style="color:#333">.</span>filename, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;w&#39;</span>)
+        
+        <span style="color:#888"># Create a csv writer</span>
+        csvWriter <span style="color:#333">=</span> csv<span style="color:#333">.</span>writer(csvFile)
+        
+        <span style="color:#888"># Write a single row with the headers of the columns</span>
+        csvWriter<span style="color:#333">.</span>writerow([<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;text&#39;</span>,
+                            <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;created_at&#39;</span>,
+                            <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;geo&#39;</span>,
+                            <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;lang&#39;</span>,
+                            <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;place&#39;</span>,
+                            <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;coordinates&#39;</span>,
+                            <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;user.favourites_count&#39;</span>,
+                            <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;user.statuses_count&#39;</span>,
+                            <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;user.description&#39;</span>,
+                            <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;user.location&#39;</span>,
+                            <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;user.id&#39;</span>,
+                            <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;user.created_at&#39;</span>,
+                            <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;user.verified&#39;</span>,
+                            <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;user.following&#39;</span>,
+                            <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;user.url&#39;</span>,
+                            <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;user.listed_count&#39;</span>,
+                            <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;user.followers_count&#39;</span>,
+                            <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;user.default_profile_image&#39;</span>,
+                            <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;user.utc_offset&#39;</span>,
+                            <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;user.friends_count&#39;</span>,
+                            <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;user.default_profile&#39;</span>,
+                            <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;user.name&#39;</span>,
+                            <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;user.lang&#39;</span>,
+                            <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;user.screen_name&#39;</span>,
+                            <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;user.geo_enabled&#39;</span>,
+                            <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;user.profile_background_color&#39;</span>,
+                            <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;user.profile_image_url&#39;</span>,
+                            <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;user.time_zone&#39;</span>,
+                            <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;id&#39;</span>,
+                            <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;favorite_count&#39;</span>,
+                            <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;retweeted&#39;</span>,
+                            <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;source&#39;</span>,
+                            <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;favorited&#39;</span>,
+                            <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;retweet_count&#39;</span>])
+
+    <span style="color:#888"># When a tweet appears</span>
+    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">on_status</span>(self, status):
+        
+        <span style="color:#888"># Open the csv file created previously</span>
+        csvFile <span style="color:#333">=</span> <span style="color:#007020">open</span>(self<span style="color:#333">.</span>filename, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;a&#39;</span>)
+        
+        <span style="color:#888"># Create a csv writer</span>
+        csvWriter <span style="color:#333">=</span> csv<span style="color:#333">.</span>writer(csvFile)
+        
+        <span style="color:#888"># If the tweet is not a retweet</span>
+        <span style="color:#080;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">not</span> <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;RT @&#39;</span> <span style="color:#000;font-weight:bold">in</span> status<span style="color:#333">.</span>text:
+            <span style="color:#888"># Try to </span>
+            <span style="color:#080;font-weight:bold">try</span>:
+                <span style="color:#888"># Write the tweet&#39;s information to the csv file</span>
+                csvWriter<span style="color:#333">.</span>writerow([status<span style="color:#333">.</span>text,
+                                    status<span style="color:#333">.</span>created_at,
+                                    status<span style="color:#333">.</span>geo,
+                                    status<span style="color:#333">.</span>lang,
+                                    status<span style="color:#333">.</span>place,
+                                    status<span style="color:#333">.</span>coordinates,
+                                    status<span style="color:#333">.</span>user<span style="color:#333">.</span>favourites_count,
+                                    status<span style="color:#333">.</span>user<span style="color:#333">.</span>statuses_count,
+                                    status<span style="color:#333">.</span>user<span style="color:#333">.</span>description,
+                                    status<span style="color:#333">.</span>user<span style="color:#333">.</span>location,
+                                    status<span style="color:#333">.</span>user<span style="color:#333">.</span><span style="color:#007020">id</span>,
+                                    status<span style="color:#333">.</span>user<span style="color:#333">.</span>created_at,
+                                    status<span style="color:#333">.</span>user<span style="color:#333">.</span>verified,
+                                    status<span style="color:#333">.</span>user<span style="color:#333">.</span>following,
+                                    status<span style="color:#333">.</span>user<span style="color:#333">.</span>url,
+                                    status<span style="color:#333">.</span>user<span style="color:#333">.</span>listed_count,
+                                    status<span style="color:#333">.</span>user<span style="color:#333">.</span>followers_count,
+                                    status<span style="color:#333">.</span>user<span style="color:#333">.</span>default_profile_image,
+                                    status<span style="color:#333">.</span>user<span style="color:#333">.</span>utc_offset,
+                                    status<span style="color:#333">.</span>user<span style="color:#333">.</span>friends_count,
+                                    status<span style="color:#333">.</span>user<span style="color:#333">.</span>default_profile,
+                                    status<span style="color:#333">.</span>user<span style="color:#333">.</span>name,
+                                    status<span style="color:#333">.</span>user<span style="color:#333">.</span>lang,
+                                    status<span style="color:#333">.</span>user<span style="color:#333">.</span>screen_name,
+                                    status<span style="color:#333">.</span>user<span style="color:#333">.</span>geo_enabled,
+                                    status<span style="color:#333">.</span>user<span style="color:#333">.</span>profile_background_color,
+                                    status<span style="color:#333">.</span>user<span style="color:#333">.</span>profile_image_url,
+                                    status<span style="color:#333">.</span>user<span style="color:#333">.</span>time_zone,
+                                    status<span style="color:#333">.</span><span style="color:#007020">id</span>,
+                                    status<span style="color:#333">.</span>favorite_count,
+                                    status<span style="color:#333">.</span>retweeted,
+                                    status<span style="color:#333">.</span>source,
+                                    status<span style="color:#333">.</span>favorited,
+                                    status<span style="color:#333">.</span>retweet_count])
+            <span style="color:#888"># If some error occurs</span>
+            <span style="color:#080;font-weight:bold">except</span> <span style="color:#f00;font-weight:bold">Exception</span> <span style="color:#080;font-weight:bold">as</span> e:
+                <span style="color:#888"># Print the error</span>
+                <span style="color:#080;font-weight:bold">print</span>(e)
+                <span style="color:#888"># and continue</span>
+                <span style="color:#080;font-weight:bold">pass</span>
+            
+        <span style="color:#888"># Close the csv file</span>
+        csvFile<span style="color:#333">.</span>close()
+
+        <span style="color:#888"># Return nothing</span>
+        <span style="color:#080;font-weight:bold">return</span>
+
+    <span style="color:#888"># When an error occurs</span>
+    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">on_error</span>(self, status_code):
+        <span style="color:#888"># Print the error code</span>
+        <span style="color:#080;font-weight:bold">print</span>(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Encountered error with status code:&#39;</span>, status_code)
+        
+        <span style="color:#888"># If the error code is 401, which is the error for bad credentials</span>
+        <span style="color:#080;font-weight:bold">if</span> status_code <span style="color:#333">==</span> <span style="color:#00d;font-weight:bold">401</span>:
+            <span style="color:#888"># End the stream</span>
+            <span style="color:#080;font-weight:bold">return</span> False
+
+    <span style="color:#888"># When a deleted tweet appears</span>
+    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">on_delete</span>(self, status_id, user_id):
+        
+        <span style="color:#888"># Print message</span>
+        <span style="color:#080;font-weight:bold">print</span>(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#34;Delete notice&#34;</span>)
+        
+        <span style="color:#888"># Return nothing</span>
+        <span style="color:#080;font-weight:bold">return</span>
+
+    <span style="color:#888"># When reach the rate limit</span>
+    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">on_limit</span>(self, track):
+        
+        <span style="color:#888"># Print rate limiting error</span>
+        <span style="color:#080;font-weight:bold">print</span>(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#34;Rate limited, continuing&#34;</span>)
+        
+        <span style="color:#888"># Continue mining tweets</span>
+        <span style="color:#080;font-weight:bold">return</span> True
+
+    <span style="color:#888"># When timed out</span>
+    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">on_timeout</span>(self):
+        
+        <span style="color:#888"># Print timeout message</span>
+        <span style="color:#080;font-weight:bold">print</span>(sys<span style="color:#333">.</span>stderr, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Timeout...&#39;</span>)
+        
+        <span style="color:#888"># Wait 10 seconds</span>
+        time<span style="color:#333">.</span>sleep(<span style="color:#00d;font-weight:bold">10</span>)
+        
+        <span style="color:#888"># Return nothing</span>
+        <span style="color:#080;font-weight:bold">return</span></code></pre></div>
+<h2 id="create-a-wrapper-for-the-miner">Create A Wrapper For The Miner</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create a mining function</span>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">start_mining</span>(queries):
+    <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;&#39;&#39;
+</span><span style="background-color:#fff0f0">    Inputs list of strings. Returns tweets containing those strings.
+</span><span style="background-color:#fff0f0">    &#39;&#39;&#39;</span>
+    
+    <span style="color:#888">#Variables that contains the user credentials to access Twitter API</span>
+    consumer_key <span style="color:#333">=</span> <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#34;YOUR_CREDENTIALS&#34;</span>
+    consumer_secret <span style="color:#333">=</span> <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#34;YOUR_CREDENTIALS&#34;</span>
+    access_token <span style="color:#333">=</span> <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#34;YOUR_CREDENTIALS&#34;</span>
+    access_token_secret <span style="color:#333">=</span> <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#34;YOUR_CREDENTIALS&#34;</span>
+
+    <span style="color:#888"># Create a listener</span>
+    l <span style="color:#333">=</span> StdOutListener()
+    
+    <span style="color:#888"># Create authorization info</span>
+    auth <span style="color:#333">=</span> OAuthHandler(consumer_key, consumer_secret)
+    auth<span style="color:#333">.</span>set_access_token(access_token, access_token_secret)
+    
+    <span style="color:#888"># Create a stream object with listener and authorization</span>
+    stream <span style="color:#333">=</span> Stream(auth, l)
+
+    <span style="color:#888"># Run the stream object using the user defined queries</span>
+    stream<span style="color:#333">.</span><span style="color:#007020">filter</span>(track<span style="color:#333">=</span>queries)</code></pre></div>
+<h2 id="run-the-stream-miner">Run The Stream Miner</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Start the miner</span>
+start_mining([<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;python&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;#Python&#39;</span>])</code></pre></div>
+<pre><code>Encountered error with status code: 401
+</code></pre>
+
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      Blog template created by <a href="https://twitter.com/mdo">@mdo</a>, ported to Hugo by <a href='https://twitter.com/mralanorth'>@mralanorth</a>.
+      
+      </p>
+    </footer>
+
+  </body>
+
+</html>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Applying Operations Over pandas Dataframes" />
+<meta property="og:description" content="Applying Operations Over pandas Dataframes." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://chrisalbon.com/python/data_wrangling/pandas_apply_operations_to_dataframes/" />
+
+
+
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
+
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Applying Operations Over pandas Dataframes"/>
+<meta name="twitter:description" content="Applying Operations Over pandas Dataframes."/>
+<meta name="generator" content="Hugo 0.31.1" />
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Applying Operations Over pandas Dataframes",
+  "url": "https://chrisalbon.com/python/data_wrangling/pandas_apply_operations_to_dataframes/",
+  "wordCount": "337",
+  "datePublished": "2017-12-20T11:53:49-07:00",
+  "dateModified": "2017-12-20T11:53:49-07:00",
+  "author": {
+    "@type": "Person",
+    "name": "Chris Albon"
+  },
+  "description": "Applying Operations Over pandas Dataframes."
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://chrisalbon.com/python/data_wrangling/pandas_apply_operations_to_dataframes/">
+
+    <title>Applying Operations Over pandas Dataframes | Chris Albon</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://chrisalbon.com/css/style.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+    <link href="https://chrisalbon.com/css/main.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+
+    
+
+    
+
+    <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link" href="https://chrisalbon.com/">Home</a></nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://chrisalbon.com/python/data_wrangling/pandas_apply_operations_to_dataframes/">Applying Operations Over pandas Dataframes</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-12-20T11:53:49-07:00">Wed Dec 20, 2017</time></p>
+  </header>
+  
+
+<h3 id="import-modules">Import Modules</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">pandas</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">pd</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">numpy</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">np</span></code></pre></div>
+<h3 id="create-a-dataframe">Create a dataframe</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">data <span style="color:#333">=</span> {<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;name&#39;</span>: [<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Jason&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Molly&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Tina&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Jake&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Amy&#39;</span>], 
+        <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;year&#39;</span>: [<span style="color:#00d;font-weight:bold">2012</span>, <span style="color:#00d;font-weight:bold">2012</span>, <span style="color:#00d;font-weight:bold">2013</span>, <span style="color:#00d;font-weight:bold">2014</span>, <span style="color:#00d;font-weight:bold">2014</span>], 
+        <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;reports&#39;</span>: [<span style="color:#00d;font-weight:bold">4</span>, <span style="color:#00d;font-weight:bold">24</span>, <span style="color:#00d;font-weight:bold">31</span>, <span style="color:#00d;font-weight:bold">2</span>, <span style="color:#00d;font-weight:bold">3</span>],
+        <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;coverage&#39;</span>: [<span style="color:#00d;font-weight:bold">25</span>, <span style="color:#00d;font-weight:bold">94</span>, <span style="color:#00d;font-weight:bold">57</span>, <span style="color:#00d;font-weight:bold">62</span>, <span style="color:#00d;font-weight:bold">70</span>]}
+df <span style="color:#333">=</span> pd<span style="color:#333">.</span>DataFrame(data, index <span style="color:#333">=</span> [<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Cochice&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Pima&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Santa Cruz&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Maricopa&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Yuma&#39;</span>])
+df</code></pre></div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>coverage</th>
+      <th>name</th>
+      <th>reports</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Cochice</th>
+      <td>25</td>
+      <td>Jason</td>
+      <td>4</td>
+      <td>2012</td>
+    </tr>
+    <tr>
+      <th>Pima</th>
+      <td>94</td>
+      <td>Molly</td>
+      <td>24</td>
+      <td>2012</td>
+    </tr>
+    <tr>
+      <th>Santa Cruz</th>
+      <td>57</td>
+      <td>Tina</td>
+      <td>31</td>
+      <td>2013</td>
+    </tr>
+    <tr>
+      <th>Maricopa</th>
+      <td>62</td>
+      <td>Jake</td>
+      <td>2</td>
+      <td>2014</td>
+    </tr>
+    <tr>
+      <th>Yuma</th>
+      <td>70</td>
+      <td>Amy</td>
+      <td>3</td>
+      <td>2014</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="create-a-capitalization-lambda-function">Create a capitalization lambda function</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">capitalizer <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">lambda</span> x: x<span style="color:#333">.</span>upper()</code></pre></div>
+<h3 id="apply-the-capitalizer-function-over-the-column-name">Apply the capitalizer function over the column &lsquo;name&rsquo;</h3>
+
+<p>apply() can apply a function along any axis of the dataframe</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;name&#39;</span>]<span style="color:#333">.</span><span style="color:#007020">apply</span>(capitalizer)</code></pre></div>
+<pre><code>Cochice       JASON
+Pima          MOLLY
+Santa Cruz     TINA
+Maricopa       JAKE
+Yuma            AMY
+Name: name, dtype: object
+</code></pre>
+
+<h3 id="map-the-capitalizer-lambda-function-over-each-element-in-the-series-name">Map the capitalizer lambda function over each element in the series &lsquo;name&rsquo;</h3>
+
+<p>map() applies an operation over each element of a series</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;name&#39;</span>]<span style="color:#333">.</span><span style="color:#007020">map</span>(capitalizer)</code></pre></div>
+<pre><code>Cochice       JASON
+Pima          MOLLY
+Santa Cruz     TINA
+Maricopa       JAKE
+Yuma            AMY
+Name: name, dtype: object
+</code></pre>
+
+<h3 id="apply-a-square-root-function-to-every-single-cell-in-the-whole-data-frame">Apply a square root function to every single cell in the whole data frame</h3>
+
+<p>applymap() applies a function to every single element in the entire dataframe.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Drop the string variable so that applymap() can run</span>
+df <span style="color:#333">=</span> df<span style="color:#333">.</span>drop(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;name&#39;</span>, axis<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">1</span>)
+
+<span style="color:#888"># Return the square root of every cell in the dataframe</span>
+df<span style="color:#333">.</span>applymap(np<span style="color:#333">.</span>sqrt)</code></pre></div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>coverage</th>
+      <th>reports</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Cochice</th>
+      <td>5.000000</td>
+      <td>2.000000</td>
+      <td>44.855323</td>
+    </tr>
+    <tr>
+      <th>Pima</th>
+      <td>9.695360</td>
+      <td>4.898979</td>
+      <td>44.855323</td>
+    </tr>
+    <tr>
+      <th>Santa Cruz</th>
+      <td>7.549834</td>
+      <td>5.567764</td>
+      <td>44.866469</td>
+    </tr>
+    <tr>
+      <th>Maricopa</th>
+      <td>7.874008</td>
+      <td>1.414214</td>
+      <td>44.877611</td>
+    </tr>
+    <tr>
+      <th>Yuma</th>
+      <td>8.366600</td>
+      <td>1.732051</td>
+      <td>44.877611</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="applying-a-function-over-a-dataframe">Applying A Function Over A Dataframe</h2>
+
+<h3 id="create-a-function-that-multiplies-all-non-strings-by-100">Create a function that multiplies all non-strings by 100</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># create a function called times100</span>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">times100</span>(x):
+    <span style="color:#888"># that, if x is a string,</span>
+    <span style="color:#080;font-weight:bold">if</span> <span style="color:#007020">type</span>(x) <span style="color:#000;font-weight:bold">is</span> <span style="color:#007020">str</span>:
+        <span style="color:#888"># just returns it untouched</span>
+        <span style="color:#080;font-weight:bold">return</span> x
+    <span style="color:#888"># but, if not, return it multiplied by 100</span>
+    <span style="color:#080;font-weight:bold">elif</span> x:
+        <span style="color:#080;font-weight:bold">return</span> <span style="color:#00d;font-weight:bold">100</span> <span style="color:#333">*</span> x
+    <span style="color:#888"># and leave everything else</span>
+    <span style="color:#080;font-weight:bold">else</span>:
+        <span style="color:#080;font-weight:bold">return</span></code></pre></div>
+<h3 id="apply-the-times100-over-every-cell-in-the-dataframe">Apply the times100 over every cell in the dataframe</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df<span style="color:#333">.</span>applymap(times100)</code></pre></div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>coverage</th>
+      <th>reports</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Cochice</th>
+      <td>2500</td>
+      <td>400</td>
+      <td>201200</td>
+    </tr>
+    <tr>
+      <th>Pima</th>
+      <td>9400</td>
+      <td>2400</td>
+      <td>201200</td>
+    </tr>
+    <tr>
+      <th>Santa Cruz</th>
+      <td>5700</td>
+      <td>3100</td>
+      <td>201300</td>
+    </tr>
+    <tr>
+      <th>Maricopa</th>
+      <td>6200</td>
+      <td>200</td>
+      <td>201400</td>
+    </tr>
+    <tr>
+      <th>Yuma</th>
+      <td>7000</td>
+      <td>300</td>
+      <td>201400</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      Blog template created by <a href="https://twitter.com/mdo">@mdo</a>, ported to Hugo by <a href='https://twitter.com/mralanorth'>@mralanorth</a>.
+      
+      </p>
+    </footer>
+
+  </body>
+
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Identifying Best Value Of k" />
+<meta property="og:description" content="Identifying best value of k in k-nearest neighbors classifier in scikit-learn." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://chrisalbon.com/machine_learning/nearest_neighbors/identifying_best_value_of_k/" />
+
+
+
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
+
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Identifying Best Value Of k"/>
+<meta name="twitter:description" content="Identifying best value of k in k-nearest neighbors classifier in scikit-learn."/>
+<meta name="generator" content="Hugo 0.31.1" />
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Identifying Best Value Of k",
+  "url": "https://chrisalbon.com/machine_learning/nearest_neighbors/identifying_best_value_of_k/",
+  "wordCount": "141",
+  "datePublished": "2017-12-20T11:53:49-07:00",
+  "dateModified": "2017-12-20T11:53:49-07:00",
+  "author": {
+    "@type": "Person",
+    "name": "Chris Albon"
+  },
+  "description": "Identifying best value of k in k-nearest neighbors classifier in scikit-learn."
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://chrisalbon.com/machine_learning/nearest_neighbors/identifying_best_value_of_k/">
+
+    <title>Identifying Best Value Of k | Chris Albon</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://chrisalbon.com/css/style.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+    <link href="https://chrisalbon.com/css/main.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+
+    
+
+    
+
+    <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link" href="https://chrisalbon.com/">Home</a></nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://chrisalbon.com/machine_learning/nearest_neighbors/identifying_best_value_of_k/">Identifying Best Value Of k</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-12-20T11:53:49-07:00">Wed Dec 20, 2017</time></p>
+  </header>
+  
+
+<p><a alt="Identifying The Best Neighborhood Size" href="https://machinelearningflashcards.com">
+    <img src="identifying_best_value_of_k/K-NN_Neighborhood_Size_print.png" class="flashcard center-block">
+</a></p>
+
+<h2 id="preliminaries">Preliminaries</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Load libraries</span>
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">sklearn.neighbors</span> <span style="color:#080;font-weight:bold">import</span> KNeighborsClassifier
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">sklearn</span> <span style="color:#080;font-weight:bold">import</span> datasets
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">sklearn.preprocessing</span> <span style="color:#080;font-weight:bold">import</span> StandardScaler
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">sklearn.pipeline</span> <span style="color:#080;font-weight:bold">import</span> Pipeline, FeatureUnion
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">sklearn.model_selection</span> <span style="color:#080;font-weight:bold">import</span> GridSearchCV</code></pre></div>
+<h2 id="load-iris-flower-data">Load Iris Flower Data</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Load data</span>
+iris <span style="color:#333">=</span> datasets<span style="color:#333">.</span>load_iris()
+X <span style="color:#333">=</span> iris<span style="color:#333">.</span>data
+y <span style="color:#333">=</span> iris<span style="color:#333">.</span>target</code></pre></div>
+<h2 id="standardize-data">Standardize Data</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create standardizer</span>
+standardizer <span style="color:#333">=</span> StandardScaler()
+
+<span style="color:#888"># Standardize features</span>
+X_std <span style="color:#333">=</span> standardizer<span style="color:#333">.</span>fit_transform(X)</code></pre></div>
+<h2 id="fit-a-k-nearest-neighbor-classifier">Fit A k-Nearest Neighbor Classifier</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Fit a KNN classifier with 5 neighbors</span>
+knn <span style="color:#333">=</span> KNeighborsClassifier(n_neighbors<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">5</span>, metric<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;euclidean&#39;</span>, n_jobs<span style="color:#333">=-</span><span style="color:#00d;font-weight:bold">1</span>)<span style="color:#333">.</span>fit(X_std, y)</code></pre></div>
+<h2 id="create-search-space-of-possible-values-of-k">Create Search Space Of Possible Values Of k</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create a pipeline</span>
+pipe <span style="color:#333">=</span> Pipeline([(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;standardizer&#39;</span>, standardizer), (<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;knn&#39;</span>, knn)])
+
+<span style="color:#888"># Create space of candidate values</span>
+search_space <span style="color:#333">=</span> [{<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;knn__n_neighbors&#39;</span>: [<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">2</span>, <span style="color:#00d;font-weight:bold">3</span>, <span style="color:#00d;font-weight:bold">4</span>, <span style="color:#00d;font-weight:bold">5</span>, <span style="color:#00d;font-weight:bold">6</span>, <span style="color:#00d;font-weight:bold">7</span>, <span style="color:#00d;font-weight:bold">8</span>, <span style="color:#00d;font-weight:bold">9</span>, <span style="color:#00d;font-weight:bold">10</span>]}]</code></pre></div>
+<h2 id="search-over-possible-values-of-k">Search Over Possible Values of k</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create grid search </span>
+clf <span style="color:#333">=</span> GridSearchCV(pipe, search_space, cv<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">5</span>, verbose<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">0</span>)<span style="color:#333">.</span>fit(X_std, y)</code></pre></div>
+<h2 id="view-k-for-best-performing-model">View k For Best Performing Model</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Best neighborhood size (k)</span>
+clf<span style="color:#333">.</span>best_estimator_<span style="color:#333">.</span>get_params()[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;knn__n_neighbors&#39;</span>]</code></pre></div>
+<pre><code>6
+</code></pre>
+
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      Blog template created by <a href="https://twitter.com/mdo">@mdo</a>, ported to Hugo by <a href='https://twitter.com/mralanorth'>@mralanorth</a>.
+      
+      </p>
+    </footer>
+
+  </body>
+
+</html>

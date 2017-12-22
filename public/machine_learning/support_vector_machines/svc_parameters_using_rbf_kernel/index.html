@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="SVC Parameters When Using RBF Kernel" />
+<meta property="og:description" content="SVC Parameters When Using RBF Kernel" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://chrisalbon.com/machine_learning/support_vector_machines/svc_parameters_using_rbf_kernel/" />
+
+
+
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
+
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="SVC Parameters When Using RBF Kernel"/>
+<meta name="twitter:description" content="SVC Parameters When Using RBF Kernel"/>
+<meta name="generator" content="Hugo 0.31.1" />
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "SVC Parameters When Using RBF Kernel",
+  "url": "https://chrisalbon.com/machine_learning/support_vector_machines/svc_parameters_using_rbf_kernel/",
+  "wordCount": "1327",
+  "datePublished": "2017-12-20T11:53:49-07:00",
+  "dateModified": "2017-12-20T11:53:49-07:00",
+  "author": {
+    "@type": "Person",
+    "name": "Chris Albon"
+  },
+  "description": "SVC Parameters When Using RBF Kernel"
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://chrisalbon.com/machine_learning/support_vector_machines/svc_parameters_using_rbf_kernel/">
+
+    <title>SVC Parameters When Using RBF Kernel | Chris Albon</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://chrisalbon.com/css/style.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+    <link href="https://chrisalbon.com/css/main.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+
+    
+
+    
+
+    <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link" href="https://chrisalbon.com/">Home</a></nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://chrisalbon.com/machine_learning/support_vector_machines/svc_parameters_using_rbf_kernel/">SVC Parameters When Using RBF Kernel</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-12-20T11:53:49-07:00">Wed Dec 20, 2017</time></p>
+  </header>
+  
+
+<p>In this tutorial we will visually explore the effects of the two parameters from the support vector classifier (SVC) when using the radial basis function kernel (RBF). This tutorial draws heavily on the code used in Sebastian Raschka&rsquo;s book <a href="http://amzn.to/2iyMbpA">Python Machine Learning</a>.</p>
+
+<h2 id="preliminaries">Preliminaries</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Import packages to visualize the classifer</span>
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">matplotlib.colors</span> <span style="color:#080;font-weight:bold">import</span> ListedColormap
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">matplotlib.pyplot</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">plt</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">warnings</span>
+
+<span style="color:#888"># Import packages to do the classifying</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">numpy</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">np</span>
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">sklearn.svm</span> <span style="color:#080;font-weight:bold">import</span> SVC</code></pre></div>
+<h2 id="create-function-to-visualize-classification-regions">Create Function To Visualize Classification Regions</h2>
+
+<p>You can ignore the code below. It is used to visualize the the decision regions of the classifier. However it is unimportant to this tutorial to understand how the function works.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">versiontuple</span>(v):
+    <span style="color:#080;font-weight:bold">return</span> <span style="color:#007020">tuple</span>(<span style="color:#007020">map</span>(<span style="color:#007020">int</span>, (v<span style="color:#333">.</span>split(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#34;.&#34;</span>))))
+
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">plot_decision_regions</span>(X, y, classifier, test_idx<span style="color:#333">=</span>None, resolution<span style="color:#333">=</span><span style="color:#60e;font-weight:bold">0.02</span>):
+
+    <span style="color:#888"># setup marker generator and color map</span>
+    markers <span style="color:#333">=</span> (<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;s&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;x&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;o&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;^&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;v&#39;</span>)
+    colors <span style="color:#333">=</span> (<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;red&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;blue&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;lightgreen&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;gray&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;cyan&#39;</span>)
+    cmap <span style="color:#333">=</span> ListedColormap(colors[:<span style="color:#007020">len</span>(np<span style="color:#333">.</span>unique(y))])
+
+    <span style="color:#888"># plot the decision surface</span>
+    x1_min, x1_max <span style="color:#333">=</span> X[:, <span style="color:#00d;font-weight:bold">0</span>]<span style="color:#333">.</span><span style="color:#007020">min</span>() <span style="color:#333">-</span> <span style="color:#00d;font-weight:bold">1</span>, X[:, <span style="color:#00d;font-weight:bold">0</span>]<span style="color:#333">.</span><span style="color:#007020">max</span>() <span style="color:#333">+</span> <span style="color:#00d;font-weight:bold">1</span>
+    x2_min, x2_max <span style="color:#333">=</span> X[:, <span style="color:#00d;font-weight:bold">1</span>]<span style="color:#333">.</span><span style="color:#007020">min</span>() <span style="color:#333">-</span> <span style="color:#00d;font-weight:bold">1</span>, X[:, <span style="color:#00d;font-weight:bold">1</span>]<span style="color:#333">.</span><span style="color:#007020">max</span>() <span style="color:#333">+</span> <span style="color:#00d;font-weight:bold">1</span>
+    xx1, xx2 <span style="color:#333">=</span> np<span style="color:#333">.</span>meshgrid(np<span style="color:#333">.</span>arange(x1_min, x1_max, resolution),
+                           np<span style="color:#333">.</span>arange(x2_min, x2_max, resolution))
+    Z <span style="color:#333">=</span> classifier<span style="color:#333">.</span>predict(np<span style="color:#333">.</span>array([xx1<span style="color:#333">.</span>ravel(), xx2<span style="color:#333">.</span>ravel()])<span style="color:#333">.</span>T)
+    Z <span style="color:#333">=</span> Z<span style="color:#333">.</span>reshape(xx1<span style="color:#333">.</span>shape)
+    plt<span style="color:#333">.</span>contourf(xx1, xx2, Z, alpha<span style="color:#333">=</span><span style="color:#60e;font-weight:bold">0.4</span>, cmap<span style="color:#333">=</span>cmap)
+    plt<span style="color:#333">.</span>xlim(xx1<span style="color:#333">.</span><span style="color:#007020">min</span>(), xx1<span style="color:#333">.</span><span style="color:#007020">max</span>())
+    plt<span style="color:#333">.</span>ylim(xx2<span style="color:#333">.</span><span style="color:#007020">min</span>(), xx2<span style="color:#333">.</span><span style="color:#007020">max</span>())
+
+    <span style="color:#080;font-weight:bold">for</span> idx, cl <span style="color:#000;font-weight:bold">in</span> <span style="color:#007020">enumerate</span>(np<span style="color:#333">.</span>unique(y)):
+        plt<span style="color:#333">.</span>scatter(x<span style="color:#333">=</span>X[y <span style="color:#333">==</span> cl, <span style="color:#00d;font-weight:bold">0</span>], y<span style="color:#333">=</span>X[y <span style="color:#333">==</span> cl, <span style="color:#00d;font-weight:bold">1</span>],
+                    alpha<span style="color:#333">=</span><span style="color:#60e;font-weight:bold">0.8</span>, c<span style="color:#333">=</span>cmap(idx),
+                    marker<span style="color:#333">=</span>markers[idx], label<span style="color:#333">=</span>cl)
+
+    <span style="color:#888"># highlight test samples</span>
+    <span style="color:#080;font-weight:bold">if</span> test_idx:
+        <span style="color:#888"># plot all samples</span>
+        <span style="color:#080;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">not</span> versiontuple(np<span style="color:#333">.</span>__version__) <span style="color:#333">&gt;=</span> versiontuple(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;1.9.0&#39;</span>):
+            X_test, y_test <span style="color:#333">=</span> X[<span style="color:#007020">list</span>(test_idx), :], y[<span style="color:#007020">list</span>(test_idx)]
+            warnings<span style="color:#333">.</span>warn(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Please update to NumPy 1.9.0 or newer&#39;</span>)
+        <span style="color:#080;font-weight:bold">else</span>:
+            X_test, y_test <span style="color:#333">=</span> X[test_idx, :], y[test_idx]
+
+        plt<span style="color:#333">.</span>scatter(X_test[:, <span style="color:#00d;font-weight:bold">0</span>],
+                    X_test[:, <span style="color:#00d;font-weight:bold">1</span>],
+                    c<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;&#39;</span>,
+                    alpha<span style="color:#333">=</span><span style="color:#60e;font-weight:bold">1.0</span>,
+                    linewidths<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">1</span>,
+                    marker<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;o&#39;</span>,
+                    s<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">55</span>, label<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;test set&#39;</span>)</code></pre></div>
+<h2 id="generate-data">Generate Data</h2>
+
+<p>Here we are generating some non-linearly separable data that we will train our classifier on. This data would be akin to your training dataset. There are two classes in our y vector: blue x&rsquo;s and red squares.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">np<span style="color:#333">.</span>random<span style="color:#333">.</span>seed(<span style="color:#00d;font-weight:bold">0</span>)
+X_xor <span style="color:#333">=</span> np<span style="color:#333">.</span>random<span style="color:#333">.</span>randn(<span style="color:#00d;font-weight:bold">200</span>, <span style="color:#00d;font-weight:bold">2</span>)
+y_xor <span style="color:#333">=</span> np<span style="color:#333">.</span>logical_xor(X_xor[:, <span style="color:#00d;font-weight:bold">0</span>] <span style="color:#333">&gt;</span> <span style="color:#00d;font-weight:bold">0</span>,
+                       X_xor[:, <span style="color:#00d;font-weight:bold">1</span>] <span style="color:#333">&gt;</span> <span style="color:#00d;font-weight:bold">0</span>)
+y_xor <span style="color:#333">=</span> np<span style="color:#333">.</span>where(y_xor, <span style="color:#00d;font-weight:bold">1</span>, <span style="color:#333">-</span><span style="color:#00d;font-weight:bold">1</span>)
+
+plt<span style="color:#333">.</span>scatter(X_xor[y_xor <span style="color:#333">==</span> <span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">0</span>],
+            X_xor[y_xor <span style="color:#333">==</span> <span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">1</span>],
+            c<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;b&#39;</span>, marker<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;x&#39;</span>,
+            label<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;1&#39;</span>)
+plt<span style="color:#333">.</span>scatter(X_xor[y_xor <span style="color:#333">==</span> <span style="color:#333">-</span><span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">0</span>],
+            X_xor[y_xor <span style="color:#333">==</span> <span style="color:#333">-</span><span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">1</span>],
+            c<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;r&#39;</span>,
+            marker<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;s&#39;</span>,
+            label<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;-1&#39;</span>)
+
+plt<span style="color:#333">.</span>xlim([<span style="color:#333">-</span><span style="color:#00d;font-weight:bold">3</span>, <span style="color:#00d;font-weight:bold">3</span>])
+plt<span style="color:#333">.</span>ylim([<span style="color:#333">-</span><span style="color:#00d;font-weight:bold">3</span>, <span style="color:#00d;font-weight:bold">3</span>])
+plt<span style="color:#333">.</span>legend(loc<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;best&#39;</span>)
+plt<span style="color:#333">.</span>tight_layout()
+plt<span style="color:#333">.</span>show()</code></pre></div>
+<p><img src="svc_parameters_using_rbf_kernel_9_0.png" alt="png" /></p>
+
+<h2 id="classify-using-a-linear-kernel">Classify Using a Linear Kernel</h2>
+
+<p>The most basic way to use a SVC is with a linear kernel, which means the decision boundary is a straight line (or hyperplane in higher dimensions). Linear kernels are rarely used in practice, however I wanted to show it here since it is the most basic version of SVC. As can been seen below, it is not very good at classifying (which can be seen by all the blue X&rsquo;s in the red region) because the data is not linear.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create a SVC classifier using a linear kernel</span>
+svm <span style="color:#333">=</span> SVC(kernel<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;linear&#39;</span>, C<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">1</span>, random_state<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">0</span>)
+<span style="color:#888"># Train the classifier</span>
+svm<span style="color:#333">.</span>fit(X_xor, y_xor)
+
+<span style="color:#888"># Visualize the decision boundaries</span>
+plot_decision_regions(X_xor, y_xor, classifier<span style="color:#333">=</span>svm)
+plt<span style="color:#333">.</span>legend(loc<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;upper left&#39;</span>)
+plt<span style="color:#333">.</span>tight_layout()
+plt<span style="color:#333">.</span>show()</code></pre></div>
+<p><img src="svc_parameters_using_rbf_kernel_11_0.png" alt="png" /></p>
+
+<h2 id="classify-using-a-rbf-kernel">Classify Using a RBF Kernel</h2>
+
+<p>Radial Basis Function is a commonly used kernel in SVC:</p>
+
+<p>$$K(\mathbf {x} ,\mathbf {x&rsquo;} )=\exp \left(-{\frac {||\mathbf {x} -\mathbf {x&rsquo;} ||^{2}}{2\sigma ^{2}}}\right)$$</p>
+
+<p>where $||\mathbf {x} -\mathbf {x&rsquo;} ||^{2}$ is the squared Euclidean distance between two data points $\mathbf {x}$ and $\mathbf {x&rsquo;}$. If this doesn&rsquo;t make sense, Sebastian&rsquo;s book has a full description. However, for this tutorial, it is only important to know that an SVC classifier using an RBF kernel has two parameters: <code>gamma</code> and <code>C</code>.</p>
+
+<h3 id="gamma">Gamma</h3>
+
+<p><code>gamma</code> is a parameter of the RBF kernel and can be thought of as the &lsquo;spread&rsquo; of the kernel and therefore the decision region. When <code>gamma</code> is low, the &lsquo;curve&rsquo; of the decision boundary is very low and thus the decision region is very broad. When <code>gamma</code> is high, the &lsquo;curve&rsquo; of the decision boundary is high, which creates islands of decision-boundaries around data points. We will see this very clearly below.</p>
+
+<h3 id="c">C</h3>
+
+<p><code>C</code> is a parameter of the SVC learner and is the penalty for misclassifying a data point. When <code>C</code> is small, the classifier is okay with misclassified data points (high bias, low variance). When <code>C</code> is large, the classifier is heavily penalized for misclassified data and therefore bends over backwards avoid any misclassified data points (low bias, high variance).</p>
+
+<h2 id="gamma-1">Gamma</h2>
+
+<p>In the four charts below, we apply the same SVC-RBF classifier to the same data while holding <code>C</code> constant. The only difference between each chart is that each time we will increase the value of <code>gamma</code>. By doing so, we can visually see the effect of <code>gamma</code> on the decision boundary.</p>
+
+<h3 id="gamma-0-01">Gamma = 0.01</h3>
+
+<p>In the case of our SVC classifier and data, when using a low <code>gamma</code> like 0.01, the decision boundary is not very &lsquo;curvy&rsquo;, rather it is just one big sweeping arch.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create a SVC classifier using an RBF kernel</span>
+svm <span style="color:#333">=</span> SVC(kernel<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;rbf&#39;</span>, random_state<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">0</span>, gamma<span style="color:#333">=.</span><span style="color:#40e;font-weight:bold">01</span>, C<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">1</span>)
+<span style="color:#888"># Train the classifier</span>
+svm<span style="color:#333">.</span>fit(X_xor, y_xor)
+
+<span style="color:#888"># Visualize the decision boundaries</span>
+plot_decision_regions(X_xor, y_xor, classifier<span style="color:#333">=</span>svm)
+plt<span style="color:#333">.</span>legend(loc<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;upper left&#39;</span>)
+plt<span style="color:#333">.</span>tight_layout()
+plt<span style="color:#333">.</span>show()</code></pre></div>
+<p><img src="svc_parameters_using_rbf_kernel_15_0.png" alt="png" /></p>
+
+<h3 id="gamma-1-0">Gamma = 1.0</h3>
+
+<p>You can see a big difference when we increase the <code>gamma</code> to 1. Now the decision boundary is starting to better cover the spread of the data.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create a SVC classifier using an RBF kernel</span>
+svm <span style="color:#333">=</span> SVC(kernel<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;rbf&#39;</span>, random_state<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">0</span>, gamma<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">1</span>, C<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">1</span>)
+<span style="color:#888"># Train the classifier</span>
+svm<span style="color:#333">.</span>fit(X_xor, y_xor)
+
+<span style="color:#888"># Visualize the decision boundaries</span>
+plot_decision_regions(X_xor, y_xor, classifier<span style="color:#333">=</span>svm)
+plt<span style="color:#333">.</span>legend(loc<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;upper left&#39;</span>)
+plt<span style="color:#333">.</span>tight_layout()
+plt<span style="color:#333">.</span>show()</code></pre></div>
+<p><img src="svc_parameters_using_rbf_kernel_17_0.png" alt="png" /></p>
+
+<h3 id="gamma-10-0">Gamma = 10.0</h3>
+
+<p>At <code>gamma = 10</code> the spread of the kernel is less pronounced. The decision boundary starts to be highly effected by individual data points (i.e. variance).</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create a SVC classifier using an RBF kernel</span>
+svm <span style="color:#333">=</span> SVC(kernel<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;rbf&#39;</span>, random_state<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">0</span>, gamma<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">10</span>, C<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">1</span>)
+<span style="color:#888"># Train the classifier</span>
+svm<span style="color:#333">.</span>fit(X_xor, y_xor)
+
+<span style="color:#888"># Visualize the decision boundaries</span>
+plot_decision_regions(X_xor, y_xor, classifier<span style="color:#333">=</span>svm)
+plt<span style="color:#333">.</span>legend(loc<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;upper left&#39;</span>)
+plt<span style="color:#333">.</span>tight_layout()
+plt<span style="color:#333">.</span>show()</code></pre></div>
+<p><img src="svc_parameters_using_rbf_kernel_19_0.png" alt="png" /></p>
+
+<h3 id="gamma-100-0">Gamma = 100.0</h3>
+
+<p>With high <code>gamma</code>, the decision boundary is almost entirely dependent on individual data points, creating &ldquo;islands&rdquo;. This data is clearly overfitted.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create a SVC classifier using an RBF kernel</span>
+svm <span style="color:#333">=</span> SVC(kernel<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;rbf&#39;</span>, random_state<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">0</span>, gamma<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">100</span>, C<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">1</span>)
+<span style="color:#888"># Train the classifier</span>
+svm<span style="color:#333">.</span>fit(X_xor, y_xor)
+
+<span style="color:#888"># Visualize the decision boundaries</span>
+plot_decision_regions(X_xor, y_xor, classifier<span style="color:#333">=</span>svm)
+plt<span style="color:#333">.</span>legend(loc<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;upper left&#39;</span>)
+plt<span style="color:#333">.</span>tight_layout()
+plt<span style="color:#333">.</span>show()</code></pre></div>
+<p><img src="svc_parameters_using_rbf_kernel_21_0.png" alt="png" /></p>
+
+<h2 id="c-the-penalty-parameter">C - The Penalty Parameter</h2>
+
+<p>Now we will repeat the process for <code>C</code>: we will use the same classifier, same data, and hold <code>gamma</code> constant. The only thing we will change is the <code>C</code>, the penalty for misclassification.</p>
+
+<h3 id="c-1">C = 1</h3>
+
+<p>With <code>C = 1</code>, the classifier is clearly tolerant of misclassified data point. There are many red points in the blue region and blue points in the red region.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create a SVC classifier using an RBF kernel</span>
+svm <span style="color:#333">=</span> SVC(kernel<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;rbf&#39;</span>, random_state<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">0</span>, gamma<span style="color:#333">=.</span><span style="color:#40e;font-weight:bold">01</span>, C<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">1</span>)
+<span style="color:#888"># Train the classifier</span>
+svm<span style="color:#333">.</span>fit(X_xor, y_xor)
+
+<span style="color:#888"># Visualize the decision boundaries</span>
+plot_decision_regions(X_xor, y_xor, classifier<span style="color:#333">=</span>svm)
+plt<span style="color:#333">.</span>legend(loc<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;upper left&#39;</span>)
+plt<span style="color:#333">.</span>tight_layout()
+plt<span style="color:#333">.</span>show()</code></pre></div>
+<p><img src="svc_parameters_using_rbf_kernel_24_0.png" alt="png" /></p>
+
+<h3 id="c-10">C = 10</h3>
+
+<p>At <code>C = 10</code>, the classifier is less tolerant to misclassified data points and therefore the decision boundary is more severe.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create a SVC classifier using an RBF kernel</span>
+svm <span style="color:#333">=</span> SVC(kernel<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;rbf&#39;</span>, random_state<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">0</span>, gamma<span style="color:#333">=.</span><span style="color:#40e;font-weight:bold">01</span>, C<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">10</span>)
+<span style="color:#888"># Train the classifier</span>
+svm<span style="color:#333">.</span>fit(X_xor, y_xor)
+
+<span style="color:#888"># Visualize the decision boundaries</span>
+plot_decision_regions(X_xor, y_xor, classifier<span style="color:#333">=</span>svm)
+plt<span style="color:#333">.</span>legend(loc<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;upper left&#39;</span>)
+plt<span style="color:#333">.</span>tight_layout()
+plt<span style="color:#333">.</span>show()</code></pre></div>
+<p><img src="svc_parameters_using_rbf_kernel_26_0.png" alt="png" /></p>
+
+<h3 id="c-1000">C = 1000</h3>
+
+<p>When <code>C = 1000</code>, the classifier starts to become very intolerant to misclassified data points and thus the decision boundary becomes less biased and has more variance (i.e. more dependent on the individual data points).</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create a SVC classifier using an RBF kernel</span>
+svm <span style="color:#333">=</span> SVC(kernel<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;rbf&#39;</span>, random_state<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">0</span>, gamma<span style="color:#333">=.</span><span style="color:#40e;font-weight:bold">01</span>, C<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">1000</span>)
+<span style="color:#888"># Train the classifier</span>
+svm<span style="color:#333">.</span>fit(X_xor, y_xor)
+
+<span style="color:#888"># Visualize the decision boundaries</span>
+plot_decision_regions(X_xor, y_xor, classifier<span style="color:#333">=</span>svm)
+plt<span style="color:#333">.</span>legend(loc<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;upper left&#39;</span>)
+plt<span style="color:#333">.</span>tight_layout()
+plt<span style="color:#333">.</span>show()</code></pre></div>
+<p><img src="svc_parameters_using_rbf_kernel_28_0.png" alt="png" /></p>
+
+<h3 id="c-10000">C = 10000</h3>
+
+<p>At <code>C = 10000</code>, the classifier &ldquo;works really hard&rdquo; to not misclassify data points and we see signs of overfitting.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create a SVC classifier using an RBF kernel</span>
+svm <span style="color:#333">=</span> SVC(kernel<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;rbf&#39;</span>, random_state<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">0</span>, gamma<span style="color:#333">=.</span><span style="color:#40e;font-weight:bold">01</span>, C<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">10000</span>)
+<span style="color:#888"># Train the classifier</span>
+svm<span style="color:#333">.</span>fit(X_xor, y_xor)
+
+<span style="color:#888"># Visualize the decision boundaries</span>
+plot_decision_regions(X_xor, y_xor, classifier<span style="color:#333">=</span>svm)
+plt<span style="color:#333">.</span>legend(loc<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;upper left&#39;</span>)
+plt<span style="color:#333">.</span>tight_layout()
+plt<span style="color:#333">.</span>show()</code></pre></div>
+<p><img src="svc_parameters_using_rbf_kernel_30_0.png" alt="png" /></p>
+
+<h3 id="c-100000">C = 100000</h3>
+
+<p>At <code>C = 100000</code>, the classifier is heavily penalized for any misclassified data points and therefore the margins are small.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create a SVC classifier using an RBF kernel</span>
+svm <span style="color:#333">=</span> SVC(kernel<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;rbf&#39;</span>, random_state<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">0</span>, gamma<span style="color:#333">=.</span><span style="color:#40e;font-weight:bold">01</span>, C<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">100000</span>)
+<span style="color:#888"># Train the classifier</span>
+svm<span style="color:#333">.</span>fit(X_xor, y_xor)
+
+<span style="color:#888"># Visualize the decision boundaries</span>
+plot_decision_regions(X_xor, y_xor, classifier<span style="color:#333">=</span>svm)
+plt<span style="color:#333">.</span>legend(loc<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;upper left&#39;</span>)
+plt<span style="color:#333">.</span>tight_layout()
+plt<span style="color:#333">.</span>show()</code></pre></div>
+<p><img src="svc_parameters_using_rbf_kernel_32_0.png" alt="png" /></p>
+
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      Blog template created by <a href="https://twitter.com/mdo">@mdo</a>, ported to Hugo by <a href='https://twitter.com/mralanorth'>@mralanorth</a>.
+      
+      </p>
+    </footer>
+
+  </body>
+
+</html>

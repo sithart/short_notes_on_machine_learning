@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Mathematical Operations" />
+<meta property="og:description" content="Mathematical operations using Python." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://chrisalbon.com/python/math_operations/" />
+
+
+
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
+
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Mathematical Operations"/>
+<meta name="twitter:description" content="Mathematical operations using Python."/>
+<meta name="generator" content="Hugo 0.31.1" />
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Mathematical Operations",
+  "url": "https://chrisalbon.com/python/math_operations/",
+  "wordCount": "89",
+  "datePublished": "2017-12-20T11:53:49-07:00",
+  "dateModified": "2017-12-20T11:53:49-07:00",
+  "author": {
+    "@type": "Person",
+    "name": "Chris Albon"
+  },
+  "keywords": "python, Basics",
+  "description": "Mathematical operations using Python."
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://chrisalbon.com/python/math_operations/">
+
+    <title>Mathematical Operations | Chris Albon</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://chrisalbon.com/css/style.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+    <link href="https://chrisalbon.com/css/main.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+
+    
+
+    
+
+    <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link" href="https://chrisalbon.com/">Home</a></nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://chrisalbon.com/python/math_operations/">Mathematical Operations</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-12-20T11:53:49-07:00">Wed Dec 20, 2017</time> in 
+<i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="/categories/python" rel="category tag">python</a>
+
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/basics" rel="tag">Basics</a>
+
+</p>
+  </header>
+  
+
+<h3 id="import-the-math-module">Import the math module</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">math</span></code></pre></div>
+<h3 id="display-the-value-of-pi">Display the value of pi.</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">math<span style="color:#333">.</span>pi</code></pre></div>
+<pre><code>3.141592653589793
+</code></pre>
+
+<h3 id="display-the-value-of-e">Display the value of e.</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">math<span style="color:#333">.</span>e</code></pre></div>
+<pre><code>2.718281828459045
+</code></pre>
+
+<h3 id="sine-cosine-and-tangent">Sine, cosine, and tangent</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">math<span style="color:#333">.</span>sin(<span style="color:#00d;font-weight:bold">2</span> <span style="color:#333">*</span> math<span style="color:#333">.</span>pi <span style="color:#333">/</span> <span style="color:#00d;font-weight:bold">180</span>)</code></pre></div>
+<pre><code>0.03489949670250097
+</code></pre>
+
+<h3 id="exponent">Exponent</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#00d;font-weight:bold">2</span> <span style="color:#333">**</span> <span style="color:#00d;font-weight:bold">4</span>, <span style="color:#007020">pow</span>(<span style="color:#00d;font-weight:bold">2</span>, <span style="color:#00d;font-weight:bold">4</span>)</code></pre></div>
+<pre><code>(16, 16)
+</code></pre>
+
+<h3 id="absolute-value">Absolute value</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#007020">abs</span>(<span style="color:#333">-</span><span style="color:#00d;font-weight:bold">20</span>)</code></pre></div>
+<pre><code>20
+</code></pre>
+
+<h3 id="summation">Summation</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#007020">sum</span>((<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">2</span>, <span style="color:#00d;font-weight:bold">3</span>, <span style="color:#00d;font-weight:bold">4</span>))</code></pre></div>
+<pre><code>10
+</code></pre>
+
+<h3 id="minimum">Minimum</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#007020">min</span>(<span style="color:#00d;font-weight:bold">3</span>, <span style="color:#00d;font-weight:bold">9</span>, <span style="color:#00d;font-weight:bold">10</span>, <span style="color:#00d;font-weight:bold">12</span>)</code></pre></div>
+<pre><code>3
+</code></pre>
+
+<h3 id="maximum">Maximum</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#007020">max</span>(<span style="color:#00d;font-weight:bold">3</span>, <span style="color:#00d;font-weight:bold">5</span>, <span style="color:#00d;font-weight:bold">10</span>, <span style="color:#00d;font-weight:bold">15</span>)</code></pre></div>
+<pre><code>15
+</code></pre>
+
+<h3 id="floor">Floor</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">math<span style="color:#333">.</span>floor(<span style="color:#60e;font-weight:bold">2.949</span>)</code></pre></div>
+<pre><code>2
+</code></pre>
+
+<h3 id="truncate-drop-decimal-digits">Truncate (drop decimal digits)</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">math<span style="color:#333">.</span>trunc(<span style="color:#60e;font-weight:bold">32.09292</span>)</code></pre></div>
+<pre><code>32
+</code></pre>
+
+<h3 id="truncate-integer-conversion">Truncate (integer conversion)</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#007020">int</span>(<span style="color:#60e;font-weight:bold">3.292838</span>)</code></pre></div>
+<pre><code>3
+</code></pre>
+
+<h3 id="round-to-an-integrer">Round to an integrer</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#007020">round</span>(<span style="color:#60e;font-weight:bold">2.943</span>), <span style="color:#007020">round</span>(<span style="color:#60e;font-weight:bold">2.499</span>)</code></pre></div>
+<pre><code>(3, 2)
+</code></pre>
+
+<h3 id="round-by-2-digits">Round by 2 digits</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#007020">round</span>(<span style="color:#60e;font-weight:bold">2.569</span>, <span style="color:#00d;font-weight:bold">2</span>)</code></pre></div>
+<pre><code>2.57
+</code></pre>
+
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      Blog template created by <a href="https://twitter.com/mdo">@mdo</a>, ported to Hugo by <a href='https://twitter.com/mralanorth'>@mralanorth</a>.
+      
+      </p>
+    </footer>
+
+  </body>
+
+</html>

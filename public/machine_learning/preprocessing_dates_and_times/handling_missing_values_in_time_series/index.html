@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Handling Missing Values In Time Series" />
+<meta property="og:description" content="How to handle the missing values in time series in pandas for machine learning in Python." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/handling_missing_values_in_time_series/" />
+
+
+
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
+
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Handling Missing Values In Time Series"/>
+<meta name="twitter:description" content="How to handle the missing values in time series in pandas for machine learning in Python."/>
+<meta name="generator" content="Hugo 0.31.1" />
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Handling Missing Values In Time Series",
+  "url": "https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/handling_missing_values_in_time_series/",
+  "wordCount": "218",
+  "datePublished": "2017-12-20T11:53:49-07:00",
+  "dateModified": "2017-12-20T11:53:49-07:00",
+  "author": {
+    "@type": "Person",
+    "name": "Chris Albon"
+  },
+  "description": "How to handle the missing values in time series in pandas for machine learning in Python."
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/handling_missing_values_in_time_series/">
+
+    <title>Handling Missing Values In Time Series | Chris Albon</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://chrisalbon.com/css/style.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+    <link href="https://chrisalbon.com/css/main.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+
+    
+
+    
+
+    <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link" href="https://chrisalbon.com/">Home</a></nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/handling_missing_values_in_time_series/">Handling Missing Values In Time Series</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-12-20T11:53:49-07:00">Wed Dec 20, 2017</time></p>
+  </header>
+  
+
+<h2 id="preliminaries">Preliminaries</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Load libraries</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">pandas</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">pd</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">numpy</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">np</span></code></pre></div>
+<h2 id="create-date-data-with-gap-in-values">Create Date Data With Gap In Values</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create date</span>
+time_index <span style="color:#333">=</span> pd<span style="color:#333">.</span>date_range(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;01/01/2010&#39;</span>, periods<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">5</span>, freq<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;M&#39;</span>)
+
+<span style="color:#888"># Create data frame, set index</span>
+df <span style="color:#333">=</span> pd<span style="color:#333">.</span>DataFrame(index<span style="color:#333">=</span>time_index)
+
+<span style="color:#888"># Create feature with a gap of missing values</span>
+df[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Sales&#39;</span>] <span style="color:#333">=</span> [<span style="color:#60e;font-weight:bold">1.0</span>,<span style="color:#60e;font-weight:bold">2.0</span>,np<span style="color:#333">.</span>nan,np<span style="color:#333">.</span>nan,<span style="color:#60e;font-weight:bold">5.0</span>]</code></pre></div>
+<h2 id="interpolate-missing-values">Interpolate Missing Values</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Interpolate missing values</span>
+df<span style="color:#333">.</span>interpolate()</code></pre></div>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Sales</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2010-01-31</th>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2010-02-28</th>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>2010-03-31</th>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>2010-04-30</th>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>2010-05-31</th>
+      <td>5.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="forward-fill-missing-values">Forward-fill Missing Values</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Forward-fill</span>
+df<span style="color:#333">.</span>ffill()</code></pre></div>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Sales</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2010-01-31</th>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2010-02-28</th>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>2010-03-31</th>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>2010-04-30</th>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>2010-05-31</th>
+      <td>5.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="backfill-missing-values">Backfill Missing Values</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Back-fill</span>
+df<span style="color:#333">.</span>bfill()</code></pre></div>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Sales</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2010-01-31</th>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2010-02-28</th>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>2010-03-31</th>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>2010-04-30</th>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>2010-05-31</th>
+      <td>5.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="interpolate-missing-values-but-only-up-one-value">Interpolate Missing Values But Only Up One Value</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Interpolate missing values</span>
+df<span style="color:#333">.</span>interpolate(limit<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">1</span>, limit_direction<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;forward&#39;</span>)</code></pre></div>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Sales</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2010-01-31</th>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2010-02-28</th>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>2010-03-31</th>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>2010-04-30</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2010-05-31</th>
+      <td>5.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      Blog template created by <a href="https://twitter.com/mdo">@mdo</a>, ported to Hugo by <a href='https://twitter.com/mralanorth'>@mralanorth</a>.
+      
+      </p>
+    </footer>
+
+  </body>
+
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Assignment Operators" />
+<meta property="og:description" content="Assignment operators" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://chrisalbon.com/python/basics/assignment_operators/" />
+
+
+
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
+
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Assignment Operators"/>
+<meta name="twitter:description" content="Assignment operators"/>
+<meta name="generator" content="Hugo 0.31.1" />
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Assignment Operators",
+  "url": "https://chrisalbon.com/python/basics/assignment_operators/",
+  "wordCount": "176",
+  "datePublished": "2017-12-20T11:53:49-07:00",
+  "dateModified": "2017-12-20T11:53:49-07:00",
+  "author": {
+    "@type": "Person",
+    "name": "Chris Albon"
+  },
+  "description": "Assignment operators"
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://chrisalbon.com/python/basics/assignment_operators/">
+
+    <title>Assignment Operators | Chris Albon</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://chrisalbon.com/css/style.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+    <link href="https://chrisalbon.com/css/main.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+
+    
+
+    
+
+    <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link" href="https://chrisalbon.com/">Home</a></nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://chrisalbon.com/python/basics/assignment_operators/">Assignment Operators</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-12-20T11:53:49-07:00">Wed Dec 20, 2017</time></p>
+  </header>
+  
+
+<h3 id="create-some-variables">Create some variables</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">a <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">2</span>
+b <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">1</span>
+c <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">0</span>
+d <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">3</span></code></pre></div>
+<h3 id="assigns-values-from-right-side-to-left-side">Assigns values from right side to left side</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">c <span style="color:#333">=</span> a <span style="color:#333">+</span> b
+c</code></pre></div>
+<pre><code>3
+</code></pre>
+
+<h3 id="add-right-to-the-left-and-assign-the-result-to-left-c-a-c">Add right to the left and assign the result to left (c = a + c)</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">c <span style="color:#333">+=</span> a
+c</code></pre></div>
+<pre><code>5
+</code></pre>
+
+<h3 id="subtract-right-from-the-left-and-assign-the-result-to-left-c-a-c">Subtract right from the left and assign the result to left (c = a - c)</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">c <span style="color:#333">-=</span> a
+c</code></pre></div>
+<pre><code>3
+</code></pre>
+
+<h3 id="multiply-right-with-the-left-and-assign-the-result-to-left-c-a-c">Multiply right with the left and assign the result to left (c = a * c)</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">c <span style="color:#333">*=</span> a
+c</code></pre></div>
+<pre><code>6
+</code></pre>
+
+<h3 id="divide-left-with-the-right-and-assign-the-result-to-left-c-c-a">Divide left with the right and assign the result to left (c = c / a)</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">c <span style="color:#333">/=</span> a
+c</code></pre></div>
+<pre><code>3.0
+</code></pre>
+
+<h3 id="takes-modulus-using-two-operands-and-assign-the-result-to-left-a-d-a">Takes modulus using two operands and assign the result to left (a = d % a)</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">d <span style="color:#333">%=</span> a
+d</code></pre></div>
+<pre><code>1
+</code></pre>
+
+<h3 id="exponential-power-calculation-on-operators-and-assign-value-to-the-left-d-d-a">Exponential (power) calculation on operators and assign value to the left (d = d ^ a)</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">d <span style="color:#333">**=</span> a
+d</code></pre></div>
+<pre><code>1
+</code></pre>
+
+<h3 id="floor-division-on-operators-and-assign-value-to-the-left-d-d-a">Floor division on operators and assign value to the left (d = d // a)</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">d <span style="color:#333">//=</span> a
+d</code></pre></div>
+<pre><code>0
+</code></pre>
+
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      Blog template created by <a href="https://twitter.com/mdo">@mdo</a>, ported to Hugo by <a href='https://twitter.com/mralanorth'>@mralanorth</a>.
+      
+      </p>
+    </footer>
+
+  </body>
+
+</html>

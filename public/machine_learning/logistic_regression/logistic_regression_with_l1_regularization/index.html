@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Logistic Regression With L1 Regularization" />
+<meta property="og:description" content="Logistic Regression With L1 Regularization using scikit-learn." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://chrisalbon.com/machine_learning/logistic_regression/logistic_regression_with_l1_regularization/" />
+
+
+
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
+
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Logistic Regression With L1 Regularization"/>
+<meta name="twitter:description" content="Logistic Regression With L1 Regularization using scikit-learn."/>
+<meta name="generator" content="Hugo 0.31.1" />
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Logistic Regression With L1 Regularization",
+  "url": "https://chrisalbon.com/machine_learning/logistic_regression/logistic_regression_with_l1_regularization/",
+  "wordCount": "634",
+  "datePublished": "2017-12-20T11:53:49-07:00",
+  "dateModified": "2017-12-20T11:53:49-07:00",
+  "author": {
+    "@type": "Person",
+    "name": "Chris Albon"
+  },
+  "description": "Logistic Regression With L1 Regularization using scikit-learn."
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://chrisalbon.com/machine_learning/logistic_regression/logistic_regression_with_l1_regularization/">
+
+    <title>Logistic Regression With L1 Regularization | Chris Albon</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://chrisalbon.com/css/style.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+    <link href="https://chrisalbon.com/css/main.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+
+    
+
+    
+
+    <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link" href="https://chrisalbon.com/">Home</a></nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://chrisalbon.com/machine_learning/logistic_regression/logistic_regression_with_l1_regularization/">Logistic Regression With L1 Regularization</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-12-20T11:53:49-07:00">Wed Dec 20, 2017</time></p>
+  </header>
+  
+
+<p>L1 regularization (also called least absolute deviations) is a powerful tool in data science. There are many tutorials out there explaining L1 regularization and I will not try to do that here. Instead, this tutorial is show the effect of the regularization parameter <code>C</code> on the coefficients and model accuracy.</p>
+
+<h2 id="preliminaries">Preliminaries</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">numpy</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">np</span>
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">sklearn.linear_model</span> <span style="color:#080;font-weight:bold">import</span> LogisticRegression
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">sklearn</span> <span style="color:#080;font-weight:bold">import</span> datasets
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">sklearn.model_selection</span> <span style="color:#080;font-weight:bold">import</span> train_test_split
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">sklearn.preprocessing</span> <span style="color:#080;font-weight:bold">import</span> StandardScaler</code></pre></div>
+<h2 id="create-the-data">Create The Data</h2>
+
+<p>The dataset used in this tutorial is the famous <a href="https://en.wikipedia.org/wiki/Iris_flower_data_set">iris dataset</a>. The Iris target data contains 50 samples from three species of Iris, <code>y</code> and four feature variables, <code>X</code>.</p>
+
+<p>The dataset contains three categories (three species of Iris), however for the sake of simplicity it is easier if the target data is binary. Therefore we will remove the data from the last species of Iris.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Load the iris dataset</span>
+iris <span style="color:#333">=</span> datasets<span style="color:#333">.</span>load_iris()
+
+<span style="color:#888"># Create X from the features</span>
+X <span style="color:#333">=</span> iris<span style="color:#333">.</span>data
+
+<span style="color:#888"># Create y from output</span>
+y <span style="color:#333">=</span> iris<span style="color:#333">.</span>target
+
+<span style="color:#888"># Remake the variable, keeping all data where the category is not 2.</span>
+X <span style="color:#333">=</span> X[y <span style="color:#333">!=</span> <span style="color:#00d;font-weight:bold">2</span>]
+y <span style="color:#333">=</span> y[y <span style="color:#333">!=</span> <span style="color:#00d;font-weight:bold">2</span>]</code></pre></div>
+<h2 id="view-the-data">View The Data</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># View the features</span>
+X[<span style="color:#00d;font-weight:bold">0</span>:<span style="color:#00d;font-weight:bold">5</span>]</code></pre></div>
+<pre><code>array([[ 5.1,  3.5,  1.4,  0.2],
+       [ 4.9,  3. ,  1.4,  0.2],
+       [ 4.7,  3.2,  1.3,  0.2],
+       [ 4.6,  3.1,  1.5,  0.2],
+       [ 5. ,  3.6,  1.4,  0.2]])
+</code></pre>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># View the target data</span>
+y</code></pre></div>
+<pre><code>array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+       1, 1, 1, 1, 1, 1, 1, 1])
+</code></pre>
+
+<h2 id="split-the-data-into-training-and-test-sets">Split The Data Into Training And Test Sets</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Split the data into test and training sets, with 30% of samples being put into the test set</span>
+X_train, X_test, y_train, y_test <span style="color:#333">=</span> train_test_split(X, y, test_size<span style="color:#333">=</span><span style="color:#60e;font-weight:bold">0.3</span>, random_state<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">0</span>)</code></pre></div>
+<h2 id="standardize-features">Standardize Features</h2>
+
+<p>Because the regularization penalty is comprised of the sum of the absolute value of the coefficients, we need to scale the data so the coefficients are all based on the same scale.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create a scaler object</span>
+sc <span style="color:#333">=</span> StandardScaler()
+
+<span style="color:#888"># Fit the scaler to the training data and transform</span>
+X_train_std <span style="color:#333">=</span> sc<span style="color:#333">.</span>fit_transform(X_train)
+
+<span style="color:#888"># Apply the scaler to the test data</span>
+X_test_std <span style="color:#333">=</span> sc<span style="color:#333">.</span>transform(X_test)</code></pre></div>
+<h2 id="run-logistic-regression-with-a-l1-penalty-with-various-regularization-strengths">Run Logistic Regression With A L1 Penalty With Various Regularization Strengths</h2>
+
+<p>The usefulness of L1 is that it can push feature coefficients to 0, creating a method for feature selection. In the code below we run a logistic regression with a L1 penalty four times, each time decreasing the value of <code>C</code>. We should expect that as <code>C</code> decreases, more coefficients become 0.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">C <span style="color:#333">=</span> [<span style="color:#00d;font-weight:bold">10</span>, <span style="color:#00d;font-weight:bold">1</span>, <span style="color:#333">.</span><span style="color:#00d;font-weight:bold">1</span>, <span style="color:#333">.</span><span style="color:#40e;font-weight:bold">001</span>]
+
+<span style="color:#080;font-weight:bold">for</span> c <span style="color:#000;font-weight:bold">in</span> C:
+    clf <span style="color:#333">=</span> LogisticRegression(penalty<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;l1&#39;</span>, C<span style="color:#333">=</span>c)
+    clf<span style="color:#333">.</span>fit(X_train, y_train)
+    <span style="color:#080;font-weight:bold">print</span>(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;C:&#39;</span>, c)
+    <span style="color:#080;font-weight:bold">print</span>(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Coefficient of each feature:&#39;</span>, clf<span style="color:#333">.</span>coef_)
+    <span style="color:#080;font-weight:bold">print</span>(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Training accuracy:&#39;</span>, clf<span style="color:#333">.</span>score(X_train, y_train))
+    <span style="color:#080;font-weight:bold">print</span>(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Test accuracy:&#39;</span>, clf<span style="color:#333">.</span>score(X_test, y_test))
+    <span style="color:#080;font-weight:bold">print</span>(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;&#39;</span>)</code></pre></div>
+<pre><code>C: 10
+Coefficient of each feature: [[-0.0855264  -3.75409972  4.40427765  0.        ]]
+Training accuracy: 1.0
+Test accuracy: 1.0
+
+C: 1
+Coefficient of each feature: [[ 0.         -2.28800472  2.5766469   0.        ]]
+Training accuracy: 1.0
+Test accuracy: 1.0
+
+C: 0.1
+Coefficient of each feature: [[ 0.         -0.82310456  0.97171847  0.        ]]
+Training accuracy: 1.0
+Test accuracy: 1.0
+
+C: 0.001
+Coefficient of each feature: [[ 0.  0.  0.  0.]]
+Training accuracy: 0.5
+Test accuracy: 0.5
+</code></pre>
+
+<p>Notice that as <code>C</code> decreases the model coefficients become smaller (for example from <code>4.36276075</code> when <code>C=10</code> to <code>0.0.97175097</code> when <code>C=0.1</code>), until at <code>C=0.001</code> all the coefficients are zero. This is the effect of the regularization penalty becoming more prominent.</p>
+
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      Blog template created by <a href="https://twitter.com/mdo">@mdo</a>, ported to Hugo by <a href='https://twitter.com/mralanorth'>@mralanorth</a>.
+      
+      </p>
+    </footer>
+
+  </body>
+
+</html>

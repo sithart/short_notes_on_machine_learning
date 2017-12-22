@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Precision" />
+<meta property="og:description" content="How to evaluate a Python machine learning using precision." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://chrisalbon.com/machine_learning/model_evaluation/precision/" />
+
+
+
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
+
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Precision"/>
+<meta name="twitter:description" content="How to evaluate a Python machine learning using precision."/>
+<meta name="generator" content="Hugo 0.31.1" />
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Precision",
+  "url": "https://chrisalbon.com/machine_learning/model_evaluation/precision/",
+  "wordCount": "76",
+  "datePublished": "2017-12-20T11:53:49-07:00",
+  "dateModified": "2017-12-20T11:53:49-07:00",
+  "author": {
+    "@type": "Person",
+    "name": "Chris Albon"
+  },
+  "description": "How to evaluate a Python machine learning using precision."
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://chrisalbon.com/machine_learning/model_evaluation/precision/">
+
+    <title>Precision | Chris Albon</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://chrisalbon.com/css/style.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+    <link href="https://chrisalbon.com/css/main.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+
+    
+
+    
+
+    <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link" href="https://chrisalbon.com/">Home</a></nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://chrisalbon.com/machine_learning/model_evaluation/precision/">Precision</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-12-20T11:53:49-07:00">Wed Dec 20, 2017</time></p>
+  </header>
+  
+
+<p><a alt="Precision" href="https://machinelearningflashcards.com">
+    <img src="precision/Precision_print.png" class="flashcard center-block">
+</a></p>
+
+<h2 id="preliminaries">Preliminaries</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Load libraries</span>
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">sklearn.model_selection</span> <span style="color:#080;font-weight:bold">import</span> cross_val_score
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">sklearn.linear_model</span> <span style="color:#080;font-weight:bold">import</span> LogisticRegression
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">sklearn.datasets</span> <span style="color:#080;font-weight:bold">import</span> make_classification</code></pre></div>
+<h2 id="generate-features-and-target-data">Generate Features And Target Data</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Generate features matrix and target vector</span>
+X, y <span style="color:#333">=</span> make_classification(n_samples <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">10000</span>,
+                           n_features <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">3</span>,
+                           n_informative <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">3</span>,
+                           n_redundant <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">0</span>,
+                           n_classes <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">2</span>,
+                           random_state <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">1</span>)</code></pre></div>
+<h2 id="create-logistic-regression">Create Logistic Regression</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create logistic regression</span>
+logit <span style="color:#333">=</span> LogisticRegression()</code></pre></div>
+<h2 id="cross-validate-model-using-precision">Cross-Validate Model Using Precision</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Cross-validate model using precision</span>
+cross_val_score(logit, X, y, scoring<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#34;precision&#34;</span>)</code></pre></div>
+<pre><code>array([ 0.95252404,  0.96583282,  0.95558223])
+</code></pre>
+
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      Blog template created by <a href="https://twitter.com/mdo">@mdo</a>, ported to Hugo by <a href='https://twitter.com/mralanorth'>@mralanorth</a>.
+      
+      </p>
+    </footer>
+
+  </body>
+
+</html>

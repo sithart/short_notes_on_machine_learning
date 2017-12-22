@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Visualize Performance History" />
+<meta property="og:description" content="Visualize neural network performance history in Keras in Python." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://chrisalbon.com/deep_learning/keras/visualize_performance_history/" />
+
+
+
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
+
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Visualize Performance History"/>
+<meta name="twitter:description" content="Visualize neural network performance history in Keras in Python."/>
+<meta name="generator" content="Hugo 0.31.1" />
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Visualize Performance History",
+  "url": "https://chrisalbon.com/deep_learning/keras/visualize_performance_history/",
+  "wordCount": "261",
+  "datePublished": "2017-12-20T11:53:49-07:00",
+  "dateModified": "2017-12-20T11:53:49-07:00",
+  "author": {
+    "@type": "Person",
+    "name": "Chris Albon"
+  },
+  "description": "Visualize neural network performance history in Keras in Python."
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://chrisalbon.com/deep_learning/keras/visualize_performance_history/">
+
+    <title>Visualize Performance History | Chris Albon</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://chrisalbon.com/css/style.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+    <link href="https://chrisalbon.com/css/main.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+
+    
+
+    
+
+    <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link" href="https://chrisalbon.com/">Home</a></nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://chrisalbon.com/deep_learning/keras/visualize_performance_history/">Visualize Performance History</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-12-20T11:53:49-07:00">Wed Dec 20, 2017</time></p>
+  </header>
+  
+
+<h2 id="preliminaries">Preliminaries</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Load libraries</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">numpy</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">np</span>
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">keras.datasets</span> <span style="color:#080;font-weight:bold">import</span> imdb
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">keras.preprocessing.text</span> <span style="color:#080;font-weight:bold">import</span> Tokenizer
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">keras</span> <span style="color:#080;font-weight:bold">import</span> models
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">keras</span> <span style="color:#080;font-weight:bold">import</span> layers
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">matplotlib.pyplot</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">plt</span>
+
+<span style="color:#888"># Set random seed</span>
+np<span style="color:#333">.</span>random<span style="color:#333">.</span>seed(<span style="color:#00d;font-weight:bold">0</span>)</code></pre></div>
+<pre><code>Using TensorFlow backend.
+</code></pre>
+
+<h2 id="load-movie-review-data">Load Movie Review Data</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Set the number of features we want</span>
+number_of_features <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">10000</span>
+
+<span style="color:#888"># Load data and target vector from movie review data</span>
+(train_data, train_target), (test_data, test_target) <span style="color:#333">=</span> imdb<span style="color:#333">.</span>load_data(num_words<span style="color:#333">=</span>number_of_features)
+
+<span style="color:#888"># Convert movie review data to a one-hot encoded feature matrix</span>
+tokenizer <span style="color:#333">=</span> Tokenizer(num_words<span style="color:#333">=</span>number_of_features)
+train_features <span style="color:#333">=</span> tokenizer<span style="color:#333">.</span>sequences_to_matrix(train_data, mode<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;binary&#39;</span>)
+test_features <span style="color:#333">=</span> tokenizer<span style="color:#333">.</span>sequences_to_matrix(test_data, mode<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;binary&#39;</span>)</code></pre></div>
+<h2 id="create-neural-network-architecture">Create Neural Network Architecture</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Start neural network</span>
+network <span style="color:#333">=</span> models<span style="color:#333">.</span>Sequential()
+
+<span style="color:#888"># Add fully connected layer with a ReLU activation function</span>
+network<span style="color:#333">.</span>add(layers<span style="color:#333">.</span>Dense(units<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">16</span>, activation<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;relu&#39;</span>, input_shape<span style="color:#333">=</span>(number_of_features,)))
+
+<span style="color:#888"># Add fully connected layer with a ReLU activation function</span>
+network<span style="color:#333">.</span>add(layers<span style="color:#333">.</span>Dense(units<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">16</span>, activation<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;relu&#39;</span>))
+
+<span style="color:#888"># Add fully connected layer with a sigmoid activation function</span>
+network<span style="color:#333">.</span>add(layers<span style="color:#333">.</span>Dense(units<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">1</span>, activation<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;sigmoid&#39;</span>))</code></pre></div>
+<h2 id="compile-neural-network">Compile Neural Network</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Compile neural network</span>
+network<span style="color:#333">.</span><span style="color:#007020">compile</span>(loss<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;binary_crossentropy&#39;</span>, <span style="color:#888"># Cross-entropy</span>
+                optimizer<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;rmsprop&#39;</span>, <span style="color:#888"># Root Mean Square Propagation</span>
+                metrics<span style="color:#333">=</span>[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;accuracy&#39;</span>]) <span style="color:#888"># Accuracy performance metric</span></code></pre></div>
+<h2 id="train-neural-network">Train Neural Network</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Train neural network</span>
+history <span style="color:#333">=</span> network<span style="color:#333">.</span>fit(train_features, <span style="color:#888"># Features</span>
+                      train_target, <span style="color:#888"># Target</span>
+                      epochs<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">15</span>, <span style="color:#888"># Number of epochs</span>
+                      verbose<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">0</span>, <span style="color:#888"># No output</span>
+                      batch_size<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">1000</span>, <span style="color:#888"># Number of observations per batch</span>
+                      validation_data<span style="color:#333">=</span>(test_features, test_target)) <span style="color:#888"># Data for evaluation</span></code></pre></div>
+<h2 id="visualize-neural-network-performance-history">Visualize Neural Network Performance History</h2>
+
+<p>Specifically, we visualize the neural network&rsquo;s accuracy score on training and test sets over each epoch.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Get training and test accuracy histories</span>
+training_accuracy <span style="color:#333">=</span> history<span style="color:#333">.</span>history[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;acc&#39;</span>]
+test_accuracy <span style="color:#333">=</span> history<span style="color:#333">.</span>history[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;val_acc&#39;</span>]
+
+<span style="color:#888"># Create count of the number of epochs</span>
+epoch_count <span style="color:#333">=</span> <span style="color:#007020">range</span>(<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#007020">len</span>(training_accuracy) <span style="color:#333">+</span> <span style="color:#00d;font-weight:bold">1</span>)
+
+<span style="color:#888"># Visualize accuracy history</span>
+plt<span style="color:#333">.</span>plot(epoch_count, training_accuracy, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;r--&#39;</span>)
+plt<span style="color:#333">.</span>plot(epoch_count, test_accuracy, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;b-&#39;</span>)
+plt<span style="color:#333">.</span>legend([<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Training Accuracy&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Test Accuracy&#39;</span>])
+plt<span style="color:#333">.</span>xlabel(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Epoch&#39;</span>)
+plt<span style="color:#333">.</span>ylabel(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Accuracy Score&#39;</span>)
+plt<span style="color:#333">.</span>show();</code></pre></div>
+<p><img src="visualize_performance_history_12_0.png" alt="png" /></p>
+
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      Blog template created by <a href="https://twitter.com/mdo">@mdo</a>, ported to Hugo by <a href='https://twitter.com/mralanorth'>@mralanorth</a>.
+      
+      </p>
+    </footer>
+
+  </body>
+
+</html>

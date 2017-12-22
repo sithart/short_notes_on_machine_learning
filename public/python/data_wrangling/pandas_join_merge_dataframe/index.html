@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Join And Merge Pandas Dataframe" />
+<meta property="og:description" content="Join and merge pandas dataframe." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://chrisalbon.com/python/data_wrangling/pandas_join_merge_dataframe/" />
+
+
+
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
+
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Join And Merge Pandas Dataframe"/>
+<meta name="twitter:description" content="Join and merge pandas dataframe."/>
+<meta name="generator" content="Hugo 0.31.1" />
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Join And Merge Pandas Dataframe",
+  "url": "https://chrisalbon.com/python/data_wrangling/pandas_join_merge_dataframe/",
+  "wordCount": "785",
+  "datePublished": "2017-12-20T11:53:49-07:00",
+  "dateModified": "2017-12-20T11:53:49-07:00",
+  "author": {
+    "@type": "Person",
+    "name": "Chris Albon"
+  },
+  "description": "Join and merge pandas dataframe."
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://chrisalbon.com/python/data_wrangling/pandas_join_merge_dataframe/">
+
+    <title>Join And Merge Pandas Dataframe | Chris Albon</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://chrisalbon.com/css/style.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+    <link href="https://chrisalbon.com/css/main.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+
+    
+
+    
+
+    <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link" href="https://chrisalbon.com/">Home</a></nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://chrisalbon.com/python/data_wrangling/pandas_join_merge_dataframe/">Join And Merge Pandas Dataframe</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-12-20T11:53:49-07:00">Wed Dec 20, 2017</time></p>
+  </header>
+  
+
+<h3 id="import-modules">import modules</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">pandas</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">pd</span>
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">IPython.display</span> <span style="color:#080;font-weight:bold">import</span> display
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">IPython.display</span> <span style="color:#080;font-weight:bold">import</span> Image</code></pre></div>
+<h3 id="create-a-dataframe">Create a dataframe</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">raw_data <span style="color:#333">=</span> {
+        <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;subject_id&#39;</span>: [<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;1&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;2&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;3&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;4&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;5&#39;</span>],
+        <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;first_name&#39;</span>: [<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Alex&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Amy&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Allen&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Alice&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Ayoung&#39;</span>], 
+        <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;last_name&#39;</span>: [<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Anderson&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Ackerman&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Ali&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Aoni&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Atiches&#39;</span>]}
+df_a <span style="color:#333">=</span> pd<span style="color:#333">.</span>DataFrame(raw_data, columns <span style="color:#333">=</span> [<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;subject_id&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;first_name&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;last_name&#39;</span>])
+df_a</code></pre></div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>subject_id</th>
+      <th>first_name</th>
+      <th>last_name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Alex</td>
+      <td>Anderson</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>Amy</td>
+      <td>Ackerman</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>Allen</td>
+      <td>Ali</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>Alice</td>
+      <td>Aoni</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>Ayoung</td>
+      <td>Atiches</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="create-a-second-dataframe">Create a second dataframe</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">raw_data <span style="color:#333">=</span> {
+        <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;subject_id&#39;</span>: [<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;4&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;5&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;6&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;7&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;8&#39;</span>],
+        <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;first_name&#39;</span>: [<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Billy&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Brian&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Bran&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Bryce&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Betty&#39;</span>], 
+        <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;last_name&#39;</span>: [<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Bonder&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Black&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Balwner&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Brice&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Btisan&#39;</span>]}
+df_b <span style="color:#333">=</span> pd<span style="color:#333">.</span>DataFrame(raw_data, columns <span style="color:#333">=</span> [<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;subject_id&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;first_name&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;last_name&#39;</span>])
+df_b</code></pre></div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>subject_id</th>
+      <th>first_name</th>
+      <th>last_name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>4</td>
+      <td>Billy</td>
+      <td>Bonder</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>5</td>
+      <td>Brian</td>
+      <td>Black</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>6</td>
+      <td>Bran</td>
+      <td>Balwner</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>7</td>
+      <td>Bryce</td>
+      <td>Brice</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>8</td>
+      <td>Betty</td>
+      <td>Btisan</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="create-a-third-dataframe">Create a third dataframe</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">raw_data <span style="color:#333">=</span> {
+        <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;subject_id&#39;</span>: [<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;1&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;2&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;3&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;4&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;5&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;7&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;8&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;9&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;10&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;11&#39;</span>],
+        <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;test_id&#39;</span>: [<span style="color:#00d;font-weight:bold">51</span>, <span style="color:#00d;font-weight:bold">15</span>, <span style="color:#00d;font-weight:bold">15</span>, <span style="color:#00d;font-weight:bold">61</span>, <span style="color:#00d;font-weight:bold">16</span>, <span style="color:#00d;font-weight:bold">14</span>, <span style="color:#00d;font-weight:bold">15</span>, <span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">61</span>, <span style="color:#00d;font-weight:bold">16</span>]}
+df_n <span style="color:#333">=</span> pd<span style="color:#333">.</span>DataFrame(raw_data, columns <span style="color:#333">=</span> [<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;subject_id&#39;</span>,<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;test_id&#39;</span>])
+df_n</code></pre></div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>subject_id</th>
+      <th>test_id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>51</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>61</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>7</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>8</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>9</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>10</td>
+      <td>61</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>11</td>
+      <td>16</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="join-the-two-dataframes-along-rows">Join the two dataframes along rows</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df_new <span style="color:#333">=</span> pd<span style="color:#333">.</span>concat([df_a, df_b])
+df_new</code></pre></div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>subject_id</th>
+      <th>first_name</th>
+      <th>last_name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Alex</td>
+      <td>Anderson</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>Amy</td>
+      <td>Ackerman</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>Allen</td>
+      <td>Ali</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>Alice</td>
+      <td>Aoni</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>Ayoung</td>
+      <td>Atiches</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>4</td>
+      <td>Billy</td>
+      <td>Bonder</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>5</td>
+      <td>Brian</td>
+      <td>Black</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>6</td>
+      <td>Bran</td>
+      <td>Balwner</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>7</td>
+      <td>Bryce</td>
+      <td>Brice</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>8</td>
+      <td>Betty</td>
+      <td>Btisan</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="join-the-two-dataframes-along-columns">Join the two dataframes along columns</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">pd<span style="color:#333">.</span>concat([df_a, df_b], axis<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">1</span>)</code></pre></div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>subject_id</th>
+      <th>first_name</th>
+      <th>last_name</th>
+      <th>subject_id</th>
+      <th>first_name</th>
+      <th>last_name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Alex</td>
+      <td>Anderson</td>
+      <td>4</td>
+      <td>Billy</td>
+      <td>Bonder</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>Amy</td>
+      <td>Ackerman</td>
+      <td>5</td>
+      <td>Brian</td>
+      <td>Black</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>Allen</td>
+      <td>Ali</td>
+      <td>6</td>
+      <td>Bran</td>
+      <td>Balwner</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>Alice</td>
+      <td>Aoni</td>
+      <td>7</td>
+      <td>Bryce</td>
+      <td>Brice</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>Ayoung</td>
+      <td>Atiches</td>
+      <td>8</td>
+      <td>Betty</td>
+      <td>Btisan</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="merge-two-dataframes-along-the-subject-id-value">Merge two dataframes along the subject_id value</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">pd<span style="color:#333">.</span>merge(df_new, df_n, on<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;subject_id&#39;</span>)</code></pre></div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>subject_id</th>
+      <th>first_name</th>
+      <th>last_name</th>
+      <th>test_id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Alex</td>
+      <td>Anderson</td>
+      <td>51</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>Amy</td>
+      <td>Ackerman</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>Allen</td>
+      <td>Ali</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>Alice</td>
+      <td>Aoni</td>
+      <td>61</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>Billy</td>
+      <td>Bonder</td>
+      <td>61</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>5</td>
+      <td>Ayoung</td>
+      <td>Atiches</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>5</td>
+      <td>Brian</td>
+      <td>Black</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>7</td>
+      <td>Bryce</td>
+      <td>Brice</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>8</td>
+      <td>Betty</td>
+      <td>Btisan</td>
+      <td>15</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="merge-two-dataframes-with-both-the-left-and-right-dataframes-using-the-subject-id-key">Merge two dataframes with both the left and right dataframes using the subject_id key</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">pd<span style="color:#333">.</span>merge(df_new, df_n, left_on<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;subject_id&#39;</span>, right_on<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;subject_id&#39;</span>)</code></pre></div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>subject_id</th>
+      <th>first_name</th>
+      <th>last_name</th>
+      <th>test_id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Alex</td>
+      <td>Anderson</td>
+      <td>51</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>Amy</td>
+      <td>Ackerman</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>Allen</td>
+      <td>Ali</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>Alice</td>
+      <td>Aoni</td>
+      <td>61</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>Billy</td>
+      <td>Bonder</td>
+      <td>61</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>5</td>
+      <td>Ayoung</td>
+      <td>Atiches</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>5</td>
+      <td>Brian</td>
+      <td>Black</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>7</td>
+      <td>Bryce</td>
+      <td>Brice</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>8</td>
+      <td>Betty</td>
+      <td>Btisan</td>
+      <td>15</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="merge-with-outer-join">Merge with outer join</h3>
+
+<p>&ldquo;Full outer join produces the set of all records in Table A and Table B, with matching records from both sides where available. If there is no match, the missing side will contain null.&rdquo; - <a href="http://blog.codinghorror.com/a-visual-explanation-of-sql-joins/">source</a></p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">pd<span style="color:#333">.</span>merge(df_a, df_b, on<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;subject_id&#39;</span>, how<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;outer&#39;</span>)</code></pre></div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>subject_id</th>
+      <th>first_name_x</th>
+      <th>last_name_x</th>
+      <th>first_name_y</th>
+      <th>last_name_y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Alex</td>
+      <td>Anderson</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>Amy</td>
+      <td>Ackerman</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>Allen</td>
+      <td>Ali</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>Alice</td>
+      <td>Aoni</td>
+      <td>Billy</td>
+      <td>Bonder</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>Ayoung</td>
+      <td>Atiches</td>
+      <td>Brian</td>
+      <td>Black</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Bran</td>
+      <td>Balwner</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>7</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Bryce</td>
+      <td>Brice</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>8</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Betty</td>
+      <td>Btisan</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="merge-with-inner-join">Merge with inner join</h3>
+
+<p>&ldquo;Inner join produces only the set of records that match in both Table A and Table B.&rdquo; - <a href="http://blog.codinghorror.com/a-visual-explanation-of-sql-joins/">source</a></p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">pd<span style="color:#333">.</span>merge(df_a, df_b, on<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;subject_id&#39;</span>, how<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;inner&#39;</span>)</code></pre></div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>subject_id</th>
+      <th>first_name_x</th>
+      <th>last_name_x</th>
+      <th>first_name_y</th>
+      <th>last_name_y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>4</td>
+      <td>Alice</td>
+      <td>Aoni</td>
+      <td>Billy</td>
+      <td>Bonder</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>5</td>
+      <td>Ayoung</td>
+      <td>Atiches</td>
+      <td>Brian</td>
+      <td>Black</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="merge-with-right-join">Merge with right join</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">pd<span style="color:#333">.</span>merge(df_a, df_b, on<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;subject_id&#39;</span>, how<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;right&#39;</span>)</code></pre></div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>subject_id</th>
+      <th>first_name_x</th>
+      <th>last_name_x</th>
+      <th>first_name_y</th>
+      <th>last_name_y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>4</td>
+      <td>Alice</td>
+      <td>Aoni</td>
+      <td>Billy</td>
+      <td>Bonder</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>5</td>
+      <td>Ayoung</td>
+      <td>Atiches</td>
+      <td>Brian</td>
+      <td>Black</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>6</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Bran</td>
+      <td>Balwner</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>7</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Bryce</td>
+      <td>Brice</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>8</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Betty</td>
+      <td>Btisan</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="merge-with-left-join">Merge with left join</h3>
+
+<p>&ldquo;Left outer join produces a complete set of records from Table A, with the matching records (where available) in Table B. If there is no match, the right side will contain null.&rdquo; - <a href="http://blog.codinghorror.com/a-visual-explanation-of-sql-joins/">source</a></p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">pd<span style="color:#333">.</span>merge(df_a, df_b, on<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;subject_id&#39;</span>, how<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;left&#39;</span>)</code></pre></div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>subject_id</th>
+      <th>first_name_x</th>
+      <th>last_name_x</th>
+      <th>first_name_y</th>
+      <th>last_name_y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Alex</td>
+      <td>Anderson</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>Amy</td>
+      <td>Ackerman</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>Allen</td>
+      <td>Ali</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>Alice</td>
+      <td>Aoni</td>
+      <td>Billy</td>
+      <td>Bonder</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>Ayoung</td>
+      <td>Atiches</td>
+      <td>Brian</td>
+      <td>Black</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="merge-while-adding-a-suffix-to-duplicate-column-names">Merge while adding a suffix to duplicate column names</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">pd<span style="color:#333">.</span>merge(df_a, df_b, on<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;subject_id&#39;</span>, how<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;left&#39;</span>, suffixes<span style="color:#333">=</span>(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;_left&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;_right&#39;</span>))</code></pre></div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>subject_id</th>
+      <th>first_name_left</th>
+      <th>last_name_left</th>
+      <th>first_name_right</th>
+      <th>last_name_right</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Alex</td>
+      <td>Anderson</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>Amy</td>
+      <td>Ackerman</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>Allen</td>
+      <td>Ali</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>Alice</td>
+      <td>Aoni</td>
+      <td>Billy</td>
+      <td>Bonder</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>Ayoung</td>
+      <td>Atiches</td>
+      <td>Brian</td>
+      <td>Black</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="merge-based-on-indexes">Merge based on indexes</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">pd<span style="color:#333">.</span>merge(df_a, df_b, right_index<span style="color:#333">=</span>True, left_index<span style="color:#333">=</span>True)</code></pre></div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>subject_id_x</th>
+      <th>first_name_x</th>
+      <th>last_name_x</th>
+      <th>subject_id_y</th>
+      <th>first_name_y</th>
+      <th>last_name_y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Alex</td>
+      <td>Anderson</td>
+      <td>4</td>
+      <td>Billy</td>
+      <td>Bonder</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>Amy</td>
+      <td>Ackerman</td>
+      <td>5</td>
+      <td>Brian</td>
+      <td>Black</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>Allen</td>
+      <td>Ali</td>
+      <td>6</td>
+      <td>Bran</td>
+      <td>Balwner</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>Alice</td>
+      <td>Aoni</td>
+      <td>7</td>
+      <td>Bryce</td>
+      <td>Brice</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>Ayoung</td>
+      <td>Atiches</td>
+      <td>8</td>
+      <td>Betty</td>
+      <td>Btisan</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      Blog template created by <a href="https://twitter.com/mdo">@mdo</a>, ported to Hugo by <a href='https://twitter.com/mralanorth'>@mralanorth</a>.
+      
+      </p>
+    </footer>
+
+  </body>
+
+</html>

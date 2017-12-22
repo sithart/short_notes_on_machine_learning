@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Bag Of Words" />
+<meta property="og:description" content="How to encode unstructured text data as bags of words for machine learning in Python." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://chrisalbon.com/machine_learning/preprocessing_text/bag_of_words/" />
+
+
+
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
+
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Bag Of Words"/>
+<meta name="twitter:description" content="How to encode unstructured text data as bags of words for machine learning in Python."/>
+<meta name="generator" content="Hugo 0.31.1" />
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Bag Of Words",
+  "url": "https://chrisalbon.com/machine_learning/preprocessing_text/bag_of_words/",
+  "wordCount": "178",
+  "datePublished": "2017-12-20T11:53:49-07:00",
+  "dateModified": "2017-12-20T11:53:49-07:00",
+  "author": {
+    "@type": "Person",
+    "name": "Chris Albon"
+  },
+  "description": "How to encode unstructured text data as bags of words for machine learning in Python."
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://chrisalbon.com/machine_learning/preprocessing_text/bag_of_words/">
+
+    <title>Bag Of Words | Chris Albon</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://chrisalbon.com/css/style.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+    <link href="https://chrisalbon.com/css/main.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+
+    
+
+    
+
+    <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link" href="https://chrisalbon.com/">Home</a></nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://chrisalbon.com/machine_learning/preprocessing_text/bag_of_words/">Bag Of Words</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-12-20T11:53:49-07:00">Wed Dec 20, 2017</time></p>
+  </header>
+  
+
+<p><a alt="Bag Of Words" href="https://machinelearningflashcards.com">
+    <img src="bag_of_words/Bag_Of_Words_print.png" class="flashcard center-block">
+</a></p>
+
+<h2 id="preliminaries">Preliminaries</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Load library</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">numpy</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">np</span>
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">sklearn.feature_extraction.text</span> <span style="color:#080;font-weight:bold">import</span> CountVectorizer
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">pandas</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">pd</span></code></pre></div>
+<h2 id="create-text-data">Create Text Data</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create text</span>
+text_data <span style="color:#333">=</span> np<span style="color:#333">.</span>array([<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;I love Brazil. Brazil!&#39;</span>,
+                      <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Sweden is best&#39;</span>,
+                      <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Germany beats both&#39;</span>])</code></pre></div>
+<h2 id="create-bag-of-words">Create Bag Of Words</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create the bag of words feature matrix</span>
+count <span style="color:#333">=</span> CountVectorizer()
+bag_of_words <span style="color:#333">=</span> count<span style="color:#333">.</span>fit_transform(text_data)
+
+<span style="color:#888"># Show feature matrix</span>
+bag_of_words<span style="color:#333">.</span>toarray()</code></pre></div>
+<pre><code>array([[0, 0, 0, 2, 0, 0, 1, 0],
+       [0, 1, 0, 0, 0, 1, 0, 1],
+       [1, 0, 1, 0, 1, 0, 0, 0]], dtype=int64)
+</code></pre>
+
+<h2 id="view-bag-of-words-matrix-column-headers">View Bag Of Words Matrix Column Headers</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Get feature names</span>
+feature_names <span style="color:#333">=</span> count<span style="color:#333">.</span>get_feature_names()
+
+<span style="color:#888"># View feature names</span>
+feature_names</code></pre></div>
+<pre><code>['beats', 'best', 'both', 'brazil', 'germany', 'is', 'love', 'sweden']
+</code></pre>
+
+<h2 id="view-as-a-data-frame">View As A Data Frame</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create data frame</span>
+pd<span style="color:#333">.</span>DataFrame(bag_of_words<span style="color:#333">.</span>toarray(), columns<span style="color:#333">=</span>feature_names)</code></pre></div>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>beats</th>
+      <th>best</th>
+      <th>both</th>
+      <th>brazil</th>
+      <th>germany</th>
+      <th>is</th>
+      <th>love</th>
+      <th>sweden</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      Blog template created by <a href="https://twitter.com/mdo">@mdo</a>, ported to Hugo by <a href='https://twitter.com/mralanorth'>@mralanorth</a>.
+      
+      </p>
+    </footer>
+
+  </body>
+
+</html>

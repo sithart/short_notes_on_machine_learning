@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Selecting The Best Alpha Value In Ridge Regression" />
+<meta property="og:description" content="How to select the best alpha value when conduct in ridge regression in scikit-learn for machine learning in Python." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://chrisalbon.com/machine_learning/linear_regression/selecting_best_alpha_value_in_ridge_regression/" />
+
+
+
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
+
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Selecting The Best Alpha Value In Ridge Regression"/>
+<meta name="twitter:description" content="How to select the best alpha value when conduct in ridge regression in scikit-learn for machine learning in Python."/>
+<meta name="generator" content="Hugo 0.31.1" />
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Selecting The Best Alpha Value In Ridge Regression",
+  "url": "https://chrisalbon.com/machine_learning/linear_regression/selecting_best_alpha_value_in_ridge_regression/",
+  "wordCount": "139",
+  "datePublished": "2017-12-20T11:53:49-07:00",
+  "dateModified": "2017-12-20T11:53:49-07:00",
+  "author": {
+    "@type": "Person",
+    "name": "Chris Albon"
+  },
+  "description": "How to select the best alpha value when conduct in ridge regression in scikit-learn for machine learning in Python."
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://chrisalbon.com/machine_learning/linear_regression/selecting_best_alpha_value_in_ridge_regression/">
+
+    <title>Selecting The Best Alpha Value In Ridge Regression | Chris Albon</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://chrisalbon.com/css/style.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+    <link href="https://chrisalbon.com/css/main.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+
+    
+
+    
+
+    <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link" href="https://chrisalbon.com/">Home</a></nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://chrisalbon.com/machine_learning/linear_regression/selecting_best_alpha_value_in_ridge_regression/">Selecting The Best Alpha Value In Ridge Regression</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-12-20T11:53:49-07:00">Wed Dec 20, 2017</time></p>
+  </header>
+  
+
+<h2 id="preliminaries">Preliminaries</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Load libraries</span>
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">sklearn.linear_model</span> <span style="color:#080;font-weight:bold">import</span> RidgeCV
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">sklearn.datasets</span> <span style="color:#080;font-weight:bold">import</span> load_boston
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">sklearn.preprocessing</span> <span style="color:#080;font-weight:bold">import</span> StandardScaler</code></pre></div>
+<h2 id="load-boston-housing-dataset">Load Boston Housing Dataset</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Load data</span>
+boston <span style="color:#333">=</span> load_boston()
+X <span style="color:#333">=</span> boston<span style="color:#333">.</span>data
+y <span style="color:#333">=</span> boston<span style="color:#333">.</span>target</code></pre></div>
+<h2 id="standardize-features">Standardize Features</h2>
+
+<p>Note: Because in linear regression the value of the coefficients is partially determined by the scale of the feature, and in regularized models all coefficients are summed together, we must make sure to standardize the feature prior to training.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Standarize features</span>
+scaler <span style="color:#333">=</span> StandardScaler()
+X_std <span style="color:#333">=</span> scaler<span style="color:#333">.</span>fit_transform(X)</code></pre></div>
+<h2 id="create-ridge-regression-with-candidate-alpha-values">Create Ridge Regression With Candidate Alpha Values</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create ridge regression with three possible alpha values</span>
+regr_cv <span style="color:#333">=</span> RidgeCV(alphas<span style="color:#333">=</span>[<span style="color:#60e;font-weight:bold">0.1</span>, <span style="color:#60e;font-weight:bold">1.0</span>, <span style="color:#60e;font-weight:bold">10.0</span>])</code></pre></div>
+<h2 id="fit-ridge-regression">Fit Ridge Regression</h2>
+
+<p>scikit-learn includes a <code>RidgeCV</code> method that allows us select the ideal value for $\alpha$:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Fit the linear regression</span>
+model_cv <span style="color:#333">=</span> regr_cv<span style="color:#333">.</span>fit(X_std, y)</code></pre></div>
+<h2 id="view-best-model-s-alpha-value">View Best Model&rsquo;s Alpha Value</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># View alpha</span>
+model_cv<span style="color:#333">.</span>alpha_</code></pre></div>
+<pre><code>1.0
+</code></pre>
+
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      Blog template created by <a href="https://twitter.com/mdo">@mdo</a>, ported to Hugo by <a href='https://twitter.com/mralanorth'>@mralanorth</a>.
+      
+      </p>
+    </footer>
+
+  </body>
+
+</html>

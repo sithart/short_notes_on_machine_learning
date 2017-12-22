@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="String Formatting" />
+<meta property="og:description" content="String formatting using Python." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://chrisalbon.com/python/string_formatting/" />
+
+
+
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
+
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="String Formatting"/>
+<meta name="twitter:description" content="String formatting using Python."/>
+<meta name="generator" content="Hugo 0.31.1" />
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "String Formatting",
+  "url": "https://chrisalbon.com/python/string_formatting/",
+  "wordCount": "119",
+  "datePublished": "2017-12-20T11:53:49-07:00",
+  "dateModified": "2017-12-20T11:53:49-07:00",
+  "author": {
+    "@type": "Person",
+    "name": "Chris Albon"
+  },
+  "keywords": "python, Basic",
+  "description": "String formatting using Python."
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://chrisalbon.com/python/string_formatting/">
+
+    <title>String Formatting | Chris Albon</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://chrisalbon.com/css/style.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+    <link href="https://chrisalbon.com/css/main.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+
+    
+
+    
+
+    <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link" href="https://chrisalbon.com/">Home</a></nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://chrisalbon.com/python/string_formatting/">String Formatting</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-12-20T11:53:49-07:00">Wed Dec 20, 2017</time> in 
+<i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="/categories/python" rel="category tag">python</a>
+
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/basic" rel="tag">Basic</a>
+
+</p>
+  </header>
+  
+
+<h3 id="import-the-sys-module">Import the sys module</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">sys</span></code></pre></div>
+<h3 id="print-a-string-with-1-digit-and-one-string">Print a string with 1 digit and one string.</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;This is </span><span style="background-color:#eee">%d</span><span style="background-color:#fff0f0"> </span><span style="background-color:#eee">%s</span><span style="background-color:#fff0f0"> bird!&#39;</span> <span style="color:#333">%</span> (<span style="color:#00d;font-weight:bold">1</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;dead&#39;</span>)</code></pre></div>
+<pre><code>'This is 1 dead bird!'
+</code></pre>
+
+<h3 id="print-a-dictionary-based-string">Print a dictionary based string</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;</span><span style="background-color:#eee">%(number)d</span><span style="background-color:#fff0f0"> more </span><span style="background-color:#eee">%(food)s</span><span style="background-color:#fff0f0">&#39;</span> <span style="color:#333">%</span> {<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;number&#39;</span> : <span style="color:#00d;font-weight:bold">1</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;food&#39;</span> : <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;burger&#39;</span>}</code></pre></div>
+<pre><code>'1 more burger'
+</code></pre>
+
+<h3 id="print-a-string-about-my-laptop">Print a string about my laptop.</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;My {1[kind]} runs {0.platform}&#39;</span><span style="color:#333">.</span>format(sys, {<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;kind&#39;</span>: <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;laptop&#39;</span>})</code></pre></div>
+<pre><code>'My laptop runs darwin'
+</code></pre>
+
+<h2 id="string-formatting-codes">String Formatting Codes</h2>
+
+<ul>
+<li>%s string</li>
+<li>%r repr string</li>
+<li>%c character (integer or string)</li>
+<li>%d decimal</li>
+<li>%i integer</li>
+<li>%x hex integer</li>
+<li>%X same as X but with uppercase</li>
+<li>%e floating point lowercase</li>
+<li>%E floating point uppercase</li>
+<li>%f floating point decimal lowercase</li>
+<li>%F floating point decimal uppercase</li>
+<li>%g floating point e or f</li>
+<li>%G floating point E or F</li>
+<li>%% literal %</li>
+</ul>
+
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      Blog template created by <a href="https://twitter.com/mdo">@mdo</a>, ported to Hugo by <a href='https://twitter.com/mralanorth'>@mralanorth</a>.
+      
+      </p>
+    </footer>
+
+  </body>
+
+</html>

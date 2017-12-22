@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Logistic Regression" />
+<meta property="og:description" content="How to train a logistic regression in scikit-learn." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://chrisalbon.com/machine_learning/logistic_regression/logistic_regression/" />
+
+
+
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
+
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Logistic Regression"/>
+<meta name="twitter:description" content="How to train a logistic regression in scikit-learn."/>
+<meta name="generator" content="Hugo 0.31.1" />
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Logistic Regression",
+  "url": "https://chrisalbon.com/machine_learning/logistic_regression/logistic_regression/",
+  "wordCount": "189",
+  "datePublished": "2017-12-20T11:53:49-07:00",
+  "dateModified": "2017-12-20T11:53:49-07:00",
+  "author": {
+    "@type": "Person",
+    "name": "Chris Albon"
+  },
+  "description": "How to train a logistic regression in scikit-learn."
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://chrisalbon.com/machine_learning/logistic_regression/logistic_regression/">
+
+    <title>Logistic Regression | Chris Albon</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://chrisalbon.com/css/style.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+    <link href="https://chrisalbon.com/css/main.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+
+    
+
+    
+
+    <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link" href="https://chrisalbon.com/">Home</a></nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://chrisalbon.com/machine_learning/logistic_regression/logistic_regression/">Logistic Regression</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-12-20T11:53:49-07:00">Wed Dec 20, 2017</time></p>
+  </header>
+  
+
+<p>Despite having &ldquo;regression&rdquo; in its name, a logistic regression is actually a widely used binary classifier (i.e. the target vector can only take two values). In a logistic regression, a linear model (e.g. $\beta<em>{0}+\beta</em>{1}x$) is included in a logistic (also called sigmoid) function, ${\frac {1}{1+e^{-z}}}$, such that:</p>
+
+<p>$$P(y<em>i=1 \mid X)={\frac {1}{1+e^{-(\beta</em>{0}+\beta_{1}x)}}}$$</p>
+
+<p>where $P(y_i=1 \mid X)$ is the probability of the $i$th observation&rsquo;s target value, $y_i$, being class 1, $X$ is the training data, $\beta_0$ and $\beta_1$ are the parameters to be learned, and $e$ is Euler&rsquo;s number.</p>
+
+<h2 id="preliminaries">Preliminaries</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Load libraries</span>
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">sklearn.linear_model</span> <span style="color:#080;font-weight:bold">import</span> LogisticRegression
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">sklearn</span> <span style="color:#080;font-weight:bold">import</span> datasets
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">sklearn.preprocessing</span> <span style="color:#080;font-weight:bold">import</span> StandardScaler</code></pre></div>
+<h2 id="load-iris-flower-dataset">Load Iris Flower Dataset</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Load data with only two classes</span>
+iris <span style="color:#333">=</span> datasets<span style="color:#333">.</span>load_iris()
+X <span style="color:#333">=</span> iris<span style="color:#333">.</span>data[:<span style="color:#00d;font-weight:bold">100</span>,:]
+y <span style="color:#333">=</span> iris<span style="color:#333">.</span>target[:<span style="color:#00d;font-weight:bold">100</span>]</code></pre></div>
+<h2 id="standardize-features">Standardize Features</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Standarize features</span>
+scaler <span style="color:#333">=</span> StandardScaler()
+X_std <span style="color:#333">=</span> scaler<span style="color:#333">.</span>fit_transform(X)</code></pre></div>
+<h2 id="create-logistic-regression">Create Logistic Regression</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create logistic regression object</span>
+clf <span style="color:#333">=</span> LogisticRegression(random_state<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">0</span>)</code></pre></div>
+<h2 id="train-logistic-regression">Train Logistic Regression</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Train model</span>
+model <span style="color:#333">=</span> clf<span style="color:#333">.</span>fit(X_std, y)</code></pre></div>
+<h2 id="create-previously-unseen-observation">Create Previously Unseen Observation</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create new observation</span>
+new_observation <span style="color:#333">=</span> [[<span style="color:#333">.</span><span style="color:#00d;font-weight:bold">5</span>, <span style="color:#333">.</span><span style="color:#00d;font-weight:bold">5</span>, <span style="color:#333">.</span><span style="color:#00d;font-weight:bold">5</span>, <span style="color:#333">.</span><span style="color:#00d;font-weight:bold">5</span>]]</code></pre></div>
+<h2 id="predict-class-of-observation">Predict Class Of Observation</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Predict class</span>
+model<span style="color:#333">.</span>predict(new_observation)</code></pre></div>
+<pre><code>array([1])
+</code></pre>
+
+<h2 id="view-predicted-probabilities">View Predicted Probabilities</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># View predicted probabilities</span>
+model<span style="color:#333">.</span>predict_proba(new_observation)</code></pre></div>
+<pre><code>array([[ 0.18823041,  0.81176959]])
+</code></pre>
+
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      Blog template created by <a href="https://twitter.com/mdo">@mdo</a>, ported to Hugo by <a href='https://twitter.com/mralanorth'>@mralanorth</a>.
+      
+      </p>
+    </footer>
+
+  </body>
+
+</html>

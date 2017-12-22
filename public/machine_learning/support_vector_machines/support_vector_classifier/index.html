@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Support Vector Classifier" />
+<meta property="og:description" content="How to train a support vector classifier in Scikit-Learn" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://chrisalbon.com/machine_learning/support_vector_machines/support_vector_classifier/" />
+
+
+
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
+
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Support Vector Classifier"/>
+<meta name="twitter:description" content="How to train a support vector classifier in Scikit-Learn"/>
+<meta name="generator" content="Hugo 0.31.1" />
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Support Vector Classifier",
+  "url": "https://chrisalbon.com/machine_learning/support_vector_machines/support_vector_classifier/",
+  "wordCount": "219",
+  "datePublished": "2017-12-20T11:53:49-07:00",
+  "dateModified": "2017-12-20T11:53:49-07:00",
+  "author": {
+    "@type": "Person",
+    "name": "Chris Albon"
+  },
+  "description": "How to train a support vector classifier in Scikit-Learn"
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://chrisalbon.com/machine_learning/support_vector_machines/support_vector_classifier/">
+
+    <title>Support Vector Classifier | Chris Albon</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://chrisalbon.com/css/style.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+    <link href="https://chrisalbon.com/css/main.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+
+    
+
+    
+
+    <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link" href="https://chrisalbon.com/">Home</a></nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://chrisalbon.com/machine_learning/support_vector_machines/support_vector_classifier/">Support Vector Classifier</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-12-20T11:53:49-07:00">Wed Dec 20, 2017</time></p>
+  </header>
+  
+
+<p><a alt="Support Vector Classifier" href="https://machinelearningflashcards.com">
+    <img src="support_vector_classifier/Support_Vector_Classifier_print.png" class="flashcard center-block">
+</a></p>
+
+<p>There is a balance between SVC maximizing the margin of the hyperplane and minimizing the misclassification. In SVC, the later is controlled with the hyperparameter $C$, the penalty imposed on errors. C is a parameter of the SVC learner and is the penalty for misclassifying a data point. When C is small, the classifier is okay with misclassified data points (high bias but low variance). When C is large, the classifier is heavily penalized for misclassified data and therefore bends over backwards avoid any misclassified data points (low bias but high variance).</p>
+
+<p>In scikit-learn, $C$ is determined by the parameter <code>C</code> and defaults to <code>C=1.0</code>. We should treat $C$ has a hyperparameter of our learning algorithm which we tune using model selection techniques.</p>
+
+<h2 id="preliminaries">Preliminaries</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Load libraries</span>
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">sklearn.svm</span> <span style="color:#080;font-weight:bold">import</span> LinearSVC
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">sklearn</span> <span style="color:#080;font-weight:bold">import</span> datasets
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">sklearn.preprocessing</span> <span style="color:#080;font-weight:bold">import</span> StandardScaler
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">numpy</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">np</span></code></pre></div>
+<h2 id="load-iris-flower-data">Load Iris Flower Data</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Load feature and target data</span>
+iris <span style="color:#333">=</span> datasets<span style="color:#333">.</span>load_iris()
+X <span style="color:#333">=</span> iris<span style="color:#333">.</span>data
+y <span style="color:#333">=</span> iris<span style="color:#333">.</span>target</code></pre></div>
+<h2 id="standardize-features">Standardize Features</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Standarize features</span>
+scaler <span style="color:#333">=</span> StandardScaler()
+X_std <span style="color:#333">=</span> scaler<span style="color:#333">.</span>fit_transform(X)</code></pre></div>
+<h2 id="train-support-vector-classifier">Train Support Vector Classifier</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create support vector classifier</span>
+svc <span style="color:#333">=</span> LinearSVC(C<span style="color:#333">=</span><span style="color:#60e;font-weight:bold">1.0</span>)
+
+<span style="color:#888"># Train model</span>
+model <span style="color:#333">=</span> svc<span style="color:#333">.</span>fit(X_std, y)</code></pre></div>
+<h2 id="create-previously-unseen-observation">Create Previously Unseen Observation</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create new observation</span>
+new_observation <span style="color:#333">=</span> [[<span style="color:#333">-</span><span style="color:#60e;font-weight:bold">0.7</span>, <span style="color:#60e;font-weight:bold">1.1</span>, <span style="color:#333">-</span><span style="color:#60e;font-weight:bold">1.1</span> , <span style="color:#333">-</span><span style="color:#60e;font-weight:bold">1.7</span>]]</code></pre></div>
+<h2 id="predict-class-of-observation">Predict Class Of Observation</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Predict class of new observation</span>
+svc<span style="color:#333">.</span>predict(new_observation)</code></pre></div>
+<pre><code>array([0])
+</code></pre>
+
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      Blog template created by <a href="https://twitter.com/mdo">@mdo</a>, ported to Hugo by <a href='https://twitter.com/mralanorth'>@mralanorth</a>.
+      
+      </p>
+    </footer>
+
+  </body>
+
+</html>

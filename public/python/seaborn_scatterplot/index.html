@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Creating Scatterplots With Seaborn" />
+<meta property="og:description" content="Creating scatterplots with Seaborn." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://chrisalbon.com/python/seaborn_scatterplot/" />
+
+
+
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
+
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Creating Scatterplots With Seaborn"/>
+<meta name="twitter:description" content="Creating scatterplots with Seaborn."/>
+<meta name="generator" content="Hugo 0.31.1" />
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Creating Scatterplots With Seaborn",
+  "url": "https://chrisalbon.com/python/seaborn_scatterplot/",
+  "wordCount": "172",
+  "datePublished": "2017-12-20T11:53:49-07:00",
+  "dateModified": "2017-12-20T11:53:49-07:00",
+  "author": {
+    "@type": "Person",
+    "name": "Chris Albon"
+  },
+  "keywords": "python, Data Visualization",
+  "description": "Creating scatterplots with Seaborn."
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://chrisalbon.com/python/seaborn_scatterplot/">
+
+    <title>Creating Scatterplots With Seaborn | Chris Albon</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://chrisalbon.com/css/style.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+    <link href="https://chrisalbon.com/css/main.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+
+    
+
+    
+
+    <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link" href="https://chrisalbon.com/">Home</a></nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://chrisalbon.com/python/seaborn_scatterplot/">Creating Scatterplots With Seaborn</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-12-20T11:53:49-07:00">Wed Dec 20, 2017</time> in 
+<i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="/categories/python" rel="category tag">python</a>
+
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/data-visualization" rel="tag">Data Visualization</a>
+
+</p>
+  </header>
+  
+
+<h2 id="preliminaries">Preliminaries</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">pandas</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">pd</span>
+<span style="color:#333">%</span>matplotlib inline
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">random</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">matplotlib.pyplot</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">plt</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">seaborn</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">sns</span></code></pre></div>
+<h2 id="create-data">Create data</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create empty dataframe</span>
+df <span style="color:#333">=</span> pd<span style="color:#333">.</span>DataFrame()
+
+<span style="color:#888"># Add columns</span>
+df[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;x&#39;</span>] <span style="color:#333">=</span> random<span style="color:#333">.</span>sample(<span style="color:#007020">range</span>(<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">1000</span>), <span style="color:#00d;font-weight:bold">5</span>)
+df[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;y&#39;</span>] <span style="color:#333">=</span> random<span style="color:#333">.</span>sample(<span style="color:#007020">range</span>(<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">1000</span>), <span style="color:#00d;font-weight:bold">5</span>)
+df[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;z&#39;</span>] <span style="color:#333">=</span> [<span style="color:#00d;font-weight:bold">1</span>,<span style="color:#00d;font-weight:bold">0</span>,<span style="color:#00d;font-weight:bold">0</span>,<span style="color:#00d;font-weight:bold">1</span>,<span style="color:#00d;font-weight:bold">0</span>]
+df[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;k&#39;</span>] <span style="color:#333">=</span> [<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;male&#39;</span>,<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;male&#39;</span>,<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;male&#39;</span>,<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;female&#39;</span>,<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;female&#39;</span>]</code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># View first few rows of data</span>
+df<span style="color:#333">.</span>head()</code></pre></div>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>x</th>
+      <th>y</th>
+      <th>z</th>
+      <th>k</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>466</td>
+      <td>948</td>
+      <td>1</td>
+      <td>male</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>832</td>
+      <td>481</td>
+      <td>0</td>
+      <td>male</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>978</td>
+      <td>465</td>
+      <td>0</td>
+      <td>male</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>510</td>
+      <td>206</td>
+      <td>1</td>
+      <td>female</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>848</td>
+      <td>357</td>
+      <td>0</td>
+      <td>female</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="scatterplot">Scatterplot</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Set style of scatterplot</span>
+sns<span style="color:#333">.</span>set_context(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#34;notebook&#34;</span>, font_scale<span style="color:#333">=</span><span style="color:#60e;font-weight:bold">1.1</span>)
+sns<span style="color:#333">.</span>set_style(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#34;ticks&#34;</span>)
+
+<span style="color:#888"># Create scatterplot of dataframe</span>
+sns<span style="color:#333">.</span>lmplot(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;x&#39;</span>, <span style="color:#888"># Horizontal axis</span>
+           <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;y&#39;</span>, <span style="color:#888"># Vertical axis</span>
+           data<span style="color:#333">=</span>df, <span style="color:#888"># Data source</span>
+           fit_reg<span style="color:#333">=</span>False, <span style="color:#888"># Don&#39;t fix a regression line</span>
+           hue<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#34;z&#34;</span>, <span style="color:#888"># Set color</span>
+           scatter_kws<span style="color:#333">=</span>{<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#34;marker&#34;</span>: <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#34;D&#34;</span>, <span style="color:#888"># Set marker style</span>
+                        <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#34;s&#34;</span>: <span style="color:#00d;font-weight:bold">100</span>}) <span style="color:#888"># S marker size</span>
+
+<span style="color:#888"># Set title</span>
+plt<span style="color:#333">.</span>title(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Histogram of IQ&#39;</span>)
+
+<span style="color:#888"># Set x-axis label</span>
+plt<span style="color:#333">.</span>xlabel(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Time&#39;</span>)
+
+<span style="color:#888"># Set y-axis label</span>
+plt<span style="color:#333">.</span>ylabel(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Deaths&#39;</span>)</code></pre></div>
+<pre><code>&lt;matplotlib.text.Text at 0x112b7bb70&gt;
+</code></pre>
+
+<p><img src="seaborn_scatterplot_7_1.png" alt="png" /></p>
+
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      Blog template created by <a href="https://twitter.com/mdo">@mdo</a>, ported to Hugo by <a href='https://twitter.com/mralanorth'>@mralanorth</a>.
+      
+      </p>
+    </footer>
+
+  </body>
+
+</html>

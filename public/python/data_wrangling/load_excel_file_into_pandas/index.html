@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Load An Excel File Into Pandas" />
+<meta property="og:description" content="How to quickly load an Excel file into pandas." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://chrisalbon.com/python/data_wrangling/load_excel_file_into_pandas/" />
+
+
+
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
+
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Load An Excel File Into Pandas"/>
+<meta name="twitter:description" content="How to quickly load an Excel file into pandas."/>
+<meta name="generator" content="Hugo 0.31.1" />
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Load An Excel File Into Pandas",
+  "url": "https://chrisalbon.com/python/data_wrangling/load_excel_file_into_pandas/",
+  "wordCount": "128",
+  "datePublished": "2017-12-20T11:53:49-07:00",
+  "dateModified": "2017-12-20T11:53:49-07:00",
+  "author": {
+    "@type": "Person",
+    "name": "Chris Albon"
+  },
+  "description": "How to quickly load an Excel file into pandas."
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://chrisalbon.com/python/data_wrangling/load_excel_file_into_pandas/">
+
+    <title>Load An Excel File Into Pandas | Chris Albon</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://chrisalbon.com/css/style.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+    <link href="https://chrisalbon.com/css/main.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+
+    
+
+    
+
+    <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link" href="https://chrisalbon.com/">Home</a></nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://chrisalbon.com/python/data_wrangling/load_excel_file_into_pandas/">Load An Excel File Into Pandas</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-12-20T11:53:49-07:00">Wed Dec 20, 2017</time></p>
+  </header>
+  
+
+<h2 id="preliminaries">Preliminaries</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Load library</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">pandas</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">pd</span></code></pre></div>
+<h2 id="load-excel-file">Load Excel File</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create URL to Excel file (alternatively this can be a filepath)</span>
+url <span style="color:#333">=</span> <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;https://raw.githubusercontent.com/chrisalbon/simulated_datasets/master/data.xlsx&#39;</span>
+
+<span style="color:#888"># Load the first sheet of the Excel file into a data frame</span>
+df <span style="color:#333">=</span> pd<span style="color:#333">.</span>read_excel(url, sheetname<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">0</span>, header<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">1</span>)
+
+<span style="color:#888"># View the first ten rows</span>
+df<span style="color:#333">.</span>head(<span style="color:#00d;font-weight:bold">10</span>)</code></pre></div>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>5</th>
+      <th>2015-01-01 00:00:00</th>
+      <th>0</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5</td>
+      <td>2015-01-01 00:00:01</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>9</td>
+      <td>2015-01-01 00:00:02</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>6</td>
+      <td>2015-01-01 00:00:03</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>6</td>
+      <td>2015-01-01 00:00:04</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>9</td>
+      <td>2015-01-01 00:00:05</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>7</td>
+      <td>2015-01-01 00:00:06</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>1</td>
+      <td>2015-01-01 00:00:07</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>6</td>
+      <td>2015-01-01 00:00:08</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>9</td>
+      <td>2015-01-01 00:00:09</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>5</td>
+      <td>2015-01-01 00:00:10</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      Blog template created by <a href="https://twitter.com/mdo">@mdo</a>, ported to Hugo by <a href='https://twitter.com/mralanorth'>@mralanorth</a>.
+      
+      </p>
+    </footer>
+
+  </body>
+
+</html>

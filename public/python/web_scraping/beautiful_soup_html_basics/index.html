@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Beautiful Soup Basic HTML Scraping" />
+<meta property="og:description" content="Beautiful soup basic HTML scraping." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://chrisalbon.com/python/web_scraping/beautiful_soup_html_basics/" />
+
+
+
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
+
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Beautiful Soup Basic HTML Scraping"/>
+<meta name="twitter:description" content="Beautiful soup basic HTML scraping."/>
+<meta name="generator" content="Hugo 0.31.1" />
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Beautiful Soup Basic HTML Scraping",
+  "url": "https://chrisalbon.com/python/web_scraping/beautiful_soup_html_basics/",
+  "wordCount": "250",
+  "datePublished": "2017-12-20T11:53:49-07:00",
+  "dateModified": "2017-12-20T11:53:49-07:00",
+  "author": {
+    "@type": "Person",
+    "name": "Chris Albon"
+  },
+  "description": "Beautiful soup basic HTML scraping."
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://chrisalbon.com/python/web_scraping/beautiful_soup_html_basics/">
+
+    <title>Beautiful Soup Basic HTML Scraping | Chris Albon</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://chrisalbon.com/css/style.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+    <link href="https://chrisalbon.com/css/main.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+
+    
+
+    
+
+    <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link" href="https://chrisalbon.com/">Home</a></nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://chrisalbon.com/python/web_scraping/beautiful_soup_html_basics/">Beautiful Soup Basic HTML Scraping</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-12-20T11:53:49-07:00">Wed Dec 20, 2017</time></p>
+  </header>
+  
+
+<h3 id="import-the-modules">Import the modules</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Import required modules</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">requests</span>
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">bs4</span> <span style="color:#080;font-weight:bold">import</span> BeautifulSoup</code></pre></div>
+<h3 id="scrap-the-html-and-turn-into-a-beautiful-soup-object">Scrap the html and turn into a beautiful soup object</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create a variable with the url</span>
+url <span style="color:#333">=</span> <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;http://chrisralbon.com&#39;</span>
+
+<span style="color:#888"># Use requests to get the contents</span>
+r <span style="color:#333">=</span> requests<span style="color:#333">.</span>get(url)
+
+<span style="color:#888"># Get the text of the contents</span>
+html_content <span style="color:#333">=</span> r<span style="color:#333">.</span>text
+
+<span style="color:#888"># Convert the html content into a beautiful soup object</span>
+soup <span style="color:#333">=</span> BeautifulSoup(html_content, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;lxml&#39;</span>)</code></pre></div>
+<h3 id="select-the-website-s-title">Select the website&rsquo;s title</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># View the title tag of the soup object</span>
+soup<span style="color:#333">.</span>title</code></pre></div>
+<pre><code>&lt;title&gt;Chris Albon&lt;/title&gt;
+</code></pre>
+
+<h3 id="website-title-tag-s-string">Website title tag&rsquo;s string</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># View the string within the title tag</span>
+soup<span style="color:#333">.</span>title<span style="color:#333">.</span>string</code></pre></div>
+<pre><code>'Chris Albon'
+</code></pre>
+
+<h3 id="first-paragraph-tag">First paragraph tag</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># view the paragraph tag of the soup</span>
+soup<span style="color:#333">.</span>p</code></pre></div>
+<pre><code>&lt;p&gt;I am a &lt;a href=&quot;./pages/about.html&quot;&gt;data scientist originally trained as a quantitative political scientist&lt;/a&gt;. I specialize in the technical and organizational aspects of applying data science to political and social issues. &lt;/p&gt;
+</code></pre>
+
+<h3 id="the-parent-of-the-title-tag">The parent of the title tag</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">soup<span style="color:#333">.</span>title<span style="color:#333">.</span>parent<span style="color:#333">.</span>name</code></pre></div>
+<pre><code>'head'
+</code></pre>
+
+<h3 id="the-first-link-tag">The first link tag</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">soup<span style="color:#333">.</span>a</code></pre></div>
+<pre><code>&lt;a class=&quot;navbar-brand&quot; href=&quot;.&quot;&gt;Chris Albon&lt;/a&gt;
+</code></pre>
+
+<h3 id="find-all-the-link-tags-and-list-the-first-five">Find all the link tags and list the first five</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">soup<span style="color:#333">.</span>find_all(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;a&#39;</span>)[<span style="color:#00d;font-weight:bold">0</span>:<span style="color:#00d;font-weight:bold">5</span>]</code></pre></div>
+<pre><code>[&lt;a class=&quot;navbar-brand&quot; href=&quot;.&quot;&gt;Chris Albon&lt;/a&gt;,
+ &lt;a aria-expanded=&quot;false&quot; aria-haspopup=&quot;true&quot; class=&quot;dropdown-toggle&quot; data-toggle=&quot;dropdown&quot; href=&quot;#&quot; role=&quot;button&quot;&gt;About&lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;&lt;/a&gt;,
+ &lt;a href=&quot;./pages/about.html&quot;&gt;About Chris&lt;/a&gt;,
+ &lt;a href=&quot;https://github.com/chrisalbon&quot;&gt;GitHub&lt;/a&gt;,
+ &lt;a href=&quot;https://twitter.com/chrisalbon&quot;&gt;Twitter&lt;/a&gt;]
+</code></pre>
+
+<h3 id="the-string-inside-the-first-paragraph-tag">The string inside the first paragraph tag</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">soup<span style="color:#333">.</span>p<span style="color:#333">.</span>string</code></pre></div>
+<h3 id="find-all-the-h2-tags-and-list-the-first-five">Find all the h2 tags and list the first five</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">soup<span style="color:#333">.</span>find_all(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;h2&#39;</span>)[<span style="color:#00d;font-weight:bold">0</span>:<span style="color:#00d;font-weight:bold">5</span>]</code></pre></div>
+<pre><code>[&lt;h2 class=&quot;homepage_category_title&quot;&gt;Articles&lt;/h2&gt;,
+ &lt;h2 class=&quot;homepage_category_title&quot;&gt;Projects&lt;/h2&gt;,
+ &lt;h2 class=&quot;homepage_category_title&quot;&gt;Python&lt;/h2&gt;,
+ &lt;h2 class=&quot;homepage_category_title&quot;&gt;R Stats&lt;/h2&gt;,
+ &lt;h2 class=&quot;homepage_category_title&quot;&gt;Regex&lt;/h2&gt;]
+</code></pre>
+
+<h3 id="find-all-the-links-on-the-page-and-list-the-first-five">Find all the links on the page and list the first five</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">soup<span style="color:#333">.</span>find_all(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;a&#39;</span>)[<span style="color:#00d;font-weight:bold">0</span>:<span style="color:#00d;font-weight:bold">5</span>]</code></pre></div>
+<pre><code>[&lt;a class=&quot;navbar-brand&quot; href=&quot;.&quot;&gt;Chris Albon&lt;/a&gt;,
+ &lt;a aria-expanded=&quot;false&quot; aria-haspopup=&quot;true&quot; class=&quot;dropdown-toggle&quot; data-toggle=&quot;dropdown&quot; href=&quot;#&quot; role=&quot;button&quot;&gt;About&lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;&lt;/a&gt;,
+ &lt;a href=&quot;./pages/about.html&quot;&gt;About Chris&lt;/a&gt;,
+ &lt;a href=&quot;https://github.com/chrisalbon&quot;&gt;GitHub&lt;/a&gt;,
+ &lt;a href=&quot;https://twitter.com/chrisalbon&quot;&gt;Twitter&lt;/a&gt;]
+</code></pre>
+
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      Blog template created by <a href="https://twitter.com/mdo">@mdo</a>, ported to Hugo by <a href='https://twitter.com/mralanorth'>@mralanorth</a>.
+      
+      </p>
+    </footer>
+
+  </body>
+
+</html>

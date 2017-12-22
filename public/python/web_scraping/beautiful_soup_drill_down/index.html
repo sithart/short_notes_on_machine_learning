@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Drilling Down With Beautiful Soup" />
+<meta property="og:description" content="Drilling Down With Beautiful Soup." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://chrisalbon.com/python/web_scraping/beautiful_soup_drill_down/" />
+
+
+
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
+
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Drilling Down With Beautiful Soup"/>
+<meta name="twitter:description" content="Drilling Down With Beautiful Soup."/>
+<meta name="generator" content="Hugo 0.31.1" />
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Drilling Down With Beautiful Soup",
+  "url": "https://chrisalbon.com/python/web_scraping/beautiful_soup_drill_down/",
+  "wordCount": "698",
+  "datePublished": "2017-12-20T11:53:49-07:00",
+  "dateModified": "2017-12-20T11:53:49-07:00",
+  "author": {
+    "@type": "Person",
+    "name": "Chris Albon"
+  },
+  "description": "Drilling Down With Beautiful Soup."
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://chrisalbon.com/python/web_scraping/beautiful_soup_drill_down/">
+
+    <title>Drilling Down With Beautiful Soup | Chris Albon</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://chrisalbon.com/css/style.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+    <link href="https://chrisalbon.com/css/main.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+
+    
+
+    
+
+    <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link" href="https://chrisalbon.com/">Home</a></nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://chrisalbon.com/python/web_scraping/beautiful_soup_drill_down/">Drilling Down With Beautiful Soup</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-12-20T11:53:49-07:00">Wed Dec 20, 2017</time></p>
+  </header>
+  
+
+<h2 id="preliminaries">Preliminaries</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Import required modules</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">requests</span>
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">bs4</span> <span style="color:#080;font-weight:bold">import</span> BeautifulSoup
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">pandas</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">pd</span></code></pre></div>
+<h2 id="download-the-html-and-create-a-beautiful-soup-object">Download the HTML and create a Beautiful Soup object</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create a variable with the URL to this tutorial</span>
+url <span style="color:#333">=</span> <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;http://en.wikipedia.org/wiki/List_of_A_Song_of_Ice_and_Fire_characters&#39;</span>
+
+<span style="color:#888"># Scrape the HTML at the url</span>
+r <span style="color:#333">=</span> requests<span style="color:#333">.</span>get(url)
+
+<span style="color:#888"># Turn the HTML into a Beautiful Soup object</span>
+soup <span style="color:#333">=</span> BeautifulSoup(r<span style="color:#333">.</span>text, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#34;lxml&#34;</span>)</code></pre></div>
+<p>If we looked at the soup object, we&rsquo;d see that the names we want are in a heirarchical list. In psuedo-code, it looks like:</p>
+
+<ul>
+<li>class=toclevel-1 span=toctext
+
+<ul>
+<li>class=toclevel-2 span=toctext CHARACTER NAMES</li>
+<li>class=toclevel-2 span=toctext CHARACTER NAMES</li>
+<li>class=toclevel-2 span=toctext CHARACTER NAMES</li>
+<li>class=toclevel-2 span=toctext CHARACTER NAMES</li>
+<li>class=toclevel-2 span=toctext CHARACTER NAMES
+<br /></li>
+</ul></li>
+</ul>
+
+<p>To get the CHARACTER NAMES, we are going to need to drill down to grap into loclevel-2 and grab the toctext</p>
+
+<h2 id="setting-up-where-to-put-the-results">Setting up where to put the results</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create a variable to score the scraped data in</span>
+character_name <span style="color:#333">=</span> []</code></pre></div>
+<h2 id="drilling-down-with-a-forloop">Drilling down with a forloop</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># for each item in all the toclevel-2 li items</span>
+<span style="color:#888"># (except the last three because they are not character names), </span>
+<span style="color:#080;font-weight:bold">for</span> item <span style="color:#000;font-weight:bold">in</span> soup<span style="color:#333">.</span>find_all(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;li&#39;</span>,{<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;class&#39;</span>:<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;toclevel-2&#39;</span>})[:<span style="color:#333">-</span><span style="color:#00d;font-weight:bold">3</span>]: 
+    <span style="color:#888"># find each span with class=toctext,</span>
+    <span style="color:#080;font-weight:bold">for</span> post <span style="color:#000;font-weight:bold">in</span> item<span style="color:#333">.</span>find_all(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;span&#39;</span>,{<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;class&#39;</span>:<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;toctext&#39;</span>}): 
+        <span style="color:#888"># add the stripped string of each to character_name, one by one</span>
+        character_name<span style="color:#333">.</span>append(post<span style="color:#333">.</span>string<span style="color:#333">.</span>strip())</code></pre></div>
+<h2 id="results">Results</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># View all the character names</span>
+character_name</code></pre></div>
+<pre><code>['Eddard Stark',
+ 'Catelyn Stark',
+ 'Robb Stark',
+ 'Sansa Stark',
+ 'Arya Stark',
+ 'Bran Stark',
+ 'Rickon Stark',
+ 'Jon Snow',
+ 'Benjen Stark',
+ 'Lyanna Stark',
+ 'Roose Bolton',
+ 'Ramsay Bolton',
+ 'Rickard Karstark',
+ 'Alys Karstark',
+ 'Wyman Manderly',
+ 'Hodor',
+ 'Osha',
+ 'Jeyne Poole',
+ 'Jojen and Meera Reed',
+ 'Jeyne Westerling',
+ 'Aegon V Targaryen',
+ 'Aerys II Targaryen',
+ 'Rhaegar Targaryen',
+ 'Viserys Targaryen',
+ 'Daenerys Targaryen',
+ 'Aegon VI Targaryen',
+ 'Jon Connington',
+ 'Jorah Mormont',
+ 'Brynden Rivers',
+ 'Missandei',
+ 'Daario Naharis',
+ 'Grey Worm',
+ 'Maekar I Targaryen',
+ 'House Blackfyre',
+ 'Tywin Lannister',
+ 'Cersei Lannister',
+ 'Jaime Lannister',
+ 'Tyrion Lannister',
+ 'Joffrey Baratheon',
+ 'Myrcella Baratheon',
+ 'Tommen Baratheon',
+ 'Kevan Lannister',
+ 'Lancel Lannister',
+ 'Bronn',
+ 'Gregor Clegane',
+ 'Sandor Clegane',
+ 'Podrick Payne',
+ 'Robert Baratheon',
+ 'Stannis Baratheon',
+ 'Selyse Florent',
+ 'Renly Baratheon',
+ 'Shireen Baratheon',
+ 'Melisandre',
+ 'Davos Seaworth',
+ 'Brienne of Tarth',
+ 'Beric Dondarrion',
+ 'Gendry',
+ 'Edric Storm',
+ 'Jon Arryn',
+ 'Lysa Arryn',
+ 'Robert Arryn',
+ 'Yohn Royce',
+ 'Anya Waynwood',
+ 'Nestor Royce',
+ 'Balon Greyjoy',
+ 'Asha Greyjoy',
+ 'Theon Greyjoy',
+ 'Euron Greyjoy',
+ 'Victarion Greyjoy',
+ 'Aeron Greyjoy',
+ 'Rodrik Harlaw',
+ 'Doran Martell',
+ 'Arianne Martell',
+ 'Quentyn Martell',
+ 'Trystane Martell',
+ 'Elia Martell',
+ 'Oberyn Martell',
+ 'Ellaria Sand',
+ 'The Sand Snakes',
+ 'Areo Hotah',
+ 'Hoster Tully',
+ 'Edmure Tully',
+ 'Brynden Tully',
+ 'Walder Frey',
+ 'Mace Tyrell',
+ 'Loras Tyrell',
+ 'Margaery Tyrell',
+ 'Olenna Tyrell',
+ 'Randyll Tarly',
+ 'Jeor Mormont',
+ 'Maester Aemon',
+ 'Yoren',
+ 'Samwell Tarly',
+ 'Janos Slynt',
+ 'Alliser Thorne',
+ 'Mance Rayder',
+ 'Ygritte',
+ 'Craster',
+ 'Gilly',
+ 'Val',
+ 'Lord of Bones',
+ 'Bowen Marsh',
+ 'Eddison Tollett',
+ 'Tormund Giantsbane',
+ 'Varamyr Sixskins',
+ 'Petyr Baelish',
+ 'Varys',
+ 'Pycelle',
+ 'Barristan Selmy',
+ 'Arys Oakheart',
+ 'Ilyn Payne',
+ 'Qyburn',
+ 'The High Sparrow',
+ 'Meryn Trant',
+ 'Balon Swann',
+ 'Khal Drogo',
+ 'Syrio Forel',
+ &quot;Jaqen H'ghar&quot;,
+ 'Illyrio Mopatis',
+ 'Thoros of Myr',
+ 'Ser Duncan the Tall',
+ 'Hizdahr zo Loraq',
+ 'Yezzan zo Qaggaz',
+ 'Tycho Nestoris',
+ 'The Waif',
+ 'Meribald',
+ 'Septa Unella']
+</code></pre>
+
+<h2 id="quick-analysis-which-house-has-the-most-main-characters">Quick analysis: Which house has the most main characters?</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create a list object where to store the for loop results</span>
+houses <span style="color:#333">=</span> []</code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># For each element in the character_name list,</span>
+<span style="color:#080;font-weight:bold">for</span> name <span style="color:#000;font-weight:bold">in</span> character_name:
+    <span style="color:#888"># split up the names by a blank space and select the last element</span>
+    <span style="color:#888"># this works because it is the last name if they are a house, </span>
+    <span style="color:#888"># but the first name if they only have one name,</span>
+    <span style="color:#888"># Then append each last name to the houses list</span>
+    houses<span style="color:#333">.</span>append(name<span style="color:#333">.</span>split(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39; &#39;</span>)[<span style="color:#333">-</span><span style="color:#00d;font-weight:bold">1</span>])</code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Convert houses into a pandas series (so we can use value_counts())</span>
+houses <span style="color:#333">=</span> pd<span style="color:#333">.</span>Series(houses)
+
+<span style="color:#888"># Count the number of times each name/house name appears</span>
+houses<span style="color:#333">.</span>value_counts()</code></pre></div>
+<pre><code>Stark         9
+Targaryen     7
+Baratheon     7
+Martell       6
+Greyjoy       6
+Lannister     6
+Tyrell        4
+Tully         3
+Arryn         3
+Tarly         2
+Bolton        2
+Mormont       2
+Royce         2
+Clegane       2
+Payne         2
+Karstark      2
+Storm         1
+Poole         1
+Giantsbane    1
+Connington    1
+Snakes        1
+Varys         1
+Westerling    1
+Rayder        1
+Gilly         1
+Pycelle       1
+Sparrow       1
+Drogo         1
+Hodor         1
+Worm          1
+             ..
+Qaggaz        1
+Harlaw        1
+Forel         1
+Slynt         1
+Manderly      1
+Craster       1
+Frey          1
+Oakheart      1
+Tarth         1
+Selmy         1
+Trant         1
+Qyburn        1
+Rivers        1
+Tollett       1
+Reed          1
+Mopatis       1
+Dondarrion    1
+Florent       1
+Waynwood      1
+Yoren         1
+Baelish       1
+Osha          1
+Unella        1
+Bronn         1
+Gendry        1
+Myr           1
+Thorne        1
+Nestoris      1
+Tall          1
+H'ghar        1
+Length: 78, dtype: int64
+</code></pre>
+
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      Blog template created by <a href="https://twitter.com/mdo">@mdo</a>, ported to Hugo by <a href='https://twitter.com/mralanorth'>@mralanorth</a>.
+      
+      </p>
+    </footer>
+
+  </body>
+
+</html>

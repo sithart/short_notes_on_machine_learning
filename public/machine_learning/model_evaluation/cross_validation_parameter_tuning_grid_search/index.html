@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Cross Validation With Parameter Tuning Using Grid Search" />
+<meta property="og:description" content="Cross Validation With Parameter Tuning Using Grid Search using Scikit-Learn." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://chrisalbon.com/machine_learning/model_evaluation/cross_validation_parameter_tuning_grid_search/" />
+
+
+
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
+
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Cross Validation With Parameter Tuning Using Grid Search"/>
+<meta name="twitter:description" content="Cross Validation With Parameter Tuning Using Grid Search using Scikit-Learn."/>
+<meta name="generator" content="Hugo 0.31.1" />
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Cross Validation With Parameter Tuning Using Grid Search",
+  "url": "https://chrisalbon.com/machine_learning/model_evaluation/cross_validation_parameter_tuning_grid_search/",
+  "wordCount": "792",
+  "datePublished": "2017-12-20T11:53:49-07:00",
+  "dateModified": "2017-12-20T11:53:49-07:00",
+  "author": {
+    "@type": "Person",
+    "name": "Chris Albon"
+  },
+  "description": "Cross Validation With Parameter Tuning Using Grid Search using Scikit-Learn."
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://chrisalbon.com/machine_learning/model_evaluation/cross_validation_parameter_tuning_grid_search/">
+
+    <title>Cross Validation With Parameter Tuning Using Grid Search | Chris Albon</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://chrisalbon.com/css/style.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+    <link href="https://chrisalbon.com/css/main.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+
+    
+
+    
+
+    <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link" href="https://chrisalbon.com/">Home</a></nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://chrisalbon.com/machine_learning/model_evaluation/cross_validation_parameter_tuning_grid_search/">Cross Validation With Parameter Tuning Using Grid Search</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-12-20T11:53:49-07:00">Wed Dec 20, 2017</time></p>
+  </header>
+  
+
+<p>In machine learning, two tasks are commonly done at the same time in data pipelines: cross validation and (hyper)parameter tuning. Cross validation is the process of training learners using one set of data and testing it using a different set. Parameter tuning is the process to selecting the values for a model&rsquo;s parameters that maximize the accuracy of the model.</p>
+
+<p>In this tutorial we work through an example which combines cross validation and parameter tuning using scikit-learn.</p>
+
+<p>Note: This tutorial is based on <a href="http://scikit-learn.org/stable/modules/grid_search.html#grid-search">examples given in the scikit-learn documentation</a>. I have combined a few examples in the documentation, simplified the code, and added extensive explanations/code comments.</p>
+
+<h2 id="preliminaries">Preliminaries</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">numpy</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">np</span>
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">sklearn.grid_search</span> <span style="color:#080;font-weight:bold">import</span> GridSearchCV
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">sklearn</span> <span style="color:#080;font-weight:bold">import</span> datasets, svm
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">matplotlib.pyplot</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">plt</span></code></pre></div>
+<h2 id="create-two-datasets">Create Two Datasets</h2>
+
+<p>In the code below, we load the <a href="http://scikit-learn.org/stable/auto_examples/datasets/plot_digits_last_image.html"><code>digits</code> dataset</a>, which contains 64 feature variables. Each feature denotes the darkness of a pixel in an 8 by 8 image of a handwritten digit. We can see these features for the first observation:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Load the digit data</span>
+digits <span style="color:#333">=</span> datasets<span style="color:#333">.</span>load_digits()</code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># View the features of the first observation</span>
+digits<span style="color:#333">.</span>data[<span style="color:#00d;font-weight:bold">0</span>:<span style="color:#00d;font-weight:bold">1</span>]</code></pre></div>
+<pre><code>array([[  0.,   0.,   5.,  13.,   9.,   1.,   0.,   0.,   0.,   0.,  13.,
+         15.,  10.,  15.,   5.,   0.,   0.,   3.,  15.,   2.,   0.,  11.,
+          8.,   0.,   0.,   4.,  12.,   0.,   0.,   8.,   8.,   0.,   0.,
+          5.,   8.,   0.,   0.,   9.,   8.,   0.,   0.,   4.,  11.,   0.,
+          1.,  12.,   7.,   0.,   0.,   2.,  14.,   5.,  10.,  12.,   0.,
+          0.,   0.,   0.,   6.,  13.,  10.,   0.,   0.,   0.]])
+</code></pre>
+
+<p>The target data is a vector containing the image&rsquo;s true digit. For example, the first observation is a handwritten digit for &lsquo;0&rsquo;.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># View the target of the first observation</span>
+digits<span style="color:#333">.</span>target[<span style="color:#00d;font-weight:bold">0</span>:<span style="color:#00d;font-weight:bold">1</span>]</code></pre></div>
+<pre><code>array([0])
+</code></pre>
+
+<p>To demonstrate cross validation and parameter tuning, first we are going to divide the digit data into two datasets called <code>data1</code> and <code>data2</code>. <code>data1</code> contains the first 1000 rows of the digits data, while <code>data2</code> contains the remaining ~800 rows. Note that this split is <em>separate</em> to the cross validation we will conduct and is done purely to demonstrate something at the end of the tutorial. In other words, don&rsquo;t worry about <code>data2</code> for now, we will come back to it.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create dataset 1</span>
+data1_features <span style="color:#333">=</span> digits<span style="color:#333">.</span>data[:<span style="color:#00d;font-weight:bold">1000</span>]
+data1_target <span style="color:#333">=</span> digits<span style="color:#333">.</span>target[:<span style="color:#00d;font-weight:bold">1000</span>]
+
+<span style="color:#888"># Create dataset 2</span>
+data2_features <span style="color:#333">=</span> digits<span style="color:#333">.</span>data[<span style="color:#00d;font-weight:bold">1000</span>:]
+data2_target <span style="color:#333">=</span> digits<span style="color:#333">.</span>target[<span style="color:#00d;font-weight:bold">1000</span>:]</code></pre></div>
+<h2 id="create-parameter-candidates">Create Parameter Candidates</h2>
+
+<p>Before looking for which combination of parameter values produces the most accurate model, we must specify the different candidate values we want to try. In the code below we have a number of candidate parameter values, including four different values for <code>C</code> (<code>1, 10, 100, 1000</code>), two values for <code>gamma</code> (<code>0.001, 0.0001</code>), and two kernels (<code>linear, rbf</code>). The grid search will try all combinations of parameter values and select the set of parameters which provides the most accurate model.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">parameter_candidates <span style="color:#333">=</span> [
+  {<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;C&#39;</span>: [<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">10</span>, <span style="color:#00d;font-weight:bold">100</span>, <span style="color:#00d;font-weight:bold">1000</span>], <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;kernel&#39;</span>: [<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;linear&#39;</span>]},
+  {<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;C&#39;</span>: [<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">10</span>, <span style="color:#00d;font-weight:bold">100</span>, <span style="color:#00d;font-weight:bold">1000</span>], <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;gamma&#39;</span>: [<span style="color:#60e;font-weight:bold">0.001</span>, <span style="color:#60e;font-weight:bold">0.0001</span>], <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;kernel&#39;</span>: [<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;rbf&#39;</span>]},
+]</code></pre></div>
+<h2 id="conduct-grid-search-to-find-parameters-producing-highest-score">Conduct Grid Search To Find Parameters Producing Highest Score</h2>
+
+<p>Now we are ready to conduct the grid search using scikit-learn&rsquo;s <code>GridSearchCV</code> which stands for grid search cross validation. By default, the <code>GridSearchCV</code>&rsquo;s cross validation uses 3-fold <code>KFold</code> or <code>StratifiedKFold</code> depending on the situation.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create a classifier object with the classifier and parameter candidates</span>
+clf <span style="color:#333">=</span> GridSearchCV(estimator<span style="color:#333">=</span>svm<span style="color:#333">.</span>SVC(), param_grid<span style="color:#333">=</span>parameter_candidates, n_jobs<span style="color:#333">=-</span><span style="color:#00d;font-weight:bold">1</span>)
+
+<span style="color:#888"># Train the classifier on data1&#39;s feature and target data</span>
+clf<span style="color:#333">.</span>fit(data1_features, data1_target)   </code></pre></div>
+<pre><code>GridSearchCV(cv=None, error_score='raise',
+       estimator=SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+  decision_function_shape=None, degree=3, gamma='auto', kernel='rbf',
+  max_iter=-1, probability=False, random_state=None, shrinking=True,
+  tol=0.001, verbose=False),
+       fit_params={}, iid=True, n_jobs=-1,
+       param_grid=[{'kernel': ['linear'], 'C': [1, 10, 100, 1000]}, {'kernel': ['rbf'], 'gamma': [0.001, 0.0001], 'C': [1, 10, 100, 1000]}],
+       pre_dispatch='2*n_jobs', refit=True, scoring=None, verbose=0)
+</code></pre>
+
+<p>Success! We have our results! First, let&rsquo;s look at the accuracy score when we apply the model to the <code>data1</code>&rsquo;s test data.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># View the accuracy score</span>
+<span style="color:#080;font-weight:bold">print</span>(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Best score for data1:&#39;</span>, clf<span style="color:#333">.</span>best_score_) </code></pre></div>
+<pre><code>Best score for data1: 0.942
+</code></pre>
+
+<p>Which parameters are the best? We can tell scikit-learn to display them:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># View the best parameters for the model found using grid search</span>
+<span style="color:#080;font-weight:bold">print</span>(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Best C:&#39;</span>,clf<span style="color:#333">.</span>best_estimator_<span style="color:#333">.</span>C) 
+<span style="color:#080;font-weight:bold">print</span>(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Best Kernel:&#39;</span>,clf<span style="color:#333">.</span>best_estimator_<span style="color:#333">.</span>kernel)
+<span style="color:#080;font-weight:bold">print</span>(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Best Gamma:&#39;</span>,clf<span style="color:#333">.</span>best_estimator_<span style="color:#333">.</span>gamma)</code></pre></div>
+<pre><code>Best C: 10
+Best Kernel: rbf
+Best Gamma: 0.001
+</code></pre>
+
+<p>This tells us that the most accurate model uses <code>C=10</code>, the <code>rbf</code> kernel, and <code>gamma=0.001</code>.</p>
+
+<h2 id="sanity-check-using-second-dataset">Sanity Check Using Second Dataset</h2>
+
+<p>Remember the second dataset we created? Now we will use it to prove that those parameters are actually used by the model. First, we apply the classifier we just trained to the second dataset. Then we will train a <em>new</em> support vector classifier from scratch using the parameters found using the grid search. We should get the same results for both models.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Apply the classifier trained using data1 to data2, and view the accuracy score</span>
+clf<span style="color:#333">.</span>score(data2_features, data2_target)  </code></pre></div>
+<pre><code>0.96988707653701378
+</code></pre>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Train a new classifier using the best parameters found by the grid search</span>
+svm<span style="color:#333">.</span>SVC(C<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">10</span>, kernel<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;rbf&#39;</span>, gamma<span style="color:#333">=</span><span style="color:#60e;font-weight:bold">0.001</span>)<span style="color:#333">.</span>fit(data1_features, data1_target)<span style="color:#333">.</span>score(data2_features, data2_target)</code></pre></div>
+<pre><code>0.96988707653701378
+</code></pre>
+
+<p>Success!</p>
+
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      Blog template created by <a href="https://twitter.com/mdo">@mdo</a>, ported to Hugo by <a href='https://twitter.com/mralanorth'>@mralanorth</a>.
+      
+      </p>
+    </footer>
+
+  </body>
+
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Visualize Neural Network Architecutre" />
+<meta property="og:description" content="How to visualize neural network architecture in Python." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://chrisalbon.com/deep_learning/keras/visualize_neural_network_architecture/" />
+
+
+
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
+
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Visualize Neural Network Architecutre"/>
+<meta name="twitter:description" content="How to visualize neural network architecture in Python."/>
+<meta name="generator" content="Hugo 0.31.1" />
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Visualize Neural Network Architecutre",
+  "url": "https://chrisalbon.com/deep_learning/keras/visualize_neural_network_architecture/",
+  "wordCount": "98",
+  "datePublished": "2017-12-20T11:53:49-07:00",
+  "dateModified": "2017-12-20T11:53:49-07:00",
+  "author": {
+    "@type": "Person",
+    "name": "Chris Albon"
+  },
+  "description": "How to visualize neural network architecture in Python."
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://chrisalbon.com/deep_learning/keras/visualize_neural_network_architecture/">
+
+    <title>Visualize Neural Network Architecutre | Chris Albon</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://chrisalbon.com/css/style.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+    <link href="https://chrisalbon.com/css/main.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+
+    
+
+    
+
+    <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link" href="https://chrisalbon.com/">Home</a></nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://chrisalbon.com/deep_learning/keras/visualize_neural_network_architecture/">Visualize Neural Network Architecutre</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-12-20T11:53:49-07:00">Wed Dec 20, 2017</time></p>
+  </header>
+  
+
+<h2 id="preliminaries">Preliminaries</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Load libraries</span>
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">keras</span> <span style="color:#080;font-weight:bold">import</span> models
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">keras</span> <span style="color:#080;font-weight:bold">import</span> layers
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">IPython.display</span> <span style="color:#080;font-weight:bold">import</span> SVG
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">keras.utils.vis_utils</span> <span style="color:#080;font-weight:bold">import</span> model_to_dot
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">keras.utils</span> <span style="color:#080;font-weight:bold">import</span> plot_model</code></pre></div>
+<pre><code>Using TensorFlow backend.
+</code></pre>
+
+<h2 id="construct-neural-network-architecture">Construct Neural Network Architecture</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Start neural network</span>
+network <span style="color:#333">=</span> models<span style="color:#333">.</span>Sequential()
+
+<span style="color:#888"># Add fully connected layer with a ReLU activation function</span>
+network<span style="color:#333">.</span>add(layers<span style="color:#333">.</span>Dense(units<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">16</span>, activation<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;relu&#39;</span>, input_shape<span style="color:#333">=</span>(<span style="color:#00d;font-weight:bold">10</span>,)))
+
+<span style="color:#888"># Add fully connected layer with a ReLU activation function</span>
+network<span style="color:#333">.</span>add(layers<span style="color:#333">.</span>Dense(units<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">16</span>, activation<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;relu&#39;</span>))
+
+<span style="color:#888"># Add fully connected layer with a sigmoid activation function</span>
+network<span style="color:#333">.</span>add(layers<span style="color:#333">.</span>Dense(units<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">1</span>, activation<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;sigmoid&#39;</span>))</code></pre></div>
+<h2 id="visualize-network-architecture">Visualize Network Architecture</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Visualize network architecture</span>
+SVG(model_to_dot(network, show_shapes<span style="color:#333">=</span>True)<span style="color:#333">.</span>create(prog<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;dot&#39;</span>, format<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;svg&#39;</span>))</code></pre></div>
+<p><img src="visualize_neural_network_architecture_6_0.svg" alt="svg" /></p>
+
+<h2 id="save-to-file">Save To File</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Save the visualization as a file</span>
+plot_model(network, show_shapes<span style="color:#333">=</span>True, to_file<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;network.png&#39;</span>)</code></pre></div>
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      Blog template created by <a href="https://twitter.com/mdo">@mdo</a>, ported to Hugo by <a href='https://twitter.com/mralanorth'>@mralanorth</a>.
+      
+      </p>
+    </footer>
+
+  </body>
+
+</html>

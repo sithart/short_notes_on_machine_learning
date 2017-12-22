@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Perceptron In Scikit" />
+<meta property="og:description" content="Perceptron Learning using Python and scikit-learn. " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://chrisalbon.com/machine_learning/basics/perceptron_in_scikit-learn/" />
+
+
+
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
+
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Perceptron In Scikit"/>
+<meta name="twitter:description" content="Perceptron Learning using Python and scikit-learn. "/>
+<meta name="generator" content="Hugo 0.31.1" />
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Perceptron In Scikit",
+  "url": "https://chrisalbon.com/machine_learning/basics/perceptron_in_scikit-learn/",
+  "wordCount": "462",
+  "datePublished": "2017-12-20T11:53:49-07:00",
+  "dateModified": "2017-12-20T11:53:49-07:00",
+  "author": {
+    "@type": "Person",
+    "name": "Chris Albon"
+  },
+  "description": "Perceptron Learning using Python and scikit-learn. "
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://chrisalbon.com/machine_learning/basics/perceptron_in_scikit-learn/">
+
+    <title>Perceptron In Scikit | Chris Albon</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://chrisalbon.com/css/style.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+    <link href="https://chrisalbon.com/css/main.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+
+    
+
+    
+
+    <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link" href="https://chrisalbon.com/">Home</a></nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://chrisalbon.com/machine_learning/basics/perceptron_in_scikit-learn/">Perceptron In Scikit</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-12-20T11:53:49-07:00">Wed Dec 20, 2017</time></p>
+  </header>
+  
+
+<p>A perceptron learner was one of the earliest machine learning techniques and still from the foundation of many modern neural networks. In this tutorial we use a perceptron learner to classify the <a href="https://en.wikipedia.org/wiki/Iris_flower_data_set">famous iris dataset</a>. This tutorial was inspired by <a href="http://amzn.to/2iyMbpA">Python Machine Learning by Sebastian Raschka</a>.</p>
+
+<h2 id="preliminaries">Preliminaries</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Load required libraries</span>
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">sklearn</span> <span style="color:#080;font-weight:bold">import</span> datasets
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">sklearn.preprocessing</span> <span style="color:#080;font-weight:bold">import</span> StandardScaler
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">sklearn.linear_model</span> <span style="color:#080;font-weight:bold">import</span> Perceptron
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">sklearn.model_selection</span> <span style="color:#080;font-weight:bold">import</span> train_test_split
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">sklearn.metrics</span> <span style="color:#080;font-weight:bold">import</span> accuracy_score
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">numpy</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">np</span></code></pre></div>
+<h2 id="load-the-iris-data">Load The Iris Data</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Load the iris dataset</span>
+iris <span style="color:#333">=</span> datasets<span style="color:#333">.</span>load_iris()
+
+<span style="color:#888"># Create our X and y data</span>
+X <span style="color:#333">=</span> iris<span style="color:#333">.</span>data
+y <span style="color:#333">=</span> iris<span style="color:#333">.</span>target</code></pre></div>
+<h2 id="view-the-iris-data">View The Iris Data</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># View the first five observations of our y data</span>
+y[:<span style="color:#00d;font-weight:bold">5</span>]</code></pre></div>
+<pre><code>array([0, 0, 0, 0, 0])
+</code></pre>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># View the first five observations of our x data.</span>
+<span style="color:#888"># Notice that there are four independent variables (features)</span>
+X[:<span style="color:#00d;font-weight:bold">5</span>]</code></pre></div>
+<pre><code>array([[ 5.1,  3.5,  1.4,  0.2],
+       [ 4.9,  3. ,  1.4,  0.2],
+       [ 4.7,  3.2,  1.3,  0.2],
+       [ 4.6,  3.1,  1.5,  0.2],
+       [ 5. ,  3.6,  1.4,  0.2]])
+</code></pre>
+
+<h2 id="split-the-iris-data-into-training-and-test">Split The Iris Data Into Training And Test</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Split the data into 70% training data and 30% test data</span>
+X_train, X_test, y_train, y_test <span style="color:#333">=</span> train_test_split(X, y, test_size<span style="color:#333">=</span><span style="color:#60e;font-weight:bold">0.3</span>)</code></pre></div>
+<h2 id="preprocess-the-x-data-by-scaling">Preprocess The X Data By Scaling</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Train the scaler, which standarizes all the features to have mean=0 and unit variance</span>
+sc <span style="color:#333">=</span> StandardScaler()
+sc<span style="color:#333">.</span>fit(X_train)</code></pre></div>
+<pre><code>StandardScaler(copy=True, with_mean=True, with_std=True)
+</code></pre>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Apply the scaler to the X training data</span>
+X_train_std <span style="color:#333">=</span> sc<span style="color:#333">.</span>transform(X_train)
+
+<span style="color:#888"># Apply the SAME scaler to the X test data</span>
+X_test_std <span style="color:#333">=</span> sc<span style="color:#333">.</span>transform(X_test)</code></pre></div>
+<h2 id="train-a-perceptron-learner">Train A Perceptron Learner</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create a perceptron object with the parameters: 40 iterations (epochs) over the data, and a learning rate of 0.1</span>
+ppn <span style="color:#333">=</span> Perceptron(n_iter<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">40</span>, eta0<span style="color:#333">=</span><span style="color:#60e;font-weight:bold">0.1</span>, random_state<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">0</span>)
+
+<span style="color:#888"># Train the perceptron</span>
+ppn<span style="color:#333">.</span>fit(X_train_std, y_train)</code></pre></div>
+<pre><code>Perceptron(alpha=0.0001, class_weight=None, eta0=0.1, fit_intercept=True,
+      n_iter=40, n_jobs=1, penalty=None, random_state=0, shuffle=True,
+      verbose=0, warm_start=False)
+</code></pre>
+
+<h2 id="apply-the-trained-learner-to-test-data">Apply The Trained Learner To Test Data</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Apply the trained perceptron on the X data to make predicts for the y test data</span>
+y_pred <span style="color:#333">=</span> ppn<span style="color:#333">.</span>predict(X_test_std)</code></pre></div>
+<h2 id="compare-the-predicted-y-with-the-true-y">Compare The Predicted Y With The True Y</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># View the predicted y test data</span>
+y_pred</code></pre></div>
+<pre><code>array([0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 1, 1, 0, 2, 2, 2, 0, 0, 0, 0, 0, 2,
+       2, 1, 0, 0, 2, 1, 0, 0, 0, 0, 2, 1, 0, 2, 0, 2, 0, 2, 0, 2, 0, 1])
+</code></pre>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># View the true y test data</span>
+y_test</code></pre></div>
+<pre><code>array([0, 0, 0, 1, 0, 0, 2, 2, 0, 0, 1, 1, 1, 0, 2, 2, 2, 1, 0, 0, 0, 0, 2,
+       2, 1, 1, 0, 2, 1, 1, 1, 0, 0, 2, 1, 0, 2, 0, 2, 0, 2, 0, 2, 0, 1])
+</code></pre>
+
+<h2 id="examine-accuracy-metric">Examine Accuracy Metric</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># View the accuracy of the model, which is: 1 - (observations predicted wrong / total observations)</span>
+<span style="color:#080;font-weight:bold">print</span>(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Accuracy: </span><span style="background-color:#eee">%.2f</span><span style="background-color:#fff0f0">&#39;</span> <span style="color:#333">%</span> accuracy_score(y_test, y_pred))</code></pre></div>
+<pre><code>Accuracy: 0.87
+</code></pre>
+
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      Blog template created by <a href="https://twitter.com/mdo">@mdo</a>, ported to Hugo by <a href='https://twitter.com/mralanorth'>@mralanorth</a>.
+      
+      </p>
+    </footer>
+
+  </body>
+
+</html>

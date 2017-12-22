@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Find Best Preprocessing Steps During Model Selection" />
+<meta property="og:description" content="How to conduct preprocessing during model selection in scikit-learn for machine learning in Python." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://chrisalbon.com/machine_learning/model_selection/find_best_preprocessing_steps_during_model_selection/" />
+
+
+
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
+
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Find Best Preprocessing Steps During Model Selection"/>
+<meta name="twitter:description" content="How to conduct preprocessing during model selection in scikit-learn for machine learning in Python."/>
+<meta name="generator" content="Hugo 0.31.1" />
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Find Best Preprocessing Steps During Model Selection",
+  "url": "https://chrisalbon.com/machine_learning/model_selection/find_best_preprocessing_steps_during_model_selection/",
+  "wordCount": "283",
+  "datePublished": "2017-12-20T11:53:49-07:00",
+  "dateModified": "2017-12-20T11:53:49-07:00",
+  "author": {
+    "@type": "Person",
+    "name": "Chris Albon"
+  },
+  "description": "How to conduct preprocessing during model selection in scikit-learn for machine learning in Python."
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://chrisalbon.com/machine_learning/model_selection/find_best_preprocessing_steps_during_model_selection/">
+
+    <title>Find Best Preprocessing Steps During Model Selection | Chris Albon</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://chrisalbon.com/css/style.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+    <link href="https://chrisalbon.com/css/main.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+
+    
+
+    
+
+    <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link" href="https://chrisalbon.com/">Home</a></nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://chrisalbon.com/machine_learning/model_selection/find_best_preprocessing_steps_during_model_selection/">Find Best Preprocessing Steps During Model Selection</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-12-20T11:53:49-07:00">Wed Dec 20, 2017</time></p>
+  </header>
+  
+
+<p>We have to be careful to properly handle preprocessing when conducting model selection. First, <code>GridSearchCV</code> uses cross-validation to determine which model has the highest performance. However, in cross-validation we are in effect pretending that the fold held out as the test set is not seen, and thus not part of fitting any preprocessing steps (e.g. scaling or standardization). For this reason, we cannot preprocess the data then run <code>GridSearchCV</code>.</p>
+
+<p>Second, some preprocessing methods have their own parameter which often have to be supplied by the user. By including candidate component values in the search space, they are treated like any other hyperparameter be to searched over.</p>
+
+<h2 id="preliminaries">Preliminaries</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Load libraries</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">numpy</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">np</span>
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">sklearn</span> <span style="color:#080;font-weight:bold">import</span> datasets
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">sklearn.linear_model</span> <span style="color:#080;font-weight:bold">import</span> LogisticRegression
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">sklearn.model_selection</span> <span style="color:#080;font-weight:bold">import</span> GridSearchCV
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">sklearn.pipeline</span> <span style="color:#080;font-weight:bold">import</span> Pipeline, FeatureUnion
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">sklearn.decomposition</span> <span style="color:#080;font-weight:bold">import</span> PCA
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">sklearn.preprocessing</span> <span style="color:#080;font-weight:bold">import</span> StandardScaler
+
+<span style="color:#888"># Set random seed</span>
+np<span style="color:#333">.</span>random<span style="color:#333">.</span>seed(<span style="color:#00d;font-weight:bold">0</span>)</code></pre></div>
+<h2 id="load-iris-dataset">Load Iris Dataset</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Load data</span>
+iris <span style="color:#333">=</span> datasets<span style="color:#333">.</span>load_iris()
+X <span style="color:#333">=</span> iris<span style="color:#333">.</span>data
+y <span style="color:#333">=</span> iris<span style="color:#333">.</span>target</code></pre></div>
+<h2 id="create-proprocessing-object">Create Proprocessing Object</h2>
+
+<p>We are include two different preprocessing steps: principal component analysis and a k-best feature selection.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create a combined preprocessing object</span>
+preprocess <span style="color:#333">=</span> FeatureUnion([(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;pca&#39;</span>, PCA()), (<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#34;kbest&#34;</span>, SelectKBest(k<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">1</span>))])</code></pre></div>
+<h2 id="create-pipeline">Create Pipeline</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create a pipeline</span>
+pipe <span style="color:#333">=</span> Pipeline([(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;preprocess&#39;</span>, preprocess), (<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;classifier&#39;</span>, LogisticRegression())])</code></pre></div>
+<h2 id="create-search-space-of-hyperparameter-values">Create Search Space Of Hyperparameter Values</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create space of candidate values</span>
+search_space <span style="color:#333">=</span> [{<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;preprocess__pca__n_components&#39;</span>: [<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">2</span>, <span style="color:#00d;font-weight:bold">3</span>],
+                 <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;classifier__penalty&#39;</span>: [<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;l1&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;l2&#39;</span>],
+                 <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;classifier__C&#39;</span>: np<span style="color:#333">.</span>logspace(<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">4</span>, <span style="color:#00d;font-weight:bold">10</span>)}]</code></pre></div>
+<h2 id="create-grid-search">Create Grid Search</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create grid search </span>
+clf <span style="color:#333">=</span> GridSearchCV(pipe, search_space, cv<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">5</span>, verbose<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">0</span>, n_jobs<span style="color:#333">=-</span><span style="color:#00d;font-weight:bold">1</span>)</code></pre></div>
+<h2 id="conduct-grid-search">Conduct Grid Search</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Fit grid search</span>
+best_model <span style="color:#333">=</span> clf<span style="color:#333">.</span>fit(X, y)</code></pre></div>
+<h2 id="view-best-model-s-hyperparamters">View Best Model&rsquo;s Hyperparamters</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># View best hyperparameters</span>
+<span style="color:#080;font-weight:bold">print</span>(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Best Number Of Princpal Components:&#39;</span>, best_model<span style="color:#333">.</span>best_estimator_<span style="color:#333">.</span>get_params()[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;preprocess__pca__n_components&#39;</span>])
+<span style="color:#080;font-weight:bold">print</span>(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Best Penalty:&#39;</span>, best_model<span style="color:#333">.</span>best_estimator_<span style="color:#333">.</span>get_params()[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;classifier__penalty&#39;</span>])
+<span style="color:#080;font-weight:bold">print</span>(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Best C:&#39;</span>, best_model<span style="color:#333">.</span>best_estimator_<span style="color:#333">.</span>get_params()[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;classifier__C&#39;</span>])</code></pre></div>
+<pre><code>Best Number Of Princpal Components: 3
+Best Penalty: l1
+Best C: 59.9484250319
+</code></pre>
+
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      Blog template created by <a href="https://twitter.com/mdo">@mdo</a>, ported to Hugo by <a href='https://twitter.com/mralanorth'>@mralanorth</a>.
+      
+      </p>
+    </footer>
+
+  </body>
+
+</html>

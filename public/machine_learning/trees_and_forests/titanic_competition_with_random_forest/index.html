@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Titanic Competition With Random Forest" />
+<meta property="og:description" content="Python code to make a submission to the titanic competition using a random forest." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://chrisalbon.com/machine_learning/trees_and_forests/titanic_competition_with_random_forest/" />
+
+
+
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
+
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Titanic Competition With Random Forest"/>
+<meta name="twitter:description" content="Python code to make a submission to the titanic competition using a random forest."/>
+<meta name="generator" content="Hugo 0.31.1" />
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Titanic Competition With Random Forest",
+  "url": "https://chrisalbon.com/machine_learning/trees_and_forests/titanic_competition_with_random_forest/",
+  "wordCount": "563",
+  "datePublished": "2017-12-20T11:53:49-07:00",
+  "dateModified": "2017-12-20T11:53:49-07:00",
+  "author": {
+    "@type": "Person",
+    "name": "Chris Albon"
+  },
+  "description": "Python code to make a submission to the titanic competition using a random forest."
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://chrisalbon.com/machine_learning/trees_and_forests/titanic_competition_with_random_forest/">
+
+    <title>Titanic Competition With Random Forest | Chris Albon</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://chrisalbon.com/css/style.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+    <link href="https://chrisalbon.com/css/main.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+
+    
+
+    
+
+    <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link" href="https://chrisalbon.com/">Home</a></nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://chrisalbon.com/machine_learning/trees_and_forests/titanic_competition_with_random_forest/">Titanic Competition With Random Forest</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-12-20T11:53:49-07:00">Wed Dec 20, 2017</time></p>
+  </header>
+  
+
+<h2 id="preliminaries">Preliminaries</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">pandas</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">pd</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">numpy</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">np</span>
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">sklearn</span> <span style="color:#080;font-weight:bold">import</span> preprocessing
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">sklearn.ensemble</span> <span style="color:#080;font-weight:bold">import</span> RandomForestClassifier
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">sklearn.model_selection</span> <span style="color:#080;font-weight:bold">import</span> GridSearchCV, cross_val_score
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">csv</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">csv</span></code></pre></div>
+<h2 id="get-the-data">Get The Data</h2>
+
+<p>You can get the data on <a href="https://www.kaggle.com/c/titanic">Kaggle&rsquo;s site</a>.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Load the data</span>
+train <span style="color:#333">=</span> pd<span style="color:#333">.</span>read_csv(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;data/train.csv&#39;</span>)
+test <span style="color:#333">=</span> pd<span style="color:#333">.</span>read_csv(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;data/test.csv&#39;</span>)</code></pre></div>
+<h2 id="data-cleaning">Data Cleaning</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create a list of the features we will eventually want for our model</span>
+features <span style="color:#333">=</span> [<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Age&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;SibSp&#39;</span>,<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Parch&#39;</span>,<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Fare&#39;</span>,<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;male&#39;</span>,<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;embarked_Q&#39;</span>,<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;embarked_S&#39;</span>,<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Pclass_2&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Pclass_3&#39;</span>]</code></pre></div>
+<h3 id="sex">Sex</h3>
+
+<p>Here we convert the gender labels (<code>male</code>, <code>female</code>) into a dummy variable (<code>1</code>, <code>0</code>).</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create an encoder</span>
+sex_encoder <span style="color:#333">=</span> preprocessing<span style="color:#333">.</span>LabelEncoder()
+
+<span style="color:#888"># Fit the encoder to the train data so it knows that male = 1</span>
+sex_encoder<span style="color:#333">.</span>fit(train[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Sex&#39;</span>])
+
+<span style="color:#888"># Apply the encoder to the training data</span>
+train[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;male&#39;</span>] <span style="color:#333">=</span> sex_encoder<span style="color:#333">.</span>transform(train[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Sex&#39;</span>])
+
+<span style="color:#888"># Apply the encoder to the training data</span>
+test[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;male&#39;</span>] <span style="color:#333">=</span> sex_encoder<span style="color:#333">.</span>transform(test[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Sex&#39;</span>])</code></pre></div>
+<h3 id="embarked">Embarked</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Convert the Embarked training feature into dummies using one-hot</span>
+<span style="color:#888"># and leave one first category to prevent perfect collinearity</span>
+train_embarked_dummied <span style="color:#333">=</span> pd<span style="color:#333">.</span>get_dummies(train[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#34;Embarked&#34;</span>], prefix<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;embarked&#39;</span>, drop_first<span style="color:#333">=</span>True)
+
+<span style="color:#888"># Convert the Embarked test feature into dummies using one-hot</span>
+<span style="color:#888"># and leave one first category to prevent perfect collinearity</span>
+test_embarked_dummied <span style="color:#333">=</span> pd<span style="color:#333">.</span>get_dummies(test[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#34;Embarked&#34;</span>], prefix<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;embarked&#39;</span>, drop_first<span style="color:#333">=</span>True)
+
+<span style="color:#888"># Concatenate the dataframe of dummies with the main dataframes</span>
+train <span style="color:#333">=</span> pd<span style="color:#333">.</span>concat([train, train_embarked_dummied], axis<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">1</span>)
+test <span style="color:#333">=</span> pd<span style="color:#333">.</span>concat([test, test_embarked_dummied], axis<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">1</span>)</code></pre></div>
+<h3 id="social-class">Social Class</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Convert the Pclass training feature into dummies using one-hot</span>
+<span style="color:#888"># and leave one first category to prevent perfect collinearity</span>
+train_Pclass_dummied <span style="color:#333">=</span> pd<span style="color:#333">.</span>get_dummies(train[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#34;Pclass&#34;</span>], prefix<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Pclass&#39;</span>, drop_first<span style="color:#333">=</span>True)
+
+<span style="color:#888"># Convert the Pclass test feature into dummies using one-hot</span>
+<span style="color:#888"># and leave one first category to prevent perfect collinearity</span>
+test_Pclass_dummied <span style="color:#333">=</span> pd<span style="color:#333">.</span>get_dummies(test[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#34;Pclass&#34;</span>], prefix<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Pclass&#39;</span>, drop_first<span style="color:#333">=</span>True)
+
+<span style="color:#888"># Concatenate the dataframe of dummies with the main dataframes</span>
+train <span style="color:#333">=</span> pd<span style="color:#333">.</span>concat([train, train_Pclass_dummied], axis<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">1</span>)
+test <span style="color:#333">=</span> pd<span style="color:#333">.</span>concat([test, test_Pclass_dummied], axis<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">1</span>)</code></pre></div>
+<h2 id="impute-missing-values">Impute Missing Values</h2>
+
+<p>A number of values of the <code>Age</code> feature are missing and will prevent the random forest to train. We get around this we will fill in missing values with the mean value of age (a useful fiction).</p>
+
+<h3 id="age">Age</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create an imputer object</span>
+age_imputer <span style="color:#333">=</span> preprocessing<span style="color:#333">.</span>Imputer(missing_values<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;NaN&#39;</span>, strategy<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;mean&#39;</span>, axis<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">0</span>)
+
+<span style="color:#888"># Fit the imputer object on the training data</span>
+age_imputer<span style="color:#333">.</span>fit(train[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Age&#39;</span>]<span style="color:#333">.</span>reshape(<span style="color:#333">-</span><span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">1</span>))
+
+<span style="color:#888"># Apply the imputer object to the training and test data</span>
+train[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Age&#39;</span>] <span style="color:#333">=</span> age_imputer<span style="color:#333">.</span>transform(train[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Age&#39;</span>]<span style="color:#333">.</span>reshape(<span style="color:#333">-</span><span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">1</span>))
+test[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Age&#39;</span>] <span style="color:#333">=</span> age_imputer<span style="color:#333">.</span>transform(test[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Age&#39;</span>]<span style="color:#333">.</span>reshape(<span style="color:#333">-</span><span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">1</span>))</code></pre></div>
+<h3 id="fare">Fare</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create an imputer object</span>
+fare_imputer <span style="color:#333">=</span> preprocessing<span style="color:#333">.</span>Imputer(missing_values<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;NaN&#39;</span>, strategy<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;mean&#39;</span>, axis<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">0</span>)
+
+<span style="color:#888"># Fit the imputer object on the training data</span>
+fare_imputer<span style="color:#333">.</span>fit(train[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Fare&#39;</span>]<span style="color:#333">.</span>reshape(<span style="color:#333">-</span><span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">1</span>))
+
+<span style="color:#888"># Apply the imputer object to the training and test data</span>
+train[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Fare&#39;</span>] <span style="color:#333">=</span> fare_imputer<span style="color:#333">.</span>transform(train[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Fare&#39;</span>]<span style="color:#333">.</span>reshape(<span style="color:#333">-</span><span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">1</span>))
+test[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Fare&#39;</span>] <span style="color:#333">=</span> fare_imputer<span style="color:#333">.</span>transform(test[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Fare&#39;</span>]<span style="color:#333">.</span>reshape(<span style="color:#333">-</span><span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">1</span>))</code></pre></div>
+<h2 id="search-for-optimum-parameters">Search For Optimum Parameters</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Create a dictionary containing all the candidate values of the parameters</span>
+parameter_grid <span style="color:#333">=</span> <span style="color:#007020">dict</span>(n_estimators<span style="color:#333">=</span><span style="color:#007020">list</span>(<span style="color:#007020">range</span>(<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">5001</span>, <span style="color:#00d;font-weight:bold">1000</span>)),
+                      criterion<span style="color:#333">=</span>[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;gini&#39;</span>,<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;entropy&#39;</span>],
+                      max_features<span style="color:#333">=</span><span style="color:#007020">list</span>(<span style="color:#007020">range</span>(<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#007020">len</span>(features), <span style="color:#00d;font-weight:bold">2</span>)),
+                      max_depth<span style="color:#333">=</span> [None] <span style="color:#333">+</span> <span style="color:#007020">list</span>(<span style="color:#007020">range</span>(<span style="color:#00d;font-weight:bold">5</span>, <span style="color:#00d;font-weight:bold">25</span>, <span style="color:#00d;font-weight:bold">1</span>)))
+
+<span style="color:#888"># Creata a random forest object</span>
+random_forest <span style="color:#333">=</span> RandomForestClassifier(random_state<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">0</span>, n_jobs<span style="color:#333">=-</span><span style="color:#00d;font-weight:bold">1</span>)
+
+<span style="color:#888"># Create a gridsearch object with 5-fold cross validation, and uses all cores (n_jobs=-1)</span>
+clf <span style="color:#333">=</span> GridSearchCV(estimator<span style="color:#333">=</span>random_forest, param_grid<span style="color:#333">=</span>parameter_grid, cv<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">5</span>, verbose<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">1</span>, n_jobs<span style="color:#333">=-</span><span style="color:#00d;font-weight:bold">1</span>)</code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Nest the gridsearchCV in a 3-fold CV for model evaluation</span>
+cv_scores <span style="color:#333">=</span> cross_val_score(clf, train[features], train[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Survived&#39;</span>])
+
+<span style="color:#888"># Print results</span>
+<span style="color:#080;font-weight:bold">print</span>(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Accuracy scores:&#39;</span>, cv_scores)
+<span style="color:#080;font-weight:bold">print</span>(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Mean of score:&#39;</span>, np<span style="color:#333">.</span>mean(cv_scores))
+<span style="color:#080;font-weight:bold">print</span>(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Variance of scores:&#39;</span>, np<span style="color:#333">.</span>var(cv_scores))</code></pre></div>
+<h2 id="retrain-the-random-forest-with-the-optimum-parameters">Retrain The Random Forest With The Optimum Parameters</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Retrain the model on the whole dataset</span>
+clf<span style="color:#333">.</span>fit(train[features], train[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Survived&#39;</span>])
+
+<span style="color:#888"># Predict who survived in the test dataset</span>
+predictions <span style="color:#333">=</span> clf<span style="color:#333">.</span>predict(test[features])</code></pre></div>
+<h2 id="create-the-kaggle-submission">Create The Kaggle Submission</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Grab the passenger IDs</span>
+ids <span style="color:#333">=</span> test[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;PassengerId&#39;</span>]<span style="color:#333">.</span>values
+
+<span style="color:#888"># Create a csv</span>
+submission_file <span style="color:#333">=</span> <span style="color:#007020">open</span>(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#34;submission.csv&#34;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#34;w&#34;</span>)
+
+<span style="color:#888"># Write to that csv</span>
+open_file_object <span style="color:#333">=</span> csv<span style="color:#333">.</span>writer(submission_file)
+
+<span style="color:#888"># Write the header of the csv</span>
+open_file_object<span style="color:#333">.</span>writerow([<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#34;PassengerId&#34;</span>,<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#34;Survived&#34;</span>])
+
+<span style="color:#888"># Write the rows of the csv</span>
+open_file_object<span style="color:#333">.</span>writerows(<span style="color:#007020">zip</span>(ids, predictions))
+
+<span style="color:#888"># Close the file</span>
+submission_file<span style="color:#333">.</span>close()</code></pre></div>
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      Blog template created by <a href="https://twitter.com/mdo">@mdo</a>, ported to Hugo by <a href='https://twitter.com/mralanorth'>@mralanorth</a>.
+      
+      </p>
+    </footer>
+
+  </body>
+
+</html>

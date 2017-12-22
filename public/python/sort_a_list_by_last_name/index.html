@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Sort A List Of Names By Last Name" />
+<meta property="og:description" content="Sort a list of names by last name." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://chrisalbon.com/python/sort_a_list_by_last_name/" />
+
+
+
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
+
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Sort A List Of Names By Last Name"/>
+<meta name="twitter:description" content="Sort a list of names by last name."/>
+<meta name="generator" content="Hugo 0.31.1" />
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Sort A List Of Names By Last Name",
+  "url": "https://chrisalbon.com/python/sort_a_list_by_last_name/",
+  "wordCount": "100",
+  "datePublished": "2017-12-20T11:53:49-07:00",
+  "dateModified": "2017-12-20T11:53:49-07:00",
+  "author": {
+    "@type": "Person",
+    "name": "Chris Albon"
+  },
+  "keywords": "python, Data Wrangling",
+  "description": "Sort a list of names by last name."
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://chrisalbon.com/python/sort_a_list_by_last_name/">
+
+    <title>Sort A List Of Names By Last Name | Chris Albon</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://chrisalbon.com/css/style.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+    <link href="https://chrisalbon.com/css/main.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+
+    
+
+    
+
+    <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link" href="https://chrisalbon.com/">Home</a></nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://chrisalbon.com/python/sort_a_list_by_last_name/">Sort A List Of Names By Last Name</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-12-20T11:53:49-07:00">Wed Dec 20, 2017</time> in 
+<i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="/categories/python" rel="category tag">python</a>
+
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/data-wrangling" rel="tag">Data Wrangling</a>
+
+</p>
+  </header>
+  
+
+<h2 id="create-a-list-of-names">Create a list of names</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">commander_names <span style="color:#333">=</span> [<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#34;Alan Brooke&#34;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#34;George Marshall&#34;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#34;Frank Jack Fletcher&#34;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#34;Conrad Helfrich&#34;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#34;Albert Kesselring&#34;</span>] </code></pre></div>
+<h2 id="sort-alphabetically-by-last-name">Sort Alphabetically By Last Name</h2>
+
+<p>To complete the sort, we will combine three operations:</p>
+
+<ul>
+<li><code>lambda x: x.split(&quot; &quot;)</code>, which is a function that takes a string <code>x</code> and breaks it up along each blank space. This outputs a list.</li>
+<li><code>[-1]</code>, which takes the last element of a list.</li>
+<li><code>sorted()</code>, which sorts a list.</li>
+</ul>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># Sort a variable called &#39;commander_names&#39; by the last elements of each name.</span>
+<span style="color:#007020">sorted</span>(commander_names, key<span style="color:#333">=</span><span style="color:#080;font-weight:bold">lambda</span> x: x<span style="color:#333">.</span>split(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#34; &#34;</span>)[<span style="color:#333">-</span><span style="color:#00d;font-weight:bold">1</span>])</code></pre></div>
+<pre><code>['Alan Brooke',
+ 'Frank Jack Fletcher',
+ 'Conrad Helfrich',
+ 'Albert Kesselring',
+ 'George Marshall']
+</code></pre>
+
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      Blog template created by <a href="https://twitter.com/mdo">@mdo</a>, ported to Hugo by <a href='https://twitter.com/mralanorth'>@mralanorth</a>.
+      
+      </p>
+    </footer>
+
+  </body>
+
+</html>
