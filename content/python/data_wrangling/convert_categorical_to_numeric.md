@@ -81,7 +81,7 @@ df
 
 
 
-### Create a function that converts all values of df['score'] into numbers
+### Create a function that converts all values of `df['score']` into numbers
 
 
 ```python

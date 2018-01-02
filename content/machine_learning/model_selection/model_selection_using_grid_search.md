@@ -7,7 +7,7 @@ type: technical_note
 draft: false
 ---
 <a alt="Model Selection Using Grid Search" href="https://machinelearningflashcards.com">
-    <img src="model_selection_tuning_using_grid_search/Model_Selection_print.png" class="flashcard center-block">
+    <img src="/images/machine_learning_flashcards/Model_Selection_print.png" class="flashcard center-block">
 </a>
 
 ## Preliminaries

@@ -7,7 +7,7 @@ type: technical_note
 draft: false
 ---
 <a alt="Radius-Based Nearest Neighbor Classifier" href="https://machinelearningflashcards.com">
-    <img src="radius_based_nearest_neighbor_classifier/Radius-Based_Nearest_Neighbor_Classifier_print.png" class="flashcard center-block">
+    <img src="/images/machine_learning_flashcards/Radius-Based_Nearest_Neighbor_Classifier_print.png" class="flashcard center-block">
 </a>
 
 ## Preliminaries

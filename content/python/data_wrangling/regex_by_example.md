@@ -60,7 +60,7 @@ re.findall('f..es', text)
 
 
 
-### [...] Matches any single character in brackets.
+### `[...]` Matches any single character in brackets.
 
 
 ```python
@@ -75,7 +75,7 @@ re.findall('[aeiou]', text)
 
 
 
-### [# ^...] Matches any single character not in brackets
+### `[# ^...]` Matches any single character not in brackets
 
 
 ```python
@@ -140,7 +140,7 @@ re.findall('[^aeiou]', text)
 
 
 
-### a | b Matches either a or b.
+### `a | b` Matches either a or b.
 
 
 ```python
@@ -154,7 +154,7 @@ re.findall('a|A', text)
 
 
 
-### (re) Groups regular expressions and remembers matched text.
+### `(re)` Groups regular expressions and remembers matched text.
 
 
 ```python
@@ -169,7 +169,7 @@ re.findall('(foxes)', text)
 
 
 
-### \w Matches word characters.
+### `\w` Matches word characters.
 
 
 ```python
@@ -184,7 +184,7 @@ re.findall('\w\w\w\w\w', text)
 
 
 
-### \W Matches nonword characters.
+### `\W` Matches nonword characters.
 
 
 ```python
@@ -198,7 +198,7 @@ re.findall('\W\W', text)
 
 
 
-### \s Matches whitespace. Equivalent to [\t\n\r\f].
+### `\s` Matches whitespace. Equivalent to `[\t\n\r\f]`.
 
 
 ```python
@@ -212,7 +212,7 @@ re.findall('\s', text)
 
 
 
-### \S Matches nonwhitespace.
+### `\S` Matches nonwhitespace.
 
 
 ```python
@@ -249,7 +249,7 @@ re.findall('\S\S', text)
 
 
 
-### \d Matches digits. Equivalent to [0-9].
+### `\d` Matches digits. Equivalent to `[0-9]`.
 
 
 ```python
@@ -263,7 +263,7 @@ re.findall('\d\d\d', text)
 
 
 
-### \D Matches nondigits.
+### `\D` Matches nondigits.
 
 
 ```python
@@ -287,7 +287,7 @@ re.findall('\D\D\D\D\D', text)
 
 
 
-### \A Matches beginning of string.
+### `\A` Matches beginning of string.
 
 
 ```python
@@ -301,7 +301,7 @@ re.findall('\AA', text)
 
 
 
-### \Z Matches end of string. If a newline exists, it matches just before newline.
+### `\Z` Matches end of string. If a newline exists, it matches just before newline.
 
 
 ```python
@@ -315,7 +315,7 @@ re.findall('bears.\Z', text)
 
 
 
-### \b Matches end of string.
+### `\b` Matches end of string.
 
 
 ```python
@@ -329,7 +329,7 @@ re.findall('\b[foxes]', text)
 
 
 
-### \n, \t, etc. Matches newlines, carriage returns, tabs, etc.
+### `\n`, `\t`, etc. Matches newlines, carriage returns, tabs, etc.
 
 
 ```python
@@ -343,7 +343,7 @@ re.findall('\n', text)
 
 
 
-### [Pp]ython Match "Python" or "python"
+### `[Pp]ython` Match "Python" or "python"
 
 
 ```python
@@ -357,7 +357,7 @@ re.findall('[Ff]oxes', 'foxes Foxes Doxes')
 
 
 
-### [0-9] Match any digit; same as [0123456789]
+### `[0-9]` Match any digit; same as `[0123456789]`
 
 
 ```python
@@ -371,7 +371,7 @@ re.findall('[Ff]oxes', 'foxes Foxes Doxes')
 
 
 
-### [a-z] Match any lowercase ASCII letter
+### `[a-z]` Match any lowercase ASCII letter
 
 
 ```python
@@ -385,7 +385,7 @@ re.findall('[a-z]', 'foxes Foxes')
 
 
 
-### [A-Z] Match any uppercase ASCII letter
+### `[A-Z]` Match any uppercase ASCII letter
 
 
 ```python
@@ -399,7 +399,7 @@ re.findall('[A-Z]', 'foxes Foxes')
 
 
 
-### [a-zA-Z0-9] Match any of the above
+### `[a-zA-Z0-9]` Match any of the above
 
 
 ```python
@@ -413,7 +413,7 @@ re.findall('[a-zA-Z0-9]', 'foxes Foxes')
 
 
 
-### [^aeiou] Match anything other than a lowercase vowel
+### `[^aeiou]` Match anything other than a lowercase vowel
 
 
 ```python
@@ -427,7 +427,7 @@ re.findall('[^aeiou]', 'foxes Foxes')
 
 
 
-### [^0-9] Match anything other than a digit
+### `[^0-9]` Match anything other than a digit
 
 
 ```python
@@ -441,7 +441,7 @@ re.findall('[^0-9]', 'foxes Foxes')
 
 
 
-### ruby? Match "rub" or "ruby": the y is optional
+### `ruby?` Match "rub" or "ruby": the y is optional
 
 
 ```python
@@ -455,7 +455,7 @@ re.findall('foxes?', 'foxes Foxes')
 
 
 
-### ruby* Match "rub" plus 0 or more ys
+### `ruby*` Match "rub" plus 0 or more ys
 
 
 ```python
@@ -469,7 +469,7 @@ re.findall('ox*', 'foxes Foxes')
 
 
 
-### ruby+ Match "rub" plus 1 or more ys
+### `ruby+` Match "rub" plus 1 or more ys
 
 
 ```python
@@ -483,7 +483,7 @@ re.findall('ox+', 'foxes Foxes')
 
 
 
-### \d{3} Match exactly 3 digits
+### `\d{3}` Match exactly 3 digits
 
 
 ```python
@@ -497,7 +497,7 @@ re.findall('\d{3}', text)
 
 
 
-### \d{3,} Match 3 or more digits
+### `\d{3,}` Match 3 or more digits
 
 
 ```python
@@ -511,7 +511,7 @@ re.findall('\d{2,}', text)
 
 
 
-### \d{3,5} Match 3, 4, or 5 digits
+### `\d{3,5}` Match 3, 4, or 5 digits
 
 
 ```python
@@ -525,7 +525,7 @@ re.findall('\d{2,3}', text)
 
 
 
-### ^Python Match "Python" at the start of a string or internal line
+### `^Python` Match "Python" at the start of a string or internal line
 
 
 ```python
@@ -539,7 +539,7 @@ re.findall('^A', text)
 
 
 
-### Python$ Match "Python" at the end of a string or line
+### `Python$` Match "Python" at the end of a string or line
 
 
 ```python
@@ -553,7 +553,7 @@ re.findall('bears.$', text)
 
 
 
-### \APython Match "Python" at the start of a string
+### `\APython` Match "Python" at the start of a string
 
 
 ```python
@@ -567,7 +567,7 @@ re.findall('\AA', text)
 
 
 
-### Python\Z Match "Python" at the end of a string
+### `Python\Z` Match "Python" at the end of a string
 
 
 ```python
@@ -581,7 +581,7 @@ re.findall('bears.\Z', text)
 
 
 
-### Python(?=!) Match "Python", if followed by an exclamation point
+### `Python(?=!)` Match "Python", if followed by an exclamation point
 
 
 ```python
@@ -595,7 +595,7 @@ re.findall('bears(?=.)', text)
 
 
 
-### Python(?!!) Match "Python", if not followed by an exclamation point
+### `Python(?!!)` Match "Python", if not followed by an exclamation point
 
 
 ```python
@@ -609,7 +609,7 @@ re.findall('foxes(?!!)', 'foxes foxes!')
 
 
 
-### python|perl Match "python" or "perl"
+### `python|perl` Match "python" or "perl"
 
 
 ```python
@@ -623,7 +623,7 @@ re.findall('foxes|foxes!', 'foxes foxes!')
 
 
 
-### rub(y|le)) Match "ruby" or "ruble"
+### `rub(y|le))` Match "ruby" or "ruble"
 
 
 ```python
@@ -637,7 +637,7 @@ re.findall('fox(es!)', 'foxes foxes!')
 
 
 
-### Python(!+|\?) "Python" followed by one or more ! or one ?
+### `Python(!+|\?)` "Python" followed by one or more ! or one ?
 
 
 ```python

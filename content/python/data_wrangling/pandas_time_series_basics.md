@@ -39,14 +39,14 @@ print(df)
     9  2014-05-04 18:47:05.486877             41
 
 
-### Convert df['date'] from string to datetime
+### Convert `df['date']` from string to datetime
 
 
 ```python
 df['date'] = pd.to_datetime(df['date'])
 ```
 
-### Set df['date'] as the index and delete the column
+### Set `df['date']` as the index and delete the column
 
 
 ```python

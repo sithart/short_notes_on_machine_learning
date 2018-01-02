@@ -7,7 +7,7 @@ type: technical_note
 draft: false
 ---
 <a alt="Support Vector Classifier" href="https://machinelearningflashcards.com">
-    <img src="support_vector_classifier/Support_Vector_Classifier_print.png" class="flashcard center-block">
+    <img src="/images/machine_learning_flashcards/Support_Vector_Classifier_print.png" class="flashcard center-block">
 </a>
 
 There is a balance between SVC maximizing the margin of the hyperplane and minimizing the misclassification. In SVC, the later is controlled with the hyperparameter $C$, the penalty imposed on errors. C is a parameter of the SVC learner and is the penalty for misclassifying a data point. When C is small, the classifier is okay with misclassified data points (high bias but low variance). When C is large, the classifier is heavily penalized for misclassified data and therefore bends over backwards avoid any misclassified data points (low bias but high variance).

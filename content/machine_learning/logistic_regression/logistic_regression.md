@@ -6,11 +6,11 @@ description: "How to train a logistic regression in scikit-learn."
 type: technical_note
 draft: false
 ---
-Despite having "regression" in its name, a logistic regression is actually a widely used binary classifier (i.e. the target vector can only take two values). In a logistic regression, a linear model (e.g. $\beta_{0}+\beta_{1}x$) is included in a logistic (also called sigmoid) function, ${\frac {1}{1+e^{-z}}}$, such that:
+Despite having "regression" in its name, a logistic regression is actually a widely used binary classifier (i.e. the target vector can only take two values). In a logistic regression, a linear model (e.g. $\beta\_{0}+\beta\_{1}x$) is included in a logistic (also called sigmoid) function, ${\frac{1}{1+e^{-z}}}$, such that:
 
-$$P(y_i=1 \mid X)={\frac {1}{1+e^{-(\beta_{0}+\beta_{1}x)}}}$$
+$$P(y\_i=1 \mid X)={\frac{1}{1+e^{-(\beta\_{0}+\beta\_{1}x)}}}$$
 
-where $P(y_i=1 \mid X)$ is the probability of the $i$th observation's target value, $y_i$, being class 1, $X$ is the training data, $\beta_0$ and $\beta_1$ are the parameters to be learned, and $e$ is Euler's number.
+where $P(y\_i=1 \mid X)$ is the probability of the $i$th observation's target value, $y\_i$, being class 1, $X$ is the training data, $\beta\_0$ and $\beta\_1$ are the parameters to be learned, and $e$ is Euler's number.
 
 ## Preliminaries
 

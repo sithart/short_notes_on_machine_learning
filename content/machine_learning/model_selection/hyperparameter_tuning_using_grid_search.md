@@ -7,7 +7,7 @@ type: technical_note
 draft: false
 ---
 <a alt="Hyperparameter Tuning Using Grid Search" href="https://machinelearningflashcards.com">
-    <img src="hyperparameter_tuning_using_grid_search/Hyperparameter_Tuning_print.png" class="flashcard center-block">
+    <img src="/images/machine_learning_flashcards/Hyperparameter_Tuning_print.png" class="flashcard center-block">
 </a>
 
 ## Preliminaries

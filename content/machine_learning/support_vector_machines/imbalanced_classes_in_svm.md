@@ -8,16 +8,16 @@ draft: false
 ---
 In support vector machines, $C$ is a hyperparameter determining the penalty for misclassifying an observation. One method for handling imbalanced classes in support vector machines is to weight $C$ by classes, so that
 
-$$C_k = C * w_j$$
+$$C\_k = C * w\_j$$
 
-where $C$ is the penalty for misclassification, $w_j$ is a weight inversely proportional to class $j$'s frequency, and $C_j$ is the $C$ value for class $j$. The general idea is to increase the penalty for misclassifying minority classes to prevent them from being "overwhelmed" by the majority class.
+where $C$ is the penalty for misclassification, $w\_j$ is a weight inversely proportional to class $j$'s frequency, and $C\_j$ is the $C$ value for class $j$. The general idea is to increase the penalty for misclassifying minority classes to prevent them from being "overwhelmed" by the majority class.
 
-In scikit-learn, when using `SVC` we can set the values for $C_j$ automatically by setting `class_weight='balanced'`
+In scikit-learn, when using `SVC` we can set the values for $C\_j$ automatically by setting `class_weight='balanced'`
 The `balanced` argument automatically weighs classes such that:
 
-$$w_j = \frac{n}{kn_{j}}$$
+$$w\_j = \frac{n}{kn\_{j}}$$
 
-where $w_j$ is the weight to class $j$, $n$ is the number of observations, $n_j$ is the number of observations in class $j$, and $k$ is the total number of classes.
+where $w\_j$ is the weight to class $j$, $n$ is the number of observations, $n\_j$ is the number of observations in class $j$, and $k$ is the total number of classes.
 
 ## Preliminaries
 

@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-66582-32"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-66582-32');
+    </script>
+
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Group A Time Series With pandas" />
+<meta property="og:description" content="Group a time series with pandas." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://chrisalbon.com/python/data_wrangling/pandas_group_by_time/" />
+
+
+
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
+
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Group A Time Series With pandas"/>
+<meta name="twitter:description" content="Group a time series with pandas."/>
+<meta name="generator" content="Hugo 0.31.1" /> 
+    
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Group A Time Series With pandas",
+  "url": "https://chrisalbon.com/python/data_wrangling/pandas_group_by_time/",
+  "wordCount": "521",
+  "datePublished": "2017-12-20T11:53:49-07:00",
+  "dateModified": "2017-12-20T11:53:49-07:00",
+  "author": {
+    "@type": "Person",
+    "name": "Chris Albon"
+  },
+  "description": "Group a time series with pandas."
+}
+</script> 
+
+    <title>Group A Time Series With pandas</title>
+
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
+
+    
+    <link href="https://chrisalbon.com/css/custom.css" rel="stylesheet"> 
+    <link href="https://chrisalbon.com/css/syntax.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
+        
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon" /> 
+    
+    <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-sm fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://chrisalbon.com/">Chris Albon</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav mr-auto"></ul>
+                <ul class="navbar-nav">
+                        <li class="nav-item">
+                                <a class="nav-link" href="https://chrisalbon.com/#articles">Articles</a>
+                              </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            ML/AI Notes
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="https://chrisalbon.com/#machine_learning">Machine Learning</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#deep_learning">Deep Learning</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#python">Python</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#statistics">Statistics</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#scala">Scala</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#regex">Regular Expressions</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#mathematics">Mathematics</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#software_engineer">Software Engineering</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            About
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="https://chrisalbon.com//about/chris_albon/">About Chris</a>
+                            <a class="dropdown-item" href="https://github.com/chrisalbon">GitHub</a>
+                            <a class="dropdown-item" href="https://twitter.com/chrisalbon">Twitter</a>
+                            <a class="dropdown-item" href="https://www.instagram.com/chrisalbon/">Instagram</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+
+                 
+
+
+<article>
+  <div class="technical_note">
+  <header>
+      <div class="alert alert-warning flashcard_ad" role="alert">
+          Want to learn machine learning? Use my <a href="https://machinelearningflashcards.com" class="alert-link">machine learning flashcards</a>.
+      </div>
+    <h1 class="technical_note_title">Group A Time Series With pandas</h1>
+    <div class="technical_note_date">
+      <time datetime=" 2017-12-20T11:53:49-07:00 "> 20 Dec 2017</time>
+    </div>
+  </header>
+  <div class="content">
+  
+
+<h3 id="import-required-modules">Import required modules</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span></code></pre></div>
+<h3 id="create-a-dataframe">Create a dataframe</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+
+<span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;german_army&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">20000</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">30000</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;allied_army&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">20000</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">40000</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;1/1/2014&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;H&#39;</span><span class="p">)</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span></code></pre></div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>german_army</th>
+      <th>allied_army</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2014-01-01 00:00:00</th>
+      <td>28755</td>
+      <td>33938</td>
+    </tr>
+    <tr>
+      <th>2014-01-01 01:00:00</th>
+      <td>25176</td>
+      <td>28631</td>
+    </tr>
+    <tr>
+      <th>2014-01-01 02:00:00</th>
+      <td>23261</td>
+      <td>39685</td>
+    </tr>
+    <tr>
+      <th>2014-01-01 03:00:00</th>
+      <td>28686</td>
+      <td>27756</td>
+    </tr>
+    <tr>
+      <th>2014-01-01 04:00:00</th>
+      <td>24588</td>
+      <td>25681</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="truncate-the-dataframe">Truncate the dataframe</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">truncate</span><span class="p">(</span><span class="n">before</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;1/2/2014&#39;</span><span class="p">,</span> <span class="n">after</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;1/3/2014&#39;</span><span class="p">)</span></code></pre></div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>german_army</th>
+      <th>allied_army</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2014-01-02 00:00:00</th>
+      <td>26401</td>
+      <td>20189</td>
+    </tr>
+    <tr>
+      <th>2014-01-02 01:00:00</th>
+      <td>29958</td>
+      <td>23934</td>
+    </tr>
+    <tr>
+      <th>2014-01-02 02:00:00</th>
+      <td>24492</td>
+      <td>39075</td>
+    </tr>
+    <tr>
+      <th>2014-01-02 03:00:00</th>
+      <td>25707</td>
+      <td>39262</td>
+    </tr>
+    <tr>
+      <th>2014-01-02 04:00:00</th>
+      <td>27129</td>
+      <td>35961</td>
+    </tr>
+    <tr>
+      <th>2014-01-02 05:00:00</th>
+      <td>27903</td>
+      <td>25418</td>
+    </tr>
+    <tr>
+      <th>2014-01-02 06:00:00</th>
+      <td>20409</td>
+      <td>25163</td>
+    </tr>
+    <tr>
+      <th>2014-01-02 07:00:00</th>
+      <td>25736</td>
+      <td>34794</td>
+    </tr>
+    <tr>
+      <th>2014-01-02 08:00:00</th>
+      <td>24057</td>
+      <td>27209</td>
+    </tr>
+    <tr>
+      <th>2014-01-02 09:00:00</th>
+      <td>26875</td>
+      <td>33402</td>
+    </tr>
+    <tr>
+      <th>2014-01-02 10:00:00</th>
+      <td>23963</td>
+      <td>38575</td>
+    </tr>
+    <tr>
+      <th>2014-01-02 11:00:00</th>
+      <td>27506</td>
+      <td>31859</td>
+    </tr>
+    <tr>
+      <th>2014-01-02 12:00:00</th>
+      <td>23564</td>
+      <td>25750</td>
+    </tr>
+    <tr>
+      <th>2014-01-02 13:00:00</th>
+      <td>27958</td>
+      <td>24365</td>
+    </tr>
+    <tr>
+      <th>2014-01-02 14:00:00</th>
+      <td>24915</td>
+      <td>38866</td>
+    </tr>
+    <tr>
+      <th>2014-01-02 15:00:00</th>
+      <td>23538</td>
+      <td>33820</td>
+    </tr>
+    <tr>
+      <th>2014-01-02 16:00:00</th>
+      <td>23361</td>
+      <td>30080</td>
+    </tr>
+    <tr>
+      <th>2014-01-02 17:00:00</th>
+      <td>27284</td>
+      <td>22922</td>
+    </tr>
+    <tr>
+      <th>2014-01-02 18:00:00</th>
+      <td>24176</td>
+      <td>32155</td>
+    </tr>
+    <tr>
+      <th>2014-01-02 19:00:00</th>
+      <td>23924</td>
+      <td>27763</td>
+    </tr>
+    <tr>
+      <th>2014-01-02 20:00:00</th>
+      <td>23111</td>
+      <td>32343</td>
+    </tr>
+    <tr>
+      <th>2014-01-02 21:00:00</th>
+      <td>20348</td>
+      <td>28907</td>
+    </tr>
+    <tr>
+      <th>2014-01-02 22:00:00</th>
+      <td>27136</td>
+      <td>38634</td>
+    </tr>
+    <tr>
+      <th>2014-01-02 23:00:00</th>
+      <td>28649</td>
+      <td>29950</td>
+    </tr>
+    <tr>
+      <th>2014-01-03 00:00:00</th>
+      <td>21292</td>
+      <td>26395</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="set-the-dataframe-s-index">Set the dataframe&rsquo;s index</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">+</span> <span class="n">pd</span><span class="o">.</span><span class="n">DateOffset</span><span class="p">(</span><span class="n">months</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">days</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span></code></pre></div>
+<h3 id="view-the-dataframe">View the dataframe</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span></code></pre></div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>german_army</th>
+      <th>allied_army</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2014-05-06 00:00:00</th>
+      <td>28755</td>
+      <td>33938</td>
+    </tr>
+    <tr>
+      <th>2014-05-06 01:00:00</th>
+      <td>25176</td>
+      <td>28631</td>
+    </tr>
+    <tr>
+      <th>2014-05-06 02:00:00</th>
+      <td>23261</td>
+      <td>39685</td>
+    </tr>
+    <tr>
+      <th>2014-05-06 03:00:00</th>
+      <td>28686</td>
+      <td>27756</td>
+    </tr>
+    <tr>
+      <th>2014-05-06 04:00:00</th>
+      <td>24588</td>
+      <td>25681</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="lead-a-variable-1-hour">Lead a variable 1 hour</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span></code></pre></div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>german_army</th>
+      <th>allied_army</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2014-05-06 00:00:00</th>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2014-05-06 01:00:00</th>
+      <td>28755.0</td>
+      <td>33938.0</td>
+    </tr>
+    <tr>
+      <th>2014-05-06 02:00:00</th>
+      <td>25176.0</td>
+      <td>28631.0</td>
+    </tr>
+    <tr>
+      <th>2014-05-06 03:00:00</th>
+      <td>23261.0</td>
+      <td>39685.0</td>
+    </tr>
+    <tr>
+      <th>2014-05-06 04:00:00</th>
+      <td>28686.0</td>
+      <td>27756.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="lag-a-variable-1-hour">Lag a variable 1 hour</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span></code></pre></div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>german_army</th>
+      <th>allied_army</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2014-05-09 23:00:00</th>
+      <td>26903.0</td>
+      <td>39144.0</td>
+    </tr>
+    <tr>
+      <th>2014-05-10 00:00:00</th>
+      <td>27576.0</td>
+      <td>39759.0</td>
+    </tr>
+    <tr>
+      <th>2014-05-10 01:00:00</th>
+      <td>25232.0</td>
+      <td>35246.0</td>
+    </tr>
+    <tr>
+      <th>2014-05-10 02:00:00</th>
+      <td>23391.0</td>
+      <td>21044.0</td>
+    </tr>
+    <tr>
+      <th>2014-05-10 03:00:00</th>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="aggregate-into-days-by-summing-up-the-value-of-each-hourly-observation">Aggregate into days by summing up the value of each hourly observation</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;D&#39;</span><span class="p">)</span><span class="o">.</span><span class="nb">sum</span><span class="p">()</span></code></pre></div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>german_army</th>
+      <th>allied_army</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2014-05-06</th>
+      <td>605161</td>
+      <td>755962</td>
+    </tr>
+    <tr>
+      <th>2014-05-07</th>
+      <td>608100</td>
+      <td>740396</td>
+    </tr>
+    <tr>
+      <th>2014-05-08</th>
+      <td>589744</td>
+      <td>700297</td>
+    </tr>
+    <tr>
+      <th>2014-05-09</th>
+      <td>607092</td>
+      <td>719283</td>
+    </tr>
+    <tr>
+      <th>2014-05-10</th>
+      <td>103102</td>
+      <td>135193</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="aggregate-into-days-by-averaging-up-the-value-of-each-hourly-observation">Aggregate into days by averaging up the value of each hourly observation</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span></code></pre></div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>german_army</th>
+      <th>allied_army</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2014-05-06</th>
+      <td>25215.041667</td>
+      <td>31498.416667</td>
+    </tr>
+    <tr>
+      <th>2014-05-07</th>
+      <td>25337.500000</td>
+      <td>30849.833333</td>
+    </tr>
+    <tr>
+      <th>2014-05-08</th>
+      <td>24572.666667</td>
+      <td>29179.041667</td>
+    </tr>
+    <tr>
+      <th>2014-05-09</th>
+      <td>25295.500000</td>
+      <td>29970.125000</td>
+    </tr>
+    <tr>
+      <th>2014-05-10</th>
+      <td>25775.500000</td>
+      <td>33798.250000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="aggregate-into-days-by-taking-the-min-value-up-the-value-of-each-hourly-observation">Aggregate into days by taking the min value up the value of each hourly observation</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">median</span><span class="p">()</span></code></pre></div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>german_army</th>
+      <th>allied_army</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2014-05-06</th>
+      <td>24882.0</td>
+      <td>31310.0</td>
+    </tr>
+    <tr>
+      <th>2014-05-07</th>
+      <td>25311.0</td>
+      <td>30969.5</td>
+    </tr>
+    <tr>
+      <th>2014-05-08</th>
+      <td>24422.5</td>
+      <td>28318.0</td>
+    </tr>
+    <tr>
+      <th>2014-05-09</th>
+      <td>24941.5</td>
+      <td>32082.5</td>
+    </tr>
+    <tr>
+      <th>2014-05-10</th>
+      <td>26067.5</td>
+      <td>37195.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="aggregate-into-days-by-taking-the-median-value-of-each-day-s-worth-of-hourly-observation">Aggregate into days by taking the median value of each day&rsquo;s worth of hourly observation</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">median</span><span class="p">()</span></code></pre></div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>german_army</th>
+      <th>allied_army</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2014-05-06</th>
+      <td>24882.0</td>
+      <td>31310.0</td>
+    </tr>
+    <tr>
+      <th>2014-05-07</th>
+      <td>25311.0</td>
+      <td>30969.5</td>
+    </tr>
+    <tr>
+      <th>2014-05-08</th>
+      <td>24422.5</td>
+      <td>28318.0</td>
+    </tr>
+    <tr>
+      <th>2014-05-09</th>
+      <td>24941.5</td>
+      <td>32082.5</td>
+    </tr>
+    <tr>
+      <th>2014-05-10</th>
+      <td>26067.5</td>
+      <td>37195.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="aggregate-into-days-by-taking-the-first-value-of-each-day-s-worth-of-hourly-observation">Aggregate into days by taking the first value of each day&rsquo;s worth of hourly observation</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span></code></pre></div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>german_army</th>
+      <th>allied_army</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2014-05-06</th>
+      <td>28755</td>
+      <td>33938</td>
+    </tr>
+    <tr>
+      <th>2014-05-07</th>
+      <td>26401</td>
+      <td>20189</td>
+    </tr>
+    <tr>
+      <th>2014-05-08</th>
+      <td>21292</td>
+      <td>26395</td>
+    </tr>
+    <tr>
+      <th>2014-05-09</th>
+      <td>25764</td>
+      <td>22613</td>
+    </tr>
+    <tr>
+      <th>2014-05-10</th>
+      <td>26903</td>
+      <td>39144</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="aggregate-into-days-by-taking-the-last-value-of-each-day-s-worth-of-hourly-observation">Aggregate into days by taking the last value of each day&rsquo;s worth of hourly observation</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">last</span><span class="p">()</span></code></pre></div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>german_army</th>
+      <th>allied_army</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2014-05-06</th>
+      <td>28214</td>
+      <td>32110</td>
+    </tr>
+    <tr>
+      <th>2014-05-07</th>
+      <td>28649</td>
+      <td>29950</td>
+    </tr>
+    <tr>
+      <th>2014-05-08</th>
+      <td>28379</td>
+      <td>32600</td>
+    </tr>
+    <tr>
+      <th>2014-05-09</th>
+      <td>26752</td>
+      <td>22379</td>
+    </tr>
+    <tr>
+      <th>2014-05-10</th>
+      <td>23391</td>
+      <td>21044</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="aggregate-into-days-by-taking-the-first-last-highest-and-lowest-value-of-each-day-s-worth-of-hourly-observation">Aggregate into days by taking the first, last, highest, and lowest value of each day&rsquo;s worth of hourly observation</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">ohlc</span><span class="p">()</span></code></pre></div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="4" halign="left">german_army</th>
+      <th colspan="4" halign="left">allied_army</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>open</th>
+      <th>high</th>
+      <th>low</th>
+      <th>close</th>
+      <th>open</th>
+      <th>high</th>
+      <th>low</th>
+      <th>close</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2014-05-06</th>
+      <td>28755</td>
+      <td>29206</td>
+      <td>20037</td>
+      <td>28214</td>
+      <td>33938</td>
+      <td>39955</td>
+      <td>23417</td>
+      <td>32110</td>
+    </tr>
+    <tr>
+      <th>2014-05-07</th>
+      <td>26401</td>
+      <td>29958</td>
+      <td>20348</td>
+      <td>28649</td>
+      <td>20189</td>
+      <td>39262</td>
+      <td>20189</td>
+      <td>29950</td>
+    </tr>
+    <tr>
+      <th>2014-05-08</th>
+      <td>21292</td>
+      <td>29786</td>
+      <td>20296</td>
+      <td>28379</td>
+      <td>26395</td>
+      <td>38197</td>
+      <td>20404</td>
+      <td>32600</td>
+    </tr>
+    <tr>
+      <th>2014-05-09</th>
+      <td>25764</td>
+      <td>29952</td>
+      <td>20738</td>
+      <td>26752</td>
+      <td>22613</td>
+      <td>39695</td>
+      <td>20189</td>
+      <td>22379</td>
+    </tr>
+    <tr>
+      <th>2014-05-10</th>
+      <td>26903</td>
+      <td>27576</td>
+      <td>23391</td>
+      <td>23391</td>
+      <td>39144</td>
+      <td>39759</td>
+      <td>21044</td>
+      <td>21044</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+</div>
+  <aside>
+      <div class="bug_reporting">
+          <h4>Find an error or bug?</h4>
+          <p>Everything on this site is available on GitHub. Head to <a href='https://github.com/chrisalbon/notes/issues/new'>and submit a suggested change</a>. You can also message me directly on <a href='https://twitter.com/chrisalbon'>Twitter</a>.</p>
+      </div>
+      </aside>
+
+    </div>
+</article>
+
+
+
+
+            </div>
+
+        </div>
+    </div>
+
+    
+
+    <footer class="footer text-center">
+        <div class="container">
+            <span class="text-muted">This project contains 422 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

@@ -1,4 +1,4 @@
-{{ define "title" }}{{ .Title | markdownify }} | {{ .Site.Title }}{{ end }} {{ define "schema-dot-org" }}
+{{ define "title" }}{{ .Title | markdownify }}{{ end }} {{ define "schema-dot-org" }}
 <script type="application/ld+json">
 {
   "@context": "http://schema.org",
@@ -50,15 +50,28 @@
 </script> {{ end }} {{ define "main" }} {{ $dateFormat := default " 02 Jan 2006" (index .Site.Params "date_format") }}
 
 
-<article class="technical-note">
+<article>
+  <div class="technical_note">
   <header>
-    <h2 class="technical-note-title">{{ .Title }}</h2>
-    <p class="technical-note-meta">
+      <div class="alert alert-warning flashcard_ad" role="alert">
+          Want to learn machine learning? Use my <a href="https://machinelearningflashcards.com" class="alert-link">machine learning flashcards</a>.
+      </div>
+    <h1 class="technical_note_title">{{ .Title }}</h1>
+    <div class="technical_note_date">
       <time datetime="{{ .Date.Format " 2006-01-02T15:04:05Z07:00 " }}">{{ .Date.Format $dateFormat }}</time>
-    </p>
+    </div>
   </header>
+  <div class="content">
   {{ .Content }}
+</div>
+  <aside>
+      <div class="bug_reporting">
+          <h4>Find an error or bug?</h4>
+          <p>Everything on this site is available on GitHub. Head to <a href='https://github.com/chrisalbon/notes/issues/new'>and submit a suggested change</a>. You can also message me directly on <a href='https://twitter.com/chrisalbon'>Twitter</a>.</p>
+      </div>
+      </aside>
 
+    </div>
 </article>
 <!-- /.blog-post -->
 

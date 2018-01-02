@@ -42,9 +42,9 @@ y = np.where((y == 0), 0, 1)
 
 When using `RandomForestClassifier` a useful setting is `class_weight=balanced` wherein classes are automatically weighted inversely proportional to how frequently they appear in the data. Specifically:
 
-$$w_j = \frac{n}{kn_{j}}$$
+$$w\_j = \frac{n}{kn\_{j}}$$
 
-where $w_j$ is the weight to class $j$, $n$ is the number of observations, $n_j$ is the number of observations in class $j$, and $k$ is the total number of classes.
+where $w\_j$ is the weight to class $j$, $n$ is the number of observations, $n\_j$ is the number of observations in class $j$, and $k$ is the total number of classes.
 
 
 ```python

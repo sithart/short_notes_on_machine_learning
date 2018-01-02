@@ -7,7 +7,7 @@ type: technical_note
 draft: false
 ---
 <a alt="Precision" href="https://machinelearningflashcards.com">
-    <img src="precision/Precision_print.png" class="flashcard center-block">
+    <img src="/images/machine_learning_flashcards/Precision_print.png" class="flashcard center-block">
 </a>
 
 ## Preliminaries

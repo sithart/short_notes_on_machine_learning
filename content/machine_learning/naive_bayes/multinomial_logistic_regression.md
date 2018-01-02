@@ -8,9 +8,9 @@ draft: false
 ---
 In multinomial logistic regression (MLR) the logistic function we saw in Recipe 15.1 is replaced with a softmax function:
 
-$$P(y_i=k \mid X)={\frac {e^{\beta_{k}x_{i}}}{{\sum_{j=1}^{K}}e^{\beta_{j}x_{i}}}}$$
+$$P(y\_i=k \mid X)={\frac {e^{\beta\_{k}x\_{i}}}{{\sum\_{j=1}^{K}}e^{\beta\_{j}x\_{i}}}}$$
 
-where $P(y_i=k \mid X)$ is the probability the $i$th observation's target value, $y_i$, is class $k$, and $K$ is the total number of classes. One practical advantage of the MLR is that its predicted probabilities using the `predict_proba` method are more reliable (i.e. better calibrated).
+where $P(y\_i=k \mid X)$ is the probability the $i$th observation's target value, $y\_i$, is class $k$, and $K$ is the total number of classes. One practical advantage of the MLR is that its predicted probabilities using the `predict_proba` method are more reliable (i.e. better calibrated).
 
 ## Preliminaries
 

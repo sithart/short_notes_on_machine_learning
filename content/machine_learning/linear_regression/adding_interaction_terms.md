@@ -38,9 +38,9 @@ y = boston.target
 
 Interaction effects can be account for by including a new feature comprising the product of corresponding values from the interacting features: 
 
-$$\hat y = \hat\beta_{0} + \hat\beta_{1}x_{1}+ \hat\beta_{2}x_{2} + \hat\beta_{3}x_{1}x_{2} + \epsilon$$
+$$\hat\_{y} = \hat\_{{\beta\_{0}} + \hat\_{\beta\_{1}}x\_{1}+ \hat\_{\beta\_{2}}x\_{2} + \hat\_{\beta\_{3}}x\_{1}x\_{2} + \epsilon$$
 
-where $x_{1}$ and $ x_{2}$ are the values of the two features, respectively and $x_{1}x_{2}$ represents the interaction between the two. It can be useful to use scikit-learn's `PolynomialFeatures` to creative interaction terms for all combination of features. We can then use model selection strategies to identify the combination of features and interaction terms which produce the best model.
+where $x\_{1}$ and $ x\_{2}$ are the values of the two features, respectively and $x\_{1}x\_{2}$ represents the interaction between the two. It can be useful to use scikit-learn's `PolynomialFeatures` to creative interaction terms for all combination of features. We can then use model selection strategies to identify the combination of features and interaction terms which produce the best model.
 
 
 ```python

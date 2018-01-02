@@ -7,7 +7,7 @@ type: technical_note
 draft: false
 ---
 <a alt="Gaussian Naive Bayes Classifier" href="https://machinelearningflashcards.com">
-    <img src="gaussian_naive_bayes_classifier/Gaussian_Naive_Bayes_Classifier_print.png" class="flashcard center-block">
+    <img src="/images/machine_learning_flashcards/Gaussian_Naive_Bayes_Classifier_print.png" class="flashcard center-block">
 </a>
 
 Because of the assumption of the normal distribution, Gaussian Naive Bayes is best used in cases when all our features are continuous.

@@ -171,7 +171,7 @@ groupby_regiment
 
 
 
-"This grouped variable is now a GroupBy object. It has not actually computed anything yet except for some intermediate data about the group key df['key1']. The idea is that this object has all of the information needed to then apply some operation to each of the groups." - Python for Data Analysis
+"This grouped variable is now a GroupBy object. It has not actually computed anything yet except for some intermediate data about the group key `df['key1']`. The idea is that this object has all of the information needed to then apply some operation to each of the groups." - Python for Data Analysis
 
 ## View a grouping
 

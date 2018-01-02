@@ -7,7 +7,7 @@ type: technical_note
 draft: false
 ---
 <a alt="Find Support Vectors" href="https://machinelearningflashcards.com">
-    <img src="find_support_vectors/Support_Vectors_print.png" class="flashcard center-block">
+    <img src="/images/machine_learning_flashcards/Support_Vectors_print.png" class="flashcard center-block">
 </a>
 
 ## Preliminaries

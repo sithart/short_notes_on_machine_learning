@@ -4,6 +4,6 @@ title = "Chris Albon"
 theme = "berbera"
 
 pygmentsCodeFences=true
-pygmentsStyle="colorful"
-
+pygmentsUseClasses=true
 canonifyURLs=true
+publishDir="docs"

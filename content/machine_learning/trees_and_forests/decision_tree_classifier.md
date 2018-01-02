@@ -7,7 +7,7 @@ type: technical_note
 draft: false
 ---
 <a alt="Gini Index" href="https://machinelearningflashcards.com">
-    <img src="decision_tree_classifier/Gini_Index_print.png" class="flashcard center-block">
+    <img src="/images/machine_learning_flashcards/Gini_Index_print.png" class="flashcard center-block">
 </a>
 
 ## Preliminaries

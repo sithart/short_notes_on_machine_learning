@@ -7,7 +7,7 @@ type: technical_note
 draft: false
 ---
 <a alt="Upsampling" href="https://machinelearningflashcards.com">
-    <img src="handling_imbalanced_classes_with_upsampling/Upsampling_print.png" class="flashcard center-block">
+    <img src="/images/machine_learning_flashcards/Upsampling_print.png" class="flashcard center-block">
 </a>
 
 In upsampling, for every observation in the majority class, we randomly select an observation from the minority class with replacement. The end result is the same number of observations from the minority and majority classes.

@@ -7,7 +7,7 @@ type: technical_note
 draft: false
 ---
 <a alt="ROC Curve" href="https://machinelearningflashcards.com">
-    <img src="plot_the_receiving_operating_characteristic_curve/Receiver_Operating_Characteristic_print.png" class="flashcard center-block">
+    <img src="/images/machine_learning_flashcards/Receiver_Operating_Characteristic_print.png" class="flashcard center-block">
 </a>
 
 ## Preliminaries

@@ -26,11 +26,11 @@ data = [3,2,3,4,2,3,5,2,2,33,3,5,2,2,5,6,62,2,2,3,6,6,2,23,3,2,3]
 
 Variance is a measurement of the spread of a data's distribution. The higher the variance, the more "spread out" the data points are. Variance, commonly denoted as $S^{2}$, is calculated like this:
 
-$$ \text{Population Variance} = S_n^{2} = \frac{1}{n}\sum_{i=1}^{n}(x_i-\bar{x})^{2}$$
+$$ \text{Population Variance} = S\_n^{2} = \frac{1}{n}\sum\_{i=1}^{n}(x\_i-\bar{x})^{2}$$
 
-$$ \text{Sample Variance} = S_{n-1}^{2} = \frac{1}{n-1}\sum_{i=1}^{n}(x_i-\bar{x})^{2}$$
+$$ \text{Sample Variance} = S\_{n-1}^{2} = \frac{1}{n-1}\sum\_{i=1}^{n}(x\_i-\bar{x})^{2}$$
 
-Where $n$ is the number of observations, $\bar{x}$ is the mean of the observations, and $x_i-\bar{x}$ is an individual observation's from the mean of the data. Note that if we were estimating the variance of a population based on a sample from that population, we should use the second equation, replacing $n$ with $n-1$.
+Where $n$ is the number of observations, $\bar{x}$ is the mean of the observations, and $x\_i-\bar{x}$ is an individual observation's from the mean of the data. Note that if we were estimating the variance of a population based on a sample from that population, we should use the second equation, replacing $n$ with $n-1$.
 
 
 ```python

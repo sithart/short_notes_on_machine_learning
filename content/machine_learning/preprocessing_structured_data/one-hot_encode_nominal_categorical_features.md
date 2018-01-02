@@ -7,7 +7,7 @@ type: technical_note
 draft: false
 ---
 <a alt="One-hot encoding" href="https://machinelearningflashcards.com">
-    <img src="one-hot_encode_nominal_categorical_features/One-Hot_Encoding_print.png" class="flashcard center-block">
+    <img src="/images/machine_learning_flashcards/One-Hot_Encoding_print.png" class="flashcard center-block">
 </a>
 
 ## Preliminaries
@@ -15,9 +15,9 @@ draft: false
 
 ```python
 # Load libraries
-from sklearn.preprocessing import LabelBinarizerr
 import numpy as np
 import pandas as pd
+from sklearn.preprocessing import LabelBinarizer
 ```
 
 ## Create Data With One Class Label

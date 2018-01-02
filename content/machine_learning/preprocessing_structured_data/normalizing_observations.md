@@ -7,7 +7,7 @@ type: technical_note
 draft: false
 ---
 <a alt="Normalizing Observations" href="https://machinelearningflashcards.com">
-    <img src="normalizing_observations/Normalizing_Observations_print.png" class="flashcard center-block">
+    <img src="/images/machine_learning_flashcards/Normalizing_Observations_print.png" class="flashcard center-block">
 </a>
 
 ## Preliminaries

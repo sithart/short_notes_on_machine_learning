@@ -7,7 +7,7 @@ type: technical_note
 draft: false
 ---
 <a alt="Stemming Words" href="https://machinelearningflashcards.com">
-    <img src="stemming_words/Stemming_Words_print.png" class="flashcard center-block">
+    <img src="/images/machine_learning_flashcards/Stemming_Words_print.png" class="flashcard center-block">
 </a>
 
 ## Preliminaries

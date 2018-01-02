@@ -7,7 +7,7 @@ type: technical_note
 draft: false
 ---
 <a alt="Ridge Regression" href="https://machinelearningflashcards.com">
-    <img src="ridge_regression/Ridge_Regression_print.png" class="flashcard center-block">
+    <img src="/images/machine_learning_flashcards/Ridge_Regression_print.png" class="flashcard center-block">
 </a>
 
 ## Preliminaries

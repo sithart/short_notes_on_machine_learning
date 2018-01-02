@@ -7,7 +7,7 @@ type: technical_note
 draft: false
 ---
 <a alt="Recall" href="https://machinelearningflashcards.com">
-    <img src="recall/Recall_print.png" class="flashcard center-block">
+    <img src="/images/machine_learning_flashcards/Recall_print.png" class="flashcard center-block">
 </a>
 
 ## Preliminaries

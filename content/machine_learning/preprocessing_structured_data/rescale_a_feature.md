@@ -7,7 +7,7 @@ type: technical_note
 draft: false
 ---
 <a alt="MinMax Scaling" href="https://machinelearningflashcards.com">
-    <img src="rescale_a_feature/MinMax_Scaling_print.png" class="flashcard center-block">
+    <img src="/images/machine_learning_flashcards/MinMax_Scaling_print.png" class="flashcard center-block">
 </a>
 
 ## Preliminaries

@@ -7,7 +7,7 @@ type: technical_note
 draft: false
 ---
 <a alt="Identifying The Best Neighborhood Size" href="https://machinelearningflashcards.com">
-    <img src="identifying_best_value_of_k/K-NN_Neighborhood_Size_print.png" class="flashcard center-block">
+    <img src="/images/machine_learning_flashcards/K-NN_Neighborhood_Size_print.png" class="flashcard center-block">
 </a>
 
 ## Preliminaries

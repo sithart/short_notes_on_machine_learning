@@ -7,7 +7,7 @@ type: technical_note
 draft: false
 ---
 <a alt="Plot The Validation Curve" href="https://machinelearningflashcards.com">
-    <img src="plot_the_validation_curve/Validation_Curve_print.png" class="flashcard center-block">
+    <img src="/images/machine_learning_flashcards/Validation_Curve_print.png" class="flashcard center-block">
 </a>
 
 ## Preliminaries

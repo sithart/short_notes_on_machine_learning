@@ -7,7 +7,7 @@ type: technical_note
 draft: false
 ---
 <a alt="F1 Score" href="https://machinelearningflashcards.com">
-    <img src="f1_score/F1_Score_print.png" class="flashcard center-block">
+    <img src="/images/machine_learning_flashcards/F1_Score_print.png" class="flashcard center-block">
 </a>
 
 ## Preliminaries

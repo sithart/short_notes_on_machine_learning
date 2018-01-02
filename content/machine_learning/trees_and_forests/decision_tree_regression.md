@@ -7,7 +7,7 @@ type: technical_note
 draft: false
 ---
 <a alt="Decision Tree Regression" href="https://machinelearningflashcards.com">
-    <img src="decision_tree_regression/Decision_Tree_Regression_print.png" class="flashcard center-block">
+    <img src="/images/machine_learning_flashcards/Decision_Tree_Regression_print.png" class="flashcard center-block">
 </a>
 
 ## Preliminaries

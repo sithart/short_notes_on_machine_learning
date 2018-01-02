@@ -7,7 +7,7 @@ type: technical_note
 draft: false
 ---
 <a alt="Bag Of Words" href="https://machinelearningflashcards.com">
-    <img src="bag_of_words/Bag_Of_Words_print.png" class="flashcard center-block">
+    <img src="/images/machine_learning_flashcards/Bag_Of_Words_print.png" class="flashcard center-block">
 </a>
 
 ## Preliminaries

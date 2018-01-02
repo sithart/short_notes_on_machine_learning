@@ -7,7 +7,7 @@ type: technical_note
 draft: false
 ---
 <a alt="tf-idf" href="https://machinelearningflashcards.com">
-    <img src="tf-idf/TF-IDF_print.png" class="flashcard center-block">
+    <img src="/images/machine_learning_flashcards/TF-IDF_print.png" class="flashcard center-block">
 </a>
 
 ## Preliminaries

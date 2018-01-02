@@ -27,9 +27,9 @@ y = [2,1,2,4.5,7,6.5,6,9,9.5]
 
 There are a number of equivalent expression ways to calculate Pearson's correlation coefficient (also called Pearson's r). Here is one.
 
-$$r={\frac {1}{n-1}}\sum _{i=1}^{n}\left({\frac {x_{i}-{\bar {x}}}{s_{x}}}\right)\left({\frac {y_{i}-{\bar {y}}}{s_{y}}}\right)$$
+$$r={\frac {1}{n-1}}\sum\_{i=1}^{n}\left({\frac {x\_{i}-{\bar {x}}}{s\_{x}}}\right)\left({\frac {y\_{i}-{\bar {y}}}{s\_{y}}}\right)$$
 
-where $s_{x}$ and $s_{y}$ are the sample standard deviation for $x$ and $y$, and $\left({\frac {x_{i}-{\bar {x}}}{s_{x}}}\right)$ is the [standard score](https://en.wikipedia.org/wiki/Standard_score) for $x$ and $y$.
+where $s\_{x}$ and $s\_{y}$ are the sample standard deviation for $x$ and $y$, and $\left({\frac {x\_{i}-{\bar {x}}}{s\_{x}}}\right)$ is the [standard score](https://en.wikipedia.org/wiki/Standard_score) for $x$ and $y$.
 
 
 ```python

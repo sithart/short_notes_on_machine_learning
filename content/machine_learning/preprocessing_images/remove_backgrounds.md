@@ -7,7 +7,7 @@ type: technical_note
 draft: false
 ---
 <a alt="grabcut" href="https://machinelearningflashcards.com">
-    <img src="remove_backgrounds/Grabcut_print.png" class="flashcard center-block">
+    <img src="/images/machine_learning_flashcards/Grabcut_print.png" class="flashcard center-block">
 </a>
 
 ## Preliminaries

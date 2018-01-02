@@ -3,7 +3,19 @@
 
 <head>
 
-    {{ partial "head-meta.html" . }} {{ block "schema-dot-org" . }}
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-66582-32"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-66582-32');
+    </script>
+
+    {{ partial "head-meta.html" . }} 
+    
+    {{ block "schema-dot-org" . }}
     <!-- schema.org metadata differs for Nodes and Pages -->
     {{ end }}
 
@@ -14,19 +26,19 @@
         crossorigin="anonymous">
 
     <!-- Custom styles for this template -->
-    <link href="{{ .Site.BaseURL }}css/custom.css" rel="stylesheet" {{ if not .Site.Params.disable_sri }} integrity="{{ .Site.Data.sri.style}}"
-        crossorigin="anonymous" {{ end }}> 
+    <link href="{{ .Site.BaseURL }}css/custom.css" rel="stylesheet"> 
+    <link href="{{ .Site.BaseURL }}css/syntax.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
         
     <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" /> 
     
-    {{ template "_internal/google_analytics_async.html" . }} 
     {{ partial "mathjax_support.html" . }}
 
 </head>
 
 <body>
 
-    <nav class="navbar navbar-expand-lg fixed-top">
+    <nav class="navbar navbar-expand-sm fixed-top">
         <div class="container">
             <a class="navbar-brand" href="{{ .Site.BaseURL }}">Chris Albon</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -45,7 +57,7 @@
                             aria-expanded="false">
                             ML/AI Notes
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ .Site.BaseURL }}#machine_learning">Machine Learning</a>
                             <a class="dropdown-item" href="{{ .Site.BaseURL }}#deep_learning">Deep Learning</a>
                             <a class="dropdown-item" href="{{ .Site.BaseURL }}#python">Python</a>
@@ -61,7 +73,7 @@
                             aria-expanded="false">
                             About
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ .Site.BaseURL }}/about/chris_albon/">About Chris</a>
                             <a class="dropdown-item" href="https://github.com/chrisalbon">GitHub</a>
                             <a class="dropdown-item" href="https://twitter.com/chrisalbon">Twitter</a>

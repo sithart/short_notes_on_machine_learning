@@ -7,7 +7,7 @@ type: technical_note
 draft: false
 ---
 <a alt="Meanshift Clustering" href="https://machinelearningflashcards.com">
-    <img src="images/machine_learning_flashcards/Meanshift_Clustering_By_Analogy_print.png" class="flashcard center-block">
+    <img src="/images/machine_learning_flashcards/Meanshift_Clustering_By_Analogy_print.png" class="flashcard center-block">
 </a>
 
 ## Preliminaries

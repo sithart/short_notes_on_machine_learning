@@ -7,7 +7,7 @@ type: technical_note
 draft: false
 ---
 <a alt="Handling outliers" href="https://machinelearningflashcards.com">
-    <img src="handling_outliers/Outlier_print.png" class="flashcard center-block">
+    <img src="/images/machine_learning_flashcards/Outlier_print.png" class="flashcard center-block">
 </a>
 
 ## Preliminaries

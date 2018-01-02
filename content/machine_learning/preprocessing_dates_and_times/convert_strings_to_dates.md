@@ -36,37 +36,37 @@ If `errors="coerce"` then any problem will not raise an error (the default behav
     <th>Example</th>
   </tr>
   <tr>
-    <td>`%Y`</td>
+      <td><pre>%Y</pre></td>
     <td>Full year</td>
     <td>`2001`</td>
   </tr>
    <tr>
-    <td>`%m`</td>
+    <td><pre>%m</pre></td>
     <td>Month w/ zero padding</td>
     <td>`04`</td>
   </tr>
    <tr>
-    <td>`%d`</td>
+    <td><pre>%d</pre></td>
     <td>Day of the month w/ zero padding</td>
     <td>`09`</td>
   </tr>
   <tr>
-    <td>`%I`</td>
+    <td><pre>%I</pre></td>
     <td>Hour (12hr clock) w/ zero padding</td>
     <td>`02`</td>
   </tr>
   <tr>
-    <td>`%p`</td>
+    <td><pre>%p</pre></td>
     <td>AM or PM</td>
     <td>`AM`</td>
   </tr>
   <tr>
-    <td>`%M`</td>
+    <td><pre>%M</pre></td>
     <td>Minute w/ zero padding</td>
     <td>`05`</td>
   </tr>
   <tr>
-    <td>`%S`</td>
+    <td><pre>%S</pre></td>
     <td>Second w/ zero padding</td>
     <td>`09`</td>
   </tr>

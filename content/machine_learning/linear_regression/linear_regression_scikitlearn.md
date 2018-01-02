@@ -231,14 +231,14 @@ However, to judge a model, we want a single statistic (number) that we can use a
 
 The most common statistic used for quantitative Ys is the **residual sum of squares**:
 
-$$ RSS = \sum_{i=1}^{n}(y_{i}-f(x_{i}))^{2} $$
+$$ RSS = \sum\_{i=1}^{n}(y\_{i}-f(x\_{i}))^{2} $$
 
 Don't let the mathematical notation throw you off:
 
- - $f(x_{i})$ is the model we trained: `model.predict(X_test)`
- - $y_{i}$ is the test data's y: `y_test`
+ - $f(x\_{i})$ is the model we trained: `model.predict(X_test)`
+ - $y\_{i}$ is the test data's y: `y_test`
  - $^{2}$ is the exponent: `**2`
- - $\sum_{i=1}^{n}$ is the summation: `.sum()`
+ - $\sum\_{i=1}^{n}$ is the summation: `.sum()`
  
 In the residual sum of squares, for each observation we find the difference between the model's predicted Y and the actual Y, then square that difference to make all the values positive. Then we add all those squared differences together to get a single number. The final result is a statistic representing how far the model's predictions were from the real values.
 

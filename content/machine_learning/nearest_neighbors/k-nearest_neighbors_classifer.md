@@ -10,11 +10,11 @@ K-nearest neighbors classifier (KNN) is a simple and powerful classification lea
 
 KNN has three basic parts:
 
-- $y_i$: The class of an observation (what we are trying to predict in the test data).
-- $X_i$: The predictors/IVs/attributes of an observation.
+- $y\_i$: The class of an observation (what we are trying to predict in the test data).
+- $X\_i$: The predictors/IVs/attributes of an observation.
 - $K$: A positive number specified by the researcher. K denotes the number of observations closest to a particular observation that define its "neighborhood". For example, K=2 means that each observation's has a neighorhood comprising of the two other observations closest to it.
 
-Imagine we have an observation where we know its independent variables $x_{test}$ but do not know its class $y_{test}$. The KNN learner finds the K other observations that are closest to $x_{test}$ and uses their known classes to assign a classes to $x_{test}$.
+Imagine we have an observation where we know its independent variables $x\_{test}$ but do not know its class $y\_{test}$. The KNN learner finds the K other observations that are closest to $x\_{test}$ and uses their known classes to assign a classes to $\_{test}$.
 
 ## Preliminaries
 

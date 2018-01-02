@@ -7,7 +7,7 @@ type: technical_note
 draft: false
 ---
 <a alt="Downsampling" href="https://machinelearningflashcards.com">
-    <img src="handling_imbalanced_classes_with_downsampling/Downsampling_print.png" class="flashcard center-block">
+    <img src="/images/machine_learning_flashcards/Downsampling_print.png" class="flashcard center-block">
 </a>
 
 In downsampling, we randomly sample without replacement from the majority class (i.e. the class with more observations) to create a new subset of observation equal in size to the minority class.
