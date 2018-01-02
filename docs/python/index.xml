@@ -71,7 +71,7 @@
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/data_wrangling/pandas_apply_operations_to_dataframes/</guid>
-      <description>Import Modules import pandas as pd import numpy as np Create a dataframe data = {&amp;#39;name&amp;#39;: [&amp;#39;Jason&amp;#39;, &amp;#39;Molly&amp;#39;, &amp;#39;Tina&amp;#39;, &amp;#39;Jake&amp;#39;, &amp;#39;Amy&amp;#39;], &amp;#39;year&amp;#39;: [2012, 2012, 2013, 2014, 2014], &amp;#39;reports&amp;#39;: [4, 24, 31, 2, 3], &amp;#39;coverage&amp;#39;: [25, 94, 57, 62, 70]} df = pd.DataFrame(data, index = [&amp;#39;Cochice&amp;#39;, &amp;#39;Pima&amp;#39;, &amp;#39;Santa Cruz&amp;#39;, &amp;#39;Maricopa&amp;#39;, &amp;#39;Yuma&amp;#39;]) df    coverage name reports year     Cochice 25 Jason 4 2012   Pima 94 Molly 24 2012   Santa Cruz 57 Tina 31 2013   Maricopa 62 Jake 2 2014   Yuma 70 Amy 3 2014     Create a capitalization lambda function capitalizer = lambda x: x.</description>
+      <description>Import Modules import pandas as pd import numpy as np Create a dataframe data = {&amp;#39;name&amp;#39;: [&amp;#39;Jason&amp;#39;, &amp;#39;Molly&amp;#39;, &amp;#39;Tina&amp;#39;, &amp;#39;Jake&amp;#39;, &amp;#39;Amy&amp;#39;], &amp;#39;year&amp;#39;: [2012, 2012, 2013, 2014, 2014], &amp;#39;reports&amp;#39;: [4, 24, 31, 2, 3], &amp;#39;coverage&amp;#39;: [25, 94, 57, 62, 70]} df = pd.DataFrame(data, index = [&amp;#39;Cochice&amp;#39;, &amp;#39;Pima&amp;#39;, &amp;#39;Santa Cruz&amp;#39;, &amp;#39;Maricopa&amp;#39;, &amp;#39;Yuma&amp;#39;]) df  .dataframe tbody tr th:only-of-type { vertical-align: middle; } .dataframe tbody tr th { vertical-align: top; } .dataframe thead th { text-align: right; }    coverage name reports year     Cochice 25 Jason 4 2012   Pima 94 Molly 24 2012   Santa Cruz 57 Tina 31 2013   Maricopa 62 Jake 2 2014   Yuma 70 Amy 3 2014     Create a capitalization lambda function capitalizer = lambda x: x.</description>
     </item>
     
     <item>
@@ -643,6 +643,16 @@ Preliminaries First we want to load the packages we will want to use in the scri
     </item>
     
     <item>
+      <title>Geolocate A City And Country</title>
+      <link>https://chrisalbon.com/python/data_wrangling/geolocate_a_city_and_country/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/python/data_wrangling/geolocate_a_city_and_country/</guid>
+      <description>This tutorial creates a function that attempts to take a city and country and return its latitude and longitude. But when the city is unavailable (which is often be the case), the returns the latitude and longitude of the center of the country.
+Preliminaries from geopy.geocoders import Nominatim geolocator = Nominatim() import numpy as np Create Geolocation Function def geolocate(city=None, country=None): &amp;#39;&amp;#39;&amp;#39; Inputs city and country, or just country. Returns the lat/long coordinates of either the city if possible, if not, then returns lat/long of the center of the country.</description>
+    </item>
+    
+    <item>
       <title>Geolocate A City Or Country</title>
       <link>https://chrisalbon.com/python/data_wrangling/geolocate_a_city_or_country/</link>
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
@@ -1008,7 +1018,7 @@ It should be noted that there are more efficient ways of setting scripts to run 
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/data_wrangling/pandas_normalize_column/</guid>
-      <description>Preliminaries # Import required modules import pandas as pd from sklearn import preprocessing # Set charts to view inline %matplotlib inline Create Unnormalized Data # Create an example dataframe with a column of unnormalized data data = {&amp;#39;score&amp;#39;: [234,24,14,27,-74,46,73,-18,59,160]} df = pd.DataFrame(data) df    score     0 234   1 24   2 14   3 27   4 -74   5 46   6 73   7 -18   8 59   9 160     # View the unnormalized data df[&amp;#39;score&amp;#39;].</description>
+      <description>Preliminaries # Import required modules import pandas as pd from sklearn import preprocessing # Set charts to view inline %matplotlib inline Create Unnormalized Data # Create an example dataframe with a column of unnormalized data data = {&amp;#39;score&amp;#39;: [234,24,14,27,-74,46,73,-18,59,160]} df = pd.DataFrame(data) df  .dataframe tbody tr th:only-of-type { vertical-align: middle; } .dataframe tbody tr th { vertical-align: top; } .dataframe thead th { text-align: right; }    score     0 234   1 24   2 14   3 27   4 -74   5 46   6 73   7 -18   8 59   9 160     # View the unnormalized data df[&amp;#39;score&amp;#39;].</description>
     </item>
     
     <item>
@@ -1175,7 +1185,7 @@ Preliminaries # Import required modules import pandas as pd Create example data 
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/data_wrangling/pandas_saving_dataframe_as_csv/</guid>
-      <description>import modules import pandas as pd Create dataframe raw_data = {&amp;#39;first_name&amp;#39;: [&amp;#39;Jason&amp;#39;, &amp;#39;Molly&amp;#39;, &amp;#39;Tina&amp;#39;, &amp;#39;Jake&amp;#39;, &amp;#39;Amy&amp;#39;], &amp;#39;last_name&amp;#39;: [&amp;#39;Miller&amp;#39;, &amp;#39;Jacobson&amp;#39;, &amp;#39;Ali&amp;#39;, &amp;#39;Milner&amp;#39;, &amp;#39;Cooze&amp;#39;], &amp;#39;age&amp;#39;: [42, 52, 36, 24, 73], &amp;#39;preTestScore&amp;#39;: [4, 24, 31, 2, 3], &amp;#39;postTestScore&amp;#39;: [25, 94, 57, 62, 70]} df = pd.DataFrame(raw_data, columns = [&amp;#39;first_name&amp;#39;, &amp;#39;last_name&amp;#39;, &amp;#39;age&amp;#39;, &amp;#39;preTestScore&amp;#39;, &amp;#39;postTestScore&amp;#39;]) df    first_name last_name age preTestScore postTestScore     0 Jason Miller 42 4 25   1 Molly Jacobson 52 24 94   2 Tina Ali 36 31 57   3 Jake Milner 24 2 62   4 Amy Cooze 73 3 70     Safe the dataframe called &amp;ldquo;df&amp;rdquo; as csv Note: I&amp;rsquo;ve commented out this line of code so it does not run.</description>
+      <description>import modules import pandas as pd Create dataframe raw_data = {&amp;#39;first_name&amp;#39;: [&amp;#39;Jason&amp;#39;, &amp;#39;Molly&amp;#39;, &amp;#39;Tina&amp;#39;, &amp;#39;Jake&amp;#39;, &amp;#39;Amy&amp;#39;], &amp;#39;last_name&amp;#39;: [&amp;#39;Miller&amp;#39;, &amp;#39;Jacobson&amp;#39;, &amp;#39;Ali&amp;#39;, &amp;#39;Milner&amp;#39;, &amp;#39;Cooze&amp;#39;], &amp;#39;age&amp;#39;: [42, 52, 36, 24, 73], &amp;#39;preTestScore&amp;#39;: [4, 24, 31, 2, 3], &amp;#39;postTestScore&amp;#39;: [25, 94, 57, 62, 70]} df = pd.DataFrame(raw_data, columns = [&amp;#39;first_name&amp;#39;, &amp;#39;last_name&amp;#39;, &amp;#39;age&amp;#39;, &amp;#39;preTestScore&amp;#39;, &amp;#39;postTestScore&amp;#39;]) df    first_name last_name age preTestScore postTestScore     0 Jason Miller 42 4 25   1 Molly Jacobson 52 24 94   2 Tina Ali 36 31 57   3 Jake Milner 24 2 62   4 Amy Cooze 73 3 70     Save the dataframe called &amp;ldquo;df&amp;rdquo; as csv Note: I&amp;rsquo;ve commented out this line of code so it does not run.</description>
     </item>
     
     <item>
@@ -1256,7 +1266,7 @@ Preliminaries # Import required modules import pandas as pd Create example data 
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/data_wrangling/pandas_selecting_rows_on_conditions/</guid>
-      <description>Preliminaries # Import modules import pandas as pd import numpy as np# Create a dataframe raw_data = {&amp;#39;first_name&amp;#39;: [&amp;#39;Jason&amp;#39;, &amp;#39;Molly&amp;#39;, np.nan, np.nan, np.nan], &amp;#39;nationality&amp;#39;: [&amp;#39;USA&amp;#39;, &amp;#39;USA&amp;#39;, &amp;#39;France&amp;#39;, &amp;#39;UK&amp;#39;, &amp;#39;UK&amp;#39;], &amp;#39;age&amp;#39;: [42, 52, 36, 24, 70]} df = pd.DataFrame(raw_data, columns = [&amp;#39;first_name&amp;#39;, &amp;#39;nationality&amp;#39;, &amp;#39;age&amp;#39;]) df    first_name nationality age     0 Jason USA 42   1 Molly USA 52   2 NaN France 36   3 NaN UK 24   4 NaN UK 70     Method 1: Using Boolean Variables # Create variable with TRUE if nationality is USA american = df[&amp;#39;nationality&amp;#39;] == &amp;#34;USA&amp;#34; # Create variable with TRUE if age is greater than 50 elderly = df[&amp;#39;age&amp;#39;] &amp;gt; 50 # Select all casess where nationality is USA and age is greater than 50 df[american &amp;amp; elderly]    first_name nationality age     1 Molly USA 52     Method 2: Using variable attributes # Select all cases where the first name is not missing and nationality is USA  df[df[&amp;#39;first_name&amp;#39;].</description>
+      <description>Preliminaries # Import modules import pandas as pd import numpy as np# Create a dataframe raw_data = {&amp;#39;first_name&amp;#39;: [&amp;#39;Jason&amp;#39;, &amp;#39;Molly&amp;#39;, np.nan, np.nan, np.nan], &amp;#39;nationality&amp;#39;: [&amp;#39;USA&amp;#39;, &amp;#39;USA&amp;#39;, &amp;#39;France&amp;#39;, &amp;#39;UK&amp;#39;, &amp;#39;UK&amp;#39;], &amp;#39;age&amp;#39;: [42, 52, 36, 24, 70]} df = pd.DataFrame(raw_data, columns = [&amp;#39;first_name&amp;#39;, &amp;#39;nationality&amp;#39;, &amp;#39;age&amp;#39;]) df    first_name nationality age     0 Jason USA 42   1 Molly USA 52   2 NaN France 36   3 NaN UK 24   4 NaN UK 70     Method 1: Using Boolean Variables # Create variable with TRUE if nationality is USA american = df[&amp;#39;nationality&amp;#39;] == &amp;#34;USA&amp;#34; # Create variable with TRUE if age is greater than 50 elderly = df[&amp;#39;age&amp;#39;] &amp;gt; 50 # Select all cases where nationality is USA and age is greater than 50 df[american &amp;amp; elderly]    first_name nationality age     1 Molly USA 52     Method 2: Using variable attributes # Select all cases where the first name is not missing and nationality is USA  df[df[&amp;#39;first_name&amp;#39;].</description>
     </item>
     
     <item>

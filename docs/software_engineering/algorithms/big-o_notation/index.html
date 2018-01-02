@@ -204,14 +204,14 @@ MathJax.Hub.Config({
         <span class="n">half_length</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
         
         <span class="c1"># Add half the values of n to operations</span>
-        <span class="n">operations</span> <span class="o">=</span> <span class="n">operations</span> <span class="o">+</span> <span class="n">n</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">half_length</span><span class="p">]</span>
+        <span class="n">operations</span> <span class="o">=</span> <span class="n">operations</span> <span class="o">+</span> <span class="p">[</span><span class="n">n</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">half_length</span><span class="p">]]</span>
         
         <span class="c1"># make n half the length of itself, then restart the loop</span>
         <span class="n">n</span> <span class="o">=</span> <span class="n">n</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">half_length</span><span class="p">]</span>
         
     <span class="c1"># Return the number of operations</span>
     <span class="k">return</span> <span class="sa"></span><span class="s1">&#39;Number of operations: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">operations</span><span class="p">))</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">logarithmic</span><span class="p">(</span><span class="n">n</span><span class="p">)</span></code></pre></div>
-<pre><code>'Number of operations: 97'
+<pre><code>'Number of operations: 6'
 </code></pre>
 
 <h2 id="o-n-linear-time-complexity">O(n) - Linear Time-Complexity</h2>
@@ -269,7 +269,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted">This project contains 422 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
+            <span class="text-muted">This project contains 423 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
         </div>
     </footer>
 

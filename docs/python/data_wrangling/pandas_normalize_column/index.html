@@ -48,7 +48,7 @@
   "@type": "BlogPosting",
   "headline": "Normalize A Column In pandas",
   "url": "https://chrisalbon.com/python/data_wrangling/pandas_normalize_column/",
-  "wordCount": "244",
+  "wordCount": "205",
   "datePublished": "2017-12-20T11:53:49-07:00",
   "dateModified": "2017-12-20T11:53:49-07:00",
   "author": {
@@ -176,6 +176,19 @@ MathJax.Hub.Config({
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 <span class="n">df</span></code></pre></div>
 <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -229,14 +242,14 @@ MathJax.Hub.Config({
 </div>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># View the unnormalized data</span>
 <span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;score&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;bar&#39;</span><span class="p">)</span></code></pre></div>
-<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x113a84eb8&gt;
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x11b9c88d0&gt;
 </code></pre>
 
 <p><img src="pandas_normalize_column_5_1.png" alt="png" /></p>
 
 <h2 id="normalize-the-column">Normalize The Column</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create x, where x the &#39;scores&#39; column&#39;s values as floats</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;score&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="sa"></span><span class="s1">&#39;score&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
 
 <span class="c1"># Create a minimum and maximum processor object</span>
 <span class="n">min_max_scaler</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">MinMaxScaler</span><span class="p">()</span>
@@ -245,15 +258,22 @@ MathJax.Hub.Config({
 <span class="n">x_scaled</span> <span class="o">=</span> <span class="n">min_max_scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
 <span class="c1"># Run the normalizer on the dataframe</span>
-<span class="n">df_normalized</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">x_scaled</span><span class="p">)</span></code></pre></div>
-<pre><code>/Users/chrisralbon/anaconda/lib/python3.5/site-packages/sklearn/preprocessing/data.py:324: DeprecationWarning: Passing 1d arrays as data is deprecated in 0.17 and will raise ValueError in 0.19. Reshape your data either using X.reshape(-1, 1) if your data has a single feature or X.reshape(1, -1) if it contains a single sample.
-  warnings.warn(DEPRECATION_MSG_1D, DeprecationWarning)
-/Users/chrisralbon/anaconda/lib/python3.5/site-packages/sklearn/preprocessing/data.py:359: DeprecationWarning: Passing 1d arrays as data is deprecated in 0.17 and will raise ValueError in 0.19. Reshape your data either using X.reshape(-1, 1) if your data has a single feature or X.reshape(1, -1) if it contains a single sample.
-  warnings.warn(DEPRECATION_MSG_1D, DeprecationWarning)
-</code></pre>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># View the dataframe</span>
+<span class="n">df_normalized</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">x_scaled</span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># View the dataframe</span>
 <span class="n">df_normalized</span></code></pre></div>
 <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -307,7 +327,7 @@ MathJax.Hub.Config({
 </div>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Plot the dataframe</span>
 <span class="n">df_normalized</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;bar&#39;</span><span class="p">)</span></code></pre></div>
-<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x115f11278&gt;
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x11ba31c50&gt;
 </code></pre>
 
 <p><img src="pandas_normalize_column_9_1.png" alt="png" /></p>
@@ -335,7 +355,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted">This project contains 422 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
+            <span class="text-muted">This project contains 423 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
         </div>
     </footer>
 
