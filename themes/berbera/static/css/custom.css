@@ -389,6 +389,11 @@ Articles
   font-size: 1.25em;
 }
 
+.article .content p{
+  padding-top:.25em;
+  padding-bottom:.25em;
+}
+
 .article .content p .mjx-math {
   font-size: 1em;
 }
