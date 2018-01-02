@@ -1,5 +1,5 @@
 ---
-title: "Decision Tree regression"
+title: "Decision Tree Regression"
 author: "Chris Albon"
 date: 2017-12-20T11:53:49-07:00
 description: "Training a decision tree regression in scikit-learn."

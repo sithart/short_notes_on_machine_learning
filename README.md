@@ -5,7 +5,7 @@ Notes on data science, machine learning, artificial intelligence, history, and s
 - Rewrite readme
 - Rewrite Site Blurb
 - Rewrite Bio
-- DEPLOY
+- Create 404 page
 
 ## To Deplay
 
