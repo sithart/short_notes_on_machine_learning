@@ -130,7 +130,7 @@ print(df)
     9  2014-05-04 18:47:05.486877      1
 
 
-### Convert df['date'] from string to datetime
+### Convert `df['date']` from string to datetime
 
 
 ```python

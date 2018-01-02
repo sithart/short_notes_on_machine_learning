@@ -222,7 +222,7 @@ plt.figure(figsize=(10,8))
 # Create a scatterplot of,
             # attacker size in year 298 as the x axis
 plt.scatter(df['attacker_size'][df['year'] == 298], 
-            # attacker size in year 298 as the y axis
+            # defender size in year 298 as the y axis
             df['defender_size'][df['year'] == 298], 
             # the marker as
             marker='x', 

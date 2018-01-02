@@ -17,6 +17,7 @@ Second, some preprocessing methods have their own parameter which often have to 
 # Load libraries
 import numpy as np
 from sklearn import datasets
+from sklearn.feature_selection import SelectKBest
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import GridSearchCV
 from sklearn.pipeline import Pipeline, FeatureUnion

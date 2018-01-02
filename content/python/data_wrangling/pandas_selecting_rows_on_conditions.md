@@ -85,7 +85,7 @@ american = df['nationality'] == "USA"
 # Create variable with TRUE if age is greater than 50
 elderly = df['age'] > 50
 
-# Select all casess where nationality is USA and age is greater than 50
+# Select all cases where nationality is USA and age is greater than 50
 df[american & elderly]
 ```
 

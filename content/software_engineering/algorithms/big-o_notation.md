@@ -67,7 +67,7 @@ def logarithmic(n):
         half_length = int(len(n)/2)
         
         # Add half the values of n to operations
-        operations = operations + n[0:half_length]
+        operations = operations + [n[0:half_length]]
         
         # make n half the length of itself, then restart the loop
         n = n[0:half_length]
@@ -84,7 +84,7 @@ logarithmic(n)
 
 
 
-    'Number of operations: 97'
+    'Number of operations: 6'
 
 
 

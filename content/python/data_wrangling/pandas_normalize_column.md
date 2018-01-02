@@ -32,6 +32,19 @@ df
 
 
 <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -95,7 +108,7 @@ df['score'].plot(kind='bar')
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x113a84eb8>
+    <matplotlib.axes._subplots.AxesSubplot at 0x11b9c88d0>
 
 
 
@@ -108,7 +121,7 @@ df['score'].plot(kind='bar')
 
 ```python
 # Create x, where x the 'scores' column's values as floats
-x = df['score'].values.astype(float)
+x = df[['score']].values.astype(float)
 
 # Create a minimum and maximum processor object
 min_max_scaler = preprocessing.MinMaxScaler()
@@ -120,12 +133,6 @@ x_scaled = min_max_scaler.fit_transform(x)
 df_normalized = pd.DataFrame(x_scaled)
 ```
 
-    /Users/chrisralbon/anaconda/lib/python3.5/site-packages/sklearn/preprocessing/data.py:324: DeprecationWarning: Passing 1d arrays as data is deprecated in 0.17 and will raise ValueError in 0.19. Reshape your data either using X.reshape(-1, 1) if your data has a single feature or X.reshape(1, -1) if it contains a single sample.
-      warnings.warn(DEPRECATION_MSG_1D, DeprecationWarning)
-    /Users/chrisralbon/anaconda/lib/python3.5/site-packages/sklearn/preprocessing/data.py:359: DeprecationWarning: Passing 1d arrays as data is deprecated in 0.17 and will raise ValueError in 0.19. Reshape your data either using X.reshape(-1, 1) if your data has a single feature or X.reshape(1, -1) if it contains a single sample.
-      warnings.warn(DEPRECATION_MSG_1D, DeprecationWarning)
-
-
 
 ```python
 # View the dataframe
@@ -136,6 +143,19 @@ df_normalized
 
 
 <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -199,7 +219,7 @@ df_normalized.plot(kind='bar')
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x115f11278>
+    <matplotlib.axes._subplots.AxesSubplot at 0x11ba31c50>
 
 
 

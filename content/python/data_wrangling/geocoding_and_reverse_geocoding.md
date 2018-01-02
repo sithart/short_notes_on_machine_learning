@@ -54,17 +54,17 @@ df
 
 
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
     }
 
     .dataframe tbody tr th {
         vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
     }
 </style>
 <table border="1" class="dataframe">
@@ -76,24 +76,24 @@ df
   </thead>
   <tbody>
     <tr>
-      <th>Site 4</th>
-      <td>31.655494, -106.420484</td>
+      <th>Site 1</th>
+      <td>31.336968, -109.560959</td>
+    </tr>
+    <tr>
+      <th>Site 2</th>
+      <td>31.347745, -108.229963</td>
     </tr>
     <tr>
       <th>Site 3</th>
       <td>32.277621, -107.734724</td>
     </tr>
     <tr>
-      <th>Site 1</th>
-      <td>31.336968, -109.560959</td>
+      <th>Site 4</th>
+      <td>31.655494, -106.420484</td>
     </tr>
     <tr>
       <th>Site 5</th>
       <td>30.295053, -104.014528</td>
-    </tr>
-    <tr>
-      <th>Site 2</th>
-      <td>31.347745, -108.229963</td>
     </tr>
   </tbody>
 </table>
@@ -143,17 +143,17 @@ df
 
 
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
     }
 
     .dataframe tbody tr th {
         vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
     }
 </style>
 <table border="1" class="dataframe">
@@ -167,10 +167,16 @@ df
   </thead>
   <tbody>
     <tr>
-      <th>Site 4</th>
-      <td>31.655494, -106.420484</td>
-      <td>31.655494</td>
-      <td>-106.420484</td>
+      <th>Site 1</th>
+      <td>31.336968, -109.560959</td>
+      <td>31.336968</td>
+      <td>-109.560959</td>
+    </tr>
+    <tr>
+      <th>Site 2</th>
+      <td>31.347745, -108.229963</td>
+      <td>31.347745</td>
+      <td>-108.229963</td>
     </tr>
     <tr>
       <th>Site 3</th>
@@ -179,22 +185,16 @@ df
       <td>-107.734724</td>
     </tr>
     <tr>
-      <th>Site 1</th>
-      <td>31.336968, -109.560959</td>
-      <td>31.336968</td>
-      <td>-109.560959</td>
+      <th>Site 4</th>
+      <td>31.655494, -106.420484</td>
+      <td>31.655494</td>
+      <td>-106.420484</td>
     </tr>
     <tr>
       <th>Site 5</th>
       <td>30.295053, -104.014528</td>
       <td>30.295053</td>
       <td>-104.014528</td>
-    </tr>
-    <tr>
-      <th>Site 2</th>
-      <td>31.347745, -108.229963</td>
-      <td>31.347745</td>
-      <td>-108.229963</td>
     </tr>
   </tbody>
 </table>
@@ -225,7 +225,7 @@ results.coordinates
 
 
 
-    (31.6556534, -106.4204309)
+    (31.3372728, -109.5609559)
 
 
 
@@ -238,7 +238,7 @@ results.city
 
 
 
-    'Ciudad Juárez'
+    'Douglas'
 
 
 
@@ -251,7 +251,7 @@ results.country
 
 
 
-    'Mexico'
+    'United States'
 
 
 
@@ -270,7 +270,7 @@ results.administrative_area_level_1
 
 
 
-    'Chihuahua'
+    'Arizona'
 
 
 
@@ -302,7 +302,7 @@ results.coordinates
 
 
 
-    (31.6556534, -106.4204309)
+    (31.3372728, -109.5609559)
 
 
 
