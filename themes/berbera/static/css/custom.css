@@ -140,7 +140,6 @@ body {
   font-size: 15px;
 }
 
-
 /* ---------------------------------------------------------
 Basic page styling
 ---------------------------------------------------------*/
@@ -165,6 +164,10 @@ a:hover {
 
 .container {
   max-width: 940px;
+}
+
+.content {
+  font-size: 1.05em;
 }
 
 /* ---------------------------------------------------------
@@ -280,7 +283,7 @@ Homepage cards
   }
 
   .homepage .card-body li{
-    font-size: 1.0em;
+    font-size: 1.05em;
   }
 
 @media (min-width: 480px) {
@@ -315,7 +318,7 @@ Homepage cards
       font-size: 1.2em;
     }
   }
-
+  
 
 /* ---------------------------------------------------------
 Technical Notes
@@ -323,10 +326,6 @@ Technical Notes
 
 .technica_note, .page {
   font-family: 'Muli', sans-serif;
-}
-
-.technical_note .content{
-  font-size: 1.05em;
 }
 
 .technical_note .technical_note_date{
