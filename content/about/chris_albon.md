@@ -6,6 +6,8 @@ description: "About Chris Albon."
 categories: ["about"]
 type: page
 draft: false
+outputs:
+    - html
 ---
 
 
