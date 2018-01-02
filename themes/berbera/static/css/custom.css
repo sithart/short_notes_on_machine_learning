@@ -325,13 +325,13 @@ Technical Notes
   font-family: 'Muli', sans-serif;
 }
 
+.technical_note .content{
+  font-size: 1.05em;
+}
+
 .technical_note .technical_note_date{
   margin-bottom:1em;
   font-size: 1.1em;
-}
-
-.technical_note .content{
-
 }
 
 .technical_note .mjx-math{
