@@ -5,6 +5,8 @@ date: 2017-12-20T11:53:49-07:00
 description: "Join and merge pandas dataframe."
 type: technical_note
 draft: false
+aliases:
+    - /python/pandas_join_merge_dataframe.html
 ---
 ### import modules
 

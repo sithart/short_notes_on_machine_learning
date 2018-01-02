@@ -5,6 +5,8 @@ date: 2017-12-20T11:53:49-07:00
 description: "Selecting pandas dataFrame rows based on conditions."
 type: technical_note
 draft: false
+aliases:
+    - /python/pandas_selecting_rows_on_conditions.html
 ---
 ## Preliminaries
 

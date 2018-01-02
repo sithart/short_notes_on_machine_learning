@@ -5,6 +5,8 @@ date: 2017-12-20T11:53:49-07:00
 description: "Converting strings to datetime using Python."
 type: technical_note
 draft: false
+aliases:
+    - /python/strings_to_datetime.html
 ---
 ### Import modules
 

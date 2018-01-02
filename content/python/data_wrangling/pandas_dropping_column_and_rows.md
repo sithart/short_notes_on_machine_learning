@@ -5,6 +5,8 @@ date: 2017-12-20T11:53:49-07:00
 description: "Dropping rows and columns in pandas dataframe."
 type: technical_note
 draft: false
+aliases:
+    - /python/pandas_dropping_column_and_rows.html
 ---
 ### Import modules
 

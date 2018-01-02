@@ -5,6 +5,8 @@ date: 2017-12-20T11:53:49-07:00
 description: "List unique values in a pandas column."
 type: technical_note
 draft: false
+aliases:
+    - /python/pandas_list_unique_values_in_column.html
 ---
 Special thanks to Bob Haffner for pointing out a better way of doing it.
 

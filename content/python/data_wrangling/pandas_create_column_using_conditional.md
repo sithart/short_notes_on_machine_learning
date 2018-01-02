@@ -5,6 +5,8 @@ date: 2017-12-20T11:53:49-07:00
 description: "Create a Column Based on a Conditional in pandas."
 type: technical_note
 draft: false
+aliases:
+    - /python/pandas_create_column_using_conditional.html
 ---
 ### Preliminaries
 
