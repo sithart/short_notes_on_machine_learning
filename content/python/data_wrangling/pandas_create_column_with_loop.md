@@ -5,6 +5,8 @@ date: 2017-12-20T11:53:49-07:00
 description: "Create a pandas column with a for loop."
 type: technical_note
 draft: false
+aliases:
+    - /python/pandas_create_column_with_loop.html
 ---
 ## Preliminaries
 

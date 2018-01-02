@@ -5,6 +5,8 @@ date: 2017-12-20T11:53:49-07:00
 description: "pandas time series basics."
 type: technical_note
 draft: false
+aliases:
+    - /python/pandas_time_series_basics.html
 ---
 ### Import modules
 

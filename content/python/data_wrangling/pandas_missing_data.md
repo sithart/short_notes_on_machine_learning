@@ -5,6 +5,8 @@ date: 2017-12-20T11:53:49-07:00
 description: "Missing data in pandas dataframes."
 type: technical_note
 draft: false
+aliases:
+    - /python/pandas_missing_data.html
 ---
 ### import modules
 

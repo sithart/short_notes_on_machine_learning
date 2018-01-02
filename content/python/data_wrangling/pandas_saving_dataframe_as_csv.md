@@ -5,6 +5,8 @@ date: 2017-12-20T11:53:49-07:00
 description: "Saving a pandas dataframe as a CSV."
 type: technical_note
 draft: false
+aliases:
+    - /python/pandas_saving_dataframe_as_csv.html
 ---
 ### import modules
 

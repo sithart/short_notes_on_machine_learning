@@ -5,6 +5,8 @@ date: 2017-12-20T11:53:49-07:00
 description: "Replacing values in pandas."
 type: technical_note
 draft: false
+aliases:
+    - /python/pandas_replace_values.html
 ---
 ### import modules
 
