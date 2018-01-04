@@ -48,7 +48,7 @@
   "@type": "BlogPosting",
   "headline": "Feedforward Neural Networks For Regression",
   "url": "https://chrisalbon.com/deep_learning/keras/feedforward_neural_network_for_regression/",
-  "wordCount": "256",
+  "wordCount": "255",
   "datePublished": "2017-12-20T11:53:49-07:00",
   "dateModified": "2017-12-20T11:53:49-07:00",
   "author": {
@@ -208,9 +208,9 @@ MathJax.Hub.Config({
 
 <p>Because we are training a regression, we should use an appropriate loss function and evaluation metric, in our case the mean square error:</p>
 
-<p>$$\operatorname {MSE}={\frac  {1}{n}}\sum <em>{{i=1}}^{n}({\hat  {y</em>{i}}}-y_{i})^{2}$$</p>
+<p>$$\operatorname {MSE}={\frac  {1}{n}}\sum_{{i=1}}^{n}({\hat  {y_{i}}}-y_{i})^{2}$$</p>
 
-<p>where $n$ is the number of observations, $y<em>{i}$ is the true value of the target we are trying to predict, $y$, for observation $i$, and ${\hat  {y</em>{i}}}$ is the model&rsquo;s predicted value for $y_{i}$.</p>
+<p>where $n$ is the number of observations, $y_{i}$ is the true value of the target we are trying to predict, $y$, for observation $i$, and ${\hat  {y_{i}}}$ is the model&rsquo;s predicted value for $y_{i}$.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Compile neural network</span>
 <span class="n">network</span><span class="o">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;mse&#39;</span><span class="p">,</span> <span class="c1"># Mean squared error</span>
                 <span class="n">optimizer</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;RMSprop&#39;</span><span class="p">,</span> <span class="c1"># Optimization algorithm</span>

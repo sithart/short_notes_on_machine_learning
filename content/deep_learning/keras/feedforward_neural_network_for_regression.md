@@ -66,9 +66,9 @@ network.add(layers.Dense(units=1))
 
 Because we are training a regression, we should use an appropriate loss function and evaluation metric, in our case the mean square error:
 
-$$\operatorname {MSE}={\frac  {1}{n}}\sum _{{i=1}}^{n}({\hat  {y_{i}}}-y_{i})^{2}$$
+$$\operatorname {MSE}={\frac  {1}{n}}\sum\_{{i=1}}^{n}({\hat  {y\_{i}}}-y\_{i})^{2}$$
 
-where $n$ is the number of observations, $y_{i}$ is the true value of the target we are trying to predict, $y$, for observation $i$, and ${\hat  {y_{i}}}$ is the model's predicted value for $y_{i}$.
+where $n$ is the number of observations, $y\_{i}$ is the true value of the target we are trying to predict, $y$, for observation $i$, and ${\hat  {y\_{i}}}$ is the model's predicted value for $y\_{i}$.
 
 
 ```python
