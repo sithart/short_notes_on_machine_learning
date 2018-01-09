@@ -127,7 +127,7 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
-  color: #424242;
+  color: #505050;
   font-family: 'Muli', sans-serif;
 }
 .footer {
@@ -240,10 +240,10 @@ Homepage
 }
 
 .homepage h3.category_header {
-  background-color: #ececec;
+  background-color: #f7f6f6;
   color: rgb(84, 84, 84);
   padding: 10px 20px 10px 20px;
-  border: solid 1px #ddd;
+  border: solid 1px #e6e6e6;
   margin-bottom: 20px;
 }
 
@@ -443,7 +443,7 @@ Biography
 
 .biography{
   padding: 1em;
-  border: solid 1px #dddddd;
+  border: solid 1px #e6e6e6;
   margin-top: 3em;
 }
 
@@ -495,7 +495,7 @@ Bug reporting
 
 .bug_reporting{
     padding: 1em;
-    border: solid 1px #dddddd;
+    border: solid 1px #e6e6e6;
     margin-top: 3em;
 
 }
@@ -528,6 +528,7 @@ Flashcards
 
 .flashcard_ad {
   margin-bottom: 1.5em;
+  font-size: 1.05em;
 }
 
 /* ---------------------------------------------------------

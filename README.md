@@ -3,7 +3,7 @@ Notes on data science, machine learning, artificial intelligence, history, and s
 
 # TODO
 - Rewrite readme
-- Rewrite Site Blurb
+- Rewrite About This Site
 - Rewrite Bio
 - Add two licenses
 
@@ -13,7 +13,3 @@ Notes on data science, machine learning, artificial intelligence, history, and s
 2. Commit to master branch
 
 Site's html is in the master branch's `/docs` folder.
-
-This site
-
-to fight for something that matters.
