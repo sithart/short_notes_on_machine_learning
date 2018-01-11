@@ -5,6 +5,8 @@ date: 2017-12-20T11:53:49-07:00
 description: "Convert A String Categorical Variable To A Numeric Variable."
 type: technical_note
 draft: false
+aliases:
+    - /python/construct_a_dictionary_from_multiple_lists_python.html
 ---
 ### import modules
 

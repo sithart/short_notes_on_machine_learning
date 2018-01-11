@@ -5,6 +5,8 @@ date: 2017-12-20T11:53:49-07:00
 description: "Break a list into n-sized chunks."
 type: technical_note
 draft: false
+aliases:
+    - /python/break_list_into_chunks_of_equal_size.html
 ---
 In this snippet we take a list and break it up into n-size chunks. This is a very common practice when dealing with APIs that have a maximum request size.
 

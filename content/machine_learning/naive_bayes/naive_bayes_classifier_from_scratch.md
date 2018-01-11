@@ -206,7 +206,7 @@ Okay! Theory over. Now let us start calculating all the different parts of the b
 
 ## Calculate Priors
 
-Priors can be either constants or probability distributions. In our example is the simply the probability of being a gender. Calculating this is simple:
+Priors can be either constants or probability distributions. In our example, this is simply the probability of being a gender. Calculating this is simple:
 
 
 ```python
