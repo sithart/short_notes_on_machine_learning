@@ -35,7 +35,7 @@ I earned a Ph.D. in Political Science from the University of California, Davis r
 
 -   **Chief Data Scientist**, [BRCK](https://www.brck.com/), 2017 - Present
 -   **Creator**, [Machine Learning Flashcards](http://machinelearningflashcards.com/), 2017 - Present
--   **Author**, [Python Machine Learning Cookbook](https://www.amazon.com/Machine-Learning-Python-Cookbook-preprocessing/dp/1491989386), [O’Reilly Media](https://www.oreilly.com/), Forthcoming
+-   **Author**, [Machine Learning With Python Cookbook](https://www.amazon.com/Machine-Learning-Python-Cookbook-preprocessing/dp/1491989386), [O’Reilly Media](https://www.oreilly.com/), Forthcoming
 -   **Co-founder & Co-host**, [Partially Derivative](http://www.partiallyderivative.com), 2014 - 2017
     -   Co-founded a podcast on data and data science.
 -   **Co-founder & Chief Science Officer**, [New Knowledge](http://www.newknowledge.io), 2015 - 2016
