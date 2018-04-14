@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://chrisalbon.com/python/data_wrangling/columns_shared_by_two_data_frames/</loc>
+    <lastmod>2018-03-12T11:53:49-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chrisalbon.com/machine_learning/feature_selection/anova_f-value_for_feature_selection/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
@@ -2119,7 +2124,7 @@
   
   <url>
     <loc>https://chrisalbon.com/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
+    <lastmod>2018-03-12T11:53:49-07:00</lastmod>
     <priority>0</priority>
   </url>
   

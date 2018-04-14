@@ -6,10 +6,19 @@
     <description>Recent content on Chris Albon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 20 Dec 2017 11:53:49 -0700</lastBuildDate>
+    <lastBuildDate>Mon, 12 Mar 2018 11:53:49 -0700</lastBuildDate>
     
 	<atom:link href="https://chrisalbon.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Columns Shared By Two Data Frames</title>
+      <link>https://chrisalbon.com/python/data_wrangling/columns_shared_by_two_data_frames/</link>
+      <pubDate>Mon, 12 Mar 2018 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/python/data_wrangling/columns_shared_by_two_data_frames/</guid>
+      <description>Preliminaries # Import library import pandas as pd Create Data Frames # Create a data frame dataframe_one = pd.DataFrame() dataframe_one[&amp;#39;1&amp;#39;] = [&amp;#39;1&amp;#39;, &amp;#39;1&amp;#39;, &amp;#39;1&amp;#39;] dataframe_one[&amp;#39;B&amp;#39;] = [&amp;#39;b&amp;#39;, &amp;#39;b&amp;#39;, &amp;#39;b&amp;#39;] # Create a second data frame dataframe_two = pd.DataFrame() dataframe_two[&amp;#39;2&amp;#39;] = [&amp;#39;2&amp;#39;, &amp;#39;2&amp;#39;, &amp;#39;2&amp;#39;] dataframe_two[&amp;#39;B&amp;#39;] = [&amp;#39;b&amp;#39;, &amp;#39;b&amp;#39;, &amp;#39;b&amp;#39;] Find Shared Columns # Convert each data frame&amp;#39;s columns into sets, then find # the intersection of those two sets. This will be the # set of columns shared by both data frames.</description>
+    </item>
     
     <item>
       <title>ANOVA F-value For Feature Selection</title>
