@@ -6,10 +6,70 @@
     <description>Recent content on Chris Albon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 12 Mar 2018 11:53:49 -0700</lastBuildDate>
+    <lastBuildDate>Mon, 18 Jun 2018 11:53:49 -0700</lastBuildDate>
     
 	<atom:link href="https://chrisalbon.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Create Table</title>
+      <link>https://chrisalbon.com/sql/basics/create_table/</link>
+      <pubDate>Mon, 18 Jun 2018 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/basics/create_table/</guid>
+      <description>Note: This tutorial was created in a Jupyter Notebook. %%read_sql is a Jupyter magic command and can be ignored when not using Jupyter Notebooks.
+Preliminaries # Load libraries from sqlalchemy import create_engine from sqlalchemy_utils import create_database, database_exists, drop_database # Create PostgreSQL connection engine = create_engine(&amp;#34;postgres://localhost/notes_db&amp;#34;) # Load sql_magic so we can write SQL in Jupyter Notebooks %load_ext sql_magic # Setup SQL connection to the postgreSQL engine we created %config SQL.</description>
+    </item>
+    
+    <item>
+      <title>Get All Rows</title>
+      <link>https://chrisalbon.com/sql/basics/get_all_rows/</link>
+      <pubDate>Mon, 18 Jun 2018 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/basics/get_all_rows/</guid>
+      <description>Note: This tutorial was created in a Jupyter Notebook. %%read_sql is a Jupyter magic command and can be ignored when not using Jupyter Notebooks.
+Preliminaries # Load libraries from sqlalchemy import create_engine from sqlalchemy_utils import create_database, database_exists, drop_database # Create PostgreSQL connection engine = create_engine(&amp;#34;postgres://localhost/notes_db&amp;#34;) # Load sql_magic so we can write SQL in Jupyter Notebooks %load_ext sql_magic # Setup SQL connection to the postgreSQL engine we created %config SQL.</description>
+    </item>
+    
+    <item>
+      <title>Get Data Based On A Condition</title>
+      <link>https://chrisalbon.com/sql/basics/get_data_based_on_a_condition/</link>
+      <pubDate>Mon, 18 Jun 2018 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/basics/get_data_based_on_a_condition/</guid>
+      <description>Note: This tutorial was created in a Jupyter Notebook. %%read_sql is a Jupyter magic command and can be ignored when not using Jupyter Notebooks.
+Preliminaries # Load libraries from sqlalchemy import create_engine from sqlalchemy_utils import create_database, database_exists, drop_database # Create PostgreSQL connection engine = create_engine(&amp;#34;postgres://localhost/notes_db&amp;#34;) # Load sql_magic so we can write SQL in Jupyter Notebooks %load_ext sql_magic # Setup SQL connection to the postgreSQL engine we created %config SQL.</description>
+    </item>
+    
+    <item>
+      <title>Get Data Based On Multiple Conditions</title>
+      <link>https://chrisalbon.com/sql/basics/get_data_based_on_multiple_conditions/</link>
+      <pubDate>Mon, 18 Jun 2018 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/basics/get_data_based_on_multiple_conditions/</guid>
+      <description>Note: This tutorial was created in a Jupyter Notebook. %%read_sql is a Jupyter magic command and can be ignored when not using Jupyter Notebooks.
+Preliminaries # Load libraries from sqlalchemy import create_engine from sqlalchemy_utils import create_database, database_exists, drop_database # Create PostgreSQL connection engine = create_engine(&amp;#34;postgres://localhost/notes_db&amp;#34;) # Load sql_magic so we can write SQL in Jupyter Notebooks %load_ext sql_magic # Setup SQL connection to the postgreSQL engine we created %config SQL.</description>
+    </item>
+    
+    <item>
+      <title>Get Selected Columns</title>
+      <link>https://chrisalbon.com/sql/basics/get_selected_columns/</link>
+      <pubDate>Mon, 18 Jun 2018 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/basics/get_selected_columns/</guid>
+      <description>Note: This tutorial was created in a Jupyter Notebook. %%read_sql is a Jupyter magic command and can be ignored when not using Jupyter Notebooks.
+Preliminaries # Load libraries from sqlalchemy import create_engine from sqlalchemy_utils import create_database, database_exists, drop_database # Create PostgreSQL connection engine = create_engine(&amp;#34;postgres://localhost/notes_db&amp;#34;) # Load sql_magic so we can write SQL in Jupyter Notebooks %load_ext sql_magic # Setup SQL connection to the postgreSQL engine we created %config SQL.</description>
+    </item>
+    
+    <item>
+      <title>Insert Record</title>
+      <link>https://chrisalbon.com/sql/basics/insert_record/</link>
+      <pubDate>Mon, 18 Jun 2018 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/basics/insert_record/</guid>
+      <description>Note: This tutorial was created in a Jupyter Notebook. %%read_sql is a Jupyter magic command and can be ignored when not using Jupyter Notebooks.
+Preliminaries # Load libraries from sqlalchemy import create_engine from sqlalchemy_utils import create_database, database_exists, drop_database # Create PostgreSQL connection engine = create_engine(&amp;#34;postgres://localhost/notes_db&amp;#34;) # Load sql_magic so we can write SQL in Jupyter Notebooks %load_ext sql_magic # Setup SQL connection to the postgreSQL engine we created %config SQL.</description>
+    </item>
     
     <item>
       <title>Columns Shared By Two Data Frames</title>
