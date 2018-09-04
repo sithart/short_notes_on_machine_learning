@@ -6,7 +6,6 @@ description: "How to create a PostgreSQL database using Python."
 type: technical_note
 draft: false
 ---
-
 ## Preliminaries
 
 

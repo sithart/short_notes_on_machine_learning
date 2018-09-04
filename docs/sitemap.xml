@@ -48,12 +48,12 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/basics/create_postgresql_database_with_python/</loc>
+    <loc>https://chrisalbon.com/postgresql/basics/create_postgresql_database_with_python/</loc>
     <lastmod>2018-06-18T11:53:49-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/add_delete_change/add_column/</loc>
+    <loc>https://chrisalbon.com/postgresql/add_delete_change/add_column/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
@@ -63,7 +63,12 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/merging_and_joining/all_unique_values_in_two_tables/</loc>
+    <loc>https://chrisalbon.com/postgresql/dates/adding_or_substracting_time/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/postgresql/merging_and_joining/all_unique_values_in_two_tables/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
@@ -88,7 +93,7 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/basics/apply_operation_to_column/</loc>
+    <loc>https://chrisalbon.com/postgresql/basics/apply_operation_to_column/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
@@ -98,17 +103,27 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/numeric/max_min_and_average_of_column/</loc>
+    <loc>https://chrisalbon.com/postgresql/numeric/max_min_and_average_of_column/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/numeric/calculate_sum_of_column/</loc>
+    <loc>https://chrisalbon.com/postgresql/numeric/calculate_running_total/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/merging_and_joining/cartesian_product/</loc>
+    <loc>https://chrisalbon.com/postgresql/numeric/calculate_sum_of_column/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/postgresql/dates/calculate_time_duration/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/postgresql/merging_and_joining/cartesian_product/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
@@ -123,6 +138,11 @@
   </url>
   
   <url>
+    <loc>https://chrisalbon.com/postgresql/add_delete_change/change_values/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chrisalbon.com/linux/basics/changing_directories/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
@@ -133,7 +153,7 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/basics/compare_values_to_subquery/</loc>
+    <loc>https://chrisalbon.com/postgresql/basics/compare_values_to_subquery/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
@@ -148,52 +168,57 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/merging_and_joining/concatenate_multiple_tables/</loc>
+    <loc>https://chrisalbon.com/postgresql/merging_and_joining/concatenate_multiple_tables/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/text/concatenate_values/</loc>
+    <loc>https://chrisalbon.com/postgresql/text/concatenate_values/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/numeric/convert_floats_to_integers/</loc>
+    <loc>https://chrisalbon.com/postgresql/numeric/convert_floats_to_integers/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/basics/copy_rows_from_one_table_to_another/</loc>
+    <loc>https://chrisalbon.com/postgresql/basics/copy_rows_from_one_table_to_another/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/basics/copy_table_structure/</loc>
+    <loc>https://chrisalbon.com/postgresql/tables/copy_table_structure/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/basics/count_rows/</loc>
+    <loc>https://chrisalbon.com/postgresql/basics/count_rows/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/basics/count_unique_values/</loc>
+    <loc>https://chrisalbon.com/postgresql/basics/count_unique_values/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/add_delete_change/create_column_aliases/</loc>
+    <loc>https://chrisalbon.com/postgresql/add_delete_change/create_column_aliases/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/add_delete_change/create_column_condition_on_another_column/</loc>
+    <loc>https://chrisalbon.com/postgresql/add_delete_change/create_column_condition_on_another_column/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/add_delete_change/create_column_of_values/</loc>
+    <loc>https://chrisalbon.com/postgresql/basics/create_column_index/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/postgresql/add_delete_change/create_column_of_values/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
@@ -218,7 +243,7 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/add_delete_change/create_primary_key/</loc>
+    <loc>https://chrisalbon.com/postgresql/add_delete_change/create_primary_key/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
@@ -228,7 +253,7 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/basics/create_subquery/</loc>
+    <loc>https://chrisalbon.com/postgresql/basics/create_subquery/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
@@ -238,57 +263,77 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/basics/create_table/</loc>
+    <loc>https://chrisalbon.com/postgresql/tables/create_table/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/basics/create_table_with_default_values/</loc>
+    <loc>https://chrisalbon.com/postgresql/tables/create_table_with_default_values/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/basics/create_view/</loc>
+    <loc>https://chrisalbon.com/postgresql/tables/create_table_with_uuids/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/add_delete_change/delete_all_rows/</loc>
+    <loc>https://chrisalbon.com/postgresql/tables/create_temporary_table/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/add_delete_change/delete_primary_key/</loc>
+    <loc>https://chrisalbon.com/postgresql/basics/create_view/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/add_delete_change/delete_rows/</loc>
+    <loc>https://chrisalbon.com/postgresql/add_delete_change/delete_all_rows/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/basics/delete_table/</loc>
+    <loc>https://chrisalbon.com/postgresql/add_delete_change/delete_duplicates/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/basics/delete_table_with_views/</loc>
+    <loc>https://chrisalbon.com/postgresql/add_delete_change/delete_primary_key/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/basics/delete_view/</loc>
+    <loc>https://chrisalbon.com/postgresql/add_delete_change/delete_rows/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/basics/duplicate_table/</loc>
+    <loc>https://chrisalbon.com/postgresql/add_delete_change/delete_rows_that_dont_exist_in_another_table/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/basics/examine_a_query/</loc>
+    <loc>https://chrisalbon.com/postgresql/tables/delete_table/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/postgresql/tables/delete_table_with_views/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/postgresql/basics/delete_view/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/postgresql/tables/duplicate_table/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/postgresql/basics/examine_a_query/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
@@ -298,12 +343,12 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/add_delete_change/export_to_csv/</loc>
+    <loc>https://chrisalbon.com/postgresql/add_delete_change/export_to_csv/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/text/extract_characters_from_strings/</loc>
+    <loc>https://chrisalbon.com/postgresql/text/extract_characters_from_strings/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
@@ -343,12 +388,12 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/merging_and_joining/find_values_in_both_tables/</loc>
+    <loc>https://chrisalbon.com/postgresql/merging_and_joining/find_values_in_both_tables/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/merging_and_joining/find_values_in_one_table_and_not_another/</loc>
+    <loc>https://chrisalbon.com/postgresql/merging_and_joining/find_values_in_one_table_and_not_another/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
@@ -368,17 +413,17 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/basics/group_rows/</loc>
+    <loc>https://chrisalbon.com/postgresql/basics/group_rows/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/basics/group_rows_with_conditions/</loc>
+    <loc>https://chrisalbon.com/postgresql/basics/group_rows_with_conditions/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/basics/if_else/</loc>
+    <loc>https://chrisalbon.com/postgresql/basics/if_else/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
@@ -398,17 +443,17 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/add_delete_change/import_csv/</loc>
+    <loc>https://chrisalbon.com/postgresql/add_delete_change/import_csv/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/merging_and_joining/inner_join/</loc>
+    <loc>https://chrisalbon.com/postgresql/merging_and_joining/inner_join/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/add_delete_change/insert_rows/</loc>
+    <loc>https://chrisalbon.com/postgresql/add_delete_change/insert_rows/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
@@ -423,12 +468,12 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/merging_and_joining/join_multiple_tables/</loc>
+    <loc>https://chrisalbon.com/postgresql/merging_and_joining/join_multiple_tables/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/merging_and_joining/left_join/</loc>
+    <loc>https://chrisalbon.com/postgresql/merging_and_joining/left_join/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
@@ -438,12 +483,22 @@
   </url>
   
   <url>
+    <loc>https://chrisalbon.com/postgresql/tables/list_columns_in_table/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/postgresql/basics/list_indexed_columns/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chrisalbon.com/linux/processes/list_processes/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/basics/list_tables_in_database/</loc>
+    <loc>https://chrisalbon.com/postgresql/basics/list_tables_in_database/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
@@ -453,12 +508,12 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/text/lower_case_and_upper_case/</loc>
+    <loc>https://chrisalbon.com/postgresql/text/lower_case_and_upper_case/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/numeric/mathematical_operations_on_column/</loc>
+    <loc>https://chrisalbon.com/postgresql/numeric/mathematical_operations_on_column/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
@@ -473,12 +528,12 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/merging_and_joining/outer_join/</loc>
+    <loc>https://chrisalbon.com/postgresql/merging_and_joining/outer_join/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/text/partial_string_match/</loc>
+    <loc>https://chrisalbon.com/postgresql/text/partial_string_match/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
@@ -493,52 +548,52 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/basics/rename_columns_in_views/</loc>
+    <loc>https://chrisalbon.com/postgresql/basics/rename_columns_in_views/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/basics/replace_missing_values/</loc>
+    <loc>https://chrisalbon.com/postgresql/basics/replace_missing_values/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/basics/retrieve_only_a_few_rows/</loc>
+    <loc>https://chrisalbon.com/postgresql/basics/retrieve_only_a_few_rows/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/basics/retrieve_random_subset_of_rows/</loc>
+    <loc>https://chrisalbon.com/postgresql/basics/retrieve_random_subset_of_rows/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/basics/retrieve_rows/</loc>
+    <loc>https://chrisalbon.com/postgresql/basics/retrieve_rows/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/basics/retrieve_rows_based_on_condition/</loc>
+    <loc>https://chrisalbon.com/postgresql/basics/retrieve_rows_based_on_condition/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/basics/retrieve_rows_based_on_multiple_conditions/</loc>
+    <loc>https://chrisalbon.com/postgresql/basics/retrieve_rows_based_on_multiple_conditions/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/basics/retrieve_subset_columns/</loc>
+    <loc>https://chrisalbon.com/postgresql/basics/retrieve_subset_columns/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/basics/retrieving_missing_values/</loc>
+    <loc>https://chrisalbon.com/postgresql/basics/retrieving_missing_values/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/merging_and_joining/right_join/</loc>
+    <loc>https://chrisalbon.com/postgresql/merging_and_joining/right_join/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
@@ -548,7 +603,7 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/basics/save_queries_as_variables/</loc>
+    <loc>https://chrisalbon.com/postgresql/basics/save_queries_as_variables/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
@@ -578,12 +633,22 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/merging_and_joining/self_join/</loc>
+    <loc>https://chrisalbon.com/postgresql/basics/select_highest_value_in_each_group/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/basics/show_column_information/</loc>
+    <loc>https://chrisalbon.com/postgresql/basics/select_values_between_two_values/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/postgresql/merging_and_joining/self_join/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/postgresql/tables/show_column_information/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
@@ -598,17 +663,17 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/basics/sort_rows/</loc>
+    <loc>https://chrisalbon.com/postgresql/basics/sort_rows/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/basics/sort_rows_in_groups/</loc>
+    <loc>https://chrisalbon.com/postgresql/basics/sort_rows_in_groups/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/merging_and_joining/stack_tables/</loc>
+    <loc>https://chrisalbon.com/postgresql/merging_and_joining/stack_tables/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
@@ -618,7 +683,7 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/basics/test_if_rows_exist_in_subquery/</loc>
+    <loc>https://chrisalbon.com/postgresql/basics/test_if_rows_exist_in_subquery/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
@@ -628,12 +693,17 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/basics/use_column_aliases_with_where_clause/</loc>
+    <loc>https://chrisalbon.com/postgresql/add_delete_change/update_rows_based_on_another_table/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/basics/retrieve_rows_where_value_matches_element_of_list/</loc>
+    <loc>https://chrisalbon.com/postgresql/basics/use_column_aliases_with_where_clause/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/postgresql/basics/retrieve_rows_where_value_matches_element_of_list/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
@@ -668,12 +738,12 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/basics/view_size_of_table/</loc>
+    <loc>https://chrisalbon.com/postgresql/tables/view_size_of_table/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/basics/view_unique_values/</loc>
+    <loc>https://chrisalbon.com/postgresql/basics/view_unique_values/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
