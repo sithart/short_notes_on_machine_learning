@@ -28,17 +28,17 @@ df
 
 
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
     }
 
     .dataframe tbody tr th {
         vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
     }
 </style>
 <table border="1" class="dataframe">
@@ -158,7 +158,7 @@ df
 
 ```python
 # Set the hierarchical index but leave the columns inplace
-df.set_index(['regiment', 'company'], drop=False)
+df = df.set_index(['regiment', 'company'], drop=False)
 df
 ```
 
@@ -166,22 +166,23 @@ df
 
 
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
     }
 
     .dataframe tbody tr th {
         vertical-align: top;
     }
+
+    .dataframe thead th {
+        text-align: right;
+    }
 </style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
+      <th></th>
       <th></th>
       <th>regiment</th>
       <th>company</th>
@@ -189,10 +190,20 @@ df
       <th>preTestScore</th>
       <th>postTestScore</th>
     </tr>
+    <tr>
+      <th>regiment</th>
+      <th>company</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
+      <th rowspan="4" valign="top">Nighthawks</th>
+      <th>1st</th>
       <td>Nighthawks</td>
       <td>1st</td>
       <td>Miller</td>
@@ -200,7 +211,7 @@ df
       <td>25</td>
     </tr>
     <tr>
-      <th>1</th>
+      <th>1st</th>
       <td>Nighthawks</td>
       <td>1st</td>
       <td>Jacobson</td>
@@ -208,7 +219,7 @@ df
       <td>94</td>
     </tr>
     <tr>
-      <th>2</th>
+      <th>2nd</th>
       <td>Nighthawks</td>
       <td>2nd</td>
       <td>Ali</td>
@@ -216,7 +227,7 @@ df
       <td>57</td>
     </tr>
     <tr>
-      <th>3</th>
+      <th>2nd</th>
       <td>Nighthawks</td>
       <td>2nd</td>
       <td>Milner</td>
@@ -224,7 +235,8 @@ df
       <td>62</td>
     </tr>
     <tr>
-      <th>4</th>
+      <th rowspan="4" valign="top">Dragoons</th>
+      <th>1st</th>
       <td>Dragoons</td>
       <td>1st</td>
       <td>Cooze</td>
@@ -232,7 +244,7 @@ df
       <td>70</td>
     </tr>
     <tr>
-      <th>5</th>
+      <th>1st</th>
       <td>Dragoons</td>
       <td>1st</td>
       <td>Jacon</td>
@@ -240,7 +252,7 @@ df
       <td>25</td>
     </tr>
     <tr>
-      <th>6</th>
+      <th>2nd</th>
       <td>Dragoons</td>
       <td>2nd</td>
       <td>Ryaner</td>
@@ -248,7 +260,7 @@ df
       <td>94</td>
     </tr>
     <tr>
-      <th>7</th>
+      <th>2nd</th>
       <td>Dragoons</td>
       <td>2nd</td>
       <td>Sone</td>
@@ -256,7 +268,8 @@ df
       <td>57</td>
     </tr>
     <tr>
-      <th>8</th>
+      <th rowspan="4" valign="top">Scouts</th>
+      <th>1st</th>
       <td>Scouts</td>
       <td>1st</td>
       <td>Sloan</td>
@@ -264,7 +277,7 @@ df
       <td>62</td>
     </tr>
     <tr>
-      <th>9</th>
+      <th>1st</th>
       <td>Scouts</td>
       <td>1st</td>
       <td>Piger</td>
@@ -272,7 +285,7 @@ df
       <td>70</td>
     </tr>
     <tr>
-      <th>10</th>
+      <th>2nd</th>
       <td>Scouts</td>
       <td>2nd</td>
       <td>Riani</td>
@@ -280,7 +293,7 @@ df
       <td>62</td>
     </tr>
     <tr>
-      <th>11</th>
+      <th>2nd</th>
       <td>Scouts</td>
       <td>2nd</td>
       <td>Ali</td>
@@ -304,17 +317,17 @@ df
 
 
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
     }
 
     .dataframe tbody tr th {
         vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
     }
 </style>
 <table border="1" class="dataframe">
@@ -441,17 +454,17 @@ df.swaplevel('regiment', 'company')
 
 
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
     }
 
     .dataframe tbody tr th {
         vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
     }
 </style>
 <table border="1" class="dataframe">
@@ -566,17 +579,17 @@ df.sum(level='regiment')
 
 
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
     }
 
     .dataframe tbody tr th {
         vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
     }
 </style>
 <table border="1" class="dataframe">
@@ -594,14 +607,14 @@ df.sum(level='regiment')
   </thead>
   <tbody>
     <tr>
-      <th>Dragoons</th>
-      <td>62</td>
-      <td>246</td>
-    </tr>
-    <tr>
       <th>Nighthawks</th>
       <td>61</td>
       <td>238</td>
+    </tr>
+    <tr>
+      <th>Dragoons</th>
+      <td>62</td>
+      <td>246</td>
     </tr>
     <tr>
       <th>Scouts</th>

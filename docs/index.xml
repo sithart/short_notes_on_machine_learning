@@ -6,69 +6,1340 @@
     <description>Recent content on Chris Albon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 18 Jun 2018 11:53:49 -0700</lastBuildDate>
+    <lastBuildDate>Mon, 16 Jul 2018 00:00:00 -0700</lastBuildDate>
     
 	<atom:link href="https://chrisalbon.com/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Add Columns To Text</title>
+      <link>https://chrisalbon.com/linux/text/add_columns_to_text/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/text/add_columns_to_text/</guid>
+      <description>Create A File With Comma Separated Text echo &amp;#34;chris, 34, male&amp;#34; &amp;gt;&amp;gt; staff.txtecho &amp;#34;sarah, 22, female&amp;#34; &amp;gt;&amp;gt; staff.txtecho &amp;#34;Bob, 59, male&amp;#34; &amp;gt;&amp;gt; staff.txt View File cat staff.txt chris, 34, male sarah, 22, female Bob, 59, male  Extract Text By Breaking Into Columns And Save To File cut the text in staff.txt that is separated by commas (-d &#39;,&#39;) into columns, then take the second (-f 2) column, and finally save to ages.</description>
+    </item>
+    
+    <item>
+      <title>Copy Files And Directories</title>
+      <link>https://chrisalbon.com/linux/basics/copy_files_and_directories/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/basics/copy_files_and_directories/</guid>
+      <description>The cp command copy-pastes the file to a destination directory. The mv command moves a file (deleting it from the original directory).
+Make File touch file.txt Make Directory mkdir example View Directory Contents Directory ls -l total 4 drwxrwxr-x 2 chris chris 4096 Jul 24 08:49 example -rw-rw-r-- 1 chris chris 0 Jul 24 08:49 file.txt  Copy File To Directory cp file.txt example Change To Directory cd example View Directory Contents Directory ls -l total 0 -rw-rw-r-- 1 chris chris 0 Jul 24 08:49 file.</description>
+    </item>
+    
+    <item>
+      <title>Count Unique Rows</title>
+      <link>https://chrisalbon.com/linux/text/count_unique_rows/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/text/count_unique_rows/</guid>
+      <description>Create Example File With List Of Names Notice that we have duplicated rows
+echo &amp;#39;Luca Gartside&amp;#39; &amp;gt;&amp;gt; adventurers.txtecho &amp;#39;Reule Smyth&amp;#39; &amp;gt;&amp;gt; adventurers.txtecho &amp;#39;Spencer Smit&amp;#39; &amp;gt;&amp;gt; adventurers.txtecho &amp;#39;Spencer Smit&amp;#39; &amp;gt;&amp;gt; adventurers.txtecho &amp;#39;Spencer Smit&amp;#39; &amp;gt;&amp;gt; adventurers.txtecho &amp;#39;Uli Pinetotem&amp;#39; &amp;gt;&amp;gt; adventurers.txtecho &amp;#39;Uli Pinetotem&amp;#39; &amp;gt;&amp;gt; adventurers.txtecho &amp;#39;Uli Pinetotem&amp;#39; &amp;gt;&amp;gt; adventurers.txt View File cat adventurers.txt
+Luca Gartside Reule Smyth Spencer Smit Spencer Smit Spencer Smit Uli Pinetotem Uli Pinetotem Uli Pinetotem  Get Unique Rows cat adventurers.</description>
+    </item>
+    
+    <item>
+      <title>Delete Files And Directories</title>
+      <link>https://chrisalbon.com/linux/basics/delete_files_and_directories/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/basics/delete_files_and_directories/</guid>
+      <description>The rm (remove) command is used to delete files and folders in Linux.
+Create Files touch sales.csvtouch config.jsontouch README.mdtouch documentation.htmltouch sales.html Create Subdirectory mkdir sales_reports Create File In Subdirectory touch sales_reports/report.html View Current Directory ls -l total 4 -rw-rw-r-- 1 chris chris 0 Jul 24 17:01 config.json -rw-rw-r-- 1 chris chris 0 Jul 24 17:01 documentation.html -rw-rw-r-- 1 chris chris 0 Jul 24 17:01 README.md -rw-rw-r-- 1 chris chris 0 Jul 24 17:01 sales.</description>
+    </item>
+    
+    <item>
+      <title>Delete Files And Directories In Current Directory</title>
+      <link>https://chrisalbon.com/linux/basics/delete_files_and_subdirectories_in_current_directory/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/basics/delete_files_and_subdirectories_in_current_directory/</guid>
+      <description>The rm (remove) command is used to delete files and folders in Linux.
+Create Example Files touch devops.txt hr.txt marketing.txt operations.txt procurement.txt sales.txt Create Example Subdirectories mkdir devops sales marketing Show Directory Contents ls -l total 12 drwxrwxr-x 2 chris chris 4096 Jul 28 09:05 devops -rw-rw-r-- 1 chris chris 0 Jul 28 09:05 devops.txt -rw-rw-r-- 1 chris chris 0 Jul 28 09:05 hr.txt drwxrwxr-x 2 chris chris 4096 Jul 28 09:05 marketing -rw-rw-r-- 1 chris chris 0 Jul 28 09:05 marketing.</description>
+    </item>
+    
+    <item>
+      <title>Extract Text</title>
+      <link>https://chrisalbon.com/linux/text/extract_text/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/text/extract_text/</guid>
+      <description>cut is a good cool to extract text that follows some schema such as tab or comma delimited.
+Create A File With Comma Separated Text echo &amp;#34;chris, 34, male&amp;#34; &amp;gt;&amp;gt; staff.txtecho &amp;#34;sarah, 22, female&amp;#34; &amp;gt;&amp;gt; staff.txtecho &amp;#34;Bob, 59, male&amp;#34; &amp;gt;&amp;gt; staff.txt View File cat staff.txt chris, 34, male sarah, 22, female Bob, 59, male  Extract Text By Breaking Into Columns cut the text in staff.txt that is separated by commas (-d &#39;,&#39;) into columns, then take the second (-f 2) column.</description>
+    </item>
+    
+    <item>
+      <title>Find And Replace</title>
+      <link>https://chrisalbon.com/linux/text/find_and_replace/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/text/find_and_replace/</guid>
+      <description> Create Example File With List Of Adventurers echo &amp;#39;Luca Gartside&amp;#39; &amp;gt;&amp;gt; adventurers.txtecho &amp;#39;Reule Smyth&amp;#39; &amp;gt;&amp;gt; adventurers.txtecho &amp;#39;Spencer Smit&amp;#39; &amp;gt;&amp;gt; adventurers.txt View Original File $ cat adventurers.txt Luca Gartside Reule Smyth Spencer Smit  Search And Replace Here we use the streaming edit (sed) command to replace Spencer Smit with Matthew Aldworth in the file adventurers.txt
+$ sed &amp;#34;s/Spencer Smit/Matthew Aldworth/&amp;#34; adventurers.txt Luca Gartside Reule Smyth Matthew Aldworth  </description>
+    </item>
+    
+    <item>
+      <title>Move Files And Directories</title>
+      <link>https://chrisalbon.com/linux/basics/move_files_and_directories/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/basics/move_files_and_directories/</guid>
+      <description>The mv command moves a file (deleting it from the original directory). The cp command copy-pastes the file to a destination directory.
+Make File touch file.txt Make Directory mkdir example_folder View Directory Contents Directory ls -l total 8 drwxrwxr-x 2 chris chris 4096 Jul 24 13:23 example_folder -rw-rw-r-- 1 chris chris 0 Jul 24 13:22 file.txt  Move File To Directory mv file.txt example_folder View Directory Contents Directory ls -l total 8 drwxrwxr-x 2 chris chris 4096 Jul 24 13:23 example_folder  Change To Directory cd example_folder View Directory Contents Directory ls -l total 0 -rw-rw-r-- 1 chris chris 0 Jul 24 13:22 file.</description>
+    </item>
+    
+    <item>
+      <title>See Disk Drive Space</title>
+      <link>https://chrisalbon.com/linux/basics/see_disk_drive_space/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/basics/see_disk_drive_space/</guid>
+      <description> To view the amount of used and free memory on a system, we can use the df command.
+View Disk Drive Space df Filesystem 512-blocks Used Available Capacity iused ifree %iused Mounted on /dev/disk1s1 975221040 415404896 554253656 43% 2387799 9223372036852388008 0% / devfs 382 382 0 100% 662 0 100% /dev /dev/disk1s4 975221040 4194384 554253656 1% 2 9223372036854775805 0% /private/var/vm map -hosts 0 0 0 100% 0 0 100% /net map auto_home 0 0 0 100% 0 0 100% /home  </description>
+    </item>
+    
+    <item>
+      <title>Create PostgreSQL Database With Python</title>
+      <link>https://chrisalbon.com/sql/basics/create_postgresql_database_with_python/</link>
+      <pubDate>Mon, 18 Jun 2018 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/basics/create_postgresql_database_with_python/</guid>
+      <description>Preliminaries # Load libraries from sqlalchemy import create_engine from sqlalchemy_utils import create_database, database_exists, drop_database # Create PostgreSQL connection engine = create_engine(&amp;#34;postgres://localhost/notes_db&amp;#34;) # Load sql_magic so we can write SQL in Jupyter Notebooks %load_ext sql_magic # Setup SQL connection to the postgreSQL engine we created %config SQL.conn_name = &amp;#39;engine&amp;#39; Create Database # If a PostgreSQL database with this name exists if database_exists(engine.url): # Delete PostgreSQL database  drop_database(engine.url) # Create empty PostgreSQL database create_database(engine.</description>
+    </item>
+    
+    <item>
+      <title>Add Column</title>
+      <link>https://chrisalbon.com/sql/add_delete_change/add_column/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/add_delete_change/add_column/</guid>
+      <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) Insert Rows -- Insert into the table adventurers INSERT INTO adventurers (name, age, race, weapon) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, &amp;#39;Sword&amp;#39;), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, &amp;#39;Magic&amp;#39;)</description>
+    </item>
+    
+    <item>
+      <title>Adding Line Numbers</title>
+      <link>https://chrisalbon.com/linux/text/adding_line_numbers/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/text/adding_line_numbers/</guid>
+      <description> Make File With Some Content echo &amp;#34;Jan&amp;#34; &amp;gt;&amp;gt; sales.txt; echo &amp;#34;Feb&amp;#34; &amp;gt;&amp;gt; sales.txt; echo &amp;#34;Mar&amp;#34; &amp;gt;&amp;gt; sales.txt Make File Contents cat sales.txt Jan Feb Mar  Make File Contents With Line Numbers cat -n sales.txt  1	Jan 2	Feb 3	Mar  </description>
+    </item>
+    
+    <item>
+      <title>All Unique Values In Two Tables</title>
+      <link>https://chrisalbon.com/sql/merging_and_joining/all_unique_values_in_two_tables/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/merging_and_joining/all_unique_values_in_two_tables/</guid>
+      <description>Create Table Of Elves -- Create table called elves CREATE TABLE elves ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Create Table Of Dwarves -- Create table called dwarves CREATE TABLE dwarves ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) )</description>
+    </item>
+    
+    <item>
+      <title>Append Error To File</title>
+      <link>https://chrisalbon.com/linux/inputs_and_outputs/append_error_to_file/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/inputs_and_outputs/append_error_to_file/</guid>
+      <description>We can append the errors of a program to a file by using the 2&amp;gt;&amp;gt; operator.
+Run Error Producing Code To See Error pwd -thiswillproduceerror -bash: pwd: -t: invalid option pwd: usage: pwd [-LP]  Create File touch errors.txt Append The Standard Error To File Note that we run pwd -thiswillproduceerror three times, each time appending the results to errors.txt.
+pwd -thiswillproduceerror 2&amp;gt;&amp;gt; errors.txt; pwd -thiswillproduceerror 2&amp;gt;&amp;gt; errors.txt; pwd -thiswillproduceerror 2&amp;gt;&amp;gt; errors.</description>
+    </item>
+    
+    <item>
+      <title>Append File Contents To Another File</title>
+      <link>https://chrisalbon.com/linux/inputs_and_outputs/append_file_contents_to_another_file/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/inputs_and_outputs/append_file_contents_to_another_file/</guid>
+      <description> Create A File With A Record Of A Sale echo &amp;#39;Bob Jones bought an apple for $2&amp;#39; &amp;gt; sales_monday.txt Create A File With A Record Of A Sale echo &amp;#39;Sarah Miller bought an orange for $2&amp;#39; &amp;gt; sales_tuesday.txt Create An Empty File For All Sales touch sales.txt Append Contents Of Both Files To All Sales File cat sales_monday.txt sales_tuesday.txt &amp;gt;&amp;gt; sales.txt View Contents Of All Sales File cat sales.txt Bob Jones bought an apple for $2 Sarah Miller bought an orange for $2  </description>
+    </item>
+    
+    <item>
+      <title>Append Output To File</title>
+      <link>https://chrisalbon.com/linux/inputs_and_outputs/append_outputs_to_file/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/inputs_and_outputs/append_outputs_to_file/</guid>
+      <description>We can append the outputs of a program to a file by using the &amp;gt;&amp;gt; operator.
+Run date To See Standard Output Note +&amp;quot;%T.%N&amp;quot; gives the current time with nanseconds
+date +&amp;#34;%T.%N&amp;#34; 21:19:26.291589981  Create File touch records.txt Append The Standard Output To File Note that we run date +%s%N four times, each time appending the results to records.txt.
+date +&amp;#34;%T.%N&amp;#34; &amp;gt;&amp;gt; records.txt; date +&amp;#34;%T.%N&amp;#34; &amp;gt;&amp;gt; records.txt; date +&amp;#34;%T.%N&amp;#34; &amp;gt;&amp;gt; records.</description>
+    </item>
+    
+    <item>
+      <title>Append Outputs And Errors To File</title>
+      <link>https://chrisalbon.com/linux/inputs_and_outputs/append_output_and_errors_to_file/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/inputs_and_outputs/append_output_and_errors_to_file/</guid>
+      <description>To write both the output and the errors of a program to a file, we can use the &amp;amp;&amp;gt;&amp;gt; on newer versions of bash to append (not write over) either standard outputs or standard errors to a file.
+Create Code That Will Produce An Output pwd /home/chris/example_directory  Create Code That Will Produce An Error pwd -thisisafakeargumenttoproduceerror -bash: pwd: -t: invalid option pwd: usage: pwd [-LP]  Create File To Hold Output And Errors touch log.</description>
+    </item>
+    
+    <item>
+      <title>Apply Operation To Column</title>
+      <link>https://chrisalbon.com/sql/basics/apply_operation_to_column/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/basics/apply_operation_to_column/</guid>
+      <description>Create Table Of Adventurers -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255) ) Insert Rows -- Insert into the table adventurers INSERT INTO adventurers (name, age, race) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Elf&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;)
+Apply Operation To Column -- Update the age column, multiplying all age values by 10 UPDATE adventurers SET age = age * 10</description>
+    </item>
+    
+    <item>
+      <title>Archive And Unarchive Files</title>
+      <link>https://chrisalbon.com/linux/basics/archive_and_unarchive_files/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/basics/archive_and_unarchive_files/</guid>
+      <description>Make Directory mkdir regiment_data Make Files In Directory touch regiment_data/battles.txt regiment_data/regiment.txt Compress Directory Here we create (c) an archive file from the directory regiment_data called file (f) called regiment.tar.
+tar cf regiment.tar regiment_data View Contents Of Directory ls -l total 24 drwxrwxr-x 2 chris chris 4096 Jul 31 13:23 regiment_data -rw-rw-r-- 1 chris chris 10240 Jul 31 13:25 regiment.tar  Uncompress Directory Here we unarchive (x) the archived file (f) called regiment.</description>
+    </item>
+    
+    <item>
+      <title>Calculate Max, Min, Or Average Of Column</title>
+      <link>https://chrisalbon.com/sql/numeric/max_min_and_average_of_column/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/numeric/max_min_and_average_of_column/</guid>
+      <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Rows -- Insert into the table adventurers INSERT INTO adventurers (name, age, race, weapon) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, &amp;#39;Sword&amp;#39;), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, &amp;#39;Magic&amp;#39;)</description>
+    </item>
+    
+    <item>
+      <title>Calculate Sum Of Column</title>
+      <link>https://chrisalbon.com/sql/numeric/calculate_sum_of_column/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/numeric/calculate_sum_of_column/</guid>
+      <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Rows -- Insert into the table adventurers INSERT INTO adventurers (name, age, race, weapon) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, &amp;#39;Sword&amp;#39;), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, &amp;#39;Magic&amp;#39;)</description>
+    </item>
+    
+    <item>
+      <title>Cartesian Product Of Tables</title>
+      <link>https://chrisalbon.com/sql/merging_and_joining/cartesian_product/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/merging_and_joining/cartesian_product/</guid>
+      <description>Create Table Of Adventurers -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255) ) Create Table Of Adventurer&amp;rsquo;s Equipment -- Create table called equipment CREATE TABLE equipment ( -- string variable  name varchar(255), -- string variable  clothes varchar(255), -- string variable  weapon varchar(255) ) Insert Rows Into Adventurers Table INSERT INTO adventurers (name, age, race) VALUES (&amp;#39;Dallar Woodfoot&amp;#39;, 25, &amp;#39;Elf&amp;#39;), (&amp;#39;Cordin Garner&amp;#39;, 29, &amp;#39;Elf&amp;#39;), (&amp;#39;Keat Knigh&amp;#39;, 24, &amp;#39;Dwarf&amp;#39;), (&amp;#39;Colbat Nalor&amp;#39;, 124, &amp;#39;Dwarf&amp;#39;) Insert Rows Into Equipment Table INSERT INTO equipment (name, clothes, weapon) VALUES (&amp;#39;Dallar Woodfoot&amp;#39;, &amp;#39;Leather Armor&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Keat Knigh&amp;#39;, &amp;#39;Robe&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Tasar Keynelis&amp;#39;, &amp;#39;Tunic&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Sataleeti Iarroris&amp;#39;,&amp;#39;Chainmail&amp;#39;, &amp;#39;Axe&amp;#39;) Cartestian Product Of Tables -- Return the name of people from the adventurers table, age, race, clothes, and weapon SELECT adventurers.</description>
+    </item>
+    
+    <item>
+      <title>Chain Multiple Commands</title>
+      <link>https://chrisalbon.com/linux/inputs_and_outputs/chain_multiple_commands/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/inputs_and_outputs/chain_multiple_commands/</guid>
+      <description>Most commands take in some input and return some output. In Linux, we can use this feature to chain together multiple commands, each one taking the standard output of the previous command as its standard input. We can do this using the pipeline operator, |.
+Create Example Files touch sales.txt marketing.txt operations.txt hr.txt procurement.txt devops.txt Create A Pipeline ls and sort are two commands. In this example we pipe the standard output of ls into the standard input of sort and then see sort&amp;rsquo;s standard output.</description>
+    </item>
+    
+    <item>
+      <title>Change Permissions</title>
+      <link>https://chrisalbon.com/linux/basics/change_permissions/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/basics/change_permissions/</guid>
+      <description>To change the permissions of a file or directory we use the chmod command. chmod takes three digits, each one representing the permissions for the user, group, and everyone. Thus, 741 would mean:
+ The user can read, write, and execute (7) The group can read only (4) Everyone can execute (1)  Here is a handy list translating the octal numbering system to permissions:
+ 0 - no permission 1 - execute 2 - write 3 - write and execute 4 - read 5 - read and execute 6 - read and write 7 - read, write, and execute  Create File touch company_data.</description>
+    </item>
+    
+    <item>
+      <title>Changing Directories</title>
+      <link>https://chrisalbon.com/linux/basics/changing_directories/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/basics/changing_directories/</guid>
+      <description>We can navigate Linux systems in the command line using the cd command.
+View Current Working Directory pwd /home/chris  List Subdirectories Note -d */ is a hacky means to list only directories (not files) in a directory.
+ls -d */ anaconda3/ automatic_backups/ Desktop/ Documents/ Downloads/ Music/ nvvp_workspace/ Pictures/ Public/ Templates/ tensorflow/ Videos/  Change To A Directory Using An Absolute Path cd /home/chris/anaconda3 View Current Working Directory pwd /home/chris/anaconda3  Go Up One Directory cd .</description>
+    </item>
+    
+    <item>
+      <title>Check Current Date And Time</title>
+      <link>https://chrisalbon.com/linux/basics/check_current_date_and_time/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/basics/check_current_date_and_time/</guid>
+      <description> If we want to see the system&amp;rsquo;s current date and time, we can use the date command.
+Check System&amp;rsquo;s Current Time date Tue Jul 17 10:07:27 PDT 2018  Check System&amp;rsquo;s Current Time In UTC Time date -u Tue Jul 17 17:26:25 UTC 2018  </description>
+    </item>
+    
+    <item>
+      <title>Compare Values To Subquery</title>
+      <link>https://chrisalbon.com/sql/basics/compare_values_to_subquery/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/basics/compare_values_to_subquery/</guid>
+      <description>Create Table Of Elves -- Create table called elves CREATE TABLE elves ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Create Table Of Dwarves -- Create table called dwarves CREATE TABLE dwarves ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) )</description>
+    </item>
+    
+    <item>
+      <title>Comparing Text Files</title>
+      <link>https://chrisalbon.com/linux/text/comparing_text_files/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/text/comparing_text_files/</guid>
+      <description>The diff command in Linux will show us the where the lines in text files differ and ignore lines that are the same.
+Create Text File 1 echo &amp;#34;Khaydarbi Melikov is a foot soldier.&amp;#34; &amp;gt;&amp;gt; regiment_version1.txtecho &amp;#34;Khaydarbi Melikov is a member of the the Maroon Martyrs regiment&amp;#34; &amp;gt;&amp;gt; regiment_version1.txt Create Text File 2 echo &amp;#34;Khaydarbi Melikov is a foot soldier.&amp;#34; &amp;gt;&amp;gt; regiment_version2.txtecho &amp;#34;Khaydarbi Melikov is a member of the Reserve regiment&amp;#34; &amp;gt;&amp;gt; regiment_version2.</description>
+    </item>
+    
+    <item>
+      <title>Concatenate Multiple Files</title>
+      <link>https://chrisalbon.com/linux/inputs_and_outputs/concatenate_multiple_files/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/inputs_and_outputs/concatenate_multiple_files/</guid>
+      <description>Often large collections of data will be broken into multiple smaller files. The command line makes it easy to concatenate the contents of these files into a single file for analysis.
+Create Multiple Files In this example each file contains a single record of a sale, however in the real world each file can contain hundreds or even millions of records.
+echo &amp;#39;Alan Jones&amp;#39;, &amp;#39;$50&amp;#39;&amp;gt; sales_records_1.csv echo &amp;#39;Stephanie Lawson&amp;#39;, &amp;#39;$20&amp;#39;&amp;gt; sales_records_2.</description>
+    </item>
+    
+    <item>
+      <title>Concatenate Multiple Table</title>
+      <link>https://chrisalbon.com/sql/merging_and_joining/concatenate_multiple_tables/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/merging_and_joining/concatenate_multiple_tables/</guid>
+      <description>Create Table Of Elves -- Create table called elves CREATE TABLE elves ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Create Table Of Dwarves -- Create table called dwarves CREATE TABLE dwarves ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Create Table Of Orcs -- Create table called orcs CREATE TABLE orcs ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Rows Into Elf Table INSERT INTO elves (name, age, race, weapon) VALUES (&amp;#39;Dallar Woodfoot&amp;#39;, 25, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Cordin Garner&amp;#39;, 29, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Keat Knigh&amp;#39;, 24, &amp;#39;Elf&amp;#39;, &amp;#39;Sword&amp;#39;), (&amp;#39;Colbat Nalor&amp;#39;, 124, &amp;#39;Elf&amp;#39;, &amp;#39;Magic&amp;#39;) Insert Rows Into Dwarf Table INSERT INTO dwarves (name, age, race, weapon) VALUES (&amp;#39;Kalog&amp;#39;, 23, &amp;#39;Dwarf&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Dranar&amp;#39;, 145, &amp;#39;Dwarf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Bratar&amp;#39;, 12, &amp;#39;Dwarf&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Dragga&amp;#39;, 23, &amp;#39;Dwarf&amp;#39;, &amp;#39;Axe&amp;#39;)</description>
+    </item>
+    
+    <item>
+      <title>Concatenate Values</title>
+      <link>https://chrisalbon.com/sql/text/concatenate_values/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/text/concatenate_values/</guid>
+      <description>Note: This code works in PostgreSQL databases, but might not work in other SQL database systems (e.g. MySQL).
+Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Rows -- Insert into the table adventurers INSERT INTO adventurers (name, age, race, weapon) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, &amp;#39;Sword&amp;#39;), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, &amp;#39;Magic&amp;#39;)</description>
+    </item>
+    
+    <item>
+      <title>Convert Floats To Integers</title>
+      <link>https://chrisalbon.com/sql/numeric/convert_floats_to_integers/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/numeric/convert_floats_to_integers/</guid>
+      <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Rows -- Insert into the table adventurers INSERT INTO adventurers (name, age, race, weapon) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, &amp;#39;Sword&amp;#39;), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, &amp;#39;Magic&amp;#39;)</description>
+    </item>
+    
+    <item>
+      <title>Copy Rows From One Table To Another</title>
+      <link>https://chrisalbon.com/sql/basics/copy_rows_from_one_table_to_another/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/basics/copy_rows_from_one_table_to_another/</guid>
+      <description>Create Table Of Adventurers -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255) ) Create Table Of Villains -- Create table called equipment CREATE TABLE villains ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255) )
+Insert Row Into Adventurers -- Insert into the table adventurers INSERT INTO adventurers (name, age, race) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;)</description>
+    </item>
+    
+    <item>
+      <title>Copy Table Structure</title>
+      <link>https://chrisalbon.com/sql/basics/copy_table_structure/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/basics/copy_table_structure/</guid>
+      <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Create New Table Using Existing Table&amp;rsquo;s Structure -- Create table called adventurers_copy using the same columns as... CREATE TABLE adventurers_copy AS ( -- The adventurers table  SELECT * FROM adventurers )</description>
+    </item>
+    
+    <item>
+      <title>Count Rows</title>
+      <link>https://chrisalbon.com/sql/basics/count_rows/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/basics/count_rows/</guid>
+      <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Rows -- Insert into the table adventurers INSERT INTO adventurers (name, age, race, weapon) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, &amp;#39;Sword&amp;#39;), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, &amp;#39;Magic&amp;#39;)</description>
+    </item>
+    
+    <item>
+      <title>Count Unique Values</title>
+      <link>https://chrisalbon.com/sql/basics/count_unique_values/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/basics/count_unique_values/</guid>
+      <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Rows -- Insert into the table adventurers INSERT INTO adventurers (name, age, race, weapon) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, &amp;#39;Sword&amp;#39;), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, &amp;#39;Magic&amp;#39;)</description>
+    </item>
+    
+    <item>
+      <title>Create Column Aliases</title>
+      <link>https://chrisalbon.com/sql/add_delete_change/create_column_aliases/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/add_delete_change/create_column_aliases/</guid>
+      <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Rows -- Insert into the table adventurers INSERT INTO adventurers (name, age, race, weapon) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, &amp;#39;Sword&amp;#39;), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, &amp;#39;Magic&amp;#39;)</description>
+    </item>
+    
+    <item>
+      <title>Create Column Conditional On Another Column</title>
+      <link>https://chrisalbon.com/sql/add_delete_change/create_column_condition_on_another_column/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/add_delete_change/create_column_condition_on_another_column/</guid>
+      <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Rows -- Insert into the table adventurers INSERT INTO adventurers (name, age, race, weapon) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, &amp;#39;Sword&amp;#39;), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, &amp;#39;Magic&amp;#39;)</description>
+    </item>
+    
+    <item>
+      <title>Create Column Of Values</title>
+      <link>https://chrisalbon.com/sql/add_delete_change/create_column_of_values/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/add_delete_change/create_column_of_values/</guid>
+      <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Rows -- Insert into the table adventurers INSERT INTO adventurers (name, age, race, weapon) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, &amp;#39;Sword&amp;#39;), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, &amp;#39;Magic&amp;#39;)</description>
+    </item>
+    
+    <item>
+      <title>Create Command</title>
+      <link>https://chrisalbon.com/linux/basics/create_command/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/basics/create_command/</guid>
+      <description>Check If Command&amp;rsquo;s Name Is Taken type make_example_directory -bash: type: make_example_directory: not found  Okay good!
+Create Custom Command Let us create a custom command that creates a bunch of files and subdirectories in a directory. I&amp;rsquo;ve used this command a few times for tutorial to simulate a real project. We will separate each command using ; so they can all be on one line. Specifically, the commands we will run are:</description>
+    </item>
+    
+    <item>
+      <title>Create Directory</title>
+      <link>https://chrisalbon.com/linux/basics/create_directory/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/basics/create_directory/</guid>
+      <description>When we want to create a directory in the Linux command line, we can use the mkdir (make directory) command.
+View Directory Contents ls -l total 60 drwxrwxr-x 20 chris chris 4096 Oct 11 2017 anaconda3 drwxrwxr-x 2 chris chris 4096 Oct 13 2017 automatic_backups drwxr-xr-x 3 chris chris 4096 Oct 21 2017 Desktop drwxr-xr-x 2 chris chris 4096 Oct 10 2017 Documents drwxr-xr-x 2 chris chris 4096 Jul 19 10:47 Downloads -rw-r--r-- 1 chris chris 8980 Oct 10 2017 examples.</description>
+    </item>
+    
+    <item>
+      <title>Create Environment Variable</title>
+      <link>https://chrisalbon.com/linux/environment/create_environment_variables/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/environment/create_environment_variables/</guid>
+      <description>The best way to store login credentials and API tokens/secrets is by creating environment variables for them. This means they are variables in the Linux system and thus not present in any code that is shared on GitHub.
+There are many ways to create environment variables, but my personal preference is to add them to the .bashrc file in our home directory. .bashrc does a lot of things, but it is a standard place to put customizations to our system &amp;ndash; for example, custom variables.</description>
+    </item>
+    
+    <item>
+      <title>Create File</title>
+      <link>https://chrisalbon.com/linux/basics/create_file/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/basics/create_file/</guid>
+      <description>There are a number of ways to create files in the Linux command line.
+View Directory Contents ls -l total 0  Create An Empty File touch empty_file.txt Create Another Empty File &amp;gt; another_empty_file.txt Create File With Some Content echo &amp;#39;This is the contents to the file&amp;#39; &amp;gt; hello_world.txt Quickly Create A File With Some Contents cat &amp;gt; hello_world.txt Then type the contents of the file and press ctrl-d</description>
+    </item>
+    
+    <item>
+      <title>Create Primary Key</title>
+      <link>https://chrisalbon.com/sql/add_delete_change/create_primary_key/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/add_delete_change/create_primary_key/</guid>
+      <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- integer variable  adventurer_id INT, -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255), PRIMARY KEY (adventurer_id) ) Insert Rows -- Insert into the table adventurers INSERT INTO adventurers (adventurer_id, name, age, race, weapon) VALUES (1, &amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (2, &amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Human&amp;#39;, &amp;#39;Bow&amp;#39;), (3, &amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (4, &amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;)</description>
+    </item>
+    
+    <item>
+      <title>Create Sequential List Of Files And Directories</title>
+      <link>https://chrisalbon.com/linux/basics/create_sequential_list_of_files_or_directories/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/basics/create_sequential_list_of_files_or_directories/</guid>
+      <description>Create Sequential List Of Files touch script_version_{1..5}.py Create Sequential List Of Directories mkdir data_{2015..2018} View Files And Directories ls -l total 16 drwxrwxr-x 2 chris chris 4096 Jul 29 11:17 data_2015 drwxrwxr-x 2 chris chris 4096 Jul 29 11:17 data_2016 drwxrwxr-x 2 chris chris 4096 Jul 29 11:17 data_2017 drwxrwxr-x 2 chris chris 4096 Jul 29 11:17 data_2018 -rw-rw-r-- 1 chris chris 0 Jul 29 11:18 script_version_1.py -rw-rw-r-- 1 chris chris 0 Jul 29 11:18 script_version_2.</description>
+    </item>
+    
+    <item>
+      <title>Create Subquery</title>
+      <link>https://chrisalbon.com/sql/basics/create_subquery/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/basics/create_subquery/</guid>
+      <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Rows -- Insert into the table adventurers INSERT INTO adventurers (name, age, race, weapon) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, &amp;#39;Sword&amp;#39;), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, &amp;#39;Magic&amp;#39;)</description>
+    </item>
+    
+    <item>
+      <title>Create Symbolic Links</title>
+      <link>https://chrisalbon.com/linux/basics/create_symbolic_links/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/basics/create_symbolic_links/</guid>
+      <description>In Linux, we can use ln to create a link between files. A common use case is shown below, where we have a symbolic link from the current configuration file config_settings_v293.txt and a link config_setting.txt. In our code, we can refer config_settings.txt as if we were refering to config_settings_v293.txt. However, when a new version of the configuration settings is released, config_settings_v294.txt, we can swap the symbolic link from config_settings_v293.txt to config_settings_v294.</description>
+    </item>
+    
+    <item>
       <title>Create Table</title>
       <link>https://chrisalbon.com/sql/basics/create_table/</link>
-      <pubDate>Mon, 18 Jun 2018 11:53:49 -0700</pubDate>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
       
       <guid>https://chrisalbon.com/sql/basics/create_table/</guid>
-      <description>Note: This tutorial was created in a Jupyter Notebook. %%read_sql is a Jupyter magic command and can be ignored when not using Jupyter Notebooks.
-Preliminaries # Load libraries from sqlalchemy import create_engine from sqlalchemy_utils import create_database, database_exists, drop_database # Create PostgreSQL connection engine = create_engine(&amp;#34;postgres://localhost/notes_db&amp;#34;) # Load sql_magic so we can write SQL in Jupyter Notebooks %load_ext sql_magic # Setup SQL connection to the postgreSQL engine we created %config SQL.</description>
+      <description> Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) </description>
     </item>
     
     <item>
-      <title>Get All Rows</title>
-      <link>https://chrisalbon.com/sql/basics/get_all_rows/</link>
-      <pubDate>Mon, 18 Jun 2018 11:53:49 -0700</pubDate>
+      <title>Create Table With Default Values</title>
+      <link>https://chrisalbon.com/sql/basics/create_table_with_default_values/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
       
-      <guid>https://chrisalbon.com/sql/basics/get_all_rows/</guid>
-      <description>Note: This tutorial was created in a Jupyter Notebook. %%read_sql is a Jupyter magic command and can be ignored when not using Jupyter Notebooks.
-Preliminaries # Load libraries from sqlalchemy import create_engine from sqlalchemy_utils import create_database, database_exists, drop_database # Create PostgreSQL connection engine = create_engine(&amp;#34;postgres://localhost/notes_db&amp;#34;) # Load sql_magic so we can write SQL in Jupyter Notebooks %load_ext sql_magic # Setup SQL connection to the postgreSQL engine we created %config SQL.</description>
+      <guid>https://chrisalbon.com/sql/basics/create_table_with_default_values/</guid>
+      <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable with default value of &amp;#39;no weapon&amp;#39;  weapon varchar(255) DEFAULT &amp;#39;no weapon&amp;#39; ) Insert Row -- Insert rows into the table adventurers -- Notice we don&amp;#39;t provide value for weapon column INSERT INTO adventurers (name, age, race) VALUES (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;)</description>
     </item>
     
     <item>
-      <title>Get Data Based On A Condition</title>
-      <link>https://chrisalbon.com/sql/basics/get_data_based_on_a_condition/</link>
-      <pubDate>Mon, 18 Jun 2018 11:53:49 -0700</pubDate>
+      <title>Create View</title>
+      <link>https://chrisalbon.com/sql/basics/create_view/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
       
-      <guid>https://chrisalbon.com/sql/basics/get_data_based_on_a_condition/</guid>
-      <description>Note: This tutorial was created in a Jupyter Notebook. %%read_sql is a Jupyter magic command and can be ignored when not using Jupyter Notebooks.
-Preliminaries # Load libraries from sqlalchemy import create_engine from sqlalchemy_utils import create_database, database_exists, drop_database # Create PostgreSQL connection engine = create_engine(&amp;#34;postgres://localhost/notes_db&amp;#34;) # Load sql_magic so we can write SQL in Jupyter Notebooks %load_ext sql_magic # Setup SQL connection to the postgreSQL engine we created %config SQL.</description>
+      <guid>https://chrisalbon.com/sql/basics/create_view/</guid>
+      <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Rows -- Insert into the table adventurers INSERT INTO adventurers (name, age, race, weapon) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Human&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;)</description>
     </item>
     
     <item>
-      <title>Get Data Based On Multiple Conditions</title>
-      <link>https://chrisalbon.com/sql/basics/get_data_based_on_multiple_conditions/</link>
-      <pubDate>Mon, 18 Jun 2018 11:53:49 -0700</pubDate>
+      <title>Delete All Rows</title>
+      <link>https://chrisalbon.com/sql/add_delete_change/delete_all_rows/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
       
-      <guid>https://chrisalbon.com/sql/basics/get_data_based_on_multiple_conditions/</guid>
-      <description>Note: This tutorial was created in a Jupyter Notebook. %%read_sql is a Jupyter magic command and can be ignored when not using Jupyter Notebooks.
-Preliminaries # Load libraries from sqlalchemy import create_engine from sqlalchemy_utils import create_database, database_exists, drop_database # Create PostgreSQL connection engine = create_engine(&amp;#34;postgres://localhost/notes_db&amp;#34;) # Load sql_magic so we can write SQL in Jupyter Notebooks %load_ext sql_magic # Setup SQL connection to the postgreSQL engine we created %config SQL.</description>
+      <guid>https://chrisalbon.com/sql/add_delete_change/delete_all_rows/</guid>
+      <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Rows -- Insert into the table adventurers INSERT INTO adventurers (name, age, race, weapon) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Human&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;)</description>
     </item>
     
     <item>
-      <title>Get Selected Columns</title>
-      <link>https://chrisalbon.com/sql/basics/get_selected_columns/</link>
-      <pubDate>Mon, 18 Jun 2018 11:53:49 -0700</pubDate>
+      <title>Delete Primary Key</title>
+      <link>https://chrisalbon.com/sql/add_delete_change/delete_primary_key/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
       
-      <guid>https://chrisalbon.com/sql/basics/get_selected_columns/</guid>
-      <description>Note: This tutorial was created in a Jupyter Notebook. %%read_sql is a Jupyter magic command and can be ignored when not using Jupyter Notebooks.
-Preliminaries # Load libraries from sqlalchemy import create_engine from sqlalchemy_utils import create_database, database_exists, drop_database # Create PostgreSQL connection engine = create_engine(&amp;#34;postgres://localhost/notes_db&amp;#34;) # Load sql_magic so we can write SQL in Jupyter Notebooks %load_ext sql_magic # Setup SQL connection to the postgreSQL engine we created %config SQL.</description>
+      <guid>https://chrisalbon.com/sql/add_delete_change/delete_primary_key/</guid>
+      <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- integer variable  adventurer_id INT, -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255), PRIMARY KEY (adventurer_id) ) Insert Rows -- Insert into the table adventurers INSERT INTO adventurers (adventurer_id, name, age, race, weapon) VALUES (1, &amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (2, &amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Human&amp;#39;, &amp;#39;Bow&amp;#39;), (3, &amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (4, &amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;)</description>
     </item>
     
     <item>
-      <title>Insert Record</title>
-      <link>https://chrisalbon.com/sql/basics/insert_record/</link>
-      <pubDate>Mon, 18 Jun 2018 11:53:49 -0700</pubDate>
+      <title>Delete Rows</title>
+      <link>https://chrisalbon.com/sql/add_delete_change/delete_rows/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
       
-      <guid>https://chrisalbon.com/sql/basics/insert_record/</guid>
-      <description>Note: This tutorial was created in a Jupyter Notebook. %%read_sql is a Jupyter magic command and can be ignored when not using Jupyter Notebooks.
-Preliminaries # Load libraries from sqlalchemy import create_engine from sqlalchemy_utils import create_database, database_exists, drop_database # Create PostgreSQL connection engine = create_engine(&amp;#34;postgres://localhost/notes_db&amp;#34;) # Load sql_magic so we can write SQL in Jupyter Notebooks %load_ext sql_magic # Setup SQL connection to the postgreSQL engine we created %config SQL.</description>
+      <guid>https://chrisalbon.com/sql/add_delete_change/delete_rows/</guid>
+      <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Rows -- Insert into the table adventurers INSERT INTO adventurers (name, age, race, weapon) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Human&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;)</description>
+    </item>
+    
+    <item>
+      <title>Delete Table</title>
+      <link>https://chrisalbon.com/sql/basics/delete_table/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/basics/delete_table/</guid>
+      <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Delete Table -- Delete table DROP TABLE adventurers</description>
+    </item>
+    
+    <item>
+      <title>Delete Table With Views</title>
+      <link>https://chrisalbon.com/sql/basics/delete_table_with_views/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/basics/delete_table_with_views/</guid>
+      <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Rows -- Insert into the table adventurers INSERT INTO adventurers (name, age, race, weapon) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Human&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;)</description>
+    </item>
+    
+    <item>
+      <title>Delete View</title>
+      <link>https://chrisalbon.com/sql/basics/delete_view/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/basics/delete_view/</guid>
+      <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Rows -- Insert into the table adventurers INSERT INTO adventurers (name, age, race, weapon) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Human&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;)</description>
+    </item>
+    
+    <item>
+      <title>Duplicate Table</title>
+      <link>https://chrisalbon.com/sql/basics/duplicate_table/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/basics/duplicate_table/</guid>
+      <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Row -- Insert into the table adventurers INSERT INTO adventurers (name, age, race, weapon) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, &amp;#39;Sword&amp;#39;), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, &amp;#39;Magic&amp;#39;) View Table -- Retrieve rows from table SELECT * FROM warriors nameageraceweapon Fjoak Doom-Wife28HumanAxe Alooneric Cortte29ElfBow Piperel Ramsay35ElfSword Casimir Yardley14ElfMagic</description>
+    </item>
+    
+    <item>
+      <title>Examine A Query</title>
+      <link>https://chrisalbon.com/sql/basics/examine_a_query/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/basics/examine_a_query/</guid>
+      <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Row -- Insert into the table adventurers INSERT INTO adventurers (name, age, race, weapon) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, &amp;#39;Sword&amp;#39;), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, &amp;#39;Magic&amp;#39;)</description>
+    </item>
+    
+    <item>
+      <title>Exit Terminal Session</title>
+      <link>https://chrisalbon.com/linux/basics/exit_terminal_session/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/basics/exit_terminal_session/</guid>
+      <description> To close a terminal session we can use the exit command.
+Exit Terminal exit logout Connection to 10.0.1.24 closed.  </description>
+    </item>
+    
+    <item>
+      <title>Export To CSV</title>
+      <link>https://chrisalbon.com/sql/add_delete_change/export_to_csv/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/add_delete_change/export_to_csv/</guid>
+      <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Rows -- Insert into the table adventurers INSERT INTO adventurers (name, age, race, weapon) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, &amp;#39;Sword&amp;#39;), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, &amp;#39;Magic&amp;#39;)</description>
+    </item>
+    
+    <item>
+      <title>Extract Characters From Strings</title>
+      <link>https://chrisalbon.com/sql/text/extract_characters_from_strings/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/text/extract_characters_from_strings/</guid>
+      <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Rows -- Insert into the table adventurers INSERT INTO adventurers (name, age, race, weapon) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Human&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;)</description>
+    </item>
+    
+    <item>
+      <title>Find Directories</title>
+      <link>https://chrisalbon.com/linux/search/find_directories/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/search/find_directories/</guid>
+      <description>Make Files And Directories touch sales.txt, marketing.txt, data_science.csv, product.html; mkdir sales marketing View Files And Directories ls -l total 8 -rw-rw-r-- 1 chris chris 0 Jul 29 21:21 data_science.csv, drwxrwxr-x 2 chris chris 4096 Jul 29 21:21 marketing -rw-rw-r-- 1 chris chris 0 Jul 29 21:21 marketing.txt, -rw-rw-r-- 1 chris chris 0 Jul 29 21:21 product.html drwxrwxr-x 2 chris chris 4096 Jul 29 21:21 sales -rw-rw-r-- 1 chris chris 0 Jul 29 21:21 sales.</description>
+    </item>
+    
+    <item>
+      <title>Find Files</title>
+      <link>https://chrisalbon.com/linux/search/find_files/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/search/find_files/</guid>
+      <description>Make Files And Directories touch sales.txt, marketing.txt, data_science.csv, product.html; mkdir sales marketing View Files And Directories ls -l total 8 -rw-rw-r-- 1 chris chris 0 Jul 29 21:21 data_science.csv, drwxrwxr-x 2 chris chris 4096 Jul 29 21:21 marketing -rw-rw-r-- 1 chris chris 0 Jul 29 21:21 marketing.txt, -rw-rw-r-- 1 chris chris 0 Jul 29 21:21 product.html drwxrwxr-x 2 chris chris 4096 Jul 29 21:21 sales -rw-rw-r-- 1 chris chris 0 Jul 29 21:21 sales.</description>
+    </item>
+    
+    <item>
+      <title>Find Files Based On Multiple Conditions</title>
+      <link>https://chrisalbon.com/linux/search/find_files_based_on_multiple_conditions/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/search/find_files_based_on_multiple_conditions/</guid>
+      <description>Make Files And Directories touch sales.txt, marketing.txt, data_science.csv, product.html; mkdir sales marketing View Files And Directories ls -l total 8 -rw-rw-r-- 1 chris chris 0 Jul 31 09:02 data_science.csv, drwxrwxr-x 2 chris chris 4096 Jul 31 09:02 marketing -rw-rw-r-- 1 chris chris 0 Jul 31 09:02 marketing.txt, -rw-rw-r-- 1 chris chris 0 Jul 31 09:02 product.html drwxrwxr-x 2 chris chris 4096 Jul 31 09:02 sales -rw-rw-r-- 1 chris chris 0 Jul 31 09:02 sales.</description>
+    </item>
+    
+    <item>
+      <title>Find Files By Filename</title>
+      <link>https://chrisalbon.com/linux/search/find_files_by_filename/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/search/find_files_by_filename/</guid>
+      <description>Make Files And Directories touch sales.txt, marketing.txt, data_science.csv, product.html; mkdir sales marketing View Files And Directories ls -l total 8 -rw-rw-r-- 1 chris chris 0 Jul 31 09:02 data_science.csv, drwxrwxr-x 2 chris chris 4096 Jul 31 09:02 marketing -rw-rw-r-- 1 chris chris 0 Jul 31 09:02 marketing.txt, -rw-rw-r-- 1 chris chris 0 Jul 31 09:02 product.html drwxrwxr-x 2 chris chris 4096 Jul 31 09:02 sales -rw-rw-r-- 1 chris chris 0 Jul 31 09:02 sales.</description>
+    </item>
+    
+    <item>
+      <title>Find Files By Size</title>
+      <link>https://chrisalbon.com/linux/search/find_files_by_size/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/search/find_files_by_size/</guid>
+      <description>Make Files And Directories touch sales.txt, marketing.txt, data_science.csv, product.html; mkdir sales marketing View Files And Directories ls -l total 8 -rw-rw-r-- 1 chris chris 0 Jul 31 09:02 data_science.csv, drwxrwxr-x 2 chris chris 4096 Jul 31 09:02 marketing -rw-rw-r-- 1 chris chris 0 Jul 31 09:02 marketing.txt, -rw-rw-r-- 1 chris chris 0 Jul 31 09:02 product.html drwxrwxr-x 2 chris chris 4096 Jul 31 09:02 sales -rw-rw-r-- 1 chris chris 0 Jul 31 09:02 sales.</description>
+    </item>
+    
+    <item>
+      <title>Find Program&#39;s Location</title>
+      <link>https://chrisalbon.com/linux/search/find_programs_location/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/search/find_programs_location/</guid>
+      <description>Use the which command to find the location of a program on the system. This is particularly useful when you are trying to figure out which version of Python is currently set in the environment.
+Find Program&amp;rsquo;s Location which python3 /home/chris/anaconda3/bin/python3  Just to prove that this is true, we can change directory, cd, to that location and find the file itself.
+Go To Program&amp;rsquo;s Location cd /home/chris/anaconda3/bin/ List Contents Of Directory The python* selection means we are only listing files starting with python.</description>
+    </item>
+    
+    <item>
+      <title>Find Symbolic Links</title>
+      <link>https://chrisalbon.com/linux/search/find_symbolic_links/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/search/find_symbolic_links/</guid>
+      <description>Make Files, Directories, And A Symbolic Link touch sales.txt, marketing.txt, data_science.csv, product.html; mkdir sales marketingln -nsf sales.txt marketing.txt View Files And Directories, And Symbolic Link ls -l total 8 -rw-rw-r-- 1 chris chris 0 Jul 29 21:21 data_science.csv, drwxrwxr-x 2 chris chris 4096 Jul 29 21:21 marketing lrwxrwxrwx 1 chris chris 9 Jul 29 21:58 marketing.txt -&amp;gt; sales.txt -rw-rw-r-- 1 chris chris 0 Jul 29 21:21 marketing.txt, -rw-rw-r-- 1 chris chris 0 Jul 29 21:21 product.</description>
+    </item>
+    
+    <item>
+      <title>Find Values In Both Tables</title>
+      <link>https://chrisalbon.com/sql/merging_and_joining/find_values_in_both_tables/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/merging_and_joining/find_values_in_both_tables/</guid>
+      <description>Create Table Of Elves -- Create table called elves CREATE TABLE elves ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Create Table Of Dwarves -- Create table called dwarves CREATE TABLE dwarves ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) )</description>
+    </item>
+    
+    <item>
+      <title>Find Values In One Table And Not Another</title>
+      <link>https://chrisalbon.com/sql/merging_and_joining/find_values_in_one_table_and_not_another/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/merging_and_joining/find_values_in_one_table_and_not_another/</guid>
+      <description>Create Table Of Elves -- Create table called elves CREATE TABLE elves ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Create Table Of Dwarves -- Create table called dwarves CREATE TABLE dwarves ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) )</description>
+    </item>
+    
+    <item>
+      <title>For Loops</title>
+      <link>https://chrisalbon.com/linux/flow_control/for_loops/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/flow_control/for_loops/</guid>
+      <description>Create For Loop In plain English: For each name in Lucien, Maurice, Renald, Johnson, and Alfred, print the name.
+for name in Lucien Maurice Renald Johnson Alfred; do echo $namedone Lucien Maurice Renald Johnson Alfred  Create C Style For Loop Alternatively, we can use a style of for loop seen in the programming language C.
+In plain English: Starting with i being 0, (i=0), as long as i is less than 10 (i&amp;lt;10), keep returning i, adding one to i (i=i+1) at the end of each loop.</description>
+    </item>
+    
+    <item>
+      <title>Get Help With A Command</title>
+      <link>https://chrisalbon.com/linux/basics/get_help_with_a_command/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/basics/get_help_with_a_command/</guid>
+      <description>The --help argument is a common choice for quickly learning about a command. Particularly useful, --help shows the arguments for that particular command so we don&amp;rsquo;t have to look them up online.
+Another option is the whatis command, which prints a one-line description of the command.
+Quickly Describe A Command whatis mkdir mkdir (1) - make directories mkdir (2) - create a directory  Note that in this case there are two mkdir commands with slightly different descriptions, but you can ignore that.</description>
+    </item>
+    
+    <item>
+      <title>Get Information On A File</title>
+      <link>https://chrisalbon.com/linux/basics/get_information_on_a_file/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/basics/get_information_on_a_file/</guid>
+      <description> Make File touch sales.txt Get Information On File stat sales.txt  File: sales.txt Size: 0 Blocks: 0 IO Block: 4096 regular empty file Device: 10302h/66306d	Inode: 9437404 Links: 1 Access: (0664/-rw-rw-r--) Uid: ( 1000/ chris) Gid: ( 1000/ chris) Access: 2018-07-31 13:07:05.244384050 -0700 Modify: 2018-07-31 13:07:05.244384050 -0700 Change: 2018-07-31 13:07:05.244384050 -0700 Birth: -  </description>
+    </item>
+    
+    <item>
+      <title>Group Rows</title>
+      <link>https://chrisalbon.com/sql/basics/group_rows/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/basics/group_rows/</guid>
+      <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Rows -- Insert into the table adventurers INSERT INTO adventurers (name, age, race, weapon) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Human&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, &amp;#39;Sword&amp;#39;), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, &amp;#39;Magic&amp;#39;)</description>
+    </item>
+    
+    <item>
+      <title>Group Rows</title>
+      <link>https://chrisalbon.com/sql/basics/group_rows_with_conditions/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/basics/group_rows_with_conditions/</guid>
+      <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Rows -- Insert into the table adventurers INSERT INTO adventurers (name, age, race, weapon) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Human&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;)</description>
+    </item>
+    
+    <item>
+      <title>If Else</title>
+      <link>https://chrisalbon.com/sql/basics/if_else/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/basics/if_else/</guid>
+      <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Rows -- Insert into the table adventurers INSERT INTO adventurers (name, age, race, weapon) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, &amp;#39;Sword&amp;#39;), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, &amp;#39;Magic&amp;#39;)</description>
+    </item>
+    
+    <item>
+      <title>If Else For Integers</title>
+      <link>https://chrisalbon.com/linux/flow_control/if_else_for_integers/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/flow_control/if_else_for_integers/</guid>
+      <description> Create Variable age=23 Create If Else Statement The code below in plain English: If the variable age is greater than 17, then return &amp;ldquo;Adult&amp;rdquo; otherwise return &amp;ldquo;Child&amp;rdquo;.
+if (( &amp;#34;$age&amp;#34;&amp;gt; 17 )); then  echo &amp;#34;Adult&amp;#34;else echo &amp;#34;Child&amp;#34;fi Adult  </description>
+    </item>
+    
+    <item>
+      <title>If Else For Strings</title>
+      <link>https://chrisalbon.com/linux/flow_control/if_else_for_strings/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/flow_control/if_else_for_strings/</guid>
+      <description> While you can often use [[ ]] for integers, (( )) is specifically designed to work with integers and provides a lot more functionality.
+Create Variable name=&amp;#34;Ralph Holmes&amp;#34; Create If Else Statement if [[ &amp;#34;$name&amp;#34; == &amp;#34;Ralph Holmes&amp;#34; ]]; then echo &amp;#34;It is Ralph.&amp;#34;else echo &amp;#34;It is not Ralph&amp;#34;fi It is Ralph.  </description>
+    </item>
+    
+    <item>
+      <title>If Else With Multiple Conditions</title>
+      <link>https://chrisalbon.com/linux/flow_control/if_else_with_multiple_conditions/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/flow_control/if_else_with_multiple_conditions/</guid>
+      <description>Create Variable age=23 Check Greater Than 17 And Less Than 30 To combine conditional tests with &amp;ldquo;and&amp;rdquo; use &amp;amp;&amp;amp;.
+if (( &amp;#34;$age&amp;#34;&amp;gt; 17 &amp;amp;&amp;amp; &amp;#34;$age&amp;#34; &amp;lt; 30 )); then  echo &amp;#34;Greater than 17 and less than 30&amp;#34;else echo &amp;#34;Not greater than 17 and less than 30&amp;#34;fi Greater than 17 and less than 30  Check Greater Than 17 Or Less Than 20 To combine conditional tests with &amp;ldquo;or&amp;rdquo; use ||.</description>
+    </item>
+    
+    <item>
+      <title>Import CSV</title>
+      <link>https://chrisalbon.com/sql/add_delete_change/import_csv/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/add_delete_change/import_csv/</guid>
+      <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Rows -- Insert into the table adventurers INSERT INTO adventurers (name, age, race, weapon) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, &amp;#39;Sword&amp;#39;), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, &amp;#39;Magic&amp;#39;)</description>
+    </item>
+    
+    <item>
+      <title>Inner Join Tables</title>
+      <link>https://chrisalbon.com/sql/merging_and_joining/inner_join/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/merging_and_joining/inner_join/</guid>
+      <description>Create Table Of Adventurers -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255) ) Create Table Of Adventurer&amp;rsquo;s Equipment -- Create table called equipment CREATE TABLE equipment ( -- string variable  name varchar(255), -- string variable  clothes varchar(255), -- string variable  weapon varchar(255) ) Insert Rows Into Adventurers Table INSERT INTO adventurers (name, age, race) VALUES (&amp;#39;Dallar Woodfoot&amp;#39;, 25, &amp;#39;Elf&amp;#39;), (&amp;#39;Cordin Garner&amp;#39;, 29, &amp;#39;Elf&amp;#39;), (&amp;#39;Keat Knigh&amp;#39;, 24, &amp;#39;Dwarf&amp;#39;), (&amp;#39;Colbat Nalor&amp;#39;, 124, &amp;#39;Dwarf&amp;#39;)</description>
+    </item>
+    
+    <item>
+      <title>Insert Rows</title>
+      <link>https://chrisalbon.com/sql/add_delete_change/insert_rows/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/add_delete_change/insert_rows/</guid>
+      <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Row -- Insert row into the table adventurers INSERT INTO adventurers (name, age, race, weapon) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;)
+Retrieve Rows -- Retrieve all rows from table SELECT * FROM adventurers nameageraceweapon Fjoak Doom-Wife28HumanAxe</description>
+    </item>
+    
+    <item>
+      <title>Join And Sort Text</title>
+      <link>https://chrisalbon.com/linux/text/join_and_sort_text/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/text/join_and_sort_text/</guid>
+      <description> Make Three Files, Each With List Of Fruit echo &amp;#34;Apple&amp;#34; &amp;gt;&amp;gt; fruit_1.txt; echo &amp;#34;Banana&amp;#34; &amp;gt;&amp;gt; fruit_1.txt; echo &amp;#34;Orange&amp;#34; &amp;gt;&amp;gt; fruit_1.txtecho &amp;#34;Tangerine&amp;#34; &amp;gt;&amp;gt; fruit_2.txt; echo &amp;#34;Grape&amp;#34; &amp;gt;&amp;gt; fruit_2.txt; echo &amp;#34;Nectarine&amp;#34; &amp;gt;&amp;gt; fruit_2.txtecho &amp;#34;Strawberry&amp;#34; &amp;gt;&amp;gt; fruit_3.txt; echo &amp;#34;Blueberry&amp;#34; &amp;gt;&amp;gt; fruit_3.txt; echo &amp;#34;Mango&amp;#34; &amp;gt;&amp;gt; fruit_3.txt Merge And Sort Into New File sort fruit_1.txt fruit_2.txt fruit_3.txt &amp;gt; fruit.txt
+View Contents Of New File cat fruit.txt Apple Banana Blueberry Grape Mango Nectarine Orange Strawberry Tangerine  </description>
+    </item>
+    
+    <item>
+      <title>Join Columns</title>
+      <link>https://chrisalbon.com/linux/text/join_columns/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/text/join_columns/</guid>
+      <description>The Linux command join operates similar to the join command in SQL, merging two sets of data along a common key.
+Make File With Soldier Names And Soldier Age Data echo &amp;#34;Steve Case, 23&amp;#34; &amp;gt;&amp;gt; soldiers.txtecho &amp;#34;Mary Mills, 35&amp;#34; &amp;gt;&amp;gt; soldiers.txtecho &amp;#34;Bob Dosjki, 22&amp;#34; &amp;gt;&amp;gt; soldiers.txtecho &amp;#34;Jack Doi, 45&amp;#34; &amp;gt;&amp;gt; soldiers.txtecho &amp;#34;Poe Domi, 23&amp;#34; &amp;gt;&amp;gt; soldiers.txt Make File With Soldier Names And Regiment Names echo &amp;#34;Steve Case, The Hell Hosts&amp;#34; &amp;gt;&amp;gt; regiments.</description>
+    </item>
+    
+    <item>
+      <title>Join Multiple Table</title>
+      <link>https://chrisalbon.com/sql/merging_and_joining/join_multiple_tables/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/merging_and_joining/join_multiple_tables/</guid>
+      <description>Create Table Of Elves -- Create table called elves CREATE TABLE elves ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255) ) Create Table Of Weapons -- Create table called weapons CREATE TABLE weapons ( -- string variable  name varchar(255), -- string variable  weapon varchar(255), -- integer variable  weight int ) Create Table Of Armor -- Create table called armor CREATE TABLE armor ( -- string variable  name varchar(255), -- string variable  body varchar(255), -- string variable  helm varchar(255) ) Insert Rows Into Elf Table INSERT INTO elves (name, age, race) VALUES (&amp;#39;Dallar Woodfoot&amp;#39;, 25, &amp;#39;Elf&amp;#39;), (&amp;#39;Cordin Garner&amp;#39;, 29, &amp;#39;Elf&amp;#39;), (&amp;#39;Keat Knigh&amp;#39;, 24, &amp;#39;Elf&amp;#39;), (&amp;#39;Colbat Nalor&amp;#39;, 124, &amp;#39;Elf&amp;#39;) Insert Rows Into Weapon Table INSERT INTO weapons (name, weapon, weight) VALUES (&amp;#39;Dallar Woodfoot&amp;#39;,&amp;#39;Axe&amp;#39;, 2), (&amp;#39;Cordin Garner&amp;#39;, &amp;#39;Halberd&amp;#39;, 3), (&amp;#39;Keat Knigh&amp;#39;, &amp;#39;Dagger&amp;#39;, 4), (&amp;#39;Colbat Nalor&amp;#39;, &amp;#39;Dagger&amp;#39;, 5)</description>
+    </item>
+    
+    <item>
+      <title>Left Join Tables</title>
+      <link>https://chrisalbon.com/sql/merging_and_joining/left_join/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/merging_and_joining/left_join/</guid>
+      <description>Create Table Of Adventurers -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255) ) Create Table Of Adventurer&amp;rsquo;s Equipment -- Create table called equipment CREATE TABLE equipment ( -- string variable  name varchar(255), -- string variable  clothes varchar(255), -- string variable  weapon varchar(255) ) Insert Rows Into Adventurers Table INSERT INTO adventurers (name, age, race) VALUES (&amp;#39;Dallar Woodfoot&amp;#39;, 25, &amp;#39;Elf&amp;#39;), (&amp;#39;Cordin Garner&amp;#39;, 29, &amp;#39;Elf&amp;#39;), (&amp;#39;Keat Knigh&amp;#39;, 24, &amp;#39;Dwarf&amp;#39;), (&amp;#39;Colbat Nalor&amp;#39;, 124, &amp;#39;Dwarf&amp;#39;)</description>
+    </item>
+    
+    <item>
+      <title>List Avaliable Commands</title>
+      <link>https://chrisalbon.com/linux/basics/list_avaliable_commands/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/basics/list_avaliable_commands/</guid>
+      <description>We can see all avaliable commands for a system by listing the contents of the bin directory using ls /bin
+Show All Avaliable Commands ls /bin bash cp fgrep loadkeys netcat open setupcon unicode_start bunzip2 cpio findmnt login netstat openvt sh vdir busybox dash fuser loginctl nisdomainname pidof sh.distrib which bzcat date fusermount lowntfs-3g ntfs-3g ping sleep whiptail bzcmp dbus-cleanup-sockets grep ls ntfs-3g.probe ping6 ss ypdomainname bzdiff dbus-daemon gunzip lsblk ntfs-3g.</description>
+    </item>
+    
+    <item>
+      <title>List Processes</title>
+      <link>https://chrisalbon.com/linux/processes/list_processes/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/processes/list_processes/</guid>
+      <description>List Processes We are often interested in the STAT column: - R - process is running - S - process is sleeping - D - process is in uninterruptible sleep - T - process is terminated - D - process is dead - &amp;lt; - process is high priority - N - process is low priority
+Note that normally the list of processes is very long, so for the sake of this tutorial we included | head which will show only the first few processes.</description>
+    </item>
+    
+    <item>
+      <title>List Tables In Database</title>
+      <link>https://chrisalbon.com/sql/basics/list_tables_in_database/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/basics/list_tables_in_database/</guid>
+      <description>Create Table -- Create table called villains CREATE TABLE villains ( -- string variable  name varchar(255) ) Create Table -- Create table called heroes CREATE TABLE heroes ( -- string variable  name varchar(255) )
+Create Table -- Create table called battles CREATE TABLE battles ( -- string variable  name varchar(255) )
+List Tables In Database SELECT table_name FROM information_schema.tables WHERE table_schema = &amp;#39;public&amp;#39; AND table_type = &amp;#39;BASE TABLE&amp;#39; table_name battles heroes villians</description>
+    </item>
+    
+    <item>
+      <title>List The Contents Of A Directory</title>
+      <link>https://chrisalbon.com/linux/basics/list_contents_of_a_directory/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/basics/list_contents_of_a_directory/</guid>
+      <description>ls is one of the most useful commands when using the Linux command line. ls lists the contents of the directory.
+List Contents Of Directory ls bin compiler_compat conda-meta doc etc include lib libexec LICENSE.txt mkspecs phrasebooks pkgs plugins qml share ssl translations var x86_64-conda_cos6-linux-gnu  List Contents Of Directory In Detail Note that the first column contains the file&amp;rsquo;s permission setting, which are structured as:
+ Character 1: Type Of File (d means directory) Characters 2-4: Access Rights For File&amp;rsquo;s Owner Characters 5-7: Access Rights For File&amp;rsquo;s Group Characters 7-9: Access Rights For Everyone  ls -l total 188 drwxrwxr-x 2 chris chris 12288 Oct 11 2017 bin drwxrwxr-x 2 chris chris 4096 Oct 11 2017 compiler_compat drwxrwxr-x 2 chris chris 20480 Oct 11 2017 conda-meta drwxrwxr-x 3 chris chris 4096 Oct 11 2017 doc drwxrwxr-x 7 chris chris 4096 Oct 11 2017 etc drwxrwxr-x 31 chris chris 12288 Oct 11 2017 include drwxrwxr-x 22 chris chris 36864 Oct 11 2017 lib drwxrwxr-x 4 chris chris 4096 Oct 11 2017 libexec -rw-r--r-- 1 chris chris 5350 Sep 24 2017 LICENSE.</description>
+    </item>
+    
+    <item>
+      <title>Lower And Upper Case</title>
+      <link>https://chrisalbon.com/sql/text/lower_case_and_upper_case/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/text/lower_case_and_upper_case/</guid>
+      <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Rows -- Insert into the table adventurers INSERT INTO adventurers (name, age, race, weapon) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Human&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;)</description>
+    </item>
+    
+    <item>
+      <title>Mathematical Operations On Columns</title>
+      <link>https://chrisalbon.com/sql/numeric/mathematical_operations_on_column/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/numeric/mathematical_operations_on_column/</guid>
+      <description>Create Table Of Adventurers -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255) ) Insert Rows -- Insert into the table adventurers INSERT INTO adventurers (name, age, race) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Elf&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;) Apply Addition To Column -- Apply operation UPDATE adventurers SET age = age + 10 View Table -- Retrieve data SELECT * FROM adventurers nameagerace Fjoak Doom-Wife38Human Alooneric Cortte39Elf Piperel Ramsay45Elf Casimir Yardley24Elf</description>
+    </item>
+    
+    <item>
+      <title>Monitor Processes</title>
+      <link>https://chrisalbon.com/linux/processes/monitor_processes/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/processes/monitor_processes/</guid>
+      <description>Monitor Processes top shows a live list of all processes with information about them. One piece of information that is often useful is us, which shows what percentage of the CPU is being used by user processes (e.g. a script training a neural network). Similarly, id tells us the percentage of the CPI that is idle.
+top top - 13:34:55 up 5:51, 2 users, load average: 0.13, 0.10, 0.02 Tasks: 332 total, 1 running, 230 sleeping, 0 stopped, 0 zombie %Cpu(s): 0.</description>
+    </item>
+    
+    <item>
+      <title>Multiple Commands On One Line</title>
+      <link>https://chrisalbon.com/linux/basics/multiple_commands_on_one_line/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/basics/multiple_commands_on_one_line/</guid>
+      <description> You can have multiple commands in one line as long as they are separated with the ; symbol.
+Note that this is not a very widely used feature &amp;ndash; but it is seen.
+Make A Subdirectory, Make A File, View Directory Contents mkdir example_directory; touch example_file.txt; ls -l total 4 drwxrwxr-x 2 chris chris 4096 Jul 25 16:31 example_directory -rw-rw-r-- 1 chris chris 0 Jul 25 16:31 example_file.txt  </description>
+    </item>
+    
+    <item>
+      <title>Outer Join Tables</title>
+      <link>https://chrisalbon.com/sql/merging_and_joining/outer_join/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/merging_and_joining/outer_join/</guid>
+      <description>Create Table Of Adventurers -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255) ) Create Table Of Adventurer&amp;rsquo;s Equipment -- Create table called equipment CREATE TABLE equipment ( -- string variable  name varchar(255), -- string variable  clothes varchar(255), -- string variable  weapon varchar(255) ) Insert Rows Into Adventurers Table INSERT INTO adventurers (name, age, race) VALUES (&amp;#39;Dallar Woodfoot&amp;#39;, 25, &amp;#39;Elf&amp;#39;), (&amp;#39;Cordin Garner&amp;#39;, 29, &amp;#39;Elf&amp;#39;), (&amp;#39;Keat Knigh&amp;#39;, 24, &amp;#39;Dwarf&amp;#39;), (&amp;#39;Colbat Nalor&amp;#39;, 124, &amp;#39;Dwarf&amp;#39;) Insert Rows Into Equipment Table INSERT INTO equipment (name, clothes, weapon) VALUES (&amp;#39;Dallar Woodfoot&amp;#39;, &amp;#39;Leather Armor&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Keat Knigh&amp;#39;, &amp;#39;Robe&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Tasar Keynelis&amp;#39;, &amp;#39;Tunic&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Sataleeti Iarroris&amp;#39;,&amp;#39;Chainmail&amp;#39;, &amp;#39;Axe&amp;#39;)</description>
+    </item>
+    
+    <item>
+      <title>Partial String Match</title>
+      <link>https://chrisalbon.com/sql/text/partial_string_match/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/text/partial_string_match/</guid>
+      <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Rows -- Insert into the table adventurers INSERT INTO adventurers (name, age, race, weapon) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, &amp;#39;Sword&amp;#39;), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, &amp;#39;Magic&amp;#39;)</description>
+    </item>
+    
+    <item>
+      <title>Ping Website</title>
+      <link>https://chrisalbon.com/linux/basics/ping_website/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/basics/ping_website/</guid>
+      <description>Linux makes it easy to ping a website to test connectivity and/or whether the website is live. Once executed, ping will ping the website until it is stopped by pressing ctrl-C.
+Ping Google.com ping google.com PING google.com (172.217.4.174) 56(84) bytes of data. 64 bytes from lax28s01-in-f174.1e100.net (172.217.4.174): icmp_seq=1 ttl=56 time=41.8 ms 64 bytes from lax28s01-in-f174.1e100.net (172.217.4.174): icmp_seq=2 ttl=56 time=35.7 ms 64 bytes from lax28s01-in-f174.1e100.net (172.217.4.174): icmp_seq=3 ttl=56 time=43.6 ms 64 bytes from lax28s01-in-f174.</description>
+    </item>
+    
+    <item>
+      <title>Quickly View File Contents</title>
+      <link>https://chrisalbon.com/linux/text/quickly_view_file_contents/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/text/quickly_view_file_contents/</guid>
+      <description>Often we want to quickly take a peek at a file&amp;rsquo;s contents without opening the file in an editor program. The cat command makes this easy.
+Create A Text File With Some Contents echo &amp;#39;Here is some text content inside of the file.&amp;#39; &amp;gt; example_file.txt View Contents Of Text File cat example_file.txt Here is some text content inside of the file.  View Contents Of Text File With Line Numbers cat -n example_file.</description>
+    </item>
+    
+    <item>
+      <title>Rename Columns In Views</title>
+      <link>https://chrisalbon.com/sql/basics/rename_columns_in_views/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/basics/rename_columns_in_views/</guid>
+      <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Rows -- Insert into the table adventurers INSERT INTO adventurers (name, age, race, weapon) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Human&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;)</description>
+    </item>
+    
+    <item>
+      <title>Replace Missing Values</title>
+      <link>https://chrisalbon.com/sql/basics/replace_missing_values/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/basics/replace_missing_values/</guid>
+      <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Rows With Missing Values -- Insert into the table adventurers INSERT INTO adventurers (name, age, race, weapon) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, NULL), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, NULL)</description>
+    </item>
+    
+    <item>
+      <title>Retrieve Only A Few Rows</title>
+      <link>https://chrisalbon.com/sql/basics/retrieve_only_a_few_rows/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/basics/retrieve_only_a_few_rows/</guid>
+      <description>Note: This code works in PostgreSQL databases, but might not work in other SQL database systems (e.g. MySQL).
+Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Rows -- Insert into the table adventurers INSERT INTO adventurers (name, age, race, weapon) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, &amp;#39;Sword&amp;#39;), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, &amp;#39;Magic&amp;#39;)</description>
+    </item>
+    
+    <item>
+      <title>Retrieve Random Subset Of Rows</title>
+      <link>https://chrisalbon.com/sql/basics/retrieve_random_subset_of_rows/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/basics/retrieve_random_subset_of_rows/</guid>
+      <description>Note: This code works in PostgreSQL databases, but might not work in other SQL database systems (e.g. MySQL).
+Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Rows -- Insert into the table adventurers INSERT INTO adventurers (name, age, race, weapon) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, &amp;#39;Sword&amp;#39;), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, &amp;#39;Magic&amp;#39;)</description>
+    </item>
+    
+    <item>
+      <title>Retrieve Row</title>
+      <link>https://chrisalbon.com/sql/basics/retrieve_rows/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/basics/retrieve_rows/</guid>
+      <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Rows -- Insert into the table adventurers INSERT INTO adventurers (name, age, race, weapon) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, &amp;#39;Sword&amp;#39;), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, &amp;#39;Magic&amp;#39;)</description>
+    </item>
+    
+    <item>
+      <title>Retrieve Rows Based On Condition</title>
+      <link>https://chrisalbon.com/sql/basics/retrieve_rows_based_on_condition/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/basics/retrieve_rows_based_on_condition/</guid>
+      <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Rows -- Insert into the table adventurers INSERT INTO adventurers (name, age, race, weapon) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, &amp;#39;Sword&amp;#39;), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, &amp;#39;Magic&amp;#39;) Retrieve Rows Of Elves -- Retrieve all rows from table SELECT * FROM adventurers -- Where the race is Elf  WHERE race = &amp;#39;Elf&amp;#39; nameageraceweapon Alooneric Cortte29ElfBow Piperel Ramsay35ElfSword Casimir Yardley14ElfMagic</description>
+    </item>
+    
+    <item>
+      <title>Retrieve Rows Based On Multiple Condition</title>
+      <link>https://chrisalbon.com/sql/basics/retrieve_rows_based_on_multiple_conditions/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/basics/retrieve_rows_based_on_multiple_conditions/</guid>
+      <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) Insert Rows -- Insert into the table adventurers INSERT INTO adventurers (name, age, race, weapon) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, &amp;#39;Sword&amp;#39;), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, &amp;#39;Magic&amp;#39;)</description>
+    </item>
+    
+    <item>
+      <title>Retrieve Subset Of Columns</title>
+      <link>https://chrisalbon.com/sql/basics/retrieve_subset_columns/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/basics/retrieve_subset_columns/</guid>
+      <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Rows -- Insert into the table adventurers INSERT INTO adventurers (name, age, race, weapon) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, &amp;#39;Sword&amp;#39;), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, &amp;#39;Magic&amp;#39;)</description>
+    </item>
+    
+    <item>
+      <title>Retrieving Missing Values</title>
+      <link>https://chrisalbon.com/sql/basics/retrieving_missing_values/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/basics/retrieving_missing_values/</guid>
+      <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Rows With Missing Values -- Insert into the table adventurers INSERT INTO adventurers (name, age, race, weapon) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, NULL), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, NULL)</description>
+    </item>
+    
+    <item>
+      <title>Right Join Tables</title>
+      <link>https://chrisalbon.com/sql/merging_and_joining/right_join/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/merging_and_joining/right_join/</guid>
+      <description>Create Table Of Adventurers -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255) ) Create Table Of Adventurer&amp;rsquo;s Equipment -- Create table called equipment CREATE TABLE equipment ( -- string variable  name varchar(255), -- string variable  clothes varchar(255), -- string variable  weapon varchar(255) )
+Insert Rows Into Adventurers Table INSERT INTO adventurers (name, age, race) VALUES (&amp;#39;Dallar Woodfoot&amp;#39;, 25, &amp;#39;Elf&amp;#39;), (&amp;#39;Cordin Garner&amp;#39;, 29, &amp;#39;Elf&amp;#39;), (&amp;#39;Keat Knigh&amp;#39;, 24, &amp;#39;Dwarf&amp;#39;), (&amp;#39;Colbat Nalor&amp;#39;, 124, &amp;#39;Dwarf&amp;#39;)</description>
+    </item>
+    
+    <item>
+      <title>Save Output To File In Middle Of Command Chain</title>
+      <link>https://chrisalbon.com/linux/inputs_and_outputs/save_output_to_file_in_middle_of_command_chain/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/inputs_and_outputs/save_output_to_file_in_middle_of_command_chain/</guid>
+      <description>The tee command creates a T-junction in a command pipeline, both saving the standard output of the previous command to a file and passing the standard output onward down the pipeline. It is often useful when we want to see the data at intermediate steps in a command pipeline without interrupting it.
+Create Example File With List Of File Names echo &amp;#39;data_science.txt&amp;#39; &amp;gt;&amp;gt; files.txtecho &amp;#39;data_science.html&amp;#39; &amp;gt;&amp;gt; files.txtecho &amp;#39;data_science.csv&amp;#39; &amp;gt;&amp;gt; files.</description>
+    </item>
+    
+    <item>
+      <title>Save Queries As Variables</title>
+      <link>https://chrisalbon.com/sql/basics/save_queries_as_variables/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/basics/save_queries_as_variables/</guid>
+      <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Rows -- Insert into the table adventurers INSERT INTO adventurers (name, age, race, weapon) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, &amp;#39;Sword&amp;#39;), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, &amp;#39;Magic&amp;#39;)</description>
+    </item>
+    
+    <item>
+      <title>Search Filenames</title>
+      <link>https://chrisalbon.com/linux/search/search_file_names/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/search/search_file_names/</guid>
+      <description>Often we want to find a file on our system. The locate command offers a quick method for searching for all files in the system containing a string. In our example, we look for all files with bashrc in the name.
+Search Filenames In System locate bashrc /etc/bash.bashrc /etc/skel/.bashrc /home/chris/.bashrc /home/chris/.bashrc-anaconda3.bak /home/chris/anaconda3/lib/python3.6/site-packages/pexpect/bashrc.sh /home/chris/anaconda3/pkgs/pexpect-4.2.1-py36h3b9d41b_0/lib/python3.6/site-packages/pexpect/bashrc.sh /usr/share/base-files/dot.bashrc /usr/share/doc/adduser/examples/adduser.local.conf.examples/bash.bashrc /usr/share/doc/adduser/examples/adduser.local.conf.examples/skel/dot.bashrc  Note that locate might not find recently created files. This is because the database of filenames locate uses is only generated periodically.</description>
+    </item>
+    
+    <item>
+      <title>Search The Contents Of A File</title>
+      <link>https://chrisalbon.com/linux/search/search_contents_of_a_file/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/search/search_contents_of_a_file/</guid>
+      <description> Make File With Some Content echo &amp;#34;There were 24 sales in March.&amp;#34; &amp;gt;&amp;gt; sales.txtecho &amp;#34;We have 90 employees.&amp;#34; &amp;gt;&amp;gt; employees.txt Search The File For Some String grep March sales.txt There were 24 sales in March.  Search The File For Some String, Return With Line Numbers grep -n March sales.txt 1:There were 24 sales in March.  Get Filenames That Match Search grep -l March sales.txt sales.txt  </description>
+    </item>
+    
+    <item>
+      <title>See Free Memory</title>
+      <link>https://chrisalbon.com/linux/basics/see_free_memory/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/basics/see_free_memory/</guid>
+      <description>The best way to check the amount of free memory in a Linux system is to use the free command. This command lists the amount of free memory.
+Check System&amp;rsquo;s Free Memory free  total used free shared buff/cache available Mem: 65908812 244948 64239140 206180 1424724 64672848 Swap: 50226172 0 50226172  Check System&amp;rsquo;s Free Memory In A More Human Readable Format free -h  total used free shared buff/cache available Mem: 62G 239M 61G 209M 1.</description>
+    </item>
+    
+    <item>
+      <title>See Who Is Logged Into A System</title>
+      <link>https://chrisalbon.com/linux/basics/see_who_is_logged_in/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/basics/see_who_is_logged_in/</guid>
+      <description>We can check who is logged into the system using the who command.
+Check Logged In Users who ubuntu pts/0 2018-07-17 09:55 (ip68-3-23-73.ph.ph.box.net)  This shows one user is logged into the system with the username ubuntu.</description>
+    </item>
+    
+    <item>
+      <title>Select Files Based On Filename</title>
+      <link>https://chrisalbon.com/linux/basics/select_files_based_on_filename/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/basics/select_files_based_on_filename/</guid>
+      <description>Often we want to select files based on their file name or file extension. In Linux, we can use wildcard characters to accomplish this.
+Create Some Files touch hello_world.txttouch HELLO_world.txttouch HELLO_world.mdtouch hello_america.txttouch goodbye_america.txttouch goodbye_america_2.txt View Directory Contents ls goodbye_america_2.txt goodbye_america.txt hello_america.txt hello_world.txt HELLO_world.txt  Select Files Containing &amp;ldquo;Hello&amp;rdquo; ls hello* hello_america.txt hello_world.txt  Select Files Starting With &amp;ldquo;g&amp;rdquo; or &amp;ldquo;i&amp;rdquo; ls [gi]* goodbye_america_2.txt goodbye_america.txt  Select All Markdown Files ls *.</description>
+    </item>
+    
+    <item>
+      <title>Self Join Table</title>
+      <link>https://chrisalbon.com/sql/merging_and_joining/self_join/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/merging_and_joining/self_join/</guid>
+      <description>Create Table Of Adventurers -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  child_of varchar(255) ) Insert Rows Into Adventurers Table INSERT INTO adventurers (name, age, child_of) VALUES (&amp;#39;Dallar Woodfoot&amp;#39;, 25, NULL), (&amp;#39;Cordin Garner&amp;#39;, 29, NULL), (&amp;#39;Keat Garner&amp;#39;, 24, &amp;#39;Cordin Garner&amp;#39;), (&amp;#39;Colbat Nalor&amp;#39;, 124, NULL)
+Inner Join Tables -- Select name of copy1 and name of copy2 (renamed &amp;#34;parent&amp;#34;) SELECT copy1.</description>
+    </item>
+    
+    <item>
+      <title>Show Column Information</title>
+      <link>https://chrisalbon.com/sql/basics/show_column_information/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/basics/show_column_information/</guid>
+      <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) Insert Rows -- Insert into the table adventurers INSERT INTO adventurers (name, age, race, weapon) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, &amp;#39;Sword&amp;#39;), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, &amp;#39;Magic&amp;#39;)</description>
+    </item>
+    
+    <item>
+      <title>Silence Errors</title>
+      <link>https://chrisalbon.com/linux/inputs_and_outputs/silence_errors/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/inputs_and_outputs/silence_errors/</guid>
+      <description>The most common method of silencing an error in Linux is to redirect than error to /dev/null which is like the trash bucket of the system. We can do that by including 2&amp;gt; /dev/null to the end of a command.
+Create Code That Will Produce Error ls a_fake_directory/ ls: a_fake_directory/: No such file or directory  Silence Error Notice that we aren&amp;rsquo;t silencing so much as redirecting into /dev/null. This is like sending the error into a black hole.</description>
+    </item>
+    
+    <item>
+      <title>Sort Rows</title>
+      <link>https://chrisalbon.com/linux/inputs_and_outputs/sort_rows/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/inputs_and_outputs/sort_rows/</guid>
+      <description>The sort command reorganizes lines in a text file or standard output (technically the same thing) so they are arranged numerically and alphabetically.
+Create Example File With List Of Names echo &amp;#39;Luca Gartside&amp;#39; &amp;gt;&amp;gt; adventurers.txtecho &amp;#39;Reule Smyth&amp;#39; &amp;gt;&amp;gt; adventurers.txtecho &amp;#39;Spencer Smit&amp;#39; &amp;gt;&amp;gt; adventurers.txtecho &amp;#39;Crurnirk Steelflow&amp;#39; &amp;gt;&amp;gt; adventurers.txtecho &amp;#39;Uli Pinetotem&amp;#39; &amp;gt;&amp;gt; adventurers.txtecho &amp;#39;Lai Zhi Lightdream&amp;#39; &amp;gt;&amp;gt; adventurers.txt View File cat adventurers.txt Luca Gartside Reule Smyth Spencer Smit Crurnirk Steelflow Uli Pinetotem Lai Zhi Lightdream  Sort List Of Names And Write To New File sort adventurers.</description>
+    </item>
+    
+    <item>
+      <title>Sort Rows</title>
+      <link>https://chrisalbon.com/sql/basics/sort_rows/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/basics/sort_rows/</guid>
+      <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Rows -- Insert into the table adventurers INSERT INTO adventurers (name, age, race, weapon) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, &amp;#39;Sword&amp;#39;), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, &amp;#39;Magic&amp;#39;) Sort Rows By One Column -- Retrieve rows SELECT * FROM adventurers -- Order rows by age in ascending order ORDER BY age ASC nameageraceweapon Casimir Yardley14ElfMagic Fjoak Doom-Wife28HumanAxe Alooneric Cortte29ElfBow Piperel Ramsay35ElfSword</description>
+    </item>
+    
+    <item>
+      <title>Sort Rows In Groups</title>
+      <link>https://chrisalbon.com/sql/basics/sort_rows_in_groups/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/basics/sort_rows_in_groups/</guid>
+      <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Rows -- Insert into the table adventurers INSERT INTO adventurers (name, age, race, weapon) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, &amp;#39;Sword&amp;#39;), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, &amp;#39;Magic&amp;#39;)</description>
+    </item>
+    
+    <item>
+      <title>Stack Tables</title>
+      <link>https://chrisalbon.com/sql/merging_and_joining/stack_tables/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/merging_and_joining/stack_tables/</guid>
+      <description>Create Table Of Elves -- Create table called elves CREATE TABLE elves ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Create Table Of Dwarves -- Create table called dwarves CREATE TABLE dwarves ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) )</description>
+    </item>
+    
+    <item>
+      <title>Synchronize Files And Directories</title>
+      <link>https://chrisalbon.com/linux/basics/synchronize_files_and_directories/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/basics/synchronize_files_and_directories/</guid>
+      <description>rsync is a very handy tool for syncing the files and folders in two directories. rsync only copies files that have changed since the time they were sync&amp;rsquo;d.
+Make Two Directories mkdir origin destination Add Files In Origin Directory touch origin/file.txt View Origin Directory Contents ls -l origin total 0 -rw-rw-r-- 1 chris chris 0 Jul 31 20:04 file.txt  View Destination Directory Contents ls -l destination total 0  Sync Origin Directory To Destination Directory In this code we sync (rsync) all the files and subdirectories (-a) in origin to destination while printing out details of the process (v), deleting (--delete) any files in destination that no longer exist in origin.</description>
+    </item>
+    
+    <item>
+      <title>Test If Rows Exist In Subquery</title>
+      <link>https://chrisalbon.com/sql/basics/test_if_rows_exist_in_subquery/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/basics/test_if_rows_exist_in_subquery/</guid>
+      <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Rows -- Insert into the table adventurers INSERT INTO adventurers (name, age, race, weapon) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, &amp;#39;Sword&amp;#39;), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, &amp;#39;Magic&amp;#39;)</description>
+    </item>
+    
+    <item>
+      <title>Track Route Of Network Traffic</title>
+      <link>https://chrisalbon.com/linux/basics/track_route_of_network_traffic/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/basics/track_route_of_network_traffic/</guid>
+      <description>Trace Route From Local Computer To Website traceroute shows the path of our network traffic across the internet. Press ctrl-C to cancel.
+traceroute google.com traceroute to google.com (216.58.219.14), 30 hops max, 60 byte packets 1 10.0.1.1 (10.0.1.1) 0.920 ms 1.742 ms 2.294 ms 2 10.33.236.1 (10.33.236.1) 10.222 ms 14.140 ms 14.381 ms 3 72.215.229.12 (72.215.229.12) 18.079 ms 18.182 ms 18.423 ms 4 bellcorc02-te-0-0-0-5.ph.ph.cox.net (70.169.72.188) 20.697 ms 20.938 ms 24.585 ms 5 68.</description>
+    </item>
+    
+    <item>
+      <title>Use Column Aliases With Where Clause</title>
+      <link>https://chrisalbon.com/sql/basics/use_column_aliases_with_where_clause/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/basics/use_column_aliases_with_where_clause/</guid>
+      <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Rows -- Insert into the table adventurers INSERT INTO adventurers (name, age, race, weapon) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, &amp;#39;Sword&amp;#39;), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, &amp;#39;Magic&amp;#39;)</description>
+    </item>
+    
+    <item>
+      <title>Value Matches Element Of A List</title>
+      <link>https://chrisalbon.com/sql/basics/retrieve_rows_where_value_matches_element_of_list/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/basics/retrieve_rows_where_value_matches_element_of_list/</guid>
+      <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Rows -- Insert into the table adventurers INSERT INTO adventurers (name, age, race, weapon) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, &amp;#39;Sword&amp;#39;), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, &amp;#39;Magic&amp;#39;)</description>
+    </item>
+    
+    <item>
+      <title>View A File&#39;s Type</title>
+      <link>https://chrisalbon.com/linux/basics/view_file_type/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/basics/view_file_type/</guid>
+      <description> The file command allows us to view a file&amp;rsquo;s type.
+Make File echo &amp;#34;This is some text.&amp;#34; &amp;gt; sales.txt View A File&amp;rsquo;s Type file LICENSE.txt sales.txt: ASCII text  </description>
+    </item>
+    
+    <item>
+      <title>View A Text File&#39;s Contents</title>
+      <link>https://chrisalbon.com/linux/basics/view_file_contents/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/basics/view_file_contents/</guid>
+      <description>Often we want to look at the contents of some code or configuration file. In Linux, we can do this using the less command.
+Create A Text File With Some Contents echo &amp;#34;Hello World&amp;#34; &amp;gt; hello_world.txt View Contents Of File To view the contents of a file we can open it in the nano, a common text editor in Linux systems.
+nano hello_world.txt If we want to leave a file we can press ctrl-x.</description>
+    </item>
+    
+    <item>
+      <title>View Aliases</title>
+      <link>https://chrisalbon.com/linux/environment/view_aliases/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/environment/view_aliases/</guid>
+      <description>We can see all the aliases in the environment using the alias command. This can be useful if we have setup some aliases operations we do frequently (like cd into a particular project&amp;rsquo;s folder) and we want to remember what they are.
+aliases alias alert=&#39;notify-send --urgency=low -i &amp;quot;$([ $? = 0 ] &amp;amp;&amp;amp; echo terminal || echo error)&amp;quot; &amp;quot;$(history|tail -n1|sed -e &#39;\&#39;&#39;s/^\s*[0-9]\+\s*//;s/[;&amp;amp;|]\s*alert$//&#39;\&#39;&#39;)&amp;quot;&#39; alias egrep=&#39;egrep --color=auto&#39; alias fgrep=&#39;fgrep --color=auto&#39; alias grep=&#39;grep --color=auto&#39; alias l=&#39;ls -CF&#39; alias la=&#39;ls -A&#39; alias lcl=&#39;ls -l&#39; alias ll=&#39;ls -alF&#39; alias ls=&#39;ls --color=auto&#39;  </description>
+    </item>
+    
+    <item>
+      <title>View Current Working Directory</title>
+      <link>https://chrisalbon.com/linux/basics/view_current_working_directory/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/basics/view_current_working_directory/</guid>
+      <description> Often we want to view the current working directory. To do this we can use the pwd command.
+View Current Working Directory pwd /home/chris  </description>
+    </item>
+    
+    <item>
+      <title>View Environment Variable</title>
+      <link>https://chrisalbon.com/linux/environment/view_environment_variables/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/environment/view_environment_variables/</guid>
+      <description>The printenv command shows us the environment variables.
+printenv SHELL=/bin/bash TERM=xterm-256color USER=chris LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36: MAIL=/var/mail/chris PATH=/home/chris/bin:/home/chris/.local/bin:/home/chris/anaconda3/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/snap/bin QT_QPA_PLATFORMTHEME=appmenu-qt5 PWD=/home/chris/example_directory LANG=en_US.UTF-8 SHLVL=1 HOME=/home/chris LOGNAME=chris LESSOPEN=| /usr/bin/lesspipe %s LESSCLOSE=/usr/bin/lesspipe %s %s _=/usr/bin/printenv OLDPWD=/home/chris  </description>
+    </item>
+    
+    <item>
+      <title>View First And Last Parts Of Files</title>
+      <link>https://chrisalbon.com/linux/basics/view_first_and_last_parts_of_files/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/basics/view_first_and_last_parts_of_files/</guid>
+      <description>The sort command reorganizes lines in a text file or standard output (technically the same thing) so they are arranged numerically and alphabetically.
+Create Example File With List Of Names echo &amp;#39;Luca Gartside&amp;#39; &amp;gt;&amp;gt; adventurers.txtecho &amp;#39;Reule Smyth&amp;#39; &amp;gt;&amp;gt; adventurers.txtecho &amp;#39;Spencer Smit&amp;#39; &amp;gt;&amp;gt; adventurers.txtecho &amp;#39;Crurnirk Steelflow&amp;#39; &amp;gt;&amp;gt; adventurers.txtecho &amp;#39;Uli Pinetotem&amp;#39; &amp;gt;&amp;gt; adventurers.txtecho &amp;#39;Ognem Dustsplitter&amp;#39; &amp;gt;&amp;gt; adventurers.txtecho &amp;#39;Ebil Frugroll&amp;#39; &amp;gt;&amp;gt; adventurers.txtecho &amp;#39;Gordon Humphrey&amp;#39; &amp;gt;&amp;gt; adventurers.txtecho &amp;#39;Jermaine Randall&amp;#39; &amp;gt;&amp;gt; adventurers.txtecho &amp;#39;Eli Steele&amp;#39; &amp;gt;&amp;gt; adventurers.</description>
+    </item>
+    
+    <item>
+      <title>View Size Of Table</title>
+      <link>https://chrisalbon.com/sql/basics/view_size_of_table/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/basics/view_size_of_table/</guid>
+      <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Row -- Insert row into the table adventurers INSERT INTO adventurers (name, age, race, weapon) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, &amp;#39;Sword&amp;#39;), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, &amp;#39;Magic&amp;#39;)</description>
+    </item>
+    
+    <item>
+      <title>View Unique Values</title>
+      <link>https://chrisalbon.com/sql/basics/view_unique_values/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/sql/basics/view_unique_values/</guid>
+      <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Rows -- Insert into the table adventurers INSERT INTO adventurers (name, age, race, weapon) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, &amp;#39;Sword&amp;#39;), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, &amp;#39;Magic&amp;#39;)</description>
+    </item>
+    
+    <item>
+      <title>Write Errors To File</title>
+      <link>https://chrisalbon.com/linux/inputs_and_outputs/write_errors_to_file/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/inputs_and_outputs/write_errors_to_file/</guid>
+      <description>Standard errors are by default printed on the screen. However, it is often useful to write errors to a file for logging purposes. We can do that using 2&amp;gt;.
+Create Code That Will Produce Error ls /a/ ls: cannot access &#39;/a/&#39;: No such file or directory  Create File To Store Error touch errors.log Write Error To File In this line we run the command that produces the error and then add 2&amp;gt; errors.</description>
+    </item>
+    
+    <item>
+      <title>Write Output To File</title>
+      <link>https://chrisalbon.com/linux/inputs_and_outputs/write_output_to_file/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/inputs_and_outputs/write_output_to_file/</guid>
+      <description>By default standard output of a program goes to the screen. For example, the standard output of ls is a list of files and directories in a directory, which is by default shown on the terminal screen. However, it does not need to be. We can redirect the standard output of a program to a file using the &amp;gt; operator.
+Make Some Files And Folders touch config.txt; touch data.csv; touch readme.</description>
+    </item>
+    
+    <item>
+      <title>Zip And Unzip Directories</title>
+      <link>https://chrisalbon.com/linux/basics/zip_and_unzip_directories/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/basics/zip_and_unzip_directories/</guid>
+      <description>Make Directory mkdir regiment_data Make Files In Directory touch regiment_data/battles.txt regiment_data/regiment.txt Zip Directory In the code below, we compress (zip) the regiment_data directory into the file regiment.zip. Note that -r means that we want to not only zip the directory but also its contents (which is almost always the case) . zip -r regiment.zip regiment_data
+ adding: regiment_data/ (stored 0%) adding: regiment_data/battles.txt (stored 0%) adding: regiment_data/regiment.txt (stored 0%)  View Directory Contents ls -l total 8 drwxrwxr-x 2 chris chris 4096 Jul 31 13:39 regiment_data -rw-rw-r-- 1 chris chris 536 Jul 31 13:39 regiment.</description>
+    </item>
+    
+    <item>
+      <title>Zip And Unzip Files</title>
+      <link>https://chrisalbon.com/linux/basics/zip_and_unzip_files/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/basics/zip_and_unzip_files/</guid>
+      <description>Make Files echo &amp;#34;The number of soldiers in the regiment is 24.&amp;#34;&amp;gt; regiment.txt echo &amp;#34;The regiment has seen five battles.&amp;#34; &amp;gt; battles.txt Zip Files The -v argument is optional, prints an output with the details of the operation.
+gzip regiment.txt battles.txt -v regiment.txt:	-2.2% -- replaced with regiment.txt.gz battles.txt:	-5.6% -- replaced with battles.txt.gz  View Contents Of Directory ls -l total 8 -rw-rw-r-- 1 chris chris 68 Jul 31 13:15 battles.</description>
     </item>
     
     <item>
@@ -97,7 +1368,7 @@ Preliminaries # Load libraries from sklearn.datasets import load_iris from sklea
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/about/chris_albon/</guid>
-      <description>I am a data scientist and machine learning engineer formally trained as a quantitative political scientist. Currently I am Chief Data Scientist at the Kenyan startup BRCK. Previously, I founded New Knowledge and the data science podcast, Partially Derivative. Prior to New Knowledge, I led Ushahidi&amp;rsquo;s work on crisis and humanitarian data and launched CrisisNET. I was also the Director of the low-resource technology Governance Project at FrontlineSMS.</description>
+      <description>I am a data scientist and machine learning engineer formally trained as a quantitative political scientist. I work at Devoted Health, using data science and machine learning to help fix America&amp;rsquo;s health care system. Previously, I was Chief Data Scientist at the Kenyan startup BRCK, founded the AI company New Knowledge, cohosted the data science podcast Partially Derivative, led the humanitarian non-profit Ushahidi&amp;rsquo;s work on crisis data, and was the director of the low-resource technology governance project at FrontlineSMS.</description>
     </item>
     
     <item>

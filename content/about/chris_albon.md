@@ -12,7 +12,7 @@ outputs:
 
 <img src="chris_albon_banner.jpg"></img>
 
-I am a data scientist and machine learning engineer formally trained as a quantitative political scientist. Previously, I was Chief Data Scientist at the Kenyan startup [BRCK](https://www.brck.com/), founded the AI company [New Knowledge](http://www.newknowledge.io), cohosted the data science podcast [Partially Derivative](http://www.partiallyderivative.com), led the humanitarian non-profit [Ushahidi's](http://www.ushahidi.com) work on crisis data, and was the director of the low-resource technology governance project at [FrontlineSMS](http://www.frontlinesms.com).
+I am a data scientist and machine learning engineer formally trained as a quantitative political scientist. I work at [Devoted Health](http://www.devoted.com/), using data science and machine learning to help fix America's health care system. Previously, I was Chief Data Scientist at the Kenyan startup [BRCK](https://www.brck.com/), founded the AI company [New Knowledge](http://www.newknowledge.io), cohosted the data science podcast [Partially Derivative](http://www.partiallyderivative.com), led the humanitarian non-profit [Ushahidi's](http://www.ushahidi.com) work on crisis data, and was the director of the low-resource technology governance project at [FrontlineSMS](http://www.frontlinesms.com).
 
 I earned a Ph.D. in Political Science from the University of California, Davis researching the quantitative impact of civil wars on health care systems. I earned a B.A. from the University of Miami, where I triple majored in political science, international studies, and religious studies.
 
@@ -33,10 +33,10 @@ I earned a Ph.D. in Political Science from the University of California, Davis r
 
 ### Work Experience
 
--   **Data Scientist**, [#########](http://comingsoon.com/), 2018 - Present
+-   **Data Scientist**, [Devoted Health](http://www.devoted.com/), 2018 - Present
 -   **Chief Data Scientist**, [BRCK](https://www.brck.com/), 2017 - 2018
--   **Creator**, [Machine Learning Flashcards](http://machinelearningflashcards.com/), 2017 - Present
 -   **Author**, [Machine Learning With Python Cookbook](https://amzn.to/2HwnWty), [O’Reilly Media](https://www.oreilly.com/), 2018
+-   **Creator**, [Machine Learning Flashcards](http://machinelearningflashcards.com/), 2017
 -   **Co-founder & Co-host**, [Partially Derivative](http://www.partiallyderivative.com), 2014 - 2017
     -   Co-founded a podcast on data and data science.
 -   **Co-founder & Chief Science Officer**, [New Knowledge](http://www.newknowledge.io), 2015 - 2016
@@ -46,7 +46,7 @@ I earned a Ph.D. in Political Science from the University of California, Davis r
 -   **Director of Data Projects**, [Ushahidi](http://www.ushahidi.com), 2013 - 2014
     -   The non-profit's first data science hire; led all data science efforts.
 -   **Project Director**, [FrontlineSMS](http://www.frontlinesms.com), 2012 - 2013
-    -   Led FrontlineSMS's Governance Project, an effort improve the transparency and accountability of governments through low resource mobile technology
+    -   Led FrontlineSMS's Governance Project, an effort improve the transparency and accountability of governments through low resource mobile technology.
 
 
 ### Other Experience

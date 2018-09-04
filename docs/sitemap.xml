@@ -3,33 +3,698 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://chrisalbon.com/linux/text/add_columns_to_text/</loc>
+    <lastmod>2018-07-16T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/basics/copy_files_and_directories/</loc>
+    <lastmod>2018-07-16T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/text/count_unique_rows/</loc>
+    <lastmod>2018-07-16T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/basics/delete_files_and_directories/</loc>
+    <lastmod>2018-07-16T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/basics/delete_files_and_subdirectories_in_current_directory/</loc>
+    <lastmod>2018-07-16T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/text/extract_text/</loc>
+    <lastmod>2018-07-16T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/text/find_and_replace/</loc>
+    <lastmod>2018-07-16T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/basics/move_files_and_directories/</loc>
+    <lastmod>2018-07-16T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/basics/see_disk_drive_space/</loc>
+    <lastmod>2018-07-16T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/basics/create_postgresql_database_with_python/</loc>
+    <lastmod>2018-06-18T11:53:49-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/add_delete_change/add_column/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/text/adding_line_numbers/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/merging_and_joining/all_unique_values_in_two_tables/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/inputs_and_outputs/append_error_to_file/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/inputs_and_outputs/append_file_contents_to_another_file/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/inputs_and_outputs/append_outputs_to_file/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/inputs_and_outputs/append_output_and_errors_to_file/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/basics/apply_operation_to_column/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/basics/archive_and_unarchive_files/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/numeric/max_min_and_average_of_column/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/numeric/calculate_sum_of_column/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/merging_and_joining/cartesian_product/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/inputs_and_outputs/chain_multiple_commands/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/basics/change_permissions/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/basics/changing_directories/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/basics/check_current_date_and_time/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/basics/compare_values_to_subquery/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/text/comparing_text_files/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/inputs_and_outputs/concatenate_multiple_files/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/merging_and_joining/concatenate_multiple_tables/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/text/concatenate_values/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/numeric/convert_floats_to_integers/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/basics/copy_rows_from_one_table_to_another/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/basics/copy_table_structure/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/basics/count_rows/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/basics/count_unique_values/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/add_delete_change/create_column_aliases/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/add_delete_change/create_column_condition_on_another_column/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/add_delete_change/create_column_of_values/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/basics/create_command/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/basics/create_directory/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/environment/create_environment_variables/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/basics/create_file/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/add_delete_change/create_primary_key/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/basics/create_sequential_list_of_files_or_directories/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/basics/create_subquery/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/basics/create_symbolic_links/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chrisalbon.com/sql/basics/create_table/</loc>
-    <lastmod>2018-06-18T11:53:49-07:00</lastmod>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/basics/get_all_rows/</loc>
-    <lastmod>2018-06-18T11:53:49-07:00</lastmod>
+    <loc>https://chrisalbon.com/sql/basics/create_table_with_default_values/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/basics/get_data_based_on_a_condition/</loc>
-    <lastmod>2018-06-18T11:53:49-07:00</lastmod>
+    <loc>https://chrisalbon.com/sql/basics/create_view/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/basics/get_data_based_on_multiple_conditions/</loc>
-    <lastmod>2018-06-18T11:53:49-07:00</lastmod>
+    <loc>https://chrisalbon.com/sql/add_delete_change/delete_all_rows/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/basics/get_selected_columns/</loc>
-    <lastmod>2018-06-18T11:53:49-07:00</lastmod>
+    <loc>https://chrisalbon.com/sql/add_delete_change/delete_primary_key/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/sql/basics/insert_record/</loc>
-    <lastmod>2018-06-18T11:53:49-07:00</lastmod>
+    <loc>https://chrisalbon.com/sql/add_delete_change/delete_rows/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/basics/delete_table/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/basics/delete_table_with_views/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/basics/delete_view/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/basics/duplicate_table/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/basics/examine_a_query/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/basics/exit_terminal_session/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/add_delete_change/export_to_csv/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/text/extract_characters_from_strings/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/search/find_directories/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/search/find_files/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/search/find_files_based_on_multiple_conditions/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/search/find_files_by_filename/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/search/find_files_by_size/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/search/find_programs_location/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/search/find_symbolic_links/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/merging_and_joining/find_values_in_both_tables/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/merging_and_joining/find_values_in_one_table_and_not_another/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/flow_control/for_loops/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/basics/get_help_with_a_command/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/basics/get_information_on_a_file/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/basics/group_rows/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/basics/group_rows_with_conditions/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/basics/if_else/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/flow_control/if_else_for_integers/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/flow_control/if_else_for_strings/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/flow_control/if_else_with_multiple_conditions/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/add_delete_change/import_csv/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/merging_and_joining/inner_join/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/add_delete_change/insert_rows/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/text/join_and_sort_text/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/text/join_columns/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/merging_and_joining/join_multiple_tables/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/merging_and_joining/left_join/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/basics/list_avaliable_commands/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/processes/list_processes/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/basics/list_tables_in_database/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/basics/list_contents_of_a_directory/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/text/lower_case_and_upper_case/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/numeric/mathematical_operations_on_column/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/processes/monitor_processes/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/basics/multiple_commands_on_one_line/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/merging_and_joining/outer_join/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/text/partial_string_match/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/basics/ping_website/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/text/quickly_view_file_contents/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/basics/rename_columns_in_views/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/basics/replace_missing_values/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/basics/retrieve_only_a_few_rows/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/basics/retrieve_random_subset_of_rows/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/basics/retrieve_rows/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/basics/retrieve_rows_based_on_condition/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/basics/retrieve_rows_based_on_multiple_conditions/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/basics/retrieve_subset_columns/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/basics/retrieving_missing_values/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/merging_and_joining/right_join/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/inputs_and_outputs/save_output_to_file_in_middle_of_command_chain/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/basics/save_queries_as_variables/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/search/search_file_names/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/search/search_contents_of_a_file/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/basics/see_free_memory/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/basics/see_who_is_logged_in/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/basics/select_files_based_on_filename/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/merging_and_joining/self_join/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/basics/show_column_information/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/inputs_and_outputs/silence_errors/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/inputs_and_outputs/sort_rows/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/basics/sort_rows/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/basics/sort_rows_in_groups/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/merging_and_joining/stack_tables/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/basics/synchronize_files_and_directories/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/basics/test_if_rows_exist_in_subquery/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/basics/track_route_of_network_traffic/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/basics/use_column_aliases_with_where_clause/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/basics/retrieve_rows_where_value_matches_element_of_list/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/basics/view_file_type/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/basics/view_file_contents/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/environment/view_aliases/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/basics/view_current_working_directory/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/environment/view_environment_variables/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/basics/view_first_and_last_parts_of_files/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/basics/view_size_of_table/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/sql/basics/view_unique_values/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/inputs_and_outputs/write_errors_to_file/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/inputs_and_outputs/write_output_to_file/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/basics/zip_and_unzip_directories/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/basics/zip_and_unzip_files/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
   <url>
@@ -2154,7 +2819,7 @@
   
   <url>
     <loc>https://chrisalbon.com/</loc>
-    <lastmod>2018-06-18T11:53:49-07:00</lastmod>
+    <lastmod>2018-07-16T00:00:00-07:00</lastmod>
     <priority>0</priority>
   </url>
   

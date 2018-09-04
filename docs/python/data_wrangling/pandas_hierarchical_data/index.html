@@ -48,7 +48,7 @@
   "@type": "BlogPosting",
   "headline": "Hierarchical Data In pandas",
   "url": "https://chrisalbon.com/python/data_wrangling/pandas_hierarchical_data/",
-  "wordCount": "566",
+  "wordCount": "573",
   "datePublished": "2017-12-20T11:53:49-07:00",
   "dateModified": "2017-12-20T11:53:49-07:00",
   "author": {
@@ -104,9 +104,6 @@ MathJax.Hub.Config({
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="nav navbar-nav mr-auto"></ul>
                 <ul class="navbar-nav">
-                        <li class="nav-item">
-                                <a class="nav-link" href="https://chrisalbon.com/#articles">Articles</a>
-                              </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
@@ -119,10 +116,14 @@ MathJax.Hub.Config({
                             <a class="dropdown-item" href="https://chrisalbon.com/#statistics">Statistics</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#scala">Scala</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#sql">SQL</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#linux">Command Line</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#regex">Regular Expressions</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#mathematics">Mathematics</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#software_engineer">Software Engineering</a>
                         </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://chrisalbon.com/#articles">Articles</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -172,17 +173,17 @@ MathJax.Hub.Config({
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;regiment&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;company&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;preTestScore&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;postTestScore&#39;</span><span class="p">])</span>
 <span class="n">df</span></code></pre></div>
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
     }
 
     .dataframe tbody tr th {
         vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
     }
 </style>
 <table border="1" class="dataframe">
@@ -297,25 +298,26 @@ MathJax.Hub.Config({
 </table>
 </div>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Set the hierarchical index but leave the columns inplace</span>
-<span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="sa"></span><span class="s1">&#39;regiment&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;company&#39;</span><span class="p">],</span> <span class="n">drop</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="sa"></span><span class="s1">&#39;regiment&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;company&#39;</span><span class="p">],</span> <span class="n">drop</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 <span class="n">df</span></code></pre></div>
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
     }
 
     .dataframe tbody tr th {
         vertical-align: top;
     }
+
+    .dataframe thead th {
+        text-align: right;
+    }
 </style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
+      <th></th>
       <th></th>
       <th>regiment</th>
       <th>company</th>
@@ -323,10 +325,20 @@ MathJax.Hub.Config({
       <th>preTestScore</th>
       <th>postTestScore</th>
     </tr>
+    <tr>
+      <th>regiment</th>
+      <th>company</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
+      <th rowspan="4" valign="top">Nighthawks</th>
+      <th>1st</th>
       <td>Nighthawks</td>
       <td>1st</td>
       <td>Miller</td>
@@ -334,7 +346,7 @@ MathJax.Hub.Config({
       <td>25</td>
     </tr>
     <tr>
-      <th>1</th>
+      <th>1st</th>
       <td>Nighthawks</td>
       <td>1st</td>
       <td>Jacobson</td>
@@ -342,7 +354,7 @@ MathJax.Hub.Config({
       <td>94</td>
     </tr>
     <tr>
-      <th>2</th>
+      <th>2nd</th>
       <td>Nighthawks</td>
       <td>2nd</td>
       <td>Ali</td>
@@ -350,7 +362,7 @@ MathJax.Hub.Config({
       <td>57</td>
     </tr>
     <tr>
-      <th>3</th>
+      <th>2nd</th>
       <td>Nighthawks</td>
       <td>2nd</td>
       <td>Milner</td>
@@ -358,7 +370,8 @@ MathJax.Hub.Config({
       <td>62</td>
     </tr>
     <tr>
-      <th>4</th>
+      <th rowspan="4" valign="top">Dragoons</th>
+      <th>1st</th>
       <td>Dragoons</td>
       <td>1st</td>
       <td>Cooze</td>
@@ -366,7 +379,7 @@ MathJax.Hub.Config({
       <td>70</td>
     </tr>
     <tr>
-      <th>5</th>
+      <th>1st</th>
       <td>Dragoons</td>
       <td>1st</td>
       <td>Jacon</td>
@@ -374,7 +387,7 @@ MathJax.Hub.Config({
       <td>25</td>
     </tr>
     <tr>
-      <th>6</th>
+      <th>2nd</th>
       <td>Dragoons</td>
       <td>2nd</td>
       <td>Ryaner</td>
@@ -382,7 +395,7 @@ MathJax.Hub.Config({
       <td>94</td>
     </tr>
     <tr>
-      <th>7</th>
+      <th>2nd</th>
       <td>Dragoons</td>
       <td>2nd</td>
       <td>Sone</td>
@@ -390,7 +403,8 @@ MathJax.Hub.Config({
       <td>57</td>
     </tr>
     <tr>
-      <th>8</th>
+      <th rowspan="4" valign="top">Scouts</th>
+      <th>1st</th>
       <td>Scouts</td>
       <td>1st</td>
       <td>Sloan</td>
@@ -398,7 +412,7 @@ MathJax.Hub.Config({
       <td>62</td>
     </tr>
     <tr>
-      <th>9</th>
+      <th>1st</th>
       <td>Scouts</td>
       <td>1st</td>
       <td>Piger</td>
@@ -406,7 +420,7 @@ MathJax.Hub.Config({
       <td>70</td>
     </tr>
     <tr>
-      <th>10</th>
+      <th>2nd</th>
       <td>Scouts</td>
       <td>2nd</td>
       <td>Riani</td>
@@ -414,7 +428,7 @@ MathJax.Hub.Config({
       <td>62</td>
     </tr>
     <tr>
-      <th>11</th>
+      <th>2nd</th>
       <td>Scouts</td>
       <td>2nd</td>
       <td>Ali</td>
@@ -428,17 +442,17 @@ MathJax.Hub.Config({
 <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="sa"></span><span class="s1">&#39;regiment&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;company&#39;</span><span class="p">])</span>
 <span class="n">df</span></code></pre></div>
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
     }
 
     .dataframe tbody tr th {
         vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
     }
 </style>
 <table border="1" class="dataframe">
@@ -546,17 +560,17 @@ MathJax.Hub.Config({
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Swap the levels in the index</span>
 <span class="n">df</span><span class="o">.</span><span class="n">swaplevel</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;regiment&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;company&#39;</span><span class="p">)</span></code></pre></div>
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
     }
 
     .dataframe tbody tr th {
         vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
     }
 </style>
 <table border="1" class="dataframe">
@@ -661,17 +675,17 @@ MathJax.Hub.Config({
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Summarize the results by regiment</span>
 <span class="n">df</span><span class="o">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;regiment&#39;</span><span class="p">)</span></code></pre></div>
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
     }
 
     .dataframe tbody tr th {
         vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
     }
 </style>
 <table border="1" class="dataframe">
@@ -689,14 +703,14 @@ MathJax.Hub.Config({
   </thead>
   <tbody>
     <tr>
-      <th>Dragoons</th>
-      <td>62</td>
-      <td>246</td>
-    </tr>
-    <tr>
       <th>Nighthawks</th>
       <td>61</td>
       <td>238</td>
+    </tr>
+    <tr>
+      <th>Dragoons</th>
+      <td>62</td>
+      <td>246</td>
     </tr>
     <tr>
       <th>Scouts</th>
@@ -730,7 +744,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted">This project contains 430 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
+            <span class="text-muted">This project contains 563 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
         </div>
     </footer>
 
