@@ -1,7 +1,7 @@
 # notes
 Notes on data science, machine learning, artificial intelligence, history, and social science.
 
-## To Deplay
+## To Deploy
 
 1. Run make.ipynb
 2. run hugo in notes
