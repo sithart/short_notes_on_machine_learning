@@ -37,9 +37,10 @@
 
 
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Titanic Competition With Random Forest"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Titanic Competition With Random Forest"/>
 <meta name="twitter:description" content="Python code to make a submission to the titanic competition using a random forest."/>
-<meta name="generator" content="Hugo 0.31.1" /> 
+<meta name="generator" content="Hugo 0.40.1" /> 
     
     
 <script type="application/ld+json">
@@ -119,7 +120,8 @@ MathJax.Hub.Config({
                             <a class="dropdown-item" href="https://chrisalbon.com/#linux">Command Line</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#regex">Regular Expressions</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#mathematics">Mathematics</a>
-                            <a class="dropdown-item" href="https://chrisalbon.com/#software_engineer">Software Engineering</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#aws">AWS</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#computer_science">Computer Science</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -176,11 +178,11 @@ MathJax.Hub.Config({
 
 <p>You can get the data on <a href="https://www.kaggle.com/c/titanic">Kaggle&rsquo;s site</a>.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Load the data</span>
-<span class="n">train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;data/train.csv&#39;</span><span class="p">)</span>
-<span class="n">test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;data/test.csv&#39;</span><span class="p">)</span></code></pre></div>
+<span class="n">train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/train.csv&#39;</span><span class="p">)</span>
+<span class="n">test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/test.csv&#39;</span><span class="p">)</span></code></pre></div>
 <h2 id="data-cleaning">Data Cleaning</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a list of the features we will eventually want for our model</span>
-<span class="n">features</span> <span class="o">=</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;SibSp&#39;</span><span class="p">,</span><span class="sa"></span><span class="s1">&#39;Parch&#39;</span><span class="p">,</span><span class="sa"></span><span class="s1">&#39;Fare&#39;</span><span class="p">,</span><span class="sa"></span><span class="s1">&#39;male&#39;</span><span class="p">,</span><span class="sa"></span><span class="s1">&#39;embarked_Q&#39;</span><span class="p">,</span><span class="sa"></span><span class="s1">&#39;embarked_S&#39;</span><span class="p">,</span><span class="sa"></span><span class="s1">&#39;Pclass_2&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Pclass_3&#39;</span><span class="p">]</span></code></pre></div>
+<span class="n">features</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="s1">&#39;SibSp&#39;</span><span class="p">,</span><span class="s1">&#39;Parch&#39;</span><span class="p">,</span><span class="s1">&#39;Fare&#39;</span><span class="p">,</span><span class="s1">&#39;male&#39;</span><span class="p">,</span><span class="s1">&#39;embarked_Q&#39;</span><span class="p">,</span><span class="s1">&#39;embarked_S&#39;</span><span class="p">,</span><span class="s1">&#39;Pclass_2&#39;</span><span class="p">,</span> <span class="s1">&#39;Pclass_3&#39;</span><span class="p">]</span></code></pre></div>
 <h3 id="sex">Sex</h3>
 
 <p>Here we convert the gender labels (<code>male</code>, <code>female</code>) into a dummy variable (<code>1</code>, <code>0</code>).</p>
@@ -188,21 +190,21 @@ MathJax.Hub.Config({
 <span class="n">sex_encoder</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">LabelEncoder</span><span class="p">()</span>
 
 <span class="c1"># Fit the encoder to the train data so it knows that male = 1</span>
-<span class="n">sex_encoder</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;Sex&#39;</span><span class="p">])</span>
+<span class="n">sex_encoder</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="s1">&#39;Sex&#39;</span><span class="p">])</span>
 
 <span class="c1"># Apply the encoder to the training data</span>
-<span class="n">train</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;male&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sex_encoder</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;Sex&#39;</span><span class="p">])</span>
+<span class="n">train</span><span class="p">[</span><span class="s1">&#39;male&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sex_encoder</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="s1">&#39;Sex&#39;</span><span class="p">])</span>
 
 <span class="c1"># Apply the encoder to the training data</span>
-<span class="n">test</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;male&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sex_encoder</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;Sex&#39;</span><span class="p">])</span></code></pre></div>
+<span class="n">test</span><span class="p">[</span><span class="s1">&#39;male&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sex_encoder</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="s1">&#39;Sex&#39;</span><span class="p">])</span></code></pre></div>
 <h3 id="embarked">Embarked</h3>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Convert the Embarked training feature into dummies using one-hot</span>
 <span class="c1"># and leave one first category to prevent perfect collinearity</span>
-<span class="n">train_embarked_dummied</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="sa"></span><span class="s2">&#34;Embarked&#34;</span><span class="p">],</span> <span class="n">prefix</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;embarked&#39;</span><span class="p">,</span> <span class="n">drop_first</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">train_embarked_dummied</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="s2">&#34;Embarked&#34;</span><span class="p">],</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;embarked&#39;</span><span class="p">,</span> <span class="n">drop_first</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 
 <span class="c1"># Convert the Embarked test feature into dummies using one-hot</span>
 <span class="c1"># and leave one first category to prevent perfect collinearity</span>
-<span class="n">test_embarked_dummied</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="sa"></span><span class="s2">&#34;Embarked&#34;</span><span class="p">],</span> <span class="n">prefix</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;embarked&#39;</span><span class="p">,</span> <span class="n">drop_first</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">test_embarked_dummied</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="s2">&#34;Embarked&#34;</span><span class="p">],</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;embarked&#39;</span><span class="p">,</span> <span class="n">drop_first</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 
 <span class="c1"># Concatenate the dataframe of dummies with the main dataframes</span>
 <span class="n">train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">train</span><span class="p">,</span> <span class="n">train_embarked_dummied</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -210,11 +212,11 @@ MathJax.Hub.Config({
 <h3 id="social-class">Social Class</h3>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Convert the Pclass training feature into dummies using one-hot</span>
 <span class="c1"># and leave one first category to prevent perfect collinearity</span>
-<span class="n">train_Pclass_dummied</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="sa"></span><span class="s2">&#34;Pclass&#34;</span><span class="p">],</span> <span class="n">prefix</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;Pclass&#39;</span><span class="p">,</span> <span class="n">drop_first</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">train_Pclass_dummied</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="s2">&#34;Pclass&#34;</span><span class="p">],</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;Pclass&#39;</span><span class="p">,</span> <span class="n">drop_first</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 
 <span class="c1"># Convert the Pclass test feature into dummies using one-hot</span>
 <span class="c1"># and leave one first category to prevent perfect collinearity</span>
-<span class="n">test_Pclass_dummied</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="sa"></span><span class="s2">&#34;Pclass&#34;</span><span class="p">],</span> <span class="n">prefix</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;Pclass&#39;</span><span class="p">,</span> <span class="n">drop_first</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">test_Pclass_dummied</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="s2">&#34;Pclass&#34;</span><span class="p">],</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;Pclass&#39;</span><span class="p">,</span> <span class="n">drop_first</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 
 <span class="c1"># Concatenate the dataframe of dummies with the main dataframes</span>
 <span class="n">train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">train</span><span class="p">,</span> <span class="n">train_Pclass_dummied</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -225,28 +227,28 @@ MathJax.Hub.Config({
 
 <h3 id="age">Age</h3>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create an imputer object</span>
-<span class="n">age_imputer</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">Imputer</span><span class="p">(</span><span class="n">missing_values</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;NaN&#39;</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">age_imputer</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">Imputer</span><span class="p">(</span><span class="n">missing_values</span><span class="o">=</span><span class="s1">&#39;NaN&#39;</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="c1"># Fit the imputer object on the training data</span>
-<span class="n">age_imputer</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;Age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">age_imputer</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 
 <span class="c1"># Apply the imputer object to the training and test data</span>
-<span class="n">train</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;Age&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">age_imputer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;Age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-<span class="n">test</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;Age&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">age_imputer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;Age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span></code></pre></div>
+<span class="n">train</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">age_imputer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">test</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">age_imputer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span></code></pre></div>
 <h3 id="fare">Fare</h3>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create an imputer object</span>
-<span class="n">fare_imputer</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">Imputer</span><span class="p">(</span><span class="n">missing_values</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;NaN&#39;</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">fare_imputer</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">Imputer</span><span class="p">(</span><span class="n">missing_values</span><span class="o">=</span><span class="s1">&#39;NaN&#39;</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="c1"># Fit the imputer object on the training data</span>
-<span class="n">fare_imputer</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;Fare&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">fare_imputer</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="s1">&#39;Fare&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 
 <span class="c1"># Apply the imputer object to the training and test data</span>
-<span class="n">train</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;Fare&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fare_imputer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;Fare&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-<span class="n">test</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;Fare&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fare_imputer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;Fare&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span></code></pre></div>
+<span class="n">train</span><span class="p">[</span><span class="s1">&#39;Fare&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fare_imputer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="s1">&#39;Fare&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">test</span><span class="p">[</span><span class="s1">&#39;Fare&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fare_imputer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="s1">&#39;Fare&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span></code></pre></div>
 <h2 id="search-for-optimum-parameters">Search For Optimum Parameters</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a dictionary containing all the candidate values of the parameters</span>
 <span class="n">parameter_grid</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5001</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)),</span>
-                      <span class="n">criterion</span><span class="o">=</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;gini&#39;</span><span class="p">,</span><span class="sa"></span><span class="s1">&#39;entropy&#39;</span><span class="p">],</span>
+                      <span class="n">criterion</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;gini&#39;</span><span class="p">,</span><span class="s1">&#39;entropy&#39;</span><span class="p">],</span>
                       <span class="n">max_features</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">features</span><span class="p">),</span> <span class="mi">2</span><span class="p">)),</span>
                       <span class="n">max_depth</span><span class="o">=</span> <span class="p">[</span><span class="bp">None</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
 
@@ -255,30 +257,30 @@ MathJax.Hub.Config({
 
 <span class="c1"># Create a gridsearch object with 5-fold cross validation, and uses all cores (n_jobs=-1)</span>
 <span class="n">clf</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">random_forest</span><span class="p">,</span> <span class="n">param_grid</span><span class="o">=</span><span class="n">parameter_grid</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Nest the gridsearchCV in a 3-fold CV for model evaluation</span>
-<span class="n">cv_scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">train</span><span class="p">[</span><span class="n">features</span><span class="p">],</span> <span class="n">train</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;Survived&#39;</span><span class="p">])</span>
+<span class="n">cv_scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">train</span><span class="p">[</span><span class="n">features</span><span class="p">],</span> <span class="n">train</span><span class="p">[</span><span class="s1">&#39;Survived&#39;</span><span class="p">])</span>
 
 <span class="c1"># Print results</span>
-<span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;Accuracy scores:&#39;</span><span class="p">,</span> <span class="n">cv_scores</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;Mean of score:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">cv_scores</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;Variance of scores:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">cv_scores</span><span class="p">))</span></code></pre></div>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Accuracy scores:&#39;</span><span class="p">,</span> <span class="n">cv_scores</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Mean of score:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">cv_scores</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Variance of scores:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">cv_scores</span><span class="p">))</span></code></pre></div>
 <h2 id="retrain-the-random-forest-with-the-optimum-parameters">Retrain The Random Forest With The Optimum Parameters</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Retrain the model on the whole dataset</span>
-<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="n">features</span><span class="p">],</span> <span class="n">train</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;Survived&#39;</span><span class="p">])</span>
+<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="n">features</span><span class="p">],</span> <span class="n">train</span><span class="p">[</span><span class="s1">&#39;Survived&#39;</span><span class="p">])</span>
 
 <span class="c1"># Predict who survived in the test dataset</span>
 <span class="n">predictions</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="n">features</span><span class="p">])</span></code></pre></div>
 <h2 id="create-the-kaggle-submission">Create The Kaggle Submission</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Grab the passenger IDs</span>
-<span class="n">ids</span> <span class="o">=</span> <span class="n">test</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;PassengerId&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">ids</span> <span class="o">=</span> <span class="n">test</span><span class="p">[</span><span class="s1">&#39;PassengerId&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
 
 <span class="c1"># Create a csv</span>
-<span class="n">submission_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;submission.csv&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;w&#34;</span><span class="p">)</span>
+<span class="n">submission_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;submission.csv&#34;</span><span class="p">,</span> <span class="s2">&#34;w&#34;</span><span class="p">)</span>
 
 <span class="c1"># Write to that csv</span>
 <span class="n">open_file_object</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">submission_file</span><span class="p">)</span>
 
 <span class="c1"># Write the header of the csv</span>
-<span class="n">open_file_object</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="sa"></span><span class="s2">&#34;PassengerId&#34;</span><span class="p">,</span><span class="sa"></span><span class="s2">&#34;Survived&#34;</span><span class="p">])</span>
+<span class="n">open_file_object</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="s2">&#34;PassengerId&#34;</span><span class="p">,</span><span class="s2">&#34;Survived&#34;</span><span class="p">])</span>
 
 <span class="c1"># Write the rows of the csv</span>
 <span class="n">open_file_object</span><span class="o">.</span><span class="n">writerows</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">ids</span><span class="p">,</span> <span class="n">predictions</span><span class="p">))</span>
@@ -308,7 +310,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted">This project contains 577 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
+            <span class="text-muted">This project contains 583 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
         </div>
     </footer>
 

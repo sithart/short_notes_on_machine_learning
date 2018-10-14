@@ -37,9 +37,10 @@
 
 
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Cross Validation With Parameter Tuning Using Grid Search"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Cross Validation With Parameter Tuning Using Grid Search"/>
 <meta name="twitter:description" content="Cross Validation With Parameter Tuning Using Grid Search using Scikit-Learn."/>
-<meta name="generator" content="Hugo 0.31.1" /> 
+<meta name="generator" content="Hugo 0.40.1" /> 
     
     
 <script type="application/ld+json">
@@ -119,7 +120,8 @@ MathJax.Hub.Config({
                             <a class="dropdown-item" href="https://chrisalbon.com/#linux">Command Line</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#regex">Regular Expressions</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#mathematics">Mathematics</a>
-                            <a class="dropdown-item" href="https://chrisalbon.com/#software_engineer">Software Engineering</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#aws">AWS</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#computer_science">Computer Science</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -208,8 +210,8 @@ MathJax.Hub.Config({
 
 <p>Before looking for which combination of parameter values produces the most accurate model, we must specify the different candidate values we want to try. In the code below we have a number of candidate parameter values, including four different values for <code>C</code> (<code>1, 10, 100, 1000</code>), two values for <code>gamma</code> (<code>0.001, 0.0001</code>), and two kernels (<code>linear, rbf</code>). The grid search will try all combinations of parameter values and select the set of parameters which provides the most accurate model.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">parameter_candidates</span> <span class="o">=</span> <span class="p">[</span>
-  <span class="p">{</span><span class="sa"></span><span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">],</span> <span class="sa"></span><span class="s1">&#39;kernel&#39;</span><span class="p">:</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;linear&#39;</span><span class="p">]},</span>
-  <span class="p">{</span><span class="sa"></span><span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">],</span> <span class="sa"></span><span class="s1">&#39;gamma&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.0001</span><span class="p">],</span> <span class="sa"></span><span class="s1">&#39;kernel&#39;</span><span class="p">:</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;rbf&#39;</span><span class="p">]},</span>
+  <span class="p">{</span><span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">],</span> <span class="s1">&#39;kernel&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;linear&#39;</span><span class="p">]},</span>
+  <span class="p">{</span><span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">],</span> <span class="s1">&#39;gamma&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.0001</span><span class="p">],</span> <span class="s1">&#39;kernel&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;rbf&#39;</span><span class="p">]},</span>
 <span class="p">]</span></code></pre></div>
 <h2 id="conduct-grid-search-to-find-parameters-producing-highest-score">Conduct Grid Search To Find Parameters Producing Highest Score</h2>
 
@@ -231,15 +233,15 @@ MathJax.Hub.Config({
 
 <p>Success! We have our results! First, let&rsquo;s look at the accuracy score when we apply the model to the <code>data1</code>&rsquo;s test data.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># View the accuracy score</span>
-<span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;Best score for data1:&#39;</span><span class="p">,</span> <span class="n">clf</span><span class="o">.</span><span class="n">best_score_</span><span class="p">)</span> </code></pre></div>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Best score for data1:&#39;</span><span class="p">,</span> <span class="n">clf</span><span class="o">.</span><span class="n">best_score_</span><span class="p">)</span> </code></pre></div>
 <pre><code>Best score for data1: 0.942
 </code></pre>
 
 <p>Which parameters are the best? We can tell scikit-learn to display them:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># View the best parameters for the model found using grid search</span>
-<span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;Best C:&#39;</span><span class="p">,</span><span class="n">clf</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">C</span><span class="p">)</span> 
-<span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;Best Kernel:&#39;</span><span class="p">,</span><span class="n">clf</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">kernel</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;Best Gamma:&#39;</span><span class="p">,</span><span class="n">clf</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">gamma</span><span class="p">)</span></code></pre></div>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Best C:&#39;</span><span class="p">,</span><span class="n">clf</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">C</span><span class="p">)</span> 
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Best Kernel:&#39;</span><span class="p">,</span><span class="n">clf</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">kernel</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Best Gamma:&#39;</span><span class="p">,</span><span class="n">clf</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">gamma</span><span class="p">)</span></code></pre></div>
 <pre><code>Best C: 10
 Best Kernel: rbf
 Best Gamma: 0.001
@@ -255,7 +257,7 @@ Best Gamma: 0.001
 <pre><code>0.96988707653701378
 </code></pre>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Train a new classifier using the best parameters found by the grid search</span>
-<span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data1_features</span><span class="p">,</span> <span class="n">data1_target</span><span class="p">)</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">data2_features</span><span class="p">,</span> <span class="n">data2_target</span><span class="p">)</span></code></pre></div>
+<span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data1_features</span><span class="p">,</span> <span class="n">data1_target</span><span class="p">)</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">data2_features</span><span class="p">,</span> <span class="n">data2_target</span><span class="p">)</span></code></pre></div>
 <pre><code>0.96988707653701378
 </code></pre>
 
@@ -284,7 +286,7 @@ Best Gamma: 0.001
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted">This project contains 577 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
+            <span class="text-muted">This project contains 583 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
         </div>
     </footer>
 

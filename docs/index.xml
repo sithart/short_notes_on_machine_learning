@@ -37,8 +37,7 @@ Make File touch file.txt Make Directory mkdir example View Directory Contents Di
       
       <guid>https://chrisalbon.com/linux/text/count_unique_rows/</guid>
       <description>Create Example File With List Of Names Notice that we have duplicated rows
-echo &amp;#39;Luca Gartside&amp;#39; &amp;gt;&amp;gt; adventurers.txtecho &amp;#39;Reule Smyth&amp;#39; &amp;gt;&amp;gt; adventurers.txtecho &amp;#39;Spencer Smit&amp;#39; &amp;gt;&amp;gt; adventurers.txtecho &amp;#39;Spencer Smit&amp;#39; &amp;gt;&amp;gt; adventurers.txtecho &amp;#39;Spencer Smit&amp;#39; &amp;gt;&amp;gt; adventurers.txtecho &amp;#39;Uli Pinetotem&amp;#39; &amp;gt;&amp;gt; adventurers.txtecho &amp;#39;Uli Pinetotem&amp;#39; &amp;gt;&amp;gt; adventurers.txtecho &amp;#39;Uli Pinetotem&amp;#39; &amp;gt;&amp;gt; adventurers.txt View File cat adventurers.txt
-Luca Gartside Reule Smyth Spencer Smit Spencer Smit Spencer Smit Uli Pinetotem Uli Pinetotem Uli Pinetotem  Get Unique Rows cat adventurers.</description>
+echo &amp;#39;Luca Gartside&amp;#39; &amp;gt;&amp;gt; adventurers.txtecho &amp;#39;Reule Smyth&amp;#39; &amp;gt;&amp;gt; adventurers.txtecho &amp;#39;Spencer Smit&amp;#39; &amp;gt;&amp;gt; adventurers.txtecho &amp;#39;Spencer Smit&amp;#39; &amp;gt;&amp;gt; adventurers.txtecho &amp;#39;Spencer Smit&amp;#39; &amp;gt;&amp;gt; adventurers.txtecho &amp;#39;Uli Pinetotem&amp;#39; &amp;gt;&amp;gt; adventurers.txtecho &amp;#39;Uli Pinetotem&amp;#39; &amp;gt;&amp;gt; adventurers.txtecho &amp;#39;Uli Pinetotem&amp;#39; &amp;gt;&amp;gt; adventurers.txt View File cat adventurers.txt Luca Gartside Reule Smyth Spencer Smit Spencer Smit Spencer Smit Uli Pinetotem Uli Pinetotem Uli Pinetotem  Get Unique Rows cat adventurers.</description>
     </item>
     
     <item>
@@ -89,6 +88,16 @@ $ sed &amp;#34;s/Spencer Smit/Matthew Aldworth/&amp;#34; adventurers.txt Luca Ga
       <guid>https://chrisalbon.com/linux/basics/move_files_and_directories/</guid>
       <description>The mv command moves a file (deleting it from the original directory). The cp command copy-pastes the file to a destination directory.
 Make File touch file.txt Make Directory mkdir example_folder View Directory Contents Directory ls -l total 8 drwxrwxr-x 2 chris chris 4096 Jul 24 13:23 example_folder -rw-rw-r-- 1 chris chris 0 Jul 24 13:22 file.txt  Move File To Directory mv file.txt example_folder View Directory Contents Directory ls -l total 8 drwxrwxr-x 2 chris chris 4096 Jul 24 13:23 example_folder  Change To Directory cd example_folder View Directory Contents Directory ls -l total 0 -rw-rw-r-- 1 chris chris 0 Jul 24 13:22 file.</description>
+    </item>
+    
+    <item>
+      <title>Rename File</title>
+      <link>https://chrisalbon.com/linux/basics/rename_file/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/basics/rename_file/</guid>
+      <description> The mv (move) command is used to rename files To rename a file, &amp;ldquo;move&amp;rdquo; it from one filename to another.
+Make File touch untitled.txt View Directory Contents Directory ls -l total 0 -rw-rw-r-- 1 chris chris 0 Jul 24 13:22 untitled.txt  Make File mv untitled.txt august_records.txt View Directory Contents Directory ls -l total 0 -rw-rw-r-- 1 chris chris 0 Jul 24 13:22 august_records.txt  mv Options:  -u Copy only files that don&amp;rsquo;t exist or are newer than files with the same names in the destination directory -v Show verbose description of copy -i Prompt if copy would override file  </description>
     </item>
     
     <item>
@@ -340,7 +349,7 @@ echo &amp;#39;Alan Jones&amp;#39;, &amp;#39;$50&amp;#39;&amp;gt; sales_records_1
       <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
       
       <guid>https://chrisalbon.com/postgresql/merging_and_joining/concatenate_multiple_tables/</guid>
-      <description>Create Table Of Elves -- Create table called elves CREATE TABLE elves ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Create Table Of Dwarves -- Create table called dwarves CREATE TABLE dwarves ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Create Table Of Orcs -- Create table called orcs CREATE TABLE orcs ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Rows Into Elf Table INSERT INTO elves (name, age, race, weapon) VALUES (&amp;#39;Dallar Woodfoot&amp;#39;, 25, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Cordin Garner&amp;#39;, 29, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Keat Knigh&amp;#39;, 24, &amp;#39;Elf&amp;#39;, &amp;#39;Sword&amp;#39;), (&amp;#39;Colbat Nalor&amp;#39;, 124, &amp;#39;Elf&amp;#39;, &amp;#39;Magic&amp;#39;) Insert Rows Into Dwarf Table INSERT INTO dwarves (name, age, race, weapon) VALUES (&amp;#39;Kalog&amp;#39;, 23, &amp;#39;Dwarf&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Dranar&amp;#39;, 145, &amp;#39;Dwarf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Bratar&amp;#39;, 12, &amp;#39;Dwarf&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Dragga&amp;#39;, 23, &amp;#39;Dwarf&amp;#39;, &amp;#39;Axe&amp;#39;)</description>
+      <description>Create Table Of Elves -- Create table called elves CREATE TABLE elves ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Create Table Of Dwarves -- Create table called dwarves CREATE TABLE dwarves ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Create Table Of Orcs -- Create table called orcs CREATE TABLE orcs ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Rows Into Elf Table INSERT INTO elves (name, age, race, weapon) VALUES (&amp;#39;Dallar Woodfoot&amp;#39;, 25, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Cordin Garner&amp;#39;, 29, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Keat Knigh&amp;#39;, 24, &amp;#39;Elf&amp;#39;, &amp;#39;Sword&amp;#39;), (&amp;#39;Colbat Nalor&amp;#39;, 124, &amp;#39;Elf&amp;#39;, &amp;#39;Magic&amp;#39;) Insert Rows Into Dwarf Table INSERT INTO dwarves (name, age, race, weapon) VALUES (&amp;#39;Kalog&amp;#39;, 23, &amp;#39;Dwarf&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Dranar&amp;#39;, 145, &amp;#39;Dwarf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Bratar&amp;#39;, 12, &amp;#39;Dwarf&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Dragga&amp;#39;, 23, &amp;#39;Dwarf&amp;#39;, &amp;#39;Axe&amp;#39;) Insert Rows Into Orc Table INSERT INTO orcs (name, age, race, weapon) VALUES (&amp;#39;Wokganit&amp;#39;, 23, &amp;#39;Orc&amp;#39;, &amp;#39;Sword&amp;#39;), (&amp;#39;Wudugog&amp;#39;, 145, &amp;#39;Orc&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Wegigoth&amp;#39;, 12, &amp;#39;Orc&amp;#39;, &amp;#39;Magic&amp;#39;), (&amp;#39;Wulgha&amp;#39;, 23, &amp;#39;Orc&amp;#39;, &amp;#39;Axe&amp;#39;) Concatenate All Tables -- All rows from elf table SELECT * FROM elves -- Concatenate with.</description>
     </item>
     
     <item>
@@ -368,8 +377,7 @@ Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- st
       <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
       
       <guid>https://chrisalbon.com/postgresql/basics/copy_rows_from_one_table_to_another/</guid>
-      <description>Create Table Of Adventurers -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255) ) Create Table Of Villains -- Create table called equipment CREATE TABLE villains ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255) )
-Insert Row Into Adventurers -- Insert into the table adventurers INSERT INTO adventurers (name, age, race) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;)</description>
+      <description>Create Table Of Adventurers -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255) ) Create Table Of Villains -- Create table called equipment CREATE TABLE villains ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255) ) Insert Row Into Adventurers -- Insert into the table adventurers INSERT INTO adventurers (name, age, race) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;) View Adventurers Table -- Retrieve all rows SELECT * FROM adventurers nameagerace Fjoak Doom-Wife28Human</description>
     </item>
     
     <item>
@@ -397,6 +405,16 @@ Insert Row Into Adventurers -- Insert into the table adventurers INSERT INTO adv
       
       <guid>https://chrisalbon.com/postgresql/basics/count_unique_values/</guid>
       <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Rows -- Insert into the table adventurers INSERT INTO adventurers (name, age, race, weapon) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, &amp;#39;Sword&amp;#39;), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, &amp;#39;Magic&amp;#39;)</description>
+    </item>
+    
+    <item>
+      <title>Create Bucket</title>
+      <link>https://chrisalbon.com/aws/s3/cli/create_bucket/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/aws/s3/cli/create_bucket/</guid>
+      <description> Create Bucket Make a bucket (mb) on AWS S3 called kicks-pasta-steer. The bucket name you choose must be globally unique, meaning nobody else in the world must have used that bucket name before.
+aws s3 mb s3://kicks-pasta-steer make_bucket: kicks-pasta-steer  </description>
     </item>
     
     <item>
@@ -861,7 +879,7 @@ if (( &amp;#34;$age&amp;#34;&amp;gt; 17 &amp;amp;&amp;amp; &amp;#34;$age&amp;#34
       <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
       
       <guid>https://chrisalbon.com/postgresql/merging_and_joining/inner_join/</guid>
-      <description>Create Table Of Adventurers -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255) ) Create Table Of Adventurer&amp;rsquo;s Equipment -- Create table called equipment CREATE TABLE equipment ( -- string variable  name varchar(255), -- string variable  clothes varchar(255), -- string variable  weapon varchar(255) ) Insert Rows Into Adventurers Table INSERT INTO adventurers (name, age, race) VALUES (&amp;#39;Dallar Woodfoot&amp;#39;, 25, &amp;#39;Elf&amp;#39;), (&amp;#39;Cordin Garner&amp;#39;, 29, &amp;#39;Elf&amp;#39;), (&amp;#39;Keat Knigh&amp;#39;, 24, &amp;#39;Dwarf&amp;#39;), (&amp;#39;Colbat Nalor&amp;#39;, 124, &amp;#39;Dwarf&amp;#39;)</description>
+      <description>Create Table Of Adventurers -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255) ) Create Table Of Adventurer&amp;rsquo;s Equipment -- Create table called equipment CREATE TABLE equipment ( -- string variable  name varchar(255), -- string variable  clothes varchar(255), -- string variable  weapon varchar(255) ) Insert Rows Into Adventurers Table INSERT INTO adventurers (name, age, race) VALUES (&amp;#39;Dallar Woodfoot&amp;#39;, 25, &amp;#39;Elf&amp;#39;), (&amp;#39;Cordin Garner&amp;#39;, 29, &amp;#39;Elf&amp;#39;), (&amp;#39;Keat Knigh&amp;#39;, 24, &amp;#39;Dwarf&amp;#39;), (&amp;#39;Colbat Nalor&amp;#39;, 124, &amp;#39;Dwarf&amp;#39;) Insert Rows Into Equipment Table INSERT INTO equipment (name, clothes, weapon) VALUES (&amp;#39;Dallar Woodfoot&amp;#39;, &amp;#39;Leather Armor&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Keat Knigh&amp;#39;, &amp;#39;Robe&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Cordin Garner&amp;#39;, &amp;#39;Tunic&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Colbat Nalor&amp;#39;,&amp;#39;Chainmail&amp;#39;, &amp;#39;Axe&amp;#39;)</description>
     </item>
     
     <item>
@@ -909,7 +927,7 @@ Make File With Soldier Names And Soldier Age Data echo &amp;#34;Steve Case, 23&a
       <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
       
       <guid>https://chrisalbon.com/postgresql/merging_and_joining/left_join/</guid>
-      <description>Create Table Of Adventurers -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255) ) Create Table Of Adventurer&amp;rsquo;s Equipment -- Create table called equipment CREATE TABLE equipment ( -- string variable  name varchar(255), -- string variable  clothes varchar(255), -- string variable  weapon varchar(255) ) Insert Rows Into Adventurers Table INSERT INTO adventurers (name, age, race) VALUES (&amp;#39;Dallar Woodfoot&amp;#39;, 25, &amp;#39;Elf&amp;#39;), (&amp;#39;Cordin Garner&amp;#39;, 29, &amp;#39;Elf&amp;#39;), (&amp;#39;Keat Knigh&amp;#39;, 24, &amp;#39;Dwarf&amp;#39;), (&amp;#39;Colbat Nalor&amp;#39;, 124, &amp;#39;Dwarf&amp;#39;)</description>
+      <description>Create Table Of Adventurers -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255) ) Create Table Of Adventurer&amp;rsquo;s Equipment -- Create table called equipment CREATE TABLE equipment ( -- string variable  name varchar(255), -- string variable  clothes varchar(255), -- string variable  weapon varchar(255) ) Insert Rows Into Adventurers Table INSERT INTO adventurers (name, age, race) VALUES (&amp;#39;Dallar Woodfoot&amp;#39;, 25, &amp;#39;Elf&amp;#39;), (&amp;#39;Cordin Garner&amp;#39;, 29, &amp;#39;Elf&amp;#39;), (&amp;#39;Keat Knigh&amp;#39;, 24, &amp;#39;Dwarf&amp;#39;), (&amp;#39;Colbat Nalor&amp;#39;, 124, &amp;#39;Dwarf&amp;#39;) Insert Rows Into Equipment Table INSERT INTO equipment (name, clothes, weapon) VALUES (&amp;#39;Dallar Woodfoot&amp;#39;, &amp;#39;Leather Armor&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Keat Knigh&amp;#39;, &amp;#39;Robe&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Tasar Keynelis&amp;#39;, &amp;#39;Tunic&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Sataleeti Iarroris&amp;#39;,&amp;#39;Chainmail&amp;#39;, &amp;#39;Axe&amp;#39;)</description>
     </item>
     
     <item>
@@ -920,6 +938,16 @@ Make File With Soldier Names And Soldier Age Data echo &amp;#34;Steve Case, 23&a
       <guid>https://chrisalbon.com/linux/basics/list_avaliable_commands/</guid>
       <description>We can see all avaliable commands for a system by listing the contents of the bin directory using ls /bin
 Show All Avaliable Commands ls /bin bash cp fgrep loadkeys netcat open setupcon unicode_start bunzip2 cpio findmnt login netstat openvt sh vdir busybox dash fuser loginctl nisdomainname pidof sh.distrib which bzcat date fusermount lowntfs-3g ntfs-3g ping sleep whiptail bzcmp dbus-cleanup-sockets grep ls ntfs-3g.probe ping6 ss ypdomainname bzdiff dbus-daemon gunzip lsblk ntfs-3g.</description>
+    </item>
+    
+    <item>
+      <title>List Buckets</title>
+      <link>https://chrisalbon.com/aws/s3/cli/list_buckets/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/aws/s3/cli/list_buckets/</guid>
+      <description> Create First Bucket Make a bucket (mb) on AWS S3 called kicks-pasta-steer. The bucket name you choose must be globally unique, meaning nobody else in the world must have used that bucket name before.
+aws s3 mb s3://kicks-pasta-steer make_bucket: kicks-pasta-steer  Create Second Bucket aws s3 mb s3://assume-laser-rental make_bucket: assume-laser-rental  List All Buckets aws s3 ls 2018-09-23 18:48:46 assume-laser-rental 2018-09-23 18:36:23 kicks-pasta-steer  </description>
     </item>
     
     <item>
@@ -1138,8 +1166,7 @@ Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- st
       <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
       
       <guid>https://chrisalbon.com/postgresql/merging_and_joining/right_join/</guid>
-      <description>Create Table Of Adventurers -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255) ) Create Table Of Adventurer&amp;rsquo;s Equipment -- Create table called equipment CREATE TABLE equipment ( -- string variable  name varchar(255), -- string variable  clothes varchar(255), -- string variable  weapon varchar(255) )
-Insert Rows Into Adventurers Table INSERT INTO adventurers (name, age, race) VALUES (&amp;#39;Dallar Woodfoot&amp;#39;, 25, &amp;#39;Elf&amp;#39;), (&amp;#39;Cordin Garner&amp;#39;, 29, &amp;#39;Elf&amp;#39;), (&amp;#39;Keat Knigh&amp;#39;, 24, &amp;#39;Dwarf&amp;#39;), (&amp;#39;Colbat Nalor&amp;#39;, 124, &amp;#39;Dwarf&amp;#39;)</description>
+      <description>Create Table Of Adventurers -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255) ) Create Table Of Adventurer&amp;rsquo;s Equipment -- Create table called equipment CREATE TABLE equipment ( -- string variable  name varchar(255), -- string variable  clothes varchar(255), -- string variable  weapon varchar(255) ) Insert Rows Into Adventurers Table INSERT INTO adventurers (name, age, race) VALUES (&amp;#39;Dallar Woodfoot&amp;#39;, 25, &amp;#39;Elf&amp;#39;), (&amp;#39;Cordin Garner&amp;#39;, 29, &amp;#39;Elf&amp;#39;), (&amp;#39;Keat Knigh&amp;#39;, 24, &amp;#39;Dwarf&amp;#39;), (&amp;#39;Colbat Nalor&amp;#39;, 124, &amp;#39;Dwarf&amp;#39;) Insert Rows Into Equipment Table INSERT INTO equipment (name, clothes, weapon) VALUES (&amp;#39;Dallar Woodfoot&amp;#39;, &amp;#39;Leather Armor&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Keat Knigh&amp;#39;, &amp;#39;Robe&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Tasar Keynelis&amp;#39;, &amp;#39;Tunic&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Sataleeti Iarroris&amp;#39;,&amp;#39;Chainmail&amp;#39;, &amp;#39;Axe&amp;#39;)</description>
     </item>
     
     <item>
@@ -1284,7 +1311,7 @@ Create Example File With List Of Names echo &amp;#39;Luca Gartside&amp;#39; &amp
       <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
       
       <guid>https://chrisalbon.com/postgresql/basics/sort_rows_in_groups/</guid>
-      <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Rows -- Insert into the table adventurers INSERT INTO adventurers (name, age, race, weapon) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, &amp;#39;Sword&amp;#39;), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, &amp;#39;Magic&amp;#39;)</description>
+      <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Rows -- Insert into the table adventurers INSERT INTO adventurers (name, age, race, weapon) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, &amp;#39;Sword&amp;#39;), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, &amp;#39;Magic&amp;#39;) Sort Rows By One Column -- Retrieve rows SELECT * FROM adventurers -- Order rows by age in ascending order ORDER BY age ASC nameageraceweapon Casimir Yardley14ElfMagic Fjoak Doom-Wife28HumanAxe Alooneric Cortte29ElfBow Piperel Ramsay35ElfSword</description>
     </item>
     
     <item>
@@ -1293,7 +1320,7 @@ Create Example File With List Of Names echo &amp;#39;Luca Gartside&amp;#39; &amp
       <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
       
       <guid>https://chrisalbon.com/postgresql/merging_and_joining/stack_tables/</guid>
-      <description>Create Table Of Elves -- Create table called elves CREATE TABLE elves ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Create Table Of Dwarves -- Create table called dwarves CREATE TABLE dwarves ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) )</description>
+      <description>Create Table Of Elves -- Create table called elves CREATE TABLE elves ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Create Table Of Dwarves -- Create table called dwarves CREATE TABLE dwarves ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Rows Into Elf Table INSERT INTO elves (name, age, race, weapon) VALUES (&amp;#39;Dallar Woodfoot&amp;#39;, 25, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Cordin Garner&amp;#39;, 29, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Keat Knigh&amp;#39;, 24, &amp;#39;Elf&amp;#39;, &amp;#39;Sword&amp;#39;), (&amp;#39;Colbat Nalor&amp;#39;, 124, &amp;#39;Elf&amp;#39;, &amp;#39;Magic&amp;#39;) Insert Rows Into Dwarf Table INSERT INTO dwarves (name, age, race, weapon) VALUES (&amp;#39;Kalog&amp;#39;, 23, &amp;#39;Dwarf&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Dranar&amp;#39;, 145, &amp;#39;Dwarf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Bratar&amp;#39;, 12, &amp;#39;Dwarf&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Dragga&amp;#39;, 23, &amp;#39;Dwarf&amp;#39;, &amp;#39;Axe&amp;#39;)</description>
     </item>
     
     <item>
@@ -1682,6 +1709,15 @@ Preliminaries # Load libraries from sklearn.datasets import load_iris from sklea
     </item>
     
     <item>
+      <title>Basic Logging</title>
+      <link>https://chrisalbon.com/python/logging/basic_logging/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/python/logging/basic_logging/</guid>
+      <description>Preliminaries # Import standard library&amp;#39;s logging import logging Configure Logging # Configure logging to ignore messages below info (i.e. debug level is ignored) logging.basicConfig(level=logging.INFO) Create Function # Create function that converts dollars to cents def convert_dollars_to_cents(dollars): # Try... try: # Multiply dollars by 100 cents = dollars * 100 # Convert to integer cents = int(cents) # Send info message that function was run successful logging.info(&amp;#34;convert_dollars_to_cents run successfully&amp;#34;) # Return cents return cents # If a ValueError is raised except ValueError: # Create data type of input dollars_type = type(dollars) # Create error message detailing the error error_message = f&amp;#34;Function input is {dollars_type}, should be &amp;lt;class \&amp;#39;int\&amp;#39;&amp;gt;&amp;#34; # Send error message logging.</description>
+    </item>
+    
+    <item>
       <title>Basic Operations With NumPy Array</title>
       <link>https://chrisalbon.com/python/basics/numpy_array_basic_operations/</link>
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
@@ -1723,10 +1759,10 @@ When we calculate sample variance, we are attempting to estimate the population 
     
     <item>
       <title>Big-O Notation</title>
-      <link>https://chrisalbon.com/software_engineering/algorithms/big-o_notation/</link>
+      <link>https://chrisalbon.com/computer_science/algorithms/big-o_notation/</link>
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
-      <guid>https://chrisalbon.com/software_engineering/algorithms/big-o_notation/</guid>
+      <guid>https://chrisalbon.com/computer_science/algorithms/big-o_notation/</guid>
       <description>Big-O notation is used to classify the worst-case &amp;ldquo;speed&amp;rdquo; of an algorithm by looking at the order of magnitude of execution time.
 From best to worst, some common Big-O&amp;rsquo;s are:
  O(1) O(log n) O(n) O(n log n) O(n2) O(n3) O(2n)  Below are some examples of a few of these.
@@ -1744,10 +1780,10 @@ Create Data # Create a list 100 elements long n = list(range(100)) O(1) - Consta
     
     <item>
       <title>Binary Search</title>
-      <link>https://chrisalbon.com/software_engineering/algorithms/binary_search/</link>
+      <link>https://chrisalbon.com/computer_science/algorithms/binary_search/</link>
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
-      <guid>https://chrisalbon.com/software_engineering/algorithms/binary_search/</guid>
+      <guid>https://chrisalbon.com/computer_science/algorithms/binary_search/</guid>
       <description>Create Sorted List sorted_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 16, 18, 20] print(sorted_list) [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 16, 18, 20]  Create Binary Search Algorithm def binary_search(sorted_list, target): &amp;#39;&amp;#39;&amp;#39;This function inputs a sorted list and a target value to find and returns ....&amp;#39;&amp;#39;&amp;#39; # Create variables for the index of the first and last elements start = 0 end = len(sorted_list) - 1 while end &amp;gt;= start: # Create a variable for the index of the middle term middle = start + (end - start) // 2 # // is integer division in Python 3.</description>
     </item>
     
@@ -1819,10 +1855,10 @@ Import random module import random Create a variable with a TRUE value rolling =
     
     <item>
       <title>Bubble Sort</title>
-      <link>https://chrisalbon.com/software_engineering/algorithms/bubble_sort/</link>
+      <link>https://chrisalbon.com/computer_science/algorithms/bubble_sort/</link>
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
-      <guid>https://chrisalbon.com/software_engineering/algorithms/bubble_sort/</guid>
+      <guid>https://chrisalbon.com/computer_science/algorithms/bubble_sort/</guid>
       <description> Create A Sequence unsorted_list = [8,5,3,6,2,1,9,4,7] unsorted_list [8, 5, 3, 6, 2, 1, 9, 4, 7]  Create A Bubble Sort Function # Define a function that takes an unsorted sequence def bubble_sort(unsorted_list): # Create a new list containing the values from the inputed list sequence = unsorted_list[:] # For each value of the sequence (epochs), for i, _ in enumerate(sequence): # For each value of the sequence, for i, _ in enumerate(sequence): # Try try: # If a value is greater than the value that follows it if sequence[i] &amp;gt; sequence[i+1]: # Swap the values in the sequence sequence[i], sequence[i+1] = sequence[i+1], sequence[i] # If you raise an index error, you are at the end of the sequence, except IndexError: # So ignore the error and continue with iteration continue # Print the sequence afer each epoch print(sequence)# Run the function bubble_sort(unsorted_list) [5, 3, 6, 2, 1, 8, 4, 7, 9] [3, 5, 2, 1, 6, 4, 7, 8, 9] [3, 2, 1, 5, 4, 6, 7, 8, 9] [2, 1, 3, 4, 5, 6, 7, 8, 9] [1, 2, 3, 4, 5, 6, 7, 8, 9] [1, 2, 3, 4, 5, 6, 7, 8, 9] [1, 2, 3, 4, 5, 6, 7, 8, 9] [1, 2, 3, 4, 5, 6, 7, 8, 9] [1, 2, 3, 4, 5, 6, 7, 8, 9]  </description>
     </item>
     
@@ -2049,7 +2085,7 @@ $$P(y=1 \mid x)={\frac {1}{1+e^{(A*f(x)+B)}}}$$</description>
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/basics/convert_html_symbols_to_strings/</guid>
-      <description>## Preliminariesimport html## Create Texttext = &amp;#39;This item costs ¥400 or £4.&amp;#39;## Convert To Stringhtml.unescape(text) &#39;This item costs ¥400 or £4.&#39;  ## Convert To HTML Entitieshtml.escape(text) &#39;This item costs &amp;amp;amp;#165;400 or &amp;amp;amp;#163;4.&#39;  </description>
+      <description>## Preliminariesimport html## Create Texttext = &amp;#39;This item costs &amp;amp;#165;400 or &amp;amp;#163;4.&amp;#39;## Convert To Stringhtml.unescape(text) &#39;This item costs ¥400 or £4.&#39;  ## Convert To HTML Entitieshtml.escape(text) &#39;This item costs &amp;amp;amp;#165;400 or &amp;amp;amp;#163;4.&#39;  </description>
     </item>
     
     <item>
@@ -2482,6 +2518,15 @@ Preliminaries # Load libraries from sklearn.decomposition import PCA, KernelPCA 
       
       <guid>https://chrisalbon.com/machine_learning/preprocessing_structured_data/discretize_features/</guid>
       <description> Preliminaries # Load libraries from sklearn.preprocessing import Binarizer import numpy as np Create Data # Create feature age = np.array([[6], [12], [20], [36], [65]]) Option 1: Binarize Feature # Create binarizer binarizer = Binarizer(18) # Transform feature binarizer.fit_transform(age) array([[0], [0], [1], [1], [1]])  Option 2: Break Up Feature Into Bins # Bin feature np.digitize(age, bins=[20,30,64]) array([[0], [0], [1], [2], [3]])  </description>
+    </item>
+    
+    <item>
+      <title>Display JSON</title>
+      <link>https://chrisalbon.com/python/basics/display_json/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/python/basics/display_json/</guid>
+      <description>Preliminary # Import library import json Create String With JSON Data _string = &amp;#39;{&amp;#34;data&amp;#34;: {&amp;#34;title&amp;#34;: &amp;#34;Machine Learning With Python Cookbook&amp;#34;,&amp;#34;author&amp;#34;: {&amp;#34;name&amp;#34;: &amp;#34;Chris Albon&amp;#34;,&amp;#34;biography&amp;#34;: {&amp;#34;eduation&amp;#34;: {&amp;#34;phd&amp;#34;: &amp;#34;UC Davis&amp;#34;,&amp;#34;masters&amp;#34;: &amp;#34;UC Davis&amp;#34;,&amp;#34;undergraduate&amp;#34;: &amp;#34;Univ. Of Miami&amp;#34;,&amp;#34;acronym&amp;#34;: &amp;#34;CRA&amp;#34;,&amp;#34;full name&amp;#34;: &amp;#34;Christopher Albon&amp;#34;,&amp;#34;favorites&amp;#34;: {&amp;#34;food&amp;#34;: &amp;#34;Steak&amp;#34;,&amp;#34;sport&amp;#34;: [&amp;#34;baseball&amp;#34;, &amp;#34;basketball&amp;#34;]},&amp;#34;dissertation&amp;#34;: &amp;#34;Health Systems During And After Civil WarS&amp;#34;}}}}}&amp;#39; Convert String To JSON json_data = json.loads(_string) Display JSON print(json.dumps(json_data, indent=2)) { &amp;quot;data&amp;quot;: { &amp;quot;title&amp;quot;: &amp;quot;Machine Learning With Python Cookbook&amp;quot;, &amp;quot;author&amp;quot;: { &amp;quot;name&amp;quot;: &amp;quot;Chris Albon&amp;quot;, &amp;quot;biography&amp;quot;: { &amp;quot;eduation&amp;quot;: { &amp;quot;phd&amp;quot;: &amp;quot;UC Davis&amp;quot;, &amp;quot;masters&amp;quot;: &amp;quot;UC Davis&amp;quot;, &amp;quot;undergraduate&amp;quot;: &amp;quot;Univ.</description>
     </item>
     
     <item>
@@ -2974,10 +3019,10 @@ Preliminaries from geopy.geocoders import Nominatim geolocator = Nominatim() imp
     
     <item>
       <title>GitHub Cheatsheet</title>
-      <link>https://chrisalbon.com/software_engineering/cloud_computing/github_cheatsheet/</link>
+      <link>https://chrisalbon.com/git/github_cheatsheet/</link>
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
-      <guid>https://chrisalbon.com/software_engineering/cloud_computing/github_cheatsheet/</guid>
+      <guid>https://chrisalbon.com/git/github_cheatsheet/</guid>
       <description>Find The Version Of Git git --version
 Create A New Git Repository  Go to the fold of the project.
  Run git init
@@ -3279,10 +3324,10 @@ Create A Value // Create some values val number_of_soldiers: Short = 542 val cas
     
     <item>
       <title>Insertion Sort</title>
-      <link>https://chrisalbon.com/software_engineering/algorithms/insertion_sort/</link>
+      <link>https://chrisalbon.com/computer_science/algorithms/insertion_sort/</link>
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
-      <guid>https://chrisalbon.com/software_engineering/algorithms/insertion_sort/</guid>
+      <guid>https://chrisalbon.com/computer_science/algorithms/insertion_sort/</guid>
       <description> Create A Sequence alist = [8,5,3,6,2,1,9,4,7] alist [8, 5, 3, 6, 2, 1, 9, 4, 7]  Create A Selection Sort Algorithm # Define an function that takes a list def insertion_sort(alist): # Create a sequence from the argument list sequence = alist[:] # Get the length of the list n = len(sequence) # For 1 through the length for the sequence: for i in range(1, n): # save the value of the card value = sequence[i] # save the current position of the card position = i # while the card is not the first card and is smaller than the card to it&amp;#39;s left: while position &amp;gt; 0 and value &amp;lt; sequence[position - 1]: # the card overwrites the card to the left sequence[position] = sequence[position - 1] # And we move on to the next position position -= 1 # When we have found the right position (meaning the while loop is false) # put the card in its correct spot in the deck sequence[position] = value # View the deck so far print(sequence)# Run the sort insertion_sort(alist) [5, 8, 3, 6, 2, 1, 9, 4, 7] [3, 5, 8, 6, 2, 1, 9, 4, 7] [3, 5, 6, 8, 2, 1, 9, 4, 7] [2, 3, 5, 6, 8, 1, 9, 4, 7] [1, 2, 3, 5, 6, 8, 9, 4, 7] [1, 2, 3, 5, 6, 8, 9, 4, 7] [1, 2, 3, 4, 5, 6, 8, 9, 7] [1, 2, 3, 4, 5, 6, 7, 8, 9]  </description>
     </item>
     
@@ -3795,7 +3840,7 @@ Preliminaries import numpy as np from sklearn.linear_model import LogisticRegres
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/regex/patterns/match_urls/</guid>
-      <description> Preliminaries # Load regex package import re Create some text # Create a variable containing a text string text = &amp;#39;My blog is http://www.chrisalbon.com and not http://chrisalbon.com&amp;#39; Apply regex # Find any ISBN-10 or ISBN-13 number re.findall(r&amp;#39;(http|ftp|https):\/\/([\w\-_]+(?:(?:\.[\w\-_]+)+))([\w\-\.,@?^=%&amp;amp;:/~\+#]*[\w\-\@?^=%&amp;amp;/~\+#])?&amp;#39;, text) [(&#39;http&#39;, &#39;www.chrisalbon.com&#39;, &#39;&#39;), (&#39;http&#39;, &#39;chrisalbon.com&#39;, &#39;&#39;)]  </description>
+      <description> Preliminaries # Load regex package import re Create some text # Create a variable containing a text string text = &amp;#39;My blog is http://www.chrisalbon.com and not http://chrisalbon.com&amp;#39; Apply regex # Find any ISBN-10 or ISBN-13 number re.findall(r&amp;#39;(http|ftp|https):\/\/([\w\-_]+(?:(?:\.[\w\-_]+)+))([\w\-\.,@?^=%&amp;amp;amp;:/~\+#]*[\w\-\@?^=%&amp;amp;amp;/~\+#])?&amp;#39;, text) [(&#39;http&#39;, &#39;www.chrisalbon.com&#39;, &#39;&#39;), (&#39;http&#39;, &#39;chrisalbon.com&#39;, &#39;&#39;)]  </description>
     </item>
     
     <item>
@@ -4515,10 +4560,10 @@ Preliminaries # Load libraries from sklearn import preprocessing import numpy as
     
     <item>
       <title>Run Project Jupyter Notebooks On Amazon EC2</title>
-      <link>https://chrisalbon.com/software_engineering/cloud_computing/run_project_jupyter_on_amazon_ec2/</link>
+      <link>https://chrisalbon.com/aws/basics/run_project_jupyter_on_amazon_ec2/</link>
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
-      <guid>https://chrisalbon.com/software_engineering/cloud_computing/run_project_jupyter_on_amazon_ec2/</guid>
+      <guid>https://chrisalbon.com/aws/basics/run_project_jupyter_on_amazon_ec2/</guid>
       <description>This is tutorial on running Project Jupyter Notebook on an Amazon EC2 instance. It is based on a tutorial by Piyush Agarwal which did not work for me immediately, but I tweaked a few things and got it working.
 Note: This is not a beginner&amp;rsquo;s tutorial. I don&amp;rsquo;t explain some of the steps fully and don&amp;rsquo;t explain some concepts. There are other tutorials out there for that.
 Create an AWS account An EC2 instance requires an AWS account.</description>
@@ -4737,10 +4782,10 @@ Specifically, we can run LinearDiscriminantAnalysis with n_components set to Non
     
     <item>
       <title>Selection Sort</title>
-      <link>https://chrisalbon.com/software_engineering/algorithms/selection_sort/</link>
+      <link>https://chrisalbon.com/computer_science/algorithms/selection_sort/</link>
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
-      <guid>https://chrisalbon.com/software_engineering/algorithms/selection_sort/</guid>
+      <guid>https://chrisalbon.com/computer_science/algorithms/selection_sort/</guid>
       <description>This might not be the most efficient implementation of the selection sort algorithm. However, it is the one that closely matches how the algorithm is explained:
  Pick up the first card (if this was a deck of cards). Compare the card in your hand to each other card in turn If a smaller card is found, swap the cards (so the smaller card is now in your hand). When you get to the last card, put the card in your hand into a separate pile.</description>
     </item>
@@ -5133,6 +5178,15 @@ def summation(a, b): &amp;#34;&amp;#34;&amp;#34; Takes two inputs and outputs th
       
       <guid>https://chrisalbon.com/python/basics/unpacking_function_arguments/</guid>
       <description> Create Argument Objects # Create a dictionary of arguments argument_dict = {&amp;#39;a&amp;#39;:&amp;#39;Alpha&amp;#39;, &amp;#39;b&amp;#39;:&amp;#39;Bravo&amp;#39;} # Create a list of arguments argument_list = [&amp;#39;Alpha&amp;#39;, &amp;#39;Bravo&amp;#39;] Create A Simple Function # Create a function that takes two inputs def simple_function(a, b): # and prints them combined return a + b Run the Function With Unpacked Arguments # Run the function with the unpacked argument dictionary simple_function(**argument_dict) &#39;AlphaBravo&#39;  # Run the function with the unpacked argument list simple_function(*argument_list) &#39;AlphaBravo&#39;  </description>
+    </item>
+    
+    <item>
+      <title>Use Command Line Arguments In A Function</title>
+      <link>https://chrisalbon.com/python/basics/use_command_line_arguments_in_a_function/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/python/basics/use_command_line_arguments_in_a_function/</guid>
+      <description>Preliminary # Load library import argparse Create Python Code #!/usr/bin/env python3 # Create a function with two inputs def sum_two_values(value_one, value_two): # Add together two values _sum = value_one + value_two # Return sum return _sum # If the script is run if __name__ == &amp;#39;__main__&amp;#39;: # Create argument parser parser = argparse.ArgumentParser() # Create an argument called v1 or value_1 that is an integer parser.add_argument(&amp;#39;-v1&amp;#39;, &amp;#39;--value_1&amp;#39;, type=int, help=&amp;#39;The first value.</description>
     </item>
     
     <item>

@@ -37,9 +37,10 @@
 
 
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Function Annotation Examples"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Function Annotation Examples"/>
 <meta name="twitter:description" content="Function annotation examples in Python.."/>
-<meta name="generator" content="Hugo 0.31.1" /> 
+<meta name="generator" content="Hugo 0.40.1" /> 
     
     
 <script type="application/ld+json">
@@ -119,7 +120,8 @@ MathJax.Hub.Config({
                             <a class="dropdown-item" href="https://chrisalbon.com/#linux">Command Line</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#regex">Regular Expressions</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#mathematics">Mathematics</a>
-                            <a class="dropdown-item" href="https://chrisalbon.com/#software_engineer">Software Engineering</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#aws">AWS</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#computer_science">Computer Science</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -166,7 +168,7 @@ MathJax.Hub.Config({
   
 
 <h2 id="create-a-function-with-annotations">Create A Function With Annotations</h2>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="sa"></span><span class="s1">&#39;&#39;&#39; 
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="s1">&#39;&#39;&#39; 
 </span><span class="s1">Create a function. 
 </span><span class="s1">
 </span><span class="s1">The argument &#39;text&#39; is the string to print with the default value &#39;default string&#39;
@@ -176,11 +178,11 @@ MathJax.Hub.Config({
 </span><span class="s1">
 </span><span class="s1">The function should return a string.
 </span><span class="s1">&#39;&#39;&#39;</span>
-<span class="k">def</span> <span class="nf">print_text</span><span class="p">(</span><span class="n">text</span><span class="p">:</span><span class="sa"></span><span class="s1">&#39;string to print&#39;</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;default string&#39;</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span><span class="sa"></span><span class="s1">&#39;integer, times to print&#39;</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="k">def</span> <span class="nf">print_text</span><span class="p">(</span><span class="n">text</span><span class="p">:</span><span class="s1">&#39;string to print&#39;</span><span class="o">=</span><span class="s1">&#39;default string&#39;</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span><span class="s1">&#39;integer, times to print&#39;</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="k">return</span> <span class="n">text</span> <span class="o">*</span> <span class="n">n</span></code></pre></div>
 <h2 id="run-the-function">Run The Function</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Run the function with arguments</span>
-<span class="n">print_text</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;string&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span></code></pre></div>
+<span class="n">print_text</span><span class="p">(</span><span class="s1">&#39;string&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span></code></pre></div>
 <pre><code>'stringstringstringstring'
 </code></pre>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Run the function with default arguments</span>
@@ -211,7 +213,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted">This project contains 577 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
+            <span class="text-muted">This project contains 583 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
         </div>
     </footer>
 

@@ -37,9 +37,10 @@
 
 
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Convert A String Categorical Variable To A Numeric Variable"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Convert A String Categorical Variable To A Numeric Variable"/>
 <meta name="twitter:description" content="Convert A String Categorical Variable To A Numeric Variable."/>
-<meta name="generator" content="Hugo 0.31.1" /> 
+<meta name="generator" content="Hugo 0.40.1" /> 
     
     
 <script type="application/ld+json">
@@ -119,7 +120,8 @@ MathJax.Hub.Config({
                             <a class="dropdown-item" href="https://chrisalbon.com/#linux">Command Line</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#regex">Regular Expressions</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#mathematics">Mathematics</a>
-                            <a class="dropdown-item" href="https://chrisalbon.com/#software_engineer">Software Engineering</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#aws">AWS</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#computer_science">Computer Science</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -168,11 +170,11 @@ MathJax.Hub.Config({
 <h3 id="import-modules">import modules</h3>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span></code></pre></div>
 <h3 id="create-dataframe">Create dataframe</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">raw_data</span> <span class="o">=</span> <span class="p">{</span><span class="sa"></span><span class="s1">&#39;patient&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> 
-        <span class="sa"></span><span class="s1">&#39;obs&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> 
-        <span class="sa"></span><span class="s1">&#39;treatment&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-        <span class="sa"></span><span class="s1">&#39;score&#39;</span><span class="p">:</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;strong&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;weak&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;normal&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;weak&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;strong&#39;</span><span class="p">]}</span> 
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;patient&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;obs&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;treatment&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;score&#39;</span><span class="p">])</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">raw_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;patient&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> 
+        <span class="s1">&#39;obs&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> 
+        <span class="s1">&#39;treatment&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="s1">&#39;score&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;strong&#39;</span><span class="p">,</span> <span class="s1">&#39;weak&#39;</span><span class="p">,</span> <span class="s1">&#39;normal&#39;</span><span class="p">,</span> <span class="s1">&#39;weak&#39;</span><span class="p">,</span> <span class="s1">&#39;strong&#39;</span><span class="p">]}</span> 
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;patient&#39;</span><span class="p">,</span> <span class="s1">&#39;obs&#39;</span><span class="p">,</span> <span class="s1">&#39;treatment&#39;</span><span class="p">,</span> <span class="s1">&#39;score&#39;</span><span class="p">])</span>
 <span class="n">df</span></code></pre></div>
 <div>
 <table border="1" class="dataframe">
@@ -227,14 +229,14 @@ MathJax.Hub.Config({
 
 <h3 id="create-a-function-that-converts-all-values-of-df-score-into-numbers">Create a function that converts all values of <code>df['score']</code> into numbers</h3>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">score_to_numeric</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">x</span><span class="o">==</span><span class="sa"></span><span class="s1">&#39;strong&#39;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">x</span><span class="o">==</span><span class="s1">&#39;strong&#39;</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">3</span>
-    <span class="k">if</span> <span class="n">x</span><span class="o">==</span><span class="sa"></span><span class="s1">&#39;normal&#39;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">x</span><span class="o">==</span><span class="s1">&#39;normal&#39;</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">2</span>
-    <span class="k">if</span> <span class="n">x</span><span class="o">==</span><span class="sa"></span><span class="s1">&#39;weak&#39;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">x</span><span class="o">==</span><span class="s1">&#39;weak&#39;</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">1</span></code></pre></div>
 <h3 id="apply-the-function-to-the-score-variable">Apply the function to the score variable</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;score_num&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;score&#39;</span><span class="p">]</span><span class="o">.</span><span class="nb">apply</span><span class="p">(</span><span class="n">score_to_numeric</span><span class="p">)</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="p">[</span><span class="s1">&#39;score_num&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">]</span><span class="o">.</span><span class="nb">apply</span><span class="p">(</span><span class="n">score_to_numeric</span><span class="p">)</span>
 <span class="n">df</span></code></pre></div>
 <div>
 <table border="1" class="dataframe">
@@ -316,7 +318,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted">This project contains 577 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
+            <span class="text-muted">This project contains 583 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
         </div>
     </footer>
 

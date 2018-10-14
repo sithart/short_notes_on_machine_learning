@@ -37,9 +37,10 @@
 
 
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Ranking Rows Of Pandas Dataframes"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Ranking Rows Of Pandas Dataframes"/>
 <meta name="twitter:description" content="Ranking rows of randas dataframes."/>
-<meta name="generator" content="Hugo 0.31.1" /> 
+<meta name="generator" content="Hugo 0.40.1" /> 
     
     
 <script type="application/ld+json">
@@ -119,7 +120,8 @@ MathJax.Hub.Config({
                             <a class="dropdown-item" href="https://chrisalbon.com/#linux">Command Line</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#regex">Regular Expressions</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#mathematics">Mathematics</a>
-                            <a class="dropdown-item" href="https://chrisalbon.com/#software_engineer">Software Engineering</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#aws">AWS</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#computer_science">Computer Science</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -165,11 +167,11 @@ MathJax.Hub.Config({
   <div class="content">
   <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># import modules</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create dataframe</span>
-<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="sa"></span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;Jason&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Molly&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Tina&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Jake&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Amy&#39;</span><span class="p">],</span> 
-        <span class="sa"></span><span class="s1">&#39;year&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2012</span><span class="p">,</span> <span class="mi">2012</span><span class="p">,</span> <span class="mi">2013</span><span class="p">,</span> <span class="mi">2014</span><span class="p">,</span> <span class="mi">2014</span><span class="p">],</span> 
-        <span class="sa"></span><span class="s1">&#39;reports&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
-        <span class="sa"></span><span class="s1">&#39;coverage&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">94</span><span class="p">,</span> <span class="mi">57</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">70</span><span class="p">]}</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;Cochice&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Pima&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Santa Cruz&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Maricopa&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Yuma&#39;</span><span class="p">])</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Jason&#39;</span><span class="p">,</span> <span class="s1">&#39;Molly&#39;</span><span class="p">,</span> <span class="s1">&#39;Tina&#39;</span><span class="p">,</span> <span class="s1">&#39;Jake&#39;</span><span class="p">,</span> <span class="s1">&#39;Amy&#39;</span><span class="p">],</span> 
+        <span class="s1">&#39;year&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2012</span><span class="p">,</span> <span class="mi">2012</span><span class="p">,</span> <span class="mi">2013</span><span class="p">,</span> <span class="mi">2014</span><span class="p">,</span> <span class="mi">2014</span><span class="p">],</span> 
+        <span class="s1">&#39;reports&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+        <span class="s1">&#39;coverage&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">94</span><span class="p">,</span> <span class="mi">57</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">70</span><span class="p">]}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Cochice&#39;</span><span class="p">,</span> <span class="s1">&#39;Pima&#39;</span><span class="p">,</span> <span class="s1">&#39;Santa Cruz&#39;</span><span class="p">,</span> <span class="s1">&#39;Maricopa&#39;</span><span class="p">,</span> <span class="s1">&#39;Yuma&#39;</span><span class="p">])</span>
 <span class="n">df</span></code></pre></div>
 <div style="max-height:1000px;max-width:1500px;overflow:auto;">
 <table border="1" class="dataframe">
@@ -223,7 +225,7 @@ MathJax.Hub.Config({
 <p>5 rows × 4 columns</p>
 </div>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a new column that is the rank of the value of coverage in ascending order</span>
-<span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;coverageRanked&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;coverage&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rank</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;coverageRanked&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;coverage&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rank</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">df</span></code></pre></div>
 <div style="max-height:1000px;max-width:1500px;overflow:auto;">
 <table border="1" class="dataframe">
@@ -306,7 +308,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted">This project contains 577 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
+            <span class="text-muted">This project contains 583 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
         </div>
     </footer>
 

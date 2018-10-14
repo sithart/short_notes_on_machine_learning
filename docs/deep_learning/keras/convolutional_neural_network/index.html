@@ -37,9 +37,10 @@
 
 
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Convolutional Neural Network"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Convolutional Neural Network"/>
 <meta name="twitter:description" content="How to train a deep convolutional neural network with Keras in Python."/>
-<meta name="generator" content="Hugo 0.31.1" /> 
+<meta name="generator" content="Hugo 0.40.1" /> 
     
     
 <script type="application/ld+json">
@@ -119,7 +120,8 @@ MathJax.Hub.Config({
                             <a class="dropdown-item" href="https://chrisalbon.com/#linux">Command Line</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#regex">Regular Expressions</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#mathematics">Mathematics</a>
-                            <a class="dropdown-item" href="https://chrisalbon.com/#software_engineer">Software Engineering</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#aws">AWS</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#computer_science">Computer Science</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -175,7 +177,7 @@ MathJax.Hub.Config({
 <span class="kn">from</span> <span class="nn">keras</span> <span class="kn">import</span> <span class="n">backend</span> <span class="k">as</span> <span class="n">K</span> 
 
 <span class="c1"># Set that the color channel value will be first</span>
-<span class="n">K</span><span class="o">.</span><span class="n">set_image_data_format</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;channels_first&#39;</span><span class="p">)</span>
+<span class="n">K</span><span class="o">.</span><span class="n">set_image_data_format</span><span class="p">(</span><span class="s1">&#39;channels_first&#39;</span><span class="p">)</span>
 
 <span class="c1"># Set seed</span>
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span></code></pre></div>
@@ -216,7 +218,7 @@ MathJax.Hub.Config({
 <span class="n">network</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
 
 <span class="c1"># Add convolutional layer with 64 filters, a 5x5 window, and ReLU activation function</span>
-<span class="n">network</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Conv2D</span><span class="p">(</span><span class="n">filters</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">channels</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+<span class="n">network</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Conv2D</span><span class="p">(</span><span class="n">filters</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">channels</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
 
 <span class="c1"># Add max pooling layer with a 2x2 window</span>
 <span class="n">network</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">MaxPooling2D</span><span class="p">(</span><span class="n">pool_size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)))</span>
@@ -228,18 +230,18 @@ MathJax.Hub.Config({
 <span class="n">network</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Flatten</span><span class="p">())</span>
 
 <span class="c1"># # Add fully connected layer of 128 units with a ReLU activation function</span>
-<span class="n">network</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+<span class="n">network</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
 
 <span class="c1"># Add dropout layer</span>
 <span class="n">network</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.5</span><span class="p">))</span>
 
 <span class="c1"># Add fully connected layer with a softmax activation function</span>
-<span class="n">network</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="n">number_of_classes</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;softmax&#39;</span><span class="p">))</span></code></pre></div>
+<span class="n">network</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="n">number_of_classes</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;softmax&#39;</span><span class="p">))</span></code></pre></div>
 <h2 id="compile-convolutional-neural-network">Compile Convolutional Neural Network</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Compile neural network</span>
-<span class="n">network</span><span class="o">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;categorical_crossentropy&#39;</span><span class="p">,</span> <span class="c1"># Cross-entropy</span>
-                <span class="n">optimizer</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;rmsprop&#39;</span><span class="p">,</span> <span class="c1"># Root Mean Square Propagation</span>
-                <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span> <span class="c1"># Accuracy performance metric</span></code></pre></div>
+<span class="n">network</span><span class="o">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;categorical_crossentropy&#39;</span><span class="p">,</span> <span class="c1"># Cross-entropy</span>
+                <span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;rmsprop&#39;</span><span class="p">,</span> <span class="c1"># Root Mean Square Propagation</span>
+                <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span> <span class="c1"># Accuracy performance metric</span></code></pre></div>
 <h2 id="train-convolutional-neural-network">Train Convolutional Neural Network</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Train neural network</span>
 <span class="n">network</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_features</span><span class="p">,</span> <span class="c1"># Features</span>
@@ -274,7 +276,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted">This project contains 577 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
+            <span class="text-muted">This project contains 583 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
         </div>
     </footer>
 

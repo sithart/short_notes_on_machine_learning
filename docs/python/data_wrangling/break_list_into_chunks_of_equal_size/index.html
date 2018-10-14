@@ -37,9 +37,10 @@
 
 
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Break A List Into N-Sized Chunks"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Break A List Into N-Sized Chunks"/>
 <meta name="twitter:description" content="Break a list into n-sized chunks."/>
-<meta name="generator" content="Hugo 0.31.1" /> 
+<meta name="generator" content="Hugo 0.40.1" /> 
     
     
 <script type="application/ld+json">
@@ -119,7 +120,8 @@ MathJax.Hub.Config({
                             <a class="dropdown-item" href="https://chrisalbon.com/#linux">Command Line</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#regex">Regular Expressions</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#mathematics">Mathematics</a>
-                            <a class="dropdown-item" href="https://chrisalbon.com/#software_engineer">Software Engineering</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#aws">AWS</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#computer_science">Computer Science</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -167,7 +169,7 @@ MathJax.Hub.Config({
 
 <p>Credit for this nifty function goes to Ned Batchelder who <a href="http://stackoverflow.com/questions/312443/how-do-you-split-a-list-into-evenly-sized-chunks-in-python">posted it on StackOverflow</a>.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a list of first names</span>
-<span class="n">first_names</span> <span class="o">=</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;Steve&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Jane&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Sara&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Mary&#39;</span><span class="p">,</span><span class="sa"></span><span class="s1">&#39;Jack&#39;</span><span class="p">,</span><span class="sa"></span><span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Bily&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Boni&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Chris&#39;</span><span class="p">,</span><span class="sa"></span><span class="s1">&#39;Sori&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Will&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Won&#39;</span><span class="p">,</span><span class="sa"></span><span class="s1">&#39;Li&#39;</span><span class="p">]</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a function called &#34;chunks&#34; with two arguments, l and n:</span>
+<span class="n">first_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Steve&#39;</span><span class="p">,</span> <span class="s1">&#39;Jane&#39;</span><span class="p">,</span> <span class="s1">&#39;Sara&#39;</span><span class="p">,</span> <span class="s1">&#39;Mary&#39;</span><span class="p">,</span><span class="s1">&#39;Jack&#39;</span><span class="p">,</span><span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;Bily&#39;</span><span class="p">,</span> <span class="s1">&#39;Boni&#39;</span><span class="p">,</span> <span class="s1">&#39;Chris&#39;</span><span class="p">,</span><span class="s1">&#39;Sori&#39;</span><span class="p">,</span> <span class="s1">&#39;Will&#39;</span><span class="p">,</span> <span class="s1">&#39;Won&#39;</span><span class="p">,</span><span class="s1">&#39;Li&#39;</span><span class="p">]</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a function called &#34;chunks&#34; with two arguments, l and n:</span>
 <span class="k">def</span> <span class="nf">chunks</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
     <span class="c1"># For item i in a range that is a length of l,</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">),</span> <span class="n">n</span><span class="p">):</span>
@@ -202,7 +204,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted">This project contains 577 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
+            <span class="text-muted">This project contains 583 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
         </div>
     </footer>
 

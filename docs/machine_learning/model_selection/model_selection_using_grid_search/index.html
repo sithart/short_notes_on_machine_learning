@@ -37,9 +37,10 @@
 
 
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Model Selection Using Grid Search"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Model Selection Using Grid Search"/>
 <meta name="twitter:description" content="How to conduct grid search for model selection in scikit-learn for machine learning in Python."/>
-<meta name="generator" content="Hugo 0.31.1" /> 
+<meta name="generator" content="Hugo 0.40.1" /> 
     
     
 <script type="application/ld+json">
@@ -119,7 +120,8 @@ MathJax.Hub.Config({
                             <a class="dropdown-item" href="https://chrisalbon.com/#linux">Command Line</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#regex">Regular Expressions</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#mathematics">Mathematics</a>
-                            <a class="dropdown-item" href="https://chrisalbon.com/#software_engineer">Software Engineering</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#aws">AWS</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#computer_science">Computer Science</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -189,15 +191,15 @@ MathJax.Hub.Config({
 
 <p>Notice that we include both multiple possible learning algorithms <em>and</em> multiple possible hyperparameter values to search over.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a pipeline</span>
-<span class="n">pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="sa"></span><span class="s1">&#39;classifier&#39;</span><span class="p">,</span> <span class="n">RandomForestClassifier</span><span class="p">())])</span>
+<span class="n">pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;classifier&#39;</span><span class="p">,</span> <span class="n">RandomForestClassifier</span><span class="p">())])</span>
 
 <span class="c1"># Create space of candidate learning algorithms and their hyperparameters</span>
-<span class="n">search_space</span> <span class="o">=</span> <span class="p">[{</span><span class="sa"></span><span class="s1">&#39;classifier&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">LogisticRegression</span><span class="p">()],</span>
-                 <span class="sa"></span><span class="s1">&#39;classifier__penalty&#39;</span><span class="p">:</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;l1&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;l2&#39;</span><span class="p">],</span>
-                 <span class="sa"></span><span class="s1">&#39;classifier__C&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">)},</span>
-                <span class="p">{</span><span class="sa"></span><span class="s1">&#39;classifier&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">RandomForestClassifier</span><span class="p">()],</span>
-                 <span class="sa"></span><span class="s1">&#39;classifier__n_estimators&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">],</span>
-                 <span class="sa"></span><span class="s1">&#39;classifier__max_features&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]}]</span></code></pre></div>
+<span class="n">search_space</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;classifier&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">LogisticRegression</span><span class="p">()],</span>
+                 <span class="s1">&#39;classifier__penalty&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;l1&#39;</span><span class="p">,</span> <span class="s1">&#39;l2&#39;</span><span class="p">],</span>
+                 <span class="s1">&#39;classifier__C&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">)},</span>
+                <span class="p">{</span><span class="s1">&#39;classifier&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">RandomForestClassifier</span><span class="p">()],</span>
+                 <span class="s1">&#39;classifier__n_estimators&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">],</span>
+                 <span class="s1">&#39;classifier__max_features&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]}]</span></code></pre></div>
 <h2 id="create-model-selection-using-grid-search">Create Model Selection Using Grid Search</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create grid search </span>
 <span class="n">clf</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">pipe</span><span class="p">,</span> <span class="n">search_space</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span></code></pre></div>
@@ -206,7 +208,7 @@ MathJax.Hub.Config({
 <span class="n">best_model</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span></code></pre></div>
 <h2 id="view-best-model-and-its-best-hyperparameters">View Best Model And Its Best Hyperparameters</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># View best model</span>
-<span class="n">best_model</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">get_params</span><span class="p">()[</span><span class="sa"></span><span class="s1">&#39;classifier&#39;</span><span class="p">]</span></code></pre></div>
+<span class="n">best_model</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">get_params</span><span class="p">()[</span><span class="s1">&#39;classifier&#39;</span><span class="p">]</span></code></pre></div>
 <pre><code>LogisticRegression(C=7.7426368268112693, class_weight=None, dual=False,
           fit_intercept=True, intercept_scaling=1, max_iter=100,
           multi_class='ovr', n_jobs=1, penalty='l1', random_state=None,
@@ -248,7 +250,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted">This project contains 577 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
+            <span class="text-muted">This project contains 583 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
         </div>
     </footer>
 

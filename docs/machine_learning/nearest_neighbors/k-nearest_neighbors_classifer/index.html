@@ -37,9 +37,10 @@
 
 
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="K-Nearest Neighbors Classification"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="K-Nearest Neighbors Classification"/>
 <meta name="twitter:description" content="A quick guide to using k-nearest neighbor using numpy and scikit."/>
-<meta name="generator" content="Hugo 0.31.1" /> 
+<meta name="generator" content="Hugo 0.40.1" /> 
     
     
 <script type="application/ld+json">
@@ -119,7 +120,8 @@ MathJax.Hub.Config({
                             <a class="dropdown-item" href="https://chrisalbon.com/#linux">Command Line</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#regex">Regular Expressions</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#mathematics">Mathematics</a>
-                            <a class="dropdown-item" href="https://chrisalbon.com/#software_engineer">Software Engineering</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#aws">AWS</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#computer_science">Computer Science</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -188,9 +190,9 @@ MathJax.Hub.Config({
 <p>Here we create three variables, <code>test_1</code> and <code>test_2</code> are our independent variables, &lsquo;outcome&rsquo; is our dependent variable. We will use this data to train our learner.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">training_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
 
-<span class="n">training_data</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;test_1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.3051</span><span class="p">,</span><span class="mf">0.4949</span><span class="p">,</span><span class="mf">0.6974</span><span class="p">,</span><span class="mf">0.3769</span><span class="p">,</span><span class="mf">0.2231</span><span class="p">,</span><span class="mf">0.341</span><span class="p">,</span><span class="mf">0.4436</span><span class="p">,</span><span class="mf">0.5897</span><span class="p">,</span><span class="mf">0.6308</span><span class="p">,</span><span class="mf">0.5</span><span class="p">]</span>
-<span class="n">training_data</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;test_2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.5846</span><span class="p">,</span><span class="mf">0.2654</span><span class="p">,</span><span class="mf">0.2615</span><span class="p">,</span><span class="mf">0.4538</span><span class="p">,</span><span class="mf">0.4615</span><span class="p">,</span><span class="mf">0.8308</span><span class="p">,</span><span class="mf">0.4962</span><span class="p">,</span><span class="mf">0.3269</span><span class="p">,</span><span class="mf">0.5346</span><span class="p">,</span><span class="mf">0.6731</span><span class="p">]</span>
-<span class="n">training_data</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;outcome&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;win&#39;</span><span class="p">,</span><span class="sa"></span><span class="s1">&#39;win&#39;</span><span class="p">,</span><span class="sa"></span><span class="s1">&#39;win&#39;</span><span class="p">,</span><span class="sa"></span><span class="s1">&#39;win&#39;</span><span class="p">,</span><span class="sa"></span><span class="s1">&#39;win&#39;</span><span class="p">,</span><span class="sa"></span><span class="s1">&#39;loss&#39;</span><span class="p">,</span><span class="sa"></span><span class="s1">&#39;loss&#39;</span><span class="p">,</span><span class="sa"></span><span class="s1">&#39;loss&#39;</span><span class="p">,</span><span class="sa"></span><span class="s1">&#39;loss&#39;</span><span class="p">,</span><span class="sa"></span><span class="s1">&#39;loss&#39;</span><span class="p">]</span>
+<span class="n">training_data</span><span class="p">[</span><span class="s1">&#39;test_1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.3051</span><span class="p">,</span><span class="mf">0.4949</span><span class="p">,</span><span class="mf">0.6974</span><span class="p">,</span><span class="mf">0.3769</span><span class="p">,</span><span class="mf">0.2231</span><span class="p">,</span><span class="mf">0.341</span><span class="p">,</span><span class="mf">0.4436</span><span class="p">,</span><span class="mf">0.5897</span><span class="p">,</span><span class="mf">0.6308</span><span class="p">,</span><span class="mf">0.5</span><span class="p">]</span>
+<span class="n">training_data</span><span class="p">[</span><span class="s1">&#39;test_2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.5846</span><span class="p">,</span><span class="mf">0.2654</span><span class="p">,</span><span class="mf">0.2615</span><span class="p">,</span><span class="mf">0.4538</span><span class="p">,</span><span class="mf">0.4615</span><span class="p">,</span><span class="mf">0.8308</span><span class="p">,</span><span class="mf">0.4962</span><span class="p">,</span><span class="mf">0.3269</span><span class="p">,</span><span class="mf">0.5346</span><span class="p">,</span><span class="mf">0.6731</span><span class="p">]</span>
+<span class="n">training_data</span><span class="p">[</span><span class="s1">&#39;outcome&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;win&#39;</span><span class="p">,</span><span class="s1">&#39;win&#39;</span><span class="p">,</span><span class="s1">&#39;win&#39;</span><span class="p">,</span><span class="s1">&#39;win&#39;</span><span class="p">,</span><span class="s1">&#39;win&#39;</span><span class="p">,</span><span class="s1">&#39;loss&#39;</span><span class="p">,</span><span class="s1">&#39;loss&#39;</span><span class="p">,</span><span class="s1">&#39;loss&#39;</span><span class="p">,</span><span class="s1">&#39;loss&#39;</span><span class="p">,</span><span class="s1">&#39;loss&#39;</span><span class="p">]</span>
 
 <span class="n">training_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span></code></pre></div>
 <div>
@@ -254,7 +256,7 @@ MathJax.Hub.Config({
 <h2 id="plot-the-data">Plot the data</h2>
 
 <p>This is not necessary, but because we only have three variables, we can plot the training dataset. The X and Y axes are the independent variables, while the colors of the points are their classes.</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">seaborn</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;test_1&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;test_2&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">training_data</span><span class="p">,</span> <span class="n">fit_reg</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="n">hue</span><span class="o">=</span><span class="sa"></span><span class="s2">&#34;outcome&#34;</span><span class="p">,</span> <span class="n">scatter_kws</span><span class="o">=</span><span class="p">{</span><span class="sa"></span><span class="s2">&#34;marker&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;D&#34;</span><span class="p">,</span><span class="sa"></span><span class="s2">&#34;s&#34;</span><span class="p">:</span> <span class="mi">100</span><span class="p">})</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">seaborn</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="s1">&#39;test_1&#39;</span><span class="p">,</span> <span class="s1">&#39;test_2&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">training_data</span><span class="p">,</span> <span class="n">fit_reg</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="n">hue</span><span class="o">=</span><span class="s2">&#34;outcome&#34;</span><span class="p">,</span> <span class="n">scatter_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;marker&#34;</span><span class="p">:</span> <span class="s2">&#34;D&#34;</span><span class="p">,</span><span class="s2">&#34;s&#34;</span><span class="p">:</span> <span class="mi">100</span><span class="p">})</span></code></pre></div>
 <pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x11008aeb8&gt;
 </code></pre>
 
@@ -263,12 +265,12 @@ MathJax.Hub.Config({
 <h2 id="convert-data-into-np-arrays">Convert Data Into np.arrays</h2>
 
 <p>The <code>scikit-learn</code> library requires the data be formatted as a <code>numpy</code> array. Here are doing that reformatting.</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">X</span> <span class="o">=</span> <span class="n">training_data</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;test_1&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;test_2&#39;</span><span class="p">])</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">training_data</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;outcome&#39;</span><span class="p">])</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">X</span> <span class="o">=</span> <span class="n">training_data</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;test_1&#39;</span><span class="p">,</span> <span class="s1">&#39;test_2&#39;</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">training_data</span><span class="p">[</span><span class="s1">&#39;outcome&#39;</span><span class="p">])</span></code></pre></div>
 <h2 id="train-the-learner">Train The Learner</h2>
 
 <p>This is our big moment. We train a KNN learner using the parameters that an observation&rsquo;s neighborhood is its three closest neighors. <code>weights = 'uniform'</code> can be thought of as the voting system used. For example, <code>uniform</code> means that all neighbors get an equally weighted &ldquo;vote&rdquo; about an observation&rsquo;s class while <code>weights = 'distance'</code> would tell the learner to weigh each observation&rsquo;s &ldquo;vote&rdquo; by its distance from the observation we are classifying.</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">clf</span> <span class="o">=</span> <span class="n">neighbors</span><span class="o">.</span><span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">weights</span> <span class="o">=</span> <span class="sa"></span><span class="s1">&#39;uniform&#39;</span><span class="p">)</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">clf</span> <span class="o">=</span> <span class="n">neighbors</span><span class="o">.</span><span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">weights</span> <span class="o">=</span> <span class="s1">&#39;uniform&#39;</span><span class="p">)</span>
 <span class="n">trained_model</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span></code></pre></div>
 <h2 id="view-the-model-s-score">View The Model&rsquo;s Score</h2>
 
@@ -331,7 +333,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted">This project contains 577 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
+            <span class="text-muted">This project contains 583 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
         </div>
     </footer>
 

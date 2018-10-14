@@ -37,9 +37,10 @@
 
 
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Handling Time Zones"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Handling Time Zones"/>
 <meta name="twitter:description" content="How to handle timezones for machine learning in Python."/>
-<meta name="generator" content="Hugo 0.31.1" /> 
+<meta name="generator" content="Hugo 0.40.1" /> 
     
     
 <script type="application/ld+json">
@@ -119,7 +120,8 @@ MathJax.Hub.Config({
                             <a class="dropdown-item" href="https://chrisalbon.com/#linux">Command Line</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#regex">Regular Expressions</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#mathematics">Mathematics</a>
-                            <a class="dropdown-item" href="https://chrisalbon.com/#software_engineer">Software Engineering</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#aws">AWS</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#computer_science">Computer Science</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -186,19 +188,19 @@ MathJax.Hub.Config({
 
 <h2 id="create-timestamp-with-time-zone">Create Timestamp With Time Zone</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create datetime</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;2017-05-01 06:00:00&#39;</span><span class="p">,</span> <span class="n">tz</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;Europe/London&#39;</span><span class="p">)</span></code></pre></div>
+<span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;2017-05-01 06:00:00&#39;</span><span class="p">,</span> <span class="n">tz</span><span class="o">=</span><span class="s1">&#39;Europe/London&#39;</span><span class="p">)</span></code></pre></div>
 <pre><code>Timestamp('2017-05-01 06:00:00+0100', tz='Europe/London')
 </code></pre>
 
 <h2 id="create-timestamp-without-time-zone">Create Timestamp Without Time Zone</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create datetime</span>
-<span class="n">date</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;2017-05-01 06:00:00&#39;</span><span class="p">)</span></code></pre></div>
+<span class="n">date</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;2017-05-01 06:00:00&#39;</span><span class="p">)</span></code></pre></div>
 <h2 id="add-time-zone">Add Time Zone</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Set time zone</span>
-<span class="n">date_in_london</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">tz_localize</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;Europe/London&#39;</span><span class="p">)</span></code></pre></div>
+<span class="n">date_in_london</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">tz_localize</span><span class="p">(</span><span class="s1">&#39;Europe/London&#39;</span><span class="p">)</span></code></pre></div>
 <h2 id="convert-time-zone">Convert Time Zone</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Change time zone</span>
-<span class="n">date_in_london</span><span class="o">.</span><span class="n">tz_convert</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;Africa/Abidjan&#39;</span><span class="p">)</span></code></pre></div>
+<span class="n">date_in_london</span><span class="o">.</span><span class="n">tz_convert</span><span class="p">(</span><span class="s1">&#39;Africa/Abidjan&#39;</span><span class="p">)</span></code></pre></div>
 <pre><code>Timestamp('2017-05-01 05:00:00+0000', tz='Africa/Abidjan')
 </code></pre>
 
@@ -225,7 +227,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted">This project contains 577 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
+            <span class="text-muted">This project contains 583 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
         </div>
     </footer>
 

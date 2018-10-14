@@ -37,9 +37,10 @@
 
 
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Saving Machine Learning Models"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Saving Machine Learning Models"/>
 <meta name="twitter:description" content="Saving Machine Learning Models from scikit learn. "/>
-<meta name="generator" content="Hugo 0.31.1" /> 
+<meta name="generator" content="Hugo 0.40.1" /> 
     
     
 <script type="application/ld+json">
@@ -119,7 +120,8 @@ MathJax.Hub.Config({
                             <a class="dropdown-item" href="https://chrisalbon.com/#linux">Command Line</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#regex">Regular Expressions</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#mathematics">Mathematics</a>
-                            <a class="dropdown-item" href="https://chrisalbon.com/#software_engineer">Software Engineering</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#aws">AWS</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#computer_science">Computer Science</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -210,7 +212,7 @@ MathJax.Hub.Config({
 
 <h2 id="save-to-pickled-file-using-joblib">Save To Pickled File Using joblib</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Save the model as a pickle in a file</span>
-<span class="n">joblib</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;filename.pkl&#39;</span><span class="p">)</span> </code></pre></div>
+<span class="n">joblib</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="s1">&#39;filename.pkl&#39;</span><span class="p">)</span> </code></pre></div>
 <pre><code>['filename.pkl',
  'filename.pkl_01.npy',
  'filename.pkl_02.npy',
@@ -218,7 +220,7 @@ MathJax.Hub.Config({
  'filename.pkl_04.npy']
 </code></pre>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Load the model from the file</span>
-<span class="n">clf_from_joblib</span> <span class="o">=</span> <span class="n">joblib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;filename.pkl&#39;</span><span class="p">)</span> </code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Use the loaded model to make predictions</span>
+<span class="n">clf_from_joblib</span> <span class="o">=</span> <span class="n">joblib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;filename.pkl&#39;</span><span class="p">)</span> </code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Use the loaded model to make predictions</span>
 <span class="n">clf_from_joblib</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span></code></pre></div>
 <pre><code>array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -252,7 +254,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted">This project contains 577 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
+            <span class="text-muted">This project contains 583 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
         </div>
     </footer>
 

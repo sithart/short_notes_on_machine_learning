@@ -37,9 +37,10 @@
 
 
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Find Best Preprocessing Steps During Model Selection"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Find Best Preprocessing Steps During Model Selection"/>
 <meta name="twitter:description" content="How to conduct preprocessing during model selection in scikit-learn for machine learning in Python."/>
-<meta name="generator" content="Hugo 0.31.1" /> 
+<meta name="generator" content="Hugo 0.40.1" /> 
     
     
 <script type="application/ld+json">
@@ -119,7 +120,8 @@ MathJax.Hub.Config({
                             <a class="dropdown-item" href="https://chrisalbon.com/#linux">Command Line</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#regex">Regular Expressions</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#mathematics">Mathematics</a>
-                            <a class="dropdown-item" href="https://chrisalbon.com/#software_engineer">Software Engineering</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#aws">AWS</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#computer_science">Computer Science</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -191,15 +193,15 @@ MathJax.Hub.Config({
 
 <p>We are include two different preprocessing steps: principal component analysis and a k-best feature selection.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a combined preprocessing object</span>
-<span class="n">preprocess</span> <span class="o">=</span> <span class="n">FeatureUnion</span><span class="p">([(</span><span class="sa"></span><span class="s1">&#39;pca&#39;</span><span class="p">,</span> <span class="n">PCA</span><span class="p">()),</span> <span class="p">(</span><span class="sa"></span><span class="s2">&#34;kbest&#34;</span><span class="p">,</span> <span class="n">SelectKBest</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">))])</span></code></pre></div>
+<span class="n">preprocess</span> <span class="o">=</span> <span class="n">FeatureUnion</span><span class="p">([(</span><span class="s1">&#39;pca&#39;</span><span class="p">,</span> <span class="n">PCA</span><span class="p">()),</span> <span class="p">(</span><span class="s2">&#34;kbest&#34;</span><span class="p">,</span> <span class="n">SelectKBest</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">))])</span></code></pre></div>
 <h2 id="create-pipeline">Create Pipeline</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a pipeline</span>
-<span class="n">pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="sa"></span><span class="s1">&#39;preprocess&#39;</span><span class="p">,</span> <span class="n">preprocess</span><span class="p">),</span> <span class="p">(</span><span class="sa"></span><span class="s1">&#39;classifier&#39;</span><span class="p">,</span> <span class="n">LogisticRegression</span><span class="p">())])</span></code></pre></div>
+<span class="n">pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;preprocess&#39;</span><span class="p">,</span> <span class="n">preprocess</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;classifier&#39;</span><span class="p">,</span> <span class="n">LogisticRegression</span><span class="p">())])</span></code></pre></div>
 <h2 id="create-search-space-of-hyperparameter-values">Create Search Space Of Hyperparameter Values</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create space of candidate values</span>
-<span class="n">search_space</span> <span class="o">=</span> <span class="p">[{</span><span class="sa"></span><span class="s1">&#39;preprocess__pca__n_components&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
-                 <span class="sa"></span><span class="s1">&#39;classifier__penalty&#39;</span><span class="p">:</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;l1&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;l2&#39;</span><span class="p">],</span>
-                 <span class="sa"></span><span class="s1">&#39;classifier__C&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">)}]</span></code></pre></div>
+<span class="n">search_space</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;preprocess__pca__n_components&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+                 <span class="s1">&#39;classifier__penalty&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;l1&#39;</span><span class="p">,</span> <span class="s1">&#39;l2&#39;</span><span class="p">],</span>
+                 <span class="s1">&#39;classifier__C&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">)}]</span></code></pre></div>
 <h2 id="create-grid-search">Create Grid Search</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create grid search </span>
 <span class="n">clf</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">pipe</span><span class="p">,</span> <span class="n">search_space</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span></code></pre></div>
@@ -208,9 +210,9 @@ MathJax.Hub.Config({
 <span class="n">best_model</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span></code></pre></div>
 <h2 id="view-best-model-s-hyperparamters">View Best Model&rsquo;s Hyperparamters</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># View best hyperparameters</span>
-<span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;Best Number Of Princpal Components:&#39;</span><span class="p">,</span> <span class="n">best_model</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">get_params</span><span class="p">()[</span><span class="sa"></span><span class="s1">&#39;preprocess__pca__n_components&#39;</span><span class="p">])</span>
-<span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;Best Penalty:&#39;</span><span class="p">,</span> <span class="n">best_model</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">get_params</span><span class="p">()[</span><span class="sa"></span><span class="s1">&#39;classifier__penalty&#39;</span><span class="p">])</span>
-<span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;Best C:&#39;</span><span class="p">,</span> <span class="n">best_model</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">get_params</span><span class="p">()[</span><span class="sa"></span><span class="s1">&#39;classifier__C&#39;</span><span class="p">])</span></code></pre></div>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Best Number Of Princpal Components:&#39;</span><span class="p">,</span> <span class="n">best_model</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">get_params</span><span class="p">()[</span><span class="s1">&#39;preprocess__pca__n_components&#39;</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Best Penalty:&#39;</span><span class="p">,</span> <span class="n">best_model</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">get_params</span><span class="p">()[</span><span class="s1">&#39;classifier__penalty&#39;</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Best C:&#39;</span><span class="p">,</span> <span class="n">best_model</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">get_params</span><span class="p">()[</span><span class="s1">&#39;classifier__C&#39;</span><span class="p">])</span></code></pre></div>
 <pre><code>Best Number Of Princpal Components: 3
 Best Penalty: l1
 Best C: 59.9484250319
@@ -239,7 +241,7 @@ Best C: 59.9484250319
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted">This project contains 577 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
+            <span class="text-muted">This project contains 583 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
         </div>
     </footer>
 

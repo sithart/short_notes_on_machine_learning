@@ -37,9 +37,10 @@
 
 
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="String Operations"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="String Operations"/>
 <meta name="twitter:description" content="String operations using Python."/>
-<meta name="generator" content="Hugo 0.31.1" /> 
+<meta name="generator" content="Hugo 0.40.1" /> 
     
     
 <script type="application/ld+json">
@@ -119,7 +120,8 @@ MathJax.Hub.Config({
                             <a class="dropdown-item" href="https://chrisalbon.com/#linux">Command Line</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#regex">Regular Expressions</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#mathematics">Mathematics</a>
-                            <a class="dropdown-item" href="https://chrisalbon.com/#software_engineer">Software Engineering</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#aws">AWS</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#computer_science">Computer Science</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -174,7 +176,7 @@ MathJax.Hub.Config({
 </ul>
 
 <h3 id="create-some-simulated-text">Create some simulated text.</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">string</span> <span class="o">=</span> <span class="sa"></span><span class="s1">&#39;The quick brown fox jumped over the lazy brown bear.&#39;</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">string</span> <span class="o">=</span> <span class="s1">&#39;The quick brown fox jumped over the lazy brown bear.&#39;</span></code></pre></div>
 <h3 id="capitalize-the-first-letter">Capitalize the first letter.</h3>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">string_capitalized</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
 <span class="n">string_capitalized</span></code></pre></div>
@@ -182,19 +184,19 @@ MathJax.Hub.Config({
 </code></pre>
 
 <h3 id="center-the-string-with-periods-on-either-side-for-a-total-of-79-characters">Center the string with periods on either side, for a total of 79 characters</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">string_centered</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">79</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">string_centered</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">79</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">)</span>
 <span class="n">string_centered</span></code></pre></div>
 <pre><code>'..............The quick brown fox jumped over the lazy brown bear..............'
 </code></pre>
 
 <h3 id="count-the-number-of-e-s-between-the-fifth-and-last-character">Count the number of e&rsquo;s between the fifth and last character</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">string_counted</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">string</span><span class="p">))</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">string_counted</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">string</span><span class="p">))</span>
 <span class="n">string_counted</span></code></pre></div>
 <pre><code>4
 </code></pre>
 
 <h3 id="locate-any-e-s-between-the-fifth-and-last-character">Locate any e&rsquo;s between the fifth and last character</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">string_find</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">string</span><span class="p">))</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">string_find</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">string</span><span class="p">))</span>
 <span class="n">string_find</span></code></pre></div>
 <pre><code>24
 </code></pre>
@@ -289,7 +291,7 @@ MathJax.Hub.Config({
 </code></pre>
 
 <h3 id="replace-lower-case-e-s-with-upper-case-e-s-to-a-maximum-of-4">Replace lower case e&rsquo;s with upper case E&rsquo;s, to a maximum of 4</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">string_replace</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">string_replace</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 <span class="n">string_replace</span></code></pre></div>
 <pre><code>'ThE quick brown fox jumpEd ovEr thE lazy brown bear.'
 </code></pre>
@@ -317,7 +319,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted">This project contains 577 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
+            <span class="text-muted">This project contains 583 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
         </div>
     </footer>
 

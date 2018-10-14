@@ -37,9 +37,10 @@
 
 
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Recursive Feature Elimination"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Recursive Feature Elimination"/>
 <meta name="twitter:description" content="How to do recursive feature elimination for machine learning in Python."/>
-<meta name="generator" content="Hugo 0.31.1" /> 
+<meta name="generator" content="Hugo 0.40.1" /> 
     
     
 <script type="application/ld+json">
@@ -119,7 +120,8 @@ MathJax.Hub.Config({
                             <a class="dropdown-item" href="https://chrisalbon.com/#linux">Command Line</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#regex">Regular Expressions</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#mathematics">Mathematics</a>
-                            <a class="dropdown-item" href="https://chrisalbon.com/#software_engineer">Software Engineering</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#aws">AWS</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#computer_science">Computer Science</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -173,7 +175,7 @@ MathJax.Hub.Config({
 <span class="kn">import</span> <span class="nn">warnings</span>
 
 <span class="c1"># Suppress an annoying but harmless warning</span>
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="sa"></span><span class="s2">&#34;ignore&#34;</span><span class="p">,</span> <span class="n">module</span><span class="o">=</span><span class="sa"></span><span class="s2">&#34;scipy&#34;</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="sa"></span><span class="s2">&#34;^internal gelsd&#34;</span><span class="p">)</span></code></pre></div>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">&#34;ignore&#34;</span><span class="p">,</span> <span class="n">module</span><span class="o">=</span><span class="s2">&#34;scipy&#34;</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&#34;^internal gelsd&#34;</span><span class="p">)</span></code></pre></div>
 <h2 id="create-data">Create Data</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Generate features matrix, target vector, and the true coefficients</span>
 <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_regression</span><span class="p">(</span><span class="n">n_samples</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">,</span>
@@ -185,7 +187,7 @@ MathJax.Hub.Config({
 <span class="n">ols</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">()</span></code></pre></div>
 <h2 id="conduct-recursive-feature-elimination">Conduct Recursive Feature Elimination</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create recursive feature eliminator that scores features by mean squared errors</span>
-<span class="n">rfecv</span> <span class="o">=</span> <span class="n">RFECV</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">ols</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;neg_mean_squared_error&#39;</span><span class="p">)</span>
+<span class="n">rfecv</span> <span class="o">=</span> <span class="n">RFECV</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">ols</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;neg_mean_squared_error&#39;</span><span class="p">)</span>
 
 <span class="c1"># Fit recursive feature eliminator </span>
 <span class="n">rfecv</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
@@ -230,7 +232,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted">This project contains 577 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
+            <span class="text-muted">This project contains 583 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
         </div>
     </footer>
 

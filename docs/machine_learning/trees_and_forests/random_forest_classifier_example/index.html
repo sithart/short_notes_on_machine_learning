@@ -37,9 +37,10 @@
 
 
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Random Forest Classifier Example"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Random Forest Classifier Example"/>
 <meta name="twitter:description" content="random_forest_classifier_example using Scikit."/>
-<meta name="generator" content="Hugo 0.31.1" /> 
+<meta name="generator" content="Hugo 0.40.1" /> 
     
     
 <script type="application/ld+json">
@@ -119,7 +120,8 @@ MathJax.Hub.Config({
                             <a class="dropdown-item" href="https://chrisalbon.com/#linux">Command Line</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#regex">Regular Expressions</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#mathematics">Mathematics</a>
-                            <a class="dropdown-item" href="https://chrisalbon.com/#software_engineer">Software Engineering</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#aws">AWS</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#computer_science">Computer Science</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -261,7 +263,7 @@ MathJax.Hub.Config({
 </table>
 </div>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Add a new column with the species names, this is what we are going to try to predict</span>
-<span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;species&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="o">.</span><span class="n">from_codes</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">target</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">target_names</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="o">.</span><span class="n">from_codes</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">target</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">target_names</span><span class="p">)</span>
 
 <span class="c1"># View the top 5 rows</span>
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span></code></pre></div>
@@ -340,7 +342,7 @@ MathJax.Hub.Config({
 <span class="c1"># if that value is less than or equal to .75, then sets the value of that cell as True</span>
 <span class="c1"># and false otherwise. This is a quick and dirty way of randomly assigning some rows to</span>
 <span class="c1"># be used as the training data and some as the test data.</span>
-<span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;is_train&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span> <span class="o">&lt;=</span> <span class="o">.</span><span class="mi">75</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;is_train&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span> <span class="o">&lt;=</span> <span class="o">.</span><span class="mi">75</span>
 
 <span class="c1"># View the top 5 rows</span>
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span></code></pre></div>
@@ -420,9 +422,9 @@ MathJax.Hub.Config({
 </table>
 </div>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create two new dataframes, one with the training rows, one with the test rows</span>
-<span class="n">train</span><span class="p">,</span> <span class="n">test</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;is_train&#39;</span><span class="p">]</span><span class="o">==</span><span class="bp">True</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;is_train&#39;</span><span class="p">]</span><span class="o">==</span><span class="bp">False</span><span class="p">]</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Show the number of observations for the test and training dataframes</span>
-<span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;Number of observations in the training data:&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">train</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;Number of observations in the test data:&#39;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">test</span><span class="p">))</span></code></pre></div>
+<span class="n">train</span><span class="p">,</span> <span class="n">test</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;is_train&#39;</span><span class="p">]</span><span class="o">==</span><span class="bp">True</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;is_train&#39;</span><span class="p">]</span><span class="o">==</span><span class="bp">False</span><span class="p">]</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Show the number of observations for the test and training dataframes</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Number of observations in the training data:&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">train</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Number of observations in the test data:&#39;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">test</span><span class="p">))</span></code></pre></div>
 <pre><code>Number of observations in the training data: 118
 Number of observations in the test data: 32
 </code></pre>
@@ -440,7 +442,7 @@ Number of observations in the test data: 32
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># train[&#39;species&#39;] contains the actual species names. Before we can use it,</span>
 <span class="c1"># we need to convert each species name into a digit. So, in this case there</span>
 <span class="c1"># are three species, which have been coded as 0, 1, or 2.</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">factorize</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;species&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">factorize</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
 
 <span class="c1"># View target</span>
 <span class="n">y</span></code></pre></div>
@@ -507,7 +509,7 @@ Number of observations in the test data: 32
       dtype='&lt;U10')
 </code></pre>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># View the ACTUAL species for the first five observations</span>
-<span class="n">test</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;species&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span></code></pre></div>
+<span class="n">test</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span></code></pre></div>
 <pre><code>7     setosa
 8     setosa
 10    setosa
@@ -525,7 +527,7 @@ Categories (3, object): [setosa, versicolor, virginica]
 
 <p>The short explanation of how to interpret a confusion matrix is: anything on the diagonal was classified correctly and anything off the diagonal was classified incorrectly.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create confusion matrix</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;species&#39;</span><span class="p">],</span> <span class="n">preds</span><span class="p">,</span> <span class="n">rownames</span><span class="o">=</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;Actual Species&#39;</span><span class="p">],</span> <span class="n">colnames</span><span class="o">=</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;Predicted Species&#39;</span><span class="p">])</span></code></pre></div>
+<span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">],</span> <span class="n">preds</span><span class="p">,</span> <span class="n">rownames</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Actual Species&#39;</span><span class="p">],</span> <span class="n">colnames</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Predicted Species&#39;</span><span class="p">])</span></code></pre></div>
 <div>
 <style>
     .dataframe thead tr:only-child th {
@@ -612,7 +614,7 @@ Categories (3, object): [setosa, versicolor, virginica]
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted">This project contains 577 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
+            <span class="text-muted">This project contains 583 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
         </div>
     </footer>
 

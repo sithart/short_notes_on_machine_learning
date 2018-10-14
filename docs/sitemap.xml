@@ -43,6 +43,11 @@
   </url>
   
   <url>
+    <loc>https://chrisalbon.com/linux/basics/rename_file/</loc>
+    <lastmod>2018-07-16T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chrisalbon.com/linux/basics/see_disk_drive_space/</loc>
     <lastmod>2018-07-16T00:00:00-07:00</lastmod>
   </url>
@@ -199,6 +204,11 @@
   
   <url>
     <loc>https://chrisalbon.com/postgresql/basics/count_unique_values/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/aws/s3/cli/create_bucket/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
@@ -479,6 +489,11 @@
   
   <url>
     <loc>https://chrisalbon.com/linux/basics/list_avaliable_commands/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/aws/s3/cli/list_buckets/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
@@ -883,6 +898,11 @@
   </url>
   
   <url>
+    <loc>https://chrisalbon.com/python/logging/basic_logging/</loc>
+    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chrisalbon.com/python/basics/numpy_array_basic_operations/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
@@ -903,7 +923,7 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/software_engineering/algorithms/big-o_notation/</loc>
+    <loc>https://chrisalbon.com/computer_science/algorithms/big-o_notation/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
   
@@ -913,7 +933,7 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/software_engineering/algorithms/binary_search/</loc>
+    <loc>https://chrisalbon.com/computer_science/algorithms/binary_search/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
   
@@ -953,7 +973,7 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/software_engineering/algorithms/bubble_sort/</loc>
+    <loc>https://chrisalbon.com/computer_science/algorithms/bubble_sort/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
   
@@ -1318,6 +1338,11 @@
   </url>
   
   <url>
+    <loc>https://chrisalbon.com/python/basics/display_json/</loc>
+    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chrisalbon.com/python/basics/display_scientific_notation_as_floats/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
@@ -1583,7 +1608,7 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/software_engineering/cloud_computing/github_cheatsheet/</loc>
+    <loc>https://chrisalbon.com/git/github_cheatsheet/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
   
@@ -1743,7 +1768,7 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/software_engineering/algorithms/insertion_sort/</loc>
+    <loc>https://chrisalbon.com/computer_science/algorithms/insertion_sort/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
   
@@ -2408,7 +2433,7 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/software_engineering/cloud_computing/run_project_jupyter_on_amazon_ec2/</loc>
+    <loc>https://chrisalbon.com/aws/basics/run_project_jupyter_on_amazon_ec2/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
   
@@ -2528,7 +2553,7 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/software_engineering/algorithms/selection_sort/</loc>
+    <loc>https://chrisalbon.com/computer_science/algorithms/selection_sort/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
   
@@ -2739,6 +2764,11 @@
   
   <url>
     <loc>https://chrisalbon.com/python/basics/unpacking_function_arguments/</loc>
+    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/python/basics/use_command_line_arguments_in_a_function/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
   

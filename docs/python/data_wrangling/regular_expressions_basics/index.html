@@ -37,9 +37,10 @@
 
 
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Regular Expression Basics"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Regular Expression Basics"/>
 <meta name="twitter:description" content="Regular expression basics."/>
-<meta name="generator" content="Hugo 0.31.1" /> 
+<meta name="generator" content="Hugo 0.40.1" /> 
     
     
 <script type="application/ld+json">
@@ -119,7 +120,8 @@ MathJax.Hub.Config({
                             <a class="dropdown-item" href="https://chrisalbon.com/#linux">Command Line</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#regex">Regular Expressions</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#mathematics">Mathematics</a>
-                            <a class="dropdown-item" href="https://chrisalbon.com/#software_engineer">Software Engineering</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#aws">AWS</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#computer_science">Computer Science</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -170,16 +172,16 @@ MathJax.Hub.Config({
 <h3 id="import-sys">Import sys</h3>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">sys</span></code></pre></div>
 <h3 id="create-a-simple-text-string">Create a simple text string.</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">text</span> <span class="o">=</span> <span class="sa"></span><span class="s1">&#39;The quick brown fox jumped over the lazy black bear.&#39;</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;The quick brown fox jumped over the lazy black bear.&#39;</span></code></pre></div>
 <h3 id="create-a-pattern-to-match">Create a pattern to match</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">three_letter_word</span> <span class="o">=</span> <span class="sa"></span><span class="s1">&#39;\w{3}&#39;</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">three_letter_word</span> <span class="o">=</span> <span class="s1">&#39;\w{3}&#39;</span></code></pre></div>
 <h3 id="convert-the-string-into-a-regex-object">Convert the string into a regex object</h3>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">pattern_re</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">three_letter_word</span><span class="p">);</span> <span class="n">pattern_re</span></code></pre></div>
 <pre><code>re.compile(r'\w{3}', re.UNICODE)
 </code></pre>
 
 <h3 id="does-a-three-letter-word-appear-in-text">Does a three letter word appear in text?</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re_search</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;..own&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re_search</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;..own&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span></code></pre></div>
 <h3 id="if-the-search-query-is-at-all-true">If the search query is at all true,</h3>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">if</span> <span class="n">re_search</span><span class="p">:</span>
     <span class="c1"># Print the search results</span>
@@ -193,21 +195,21 @@ MathJax.Hub.Config({
 For anything else, use re.search</p>
 
 <h3 id="match-all-three-letter-words-in-text">Match all three letter words in text</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re_match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;..own&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re_match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;..own&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span></code></pre></div>
 <h3 id="if-re-match-is-true-print-the-match-else-print-no-matches">If re_match is true, print the match, else print &ldquo;No Matches&rdquo;</h3>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">if</span> <span class="n">re_match</span><span class="p">:</span>
     <span class="c1"># Print all the matches</span>
     <span class="k">print</span><span class="p">(</span><span class="n">re_match</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="c1"># Print this</span>
-    <span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;No matches&#39;</span><span class="p">)</span></code></pre></div>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;No matches&#39;</span><span class="p">)</span></code></pre></div>
 <pre><code>No matches
 </code></pre>
 
 <h2 id="re-split">re.split</h2>
 
 <h3 id="split-up-the-string-using-e-as-the-seperator">Split up the string using &ldquo;e&rdquo; as the seperator.</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re_split</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">);</span> <span class="n">re_split</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re_split</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">);</span> <span class="n">re_split</span></code></pre></div>
 <pre><code>['Th', ' quick brown fox jump', 'd ov', 'r th', ' lazy black b', 'ar.']
 </code></pre>
 
@@ -218,7 +220,7 @@ For anything else, use re.search</p>
 <p>The &ldquo;3&rdquo; references to the maximum number of substitutions to make.</p>
 
 <h3 id="substitute-the-first-three-instances-of-e-with-e-then-print-it">Substitute the first three instances of &ldquo;e&rdquo; with &ldquo;E&rdquo;, then print it</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re_sub</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span> <span class="k">print</span><span class="p">(</span><span class="n">re_sub</span><span class="p">)</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re_sub</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span> <span class="k">print</span><span class="p">(</span><span class="n">re_sub</span><span class="p">)</span></code></pre></div>
 <pre><code>ThE quick brown fox jumpEd ovEr the lazy black bear.
 </code></pre>
 
@@ -245,7 +247,7 @@ For anything else, use re.search</p>
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted">This project contains 577 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
+            <span class="text-muted">This project contains 583 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
         </div>
     </footer>
 

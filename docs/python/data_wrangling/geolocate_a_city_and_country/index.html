@@ -37,9 +37,10 @@
 
 
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Geolocate A City And Country"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Geolocate A City And Country"/>
 <meta name="twitter:description" content="Geolocate a city or country in Python."/>
-<meta name="generator" content="Hugo 0.31.1" /> 
+<meta name="generator" content="Hugo 0.40.1" /> 
     
     
 <script type="application/ld+json">
@@ -119,7 +120,8 @@ MathJax.Hub.Config({
                             <a class="dropdown-item" href="https://chrisalbon.com/#linux">Command Line</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#regex">Regular Expressions</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#mathematics">Mathematics</a>
-                            <a class="dropdown-item" href="https://chrisalbon.com/#software_engineer">Software Engineering</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#aws">AWS</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#computer_science">Computer Science</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -173,7 +175,7 @@ MathJax.Hub.Config({
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span></code></pre></div>
 <h2 id="create-geolocation-function">Create Geolocation Function</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">geolocate</span><span class="p">(</span><span class="n">city</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">country</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-    <span class="sa"></span><span class="s1">&#39;&#39;&#39;
+    <span class="s1">&#39;&#39;&#39;
 </span><span class="s1">    Inputs city and country, or just country. Returns the lat/long coordinates of 
 </span><span class="s1">    either the city if possible, if not, then returns lat/long of the center of the country.
 </span><span class="s1">    &#39;&#39;&#39;</span>
@@ -183,7 +185,7 @@ MathJax.Hub.Config({
         <span class="c1"># Try</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="c1"># To geolocate the city and country</span>
-            <span class="n">loc</span> <span class="o">=</span> <span class="n">geolocator</span><span class="o">.</span><span class="n">geocode</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">city</span> <span class="o">+</span> <span class="sa"></span><span class="s1">&#39;,&#39;</span> <span class="o">+</span> <span class="n">country</span><span class="p">))</span>
+            <span class="n">loc</span> <span class="o">=</span> <span class="n">geolocator</span><span class="o">.</span><span class="n">geocode</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">city</span> <span class="o">+</span> <span class="s1">&#39;,&#39;</span> <span class="o">+</span> <span class="n">country</span><span class="p">))</span>
             <span class="c1"># And return latitude and longitude</span>
             <span class="k">return</span> <span class="p">(</span><span class="n">loc</span><span class="o">.</span><span class="n">latitude</span><span class="p">,</span> <span class="n">loc</span><span class="o">.</span><span class="n">longitude</span><span class="p">)</span>
         <span class="c1"># Otherwise</span>
@@ -204,7 +206,7 @@ MathJax.Hub.Config({
             <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span></code></pre></div>
 <h2 id="geolocate-a-city-and-country">Geolocate A City And Country</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Geolocate a city and country</span>
-<span class="n">geolocate</span><span class="p">(</span><span class="n">city</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;Austin&#39;</span><span class="p">,</span> <span class="n">country</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;USA&#39;</span><span class="p">)</span></code></pre></div>
+<span class="n">geolocate</span><span class="p">(</span><span class="n">city</span><span class="o">=</span><span class="s1">&#39;Austin&#39;</span><span class="p">,</span> <span class="n">country</span><span class="o">=</span><span class="s1">&#39;USA&#39;</span><span class="p">)</span></code></pre></div>
 <pre><code>(30.2711286, -97.7436995)
 </code></pre>
 
@@ -231,7 +233,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted">This project contains 577 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
+            <span class="text-muted">This project contains 583 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
         </div>
     </footer>
 

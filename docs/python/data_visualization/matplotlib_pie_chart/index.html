@@ -37,9 +37,10 @@
 
 
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Pie Chart In MatPlotLib"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Pie Chart In MatPlotLib"/>
 <meta name="twitter:description" content="Pie Chart In MatPlotLib."/>
-<meta name="generator" content="Hugo 0.31.1" /> 
+<meta name="generator" content="Hugo 0.40.1" /> 
     
     
 <script type="application/ld+json">
@@ -119,7 +120,8 @@ MathJax.Hub.Config({
                             <a class="dropdown-item" href="https://chrisalbon.com/#linux">Command Line</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#regex">Regular Expressions</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#mathematics">Mathematics</a>
-                            <a class="dropdown-item" href="https://chrisalbon.com/#software_engineer">Software Engineering</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#aws">AWS</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#computer_science">Computer Science</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -170,11 +172,11 @@ MathJax.Hub.Config({
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span></code></pre></div>
 <h2 id="create-dataframe">Create dataframe</h2>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">raw_data</span> <span class="o">=</span> <span class="p">{</span><span class="sa"></span><span class="s1">&#39;officer_name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;Jason&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Molly&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Tina&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Jake&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Amy&#39;</span><span class="p">],</span>
-        <span class="sa"></span><span class="s1">&#39;jan_arrests&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
-        <span class="sa"></span><span class="s1">&#39;feb_arrests&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">94</span><span class="p">,</span> <span class="mi">57</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">70</span><span class="p">],</span>
-        <span class="sa"></span><span class="s1">&#39;march_arrests&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">51</span><span class="p">]}</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;officer_name&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;jan_arrests&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;feb_arrests&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;march_arrests&#39;</span><span class="p">])</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">raw_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;officer_name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Jason&#39;</span><span class="p">,</span> <span class="s1">&#39;Molly&#39;</span><span class="p">,</span> <span class="s1">&#39;Tina&#39;</span><span class="p">,</span> <span class="s1">&#39;Jake&#39;</span><span class="p">,</span> <span class="s1">&#39;Amy&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;jan_arrests&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+        <span class="s1">&#39;feb_arrests&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">94</span><span class="p">,</span> <span class="mi">57</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">70</span><span class="p">],</span>
+        <span class="s1">&#39;march_arrests&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">51</span><span class="p">]}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;officer_name&#39;</span><span class="p">,</span> <span class="s1">&#39;jan_arrests&#39;</span><span class="p">,</span> <span class="s1">&#39;feb_arrests&#39;</span><span class="p">,</span> <span class="s1">&#39;march_arrests&#39;</span><span class="p">])</span>
 <span class="n">df</span></code></pre></div>
 <div>
 <table border="1" class="dataframe">
@@ -227,7 +229,7 @@ MathJax.Hub.Config({
 </table>
 </div>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a column with the total arrests for each officer</span>
-<span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;total_arrests&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;jan_arrests&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;feb_arrests&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;march_arrests&#39;</span><span class="p">]</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_arrests&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;jan_arrests&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;feb_arrests&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;march_arrests&#39;</span><span class="p">]</span>
 <span class="n">df</span></code></pre></div>
 <div>
 <table border="1" class="dataframe">
@@ -288,14 +290,14 @@ MathJax.Hub.Config({
 
 <h2 id="make-plot">Make plot</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a list of colors (from iWantHue)</span>
-<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="sa"></span><span class="s2">&#34;#E13F29&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;#D69A80&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;#D63B59&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;#AE5552&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;#CB5C3B&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;#EB8076&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;#96624E&#34;</span><span class="p">]</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;#E13F29&#34;</span><span class="p">,</span> <span class="s2">&#34;#D69A80&#34;</span><span class="p">,</span> <span class="s2">&#34;#D63B59&#34;</span><span class="p">,</span> <span class="s2">&#34;#AE5552&#34;</span><span class="p">,</span> <span class="s2">&#34;#CB5C3B&#34;</span><span class="p">,</span> <span class="s2">&#34;#EB8076&#34;</span><span class="p">,</span> <span class="s2">&#34;#96624E&#34;</span><span class="p">]</span>
 
 <span class="c1"># Create a pie chart</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span>
     <span class="c1"># using data total)arrests</span>
-    <span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;total_arrests&#39;</span><span class="p">],</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_arrests&#39;</span><span class="p">],</span>
     <span class="c1"># with the labels being officer names</span>
-    <span class="n">labels</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;officer_name&#39;</span><span class="p">],</span>
+    <span class="n">labels</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;officer_name&#39;</span><span class="p">],</span>
     <span class="c1"># with no shadows</span>
     <span class="n">shadow</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
     <span class="c1"># with colors</span>
@@ -305,11 +307,11 @@ MathJax.Hub.Config({
     <span class="c1"># with the start angle at 90%</span>
     <span class="n">startangle</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span>
     <span class="c1"># with the percent listed as a fraction</span>
-    <span class="n">autopct</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="si">%1.1f%%</span><span class="s1">&#39;</span><span class="p">,</span>
+    <span class="n">autopct</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%1.1f%%</span><span class="s1">&#39;</span><span class="p">,</span>
     <span class="p">)</span>
 
 <span class="c1"># View the plot drop above</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
 
 <span class="c1"># View the plot</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
@@ -339,7 +341,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted">This project contains 577 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
+            <span class="text-muted">This project contains 583 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
         </div>
     </footer>
 

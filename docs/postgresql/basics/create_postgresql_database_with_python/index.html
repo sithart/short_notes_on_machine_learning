@@ -37,9 +37,10 @@
 
 
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Create PostgreSQL Database With Python"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Create PostgreSQL Database With Python"/>
 <meta name="twitter:description" content="How to create a PostgreSQL database using Python."/>
-<meta name="generator" content="Hugo 0.31.1" /> 
+<meta name="generator" content="Hugo 0.40.1" /> 
     
     
 <script type="application/ld+json">
@@ -119,7 +120,8 @@ MathJax.Hub.Config({
                             <a class="dropdown-item" href="https://chrisalbon.com/#linux">Command Line</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#regex">Regular Expressions</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#mathematics">Mathematics</a>
-                            <a class="dropdown-item" href="https://chrisalbon.com/#software_engineer">Software Engineering</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#aws">AWS</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#computer_science">Computer Science</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -171,13 +173,13 @@ MathJax.Hub.Config({
 <span class="kn">from</span> <span class="nn">sqlalchemy_utils</span> <span class="kn">import</span> <span class="n">create_database</span><span class="p">,</span> <span class="n">database_exists</span><span class="p">,</span> <span class="n">drop_database</span>
 
 <span class="c1"># Create PostgreSQL connection</span>
-<span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;postgres://localhost/notes_db&#34;</span><span class="p">)</span>
+<span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="s2">&#34;postgres://localhost/notes_db&#34;</span><span class="p">)</span>
 
 <span class="c1"># Load sql_magic so we can write SQL in Jupyter Notebooks</span>
 <span class="o">%</span><span class="n">load_ext</span> <span class="n">sql_magic</span>
 
 <span class="c1"># Setup SQL connection to the postgreSQL engine we created</span>
-<span class="o">%</span><span class="n">config</span> <span class="n">SQL</span><span class="o">.</span><span class="n">conn_name</span> <span class="o">=</span> <span class="sa"></span><span class="s1">&#39;engine&#39;</span></code></pre></div>
+<span class="o">%</span><span class="n">config</span> <span class="n">SQL</span><span class="o">.</span><span class="n">conn_name</span> <span class="o">=</span> <span class="s1">&#39;engine&#39;</span></code></pre></div>
 <h2 id="create-database">Create Database</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># If a PostgreSQL database with this name exists</span>
 <span class="k">if</span> <span class="n">database_exists</span><span class="p">(</span><span class="n">engine</span><span class="o">.</span><span class="n">url</span><span class="p">):</span>
@@ -204,9 +206,9 @@ MathJax.Hub.Config({
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">%%</span><span class="n">read_sql</span> <span class="o">-</span><span class="n">d</span> 
 
 <span class="n">INSERT</span> <span class="n">INTO</span> <span class="n">staff</span> <span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="n">city_name</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span> 
-<span class="n">VALUES</span> <span class="p">(</span><span class="sa"></span><span class="s1">&#39;Jill&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Miller&#39;</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span>
-       <span class="p">(</span><span class="sa"></span><span class="s1">&#39;Steve&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Miller&#39;</span><span class="p">,</span> <span class="mi">24</span><span class="p">),</span>
-       <span class="p">(</span><span class="sa"></span><span class="s1">&#39;Sarah&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Jackson&#39;</span><span class="p">,</span> <span class="mi">25</span><span class="p">);</span></code></pre></div>
+<span class="n">VALUES</span> <span class="p">(</span><span class="s1">&#39;Jill&#39;</span><span class="p">,</span> <span class="s1">&#39;Miller&#39;</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span>
+       <span class="p">(</span><span class="s1">&#39;Steve&#39;</span><span class="p">,</span> <span class="s1">&#39;Miller&#39;</span><span class="p">,</span> <span class="mi">24</span><span class="p">),</span>
+       <span class="p">(</span><span class="s1">&#39;Sarah&#39;</span><span class="p">,</span> <span class="s1">&#39;Jackson&#39;</span><span class="p">,</span> <span class="mi">25</span><span class="p">);</span></code></pre></div>
 <pre><code>Query started at 12:44:03 PM MST; Query executed in 0.00 m
 </code></pre>
 
@@ -287,7 +289,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted">This project contains 577 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
+            <span class="text-muted">This project contains 583 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
         </div>
     </footer>
 

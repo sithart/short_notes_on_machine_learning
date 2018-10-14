@@ -37,9 +37,10 @@
 
 
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Map External Values To Dataframe Values in pandas"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Map External Values To Dataframe Values in pandas"/>
 <meta name="twitter:description" content="Map external values to dataframe values in pandas."/>
-<meta name="generator" content="Hugo 0.31.1" /> 
+<meta name="generator" content="Hugo 0.40.1" /> 
     
     
 <script type="application/ld+json">
@@ -119,7 +120,8 @@ MathJax.Hub.Config({
                             <a class="dropdown-item" href="https://chrisalbon.com/#linux">Command Line</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#regex">Regular Expressions</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#mathematics">Mathematics</a>
-                            <a class="dropdown-item" href="https://chrisalbon.com/#software_engineer">Software Engineering</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#aws">AWS</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#computer_science">Computer Science</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -168,11 +170,11 @@ MathJax.Hub.Config({
 <h3 id="import-modules">import modules</h3>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span></code></pre></div>
 <h3 id="create-dataframe">Create dataframe</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">raw_data</span> <span class="o">=</span> <span class="p">{</span><span class="sa"></span><span class="s1">&#39;first_name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;Jason&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Molly&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Tina&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Jake&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Amy&#39;</span><span class="p">],</span> 
-        <span class="sa"></span><span class="s1">&#39;last_name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;Miller&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Jacobson&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Ali&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Milner&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Cooze&#39;</span><span class="p">],</span> 
-        <span class="sa"></span><span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">42</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">73</span><span class="p">],</span> 
-        <span class="sa"></span><span class="s1">&#39;city&#39;</span><span class="p">:</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;San Francisco&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Baltimore&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Miami&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Douglas&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Boston&#39;</span><span class="p">]}</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;first_name&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;last_name&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;city&#39;</span><span class="p">])</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">raw_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;first_name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Jason&#39;</span><span class="p">,</span> <span class="s1">&#39;Molly&#39;</span><span class="p">,</span> <span class="s1">&#39;Tina&#39;</span><span class="p">,</span> <span class="s1">&#39;Jake&#39;</span><span class="p">,</span> <span class="s1">&#39;Amy&#39;</span><span class="p">],</span> 
+        <span class="s1">&#39;last_name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Miller&#39;</span><span class="p">,</span> <span class="s1">&#39;Jacobson&#39;</span><span class="p">,</span> <span class="s1">&#39;Ali&#39;</span><span class="p">,</span> <span class="s1">&#39;Milner&#39;</span><span class="p">,</span> <span class="s1">&#39;Cooze&#39;</span><span class="p">],</span> 
+        <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">42</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">73</span><span class="p">],</span> 
+        <span class="s1">&#39;city&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;San Francisco&#39;</span><span class="p">,</span> <span class="s1">&#39;Baltimore&#39;</span><span class="p">,</span> <span class="s1">&#39;Miami&#39;</span><span class="p">,</span> <span class="s1">&#39;Douglas&#39;</span><span class="p">,</span> <span class="s1">&#39;Boston&#39;</span><span class="p">]}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;first_name&#39;</span><span class="p">,</span> <span class="s1">&#39;last_name&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;city&#39;</span><span class="p">])</span>
 <span class="n">df</span></code></pre></div>
 <div>
 <table border="1" class="dataframe">
@@ -226,13 +228,13 @@ MathJax.Hub.Config({
 </div>
 
 <h3 id="create-a-dictionary-of-values">Create a dictionary of values</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">city_to_state</span> <span class="o">=</span> <span class="p">{</span> <span class="sa"></span><span class="s1">&#39;San Francisco&#39;</span> <span class="p">:</span> <span class="sa"></span><span class="s1">&#39;California&#39;</span><span class="p">,</span> 
-                  <span class="sa"></span><span class="s1">&#39;Baltimore&#39;</span> <span class="p">:</span> <span class="sa"></span><span class="s1">&#39;Maryland&#39;</span><span class="p">,</span> 
-                  <span class="sa"></span><span class="s1">&#39;Miami&#39;</span> <span class="p">:</span> <span class="sa"></span><span class="s1">&#39;Florida&#39;</span><span class="p">,</span> 
-                  <span class="sa"></span><span class="s1">&#39;Douglas&#39;</span> <span class="p">:</span> <span class="sa"></span><span class="s1">&#39;Arizona&#39;</span><span class="p">,</span> 
-                  <span class="sa"></span><span class="s1">&#39;Boston&#39;</span> <span class="p">:</span> <span class="sa"></span><span class="s1">&#39;Massachusetts&#39;</span><span class="p">}</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">city_to_state</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;San Francisco&#39;</span> <span class="p">:</span> <span class="s1">&#39;California&#39;</span><span class="p">,</span> 
+                  <span class="s1">&#39;Baltimore&#39;</span> <span class="p">:</span> <span class="s1">&#39;Maryland&#39;</span><span class="p">,</span> 
+                  <span class="s1">&#39;Miami&#39;</span> <span class="p">:</span> <span class="s1">&#39;Florida&#39;</span><span class="p">,</span> 
+                  <span class="s1">&#39;Douglas&#39;</span> <span class="p">:</span> <span class="s1">&#39;Arizona&#39;</span><span class="p">,</span> 
+                  <span class="s1">&#39;Boston&#39;</span> <span class="p">:</span> <span class="s1">&#39;Massachusetts&#39;</span><span class="p">}</span></code></pre></div>
 <h3 id="map-the-values-of-the-city-to-state-dictionary-to-the-values-in-the-city-variable">Map the values of the city_to_state dictionary to the values in the city variable</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;state&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;city&#39;</span><span class="p">]</span><span class="o">.</span><span class="nb">map</span><span class="p">(</span><span class="n">city_to_state</span><span class="p">)</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">]</span><span class="o">.</span><span class="nb">map</span><span class="p">(</span><span class="n">city_to_state</span><span class="p">)</span>
 <span class="n">df</span></code></pre></div>
 <div>
 <table border="1" class="dataframe">
@@ -314,7 +316,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted">This project contains 577 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
+            <span class="text-muted">This project contains 583 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
         </div>
     </footer>
 

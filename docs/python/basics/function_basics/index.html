@@ -37,9 +37,10 @@
 
 
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Function Basics"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Function Basics"/>
 <meta name="twitter:description" content="Function basics in Python."/>
-<meta name="generator" content="Hugo 0.31.1" /> 
+<meta name="generator" content="Hugo 0.40.1" /> 
     
     
 <script type="application/ld+json">
@@ -119,7 +120,8 @@ MathJax.Hub.Config({
                             <a class="dropdown-item" href="https://chrisalbon.com/#linux">Command Line</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#regex">Regular Expressions</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#mathematics">Mathematics</a>
-                            <a class="dropdown-item" href="https://chrisalbon.com/#software_engineer">Software Engineering</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#aws">AWS</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#computer_science">Computer Science</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -170,15 +172,15 @@ MathJax.Hub.Config({
     <span class="c1"># if a is larger than b</span>
     <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span><span class="p">:</span>
         <span class="c1"># then print this</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;is maximum&#39;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;is maximum&#39;</span><span class="p">)</span>
     <span class="c1"># if a is equal to b</span>
     <span class="k">elif</span> <span class="n">x</span> <span class="o">==</span> <span class="n">y</span><span class="p">:</span>
         <span class="c1"># print this</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;is equal to&#39;</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;is equal to&#39;</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
     <span class="c1"># otherwise</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="c1"># print this</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;is maximum&#39;</span><span class="p">)</span></code></pre></div>
+        <span class="k">print</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="s1">&#39;is maximum&#39;</span><span class="p">)</span></code></pre></div>
 <h2 id="run-function-with-two-arguments">Run Function With Two Arguments</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">print_max</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span></code></pre></div>
 <pre><code>4 is maximum
@@ -195,13 +197,13 @@ MathJax.Hub.Config({
     <span class="k">global</span> <span class="n">x</span>
 
     <span class="c1"># Print this</span>
-    <span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;x is&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;x is&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
     
     <span class="c1"># Set x to 2.</span>
     <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
     
     <span class="c1"># Print this</span>
-    <span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;Changed global x to&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span></code></pre></div>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Changed global x to&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span></code></pre></div>
 <h2 id="run-func">Run func()</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">func</span><span class="p">()</span></code></pre></div>
 <pre><code>x is 50
@@ -219,10 +221,10 @@ Changed global x to 2
     <span class="k">print</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">times</span><span class="p">,</span> <span class="n">x</span> <span class="o">*</span> <span class="n">times2</span><span class="p">)</span>
 
 <span class="c1"># Run the function say() with the default values</span>
-<span class="n">say</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;!&#39;</span><span class="p">)</span>
+<span class="n">say</span><span class="p">(</span><span class="s1">&#39;!&#39;</span><span class="p">)</span>
 
 <span class="c1"># Run the function say() with the non-default values of 5 and 10</span>
-<span class="n">say</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;!&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span></code></pre></div>
+<span class="n">say</span><span class="p">(</span><span class="s1">&#39;!&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span></code></pre></div>
 <pre><code>! !!!
 !!!!! !!!!!!!!!!
 </code></pre>
@@ -276,7 +278,7 @@ Changed global x to 2
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted">This project contains 577 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
+            <span class="text-muted">This project contains 583 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
         </div>
     </footer>
 

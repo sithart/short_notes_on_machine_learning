@@ -37,9 +37,10 @@
 
 
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Drilling Down With Beautiful Soup"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Drilling Down With Beautiful Soup"/>
 <meta name="twitter:description" content="Drilling Down With Beautiful Soup."/>
-<meta name="generator" content="Hugo 0.31.1" /> 
+<meta name="generator" content="Hugo 0.40.1" /> 
     
     
 <script type="application/ld+json">
@@ -119,7 +120,8 @@ MathJax.Hub.Config({
                             <a class="dropdown-item" href="https://chrisalbon.com/#linux">Command Line</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#regex">Regular Expressions</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#mathematics">Mathematics</a>
-                            <a class="dropdown-item" href="https://chrisalbon.com/#software_engineer">Software Engineering</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#aws">AWS</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#computer_science">Computer Science</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -172,13 +174,13 @@ MathJax.Hub.Config({
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span></code></pre></div>
 <h2 id="download-the-html-and-create-a-beautiful-soup-object">Download the HTML and create a Beautiful Soup object</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a variable with the URL to this tutorial</span>
-<span class="n">url</span> <span class="o">=</span> <span class="sa"></span><span class="s1">&#39;http://en.wikipedia.org/wiki/List_of_A_Song_of_Ice_and_Fire_characters&#39;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://en.wikipedia.org/wiki/List_of_A_Song_of_Ice_and_Fire_characters&#39;</span>
 
 <span class="c1"># Scrape the HTML at the url</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 
 <span class="c1"># Turn the HTML into a Beautiful Soup object</span>
-<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;lxml&#34;</span><span class="p">)</span></code></pre></div>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s2">&#34;lxml&#34;</span><span class="p">)</span></code></pre></div>
 <p>If we looked at the soup object, we&rsquo;d see that the names we want are in a heirarchical list. In psuedo-code, it looks like:</p>
 
 <ul>
@@ -202,9 +204,9 @@ MathJax.Hub.Config({
 <h2 id="drilling-down-with-a-forloop">Drilling down with a forloop</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># for each item in all the toclevel-2 li items</span>
 <span class="c1"># (except the last three because they are not character names), </span>
-<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;li&#39;</span><span class="p">,{</span><span class="sa"></span><span class="s1">&#39;class&#39;</span><span class="p">:</span><span class="sa"></span><span class="s1">&#39;toclevel-2&#39;</span><span class="p">})[:</span><span class="o">-</span><span class="mi">3</span><span class="p">]:</span> 
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">,{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span><span class="s1">&#39;toclevel-2&#39;</span><span class="p">})[:</span><span class="o">-</span><span class="mi">3</span><span class="p">]:</span> 
     <span class="c1"># find each span with class=toctext,</span>
-    <span class="k">for</span> <span class="n">post</span> <span class="ow">in</span> <span class="n">item</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;span&#39;</span><span class="p">,{</span><span class="sa"></span><span class="s1">&#39;class&#39;</span><span class="p">:</span><span class="sa"></span><span class="s1">&#39;toctext&#39;</span><span class="p">}):</span> 
+    <span class="k">for</span> <span class="n">post</span> <span class="ow">in</span> <span class="n">item</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;span&#39;</span><span class="p">,{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span><span class="s1">&#39;toctext&#39;</span><span class="p">}):</span> 
         <span class="c1"># add the stripped string of each to character_name, one by one</span>
         <span class="n">character_name</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">post</span><span class="o">.</span><span class="n">string</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span></code></pre></div>
 <h2 id="results">Results</h2>
@@ -347,7 +349,7 @@ MathJax.Hub.Config({
     <span class="c1"># this works because it is the last name if they are a house, </span>
     <span class="c1"># but the first name if they only have one name,</span>
     <span class="c1"># Then append each last name to the houses list</span>
-    <span class="n">houses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39; &#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Convert houses into a pandas series (so we can use value_counts())</span>
+    <span class="n">houses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Convert houses into a pandas series (so we can use value_counts())</span>
 <span class="n">houses</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">houses</span><span class="p">)</span>
 
 <span class="c1"># Count the number of times each name/house name appears</span>
@@ -439,7 +441,7 @@ Length: 78, dtype: int64
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted">This project contains 577 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
+            <span class="text-muted">This project contains 583 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
         </div>
     </footer>
 

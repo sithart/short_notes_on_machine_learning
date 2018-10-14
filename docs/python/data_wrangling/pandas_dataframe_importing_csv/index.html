@@ -37,9 +37,10 @@
 
 
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Loading A CSV Into pandas"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Loading A CSV Into pandas"/>
 <meta name="twitter:description" content="Loading a CSV into pandas."/>
-<meta name="generator" content="Hugo 0.31.1" /> 
+<meta name="generator" content="Hugo 0.40.1" /> 
     
     
 <script type="application/ld+json">
@@ -119,7 +120,8 @@ MathJax.Hub.Config({
                             <a class="dropdown-item" href="https://chrisalbon.com/#linux">Command Line</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#regex">Regular Expressions</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#mathematics">Mathematics</a>
-                            <a class="dropdown-item" href="https://chrisalbon.com/#software_engineer">Software Engineering</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#aws">AWS</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#computer_science">Computer Science</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -169,12 +171,12 @@ MathJax.Hub.Config({
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span></code></pre></div>
 <h3 id="create-dataframe-that-we-will-be-importing">Create dataframe (that we will be importing)</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">raw_data</span> <span class="o">=</span> <span class="p">{</span><span class="sa"></span><span class="s1">&#39;first_name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;Jason&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Molly&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Tina&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Jake&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Amy&#39;</span><span class="p">],</span> 
-        <span class="sa"></span><span class="s1">&#39;last_name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;Miller&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Jacobson&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;.&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Milner&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Cooze&#39;</span><span class="p">],</span> 
-        <span class="sa"></span><span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">42</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">73</span><span class="p">],</span> 
-        <span class="sa"></span><span class="s1">&#39;preTestScore&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;.&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;.&#34;</span><span class="p">],</span>
-        <span class="sa"></span><span class="s1">&#39;postTestScore&#39;</span><span class="p">:</span> <span class="p">[</span><span class="sa"></span><span class="s2">&#34;25,000&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;94,000&#34;</span><span class="p">,</span> <span class="mi">57</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">70</span><span class="p">]}</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;first_name&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;last_name&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;preTestScore&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;postTestScore&#39;</span><span class="p">])</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">raw_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;first_name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Jason&#39;</span><span class="p">,</span> <span class="s1">&#39;Molly&#39;</span><span class="p">,</span> <span class="s1">&#39;Tina&#39;</span><span class="p">,</span> <span class="s1">&#39;Jake&#39;</span><span class="p">,</span> <span class="s1">&#39;Amy&#39;</span><span class="p">],</span> 
+        <span class="s1">&#39;last_name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Miller&#39;</span><span class="p">,</span> <span class="s1">&#39;Jacobson&#39;</span><span class="p">,</span> <span class="s2">&#34;.&#34;</span><span class="p">,</span> <span class="s1">&#39;Milner&#39;</span><span class="p">,</span> <span class="s1">&#39;Cooze&#39;</span><span class="p">],</span> 
+        <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">42</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">73</span><span class="p">],</span> 
+        <span class="s1">&#39;preTestScore&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="s2">&#34;.&#34;</span><span class="p">,</span> <span class="s2">&#34;.&#34;</span><span class="p">],</span>
+        <span class="s1">&#39;postTestScore&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;25,000&#34;</span><span class="p">,</span> <span class="s2">&#34;94,000&#34;</span><span class="p">,</span> <span class="mi">57</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">70</span><span class="p">]}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;first_name&#39;</span><span class="p">,</span> <span class="s1">&#39;last_name&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;preTestScore&#39;</span><span class="p">,</span> <span class="s1">&#39;postTestScore&#39;</span><span class="p">])</span>
 <span class="n">df</span></code></pre></div>
 <div>
 <style>
@@ -247,9 +249,9 @@ MathJax.Hub.Config({
 </div>
 
 <h3 id="save-dataframe-as-csv-in-the-working-director">Save dataframe as csv in the working director</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;pandas_dataframe_importing_csv/example.csv&#39;</span><span class="p">)</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;pandas_dataframe_importing_csv/example.csv&#39;</span><span class="p">)</span></code></pre></div>
 <h3 id="load-a-csv">Load a csv</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;pandas_dataframe_importing_csv/example.csv&#39;</span><span class="p">)</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;pandas_dataframe_importing_csv/example.csv&#39;</span><span class="p">)</span>
 <span class="n">df</span></code></pre></div>
 <div>
 <style>
@@ -328,7 +330,7 @@ MathJax.Hub.Config({
 </div>
 
 <h3 id="load-a-csv-with-no-headers">Load a csv with no headers</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;pandas_dataframe_importing_csv/example.csv&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;pandas_dataframe_importing_csv/example.csv&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
 <span class="n">df</span></code></pre></div>
 <div>
 <style>
@@ -416,7 +418,7 @@ MathJax.Hub.Config({
 </div>
 
 <h3 id="load-a-csv-while-specifying-column-names">Load a csv while specifying column names</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;pandas_dataframe_importing_csv/example.csv&#39;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;UID&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;First Name&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Last Name&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Pre-Test Score&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Post-Test Score&#39;</span><span class="p">])</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;pandas_dataframe_importing_csv/example.csv&#39;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;UID&#39;</span><span class="p">,</span> <span class="s1">&#39;First Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Last Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="s1">&#39;Pre-Test Score&#39;</span><span class="p">,</span> <span class="s1">&#39;Post-Test Score&#39;</span><span class="p">])</span>
 <span class="n">df</span></code></pre></div>
 <div>
 <style>
@@ -504,7 +506,7 @@ MathJax.Hub.Config({
 </div>
 
 <h3 id="load-a-csv-with-setting-the-index-column-to-uid">Load a csv with setting the index column to UID</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;pandas_dataframe_importing_csv/example.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;UID&#39;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;UID&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;First Name&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Last Name&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Pre-Test Score&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Post-Test Score&#39;</span><span class="p">])</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;pandas_dataframe_importing_csv/example.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;UID&#39;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;UID&#39;</span><span class="p">,</span> <span class="s1">&#39;First Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Last Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="s1">&#39;Pre-Test Score&#39;</span><span class="p">,</span> <span class="s1">&#39;Post-Test Score&#39;</span><span class="p">])</span>
 <span class="n">df</span></code></pre></div>
 <div>
 <style>
@@ -593,7 +595,7 @@ MathJax.Hub.Config({
 </div>
 
 <h3 id="load-a-csv-while-setting-the-index-columns-to-first-name-and-last-name">Load a csv while setting the index columns to First Name and Last Name</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;pandas_dataframe_importing_csv/example.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;First Name&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Last Name&#39;</span><span class="p">],</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;UID&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;First Name&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Last Name&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Pre-Test Score&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Post-Test Score&#39;</span><span class="p">])</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;pandas_dataframe_importing_csv/example.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;First Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Last Name&#39;</span><span class="p">],</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;UID&#39;</span><span class="p">,</span> <span class="s1">&#39;First Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Last Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="s1">&#39;Pre-Test Score&#39;</span><span class="p">,</span> <span class="s1">&#39;Post-Test Score&#39;</span><span class="p">])</span>
 <span class="n">df</span></code></pre></div>
 <div>
 <style>
@@ -682,7 +684,7 @@ MathJax.Hub.Config({
 </div>
 
 <h3 id="load-a-csv-while-specifying-as-missing-values">Load a csv while specifying &ldquo;.&rdquo; as missing values</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;pandas_dataframe_importing_csv/example.csv&#39;</span><span class="p">,</span> <span class="n">na_values</span><span class="o">=</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;.&#39;</span><span class="p">])</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;pandas_dataframe_importing_csv/example.csv&#39;</span><span class="p">,</span> <span class="n">na_values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;.&#39;</span><span class="p">])</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">isnull</span><span class="p">(</span><span class="n">df</span><span class="p">)</span></code></pre></div>
 <div>
 <style>
@@ -761,7 +763,7 @@ MathJax.Hub.Config({
 </div>
 
 <h3 id="load-a-csv-while-specifying-and-na-as-missing-values-in-the-last-name-column-and-as-missing-values-in-pre-test-score-column">Load a csv while specifying &ldquo;.&rdquo; and &ldquo;NA&rdquo; as missing values in the Last Name column and &ldquo;.&rdquo; as missing values in Pre-Test Score column</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">sentinels</span> <span class="o">=</span> <span class="p">{</span><span class="sa"></span><span class="s1">&#39;Last Name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;NA&#39;</span><span class="p">],</span> <span class="sa"></span><span class="s1">&#39;Pre-Test Score&#39;</span><span class="p">:</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;.&#39;</span><span class="p">]}</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;pandas_dataframe_importing_csv/example.csv&#39;</span><span class="p">,</span> <span class="n">na_values</span><span class="o">=</span><span class="n">sentinels</span><span class="p">)</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">sentinels</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Last Name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;NA&#39;</span><span class="p">],</span> <span class="s1">&#39;Pre-Test Score&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;.&#39;</span><span class="p">]}</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;pandas_dataframe_importing_csv/example.csv&#39;</span><span class="p">,</span> <span class="n">na_values</span><span class="o">=</span><span class="n">sentinels</span><span class="p">)</span>
 <span class="n">df</span></code></pre></div>
 <div>
 <style>
@@ -840,7 +842,7 @@ MathJax.Hub.Config({
 </div>
 
 <h3 id="load-a-csv-while-skipping-the-top-3-rows">Load a csv while skipping the top 3 rows</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;pandas_dataframe_importing_csv/example.csv&#39;</span><span class="p">,</span> <span class="n">na_values</span><span class="o">=</span><span class="n">sentinels</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;pandas_dataframe_importing_csv/example.csv&#39;</span><span class="p">,</span> <span class="n">na_values</span><span class="o">=</span><span class="n">sentinels</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">df</span></code></pre></div>
 <div>
 <style>
@@ -892,7 +894,7 @@ MathJax.Hub.Config({
 </div>
 
 <h3 id="load-a-csv-while-interpreting-in-strings-around-numbers-as-thousands-seperators">Load a csv while interpreting &ldquo;,&rdquo; in strings around numbers as thousands seperators</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;pandas_dataframe_importing_csv/example.csv&#39;</span><span class="p">,</span> <span class="n">thousands</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;pandas_dataframe_importing_csv/example.csv&#39;</span><span class="p">,</span> <span class="n">thousands</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
 <span class="n">df</span></code></pre></div>
 <div>
 <style>
@@ -993,7 +995,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted">This project contains 577 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
+            <span class="text-muted">This project contains 583 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
         </div>
     </footer>
 

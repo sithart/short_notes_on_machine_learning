@@ -37,9 +37,10 @@
 
 
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Count Values In Pandas Dataframe"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Count Values In Pandas Dataframe"/>
 <meta name="twitter:description" content="Count values in pandas dataframe."/>
-<meta name="generator" content="Hugo 0.31.1" /> 
+<meta name="generator" content="Hugo 0.40.1" /> 
     
     
 <script type="application/ld+json">
@@ -119,7 +120,8 @@ MathJax.Hub.Config({
                             <a class="dropdown-item" href="https://chrisalbon.com/#linux">Command Line</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#regex">Regular Expressions</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#mathematics">Mathematics</a>
-                            <a class="dropdown-item" href="https://chrisalbon.com/#software_engineer">Software Engineering</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#aws">AWS</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#computer_science">Computer Science</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -191,14 +193,14 @@ MathJax.Hub.Config({
                  <span class="n">corps8</span> <span class="o">=</span> <span class="n">corps8</span><span class="p">,</span> <span class="n">corps9</span> <span class="o">=</span> <span class="n">corps9</span><span class="p">,</span> <span class="n">corps10</span> <span class="o">=</span> <span class="n">corps10</span><span class="p">,</span> 
                  <span class="n">corps11</span> <span class="o">=</span> <span class="n">corps11</span> <span class="p">,</span> <span class="n">corps14</span> <span class="o">=</span> <span class="n">corps14</span><span class="p">,</span> <span class="n">corps15</span> <span class="o">=</span> <span class="n">corps15</span><span class="p">)</span></code></pre></div>
 <h3 id="create-a-dataframe-and-set-the-order-of-the-columns-using-the-columns-attribute">Create a dataframe and set the order of the columns using the columns attribute</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">horsekick</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">variables</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;guardCorps&#39;</span><span class="p">,</span> 
-                                                    <span class="sa"></span><span class="s1">&#39;corps1&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;corps2&#39;</span><span class="p">,</span> 
-                                                    <span class="sa"></span><span class="s1">&#39;corps3&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;corps4&#39;</span><span class="p">,</span> 
-                                                    <span class="sa"></span><span class="s1">&#39;corps5&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;corps6&#39;</span><span class="p">,</span> 
-                                                    <span class="sa"></span><span class="s1">&#39;corps7&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;corps8&#39;</span><span class="p">,</span> 
-                                                    <span class="sa"></span><span class="s1">&#39;corps9&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;corps10&#39;</span><span class="p">,</span> 
-                                                    <span class="sa"></span><span class="s1">&#39;corps11&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;corps14&#39;</span><span class="p">,</span> 
-                                                    <span class="sa"></span><span class="s1">&#39;corps15&#39;</span><span class="p">])</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">horsekick</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">variables</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;guardCorps&#39;</span><span class="p">,</span> 
+                                                    <span class="s1">&#39;corps1&#39;</span><span class="p">,</span> <span class="s1">&#39;corps2&#39;</span><span class="p">,</span> 
+                                                    <span class="s1">&#39;corps3&#39;</span><span class="p">,</span> <span class="s1">&#39;corps4&#39;</span><span class="p">,</span> 
+                                                    <span class="s1">&#39;corps5&#39;</span><span class="p">,</span> <span class="s1">&#39;corps6&#39;</span><span class="p">,</span> 
+                                                    <span class="s1">&#39;corps7&#39;</span><span class="p">,</span> <span class="s1">&#39;corps8&#39;</span><span class="p">,</span> 
+                                                    <span class="s1">&#39;corps9&#39;</span><span class="p">,</span> <span class="s1">&#39;corps10&#39;</span><span class="p">,</span> 
+                                                    <span class="s1">&#39;corps11&#39;</span><span class="p">,</span> <span class="s1">&#39;corps14&#39;</span><span class="p">,</span> 
+                                                    <span class="s1">&#39;corps15&#39;</span><span class="p">])</span></code></pre></div>
 <h3 id="set-the-dataframe-s-index-to-be-year">Set the dataframe&rsquo;s index to be year</h3>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">horsekick</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1875</span><span class="p">,</span> <span class="mi">1876</span><span class="p">,</span> <span class="mi">1877</span><span class="p">,</span> <span class="mi">1878</span><span class="p">,</span> <span class="mi">1879</span><span class="p">,</span> <span class="mi">1880</span><span class="p">,</span> <span class="mi">1881</span><span class="p">,</span> <span class="mi">1882</span><span class="p">,</span> <span class="mi">1883</span><span class="p">,</span> <span class="mi">1884</span><span class="p">,</span> 
                   <span class="mi">1885</span><span class="p">,</span> <span class="mi">1886</span><span class="p">,</span> <span class="mi">1887</span><span class="p">,</span> <span class="mi">1888</span><span class="p">,</span> <span class="mi">1889</span><span class="p">,</span> <span class="mi">1890</span><span class="p">,</span> <span class="mi">1891</span><span class="p">,</span> <span class="mi">1892</span><span class="p">,</span> <span class="mi">1893</span><span class="p">,</span> <span class="mi">1894</span><span class="p">]</span></code></pre></div>
@@ -684,7 +686,7 @@ MathJax.Hub.Config({
 </div>
 
 <h3 id="count-the-number-of-times-each-monthly-death-total-appears-in-guardcorps">Count the number of times each monthly death total appears in guardCorps</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">pd</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">horsekick</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;guardCorps&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">pd</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">horsekick</span><span class="p">[</span><span class="s1">&#39;guardCorps&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span></code></pre></div>
 <pre><code>0    9
 1    7
 2    3
@@ -693,7 +695,7 @@ dtype: int64
 </code></pre>
 
 <h3 id="list-all-the-unique-values-in-guardcorps">List all the unique values in guardCorps</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">horsekick</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;guardCorps&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">horsekick</span><span class="p">[</span><span class="s1">&#39;guardCorps&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span></code></pre></div>
 <pre><code>array([0, 2, 1, 3])
 </code></pre>
 
@@ -720,7 +722,7 @@ dtype: int64
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted">This project contains 577 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
+            <span class="text-muted">This project contains 583 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
         </div>
     </footer>
 

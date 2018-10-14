@@ -37,9 +37,10 @@
 
 
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Handling Missing Values In Time Series"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Handling Missing Values In Time Series"/>
 <meta name="twitter:description" content="How to handle the missing values in time series in pandas for machine learning in Python."/>
-<meta name="generator" content="Hugo 0.31.1" /> 
+<meta name="generator" content="Hugo 0.40.1" /> 
     
     
 <script type="application/ld+json">
@@ -119,7 +120,8 @@ MathJax.Hub.Config({
                             <a class="dropdown-item" href="https://chrisalbon.com/#linux">Command Line</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#regex">Regular Expressions</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#mathematics">Mathematics</a>
-                            <a class="dropdown-item" href="https://chrisalbon.com/#software_engineer">Software Engineering</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#aws">AWS</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#computer_science">Computer Science</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -171,13 +173,13 @@ MathJax.Hub.Config({
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span></code></pre></div>
 <h2 id="create-date-data-with-gap-in-values">Create Date Data With Gap In Values</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create date</span>
-<span class="n">time_index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;01/01/2010&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;M&#39;</span><span class="p">)</span>
+<span class="n">time_index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;01/01/2010&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;M&#39;</span><span class="p">)</span>
 
 <span class="c1"># Create data frame, set index</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">time_index</span><span class="p">)</span>
 
 <span class="c1"># Create feature with a gap of missing values</span>
-<span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;Sales&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">2.0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="mf">5.0</span><span class="p">]</span></code></pre></div>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Sales&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">2.0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="mf">5.0</span><span class="p">]</span></code></pre></div>
 <h2 id="interpolate-missing-values">Interpolate Missing Values</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Interpolate missing values</span>
 <span class="n">df</span><span class="o">.</span><span class="n">interpolate</span><span class="p">()</span></code></pre></div>
@@ -327,7 +329,7 @@ MathJax.Hub.Config({
 
 <h2 id="interpolate-missing-values-but-only-up-one-value">Interpolate Missing Values But Only Up One Value</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Interpolate missing values</span>
-<span class="n">df</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">limit</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">limit_direction</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;forward&#39;</span><span class="p">)</span></code></pre></div>
+<span class="n">df</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">limit</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">limit_direction</span><span class="o">=</span><span class="s1">&#39;forward&#39;</span><span class="p">)</span></code></pre></div>
 <div>
 <style>
     .dataframe thead tr:only-child th {
@@ -397,7 +399,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted">This project contains 577 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
+            <span class="text-muted">This project contains 583 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
         </div>
     </footer>
 

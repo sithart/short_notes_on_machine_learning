@@ -37,9 +37,10 @@
 
 
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Load Excel Spreadsheet As pandas Dataframe"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Load Excel Spreadsheet As pandas Dataframe"/>
 <meta name="twitter:description" content="Load Excel spreadsheet as pandas dataframe."/>
-<meta name="generator" content="Hugo 0.31.1" /> 
+<meta name="generator" content="Hugo 0.40.1" /> 
     
     
 <script type="application/ld+json">
@@ -119,7 +120,8 @@ MathJax.Hub.Config({
                             <a class="dropdown-item" href="https://chrisalbon.com/#linux">Command Line</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#regex">Regular Expressions</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#mathematics">Mathematics</a>
-                            <a class="dropdown-item" href="https://chrisalbon.com/#software_engineer">Software Engineering</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#aws">AWS</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#computer_science">Computer Science</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -165,7 +167,7 @@ MathJax.Hub.Config({
   <div class="content">
   <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># import modules</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Import the excel file and call it xls_file</span>
-<span class="n">xls_file</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">ExcelFile</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;../data/example.xls&#39;</span><span class="p">)</span>
+<span class="n">xls_file</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">ExcelFile</span><span class="p">(</span><span class="s1">&#39;../data/example.xls&#39;</span><span class="p">)</span>
 <span class="n">xls_file</span></code></pre></div>
 <pre><code>&lt;pandas.io.excel.ExcelFile at 0x111912be0&gt;
 </code></pre>
@@ -174,7 +176,7 @@ MathJax.Hub.Config({
 <pre><code>['Sheet1']
 </code></pre>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Load the xls file&#39;s Sheet1 as a dataframe</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">xls_file</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;Sheet1&#39;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">xls_file</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;Sheet1&#39;</span><span class="p">)</span>
 <span class="n">df</span></code></pre></div>
 <div>
 <table border="1" class="dataframe">
@@ -318,7 +320,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted">This project contains 577 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
+            <span class="text-muted">This project contains 583 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
         </div>
     </footer>
 

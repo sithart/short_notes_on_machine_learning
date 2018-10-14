@@ -37,9 +37,10 @@
 
 
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Geocoding And Reverse Geocoding"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Geocoding And Reverse Geocoding"/>
 <meta name="twitter:description" content="Geocoding and reverse geocoding in Python."/>
-<meta name="generator" content="Hugo 0.31.1" /> 
+<meta name="generator" content="Hugo 0.40.1" /> 
     
     
 <script type="application/ld+json">
@@ -119,7 +120,8 @@ MathJax.Hub.Config({
                             <a class="dropdown-item" href="https://chrisalbon.com/#linux">Command Line</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#regex">Regular Expressions</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#mathematics">Mathematics</a>
-                            <a class="dropdown-item" href="https://chrisalbon.com/#software_engineer">Software Engineering</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#aws">AWS</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#computer_science">Computer Science</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -180,14 +182,14 @@ MathJax.Hub.Config({
 
 <p>Geo-data comes in a wide variety of forms, in this case we have a Python dictionary of five latitude and longitude strings, with each coordinate in a coordinate pair separated by a comma.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a dictionary of raw data</span>
-<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="sa"></span><span class="s1">&#39;Site 1&#39;</span><span class="p">:</span> <span class="sa"></span><span class="s1">&#39;31.336968, -109.560959&#39;</span><span class="p">,</span>
-        <span class="sa"></span><span class="s1">&#39;Site 2&#39;</span><span class="p">:</span> <span class="sa"></span><span class="s1">&#39;31.347745, -108.229963&#39;</span><span class="p">,</span>
-        <span class="sa"></span><span class="s1">&#39;Site 3&#39;</span><span class="p">:</span> <span class="sa"></span><span class="s1">&#39;32.277621, -107.734724&#39;</span><span class="p">,</span>
-        <span class="sa"></span><span class="s1">&#39;Site 4&#39;</span><span class="p">:</span> <span class="sa"></span><span class="s1">&#39;31.655494, -106.420484&#39;</span><span class="p">,</span>
-        <span class="sa"></span><span class="s1">&#39;Site 5&#39;</span><span class="p">:</span> <span class="sa"></span><span class="s1">&#39;30.295053, -104.014528&#39;</span><span class="p">}</span></code></pre></div>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Site 1&#39;</span><span class="p">:</span> <span class="s1">&#39;31.336968, -109.560959&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Site 2&#39;</span><span class="p">:</span> <span class="s1">&#39;31.347745, -108.229963&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Site 3&#39;</span><span class="p">:</span> <span class="s1">&#39;32.277621, -107.734724&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Site 4&#39;</span><span class="p">:</span> <span class="s1">&#39;31.655494, -106.420484&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Site 5&#39;</span><span class="p">:</span> <span class="s1">&#39;30.295053, -104.014528&#39;</span><span class="p">}</span></code></pre></div>
 <p>While technically unnecessary, because I originally come from R, I am a big fan of dataframes, so let us turn the dictionary of simulated data into a dataframe.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Convert the dictionary into a pandas dataframe</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;index&#39;</span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># View the dataframe</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># View the dataframe</span>
 <span class="n">df</span></code></pre></div>
 <div>
 <style scoped>
@@ -246,10 +248,10 @@ MathJax.Hub.Config({
     <span class="k">try</span><span class="p">:</span>
         <span class="c1"># Split the row by comma, convert to float, and append</span>
         <span class="c1"># everything before the comma to lat</span>
-        <span class="n">lat</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;,&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]))</span>
+        <span class="n">lat</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]))</span>
         <span class="c1"># Split the row by comma, convert to float, and append</span>
         <span class="c1"># everything after the comma to lon</span>
-        <span class="n">lon</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;,&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]))</span>
+        <span class="n">lon</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]))</span>
     <span class="c1"># But if you get an error</span>
     <span class="k">except</span><span class="p">:</span>
         <span class="c1"># append a missing value to lat</span>
@@ -258,8 +260,8 @@ MathJax.Hub.Config({
         <span class="n">lon</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">NaN</span><span class="p">)</span>
 
 <span class="c1"># Create two new columns from lat and lon</span>
-<span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;latitude&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">lat</span>
-<span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;longitude&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">lon</span></code></pre></div>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;latitude&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">lat</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;longitude&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">lon</span></code></pre></div>
 <p>Let&rsquo;s take a took a what we have now.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># View the dataframe</span>
 <span class="n">df</span></code></pre></div>
@@ -327,7 +329,7 @@ MathJax.Hub.Config({
 
 <p>To reverse geocode, we feed a specific latitude and longitude pair, in this case the first row (indexed as &lsquo;0&rsquo;) into pygeocoder&rsquo;s reverse_geocoder function.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Convert longitude and latitude to a location</span>
-<span class="n">results</span> <span class="o">=</span> <span class="n">Geocoder</span><span class="o">.</span><span class="n">reverse_geocode</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;latitude&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;longitude&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span></code></pre></div>
+<span class="n">results</span> <span class="o">=</span> <span class="n">Geocoder</span><span class="o">.</span><span class="n">reverse_geocode</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;latitude&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;longitude&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span></code></pre></div>
 <p>Now we can take can start pulling out the data that we want.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Print the lat/long</span>
 <span class="n">results</span><span class="o">.</span><span class="n">coordinates</span></code></pre></div>
@@ -351,7 +353,7 @@ MathJax.Hub.Config({
 
 <p>For geocoding, we need to submit a string containing an address or location (such as a city) into the geocode function. However, not all strings are formatted in a way that Google&rsquo;s geo-API can make sense of them. We can text if an input is valid by using the .geocode().valid_address function.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Verify that an address is valid (i.e. in Google&#39;s system)</span>
-<span class="n">Geocoder</span><span class="o">.</span><span class="n">geocode</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;4207 N Washington Ave, Douglas, AZ 85607&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">valid_address</span></code></pre></div>
+<span class="n">Geocoder</span><span class="o">.</span><span class="n">geocode</span><span class="p">(</span><span class="s2">&#34;4207 N Washington Ave, Douglas, AZ 85607&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">valid_address</span></code></pre></div>
 <pre><code>True
 </code></pre>
 
@@ -363,7 +365,7 @@ MathJax.Hub.Config({
 
 <p>But even more interesting, once the address is processed by the Google geo API, we can parse it and easily separate street numbers, street names, etc.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Find the lat/long of a certain address</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">Geocoder</span><span class="o">.</span><span class="n">geocode</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;7250 South Tucson Boulevard, Tucson, AZ 85756&#34;</span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Print the street number</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">Geocoder</span><span class="o">.</span><span class="n">geocode</span><span class="p">(</span><span class="s2">&#34;7250 South Tucson Boulevard, Tucson, AZ 85756&#34;</span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Print the street number</span>
 <span class="n">result</span><span class="o">.</span><span class="n">street_number</span></code></pre></div>
 <pre><code>'7250'
 </code></pre>
@@ -397,7 +399,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted">This project contains 577 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
+            <span class="text-muted">This project contains 583 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
         </div>
     </footer>
 

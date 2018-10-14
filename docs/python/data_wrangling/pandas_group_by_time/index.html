@@ -37,9 +37,10 @@
 
 
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Group A Time Series With pandas"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Group A Time Series With pandas"/>
 <meta name="twitter:description" content="Group a time series with pandas."/>
-<meta name="generator" content="Hugo 0.31.1" /> 
+<meta name="generator" content="Hugo 0.40.1" /> 
     
     
 <script type="application/ld+json">
@@ -119,7 +120,8 @@ MathJax.Hub.Config({
                             <a class="dropdown-item" href="https://chrisalbon.com/#linux">Command Line</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#regex">Regular Expressions</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#mathematics">Mathematics</a>
-                            <a class="dropdown-item" href="https://chrisalbon.com/#software_engineer">Software Engineering</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#aws">AWS</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#computer_science">Computer Science</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -171,9 +173,9 @@ MathJax.Hub.Config({
 <h3 id="create-a-dataframe">Create a dataframe</h3>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
 
-<span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;german_army&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">20000</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">30000</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;allied_army&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">20000</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">40000</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;1/1/2014&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;H&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;german_army&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">20000</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">30000</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;allied_army&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">20000</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">40000</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;1/1/2014&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;H&#39;</span><span class="p">)</span>
 
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span></code></pre></div>
 <div>
@@ -216,7 +218,7 @@ MathJax.Hub.Config({
 </div>
 
 <h3 id="truncate-the-dataframe">Truncate the dataframe</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">truncate</span><span class="p">(</span><span class="n">before</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;1/2/2014&#39;</span><span class="p">,</span> <span class="n">after</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;1/3/2014&#39;</span><span class="p">)</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">truncate</span><span class="p">(</span><span class="n">before</span><span class="o">=</span><span class="s1">&#39;1/2/2014&#39;</span><span class="p">,</span> <span class="n">after</span><span class="o">=</span><span class="s1">&#39;1/3/2014&#39;</span><span class="p">)</span></code></pre></div>
 <div>
 <table border="1" class="dataframe">
   <thead>
@@ -482,7 +484,7 @@ MathJax.Hub.Config({
 </div>
 
 <h3 id="aggregate-into-days-by-summing-up-the-value-of-each-hourly-observation">Aggregate into days by summing up the value of each hourly observation</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;D&#39;</span><span class="p">)</span><span class="o">.</span><span class="nb">sum</span><span class="p">()</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">)</span><span class="o">.</span><span class="nb">sum</span><span class="p">()</span></code></pre></div>
 <div>
 <table border="1" class="dataframe">
   <thead>
@@ -523,7 +525,7 @@ MathJax.Hub.Config({
 </div>
 
 <h3 id="aggregate-into-days-by-averaging-up-the-value-of-each-hourly-observation">Aggregate into days by averaging up the value of each hourly observation</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span></code></pre></div>
 <div>
 <table border="1" class="dataframe">
   <thead>
@@ -564,7 +566,7 @@ MathJax.Hub.Config({
 </div>
 
 <h3 id="aggregate-into-days-by-taking-the-min-value-up-the-value-of-each-hourly-observation">Aggregate into days by taking the min value up the value of each hourly observation</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">median</span><span class="p">()</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">median</span><span class="p">()</span></code></pre></div>
 <div>
 <table border="1" class="dataframe">
   <thead>
@@ -605,7 +607,7 @@ MathJax.Hub.Config({
 </div>
 
 <h3 id="aggregate-into-days-by-taking-the-median-value-of-each-day-s-worth-of-hourly-observation">Aggregate into days by taking the median value of each day&rsquo;s worth of hourly observation</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">median</span><span class="p">()</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">median</span><span class="p">()</span></code></pre></div>
 <div>
 <table border="1" class="dataframe">
   <thead>
@@ -646,7 +648,7 @@ MathJax.Hub.Config({
 </div>
 
 <h3 id="aggregate-into-days-by-taking-the-first-value-of-each-day-s-worth-of-hourly-observation">Aggregate into days by taking the first value of each day&rsquo;s worth of hourly observation</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span></code></pre></div>
 <div>
 <table border="1" class="dataframe">
   <thead>
@@ -687,7 +689,7 @@ MathJax.Hub.Config({
 </div>
 
 <h3 id="aggregate-into-days-by-taking-the-last-value-of-each-day-s-worth-of-hourly-observation">Aggregate into days by taking the last value of each day&rsquo;s worth of hourly observation</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">last</span><span class="p">()</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">last</span><span class="p">()</span></code></pre></div>
 <div>
 <table border="1" class="dataframe">
   <thead>
@@ -728,7 +730,7 @@ MathJax.Hub.Config({
 </div>
 
 <h3 id="aggregate-into-days-by-taking-the-first-last-highest-and-lowest-value-of-each-day-s-worth-of-hourly-observation">Aggregate into days by taking the first, last, highest, and lowest value of each day&rsquo;s worth of hourly observation</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">ohlc</span><span class="p">()</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">ohlc</span><span class="p">()</span></code></pre></div>
 <div>
 <table border="1" class="dataframe">
   <thead>
@@ -832,7 +834,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted">This project contains 577 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
+            <span class="text-muted">This project contains 583 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
         </div>
     </footer>
 

@@ -37,9 +37,10 @@
 
 
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="SVC Parameters When Using RBF Kernel"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SVC Parameters When Using RBF Kernel"/>
 <meta name="twitter:description" content="SVC Parameters When Using RBF Kernel"/>
-<meta name="generator" content="Hugo 0.31.1" /> 
+<meta name="generator" content="Hugo 0.40.1" /> 
     
     
 <script type="application/ld+json">
@@ -119,7 +120,8 @@ MathJax.Hub.Config({
                             <a class="dropdown-item" href="https://chrisalbon.com/#linux">Command Line</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#regex">Regular Expressions</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#mathematics">Mathematics</a>
-                            <a class="dropdown-item" href="https://chrisalbon.com/#software_engineer">Software Engineering</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#aws">AWS</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#computer_science">Computer Science</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -180,14 +182,14 @@ MathJax.Hub.Config({
 
 <p>You can ignore the code below. It is used to visualize the the decision regions of the classifier. However it is unimportant to this tutorial to understand how the function works.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">versiontuple</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
-    <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;.&#34;</span><span class="p">))))</span>
+    <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&#34;.&#34;</span><span class="p">))))</span>
 
 
 <span class="k">def</span> <span class="nf">plot_decision_regions</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">classifier</span><span class="p">,</span> <span class="n">test_idx</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="mf">0.02</span><span class="p">):</span>
 
     <span class="c1"># setup marker generator and color map</span>
-    <span class="n">markers</span> <span class="o">=</span> <span class="p">(</span><span class="sa"></span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;^&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;v&#39;</span><span class="p">)</span>
-    <span class="n">colors</span> <span class="o">=</span> <span class="p">(</span><span class="sa"></span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;lightgreen&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;cyan&#39;</span><span class="p">)</span>
+    <span class="n">markers</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="s1">&#39;^&#39;</span><span class="p">,</span> <span class="s1">&#39;v&#39;</span><span class="p">)</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;lightgreen&#39;</span><span class="p">,</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="s1">&#39;cyan&#39;</span><span class="p">)</span>
     <span class="n">cmap</span> <span class="o">=</span> <span class="n">ListedColormap</span><span class="p">(</span><span class="n">colors</span><span class="p">[:</span><span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">y</span><span class="p">))])</span>
 
     <span class="c1"># plot the decision surface</span>
@@ -209,19 +211,19 @@ MathJax.Hub.Config({
     <span class="c1"># highlight test samples</span>
     <span class="k">if</span> <span class="n">test_idx</span><span class="p">:</span>
         <span class="c1"># plot all samples</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">versiontuple</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">versiontuple</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;1.9.0&#39;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">versiontuple</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">versiontuple</span><span class="p">(</span><span class="s1">&#39;1.9.0&#39;</span><span class="p">):</span>
             <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">test_idx</span><span class="p">),</span> <span class="p">:],</span> <span class="n">y</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">test_idx</span><span class="p">)]</span>
-            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;Please update to NumPy 1.9.0 or newer&#39;</span><span class="p">)</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s1">&#39;Please update to NumPy 1.9.0 or newer&#39;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">test_idx</span><span class="p">,</span> <span class="p">:],</span> <span class="n">y</span><span class="p">[</span><span class="n">test_idx</span><span class="p">]</span>
 
         <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_test</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span>
                     <span class="n">X_test</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span>
-                    <span class="n">c</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+                    <span class="n">c</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
                     <span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
                     <span class="n">linewidths</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-                    <span class="n">marker</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;o&#39;</span><span class="p">,</span>
-                    <span class="n">s</span><span class="o">=</span><span class="mi">55</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;test set&#39;</span><span class="p">)</span></code></pre></div>
+                    <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span>
+                    <span class="n">s</span><span class="o">=</span><span class="mi">55</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;test set&#39;</span><span class="p">)</span></code></pre></div>
 <h2 id="generate-data">Generate Data</h2>
 
 <p>Here we are generating some non-linearly separable data that we will train our classifier on. This data would be akin to your training dataset. There are two classes in our y vector: blue x&rsquo;s and red squares.</p>
@@ -233,17 +235,17 @@ MathJax.Hub.Config({
 
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_xor</span><span class="p">[</span><span class="n">y_xor</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
             <span class="n">X_xor</span><span class="p">[</span><span class="n">y_xor</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-            <span class="n">c</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;x&#39;</span><span class="p">,</span>
-            <span class="n">label</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;1&#39;</span><span class="p">)</span>
+            <span class="n">c</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span>
+            <span class="n">label</span><span class="o">=</span><span class="s1">&#39;1&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_xor</span><span class="p">[</span><span class="n">y_xor</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
             <span class="n">X_xor</span><span class="p">[</span><span class="n">y_xor</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-            <span class="n">c</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;r&#39;</span><span class="p">,</span>
-            <span class="n">marker</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;s&#39;</span><span class="p">,</span>
-            <span class="n">label</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;-1&#39;</span><span class="p">)</span>
+            <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span>
+            <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span>
+            <span class="n">label</span><span class="o">=</span><span class="s1">&#39;-1&#39;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></div>
 <p><img src="svc_parameters_using_rbf_kernel_9_0.png" alt="png" /></p>
@@ -252,13 +254,13 @@ MathJax.Hub.Config({
 
 <p>The most basic way to use a SVC is with a linear kernel, which means the decision boundary is a straight line (or hyperplane in higher dimensions). Linear kernels are rarely used in practice, however I wanted to show it here since it is the most basic version of SVC. As can been seen below, it is not very good at classifying (which can be seen by all the blue X&rsquo;s in the red region) because the data is not linear.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a SVC classifier using a linear kernel</span>
-<span class="n">svm</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">svm</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="c1"># Train the classifier</span>
 <span class="n">svm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_xor</span><span class="p">,</span> <span class="n">y_xor</span><span class="p">)</span>
 
 <span class="c1"># Visualize the decision boundaries</span>
 <span class="n">plot_decision_regions</span><span class="p">(</span><span class="n">X_xor</span><span class="p">,</span> <span class="n">y_xor</span><span class="p">,</span> <span class="n">classifier</span><span class="o">=</span><span class="n">svm</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></div>
 <p><img src="svc_parameters_using_rbf_kernel_11_0.png" alt="png" /></p>
@@ -287,13 +289,13 @@ MathJax.Hub.Config({
 
 <p>In the case of our SVC classifier and data, when using a low <code>gamma</code> like 0.01, the decision boundary is not very &lsquo;curvy&rsquo;, rather it is just one big sweeping arch.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a SVC classifier using an RBF kernel</span>
-<span class="n">svm</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=.</span><span class="mo">01</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">svm</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=.</span><span class="mo">01</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="c1"># Train the classifier</span>
 <span class="n">svm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_xor</span><span class="p">,</span> <span class="n">y_xor</span><span class="p">)</span>
 
 <span class="c1"># Visualize the decision boundaries</span>
 <span class="n">plot_decision_regions</span><span class="p">(</span><span class="n">X_xor</span><span class="p">,</span> <span class="n">y_xor</span><span class="p">,</span> <span class="n">classifier</span><span class="o">=</span><span class="n">svm</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></div>
 <p><img src="svc_parameters_using_rbf_kernel_15_0.png" alt="png" /></p>
@@ -302,13 +304,13 @@ MathJax.Hub.Config({
 
 <p>You can see a big difference when we increase the <code>gamma</code> to 1. Now the decision boundary is starting to better cover the spread of the data.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a SVC classifier using an RBF kernel</span>
-<span class="n">svm</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">svm</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="c1"># Train the classifier</span>
 <span class="n">svm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_xor</span><span class="p">,</span> <span class="n">y_xor</span><span class="p">)</span>
 
 <span class="c1"># Visualize the decision boundaries</span>
 <span class="n">plot_decision_regions</span><span class="p">(</span><span class="n">X_xor</span><span class="p">,</span> <span class="n">y_xor</span><span class="p">,</span> <span class="n">classifier</span><span class="o">=</span><span class="n">svm</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></div>
 <p><img src="svc_parameters_using_rbf_kernel_17_0.png" alt="png" /></p>
@@ -317,13 +319,13 @@ MathJax.Hub.Config({
 
 <p>At <code>gamma = 10</code> the spread of the kernel is less pronounced. The decision boundary starts to be highly effected by individual data points (i.e. variance).</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a SVC classifier using an RBF kernel</span>
-<span class="n">svm</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">svm</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="c1"># Train the classifier</span>
 <span class="n">svm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_xor</span><span class="p">,</span> <span class="n">y_xor</span><span class="p">)</span>
 
 <span class="c1"># Visualize the decision boundaries</span>
 <span class="n">plot_decision_regions</span><span class="p">(</span><span class="n">X_xor</span><span class="p">,</span> <span class="n">y_xor</span><span class="p">,</span> <span class="n">classifier</span><span class="o">=</span><span class="n">svm</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></div>
 <p><img src="svc_parameters_using_rbf_kernel_19_0.png" alt="png" /></p>
@@ -332,13 +334,13 @@ MathJax.Hub.Config({
 
 <p>With high <code>gamma</code>, the decision boundary is almost entirely dependent on individual data points, creating &ldquo;islands&rdquo;. This data is clearly overfitted.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a SVC classifier using an RBF kernel</span>
-<span class="n">svm</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">svm</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="c1"># Train the classifier</span>
 <span class="n">svm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_xor</span><span class="p">,</span> <span class="n">y_xor</span><span class="p">)</span>
 
 <span class="c1"># Visualize the decision boundaries</span>
 <span class="n">plot_decision_regions</span><span class="p">(</span><span class="n">X_xor</span><span class="p">,</span> <span class="n">y_xor</span><span class="p">,</span> <span class="n">classifier</span><span class="o">=</span><span class="n">svm</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></div>
 <p><img src="svc_parameters_using_rbf_kernel_21_0.png" alt="png" /></p>
@@ -351,13 +353,13 @@ MathJax.Hub.Config({
 
 <p>With <code>C = 1</code>, the classifier is clearly tolerant of misclassified data point. There are many red points in the blue region and blue points in the red region.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a SVC classifier using an RBF kernel</span>
-<span class="n">svm</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=.</span><span class="mo">01</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">svm</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=.</span><span class="mo">01</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="c1"># Train the classifier</span>
 <span class="n">svm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_xor</span><span class="p">,</span> <span class="n">y_xor</span><span class="p">)</span>
 
 <span class="c1"># Visualize the decision boundaries</span>
 <span class="n">plot_decision_regions</span><span class="p">(</span><span class="n">X_xor</span><span class="p">,</span> <span class="n">y_xor</span><span class="p">,</span> <span class="n">classifier</span><span class="o">=</span><span class="n">svm</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></div>
 <p><img src="svc_parameters_using_rbf_kernel_24_0.png" alt="png" /></p>
@@ -366,13 +368,13 @@ MathJax.Hub.Config({
 
 <p>At <code>C = 10</code>, the classifier is less tolerant to misclassified data points and therefore the decision boundary is more severe.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a SVC classifier using an RBF kernel</span>
-<span class="n">svm</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=.</span><span class="mo">01</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">svm</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=.</span><span class="mo">01</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="c1"># Train the classifier</span>
 <span class="n">svm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_xor</span><span class="p">,</span> <span class="n">y_xor</span><span class="p">)</span>
 
 <span class="c1"># Visualize the decision boundaries</span>
 <span class="n">plot_decision_regions</span><span class="p">(</span><span class="n">X_xor</span><span class="p">,</span> <span class="n">y_xor</span><span class="p">,</span> <span class="n">classifier</span><span class="o">=</span><span class="n">svm</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></div>
 <p><img src="svc_parameters_using_rbf_kernel_26_0.png" alt="png" /></p>
@@ -381,13 +383,13 @@ MathJax.Hub.Config({
 
 <p>When <code>C = 1000</code>, the classifier starts to become very intolerant to misclassified data points and thus the decision boundary becomes less biased and has more variance (i.e. more dependent on the individual data points).</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a SVC classifier using an RBF kernel</span>
-<span class="n">svm</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=.</span><span class="mo">01</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">svm</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=.</span><span class="mo">01</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
 <span class="c1"># Train the classifier</span>
 <span class="n">svm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_xor</span><span class="p">,</span> <span class="n">y_xor</span><span class="p">)</span>
 
 <span class="c1"># Visualize the decision boundaries</span>
 <span class="n">plot_decision_regions</span><span class="p">(</span><span class="n">X_xor</span><span class="p">,</span> <span class="n">y_xor</span><span class="p">,</span> <span class="n">classifier</span><span class="o">=</span><span class="n">svm</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></div>
 <p><img src="svc_parameters_using_rbf_kernel_28_0.png" alt="png" /></p>
@@ -396,13 +398,13 @@ MathJax.Hub.Config({
 
 <p>At <code>C = 10000</code>, the classifier &ldquo;works really hard&rdquo; to not misclassify data points and we see signs of overfitting.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a SVC classifier using an RBF kernel</span>
-<span class="n">svm</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=.</span><span class="mo">01</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+<span class="n">svm</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=.</span><span class="mo">01</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
 <span class="c1"># Train the classifier</span>
 <span class="n">svm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_xor</span><span class="p">,</span> <span class="n">y_xor</span><span class="p">)</span>
 
 <span class="c1"># Visualize the decision boundaries</span>
 <span class="n">plot_decision_regions</span><span class="p">(</span><span class="n">X_xor</span><span class="p">,</span> <span class="n">y_xor</span><span class="p">,</span> <span class="n">classifier</span><span class="o">=</span><span class="n">svm</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></div>
 <p><img src="svc_parameters_using_rbf_kernel_30_0.png" alt="png" /></p>
@@ -411,13 +413,13 @@ MathJax.Hub.Config({
 
 <p>At <code>C = 100000</code>, the classifier is heavily penalized for any misclassified data points and therefore the margins are small.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a SVC classifier using an RBF kernel</span>
-<span class="n">svm</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=.</span><span class="mo">01</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">100000</span><span class="p">)</span>
+<span class="n">svm</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=.</span><span class="mo">01</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">100000</span><span class="p">)</span>
 <span class="c1"># Train the classifier</span>
 <span class="n">svm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_xor</span><span class="p">,</span> <span class="n">y_xor</span><span class="p">)</span>
 
 <span class="c1"># Visualize the decision boundaries</span>
 <span class="n">plot_decision_regions</span><span class="p">(</span><span class="n">X_xor</span><span class="p">,</span> <span class="n">y_xor</span><span class="p">,</span> <span class="n">classifier</span><span class="o">=</span><span class="n">svm</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></div>
 <p><img src="svc_parameters_using_rbf_kernel_32_0.png" alt="png" /></p>
@@ -445,7 +447,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted">This project contains 577 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
+            <span class="text-muted">This project contains 583 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
         </div>
     </footer>
 

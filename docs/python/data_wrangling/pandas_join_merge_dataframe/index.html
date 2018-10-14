@@ -37,9 +37,10 @@
 
 
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Join And Merge Pandas Dataframe"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Join And Merge Pandas Dataframe"/>
 <meta name="twitter:description" content="Join and merge pandas dataframe."/>
-<meta name="generator" content="Hugo 0.31.1" /> 
+<meta name="generator" content="Hugo 0.40.1" /> 
     
     
 <script type="application/ld+json">
@@ -119,7 +120,8 @@ MathJax.Hub.Config({
                             <a class="dropdown-item" href="https://chrisalbon.com/#linux">Command Line</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#regex">Regular Expressions</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#mathematics">Mathematics</a>
-                            <a class="dropdown-item" href="https://chrisalbon.com/#software_engineer">Software Engineering</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#aws">AWS</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#computer_science">Computer Science</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -171,10 +173,10 @@ MathJax.Hub.Config({
 <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span></code></pre></div>
 <h3 id="create-a-dataframe">Create a dataframe</h3>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">raw_data</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="sa"></span><span class="s1">&#39;subject_id&#39;</span><span class="p">:</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;4&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;5&#39;</span><span class="p">],</span>
-        <span class="sa"></span><span class="s1">&#39;first_name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;Alex&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Amy&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Allen&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Ayoung&#39;</span><span class="p">],</span> 
-        <span class="sa"></span><span class="s1">&#39;last_name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;Anderson&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Ackerman&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Ali&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Aoni&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Atiches&#39;</span><span class="p">]}</span>
-<span class="n">df_a</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;subject_id&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;first_name&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;last_name&#39;</span><span class="p">])</span>
+        <span class="s1">&#39;subject_id&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="s1">&#39;4&#39;</span><span class="p">,</span> <span class="s1">&#39;5&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;first_name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Alex&#39;</span><span class="p">,</span> <span class="s1">&#39;Amy&#39;</span><span class="p">,</span> <span class="s1">&#39;Allen&#39;</span><span class="p">,</span> <span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;Ayoung&#39;</span><span class="p">],</span> 
+        <span class="s1">&#39;last_name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Anderson&#39;</span><span class="p">,</span> <span class="s1">&#39;Ackerman&#39;</span><span class="p">,</span> <span class="s1">&#39;Ali&#39;</span><span class="p">,</span> <span class="s1">&#39;Aoni&#39;</span><span class="p">,</span> <span class="s1">&#39;Atiches&#39;</span><span class="p">]}</span>
+<span class="n">df_a</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;subject_id&#39;</span><span class="p">,</span> <span class="s1">&#39;first_name&#39;</span><span class="p">,</span> <span class="s1">&#39;last_name&#39;</span><span class="p">])</span>
 <span class="n">df_a</span></code></pre></div>
 <div>
 <table border="1" class="dataframe">
@@ -223,10 +225,10 @@ MathJax.Hub.Config({
 
 <h3 id="create-a-second-dataframe">Create a second dataframe</h3>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">raw_data</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="sa"></span><span class="s1">&#39;subject_id&#39;</span><span class="p">:</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;4&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;5&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;6&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;7&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;8&#39;</span><span class="p">],</span>
-        <span class="sa"></span><span class="s1">&#39;first_name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;Billy&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Brian&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Bran&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Bryce&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Betty&#39;</span><span class="p">],</span> 
-        <span class="sa"></span><span class="s1">&#39;last_name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;Bonder&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Black&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Balwner&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Brice&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Btisan&#39;</span><span class="p">]}</span>
-<span class="n">df_b</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;subject_id&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;first_name&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;last_name&#39;</span><span class="p">])</span>
+        <span class="s1">&#39;subject_id&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;4&#39;</span><span class="p">,</span> <span class="s1">&#39;5&#39;</span><span class="p">,</span> <span class="s1">&#39;6&#39;</span><span class="p">,</span> <span class="s1">&#39;7&#39;</span><span class="p">,</span> <span class="s1">&#39;8&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;first_name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Billy&#39;</span><span class="p">,</span> <span class="s1">&#39;Brian&#39;</span><span class="p">,</span> <span class="s1">&#39;Bran&#39;</span><span class="p">,</span> <span class="s1">&#39;Bryce&#39;</span><span class="p">,</span> <span class="s1">&#39;Betty&#39;</span><span class="p">],</span> 
+        <span class="s1">&#39;last_name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Bonder&#39;</span><span class="p">,</span> <span class="s1">&#39;Black&#39;</span><span class="p">,</span> <span class="s1">&#39;Balwner&#39;</span><span class="p">,</span> <span class="s1">&#39;Brice&#39;</span><span class="p">,</span> <span class="s1">&#39;Btisan&#39;</span><span class="p">]}</span>
+<span class="n">df_b</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;subject_id&#39;</span><span class="p">,</span> <span class="s1">&#39;first_name&#39;</span><span class="p">,</span> <span class="s1">&#39;last_name&#39;</span><span class="p">])</span>
 <span class="n">df_b</span></code></pre></div>
 <div>
 <table border="1" class="dataframe">
@@ -275,9 +277,9 @@ MathJax.Hub.Config({
 
 <h3 id="create-a-third-dataframe">Create a third dataframe</h3>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">raw_data</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="sa"></span><span class="s1">&#39;subject_id&#39;</span><span class="p">:</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;4&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;5&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;7&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;8&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;9&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;10&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;11&#39;</span><span class="p">],</span>
-        <span class="sa"></span><span class="s1">&#39;test_id&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">51</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">16</span><span class="p">]}</span>
-<span class="n">df_n</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;subject_id&#39;</span><span class="p">,</span><span class="sa"></span><span class="s1">&#39;test_id&#39;</span><span class="p">])</span>
+        <span class="s1">&#39;subject_id&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="s1">&#39;4&#39;</span><span class="p">,</span> <span class="s1">&#39;5&#39;</span><span class="p">,</span> <span class="s1">&#39;7&#39;</span><span class="p">,</span> <span class="s1">&#39;8&#39;</span><span class="p">,</span> <span class="s1">&#39;9&#39;</span><span class="p">,</span> <span class="s1">&#39;10&#39;</span><span class="p">,</span> <span class="s1">&#39;11&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;test_id&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">51</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">16</span><span class="p">]}</span>
+<span class="n">df_n</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;subject_id&#39;</span><span class="p">,</span><span class="s1">&#39;test_id&#39;</span><span class="p">])</span>
 <span class="n">df_n</span></code></pre></div>
 <div>
 <table border="1" class="dataframe">
@@ -487,7 +489,7 @@ MathJax.Hub.Config({
 </div>
 
 <h3 id="merge-two-dataframes-along-the-subject-id-value">Merge two dataframes along the subject_id value</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_new</span><span class="p">,</span> <span class="n">df_n</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;subject_id&#39;</span><span class="p">)</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_new</span><span class="p">,</span> <span class="n">df_n</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;subject_id&#39;</span><span class="p">)</span></code></pre></div>
 <div>
 <table border="1" class="dataframe">
   <thead>
@@ -568,7 +570,7 @@ MathJax.Hub.Config({
 </div>
 
 <h3 id="merge-two-dataframes-with-both-the-left-and-right-dataframes-using-the-subject-id-key">Merge two dataframes with both the left and right dataframes using the subject_id key</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_new</span><span class="p">,</span> <span class="n">df_n</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;subject_id&#39;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;subject_id&#39;</span><span class="p">)</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_new</span><span class="p">,</span> <span class="n">df_n</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;subject_id&#39;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;subject_id&#39;</span><span class="p">)</span></code></pre></div>
 <div>
 <table border="1" class="dataframe">
   <thead>
@@ -651,7 +653,7 @@ MathJax.Hub.Config({
 <h3 id="merge-with-outer-join">Merge with outer join</h3>
 
 <p>&ldquo;Full outer join produces the set of all records in Table A and Table B, with matching records from both sides where available. If there is no match, the missing side will contain null.&rdquo; - <a href="http://blog.codinghorror.com/a-visual-explanation-of-sql-joins/">source</a></p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_a</span><span class="p">,</span> <span class="n">df_b</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;subject_id&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;outer&#39;</span><span class="p">)</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_a</span><span class="p">,</span> <span class="n">df_b</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;subject_id&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">)</span></code></pre></div>
 <div>
 <table border="1" class="dataframe">
   <thead>
@@ -736,7 +738,7 @@ MathJax.Hub.Config({
 <h3 id="merge-with-inner-join">Merge with inner join</h3>
 
 <p>&ldquo;Inner join produces only the set of records that match in both Table A and Table B.&rdquo; - <a href="http://blog.codinghorror.com/a-visual-explanation-of-sql-joins/">source</a></p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_a</span><span class="p">,</span> <span class="n">df_b</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;subject_id&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;inner&#39;</span><span class="p">)</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_a</span><span class="p">,</span> <span class="n">df_b</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;subject_id&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span></code></pre></div>
 <div>
 <table border="1" class="dataframe">
   <thead>
@@ -771,7 +773,7 @@ MathJax.Hub.Config({
 </div>
 
 <h3 id="merge-with-right-join">Merge with right join</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_a</span><span class="p">,</span> <span class="n">df_b</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;subject_id&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;right&#39;</span><span class="p">)</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_a</span><span class="p">,</span> <span class="n">df_b</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;subject_id&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span></code></pre></div>
 <div>
 <table border="1" class="dataframe">
   <thead>
@@ -832,7 +834,7 @@ MathJax.Hub.Config({
 <h3 id="merge-with-left-join">Merge with left join</h3>
 
 <p>&ldquo;Left outer join produces a complete set of records from Table A, with the matching records (where available) in Table B. If there is no match, the right side will contain null.&rdquo; - <a href="http://blog.codinghorror.com/a-visual-explanation-of-sql-joins/">source</a></p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_a</span><span class="p">,</span> <span class="n">df_b</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;subject_id&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;left&#39;</span><span class="p">)</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_a</span><span class="p">,</span> <span class="n">df_b</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;subject_id&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span></code></pre></div>
 <div>
 <table border="1" class="dataframe">
   <thead>
@@ -891,7 +893,7 @@ MathJax.Hub.Config({
 </div>
 
 <h3 id="merge-while-adding-a-suffix-to-duplicate-column-names">Merge while adding a suffix to duplicate column names</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_a</span><span class="p">,</span> <span class="n">df_b</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;subject_id&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">suffixes</span><span class="o">=</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;_left&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;_right&#39;</span><span class="p">))</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_a</span><span class="p">,</span> <span class="n">df_b</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;subject_id&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">suffixes</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;_left&#39;</span><span class="p">,</span> <span class="s1">&#39;_right&#39;</span><span class="p">))</span></code></pre></div>
 <div>
 <table border="1" class="dataframe">
   <thead>
@@ -1037,7 +1039,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted">This project contains 577 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
+            <span class="text-muted">This project contains 583 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
         </div>
     </footer>
 

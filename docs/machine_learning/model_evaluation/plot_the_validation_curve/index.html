@@ -37,9 +37,10 @@
 
 
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Plot The Validation Curve"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Plot The Validation Curve"/>
 <meta name="twitter:description" content="How to plot the validation curve in scikit-learn for machine learning in Python."/>
-<meta name="generator" content="Hugo 0.31.1" /> 
+<meta name="generator" content="Hugo 0.40.1" /> 
     
     
 <script type="application/ld+json">
@@ -119,7 +120,8 @@ MathJax.Hub.Config({
                             <a class="dropdown-item" href="https://chrisalbon.com/#linux">Command Line</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#regex">Regular Expressions</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#mathematics">Mathematics</a>
-                            <a class="dropdown-item" href="https://chrisalbon.com/#software_engineer">Software Engineering</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#aws">AWS</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#computer_science">Computer Science</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -190,10 +192,10 @@ MathJax.Hub.Config({
 <span class="n">train_scores</span><span class="p">,</span> <span class="n">test_scores</span> <span class="o">=</span> <span class="n">validation_curve</span><span class="p">(</span><span class="n">RandomForestClassifier</span><span class="p">(),</span> 
                                              <span class="n">X</span><span class="p">,</span> 
                                              <span class="n">y</span><span class="p">,</span> 
-                                             <span class="n">param_name</span><span class="o">=</span><span class="sa"></span><span class="s2">&#34;n_estimators&#34;</span><span class="p">,</span> 
+                                             <span class="n">param_name</span><span class="o">=</span><span class="s2">&#34;n_estimators&#34;</span><span class="p">,</span> 
                                              <span class="n">param_range</span><span class="o">=</span><span class="n">param_range</span><span class="p">,</span>
                                              <span class="n">cv</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> 
-                                             <span class="n">scoring</span><span class="o">=</span><span class="sa"></span><span class="s2">&#34;accuracy&#34;</span><span class="p">,</span> 
+                                             <span class="n">scoring</span><span class="o">=</span><span class="s2">&#34;accuracy&#34;</span><span class="p">,</span> 
                                              <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
 
 
@@ -206,19 +208,19 @@ MathJax.Hub.Config({
 <span class="n">test_std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">test_scores</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># Plot mean accuracy scores for training and test sets</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">param_range</span><span class="p">,</span> <span class="n">train_mean</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa"></span><span class="s2">&#34;Training score&#34;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="sa"></span><span class="s2">&#34;black&#34;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">param_range</span><span class="p">,</span> <span class="n">test_mean</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa"></span><span class="s2">&#34;Cross-validation score&#34;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="sa"></span><span class="s2">&#34;dimgrey&#34;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">param_range</span><span class="p">,</span> <span class="n">train_mean</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&#34;Training score&#34;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&#34;black&#34;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">param_range</span><span class="p">,</span> <span class="n">test_mean</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&#34;Cross-validation score&#34;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&#34;dimgrey&#34;</span><span class="p">)</span>
 
 <span class="c1"># Plot accurancy bands for training and test sets</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">param_range</span><span class="p">,</span> <span class="n">train_mean</span> <span class="o">-</span> <span class="n">train_std</span><span class="p">,</span> <span class="n">train_mean</span> <span class="o">+</span> <span class="n">train_std</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="sa"></span><span class="s2">&#34;gray&#34;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">param_range</span><span class="p">,</span> <span class="n">test_mean</span> <span class="o">-</span> <span class="n">test_std</span><span class="p">,</span> <span class="n">test_mean</span> <span class="o">+</span> <span class="n">test_std</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="sa"></span><span class="s2">&#34;gainsboro&#34;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">param_range</span><span class="p">,</span> <span class="n">train_mean</span> <span class="o">-</span> <span class="n">train_std</span><span class="p">,</span> <span class="n">train_mean</span> <span class="o">+</span> <span class="n">train_std</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&#34;gray&#34;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">param_range</span><span class="p">,</span> <span class="n">test_mean</span> <span class="o">-</span> <span class="n">test_std</span><span class="p">,</span> <span class="n">test_mean</span> <span class="o">+</span> <span class="n">test_std</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&#34;gainsboro&#34;</span><span class="p">)</span>
 
 <span class="c1"># Create plot</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;Validation Curve With Random Forest&#34;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;Number Of Trees&#34;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;Accuracy Score&#34;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&#34;Validation Curve With Random Forest&#34;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&#34;Number Of Trees&#34;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&#34;Accuracy Score&#34;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="sa"></span><span class="s2">&#34;best&#34;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&#34;best&#34;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></div>
 <p><img src="plot_the_validation_curve_7_0.png" alt="png" /></p>
 
@@ -245,7 +247,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted">This project contains 577 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
+            <span class="text-muted">This project contains 583 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
         </div>
     </footer>
 

@@ -37,9 +37,10 @@
 
 
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Create a Column Based on a Conditional in pandas"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Create a Column Based on a Conditional in pandas"/>
 <meta name="twitter:description" content="Create a Column Based on a Conditional in pandas."/>
-<meta name="generator" content="Hugo 0.31.1" /> 
+<meta name="generator" content="Hugo 0.40.1" /> 
     
     
 <script type="application/ld+json">
@@ -119,7 +120,8 @@ MathJax.Hub.Config({
                             <a class="dropdown-item" href="https://chrisalbon.com/#linux">Command Line</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#regex">Regular Expressions</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#mathematics">Mathematics</a>
-                            <a class="dropdown-item" href="https://chrisalbon.com/#software_engineer">Software Engineering</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#aws">AWS</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#computer_science">Computer Science</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -170,11 +172,11 @@ MathJax.Hub.Config({
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span></code></pre></div>
 <h3 id="make-a-dataframe">Make a dataframe</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="sa"></span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;Jason&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Molly&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Tina&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Jake&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Amy&#39;</span><span class="p">],</span> 
-        <span class="sa"></span><span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">42</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">73</span><span class="p">],</span> 
-        <span class="sa"></span><span class="s1">&#39;preTestScore&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
-        <span class="sa"></span><span class="s1">&#39;postTestScore&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">94</span><span class="p">,</span> <span class="mi">57</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">70</span><span class="p">]}</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;preTestScore&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;postTestScore&#39;</span><span class="p">])</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Jason&#39;</span><span class="p">,</span> <span class="s1">&#39;Molly&#39;</span><span class="p">,</span> <span class="s1">&#39;Tina&#39;</span><span class="p">,</span> <span class="s1">&#39;Jake&#39;</span><span class="p">,</span> <span class="s1">&#39;Amy&#39;</span><span class="p">],</span> 
+        <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">42</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">73</span><span class="p">],</span> 
+        <span class="s1">&#39;preTestScore&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+        <span class="s1">&#39;postTestScore&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">94</span><span class="p">,</span> <span class="mi">57</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">70</span><span class="p">]}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;preTestScore&#39;</span><span class="p">,</span> <span class="s1">&#39;postTestScore&#39;</span><span class="p">])</span>
 <span class="n">df</span></code></pre></div>
 <div>
 <table border="1" class="dataframe">
@@ -230,7 +232,7 @@ MathJax.Hub.Config({
 <h3 id="add-a-new-column-for-elderly">Add a new column for elderly</h3>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a new column called df.elderly where the value is yes</span>
 <span class="c1"># if df.age is greater than 50 and no if not</span>
-<span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;elderly&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;age&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="mi">50</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;yes&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;no&#39;</span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># View the dataframe</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;elderly&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="mi">50</span><span class="p">,</span> <span class="s1">&#39;yes&#39;</span><span class="p">,</span> <span class="s1">&#39;no&#39;</span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># View the dataframe</span>
 <span class="n">df</span></code></pre></div>
 <div>
 <table border="1" class="dataframe">
@@ -312,7 +314,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted">This project contains 577 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
+            <span class="text-muted">This project contains 583 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
         </div>
     </footer>
 

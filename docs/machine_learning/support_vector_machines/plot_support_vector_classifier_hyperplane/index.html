@@ -37,9 +37,10 @@
 
 
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Plot The Support Vector Classifiers Hyperplane"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Plot The Support Vector Classifiers Hyperplane"/>
 <meta name="twitter:description" content="How to plot the support vector classifier&#39;s hyperplane in Scikit-Learn"/>
-<meta name="generator" content="Hugo 0.31.1" /> 
+<meta name="generator" content="Hugo 0.40.1" /> 
     
     
 <script type="application/ld+json">
@@ -119,7 +120,8 @@ MathJax.Hub.Config({
                             <a class="dropdown-item" href="https://chrisalbon.com/#linux">Command Line</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#regex">Regular Expressions</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#mathematics">Mathematics</a>
-                            <a class="dropdown-item" href="https://chrisalbon.com/#software_engineer">Software Engineering</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#aws">AWS</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#computer_science">Computer Science</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -195,7 +197,7 @@ MathJax.Hub.Config({
 
 <p>In this visualization, all observations of class 0 are black and observations of class 1 are light gray. The hyperplane is the decision-boundary deciding how new observations are classified. Specifically, any observation above the line will by classified as class 0 while any observation below the line will be classified as class 1.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Plot data points and color using their class</span>
-<span class="n">color</span> <span class="o">=</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;black&#39;</span> <span class="k">if</span> <span class="n">c</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="sa"></span><span class="s1">&#39;lightgrey&#39;</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">y</span><span class="p">]</span>
+<span class="n">color</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;black&#39;</span> <span class="k">if</span> <span class="n">c</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="s1">&#39;lightgrey&#39;</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">y</span><span class="p">]</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_std</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X_std</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
 
 <span class="c1"># Create the hyperplane</span>
@@ -206,7 +208,7 @@ MathJax.Hub.Config({
 
 <span class="c1"># Plot the hyperplane</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;off&#34;</span><span class="p">),</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">();</span></code></pre></div>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&#34;off&#34;</span><span class="p">),</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">();</span></code></pre></div>
 <p><img src="plot_support_vector_classifier_hyperplane_11_0.png" alt="png" /></p>
 
 </div>
@@ -232,7 +234,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted">This project contains 577 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
+            <span class="text-muted">This project contains 583 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
         </div>
     </footer>
 

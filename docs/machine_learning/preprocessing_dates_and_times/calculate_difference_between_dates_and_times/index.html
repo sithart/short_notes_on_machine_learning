@@ -37,9 +37,10 @@
 
 
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Calculate Difference Between Dates And Times"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Calculate Difference Between Dates And Times"/>
 <meta name="twitter:description" content="How to calculate differences between dates and times for machine learning in Python."/>
-<meta name="generator" content="Hugo 0.31.1" /> 
+<meta name="generator" content="Hugo 0.40.1" /> 
     
     
 <script type="application/ld+json">
@@ -119,7 +120,8 @@ MathJax.Hub.Config({
                             <a class="dropdown-item" href="https://chrisalbon.com/#linux">Command Line</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#regex">Regular Expressions</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#mathematics">Mathematics</a>
-                            <a class="dropdown-item" href="https://chrisalbon.com/#software_engineer">Software Engineering</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#aws">AWS</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#computer_science">Computer Science</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -173,11 +175,11 @@ MathJax.Hub.Config({
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
 
 <span class="c1"># Create two datetime features</span>
-<span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;Arrived&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;01-01-2017&#39;</span><span class="p">),</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;01-04-2017&#39;</span><span class="p">)]</span>
-<span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;Left&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;01-01-2017&#39;</span><span class="p">),</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;01-06-2017&#39;</span><span class="p">)]</span></code></pre></div>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Arrived&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;01-01-2017&#39;</span><span class="p">),</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;01-04-2017&#39;</span><span class="p">)]</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Left&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;01-01-2017&#39;</span><span class="p">),</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;01-06-2017&#39;</span><span class="p">)]</span></code></pre></div>
 <h2 id="calculate-difference-method-1">Calculate Difference (Method 1)</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Calculate duration between features</span>
-<span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;Left&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;Arrived&#39;</span><span class="p">]</span></code></pre></div>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Left&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Arrived&#39;</span><span class="p">]</span></code></pre></div>
 <pre><code>0   0 days
 1   2 days
 dtype: timedelta64[ns]
@@ -185,7 +187,7 @@ dtype: timedelta64[ns]
 
 <h2 id="calculate-difference-method-2">Calculate Difference (Method 2)</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Calculate duration between features</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">delta</span><span class="o">.</span><span class="n">days</span> <span class="k">for</span> <span class="n">delta</span> <span class="ow">in</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;Left&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;Arrived&#39;</span><span class="p">]))</span></code></pre></div>
+<span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">delta</span><span class="o">.</span><span class="n">days</span> <span class="k">for</span> <span class="n">delta</span> <span class="ow">in</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Left&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Arrived&#39;</span><span class="p">]))</span></code></pre></div>
 <pre><code>0    0
 1    2
 dtype: int64
@@ -214,7 +216,7 @@ dtype: int64
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted">This project contains 577 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
+            <span class="text-muted">This project contains 583 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
         </div>
     </footer>
 

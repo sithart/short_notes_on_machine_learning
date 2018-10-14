@@ -37,9 +37,10 @@
 
 
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Flatten Lists Of Lists"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Flatten Lists Of Lists"/>
 <meta name="twitter:description" content="Flatten lists of lists using Python."/>
-<meta name="generator" content="Hugo 0.31.1" /> 
+<meta name="generator" content="Hugo 0.40.1" /> 
     
     
 <script type="application/ld+json">
@@ -119,7 +120,8 @@ MathJax.Hub.Config({
                             <a class="dropdown-item" href="https://chrisalbon.com/#linux">Command Line</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#regex">Regular Expressions</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#mathematics">Mathematics</a>
-                            <a class="dropdown-item" href="https://chrisalbon.com/#software_engineer">Software Engineering</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#aws">AWS</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#computer_science">Computer Science</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -164,9 +166,9 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
   <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a list containing three lists of names</span>
-<span class="n">list_of_lists</span> <span class="o">=</span> <span class="p">[[</span><span class="sa"></span><span class="s1">&#39;Amy&#39;</span><span class="p">,</span><span class="sa"></span><span class="s1">&#39;Betty&#39;</span><span class="p">,</span><span class="sa"></span><span class="s1">&#39;Cathryn&#39;</span><span class="p">,</span><span class="sa"></span><span class="s1">&#39;Dana&#39;</span><span class="p">],</span> 
-                 <span class="p">[</span><span class="sa"></span><span class="s1">&#39;Elizabeth&#39;</span><span class="p">,</span><span class="sa"></span><span class="s1">&#39;Fay&#39;</span><span class="p">,</span><span class="sa"></span><span class="s1">&#39;Gora&#39;</span><span class="p">],</span> 
-                  <span class="p">[</span><span class="sa"></span><span class="s1">&#39;Heidi&#39;</span><span class="p">,</span><span class="sa"></span><span class="s1">&#39;Jane&#39;</span><span class="p">,</span><span class="sa"></span><span class="s1">&#39;Kayley&#39;</span><span class="p">]]</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># For each element in list_of_lists, take each element in the list</span>
+<span class="n">list_of_lists</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;Amy&#39;</span><span class="p">,</span><span class="s1">&#39;Betty&#39;</span><span class="p">,</span><span class="s1">&#39;Cathryn&#39;</span><span class="p">,</span><span class="s1">&#39;Dana&#39;</span><span class="p">],</span> 
+                 <span class="p">[</span><span class="s1">&#39;Elizabeth&#39;</span><span class="p">,</span><span class="s1">&#39;Fay&#39;</span><span class="p">,</span><span class="s1">&#39;Gora&#39;</span><span class="p">],</span> 
+                  <span class="p">[</span><span class="s1">&#39;Heidi&#39;</span><span class="p">,</span><span class="s1">&#39;Jane&#39;</span><span class="p">,</span><span class="s1">&#39;Kayley&#39;</span><span class="p">]]</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># For each element in list_of_lists, take each element in the list</span>
 <span class="n">flattened_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">list_of_lists</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">row</span><span class="p">]</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># View the flattened list</span>
 <span class="n">flattened_list</span></code></pre></div>
 <pre><code>['Amy',
@@ -204,7 +206,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted">This project contains 577 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
+            <span class="text-muted">This project contains 583 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
         </div>
     </footer>
 

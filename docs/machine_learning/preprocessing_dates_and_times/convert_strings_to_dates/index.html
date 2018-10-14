@@ -37,9 +37,10 @@
 
 
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Convert Strings To Dates"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Convert Strings To Dates"/>
 <meta name="twitter:description" content="How to convert stings to dates for machine learning in Python."/>
-<meta name="generator" content="Hugo 0.31.1" /> 
+<meta name="generator" content="Hugo 0.40.1" /> 
     
     
 <script type="application/ld+json">
@@ -119,7 +120,8 @@ MathJax.Hub.Config({
                             <a class="dropdown-item" href="https://chrisalbon.com/#linux">Command Line</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#regex">Regular Expressions</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#mathematics">Mathematics</a>
-                            <a class="dropdown-item" href="https://chrisalbon.com/#software_engineer">Software Engineering</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#aws">AWS</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#computer_science">Computer Science</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -171,9 +173,9 @@ MathJax.Hub.Config({
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span></code></pre></div>
 <h2 id="create-strings">Create Strings</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create strings</span>
-<span class="n">date_strings</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="sa"></span><span class="s1">&#39;03-04-2005 11:35 PM&#39;</span><span class="p">,</span>
-                         <span class="sa"></span><span class="s1">&#39;23-05-2010 12:01 AM&#39;</span><span class="p">,</span>
-                         <span class="sa"></span><span class="s1">&#39;04-09-2009 09:09 PM&#39;</span><span class="p">])</span></code></pre></div>
+<span class="n">date_strings</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;03-04-2005 11:35 PM&#39;</span><span class="p">,</span>
+                         <span class="s1">&#39;23-05-2010 12:01 AM&#39;</span><span class="p">,</span>
+                         <span class="s1">&#39;04-09-2009 09:09 PM&#39;</span><span class="p">])</span></code></pre></div>
 <h2 id="convert-strings-to-timestamps">Convert Strings To Timestamps</h2>
 
 <p>If <code>errors=&quot;coerce&quot;</code> then any problem will not raise an error (the default behavior) but instead will set the value causing the error to <code>NaT</code> (i.e. a missing value).</p>
@@ -221,7 +223,7 @@ MathJax.Hub.Config({
   </tr>
 </table>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Convert to datetimes</span>
-<span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="sa"></span><span class="s2">&#34;</span><span class="si">%d</span><span class="s2">-%m-%Y %I:%M %p&#34;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="sa"></span><span class="s2">&#34;coerce&#34;</span><span class="p">)</span> <span class="k">for</span> <span class="n">date</span> <span class="ow">in</span> <span class="n">date_strings</span><span class="p">]</span></code></pre></div>
+<span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">%d</span><span class="s2">-%m-%Y %I:%M %p&#34;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&#34;coerce&#34;</span><span class="p">)</span> <span class="k">for</span> <span class="n">date</span> <span class="ow">in</span> <span class="n">date_strings</span><span class="p">]</span></code></pre></div>
 <pre><code>[Timestamp('2005-04-03 23:35:00'),
  Timestamp('2010-05-23 00:01:00'),
  Timestamp('2009-09-04 21:09:00')]
@@ -250,7 +252,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted">This project contains 577 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
+            <span class="text-muted">This project contains 583 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
         </div>
     </footer>
 

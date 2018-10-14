@@ -37,9 +37,10 @@
 
 
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Linear Regression"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Linear Regression"/>
 <meta name="twitter:description" content="A simple example of linear regression in scikit-learn"/>
-<meta name="generator" content="Hugo 0.31.1" /> 
+<meta name="generator" content="Hugo 0.40.1" /> 
     
     
 <script type="application/ld+json">
@@ -119,7 +120,8 @@ MathJax.Hub.Config({
                             <a class="dropdown-item" href="https://chrisalbon.com/#linux">Command Line</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#regex">Regular Expressions</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#mathematics">Mathematics</a>
-                            <a class="dropdown-item" href="https://chrisalbon.com/#software_engineer">Software Engineering</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#aws">AWS</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#computer_science">Computer Science</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -181,7 +183,7 @@ MathJax.Hub.Config({
 
 <p>With those libraries added, let us load the dataset (the dataset is avaliable in his site&rsquo;s GitHub repo).</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Load the data</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;../data/simulated_data/battledeaths_n300_cor99.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/simulated_data/battledeaths_n300_cor99.csv&#39;</span><span class="p">)</span>
 
 <span class="c1"># Shuffle the data&#39;s rows (This is only necessary because of the way I created</span>
 <span class="c1"># the data using DrawMyData. This would not normally be necessary with a real analysis).</span>
@@ -232,7 +234,7 @@ MathJax.Hub.Config({
 
 <p>Now let us plot the data so we can see it&rsquo;s structure.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Plot the two variables against eachother</span>
-<span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;friendly_battledeaths&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;enemy_battledeaths&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;scatter&#39;</span><span class="p">)</span></code></pre></div>
+<span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;friendly_battledeaths&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;enemy_battledeaths&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;scatter&#39;</span><span class="p">)</span></code></pre></div>
 <pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1145cdb00&gt;
 </code></pre>
 
@@ -252,8 +254,8 @@ MathJax.Hub.Config({
 </ol>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create our predictor/independent variable</span>
 <span class="c1"># and our response/dependent variable</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;friendly_battledeaths&#39;</span><span class="p">]</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;enemy_battledeaths&#39;</span><span class="p">]</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;friendly_battledeaths&#39;</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;enemy_battledeaths&#39;</span><span class="p">]</span>
 
 <span class="c1"># Create our test data from the first 30 observations</span>
 <span class="n">X_test</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">30</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
@@ -357,7 +359,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted">This project contains 577 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
+            <span class="text-muted">This project contains 583 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
         </div>
     </footer>
 

@@ -37,9 +37,10 @@
 
 
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Monitor A Website For Changes With Python"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Monitor A Website For Changes With Python"/>
 <meta name="twitter:description" content="Monitor a website for changes with Python."/>
-<meta name="generator" content="Hugo 0.31.1" /> 
+<meta name="generator" content="Hugo 0.40.1" /> 
     
     
 <script type="application/ld+json">
@@ -119,7 +120,8 @@ MathJax.Hub.Config({
                             <a class="dropdown-item" href="https://chrisalbon.com/#linux">Command Line</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#regex">Regular Expressions</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#mathematics">Mathematics</a>
-                            <a class="dropdown-item" href="https://chrisalbon.com/#software_engineer">Software Engineering</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#aws">AWS</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#computer_science">Computer Science</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -190,16 +192,16 @@ MathJax.Hub.Config({
 <span class="c1"># while this is true (it is true by default),</span>
 <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
     <span class="c1"># set the url as VentureBeat,</span>
-    <span class="n">url</span> <span class="o">=</span> <span class="sa"></span><span class="s2">&#34;http://Google.com/&#34;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s2">&#34;http://Google.com/&#34;</span>
     <span class="c1"># set the headers like we are a browser,</span>
-    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="sa"></span><span class="s1">&#39;User-Agent&#39;</span><span class="p">:</span> <span class="sa"></span><span class="s1">&#39;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36&#39;</span><span class="p">}</span>
+    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;User-Agent&#39;</span><span class="p">:</span> <span class="s1">&#39;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36&#39;</span><span class="p">}</span>
     <span class="c1"># download the homepage</span>
     <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
     <span class="c1"># parse the downloaded homepage and grab all text, then,</span>
-    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;lxml&#34;</span><span class="p">)</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s2">&#34;lxml&#34;</span><span class="p">)</span>
     
     <span class="c1"># if the number of times the word &#34;Google&#34; occurs on the page is less than 1,</span>
-    <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">soup</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;Google&#34;</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">soup</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&#34;Google&#34;</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
         <span class="c1"># wait 60 seconds,</span>
         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
         <span class="c1"># continue with the script,</span>
@@ -208,11 +210,11 @@ MathJax.Hub.Config({
     <span class="c1"># but if the word &#34;Google&#34; occurs any other number of times,</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="c1"># create an email message with just a subject line,</span>
-        <span class="n">msg</span> <span class="o">=</span> <span class="sa"></span><span class="s1">&#39;Subject: This is Chris</span><span class="se">\&#39;</span><span class="s1">s script talking, CHECK GOOGLE!&#39;</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;Subject: This is Chris</span><span class="se">\&#39;</span><span class="s1">s script talking, CHECK GOOGLE!&#39;</span>
         <span class="c1"># set the &#39;from&#39; address,</span>
-        <span class="n">fromaddr</span> <span class="o">=</span> <span class="sa"></span><span class="s1">&#39;YOUR_EMAIL_ADDRESS&#39;</span>
+        <span class="n">fromaddr</span> <span class="o">=</span> <span class="s1">&#39;YOUR_EMAIL_ADDRESS&#39;</span>
         <span class="c1"># set the &#39;to&#39; addresses,</span>
-        <span class="n">toaddrs</span>  <span class="o">=</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;AN_EMAIL_ADDRESS&#39;</span><span class="p">,</span><span class="sa"></span><span class="s1">&#39;A_SECOND_EMAIL_ADDRESS&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;A_THIRD_EMAIL_ADDRESS&#39;</span><span class="p">]</span>
+        <span class="n">toaddrs</span>  <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;AN_EMAIL_ADDRESS&#39;</span><span class="p">,</span><span class="s1">&#39;A_SECOND_EMAIL_ADDRESS&#39;</span><span class="p">,</span> <span class="s1">&#39;A_THIRD_EMAIL_ADDRESS&#39;</span><span class="p">]</span>
         
         <span class="c1"># setup the email server,</span>
         <span class="c1"># server = smtplib.SMTP(&#39;smtp.gmail.com&#39;, 587)</span>
@@ -221,9 +223,9 @@ MathJax.Hub.Config({
         <span class="c1"># server.login(&#34;YOUR_EMAIL_ADDRESS&#34;, &#34;YOUR_PASSWORD&#34;)</span>
         
         <span class="c1"># Print the email&#39;s contents</span>
-        <span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;From: &#39;</span> <span class="o">+</span> <span class="n">fromaddr</span><span class="p">)</span>
-        <span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;To: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">toaddrs</span><span class="p">))</span>
-        <span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;Message: &#39;</span> <span class="o">+</span> <span class="n">msg</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;From: &#39;</span> <span class="o">+</span> <span class="n">fromaddr</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;To: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">toaddrs</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Message: &#39;</span> <span class="o">+</span> <span class="n">msg</span><span class="p">)</span>
         
         <span class="c1"># send the email</span>
         <span class="c1"># server.sendmail(fromaddr, toaddrs, msg)</span>
@@ -259,7 +261,7 @@ Message: Subject: This is Chris's script talking, CHECK GOOGLE!
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted">This project contains 577 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
+            <span class="text-muted">This project contains 583 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
         </div>
     </footer>
 

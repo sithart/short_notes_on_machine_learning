@@ -37,9 +37,10 @@
 
 
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Group Pandas Data By Hour Of The Day"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Group Pandas Data By Hour Of The Day"/>
 <meta name="twitter:description" content="Group data by hour of the day using pandas."/>
-<meta name="generator" content="Hugo 0.31.1" /> 
+<meta name="generator" content="Hugo 0.40.1" /> 
     
     
 <script type="application/ld+json">
@@ -119,7 +120,8 @@ MathJax.Hub.Config({
                             <a class="dropdown-item" href="https://chrisalbon.com/#linux">Command Line</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#regex">Regular Expressions</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#mathematics">Mathematics</a>
-                            <a class="dropdown-item" href="https://chrisalbon.com/#software_engineer">Software Engineering</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#aws">AWS</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#computer_science">Computer Science</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -171,7 +173,7 @@ MathJax.Hub.Config({
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span></code></pre></div>
 <h2 id="create-data">Create Data</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a time series of 2000 elements, one very five minutes starting on 1/1/2000</span>
-<span class="n">time</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;1/1/2000&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;5min&#39;</span><span class="p">)</span>
+<span class="n">time</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;1/1/2000&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;5min&#39;</span><span class="p">)</span>
 
 <span class="c1"># Create a pandas series with a random values between 0 and 100, using &#39;time&#39; as the index</span>
 <span class="n">series</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">2000</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="n">time</span><span class="p">)</span></code></pre></div>
@@ -244,7 +246,7 @@ dtype: float64
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted">This project contains 577 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
+            <span class="text-muted">This project contains 583 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
         </div>
     </footer>
 

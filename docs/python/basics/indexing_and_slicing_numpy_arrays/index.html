@@ -37,9 +37,10 @@
 
 
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Indexing And Slicing NumPy Arrays"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Indexing And Slicing NumPy Arrays"/>
 <meta name="twitter:description" content="Indexing and slicing NumPy arrays in Python."/>
-<meta name="generator" content="Hugo 0.31.1" /> 
+<meta name="generator" content="Hugo 0.40.1" /> 
     
     
 <script type="application/ld+json">
@@ -119,7 +120,8 @@ MathJax.Hub.Config({
                             <a class="dropdown-item" href="https://chrisalbon.com/#linux">Command Line</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#regex">Regular Expressions</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#mathematics">Mathematics</a>
-                            <a class="dropdown-item" href="https://chrisalbon.com/#software_engineer">Software Engineering</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#aws">AWS</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#computer_science">Computer Science</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -173,9 +175,9 @@ MathJax.Hub.Config({
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Import Modules</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create an array of battle casualties from the first to the last battle</span>
 <span class="n">battleDeaths</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1245</span><span class="p">,</span> <span class="mi">2732</span><span class="p">,</span> <span class="mi">3853</span><span class="p">,</span> <span class="mi">4824</span><span class="p">,</span> <span class="mi">5292</span><span class="p">,</span> <span class="mi">6184</span><span class="p">,</span> <span class="mi">7282</span><span class="p">,</span> <span class="mi">81393</span><span class="p">,</span> <span class="mi">932</span><span class="p">,</span> <span class="mi">10834</span><span class="p">])</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Divide the array of battle deaths into start, middle, and end of the war</span>
-<span class="n">warStart</span> <span class="o">=</span> <span class="n">battleDeaths</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">];</span> <span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;Death from battles at the start of war:&#39;</span><span class="p">,</span> <span class="n">warStart</span><span class="p">)</span>
-<span class="n">warMiddle</span> <span class="o">=</span> <span class="n">battleDeaths</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">7</span><span class="p">];</span> <span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;Death from battles at the middle of war:&#39;</span><span class="p">,</span> <span class="n">warMiddle</span><span class="p">)</span>
-<span class="n">warEnd</span> <span class="o">=</span> <span class="n">battleDeaths</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">10</span><span class="p">];</span> <span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;Death from battles at the end of war:&#39;</span><span class="p">,</span> <span class="n">warEnd</span><span class="p">)</span></code></pre></div>
+<span class="n">warStart</span> <span class="o">=</span> <span class="n">battleDeaths</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">];</span> <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Death from battles at the start of war:&#39;</span><span class="p">,</span> <span class="n">warStart</span><span class="p">)</span>
+<span class="n">warMiddle</span> <span class="o">=</span> <span class="n">battleDeaths</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">7</span><span class="p">];</span> <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Death from battles at the middle of war:&#39;</span><span class="p">,</span> <span class="n">warMiddle</span><span class="p">)</span>
+<span class="n">warEnd</span> <span class="o">=</span> <span class="n">battleDeaths</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">10</span><span class="p">];</span> <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Death from battles at the end of war:&#39;</span><span class="p">,</span> <span class="n">warEnd</span><span class="p">)</span></code></pre></div>
 <pre><code>Death from battles at the start of war: [1245 2732 3853]
 Death from battles at the middle of war: [4824 5292 6184 7282]
 Death from battles at the end of war: [81393   932 10834]
@@ -194,10 +196,10 @@ Death from battles at the end of war: [81393   932 10834]
 
 <p>Note: This multidimensional array behaves like a dataframe or matrix (i.e. columns and rows)</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create an array of regiment information</span>
-<span class="n">regimentNames</span> <span class="o">=</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;Nighthawks&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Sky Warriors&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Rough Riders&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;New Birds&#39;</span><span class="p">]</span>
+<span class="n">regimentNames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Nighthawks&#39;</span><span class="p">,</span> <span class="s1">&#39;Sky Warriors&#39;</span><span class="p">,</span> <span class="s1">&#39;Rough Riders&#39;</span><span class="p">,</span> <span class="s1">&#39;New Birds&#39;</span><span class="p">]</span>
 <span class="n">regimentNumber</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 <span class="n">regimentSize</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1092</span><span class="p">,</span> <span class="mi">2039</span><span class="p">,</span> <span class="mi">3011</span><span class="p">,</span> <span class="mi">4099</span><span class="p">]</span>
-<span class="n">regimentCommander</span> <span class="o">=</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;Mitchell&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Blackthorn&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Baker&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Miller&#39;</span><span class="p">]</span>
+<span class="n">regimentCommander</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Mitchell&#39;</span><span class="p">,</span> <span class="s1">&#39;Blackthorn&#39;</span><span class="p">,</span> <span class="s1">&#39;Baker&#39;</span><span class="p">,</span> <span class="s1">&#39;Miller&#39;</span><span class="p">]</span>
 
 <span class="n">regiments</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">regimentNames</span><span class="p">,</span> <span class="n">regimentNumber</span><span class="p">,</span> <span class="n">regimentSize</span><span class="p">,</span> <span class="n">regimentCommander</span><span class="p">])</span>
 <span class="n">regiments</span></code></pre></div>
@@ -247,7 +249,7 @@ Death from battles at the end of war: [81393   932 10834]
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted">This project contains 577 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
+            <span class="text-muted">This project contains 583 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
         </div>
     </footer>
 

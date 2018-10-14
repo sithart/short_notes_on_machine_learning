@@ -37,9 +37,10 @@
 
 
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Remove Stop Words"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Remove Stop Words"/>
 <meta name="twitter:description" content="How to remove stop words from unstructured text data for machine learning in Python."/>
-<meta name="generator" content="Hugo 0.31.1" /> 
+<meta name="generator" content="Hugo 0.40.1" /> 
     
     
 <script type="application/ld+json">
@@ -119,7 +120,8 @@ MathJax.Hub.Config({
                             <a class="dropdown-item" href="https://chrisalbon.com/#linux">Command Line</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#regex">Regular Expressions</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#mathematics">Mathematics</a>
-                            <a class="dropdown-item" href="https://chrisalbon.com/#software_engineer">Software Engineering</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#aws">AWS</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#computer_science">Computer Science</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -171,7 +173,7 @@ MathJax.Hub.Config({
 
 <span class="c1"># You will have to download the set of stop words the first time</span>
 <span class="kn">import</span> <span class="nn">nltk</span>
-<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;stopwords&#39;</span><span class="p">)</span></code></pre></div>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;stopwords&#39;</span><span class="p">)</span></code></pre></div>
 <pre><code>[nltk_data] Downloading package stopwords to
 [nltk_data]     /Users/chrisalbon/nltk_data...
 [nltk_data]   Package stopwords is already up-to-date!
@@ -185,10 +187,10 @@ True
 
 <h2 id="create-word-tokens">Create Word Tokens</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create word tokens</span>
-<span class="n">tokenized_words</span> <span class="o">=</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;am&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;going&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;to&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;go&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;to&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;the&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;store&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;and&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;park&#39;</span><span class="p">]</span></code></pre></div>
+<span class="n">tokenized_words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="s1">&#39;am&#39;</span><span class="p">,</span> <span class="s1">&#39;going&#39;</span><span class="p">,</span> <span class="s1">&#39;to&#39;</span><span class="p">,</span> <span class="s1">&#39;go&#39;</span><span class="p">,</span> <span class="s1">&#39;to&#39;</span><span class="p">,</span> <span class="s1">&#39;the&#39;</span><span class="p">,</span> <span class="s1">&#39;store&#39;</span><span class="p">,</span> <span class="s1">&#39;and&#39;</span><span class="p">,</span> <span class="s1">&#39;park&#39;</span><span class="p">]</span></code></pre></div>
 <h2 id="load-stop-words">Load Stop Words</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Load stop words</span>
-<span class="n">stop_words</span> <span class="o">=</span> <span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;english&#39;</span><span class="p">)</span>
+<span class="n">stop_words</span> <span class="o">=</span> <span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;english&#39;</span><span class="p">)</span>
 
 <span class="c1"># Show stop words</span>
 <span class="n">stop_words</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span></code></pre></div>
@@ -224,7 +226,7 @@ True
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted">This project contains 577 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
+            <span class="text-muted">This project contains 583 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
         </div>
     </footer>
 

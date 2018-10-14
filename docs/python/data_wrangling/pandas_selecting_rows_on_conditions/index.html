@@ -37,9 +37,10 @@
 
 
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Selecting pandas DataFrame Rows Based On Conditions"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Selecting pandas DataFrame Rows Based On Conditions"/>
 <meta name="twitter:description" content="Selecting pandas dataFrame rows based on conditions."/>
-<meta name="generator" content="Hugo 0.31.1" /> 
+<meta name="generator" content="Hugo 0.40.1" /> 
     
     
 <script type="application/ld+json">
@@ -119,7 +120,8 @@ MathJax.Hub.Config({
                             <a class="dropdown-item" href="https://chrisalbon.com/#linux">Command Line</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#regex">Regular Expressions</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#mathematics">Mathematics</a>
-                            <a class="dropdown-item" href="https://chrisalbon.com/#software_engineer">Software Engineering</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#aws">AWS</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#computer_science">Computer Science</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -169,10 +171,10 @@ MathJax.Hub.Config({
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Import modules</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a dataframe</span>
-<span class="n">raw_data</span> <span class="o">=</span> <span class="p">{</span><span class="sa"></span><span class="s1">&#39;first_name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;Jason&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Molly&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span> 
-        <span class="sa"></span><span class="s1">&#39;nationality&#39;</span><span class="p">:</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;USA&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;USA&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;France&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;UK&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;UK&#39;</span><span class="p">],</span> 
-        <span class="sa"></span><span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">42</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">70</span><span class="p">]}</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;first_name&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;nationality&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;age&#39;</span><span class="p">])</span>
+<span class="n">raw_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;first_name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Jason&#39;</span><span class="p">,</span> <span class="s1">&#39;Molly&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span> 
+        <span class="s1">&#39;nationality&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;USA&#39;</span><span class="p">,</span> <span class="s1">&#39;USA&#39;</span><span class="p">,</span> <span class="s1">&#39;France&#39;</span><span class="p">,</span> <span class="s1">&#39;UK&#39;</span><span class="p">,</span> <span class="s1">&#39;UK&#39;</span><span class="p">],</span> 
+        <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">42</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">70</span><span class="p">]}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;first_name&#39;</span><span class="p">,</span> <span class="s1">&#39;nationality&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">])</span>
 <span class="n">df</span></code></pre></div>
 <div>
 <table border="1" class="dataframe">
@@ -221,10 +223,10 @@ MathJax.Hub.Config({
 
 <h2 id="method-1-using-boolean-variables">Method 1: Using Boolean Variables</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create variable with TRUE if nationality is USA</span>
-<span class="n">american</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;nationality&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="sa"></span><span class="s2">&#34;USA&#34;</span>
+<span class="n">american</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;nationality&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;USA&#34;</span>
 
 <span class="c1"># Create variable with TRUE if age is greater than 50</span>
-<span class="n">elderly</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;age&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">50</span>
+<span class="n">elderly</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">50</span>
 
 <span class="c1"># Select all cases where nationality is USA and age is greater than 50</span>
 <span class="n">df</span><span class="p">[</span><span class="n">american</span> <span class="o">&amp;</span> <span class="n">elderly</span><span class="p">]</span></code></pre></div>
@@ -251,7 +253,7 @@ MathJax.Hub.Config({
 
 <h2 id="method-2-using-variable-attributes">Method 2: Using variable attributes</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Select all cases where the first name is not missing and nationality is USA </span>
-<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;first_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;nationality&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="sa"></span><span class="s2">&#34;USA&#34;</span><span class="p">)]</span></code></pre></div>
+<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;first_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;nationality&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;USA&#34;</span><span class="p">)]</span></code></pre></div>
 <div>
 <table border="1" class="dataframe">
   <thead>
@@ -302,7 +304,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted">This project contains 577 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
+            <span class="text-muted">This project contains 583 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
         </div>
     </footer>
 

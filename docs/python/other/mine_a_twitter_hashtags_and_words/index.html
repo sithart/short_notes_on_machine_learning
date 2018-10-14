@@ -37,9 +37,10 @@
 
 
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Mine Twitter&#39;s Stream For Hashtags Or Words"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Mine Twitter&#39;s Stream For Hashtags Or Words"/>
 <meta name="twitter:description" content="Mine Twitter&#39;s stream for hashtags or words."/>
-<meta name="generator" content="Hugo 0.31.1" /> 
+<meta name="generator" content="Hugo 0.40.1" /> 
     
     
 <script type="application/ld+json">
@@ -119,7 +120,8 @@ MathJax.Hub.Config({
                             <a class="dropdown-item" href="https://chrisalbon.com/#linux">Command Line</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#regex">Regular Expressions</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#mathematics">Mathematics</a>
-                            <a class="dropdown-item" href="https://chrisalbon.com/#software_engineer">Software Engineering</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#aws">AWS</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#computer_science">Computer Science</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -186,60 +188,60 @@ MathJax.Hub.Config({
         <span class="c1"># That sets the api</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">api</span> <span class="o">=</span> <span class="n">api</span>
         <span class="c1"># Create a file with &#39;data_&#39; and the current time</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">filename</span> <span class="o">=</span> <span class="sa"></span><span class="s1">&#39;data&#39;</span><span class="o">+</span><span class="sa"></span><span class="s1">&#39;_&#39;</span><span class="o">+</span><span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1">-%H%M%S&#39;</span><span class="p">)</span><span class="o">+</span><span class="sa"></span><span class="s1">&#39;.csv&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;data&#39;</span><span class="o">+</span><span class="s1">&#39;_&#39;</span><span class="o">+</span><span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1">-%H%M%S&#39;</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;.csv&#39;</span>
         <span class="c1"># Create a new file with that filename</span>
-        <span class="n">csvFile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+        <span class="n">csvFile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
         
         <span class="c1"># Create a csv writer</span>
         <span class="n">csvWriter</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">csvFile</span><span class="p">)</span>
         
         <span class="c1"># Write a single row with the headers of the columns</span>
-        <span class="n">csvWriter</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="sa"></span><span class="s1">&#39;text&#39;</span><span class="p">,</span>
-                            <span class="sa"></span><span class="s1">&#39;created_at&#39;</span><span class="p">,</span>
-                            <span class="sa"></span><span class="s1">&#39;geo&#39;</span><span class="p">,</span>
-                            <span class="sa"></span><span class="s1">&#39;lang&#39;</span><span class="p">,</span>
-                            <span class="sa"></span><span class="s1">&#39;place&#39;</span><span class="p">,</span>
-                            <span class="sa"></span><span class="s1">&#39;coordinates&#39;</span><span class="p">,</span>
-                            <span class="sa"></span><span class="s1">&#39;user.favourites_count&#39;</span><span class="p">,</span>
-                            <span class="sa"></span><span class="s1">&#39;user.statuses_count&#39;</span><span class="p">,</span>
-                            <span class="sa"></span><span class="s1">&#39;user.description&#39;</span><span class="p">,</span>
-                            <span class="sa"></span><span class="s1">&#39;user.location&#39;</span><span class="p">,</span>
-                            <span class="sa"></span><span class="s1">&#39;user.id&#39;</span><span class="p">,</span>
-                            <span class="sa"></span><span class="s1">&#39;user.created_at&#39;</span><span class="p">,</span>
-                            <span class="sa"></span><span class="s1">&#39;user.verified&#39;</span><span class="p">,</span>
-                            <span class="sa"></span><span class="s1">&#39;user.following&#39;</span><span class="p">,</span>
-                            <span class="sa"></span><span class="s1">&#39;user.url&#39;</span><span class="p">,</span>
-                            <span class="sa"></span><span class="s1">&#39;user.listed_count&#39;</span><span class="p">,</span>
-                            <span class="sa"></span><span class="s1">&#39;user.followers_count&#39;</span><span class="p">,</span>
-                            <span class="sa"></span><span class="s1">&#39;user.default_profile_image&#39;</span><span class="p">,</span>
-                            <span class="sa"></span><span class="s1">&#39;user.utc_offset&#39;</span><span class="p">,</span>
-                            <span class="sa"></span><span class="s1">&#39;user.friends_count&#39;</span><span class="p">,</span>
-                            <span class="sa"></span><span class="s1">&#39;user.default_profile&#39;</span><span class="p">,</span>
-                            <span class="sa"></span><span class="s1">&#39;user.name&#39;</span><span class="p">,</span>
-                            <span class="sa"></span><span class="s1">&#39;user.lang&#39;</span><span class="p">,</span>
-                            <span class="sa"></span><span class="s1">&#39;user.screen_name&#39;</span><span class="p">,</span>
-                            <span class="sa"></span><span class="s1">&#39;user.geo_enabled&#39;</span><span class="p">,</span>
-                            <span class="sa"></span><span class="s1">&#39;user.profile_background_color&#39;</span><span class="p">,</span>
-                            <span class="sa"></span><span class="s1">&#39;user.profile_image_url&#39;</span><span class="p">,</span>
-                            <span class="sa"></span><span class="s1">&#39;user.time_zone&#39;</span><span class="p">,</span>
-                            <span class="sa"></span><span class="s1">&#39;id&#39;</span><span class="p">,</span>
-                            <span class="sa"></span><span class="s1">&#39;favorite_count&#39;</span><span class="p">,</span>
-                            <span class="sa"></span><span class="s1">&#39;retweeted&#39;</span><span class="p">,</span>
-                            <span class="sa"></span><span class="s1">&#39;source&#39;</span><span class="p">,</span>
-                            <span class="sa"></span><span class="s1">&#39;favorited&#39;</span><span class="p">,</span>
-                            <span class="sa"></span><span class="s1">&#39;retweet_count&#39;</span><span class="p">])</span>
+        <span class="n">csvWriter</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="s1">&#39;text&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;created_at&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;geo&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;lang&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;place&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;coordinates&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;user.favourites_count&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;user.statuses_count&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;user.description&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;user.location&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;user.id&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;user.created_at&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;user.verified&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;user.following&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;user.url&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;user.listed_count&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;user.followers_count&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;user.default_profile_image&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;user.utc_offset&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;user.friends_count&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;user.default_profile&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;user.name&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;user.lang&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;user.screen_name&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;user.geo_enabled&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;user.profile_background_color&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;user.profile_image_url&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;user.time_zone&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;id&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;favorite_count&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;retweeted&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;source&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;favorited&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;retweet_count&#39;</span><span class="p">])</span>
 
     <span class="c1"># When a tweet appears</span>
     <span class="k">def</span> <span class="nf">on_status</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status</span><span class="p">):</span>
         
         <span class="c1"># Open the csv file created previously</span>
-        <span class="n">csvFile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+        <span class="n">csvFile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span>
         
         <span class="c1"># Create a csv writer</span>
         <span class="n">csvWriter</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">csvFile</span><span class="p">)</span>
         
         <span class="c1"># If the tweet is not a retweet</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="sa"></span><span class="s1">&#39;RT @&#39;</span> <span class="ow">in</span> <span class="n">status</span><span class="o">.</span><span class="n">text</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="s1">&#39;RT @&#39;</span> <span class="ow">in</span> <span class="n">status</span><span class="o">.</span><span class="n">text</span><span class="p">:</span>
             <span class="c1"># Try to </span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="c1"># Write the tweet&#39;s information to the csv file</span>
@@ -293,7 +295,7 @@ MathJax.Hub.Config({
     <span class="c1"># When an error occurs</span>
     <span class="k">def</span> <span class="nf">on_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status_code</span><span class="p">):</span>
         <span class="c1"># Print the error code</span>
-        <span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;Encountered error with status code:&#39;</span><span class="p">,</span> <span class="n">status_code</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Encountered error with status code:&#39;</span><span class="p">,</span> <span class="n">status_code</span><span class="p">)</span>
         
         <span class="c1"># If the error code is 401, which is the error for bad credentials</span>
         <span class="k">if</span> <span class="n">status_code</span> <span class="o">==</span> <span class="mi">401</span><span class="p">:</span>
@@ -304,7 +306,7 @@ MathJax.Hub.Config({
     <span class="k">def</span> <span class="nf">on_delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status_id</span><span class="p">,</span> <span class="n">user_id</span><span class="p">):</span>
         
         <span class="c1"># Print message</span>
-        <span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;Delete notice&#34;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;Delete notice&#34;</span><span class="p">)</span>
         
         <span class="c1"># Return nothing</span>
         <span class="k">return</span>
@@ -313,7 +315,7 @@ MathJax.Hub.Config({
     <span class="k">def</span> <span class="nf">on_limit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">track</span><span class="p">):</span>
         
         <span class="c1"># Print rate limiting error</span>
-        <span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;Rate limited, continuing&#34;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;Rate limited, continuing&#34;</span><span class="p">)</span>
         
         <span class="c1"># Continue mining tweets</span>
         <span class="k">return</span> <span class="bp">True</span>
@@ -322,7 +324,7 @@ MathJax.Hub.Config({
     <span class="k">def</span> <span class="nf">on_timeout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         
         <span class="c1"># Print timeout message</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Timeout...&#39;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">,</span> <span class="s1">&#39;Timeout...&#39;</span><span class="p">)</span>
         
         <span class="c1"># Wait 10 seconds</span>
         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
@@ -332,15 +334,15 @@ MathJax.Hub.Config({
 <h2 id="create-a-wrapper-for-the-miner">Create A Wrapper For The Miner</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a mining function</span>
 <span class="k">def</span> <span class="nf">start_mining</span><span class="p">(</span><span class="n">queries</span><span class="p">):</span>
-    <span class="sa"></span><span class="s1">&#39;&#39;&#39;
+    <span class="s1">&#39;&#39;&#39;
 </span><span class="s1">    Inputs list of strings. Returns tweets containing those strings.
 </span><span class="s1">    &#39;&#39;&#39;</span>
     
     <span class="c1">#Variables that contains the user credentials to access Twitter API</span>
-    <span class="n">consumer_key</span> <span class="o">=</span> <span class="sa"></span><span class="s2">&#34;YOUR_CREDENTIALS&#34;</span>
-    <span class="n">consumer_secret</span> <span class="o">=</span> <span class="sa"></span><span class="s2">&#34;YOUR_CREDENTIALS&#34;</span>
-    <span class="n">access_token</span> <span class="o">=</span> <span class="sa"></span><span class="s2">&#34;YOUR_CREDENTIALS&#34;</span>
-    <span class="n">access_token_secret</span> <span class="o">=</span> <span class="sa"></span><span class="s2">&#34;YOUR_CREDENTIALS&#34;</span>
+    <span class="n">consumer_key</span> <span class="o">=</span> <span class="s2">&#34;YOUR_CREDENTIALS&#34;</span>
+    <span class="n">consumer_secret</span> <span class="o">=</span> <span class="s2">&#34;YOUR_CREDENTIALS&#34;</span>
+    <span class="n">access_token</span> <span class="o">=</span> <span class="s2">&#34;YOUR_CREDENTIALS&#34;</span>
+    <span class="n">access_token_secret</span> <span class="o">=</span> <span class="s2">&#34;YOUR_CREDENTIALS&#34;</span>
 
     <span class="c1"># Create a listener</span>
     <span class="n">l</span> <span class="o">=</span> <span class="n">StdOutListener</span><span class="p">()</span>
@@ -356,7 +358,7 @@ MathJax.Hub.Config({
     <span class="n">stream</span><span class="o">.</span><span class="nb">filter</span><span class="p">(</span><span class="n">track</span><span class="o">=</span><span class="n">queries</span><span class="p">)</span></code></pre></div>
 <h2 id="run-the-stream-miner">Run The Stream Miner</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Start the miner</span>
-<span class="n">start_mining</span><span class="p">([</span><span class="sa"></span><span class="s1">&#39;python&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;#Python&#39;</span><span class="p">])</span></code></pre></div>
+<span class="n">start_mining</span><span class="p">([</span><span class="s1">&#39;python&#39;</span><span class="p">,</span> <span class="s1">&#39;#Python&#39;</span><span class="p">])</span></code></pre></div>
 <pre><code>Encountered error with status code: 401
 </code></pre>
 
@@ -383,7 +385,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted">This project contains 577 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
+            <span class="text-muted">This project contains 583 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
         </div>
     </footer>
 

@@ -37,9 +37,10 @@
 
 
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="pandas Time Series Basics"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="pandas Time Series Basics"/>
 <meta name="twitter:description" content="pandas time series basics."/>
-<meta name="generator" content="Hugo 0.31.1" /> 
+<meta name="generator" content="Hugo 0.40.1" /> 
     
     
 <script type="application/ld+json">
@@ -119,7 +120,8 @@ MathJax.Hub.Config({
                             <a class="dropdown-item" href="https://chrisalbon.com/#linux">Command Line</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#regex">Regular Expressions</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#mathematics">Mathematics</a>
-                            <a class="dropdown-item" href="https://chrisalbon.com/#software_engineer">Software Engineering</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#aws">AWS</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#computer_science">Computer Science</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -171,9 +173,9 @@ MathJax.Hub.Config({
 <span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">pyplot</span></code></pre></div>
 <h3 id="create-a-dataframe">Create a dataframe</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="sa"></span><span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;2014-05-01 18:47:05.069722&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;2014-05-01 18:47:05.119994&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;2014-05-02 18:47:05.178768&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;2014-05-02 18:47:05.230071&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;2014-05-02 18:47:05.230071&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;2014-05-02 18:47:05.280592&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;2014-05-03 18:47:05.332662&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;2014-05-03 18:47:05.385109&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;2014-05-04 18:47:05.436523&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;2014-05-04 18:47:05.486877&#39;</span><span class="p">],</span> 
-        <span class="sa"></span><span class="s1">&#39;battle_deaths&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">34</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">41</span><span class="p">]}</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;battle_deaths&#39;</span><span class="p">])</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;2014-05-01 18:47:05.069722&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-01 18:47:05.119994&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-02 18:47:05.178768&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-02 18:47:05.230071&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-02 18:47:05.230071&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-02 18:47:05.280592&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-03 18:47:05.332662&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-03 18:47:05.385109&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-04 18:47:05.436523&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-04 18:47:05.486877&#39;</span><span class="p">],</span> 
+        <span class="s1">&#39;battle_deaths&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">34</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">41</span><span class="p">]}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;battle_deaths&#39;</span><span class="p">])</span>
 <span class="k">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span></code></pre></div>
 <pre><code>                         date  battle_deaths
 0  2014-05-01 18:47:05.069722             34
@@ -189,10 +191,10 @@ MathJax.Hub.Config({
 </code></pre>
 
 <h3 id="convert-df-date-from-string-to-datetime">Convert <code>df['date']</code> from string to datetime</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;date&#39;</span><span class="p">])</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">])</span></code></pre></div>
 <h3 id="set-df-date-as-the-index-and-delete-the-column">Set <code>df['date']</code> as the index and delete the column</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;date&#39;</span><span class="p">]</span>
-<span class="k">del</span> <span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;date&#39;</span><span class="p">]</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span>
+<span class="k">del</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span>
 <span class="n">df</span></code></pre></div>
 <div>
 <style scoped>
@@ -265,7 +267,7 @@ MathJax.Hub.Config({
 </div>
 
 <h3 id="view-all-observations-that-occured-in-2014">View all observations that occured in 2014</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;2014&#39;</span><span class="p">]</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="p">[</span><span class="s1">&#39;2014&#39;</span><span class="p">]</span></code></pre></div>
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -337,7 +339,7 @@ MathJax.Hub.Config({
 </div>
 
 <h3 id="view-all-observations-that-occured-in-may-2014">View all observations that occured in May 2014</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;2014-05&#39;</span><span class="p">]</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="p">[</span><span class="s1">&#39;2014-05&#39;</span><span class="p">]</span></code></pre></div>
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -457,7 +459,7 @@ MathJax.Hub.Config({
 </div>
 
 <h3 id="observations-between-may-3rd-and-may-4th">Observations between May 3rd and May 4th</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;5/3/2014&#39;</span><span class="p">:</span><span class="sa"></span><span class="s1">&#39;5/4/2014&#39;</span><span class="p">]</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="p">[</span><span class="s1">&#39;5/3/2014&#39;</span><span class="p">:</span><span class="s1">&#39;5/4/2014&#39;</span><span class="p">]</span></code></pre></div>
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -505,7 +507,7 @@ MathJax.Hub.Config({
 </div>
 
 <h3 id="truncation-observations-after-may-2nd-2014">Truncation observations after May 2nd 2014</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">truncate</span><span class="p">(</span><span class="n">after</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;5/3/2014&#39;</span><span class="p">)</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">truncate</span><span class="p">(</span><span class="n">after</span><span class="o">=</span><span class="s1">&#39;5/3/2014&#39;</span><span class="p">)</span></code></pre></div>
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -561,7 +563,7 @@ MathJax.Hub.Config({
 </div>
 
 <h3 id="observations-of-may-2014">Observations of May 2014</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;5-2014&#39;</span><span class="p">]</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="p">[</span><span class="s1">&#39;5-2014&#39;</span><span class="p">]</span></code></pre></div>
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -701,7 +703,7 @@ MathJax.Hub.Config({
 </div>
 
 <h3 id="mean-value-of-battle-deaths-per-day">Mean value of battle_deaths per day</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span></code></pre></div>
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -749,7 +751,7 @@ MathJax.Hub.Config({
 </div>
 
 <h3 id="total-value-of-battle-deaths-per-day">Total value of battle_deaths per day</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;D&#39;</span><span class="p">)</span><span class="o">.</span><span class="nb">sum</span><span class="p">()</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">)</span><span class="o">.</span><span class="nb">sum</span><span class="p">()</span></code></pre></div>
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -797,7 +799,7 @@ MathJax.Hub.Config({
 </div>
 
 <h3 id="plot-of-the-total-battle-deaths-per-day">Plot of the total battle deaths per day</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;D&#39;</span><span class="p">)</span><span class="o">.</span><span class="nb">sum</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">)</span><span class="o">.</span><span class="nb">sum</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span></code></pre></div>
 <pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x11187a940&gt;
 </code></pre>
 
@@ -826,7 +828,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted">This project contains 577 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
+            <span class="text-muted">This project contains 583 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
         </div>
     </footer>
 

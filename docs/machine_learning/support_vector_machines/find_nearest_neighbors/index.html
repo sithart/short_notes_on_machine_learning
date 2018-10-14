@@ -37,9 +37,10 @@
 
 
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Find Nearest Neighbors"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Find Nearest Neighbors"/>
 <meta name="twitter:description" content="Find a observation&#39;s nearest neighbors in scikit-learn."/>
-<meta name="generator" content="Hugo 0.31.1" /> 
+<meta name="generator" content="Hugo 0.40.1" /> 
     
     
 <script type="application/ld+json">
@@ -119,7 +120,8 @@ MathJax.Hub.Config({
                             <a class="dropdown-item" href="https://chrisalbon.com/#linux">Command Line</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#regex">Regular Expressions</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#mathematics">Mathematics</a>
-                            <a class="dropdown-item" href="https://chrisalbon.com/#software_engineer">Software Engineering</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#aws">AWS</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#computer_science">Computer Science</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -186,7 +188,7 @@ MathJax.Hub.Config({
 <span class="n">X_std</span> <span class="o">=</span> <span class="n">standardizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span></code></pre></div>
 <h2 id="find-each-observation-s-two-nearest-neighbors">Find Each Observation&rsquo;s Two Nearest Neighbors</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Find three nearest neighbors based on euclidean distance (including itself)</span>
-<span class="n">nn_euclidean</span> <span class="o">=</span> <span class="n">NearestNeighbors</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;euclidean&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">nn_euclidean</span> <span class="o">=</span> <span class="n">NearestNeighbors</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;euclidean&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 
 <span class="c1"># List of lists indicating each observation&#39;s 3 nearest neighors</span>
 <span class="n">nearest_neighbors_with_self</span> <span class="o">=</span> <span class="n">nn_euclidean</span><span class="o">.</span><span class="n">kneighbors_graph</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
@@ -234,7 +236,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted">This project contains 577 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
+            <span class="text-muted">This project contains 583 pages and is available on <a href="https://github.com/chrisalbon/notes">GitHub</a>. Copyright &copy; Chris Albon, <time datetime="2018">2018</time>.</span>
         </div>
     </footer>
 
