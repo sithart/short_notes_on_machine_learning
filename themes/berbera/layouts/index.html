@@ -438,6 +438,23 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
+                    <h4 class="card-header">Logging</h4>
+                    <div class="card-body">
+                        <ul>
+                            {{ range (where .Pages "File.Dir" "in" "/python/logging/").ByTitle }}
+                            <li>
+                                <a href="{{.Permalink}}">{{.Title}}</a>
+                            </li>
+                            {{ end }}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>       
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
                     <h4 class="card-header">Other</h4>
                     <div class="card-body">
                         <ul>
@@ -666,19 +683,19 @@
             </div>
         </div>
 
-        <div class="row" id="software_engineering">
+        <div class="row" id="aws">
             <div class="col-sm-12">
-                <h3 class="category_header">Software Engineering</h3>
+                <h3 class="category_header">AWS</h3>
             </div>
         </div>
 
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
-                    <h4 class="card-header">Algorithms</h4>
+                    <h4 class="card-header">Basics</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/software_engineering/algorithms/").ByTitle }}
+                            {{ range (where .Pages "File.Dir" "in" "/aws/basics/").ByTitle }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -692,10 +709,50 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
-                    <h4 class="card-header">Cloud Computing</h4>
+                    <h4 class="card-header">S3 - CLI</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/software_engineering/cloud_computing/").ByTitle }}
+                            {{ range (where .Pages "File.Dir" "in" "/aws/s3/cli/").ByTitle }}
+                            <li>
+                                <a href="{{.Permalink}}">{{.Title}}</a>
+                            </li>
+                            {{ end }}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <h4 class="card-header">S3 - Boto</h4>
+                    <div class="card-body">
+                        <ul>
+                            {{ range (where .Pages "File.Dir" "in" "/s3/boto/").ByTitle }}
+                            <li>
+                                <a href="{{.Permalink}}">{{.Title}}</a>
+                            </li>
+                            {{ end }}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" id="computer_science">
+            <div class="col-sm-12">
+                <h3 class="category_header">Computer Science</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <h4 class="card-header">Algorithms</h4>
+                    <div class="card-body">
+                        <ul>
+                            {{ range (where .Pages "File.Dir" "in" "/computer_science/algorithms/").ByTitle }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
