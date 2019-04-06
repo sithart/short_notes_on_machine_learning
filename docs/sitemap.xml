@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://chrisalbon.com/python/basics/list_all_files_of_particular_type_in_directory/</loc>
+    <lastmod>2018-11-20T11:53:49-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chrisalbon.com/linux/text/add_columns_to_text/</loc>
     <lastmod>2018-07-16T00:00:00-07:00</lastmod>
   </url>
@@ -619,6 +624,11 @@
   
   <url>
     <loc>https://chrisalbon.com/postgresql/basics/save_queries_as_variables/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/search/search_contents_of_all_files_of_certain_type/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
@@ -2919,7 +2929,7 @@
   
   <url>
     <loc>https://chrisalbon.com/</loc>
-    <lastmod>2018-07-16T00:00:00-07:00</lastmod>
+    <lastmod>2018-11-20T11:53:49-07:00</lastmod>
     <priority>0</priority>
   </url>
   

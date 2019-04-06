@@ -6,10 +6,19 @@
     <description>Recent content on Chris Albon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 16 Jul 2018 00:00:00 -0700</lastBuildDate>
+    <lastBuildDate>Tue, 20 Nov 2018 11:53:49 -0700</lastBuildDate>
     
 	<atom:link href="https://chrisalbon.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>List All Files Of Certain Type In A Directory</title>
+      <link>https://chrisalbon.com/python/basics/list_all_files_of_particular_type_in_directory/</link>
+      <pubDate>Tue, 20 Nov 2018 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/python/basics/list_all_files_of_particular_type_in_directory/</guid>
+      <description>Preliminaries import os List All .ipynb Files In Directory [x for x in os.listdir() if x.endswith(&amp;#34;.ipynb&amp;#34;)] [&#39;create_a_new_file_and_the_write_to_it.ipynb&#39;, &#39;unpacking_a_tuple.ipynb&#39;, &#39;unpacking_function_arguments.ipynb&#39;, &#39;convert_html_symbols_to_strings.ipynb&#39;, &#39;arithmetic_basics.ipynb&#39;, &#39;cleaning_text.ipynb&#39;, &#39;applying_functions_to_list_items.ipynb&#39;, &#39;while_statements.ipynb&#39;, &#39;continue_and_break_loops.ipynb&#39;, &#39;queues_and_stacks.ipynb&#39;, &#39;numpy_array_basics.ipynb&#39;, &#39;schedule_run_in_the_future.ipynb&#39;, &#39;Untitled.ipynb&#39;, &#39;repr_vs_str.ipynb&#39;, &#39;using_named_tuples_to_store_data.ipynb&#39;, &#39;hard_wrapping_text.ipynb&#39;, &#39;string_formatting.ipynb&#39;, &#39;functions_vs_generators.ipynb&#39;, &#39;nesting_lists.ipynb&#39;, &#39;sort_a_list_of_strings_by_length.ipynb&#39;, &#39;filter_items_in_list_with_filter.ipynb&#39;, &#39;swapping_variable_values.ipynb&#39;, &#39;iterating_over_dictionary_keys.ipynb&#39;, &#39;iterate_ifelse_over_list.ipynb&#39;, &#39;recursive_functions.ipynb&#39;, &#39;for_loops.ipynb&#39;, &#39;use_command_line_arguments_in_a_function.ipynb&#39;, &#39;logical_operations.ipynb&#39;, &#39;strings_to_datetime.ipynb&#39;, &#39;flatten_list_of_lists.ipynb&#39;, &#39;nested_for_loops_using_list_comprehension.ipynb&#39;, &#39;Untitled1.ipynb&#39;, &#39;function_basics.ipynb&#39;, &#39;find_the_max_value_in_a_dictionary.ipynb&#39;, &#39;any_all_max_min_sum.ipynb&#39;, &#39;display_json.ipynb&#39;, &#39;exiting_a_loop.ipynb&#39;, &#39;date_and_time_basics.ipynb&#39;, &#39;add_padding_around_string.ipynb&#39;, &#39;iterate_over_multiple_lists_simultaneously.ipynb&#39;, &#39;breaking_up_string_variables.ipynb&#39;, &#39;mocking_functions.ipynb&#39;, &#39;compare_two_dictionaries.ipynb&#39;, &#39;chain_together_lists.ipynb&#39;, &#39;function_annotation_examples.ipynb&#39;, &#39;brute_force_d20_simulator.ipynb&#39;, &#39;string_operations.ipynb&#39;, &#39;data_structure_basics.ipynb&#39;, &#39;string_indexing.ipynb&#39;, &#39;math_operations.ipynb&#39;, &#39;numpy_array_basic_operations.ipynb&#39;, &#39;ifelse_on_any_or_all_elements.ipynb&#39;, &#39;sort_a_list_by_last_name.ipynb&#39;, &#39;apply_operations_over_items_in_lists.</description>
+    </item>
     
     <item>
       <title>Add Columns To Text</title>
@@ -1186,6 +1195,16 @@ Create Example File With List Of File Names echo &amp;#39;data_science.txt&amp;#
       
       <guid>https://chrisalbon.com/postgresql/basics/save_queries_as_variables/</guid>
       <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Rows -- Insert into the table adventurers INSERT INTO adventurers (name, age, race, weapon) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, &amp;#39;Sword&amp;#39;), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, &amp;#39;Magic&amp;#39;)</description>
+    </item>
+    
+    <item>
+      <title>Search Contents Of All Files Of Certain Type</title>
+      <link>https://chrisalbon.com/linux/search/search_contents_of_all_files_of_certain_type/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/search/search_contents_of_all_files_of_certain_type/</guid>
+      <description>Note: In this tutorial we do not generate the files we will search but rather search the contents of this site&amp;rsquo;s directory structure.
+Recursively Search All Markdown For The Word &amp;ldquo;berry&amp;rdquo;  grep search command -n to display line number of matched pattern -i to make search case insensitive -r to search recursively --color to color the matches so they stand out --include=&#39;*.md&#39; to search only in files ending in .</description>
     </item>
     
     <item>
