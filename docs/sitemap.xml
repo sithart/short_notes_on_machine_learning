@@ -3,6 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://chrisalbon.com/python/object_oriented/create_a_class/</loc>
+    <lastmod>2018-12-16T11:53:49-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/python/object_oriented/create_attributes/</loc>
+    <lastmod>2018-12-16T11:53:49-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/python/object_oriented/create_methods/</loc>
+    <lastmod>2018-12-16T11:53:49-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chrisalbon.com/python/basics/list_all_files_of_particular_type_in_directory/</loc>
     <lastmod>2018-11-20T11:53:49-07:00</lastmod>
   </url>
@@ -2929,7 +2944,7 @@
   
   <url>
     <loc>https://chrisalbon.com/</loc>
-    <lastmod>2018-11-20T11:53:49-07:00</lastmod>
+    <lastmod>2018-12-16T11:53:49-07:00</lastmod>
     <priority>0</priority>
   </url>
   
