@@ -154,6 +154,7 @@ MathJax.Hub.Config({
     </div>
   </header>
   <div class="content">
+      
   
 
 <p>If we have smaller data it can be useful to benefit from k-fold cross-validation to maximize our ability to evaluate the neural network&rsquo;s performance. This is possible in Keras because we can &ldquo;wrap&rdquo; any neural network such that it can use the evaluation features available in scikit-learn, including k-fold cross-validation. To accomplish this, we first have to create a function that returns a compiled neural network. Next we use <code>KerasClassifier</code> (if we have a classifier, if we have a regressor we can use <code>KerasRegressor</code>) to wrap the model so it can be used by scikit-learn. After this, we can use our neural network like any other scikit-learn learning algorithm (e.g. random forests, logistic regression). In our solution, we used <code>cross_val_score</code> to run a 3-fold cross-validation on our neural network.</p>
@@ -223,7 +224,7 @@ MathJax.Hub.Config({
   <aside>
       <div class="bug_reporting">
           <h4>Find an error or bug?</h4>
-          <p>Everything on this site is available on GitHub. Head to <a href='https://github.com/chrisalbon/notes/issues/new'>and submit a suggested change</a>. You can also message me directly on <a href='https://twitter.com/chrisalbon'>Twitter</a>.</p>
+          <p>Everything on this site is available on GitHub. Head to <a href='https://github.com/chrisalbon/notes/issues/new'>and submit a suggested change</a>. Include the tutorial's URL in the issue.</p>
       </div>
       </aside>
 

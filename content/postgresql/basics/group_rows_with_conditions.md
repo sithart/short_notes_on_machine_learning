@@ -1,5 +1,5 @@
 ---
-title: "Group Rows"
+title: "Group Rows With Conditions"
 author: "Chris Albon"
 date: 2018-06-17T00:00:00-07:00
 description: "How to group rows in an SQL database."

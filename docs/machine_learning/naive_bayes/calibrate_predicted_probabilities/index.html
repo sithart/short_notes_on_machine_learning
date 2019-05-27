@@ -154,6 +154,7 @@ MathJax.Hub.Config({
     </div>
   </header>
   <div class="content">
+      
   
 
 <p>Class probabilities are a common and useful part of machine learning models. In scikit-learn, most learning algortihms allow us to see the predicted probabilities of class membership using <code>predict_proba</code>. This can be extremely useful if, for instance, we want to only predict a certain class if the model predicts the probability that they are that class is over 90%. However, some models, including naive Bayes classifiers output probabilities that are not based on the real world. That is, <code>predict_proba</code> might predict an observation has a 0.70 chance of being a certain class, when the reality is that it is 0.10 or 0.99. Specifically in naive Bayes, while the ranking of predicted probabilities for the different target classes is valid, the raw predicted probabilities tend to take on extreme values close to 0 and 1.</p>
@@ -196,7 +197,7 @@ MathJax.Hub.Config({
   <aside>
       <div class="bug_reporting">
           <h4>Find an error or bug?</h4>
-          <p>Everything on this site is available on GitHub. Head to <a href='https://github.com/chrisalbon/notes/issues/new'>and submit a suggested change</a>. You can also message me directly on <a href='https://twitter.com/chrisalbon'>Twitter</a>.</p>
+          <p>Everything on this site is available on GitHub. Head to <a href='https://github.com/chrisalbon/notes/issues/new'>and submit a suggested change</a>. Include the tutorial's URL in the issue.</p>
       </div>
       </aside>
 

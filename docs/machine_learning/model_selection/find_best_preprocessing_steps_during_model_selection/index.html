@@ -154,6 +154,7 @@ MathJax.Hub.Config({
     </div>
   </header>
   <div class="content">
+      
   
 
 <p>We have to be careful to properly handle preprocessing when conducting model selection. First, <code>GridSearchCV</code> uses cross-validation to determine which model has the highest performance. However, in cross-validation we are in effect pretending that the fold held out as the test set is not seen, and thus not part of fitting any preprocessing steps (e.g. scaling or standardization). For this reason, we cannot preprocess the data then run <code>GridSearchCV</code>.</p>
@@ -211,7 +212,7 @@ Best C: 59.9484250319
   <aside>
       <div class="bug_reporting">
           <h4>Find an error or bug?</h4>
-          <p>Everything on this site is available on GitHub. Head to <a href='https://github.com/chrisalbon/notes/issues/new'>and submit a suggested change</a>. You can also message me directly on <a href='https://twitter.com/chrisalbon'>Twitter</a>.</p>
+          <p>Everything on this site is available on GitHub. Head to <a href='https://github.com/chrisalbon/notes/issues/new'>and submit a suggested change</a>. Include the tutorial's URL in the issue.</p>
       </div>
       </aside>
 

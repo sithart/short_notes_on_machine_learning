@@ -52,11 +52,11 @@ X[0:5]
 
 
 
-    array([[ 5.1,  3.5,  1.4,  0.2],
-           [ 4.9,  3. ,  1.4,  0.2],
-           [ 4.7,  3.2,  1.3,  0.2],
-           [ 4.6,  3.1,  1.5,  0.2],
-           [ 5. ,  3.6,  1.4,  0.2]])
+    array([[5.1, 3.5, 1.4, 0.2],
+           [4.9, 3. , 1.4, 0.2],
+           [4.7, 3.2, 1.3, 0.2],
+           [4.6, 3.1, 1.5, 0.2],
+           [5. , 3.6, 1.4, 0.2]])
 
 
 
@@ -69,11 +69,11 @@ y
 
 
 
-    array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-           0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-           0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-           1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-           1, 1, 1, 1, 1, 1, 1, 1])
+    array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+           0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+           0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+           1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+           1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
 
 
 
@@ -110,32 +110,32 @@ The usefulness of L1 is that it can push feature coefficients to 0, creating a m
 C = [10, 1, .1, .001]
 
 for c in C:
-    clf = LogisticRegression(penalty='l1', C=c)
+    clf = LogisticRegression(penalty='l1', C=c, solver='liblinear')
     clf.fit(X_train, y_train)
     print('C:', c)
     print('Coefficient of each feature:', clf.coef_)
-    print('Training accuracy:', clf.score(X_train, y_train))
-    print('Test accuracy:', clf.score(X_test, y_test))
+    print('Training accuracy:', clf.score(X_train_std, y_train))
+    print('Test accuracy:', clf.score(X_test_std, y_test))
     print('')
 ```
 
     C: 10
-    Coefficient of each feature: [[-0.0855264  -3.75409972  4.40427765  0.        ]]
-    Training accuracy: 1.0
+    Coefficient of each feature: [[-0.00902649 -3.83902983  4.34904293  0.        ]]
+    Training accuracy: 0.9857142857142858
     Test accuracy: 1.0
     
     C: 1
-    Coefficient of each feature: [[ 0.         -2.28800472  2.5766469   0.        ]]
-    Training accuracy: 1.0
+    Coefficient of each feature: [[ 0.         -2.27441684  2.56760315  0.        ]]
+    Training accuracy: 0.9857142857142858
     Test accuracy: 1.0
     
     C: 0.1
-    Coefficient of each feature: [[ 0.         -0.82310456  0.97171847  0.        ]]
-    Training accuracy: 1.0
+    Coefficient of each feature: [[ 0.         -0.82143435  0.97187285  0.        ]]
+    Training accuracy: 0.9857142857142858
     Test accuracy: 1.0
     
     C: 0.001
-    Coefficient of each feature: [[ 0.  0.  0.  0.]]
+    Coefficient of each feature: [[0. 0. 0. 0.]]
     Training accuracy: 0.5
     Test accuracy: 0.5
     

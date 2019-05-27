@@ -32,6 +32,19 @@ df.head()
 
 
 <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -94,7 +107,7 @@ list(set(df.trucks))
 
 
 
-    [nan, 'Tatra 810', 'MAZ-7310', 'ZIS-150']
+    [nan, 'MAZ-7310', 'Tatra 810', 'ZIS-150']
 
 
 

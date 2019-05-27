@@ -35,7 +35,7 @@
   "@type": "BlogPosting",
   "headline": "Find Unique Values In Pandas Dataframes",
   "url": "https://chrisalbon.com/python/data_wrangling/pandas_find_unique_values/",
-  "wordCount": "181",
+  "wordCount": "204",
   "datePublished": "2017-12-20T11:53:49-07:00",
   "dateModified": "2017-12-20T11:53:49-07:00",
   "author": {
@@ -154,6 +154,7 @@ MathJax.Hub.Config({
     </div>
   </header>
   <div class="content">
+      
   <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">raw_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;regiment&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;51st&#39;</span><span class="p">,</span> <span class="s1">&#39;29th&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">,</span> <span class="s1">&#39;19th&#39;</span><span class="p">,</span> <span class="s1">&#39;12th&#39;</span><span class="p">,</span> <span class="s1">&#39;101st&#39;</span><span class="p">,</span> <span class="s1">&#39;90th&#39;</span><span class="p">,</span> <span class="s1">&#39;30th&#39;</span><span class="p">,</span> <span class="s1">&#39;193th&#39;</span><span class="p">,</span> <span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;94th&#39;</span><span class="p">,</span> <span class="s1">&#39;91th&#39;</span><span class="p">],</span> 
             <span class="s1">&#39;trucks&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;MAZ-7310&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="s1">&#39;MAZ-7310&#39;</span><span class="p">,</span> <span class="s1">&#39;MAZ-7310&#39;</span><span class="p">,</span> <span class="s1">&#39;Tatra 810&#39;</span><span class="p">,</span> <span class="s1">&#39;Tatra 810&#39;</span><span class="p">,</span> <span class="s1">&#39;Tatra 810&#39;</span><span class="p">,</span> <span class="s1">&#39;Tatra 810&#39;</span><span class="p">,</span> <span class="s1">&#39;ZIS-150&#39;</span><span class="p">,</span> <span class="s1">&#39;Tatra 810&#39;</span><span class="p">,</span> <span class="s1">&#39;ZIS-150&#39;</span><span class="p">,</span> <span class="s1">&#39;ZIS-150&#39;</span><span class="p">],</span>
@@ -163,6 +164,19 @@ MathJax.Hub.Config({
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;regiment&#39;</span><span class="p">,</span> <span class="s1">&#39;trucks&#39;</span><span class="p">,</span> <span class="s1">&#39;tanks&#39;</span><span class="p">,</span> <span class="s1">&#39;aircraft&#39;</span><span class="p">])</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># View the top few rows</span>
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span></code></pre></div>
 <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -215,7 +229,7 @@ MathJax.Hub.Config({
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a list of unique values by turning the</span>
 <span class="c1"># pandas column into a set</span>
 <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">trucks</span><span class="p">))</span></code></pre></div>
-<pre><code>[nan, 'Tatra 810', 'MAZ-7310', 'ZIS-150']
+<pre><code>[nan, 'MAZ-7310', 'Tatra 810', 'ZIS-150']
 </code></pre>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a list of unique values in df.trucks</span>
 <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;trucks&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span></code></pre></div>
@@ -226,7 +240,7 @@ MathJax.Hub.Config({
   <aside>
       <div class="bug_reporting">
           <h4>Find an error or bug?</h4>
-          <p>Everything on this site is available on GitHub. Head to <a href='https://github.com/chrisalbon/notes/issues/new'>and submit a suggested change</a>. You can also message me directly on <a href='https://twitter.com/chrisalbon'>Twitter</a>.</p>
+          <p>Everything on this site is available on GitHub. Head to <a href='https://github.com/chrisalbon/notes/issues/new'>and submit a suggested change</a>. Include the tutorial's URL in the issue.</p>
       </div>
       </aside>
 

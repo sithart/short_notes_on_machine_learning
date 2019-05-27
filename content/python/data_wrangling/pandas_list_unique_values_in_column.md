@@ -40,45 +40,58 @@ df
 
 
 <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
       <th>name</th>
-      <th>reports</th>
       <th>year</th>
+      <th>reports</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>Cochice</th>
       <td>Jason</td>
-      <td>4</td>
       <td>2012</td>
+      <td>4</td>
     </tr>
     <tr>
       <th>Pima</th>
       <td>Molly</td>
-      <td>24</td>
       <td>2012</td>
+      <td>24</td>
     </tr>
     <tr>
       <th>Santa Cruz</th>
       <td>Tina</td>
-      <td>31</td>
       <td>2013</td>
+      <td>31</td>
     </tr>
     <tr>
       <th>Maricopa</th>
       <td>Jake</td>
-      <td>2</td>
       <td>2014</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>Yuma</th>
       <td>Amy</td>
-      <td>3</td>
       <td>2014</td>
+      <td>3</td>
     </tr>
   </tbody>
 </table>

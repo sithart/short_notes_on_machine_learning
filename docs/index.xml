@@ -851,7 +851,7 @@ Quickly Describe A Command whatis mkdir mkdir (1) - make directories mkdir (2) -
     </item>
     
     <item>
-      <title>Group Rows</title>
+      <title>Group Rows With Conditions</title>
       <link>https://chrisalbon.com/postgresql/basics/group_rows_with_conditions/</link>
       <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
       
@@ -1561,7 +1561,7 @@ Preliminaries # Load libraries from sklearn.datasets import load_iris from sklea
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/about/chris_albon/</guid>
-      <description>I am a data scientist formally trained as a quantitative political scientist. I am the Director of Data Science at Devoted Health, using data science and machine learning to help fix America&amp;rsquo;s health care system. Previously, I was Chief Data Scientist at the Kenyan startup BRCK, founded the AI company New Knowledge, cohosted the data science podcast Partially Derivative, led the humanitarian non-profit Ushahidi&amp;rsquo;s work on crisis data, and was the director of the low-resource technology governance project at FrontlineSMS.</description>
+      <description>I am the Director of Data Science at Devoted Health, using data science and machine learning to help fix America&amp;rsquo;s health care system. Previously, I was Chief Data Scientist at the Kenyan startup BRCK, cofounded the anti-fake news company New Knowledge, created the data science podcast Partially Derivative, led the data team at the humanitarian non-profit Ushahidi&amp;rsquo;s, and was the director of the low-resource technology governance project at FrontlineSMS.</description>
     </item>
     
     <item>
@@ -1941,7 +1941,7 @@ Import random module import random Create a variable with a TRUE value rolling =
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/calculate_the_trace_of_a_matrix/</guid>
-      <description> Preliminaries # Load library import numpy as np Create Matrix # Create matrix matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]]) Calculate The Trace # Calculate the tracre of the matrix matrix.diagonal().sum() 15  </description>
+      <description> Preliminaries # Load library import numpy as np Create Matrix # Create matrix matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]]) Calculate The Trace # Calculate the trace of the matrix matrix.diagonal().sum() 15  </description>
     </item>
     
     <item>
@@ -2590,7 +2590,7 @@ Preliminaries # Load libraries from sklearn.decomposition import PCA, KernelPCA 
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/feature_selection/drop_highly_correlated_features/</guid>
-      <description>Preliminaries # Load libraries import pandas as pd import numpy as np Load Data # Create feature matrix with two highly correlated features X = np.array([[1, 1, 1], [2, 2, 0], [3, 3, 1], [4, 4, 0], [5, 5, 1], [6, 6, 0], [7, 7, 1], [8, 7, 0], [9, 7, 1]]) # Convert feature matrix into DataFrame df = pd.DataFrame(X) # View the data frame df   .</description>
+      <description>Preliminaries # Load libraries import pandas as pd import numpy as np Load Data # Create feature matrix with two highly correlated features X = np.array([[1, 1, 1], [2, 2, 0], [3, 3, 1], [4, 4, 0], [5, 5, 1], [6, 6, 0], [7, 7, 1], [8, 7, 0], [9, 7, 1]]) # Convert feature matrix into DataFrame df = pd.DataFrame(X) # View the data frame df  .dataframe tbody tr th:only-of-type { vertical-align: middle; } .</description>
     </item>
     
     <item>
@@ -4983,7 +4983,7 @@ c = plt.scatter(theta, r, c=colors, s=area, cmap=plt.cm.RdYlGn) c1 = plt.scatter
       
       <guid>https://chrisalbon.com/machine_learning/preprocessing_structured_data/standardize_a_feature/</guid>
       <description> 
-Preliminaries # Load libraries from sklearn import preprocessing import numpy as np Create Feature # Create feature x = np.array([[-500.5], [-100.1], [0], [100.1], [900.9]]) Standardize Feature # Create scaler scaler = preprocessing.StandardScaler() # Transform the feature standardized = scaler.fit_transform(x) # Show feature standardized array([[ 0. ], [ 0.28571429], [ 0.35714286], [ 0.42857143], [ 1. ]])  </description>
+Preliminaries # Load libraries from sklearn import preprocessing import numpy as np Create Feature # Create feature x = np.array([[-500.5], [-100.1], [0], [100.1], [900.9]]) Standardize Feature # Create scaler scaler = preprocessing.StandardScaler() # Transform the feature standardized = scaler.fit_transform(x) # Show feature standardized array([[-1.26687088], [-0.39316683], [-0.17474081], [ 0.0436852 ], [ 1.79109332]])  </description>
     </item>
     
     <item>

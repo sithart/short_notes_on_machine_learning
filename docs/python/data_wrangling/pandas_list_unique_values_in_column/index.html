@@ -35,7 +35,7 @@
   "@type": "BlogPosting",
   "headline": "List Unique Values In A pandas Column",
   "url": "https://chrisalbon.com/python/data_wrangling/pandas_list_unique_values_in_column/",
-  "wordCount": "122",
+  "wordCount": "145",
   "datePublished": "2017-12-20T11:53:49-07:00",
   "dateModified": "2017-12-20T11:53:49-07:00",
   "author": {
@@ -154,6 +154,7 @@ MathJax.Hub.Config({
     </div>
   </header>
   <div class="content">
+      
   
 
 <p>Special thanks to Bob Haffner for pointing out a better way of doing it.</p>
@@ -175,45 +176,58 @@ MathJax.Hub.Config({
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Cochice&#39;</span><span class="p">,</span> <span class="s1">&#39;Pima&#39;</span><span class="p">,</span> <span class="s1">&#39;Santa Cruz&#39;</span><span class="p">,</span> <span class="s1">&#39;Maricopa&#39;</span><span class="p">,</span> <span class="s1">&#39;Yuma&#39;</span><span class="p">])</span>
 <span class="n">df</span></code></pre></div>
 <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
       <th>name</th>
-      <th>reports</th>
       <th>year</th>
+      <th>reports</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>Cochice</th>
       <td>Jason</td>
-      <td>4</td>
       <td>2012</td>
+      <td>4</td>
     </tr>
     <tr>
       <th>Pima</th>
       <td>Molly</td>
-      <td>24</td>
       <td>2012</td>
+      <td>24</td>
     </tr>
     <tr>
       <th>Santa Cruz</th>
       <td>Tina</td>
-      <td>31</td>
       <td>2013</td>
+      <td>31</td>
     </tr>
     <tr>
       <th>Maricopa</th>
       <td>Jake</td>
-      <td>2</td>
       <td>2014</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>Yuma</th>
       <td>Amy</td>
-      <td>3</td>
       <td>2014</td>
+      <td>3</td>
     </tr>
   </tbody>
 </table>
@@ -229,7 +243,7 @@ MathJax.Hub.Config({
   <aside>
       <div class="bug_reporting">
           <h4>Find an error or bug?</h4>
-          <p>Everything on this site is available on GitHub. Head to <a href='https://github.com/chrisalbon/notes/issues/new'>and submit a suggested change</a>. You can also message me directly on <a href='https://twitter.com/chrisalbon'>Twitter</a>.</p>
+          <p>Everything on this site is available on GitHub. Head to <a href='https://github.com/chrisalbon/notes/issues/new'>and submit a suggested change</a>. Include the tutorial's URL in the issue.</p>
       </div>
       </aside>
 

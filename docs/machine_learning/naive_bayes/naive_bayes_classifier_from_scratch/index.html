@@ -35,7 +35,7 @@
   "@type": "BlogPosting",
   "headline": "Naive Bayes Classifier From Scratch",
   "url": "https://chrisalbon.com/machine_learning/naive_bayes/naive_bayes_classifier_from_scratch/",
-  "wordCount": "1457",
+  "wordCount": "1549",
   "datePublished": "2017-12-20T11:53:49-07:00",
   "dateModified": "2017-12-20T11:53:49-07:00",
   "author": {
@@ -154,6 +154,7 @@ MathJax.Hub.Config({
     </div>
   </header>
   <div class="content">
+      
   
 
 <p>Naive bayes is simple classifier known for doing well when only a small number of observations is available. In this tutorial we will create a gaussian naive bayes classifier from scratch and use it to predict the class of a previously unseen data point. This tutorial is based on an example on Wikipedia&rsquo;s <a href="https://en.wikipedia.org/wiki/Naive_Bayes_classifier">naive bayes classifier page</a>, I have implemented it in Python and tweaked some notation to improve explanation.</p>
@@ -178,6 +179,19 @@ MathJax.Hub.Config({
 <span class="c1"># View the data</span>
 <span class="n">data</span></code></pre></div>
 <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -261,6 +275,19 @@ MathJax.Hub.Config({
 <span class="c1"># View the data </span>
 <span class="n">person</span></code></pre></div>
 <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -368,6 +395,19 @@ $$</p>
 <span class="c1"># View the values</span>
 <span class="n">data_means</span></code></pre></div>
 <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -405,6 +445,19 @@ $$</p>
 <span class="c1"># View the values</span>
 <span class="n">data_variance</span></code></pre></div>
 <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -478,14 +531,14 @@ $$</p>
 <span class="n">p_x_given_y</span><span class="p">(</span><span class="n">person</span><span class="p">[</span><span class="s1">&#39;Height&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">male_height_mean</span><span class="p">,</span> <span class="n">male_height_variance</span><span class="p">)</span> <span class="o">*</span> \
 <span class="n">p_x_given_y</span><span class="p">(</span><span class="n">person</span><span class="p">[</span><span class="s1">&#39;Weight&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">male_weight_mean</span><span class="p">,</span> <span class="n">male_weight_variance</span><span class="p">)</span> <span class="o">*</span> \
 <span class="n">p_x_given_y</span><span class="p">(</span><span class="n">person</span><span class="p">[</span><span class="s1">&#39;Foot_Size&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">male_footsize_mean</span><span class="p">,</span> <span class="n">male_footsize_variance</span><span class="p">)</span></code></pre></div>
-<pre><code>6.1970718438780782e-09
+<pre><code>6.197071843878078e-09
 </code></pre>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Numerator of the posterior if the unclassified observation is a female</span>
 <span class="n">P_female</span> <span class="o">*</span> \
 <span class="n">p_x_given_y</span><span class="p">(</span><span class="n">person</span><span class="p">[</span><span class="s1">&#39;Height&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">female_height_mean</span><span class="p">,</span> <span class="n">female_height_variance</span><span class="p">)</span> <span class="o">*</span> \
 <span class="n">p_x_given_y</span><span class="p">(</span><span class="n">person</span><span class="p">[</span><span class="s1">&#39;Weight&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">female_weight_mean</span><span class="p">,</span> <span class="n">female_weight_variance</span><span class="p">)</span> <span class="o">*</span> \
 <span class="n">p_x_given_y</span><span class="p">(</span><span class="n">person</span><span class="p">[</span><span class="s1">&#39;Foot_Size&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">female_footsize_mean</span><span class="p">,</span> <span class="n">female_footsize_variance</span><span class="p">)</span></code></pre></div>
-<pre><code>0.00053779091836300176
+<pre><code>0.0005377909183630018
 </code></pre>
 
 <p>Because the numerator of the posterior for female is greater than male, then we predict that the person is female.</p>
@@ -494,7 +547,7 @@ $$</p>
   <aside>
       <div class="bug_reporting">
           <h4>Find an error or bug?</h4>
-          <p>Everything on this site is available on GitHub. Head to <a href='https://github.com/chrisalbon/notes/issues/new'>and submit a suggested change</a>. You can also message me directly on <a href='https://twitter.com/chrisalbon'>Twitter</a>.</p>
+          <p>Everything on this site is available on GitHub. Head to <a href='https://github.com/chrisalbon/notes/issues/new'>and submit a suggested change</a>. Include the tutorial's URL in the issue.</p>
       </div>
       </aside>
 

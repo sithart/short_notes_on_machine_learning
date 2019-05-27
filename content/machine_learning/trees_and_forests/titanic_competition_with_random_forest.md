@@ -52,7 +52,7 @@ sex_encoder.fit(train['Sex'])
 # Apply the encoder to the training data
 train['male'] = sex_encoder.transform(train['Sex'])
 
-# Apply the encoder to the training data
+# Apply the encoder to the test data
 test['male'] = sex_encoder.transform(test['Sex'])
 ```
 
