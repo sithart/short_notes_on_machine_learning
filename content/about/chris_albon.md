@@ -12,7 +12,7 @@ outputs:
 
 <img src="chris_albon_banner.jpg"></img>
 
-I am a data scientist and machine learning engineer formally trained as a quantitative political scientist. I am the Director of Data Science at [Devoted Health](http://www.devoted.com/), using data science and machine learning to help fix America's health care system. Previously, I was Chief Data Scientist at the Kenyan startup [BRCK](https://www.brck.com/), founded the AI company [New Knowledge](http://www.newknowledge.io), cohosted the data science podcast [Partially Derivative](http://www.partiallyderivative.com), led the humanitarian non-profit [Ushahidi's](http://www.ushahidi.com) work on crisis data, and was the director of the low-resource technology governance project at [FrontlineSMS](http://www.frontlinesms.com).
+I am a data scientist formally trained as a quantitative political scientist. I am the Director of Data Science at [Devoted Health](http://www.devoted.com/), using data science and machine learning to help fix America's health care system. Previously, I was Chief Data Scientist at the Kenyan startup [BRCK](https://www.brck.com/), founded the AI company [New Knowledge](http://www.newknowledge.io), cohosted the data science podcast [Partially Derivative](http://www.partiallyderivative.com), led the humanitarian non-profit [Ushahidi's](http://www.ushahidi.com) work on crisis data, and was the director of the low-resource technology governance project at [FrontlineSMS](http://www.frontlinesms.com).
 
 I earned a Ph.D. in Political Science from the University of California, Davis researching the quantitative impact of civil wars on health care systems. I earned a B.A. from the University of Miami, where I triple majored in political science, international studies, and religious studies.
 
@@ -45,14 +45,3 @@ I earned a Ph.D. in Political Science from the University of California, Davis r
     -   The non-profit's first data science hire; led all data science efforts.
 -   **Project Director**, [FrontlineSMS](http://www.frontlinesms.com), 2012 - 2013
     -   Led FrontlineSMS's Governance Project, an effort improve the transparency and accountability of governments through low resource mobile technology.
-
-
-### Other Experience
--   **Contributor**, [United Nations Dispatch](http://undispatch.com), 2011 - 2013
-    -   Write news, opinion, and analysis on global affairs, particularly relating to health during conflict, global health politics, and the role of social media
--   **Blogger**, [Conflict Health](https://github.com/chrisalbon/conflict_health), 2008 - 2012
-    -   Designed and launched blog on defending health and health workers against persecution, violence, and armed conflict
-    -   Wrote 485 posts over four years
-    -   Cited by major publications including The Atlantic, Harpers, Wired, The Economist, Time, The Guardian, and The American Prospect
--   **Contributor**, [United States Naval Institute Blog](blog.usni.org), 2009 - 2011
-    -   Wrote posts on the U.S. Navy's role in disaster relief, humanitarian assistance, and health diplomacy for one of America's most prestigious professional military associations
