@@ -37,7 +37,7 @@ VALUES ('Fjoak Doom-Wife', 28, 'Human', 'Axe'),
 ## Create Column Of Values
 
 {{< highlight sql >}}
--- Get all rows and add a row called training where all values are 'elite'
+-- Get all rows and add a column called training where all values are 'elite'
 SELECT *, 'elite' as training FROM adventurers
 {{< /highlight >}}
 <table border="1" style="border-collapse:collapse">
