@@ -51,19 +51,3 @@ FROM dead_adventurers
 <tr><td>2017-01-13 00:00:00.000000</td></tr>
 <tr><td>2016-04-15 00:00:00.000000</td></tr>
 <tr><td>2017-05-09 00:00:00.000000</td></tr></table>
-
-## Create New Column Two Months Before 
-
-{{< highlight sql >}}
--- Create a column called two_months_later that takes the value
--- of died and subtracts two months to it
-SELECT died - INTERVAL '2 month' AS one_months_later
--- From adventurers table
-FROM dead_adventurers
-{{< /highlight >}}
-<table border="1" style="border-collapse:collapse">
-<tr><th>three_days_later</th></tr>
-<tr><td>2017-11-12 00:00:00.000000</td></tr>
-<tr><td>2017-01-13 00:00:00.000000</td></tr>
-<tr><td>2016-04-15 00:00:00.000000</td></tr>
-<tr><td>2017-05-09 00:00:00.000000</td></tr></table>

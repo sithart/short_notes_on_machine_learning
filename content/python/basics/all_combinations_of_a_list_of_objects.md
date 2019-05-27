@@ -32,38 +32,21 @@ combinations = []
 # Create a loop for every item in the length of list_of_objects, that,
 for i in list(range(len(list_of_objects))):
     # Finds every combination (with replacement) for each object in the list
-    combinations.append(list(combinations_with_replacement(list_of_objects, i+1)))
-    
-# View the results
-combinations
+    combinations.append(combinations_with_replacement(list_of_objects, i+1))
 ```
 
 
 
 
-    [[('warplanes',), ('armor',), ('infantry',)],
-     [('warplanes', 'warplanes'),
-      ('warplanes', 'armor'),
-      ('warplanes', 'infantry'),
-      ('armor', 'armor'),
-      ('armor', 'infantry'),
-      ('infantry', 'infantry')],
-     [('warplanes', 'warplanes', 'warplanes'),
-      ('warplanes', 'warplanes', 'armor'),
-      ('warplanes', 'warplanes', 'infantry'),
-      ('warplanes', 'armor', 'armor'),
-      ('warplanes', 'armor', 'infantry'),
-      ('warplanes', 'infantry', 'infantry'),
-      ('armor', 'armor', 'armor'),
-      ('armor', 'armor', 'infantry'),
-      ('armor', 'infantry', 'infantry'),
-      ('infantry', 'infantry', 'infantry')]]
+    [<itertools.combinations_with_replacement at 0x7f85d03c6408>,
+     <itertools.combinations_with_replacement at 0x7f85d03c6458>,
+     <itertools.combinations_with_replacement at 0x7f85d03c64a8>]
 
 
 
 
 ```python
-# Flatten the list of lists into just a list
+# Flatten the list of iterators into a single list
 combinations = [i for row in combinations for i in row]
 
 # View the results

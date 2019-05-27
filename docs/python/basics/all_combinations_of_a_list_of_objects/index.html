@@ -35,7 +35,7 @@
   "@type": "BlogPosting",
   "headline": "All Combinations For A List Of Objects",
   "url": "https://chrisalbon.com/python/basics/all_combinations_of_a_list_of_objects/",
-  "wordCount": "206",
+  "wordCount": "165",
   "datePublished": "2017-12-20T11:53:49-07:00",
   "dateModified": "2017-12-20T11:53:49-07:00",
   "author": {
@@ -170,29 +170,12 @@ MathJax.Hub.Config({
 <span class="c1"># Create a loop for every item in the length of list_of_objects, that,</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">list_of_objects</span><span class="p">))):</span>
     <span class="c1"># Finds every combination (with replacement) for each object in the list</span>
-    <span class="n">combinations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">combinations_with_replacement</span><span class="p">(</span><span class="n">list_of_objects</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)))</span>
-    
-<span class="c1"># View the results</span>
-<span class="n">combinations</span></code></pre></div>
-<pre><code>[[('warplanes',), ('armor',), ('infantry',)],
- [('warplanes', 'warplanes'),
-  ('warplanes', 'armor'),
-  ('warplanes', 'infantry'),
-  ('armor', 'armor'),
-  ('armor', 'infantry'),
-  ('infantry', 'infantry')],
- [('warplanes', 'warplanes', 'warplanes'),
-  ('warplanes', 'warplanes', 'armor'),
-  ('warplanes', 'warplanes', 'infantry'),
-  ('warplanes', 'armor', 'armor'),
-  ('warplanes', 'armor', 'infantry'),
-  ('warplanes', 'infantry', 'infantry'),
-  ('armor', 'armor', 'armor'),
-  ('armor', 'armor', 'infantry'),
-  ('armor', 'infantry', 'infantry'),
-  ('infantry', 'infantry', 'infantry')]]
+    <span class="n">combinations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">combinations_with_replacement</span><span class="p">(</span><span class="n">list_of_objects</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span></code></pre></div>
+<pre><code>[&lt;itertools.combinations_with_replacement at 0x7f85d03c6408&gt;,
+ &lt;itertools.combinations_with_replacement at 0x7f85d03c6458&gt;,
+ &lt;itertools.combinations_with_replacement at 0x7f85d03c64a8&gt;]
 </code></pre>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Flatten the list of lists into just a list</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Flatten the list of iterators into a single list</span>
 <span class="n">combinations</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">combinations</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">row</span><span class="p">]</span>
 
 <span class="c1"># View the results</span>

@@ -174,7 +174,7 @@ pd.pivot_table(df, index=['regiment','company'], aggfunc='mean')
 
 
 
-### Create a pivot table of group score counts, by company and regimensts
+### Create a pivot table of group score counts, by company and regiments
 
 
 ```python

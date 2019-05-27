@@ -35,7 +35,7 @@
   "@type": "BlogPosting",
   "headline": "Adding Or Substracting Time",
   "url": "https://chrisalbon.com/postgresql/dates/adding_or_substracting_time/",
-  "wordCount": "174",
+  "wordCount": "126",
   "datePublished": "2018-06-17T00:00:00-07:00",
   "dateModified": "2018-06-17T00:00:00-07:00",
   "author": {
@@ -187,20 +187,6 @@ MathJax.Hub.Config({
 <p><div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- Create a column called three_days_laters that takes the value
 </span><span class="c1">-- of died and adds three days to it
 </span><span class="c1"></span><span class="k">SELECT</span> <span class="n">died</span> <span class="o">+</span> <span class="nb">INTERVAL</span> <span class="s1">&#39;3 day&#39;</span> <span class="k">AS</span> <span class="n">three_days_later</span>
-<span class="c1">-- From adventurers table
-</span><span class="c1"></span><span class="k">FROM</span> <span class="n">dead_adventurers</span></code></pre></div>
-<table border="1" style="border-collapse:collapse">
-<tr><th>three_days_later</th></tr>
-<tr><td>2017-11-12 00:00:00.000000</td></tr>
-<tr><td>2017-01-13 00:00:00.000000</td></tr>
-<tr><td>2016-04-15 00:00:00.000000</td></tr>
-<tr><td>2017-05-09 00:00:00.000000</td></tr></table></p>
-
-<h2 id="create-new-column-two-months-before">Create New Column Two Months Before</h2>
-
-<p><div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- Create a column called two_months_later that takes the value
-</span><span class="c1">-- of died and subtracts two months to it
-</span><span class="c1"></span><span class="k">SELECT</span> <span class="n">died</span> <span class="o">-</span> <span class="nb">INTERVAL</span> <span class="s1">&#39;2 month&#39;</span> <span class="k">AS</span> <span class="n">one_months_later</span>
 <span class="c1">-- From adventurers table
 </span><span class="c1"></span><span class="k">FROM</span> <span class="n">dead_adventurers</span></code></pre></div>
 <table border="1" style="border-collapse:collapse">

@@ -34,7 +34,9 @@ I earned a Ph.D. in Political Science from the University of California, Davis r
 ### Work Experience
 
 -   **Director of Data Science**, [Devoted Health](http://www.devoted.com/), 2018 - Present
+    - Leading Devoted Health's data science team. The team is responsible for all statistical analyses, machine learning, and analytics across the company.
 -   **Chief Data Scientist**, [BRCK](https://www.brck.com/), 2017 - 2018
+    - Managed data science at BRCK. Workedon professionalizing data science and analytics at the fast growing Kenyan telecom startup.
 -   **Author**, [Machine Learning With Python Cookbook](https://amzn.to/2HwnWty), [O’Reilly Media](https://www.oreilly.com/), 2018
 -   **Creator**, [Machine Learning Flashcards](http://machinelearningflashcards.com/), 2017
 -   **Co-founder & Co-host**, [Partially Derivative](http://www.partiallyderivative.com), 2014 - 2017
@@ -42,6 +44,6 @@ I earned a Ph.D. in Political Science from the University of California, Davis r
 -   **Co-founder & Chief Science Officer**, [New Knowledge](http://www.newknowledge.io), 2015 - 2016
     -   In charge of everything data science and product.
 -   **Director of Data**, [Ushahidi](http://www.ushahidi.com), 2013 - 2015
-    -   The non-profit's first data science hire; led all data science efforts.
+    -   The non-profit's first data science hire; led Ushahidi's data science team.
 -   **Project Director**, [FrontlineSMS](http://www.frontlinesms.com), 2012 - 2013
     -   Led FrontlineSMS's Governance Project, an effort improve the transparency and accountability of governments through low resource mobile technology.
