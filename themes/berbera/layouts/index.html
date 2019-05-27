@@ -714,7 +714,6 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
-                    <h4 class="card-header">Basics</h4>
                     <div class="card-body">
                         <ul>
                             {{ range (where .Pages "File.Dir" "in" "/aws/basics/").ByTitle }}
@@ -722,35 +721,11 @@
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
                             {{ end }}
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="card">
-                    <h4 class="card-header">S3 - CLI</h4>
-                    <div class="card-body">
-                        <ul>
                             {{ range (where .Pages "File.Dir" "in" "/aws/s3/cli/").ByTitle }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
                             {{ end }}
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="card">
-                    <h4 class="card-header">S3 - Boto</h4>
-                    <div class="card-body">
-                        <ul>
                             {{ range (where .Pages "File.Dir" "in" "/s3/boto/").ByTitle }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
