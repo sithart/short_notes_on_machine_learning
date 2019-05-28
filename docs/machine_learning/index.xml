@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Machine_learnings on Chris Albon</title>
-    <link>https://chrisalbon.com/machine_learning/</link>
-    <description>Recent content in Machine_learnings on Chris Albon</description>
+    <title>machine_learning - Chris Albon</title>
+    <link>https://chrisalbon.com/machine_learning/index.xml</link>
+    <description></description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 20 Dec 2017 11:53:49 -0700</lastBuildDate>
     
-	<atom:link href="https://chrisalbon.com/machine_learning/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://chrisalbon.com/machine_learning/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -165,7 +165,7 @@ Preliminaries # Load libraries import numpy as np from sklearn.naive_bayes impor
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/calculate_the_trace_of_a_matrix/</guid>
-      <description> Preliminaries # Load library import numpy as np Create Matrix # Create matrix matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]]) Calculate The Trace # Calculate the tracre of the matrix matrix.diagonal().sum() 15  </description>
+      <description> Preliminaries # Load library import numpy as np Create Matrix # Create matrix matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]]) Calculate The Trace # Calculate the trace of the matrix matrix.diagonal().sum() 15  </description>
     </item>
     
     <item>
@@ -451,7 +451,7 @@ Preliminaries # Load libraries from sklearn.decomposition import PCA, KernelPCA 
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/feature_selection/drop_highly_correlated_features/</guid>
-      <description>Preliminaries # Load libraries import pandas as pd import numpy as np Load Data # Create feature matrix with two highly correlated features X = np.array([[1, 1, 1], [2, 2, 0], [3, 3, 1], [4, 4, 0], [5, 5, 1], [6, 6, 0], [7, 7, 1], [8, 7, 0], [9, 7, 1]]) # Convert feature matrix into DataFrame df = pd.DataFrame(X) # View the data frame df   .</description>
+      <description>Preliminaries # Load libraries import pandas as pd import numpy as np Load Data # Create feature matrix with two highly correlated features X = np.array([[1, 1, 1], [2, 2, 0], [3, 3, 1], [4, 4, 0], [5, 5, 1], [6, 6, 0], [7, 7, 1], [8, 7, 0], [9, 7, 1]]) # Convert feature matrix into DataFrame df = pd.DataFrame(X) # View the data frame df  .dataframe tbody tr th:only-of-type { vertical-align: middle; } .</description>
     </item>
     
     <item>
@@ -1418,7 +1418,7 @@ Specifically, we can run LinearDiscriminantAnalysis with n_components set to Non
       
       <guid>https://chrisalbon.com/machine_learning/preprocessing_structured_data/standardize_a_feature/</guid>
       <description> 
-Preliminaries # Load libraries from sklearn import preprocessing import numpy as np Create Feature # Create feature x = np.array([[-500.5], [-100.1], [0], [100.1], [900.9]]) Standardize Feature # Create scaler scaler = preprocessing.StandardScaler() # Transform the feature standardized = scaler.fit_transform(x) # Show feature standardized array([[ 0. ], [ 0.28571429], [ 0.35714286], [ 0.42857143], [ 1. ]])  </description>
+Preliminaries # Load libraries from sklearn import preprocessing import numpy as np Create Feature # Create feature x = np.array([[-500.5], [-100.1], [0], [100.1], [900.9]]) Standardize Feature # Create scaler scaler = preprocessing.StandardScaler() # Transform the feature standardized = scaler.fit_transform(x) # Show feature standardized array([[-1.26687088], [-0.39316683], [-0.17474081], [ 0.0436852 ], [ 1.79109332]])  </description>
     </item>
     
     <item>

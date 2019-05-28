@@ -7,4 +7,8 @@ pygmentsCodeFences=true
 pygmentsUseClasses=true
 canonifyURLs=true
 publishDir="docs"
-disableKinds = ["section", "taxonomy", "taxonomyTerm"]
+disableKinds = ["taxonomy", "taxonomyTerm"]
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["RSS"]

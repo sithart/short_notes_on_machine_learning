@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Statistics on Chris Albon</title>
-    <link>https://chrisalbon.com/statistics/</link>
-    <description>Recent content in Statistics on Chris Albon</description>
+    <title>statistics - Chris Albon</title>
+    <link>https://chrisalbon.com/statistics/index.xml</link>
+    <description></description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 20 Dec 2017 11:53:49 -0700</lastBuildDate>
     
-	<atom:link href="https://chrisalbon.com/statistics/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://chrisalbon.com/statistics/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>

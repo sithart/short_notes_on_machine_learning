@@ -2918,7 +2918,7 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/leadership/productivity/what_i_learned_from_tracking_my_time_at_techstars/</loc>
+    <loc>https://chrisalbon.com/leadership/other/what_i_learned_from_tracking_my_time_at_techstars/</loc>
     <lastmod>2016-02-01T11:53:49-07:00</lastmod>
   </url>
   
@@ -2943,8 +2943,98 @@
   </url>
   
   <url>
+    <loc>https://chrisalbon.com/about/index.xml</loc>
+    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/articles/index.xml</loc>
+    <lastmod>2011-12-20T11:53:49-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/aws/index.xml</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://chrisalbon.com/</loc>
     <lastmod>2018-12-16T11:53:49-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/computer_science/index.xml</loc>
+    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/deep_learning/index.xml</loc>
+    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/git/index.xml</loc>
+    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/leadership/index.xml</loc>
+    <lastmod>2016-02-01T11:53:49-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/index.xml</loc>
+    <lastmod>2018-07-16T00:00:00-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/machine_learning/index.xml</loc>
+    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/mathematics/index.xml</loc>
+    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/postgresql/index.xml</loc>
+    <lastmod>2018-06-18T11:53:49-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/python/index.xml</loc>
+    <lastmod>2018-12-16T11:53:49-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/regex/index.xml</loc>
+    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/scala/index.xml</loc>
+    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/statistics/index.xml</loc>
+    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
     <priority>0</priority>
   </url>
   

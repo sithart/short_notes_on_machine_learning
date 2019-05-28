@@ -1,15 +1,60 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Pythons on Chris Albon</title>
-    <link>https://chrisalbon.com/python/</link>
-    <description>Recent content in Pythons on Chris Albon</description>
+    <title>python - Chris Albon</title>
+    <link>https://chrisalbon.com/python/index.xml</link>
+    <description></description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 20 Dec 2017 11:53:49 -0700</lastBuildDate>
+    <lastBuildDate>Sun, 16 Dec 2018 11:53:49 -0700</lastBuildDate>
     
-	<atom:link href="https://chrisalbon.com/python/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://chrisalbon.com/python/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Create A Class</title>
+      <link>https://chrisalbon.com/python/object_oriented/create_a_class/</link>
+      <pubDate>Sun, 16 Dec 2018 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/python/object_oriented/create_a_class/</guid>
+      <description> Create Simple Class class Soldier: pass Create Instance Of Class jason = Soldier()</description>
+    </item>
+    
+    <item>
+      <title>Create Attributes</title>
+      <link>https://chrisalbon.com/python/object_oriented/create_attributes/</link>
+      <pubDate>Sun, 16 Dec 2018 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/python/object_oriented/create_attributes/</guid>
+      <description> Create Simple Class class Soldier: pass Create Instance Of Class jason = Soldier() Create Attribute jason.age = 36 jason.height = 124 View Attributes # Display a dictionary of attributes jason.__dict__ {&#39;age&#39;: 36, &#39;height&#39;: 124}  </description>
+    </item>
+    
+    <item>
+      <title>Create Methods</title>
+      <link>https://chrisalbon.com/python/object_oriented/create_methods/</link>
+      <pubDate>Sun, 16 Dec 2018 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/python/object_oriented/create_methods/</guid>
+      <description>Create Simple Class # Create a class called Soldier class Soldier: &amp;#34;&amp;#34;&amp;#34;Creates a class representing a soldier.&amp;#34;&amp;#34;&amp;#34; # Whenever an object is created from this class, # assign the name and initial rank. def __init__(self, name, rank): self.name = name self.rank = 1 # Promote soldier to a higher rank def promote(self): # Set rank to current rank plus one self.rank = self.rank + 1 Create Soldier Named Jason # Create an instance of Soldier class called &amp;#39;jason&amp;#39; jason = Soldier(&amp;#39;Jason Miller&amp;#39;, 1) View Jason&amp;rsquo;s Attributes # Display a dictionary of attributes jason.</description>
+    </item>
+    
+    <item>
+      <title>List All Files Of Certain Type In A Directory</title>
+      <link>https://chrisalbon.com/python/basics/list_all_files_of_particular_type_in_directory/</link>
+      <pubDate>Tue, 20 Nov 2018 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/python/basics/list_all_files_of_particular_type_in_directory/</guid>
+      <description>Preliminaries import os List All .ipynb Files In Directory [x for x in os.listdir() if x.endswith(&amp;#34;.ipynb&amp;#34;)] [&#39;create_a_new_file_and_the_write_to_it.ipynb&#39;, &#39;unpacking_a_tuple.ipynb&#39;, &#39;unpacking_function_arguments.ipynb&#39;, &#39;convert_html_symbols_to_strings.ipynb&#39;, &#39;arithmetic_basics.ipynb&#39;, &#39;cleaning_text.ipynb&#39;, &#39;applying_functions_to_list_items.ipynb&#39;, &#39;while_statements.ipynb&#39;, &#39;continue_and_break_loops.ipynb&#39;, &#39;queues_and_stacks.ipynb&#39;, &#39;numpy_array_basics.ipynb&#39;, &#39;schedule_run_in_the_future.ipynb&#39;, &#39;Untitled.ipynb&#39;, &#39;repr_vs_str.ipynb&#39;, &#39;using_named_tuples_to_store_data.ipynb&#39;, &#39;hard_wrapping_text.ipynb&#39;, &#39;string_formatting.ipynb&#39;, &#39;functions_vs_generators.ipynb&#39;, &#39;nesting_lists.ipynb&#39;, &#39;sort_a_list_of_strings_by_length.ipynb&#39;, &#39;filter_items_in_list_with_filter.ipynb&#39;, &#39;swapping_variable_values.ipynb&#39;, &#39;iterating_over_dictionary_keys.ipynb&#39;, &#39;iterate_ifelse_over_list.ipynb&#39;, &#39;recursive_functions.ipynb&#39;, &#39;for_loops.ipynb&#39;, &#39;use_command_line_arguments_in_a_function.ipynb&#39;, &#39;logical_operations.ipynb&#39;, &#39;strings_to_datetime.ipynb&#39;, &#39;flatten_list_of_lists.ipynb&#39;, &#39;nested_for_loops_using_list_comprehension.ipynb&#39;, &#39;Untitled1.ipynb&#39;, &#39;function_basics.ipynb&#39;, &#39;find_the_max_value_in_a_dictionary.ipynb&#39;, &#39;any_all_max_min_sum.ipynb&#39;, &#39;display_json.ipynb&#39;, &#39;exiting_a_loop.ipynb&#39;, &#39;date_and_time_basics.ipynb&#39;, &#39;add_padding_around_string.ipynb&#39;, &#39;iterate_over_multiple_lists_simultaneously.ipynb&#39;, &#39;breaking_up_string_variables.ipynb&#39;, &#39;mocking_functions.ipynb&#39;, &#39;compare_two_dictionaries.ipynb&#39;, &#39;chain_together_lists.ipynb&#39;, &#39;function_annotation_examples.ipynb&#39;, &#39;brute_force_d20_simulator.ipynb&#39;, &#39;string_operations.ipynb&#39;, &#39;data_structure_basics.ipynb&#39;, &#39;string_indexing.ipynb&#39;, &#39;math_operations.ipynb&#39;, &#39;numpy_array_basic_operations.ipynb&#39;, &#39;ifelse_on_any_or_all_elements.ipynb&#39;, &#39;sort_a_list_by_last_name.ipynb&#39;, &#39;apply_operations_over_items_in_lists.</description>
+    </item>
+    
+    <item>
+      <title>Columns Shared By Two Data Frames</title>
+      <link>https://chrisalbon.com/python/data_wrangling/columns_shared_by_two_data_frames/</link>
+      <pubDate>Mon, 12 Mar 2018 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/python/data_wrangling/columns_shared_by_two_data_frames/</guid>
+      <description>Preliminaries # Import library import pandas as pd Create Data Frames # Create a data frame dataframe_one = pd.DataFrame() dataframe_one[&amp;#39;1&amp;#39;] = [&amp;#39;1&amp;#39;, &amp;#39;1&amp;#39;, &amp;#39;1&amp;#39;] dataframe_one[&amp;#39;B&amp;#39;] = [&amp;#39;b&amp;#39;, &amp;#39;b&amp;#39;, &amp;#39;b&amp;#39;] # Create a second data frame dataframe_two = pd.DataFrame() dataframe_two[&amp;#39;2&amp;#39;] = [&amp;#39;2&amp;#39;, &amp;#39;2&amp;#39;, &amp;#39;2&amp;#39;] dataframe_two[&amp;#39;B&amp;#39;] = [&amp;#39;b&amp;#39;, &amp;#39;b&amp;#39;, &amp;#39;b&amp;#39;] Find Shared Columns # Convert each data frame&amp;#39;s columns into sets, then find # the intersection of those two sets. This will be the # set of columns shared by both data frames.</description>
+    </item>
     
     <item>
       <title>Add Padding Around String</title>
@@ -117,6 +162,15 @@
       
       <guid>https://chrisalbon.com/python/data_visualization/matplotlib_bar_plot/</guid>
       <description>Preliminaries %matplotlib inline import pandas as pd import matplotlib.pyplot as plt import numpy as np Create dataframe raw_data = {&amp;#39;first_name&amp;#39;: [&amp;#39;Jason&amp;#39;, &amp;#39;Molly&amp;#39;, &amp;#39;Tina&amp;#39;, &amp;#39;Jake&amp;#39;, &amp;#39;Amy&amp;#39;], &amp;#39;pre_score&amp;#39;: [4, 24, 31, 2, 3], &amp;#39;mid_score&amp;#39;: [25, 94, 57, 62, 70], &amp;#39;post_score&amp;#39;: [5, 43, 23, 23, 51]} df = pd.DataFrame(raw_data, columns = [&amp;#39;first_name&amp;#39;, &amp;#39;pre_score&amp;#39;, &amp;#39;mid_score&amp;#39;, &amp;#39;post_score&amp;#39;]) df    first_name pre_score mid_score post_score     0 Jason 4 25 5   1 Molly 24 94 43   2 Tina 31 57 23   3 Jake 2 62 23   4 Amy 3 70 51     Make plot # Create a list of the mean scores for each variable mean_values = [df[&amp;#39;pre_score&amp;#39;].</description>
+    </item>
+    
+    <item>
+      <title>Basic Logging</title>
+      <link>https://chrisalbon.com/python/logging/basic_logging/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/python/logging/basic_logging/</guid>
+      <description>Preliminaries # Import standard library&amp;#39;s logging import logging Configure Logging # Configure logging to ignore messages below info (i.e. debug level is ignored) logging.basicConfig(level=logging.INFO) Create Function # Create function that converts dollars to cents def convert_dollars_to_cents(dollars): # Try... try: # Multiply dollars by 100 cents = dollars * 100 # Convert to integer cents = int(cents) # Send info message that function was run successful logging.info(&amp;#34;convert_dollars_to_cents run successfully&amp;#34;) # Return cents return cents # If a ValueError is raised except ValueError: # Create data type of input dollars_type = type(dollars) # Create error message detailing the error error_message = f&amp;#34;Function input is {dollars_type}, should be &amp;lt;class \&amp;#39;int\&amp;#39;&amp;gt;&amp;#34; # Send error message logging.</description>
     </item>
     
     <item>
@@ -299,7 +353,7 @@ Import random module import random Create a variable with a TRUE value rolling =
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/basics/convert_html_symbols_to_strings/</guid>
-      <description>## Preliminariesimport html## Create Texttext = &amp;#39;This item costs ¥400 or £4.&amp;#39;## Convert To Stringhtml.unescape(text) &#39;This item costs ¥400 or £4.&#39;  ## Convert To HTML Entitieshtml.escape(text) &#39;This item costs &amp;amp;amp;#165;400 or &amp;amp;amp;#163;4.&#39;  </description>
+      <description>## Preliminariesimport html## Create Texttext = &amp;#39;This item costs &amp;amp;#165;400 or &amp;amp;#163;4.&amp;#39;## Convert To Stringhtml.unescape(text) &#39;This item costs ¥400 or £4.&#39;  ## Convert To HTML Entitieshtml.escape(text) &#39;This item costs &amp;amp;amp;#165;400 or &amp;amp;amp;#163;4.&#39;  </description>
     </item>
     
     <item>
@@ -456,6 +510,15 @@ Lists are mutable.
       
       <guid>https://chrisalbon.com/python/basics/dictionary_basics/</guid>
       <description>Basics  Not sequences, but mappings. That is, stored by key, not relative position. Dictionaries are mutable.  Build a dictionary via brackets unef_org = {&amp;#39;name&amp;#39; : &amp;#39;UNEF&amp;#39;, &amp;#39;staff&amp;#39; : 32, &amp;#39;url&amp;#39; : &amp;#39;http://unef.org&amp;#39;} View the variable unef_org {&#39;name&#39;: &#39;UNEF&#39;, &#39;staff&#39;: 32, &#39;url&#39;: &#39;http://unef.org&#39;}  Build a dict via keys who_org = {} who_org[&amp;#39;name&amp;#39;] = &amp;#39;WHO&amp;#39; who_org[&amp;#39;staff&amp;#39;] = &amp;#39;10&amp;#39; who_org[&amp;#39;url&amp;#39;] = &amp;#39;http://who.org&amp;#39; View the variable who_org {&#39;name&#39;: &#39;WHO&#39;, &#39;staff&#39;: &#39;10&#39;, &#39;url&#39;: &#39;http://who.</description>
+    </item>
+    
+    <item>
+      <title>Display JSON</title>
+      <link>https://chrisalbon.com/python/basics/display_json/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/python/basics/display_json/</guid>
+      <description>Preliminary # Import library import json Create String With JSON Data _string = &amp;#39;{&amp;#34;data&amp;#34;: {&amp;#34;title&amp;#34;: &amp;#34;Machine Learning With Python Cookbook&amp;#34;,&amp;#34;author&amp;#34;: {&amp;#34;name&amp;#34;: &amp;#34;Chris Albon&amp;#34;,&amp;#34;biography&amp;#34;: {&amp;#34;eduation&amp;#34;: {&amp;#34;phd&amp;#34;: &amp;#34;UC Davis&amp;#34;,&amp;#34;masters&amp;#34;: &amp;#34;UC Davis&amp;#34;,&amp;#34;undergraduate&amp;#34;: &amp;#34;Univ. Of Miami&amp;#34;,&amp;#34;acronym&amp;#34;: &amp;#34;CRA&amp;#34;,&amp;#34;full name&amp;#34;: &amp;#34;Christopher Albon&amp;#34;,&amp;#34;favorites&amp;#34;: {&amp;#34;food&amp;#34;: &amp;#34;Steak&amp;#34;,&amp;#34;sport&amp;#34;: [&amp;#34;baseball&amp;#34;, &amp;#34;basketball&amp;#34;]},&amp;#34;dissertation&amp;#34;: &amp;#34;Health Systems During And After Civil WarS&amp;#34;}}}}}&amp;#39; Convert String To JSON json_data = json.loads(_string) Display JSON print(json.dumps(json_data, indent=2)) { &amp;quot;data&amp;quot;: { &amp;quot;title&amp;quot;: &amp;quot;Machine Learning With Python Cookbook&amp;quot;, &amp;quot;author&amp;quot;: { &amp;quot;name&amp;quot;: &amp;quot;Chris Albon&amp;quot;, &amp;quot;biography&amp;quot;: { &amp;quot;eduation&amp;quot;: { &amp;quot;phd&amp;quot;: &amp;quot;UC Davis&amp;quot;, &amp;quot;masters&amp;quot;: &amp;quot;UC Davis&amp;quot;, &amp;quot;undergraduate&amp;quot;: &amp;quot;Univ.</description>
     </item>
     
     <item>
@@ -1481,6 +1544,15 @@ def summation(a, b): &amp;#34;&amp;#34;&amp;#34; Takes two inputs and outputs th
       
       <guid>https://chrisalbon.com/python/basics/unpacking_function_arguments/</guid>
       <description> Create Argument Objects # Create a dictionary of arguments argument_dict = {&amp;#39;a&amp;#39;:&amp;#39;Alpha&amp;#39;, &amp;#39;b&amp;#39;:&amp;#39;Bravo&amp;#39;} # Create a list of arguments argument_list = [&amp;#39;Alpha&amp;#39;, &amp;#39;Bravo&amp;#39;] Create A Simple Function # Create a function that takes two inputs def simple_function(a, b): # and prints them combined return a + b Run the Function With Unpacked Arguments # Run the function with the unpacked argument dictionary simple_function(**argument_dict) &#39;AlphaBravo&#39;  # Run the function with the unpacked argument list simple_function(*argument_list) &#39;AlphaBravo&#39;  </description>
+    </item>
+    
+    <item>
+      <title>Use Command Line Arguments In A Function</title>
+      <link>https://chrisalbon.com/python/basics/use_command_line_arguments_in_a_function/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/python/basics/use_command_line_arguments_in_a_function/</guid>
+      <description>Preliminary # Load library import argparse Create Python Code #!/usr/bin/env python3 # Create a function with two inputs def sum_two_values(value_one, value_two): # Add together two values _sum = value_one + value_two # Return sum return _sum # If the script is run if __name__ == &amp;#39;__main__&amp;#39;: # Create argument parser parser = argparse.ArgumentParser() # Create an argument called v1 or value_1 that is an integer parser.add_argument(&amp;#39;-v1&amp;#39;, &amp;#39;--value_1&amp;#39;, type=int, help=&amp;#39;The first value.</description>
     </item>
     
     <item>
