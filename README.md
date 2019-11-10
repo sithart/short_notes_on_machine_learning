@@ -47,4 +47,4 @@ alias hs='cd /Users/chrisalbon/dropbox/cra/projects/notes && hugo server'
 alias nn='cd /Users/chrisalbon/dropbox/cra/projects/notes && git pull && hugo && git add -A && git commit -m "made changes" && gp && git push'
 ```
 
-Note that when you run `nn` you will be prompted for an application password. You can get that / generate that from GitHub.com in account settings.
+Note that when you run `nn` you might be prompted for an application password. You can get that / generate that from GitHub.com in account settings.
