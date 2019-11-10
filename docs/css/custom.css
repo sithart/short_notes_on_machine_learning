@@ -184,13 +184,13 @@ Navbar
 ---------------------------------------------------------*/
 
 .navbar {
-  background-color: #ff4d44;
+  background-color: #ef423a;
   border-bottom: 0px;
 }
 
 .navbar .navbar-brand, .navbar .navbar-brand:hover {
   color: #fff;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   font-weight: 700;
   text-transform: uppercase;
   font-size: .9em;
@@ -217,13 +217,13 @@ Homepage
   line-height: 1em;
 }
 
-.homepage h1 .main_line{
-  font-size: .85em;
+.homepage h1 .major_line{
+  font-size: 0.9em;
   font-weight: 700;
 }
 
 .homepage h1 .minor_line{
-  font-size: .75em;
+  font-size: .6em;
   font-weight: 400;
 }
 
@@ -363,6 +363,77 @@ Technical Notes
   font-size: 1em;
   font-weight: bold;
   margin-top: 1em;
+}
+
+/* ---------------------------------------------------------
+Non-Technical Notes
+---------------------------------------------------------*/
+
+.non-technical_note h1{
+  font-weight: bold;
+  font-family: 'Muli', sans-serif;
+  text-align: center;
+  margin-bottom:10px;
+}
+
+.non-technical_note header {
+  margin: 30px 0 30px 0;
+}
+
+.non-technical_note .content{
+  font-family: "Computer Modern", serif;
+}
+
+.non-technical_note .content p, .non-technical_note .content li{
+  font-size: 1.25em;
+}
+
+.non-technical_note .content p{
+  padding-top:.25em;
+  padding-bottom:.25em;
+}
+
+.non-technical_note .content p .mjx-math {
+  font-size: 1em;
+}
+
+.non-technical_note .content blockquote{
+  font-style: italic;
+  padding: 0 4em 0 4em;
+  line-height: 1.4em;
+  color: #776f68;
+}
+
+.non-technical_note .non-technical_note_date{
+  font-size: 1.4em;
+  text-align: center;
+  font-family: 'Muli', sans-serif;
+}
+
+.non-technical_note h2{
+  font-size: 1.6em;
+  margin-top: 1em;
+  margin-bottom: .5em;
+  font-family: 'Muli', sans-serif;
+  font-weight: bold;
+}
+
+.non-technical_note h3{
+  font-size: 1.4em;
+  font-family: 'Muli', sans-serif;
+  font-weight: bold;
+}
+
+.non-technical_note h4{
+  font-size: 1.2em;
+  font-family: 'Muli', sans-serif;
+  font-weight: bold;
+}
+
+.non-technical_note h5{
+  font-size: 1.1em;
+  font-family: 'Muli', sans-serif;
+  font-weight: bold;
 }
 
 /* ---------------------------------------------------------

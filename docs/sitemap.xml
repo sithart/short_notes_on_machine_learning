@@ -3,6 +3,161 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://chrisalbon.com/snowflake/sql/tables/add_column/</loc>
+    <lastmod>2019-01-28T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/snowflake/sql/tables/add_comment_to_column/</loc>
+    <lastmod>2019-01-28T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/snowflake/sql/basics/convert_columns_into_rows/</loc>
+    <lastmod>2019-01-28T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/snowflake/sql/basics/convert_data_types/</loc>
+    <lastmod>2019-01-28T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/snowflake/sql/basics/create_dummy_columns/</loc>
+    <lastmod>2019-01-28T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/snowflake/sql/tables/create_or_replace_table/</loc>
+    <lastmod>2019-01-28T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/snowflake/sql/tables/create_table/</loc>
+    <lastmod>2019-01-28T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/snowflake/sql/tables/create_table_from_query/</loc>
+    <lastmod>2019-01-28T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/snowflake/sql/tables/create_table_if_does_not_already_exist/</loc>
+    <lastmod>2019-01-28T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/snowflake/sql/tables/create_table_with_column_and_table_comments/</loc>
+    <lastmod>2019-01-28T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/snowflake/sql/tables/create_temporary_table/</loc>
+    <lastmod>2019-01-28T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/snowflake/sql/tables/delete_table/</loc>
+    <lastmod>2019-01-28T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/snowflake/sql/tables/describe_table/</loc>
+    <lastmod>2019-01-28T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/snowflake/sql/tables/drop_column/</loc>
+    <lastmod>2019-01-28T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/snowflake/sql/numeric/get_absolute_values/</loc>
+    <lastmod>2019-01-28T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/snowflake/sql/basics/get_rows_meeting_multiple_conditions/</loc>
+    <lastmod>2019-01-28T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/snowflake/sql/basics/give_column_alias/</loc>
+    <lastmod>2019-01-28T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/snowflake/sql/basics/give_table_alias/</loc>
+    <lastmod>2019-01-28T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/snowflake/sql/merge_and_join/left_join/</loc>
+    <lastmod>2019-01-28T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/snowflake/sql/basics/query_table/</loc>
+    <lastmod>2019-01-28T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/snowflake/sql/tables/query_describe_statement/</loc>
+    <lastmod>2019-01-28T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/snowflake/sql/tables/rename_column/</loc>
+    <lastmod>2019-01-28T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/snowflake/sql/tables/rename_table/</loc>
+    <lastmod>2019-01-28T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/snowflake/sql/basics/return_first_few_rows/</loc>
+    <lastmod>2019-01-28T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/snowflake/sql/basics/return_n_rows_after_skipping_k_rows/</loc>
+    <lastmod>2019-01-28T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/snowflake/sql/basics/sample_rows_from_table/</loc>
+    <lastmod>2019-01-28T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/snowflake/sql/basics/sort_rows/</loc>
+    <lastmod>2019-01-28T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/snowflake/sql/tables/swap_two_tables/</loc>
+    <lastmod>2019-01-28T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/snowflake/sql/tables/undelete_table/</loc>
+    <lastmod>2019-01-28T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/snowflake/sql/tables/view_column_comments/</loc>
+    <lastmod>2019-01-28T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/snowflake/sql/tables/view_table_comments/</loc>
+    <lastmod>2019-01-28T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chrisalbon.com/python/object_oriented/create_a_class/</loc>
     <lastmod>2018-12-16T11:53:49-07:00</lastmod>
   </url>
@@ -2918,7 +3073,7 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/leadership/other/what_i_learned_from_tracking_my_time_at_techstars/</loc>
+    <loc>https://chrisalbon.com/articles/what_i_learned_from_tracking_my_time_at_techstars/</loc>
     <lastmod>2016-02-01T11:53:49-07:00</lastmod>
   </url>
   
@@ -2950,7 +3105,7 @@
   
   <url>
     <loc>https://chrisalbon.com/articles/index.xml</loc>
-    <lastmod>2011-12-20T11:53:49-07:00</lastmod>
+    <lastmod>2016-02-01T11:53:49-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -2962,7 +3117,7 @@
   
   <url>
     <loc>https://chrisalbon.com/</loc>
-    <lastmod>2018-12-16T11:53:49-07:00</lastmod>
+    <lastmod>2019-01-28T00:00:00-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -2981,12 +3136,6 @@
   <url>
     <loc>https://chrisalbon.com/git/index.xml</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/leadership/index.xml</loc>
-    <lastmod>2016-02-01T11:53:49-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -3029,6 +3178,12 @@
   <url>
     <loc>https://chrisalbon.com/scala/index.xml</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/snowflake/index.xml</loc>
+    <lastmod>2019-01-28T00:00:00-07:00</lastmod>
     <priority>0</priority>
   </url>
   
