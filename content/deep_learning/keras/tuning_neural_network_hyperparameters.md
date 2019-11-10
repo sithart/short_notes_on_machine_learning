@@ -96,7 +96,7 @@ hyperparameters = dict(optimizer=optimizers, epochs=epochs, batch_size=batches)
 
 ```python
 # Create grid search
-grid = GridSearchCV(estimator=neural_network, param_grid=hyperparameters)
+grid = GridSearchCV(estimator=neural_network, cv=3, param_grid=hyperparameters)
 
 # Fit grid search
 grid_result = grid.fit(features, target)
@@ -113,6 +113,6 @@ grid_result.best_params_
 
 
 
-    {'batch_size': 5, 'epochs': 5, 'optimizer': 'rmsprop'}
+    {'batch_size': 10, 'epochs': 5, 'optimizer': 'adam'}
 
 

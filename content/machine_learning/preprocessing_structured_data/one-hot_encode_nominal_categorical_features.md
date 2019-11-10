@@ -17,7 +17,7 @@ draft: false
 # Load libraries
 import numpy as np
 import pandas as pd
-from sklearn.preprocessing import LabelBinarizer
+from sklearn.preprocessing import OneHotEncoder
 ```
 
 ## Create Data With One Class Label
@@ -37,7 +37,7 @@ x = np.array([['Texas'],
 
 ```python
 # Create LabelBinzarizer object
-one_hot = LabelBinarizer()
+one_hot = OneHotEncoder()
 
 # One-hot encode data
 one_hot.fit_transform(x)
@@ -46,11 +46,8 @@ one_hot.fit_transform(x)
 
 
 
-    array([[0, 0, 1],
-           [1, 0, 0],
-           [0, 0, 1],
-           [0, 1, 0],
-           [0, 0, 1]])
+    <5x3 sparse matrix of type '<class 'numpy.float64'>'
+    	with 5 stored elements in Compressed Sparse Row format>
 
 
 
@@ -59,14 +56,13 @@ one_hot.fit_transform(x)
 
 ```python
 # View classes
-one_hot.classes_
+one_hot.categories_
 ```
 
 
 
 
-    array(['California', 'Delaware', 'Texas'],
-          dtype='<U10')
+    [array(['California', 'Delaware', 'Texas'], dtype='<U10')]
 
 
 
@@ -82,17 +78,17 @@ pd.get_dummies(x[:,0])
 
 
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
     }
 
     .dataframe tbody tr th {
         vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
     }
 </style>
 <table border="1" class="dataframe">

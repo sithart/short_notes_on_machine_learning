@@ -752,7 +752,7 @@ MathJax.Hub.Config({
 </table>
 </div>
 
-<h3 id="select-some-raws-but-ignore-the-missing-data-points">Select some raws but ignore the missing data points</h3>
+<h3 id="select-some-rows-but-ignore-the-missing-data-points">Select some rows but ignore the missing data points</h3>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Select the rows of df where age is not NaN and sex is not NaN</span>
 <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;sex&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()]</span></code></pre></div>
 <div>

@@ -1,4 +1,3 @@
-
 ---
 title: "Apply Operations Over Items In A List"
 author: "Chris Albon"

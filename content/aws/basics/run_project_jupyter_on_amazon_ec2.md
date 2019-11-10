@@ -202,6 +202,8 @@ This command allows you to create a separate screen for just your Jupyter proces
 
 ## Start Jupyter notebook
 
+`sudo chown $USER:$USER /home/ubuntu/certs/mycert.pem`
+
 `jupyter notebook`
 
 ![jupyter](load_jupyter.png)

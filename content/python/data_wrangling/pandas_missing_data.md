@@ -690,7 +690,7 @@ df
 
 
 
-### Select some raws but ignore the missing data points
+### Select some rows but ignore the missing data points
 
 
 ```python

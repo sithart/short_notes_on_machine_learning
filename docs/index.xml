@@ -4452,7 +4452,7 @@ Preliminaries # Load libraries import numpy as np from sklearn.naive_bayes impor
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/preprocessing_structured_data/one-hot_encode_nominal_categorical_features/</guid>
-      <description>Preliminaries # Load libraries import numpy as np import pandas as pd from sklearn.preprocessing import LabelBinarizer Create Data With One Class Label # Create NumPy array x = np.array([[&amp;#39;Texas&amp;#39;], [&amp;#39;California&amp;#39;], [&amp;#39;Texas&amp;#39;], [&amp;#39;Delaware&amp;#39;], [&amp;#39;Texas&amp;#39;]]) One-hot Encode Data (Method 1) # Create LabelBinzarizer object one_hot = LabelBinarizer() # One-hot encode data one_hot.fit_transform(x) array([[0, 0, 1], [1, 0, 0], [0, 0, 1], [0, 1, 0], [0, 0, 1]])  View Column Headers # View classes one_hot.</description>
+      <description>Preliminaries # Load libraries import numpy as np import pandas as pd from sklearn.preprocessing import OneHotEncoder Create Data With One Class Label # Create NumPy array x = np.array([[&amp;#39;Texas&amp;#39;], [&amp;#39;California&amp;#39;], [&amp;#39;Texas&amp;#39;], [&amp;#39;Delaware&amp;#39;], [&amp;#39;Texas&amp;#39;]]) One-hot Encode Data (Method 1) # Create LabelBinzarizer object one_hot = OneHotEncoder() # One-hot encode data one_hot.fit_transform(x) &amp;lt;5x3 sparse matrix of type &#39;&amp;lt;class &#39;numpy.float64&#39;&amp;gt;&#39; with 5 stored elements in Compressed Sparse Row format&amp;gt;  View Column Headers # View classes one_hot.</description>
     </item>
     
     <item>
