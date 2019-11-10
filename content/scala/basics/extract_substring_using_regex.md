@@ -26,7 +26,7 @@ val pattern = "([0-9]+) ([A-Za-z]+)".r
 
 
 ```scala
-// Apply the regex pattern such that each of the two pattern matches is assigned to a seperate value
+// Apply the regex pattern such that each of the two pattern matches is assigned to a separate value
 val pattern(vehicle_number, vehicle_type) = text
 ```
 

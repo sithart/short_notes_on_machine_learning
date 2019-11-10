@@ -172,7 +172,7 @@ MathJax.Hub.Config({
 <div class="highlight"><pre class="chroma"><code class="language-scala" data-lang="scala"><span class="c1">// Create a regex with two pattern matches (one number and one word)
 </span><span class="c1"></span><span class="k">val</span> <span class="n">pattern</span> <span class="k">=</span> <span class="s">&#34;([0-9]+) ([A-Za-z]+)&#34;</span><span class="o">.</span><span class="n">r</span></code></pre></div>
 <h2 id="extract-substrings-that-match-regex">Extract Substrings That Match Regex</h2>
-<div class="highlight"><pre class="chroma"><code class="language-scala" data-lang="scala"><span class="c1">// Apply the regex pattern such that each of the two pattern matches is assigned to a seperate value
+<div class="highlight"><pre class="chroma"><code class="language-scala" data-lang="scala"><span class="c1">// Apply the regex pattern such that each of the two pattern matches is assigned to a separate value
 </span><span class="c1"></span><span class="k">val</span> <span class="n">pattern</span><span class="o">(</span><span class="n">vehicle_number</span><span class="o">,</span> <span class="n">vehicle_type</span><span class="o">)</span> <span class="k">=</span> <span class="n">text</span></code></pre></div>
 <h2 id="view-output">View Output</h2>
 <div class="highlight"><pre class="chroma"><code class="language-scala" data-lang="scala"><span class="c1">// View the value

@@ -16,7 +16,7 @@ incoming_reports = ["We are attacking on their left flank but are losing many me
                "We are ready to attack but are waiting for your orders."]
 ```
 
-## Seperate by word
+## Separate by word
 
 
 ```python

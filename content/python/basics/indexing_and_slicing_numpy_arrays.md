@@ -10,7 +10,7 @@ draft: false
 
 ### Explanation Of Broadcasting
 
-Unlike many other data types, slicing an array into a new variable means that any chances to that new variable are broadcasted to the original variable. Put other way, a slice is a hotlink to the original array variable, not a seperate and independent copy of it.
+Unlike many other data types, slicing an array into a new variable means that any chances to that new variable are broadcasted to the original variable. Put other way, a slice is a hotlink to the original array variable, not a separate and independent copy of it.
 
 
 ```python

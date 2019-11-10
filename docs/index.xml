@@ -2302,7 +2302,7 @@ $$P(y=1 \mid x)={\frac {1}{1+e^{(A*f(x)+B)}}}$$</description>
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/basics/cleaning_text/</guid>
-      <description>Create some raw text # Create a list of three strings. incoming_reports = [&amp;#34;We are attacking on their left flank but are losing many men.&amp;#34;, &amp;#34;We cannot see the enemy army. Nothing else to report.&amp;#34;, &amp;#34;We are ready to attack but are waiting for your orders.&amp;#34;] Seperate by word # import word tokenizer from nltk.tokenize import word_tokenize # Apply word_tokenize to each element of the list called incoming_reports tokenized_reports = [word_tokenize(report) for report in incoming_reports] # View tokenized_reports tokenized_reports [[&#39;We&#39;, &#39;are&#39;, &#39;attacking&#39;, &#39;on&#39;, &#39;their&#39;, &#39;left&#39;, &#39;flank&#39;, &#39;but&#39;, &#39;are&#39;, &#39;losing&#39;, &#39;many&#39;, &#39;men&#39;, &#39;.</description>
+      <description>Create some raw text # Create a list of three strings. incoming_reports = [&amp;#34;We are attacking on their left flank but are losing many men.&amp;#34;, &amp;#34;We cannot see the enemy army. Nothing else to report.&amp;#34;, &amp;#34;We are ready to attack but are waiting for your orders.&amp;#34;] Separate by word # import word tokenizer from nltk.tokenize import word_tokenize # Apply word_tokenize to each element of the list called incoming_reports tokenized_reports = [word_tokenize(report) for report in incoming_reports] # View tokenized_reports tokenized_reports [[&#39;We&#39;, &#39;are&#39;, &#39;attacking&#39;, &#39;on&#39;, &#39;their&#39;, &#39;left&#39;, &#39;flank&#39;, &#39;but&#39;, &#39;are&#39;, &#39;losing&#39;, &#39;many&#39;, &#39;men&#39;, &#39;.</description>
     </item>
     
     <item>
@@ -2979,7 +2979,7 @@ Exiting If Loop Completed A loop will exit when completed, but using an else sta
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/scala/basics/extract_substring_using_regex/</guid>
-      <description> Create String // Create a string value val text: String = &amp;#34;27 aircraft&amp;#34; Create Regex Pattern // Create a regex with two pattern matches (one number and one word) val pattern = &amp;#34;([0-9]+) ([A-Za-z]+)&amp;#34;.r Extract Substrings That Match Regex // Apply the regex pattern such that each of the two pattern matches is assigned to a seperate value val pattern(vehicle_number, vehicle_type) = text View Output // View the value vehicle_number 27  // View the value vehicle_type aircraft  </description>
+      <description> Create String // Create a string value val text: String = &amp;#34;27 aircraft&amp;#34; Create Regex Pattern // Create a regex with two pattern matches (one number and one word) val pattern = &amp;#34;([0-9]+) ([A-Za-z]+)&amp;#34;.r Extract Substrings That Match Regex // Apply the regex pattern such that each of the two pattern matches is assigned to a separate value val pattern(vehicle_number, vehicle_type) = text View Output // View the value vehicle_number 27  // View the value vehicle_type aircraft  </description>
     </item>
     
     <item>
@@ -3624,7 +3624,7 @@ Preliminaries import pandas as pd import numpy as np from sklearn.preprocessing 
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/basics/indexing_and_slicing_numpy_arrays/</guid>
-      <description>Slicing Arrays Explanation Of Broadcasting Unlike many other data types, slicing an array into a new variable means that any chances to that new variable are broadcasted to the original variable. Put other way, a slice is a hotlink to the original array variable, not a seperate and independent copy of it.
+      <description>Slicing Arrays Explanation Of Broadcasting Unlike many other data types, slicing an array into a new variable means that any chances to that new variable are broadcasted to the original variable. Put other way, a slice is a hotlink to the original array variable, not a separate and independent copy of it.
 # Import Modules import numpy as np# Create an array of battle casualties from the first to the last battle battleDeaths = np.</description>
     </item>
     
@@ -5238,12 +5238,12 @@ c = plt.scatter(theta, r, c=colors, s=area, cmap=plt.cm.RdYlGn) c1 = plt.scatter
     </item>
     
     <item>
-      <title>Split Lat/Long Coordinate Variables Into Seperate Variables</title>
+      <title>Split Lat/Long Coordinate Variables Into Separate Variables</title>
       <link>https://chrisalbon.com/python/data_wrangling/pandas_split_lat_and_long_into_variables/</link>
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/data_wrangling/pandas_split_lat_and_long_into_variables/</guid>
-      <description>Preliminaries import pandas as pd import numpy as np Create an example dataframe raw_data = {&amp;#39;geo&amp;#39;: [&amp;#39;40.0024, -105.4102&amp;#39;, &amp;#39;40.0068, -105.266&amp;#39;, &amp;#39;39.9318, -105.2813&amp;#39;, np.nan]} df = pd.DataFrame(raw_data, columns = [&amp;#39;geo&amp;#39;]) df    geo     0 40.0024, -105.4102   1 40.0068, -105.266   2 39.9318, -105.2813   3 NaN     Split the geo variable into seperate lat and lon variables # Create two lists for the loop results to be placed lat = [] lon = [] # For each row in a varible, for row in df[&amp;#39;geo&amp;#39;]: # Try to, try: # Split the row by comma and append # everything before the comma to lat lat.</description>
+      <description>Preliminaries import pandas as pd import numpy as np Create an example dataframe raw_data = {&amp;#39;geo&amp;#39;: [&amp;#39;40.0024, -105.4102&amp;#39;, &amp;#39;40.0068, -105.266&amp;#39;, &amp;#39;39.9318, -105.2813&amp;#39;, np.nan]} df = pd.DataFrame(raw_data, columns = [&amp;#39;geo&amp;#39;]) df    geo     0 40.0024, -105.4102   1 40.0068, -105.266   2 39.9318, -105.2813   3 NaN     Split the geo variable into separate lat and lon variables # Create two lists for the loop results to be placed lat = [] lon = [] # For each row in a varible, for row in df[&amp;#39;geo&amp;#39;]: # Try to, try: # Split the row by comma and append # everything before the comma to lat lat.</description>
     </item>
     
     <item>

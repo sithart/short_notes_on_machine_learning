@@ -1,8 +1,8 @@
 ---
-title: "Split Lat/Long Coordinate Variables Into Seperate Variables"
+title: "Split Lat/Long Coordinate Variables Into Separate Variables"
 author: "Chris Albon"
 date: 2017-12-20T11:53:49-07:00
-description: "Split lat/long coordinate variables into seperate variables."
+description: "Split lat/long coordinate variables into separate variables."
 type: technical_note
 draft: false
 ---
@@ -57,7 +57,7 @@ df
 
 
 
-## Split the geo variable into seperate lat and lon variables
+## Split the geo variable into separate lat and lon variables
 
 
 ```python

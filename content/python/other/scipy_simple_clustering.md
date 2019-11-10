@@ -97,7 +97,7 @@ variance
 
 
 
-### Seperate the battle data into clusters
+### Separate the battle data into clusters
 
 
 ```python
