@@ -2057,7 +2057,7 @@ Preliminaries # Load libraries from sklearn.datasets import load_iris from sklea
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/web_scraping/beautiful_soup_html_basics/</guid>
-      <description>Import the modules # Import required modules import requests from bs4 import BeautifulSoup Scrap the html and turn into a beautiful soup object # Create a variable with the url url = &amp;#39;http://chrisralbon.com&amp;#39; # Use requests to get the contents r = requests.get(url) # Get the text of the contents html_content = r.text # Convert the html content into a beautiful soup object soup = BeautifulSoup(html_content, &amp;#39;lxml&amp;#39;) Select the website&amp;rsquo;s title # View the title tag of the soup object soup.</description>
+      <description>Import the modules # Import required modules import requests from bs4 import BeautifulSoup Scrape the html and turn into a beautiful soup object # Create a variable with the url url = &amp;#39;http://chrisralbon.com&amp;#39; # Use requests to get the contents r = requests.get(url) # Get the text of the contents html_content = r.text # Convert the html content into a beautiful soup object soup = BeautifulSoup(html_content, &amp;#39;lxml&amp;#39;) Select the website&amp;rsquo;s title # View the title tag of the soup object soup.</description>
     </item>
     
     <item>
@@ -2374,7 +2374,7 @@ $$P(y=1 \mid x)={\frac {1}{1+e^{(A*f(x)+B)}}}$$</description>
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/data_wrangling/pandas_convert_categorical_to_dummies/</guid>
-      <description># import modules import pandas as pd# Create a dataframe raw_data = {&amp;#39;first_name&amp;#39;: [&amp;#39;Jason&amp;#39;, &amp;#39;Molly&amp;#39;, &amp;#39;Tina&amp;#39;, &amp;#39;Jake&amp;#39;, &amp;#39;Amy&amp;#39;], &amp;#39;last_name&amp;#39;: [&amp;#39;Miller&amp;#39;, &amp;#39;Jacobson&amp;#39;, &amp;#39;Ali&amp;#39;, &amp;#39;Milner&amp;#39;, &amp;#39;Cooze&amp;#39;], &amp;#39;sex&amp;#39;: [&amp;#39;male&amp;#39;, &amp;#39;female&amp;#39;, &amp;#39;male&amp;#39;, &amp;#39;female&amp;#39;, &amp;#39;female&amp;#39;]} df = pd.DataFrame(raw_data, columns = [&amp;#39;first_name&amp;#39;, &amp;#39;last_name&amp;#39;, &amp;#39;sex&amp;#39;]) df    first_name last_name sex     0 Jason Miller male   1 Molly Jacobson female   2 Tina Ali male   3 Jake Milner female   4 Amy Cooze female     # Create a set of dummy variables from the sex variable df_sex = pd.</description>
+      <description># import modules import pandas as pd# Create a dataframe raw_data = {&amp;#39;first_name&amp;#39;: [&amp;#39;Jason&amp;#39;, &amp;#39;Molly&amp;#39;, &amp;#39;Tina&amp;#39;, &amp;#39;Jake&amp;#39;, &amp;#39;Amy&amp;#39;], &amp;#39;last_name&amp;#39;: [&amp;#39;Miller&amp;#39;, &amp;#39;Jacobson&amp;#39;, &amp;#39;Ali&amp;#39;, &amp;#39;Milner&amp;#39;, &amp;#39;Cooze&amp;#39;], &amp;#39;sex&amp;#39;: [&amp;#39;male&amp;#39;, &amp;#39;female&amp;#39;, &amp;#39;male&amp;#39;, &amp;#39;female&amp;#39;, &amp;#39;female&amp;#39;]} df = pd.DataFrame(raw_data, columns = [&amp;#39;first_name&amp;#39;, &amp;#39;last_name&amp;#39;, &amp;#39;sex&amp;#39;]) df  .dataframe tbody tr th:only-of-type { vertical-align: middle; } .dataframe tbody tr th { vertical-align: top; } .dataframe thead th { text-align: right; }    first_name last_name sex     0 Jason Miller male   1 Molly Jacobson female   2 Tina Ali male   3 Jake Milner female   4 Amy Cooze female     # Create a set of dummy variables from the sex variable pd.</description>
     </item>
     
     <item>
@@ -2684,7 +2684,7 @@ In this tutorial we work through an example which combines cross validation and 
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/clustering/dbscan_clustering/</guid>
-      <description>Preliminaries # Load libraries from sklearn import datasets from sklearn.preprocessing import StandardScaler from sklearn.cluster import DBSCAN Load Iris Flower Dataset # Load data iris = datasets.load_iris() X = iris.data Standardize Features # Standarize features scaler = StandardScaler() X_std = scaler.fit_transform(X) Conduct Meanshift Clustering DBSCAN has three main parameters to set:
+      <description>Preliminaries # Load libraries from sklearn import datasets from sklearn.preprocessing import StandardScaler from sklearn.cluster import DBSCAN Load Iris Flower Dataset # Load data iris = datasets.load_iris() X = iris.data Standardize Features # Standarize features scaler = StandardScaler() X_std = scaler.fit_transform(X) Conduct DBSCAN Clustering DBSCAN has three main parameters to set:
  eps: The maximum distance from an observation for another observation to be considered its neighbor. min_samples: The minimum number of observation less than eps distance from an observation for to be considered a core observation.</description>
     </item>
     
@@ -3362,7 +3362,7 @@ Create A New Git Repository  Go to the fold of the project.
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/data_wrangling/pandas_group_by_time/</guid>
-      <description>Import required modules import pandas as pd import numpy as np Create a dataframe df = pd.DataFrame() df[&amp;#39;german_army&amp;#39;] = np.random.randint(low=20000, high=30000, size=100) df[&amp;#39;allied_army&amp;#39;] = np.random.randint(low=20000, high=40000, size=100) df.index = pd.date_range(&amp;#39;1/1/2014&amp;#39;, periods=100, freq=&amp;#39;H&amp;#39;) df.head()    german_army allied_army     2014-01-01 00:00:00 28755 33938   2014-01-01 01:00:00 25176 28631   2014-01-01 02:00:00 23261 39685   2014-01-01 03:00:00 28686 27756   2014-01-01 04:00:00 24588 25681     Truncate the dataframe df.</description>
+      <description>Import required modules import pandas as pd import numpy as np Create a dataframe df = pd.DataFrame() df[&amp;#39;german_army&amp;#39;] = np.random.randint(low=20000, high=30000, size=100) df[&amp;#39;allied_army&amp;#39;] = np.random.randint(low=20000, high=40000, size=100) df.index = pd.date_range(&amp;#39;1/1/2014&amp;#39;, periods=100, freq=&amp;#39;H&amp;#39;) df.head()  .dataframe tbody tr th:only-of-type { vertical-align: middle; } .dataframe tbody tr th { vertical-align: top; } .dataframe thead th { text-align: right; }    german_army allied_army     2014-01-01 00:00:00 21413 37604   2014-01-01 01:00:00 25913 21144   2014-01-01 02:00:00 22418 34201   2014-01-01 03:00:00 20704 37313   2014-01-01 04:00:00 27859 24467     Truncate the dataframe df.</description>
     </item>
     
     <item>

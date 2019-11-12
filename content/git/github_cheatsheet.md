@@ -95,7 +95,7 @@ The `-u` sets the origin as the default for this branch
 
 `git log`
 
-## View Unstagged Changes To Files
+## View Unstaged Changes To Files
 
 `git diff`
 

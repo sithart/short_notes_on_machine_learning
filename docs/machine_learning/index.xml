@@ -340,7 +340,7 @@ In this tutorial we work through an example which combines cross validation and 
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/clustering/dbscan_clustering/</guid>
-      <description>Preliminaries # Load libraries from sklearn import datasets from sklearn.preprocessing import StandardScaler from sklearn.cluster import DBSCAN Load Iris Flower Dataset # Load data iris = datasets.load_iris() X = iris.data Standardize Features # Standarize features scaler = StandardScaler() X_std = scaler.fit_transform(X) Conduct Meanshift Clustering DBSCAN has three main parameters to set:
+      <description>Preliminaries # Load libraries from sklearn import datasets from sklearn.preprocessing import StandardScaler from sklearn.cluster import DBSCAN Load Iris Flower Dataset # Load data iris = datasets.load_iris() X = iris.data Standardize Features # Standarize features scaler = StandardScaler() X_std = scaler.fit_transform(X) Conduct DBSCAN Clustering DBSCAN has three main parameters to set:
  eps: The maximum distance from an observation for another observation to be considered its neighbor. min_samples: The minimum number of observation less than eps distance from an observation for to be considered a core observation.</description>
     </item>
     

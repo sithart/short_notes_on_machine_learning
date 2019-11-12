@@ -26,6 +26,19 @@ df
 
 
 <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -75,29 +88,34 @@ df
 
 ```python
 # Create a set of dummy variables from the sex variable
-df_sex = pd.get_dummies(df['sex'])
-```
-
-
-```python
-# Join the dummy variables to the main dataframe
-df_new = pd.concat([df, df_sex], axis=1)
-df_new
+pd.get_dummies(df, columns=['sex'])
 ```
 
 
 
 
 <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
       <th>first_name</th>
       <th>last_name</th>
-      <th>sex</th>
-      <th>female</th>
-      <th>male</th>
+      <th>sex_female</th>
+      <th>sex_male</th>
     </tr>
   </thead>
   <tbody>
@@ -105,110 +123,36 @@ df_new
       <th>0</th>
       <td>Jason</td>
       <td>Miller</td>
-      <td>male</td>
-      <td>0.0</td>
-      <td>1.0</td>
+      <td>0</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>1</th>
       <td>Molly</td>
       <td>Jacobson</td>
-      <td>female</td>
-      <td>1.0</td>
-      <td>0.0</td>
+      <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Tina</td>
       <td>Ali</td>
-      <td>male</td>
-      <td>0.0</td>
-      <td>1.0</td>
+      <td>0</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>3</th>
       <td>Jake</td>
       <td>Milner</td>
-      <td>female</td>
-      <td>1.0</td>
-      <td>0.0</td>
+      <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>4</th>
       <td>Amy</td>
       <td>Cooze</td>
-      <td>female</td>
-      <td>1.0</td>
-      <td>0.0</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-
-```python
-# Alterative for joining the new columns
-df_new = df.join(df_sex)
-df_new
-```
-
-
-
-
-<div>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>first_name</th>
-      <th>last_name</th>
-      <th>sex</th>
-      <th>female</th>
-      <th>male</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Jason</td>
-      <td>Miller</td>
-      <td>male</td>
-      <td>0.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Molly</td>
-      <td>Jacobson</td>
-      <td>female</td>
-      <td>1.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Tina</td>
-      <td>Ali</td>
-      <td>male</td>
-      <td>0.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Jake</td>
-      <td>Milner</td>
-      <td>female</td>
-      <td>1.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Amy</td>
-      <td>Cooze</td>
-      <td>female</td>
-      <td>1.0</td>
-      <td>0.0</td>
+      <td>1</td>
+      <td>0</td>
     </tr>
   </tbody>
 </table>

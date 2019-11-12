@@ -38,7 +38,7 @@ scaler = StandardScaler()
 X_std = scaler.fit_transform(X)
 ```
 
-## Conduct Meanshift Clustering
+## Conduct DBSCAN Clustering
 
 `DBSCAN` has three main parameters to set:
 

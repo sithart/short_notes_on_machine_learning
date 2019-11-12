@@ -15,7 +15,7 @@ import requests
 from bs4 import BeautifulSoup
 ```
 
-### Scrap the html and turn into a beautiful soup object
+### Scrape the html and turn into a beautiful soup object
 
 
 ```python
