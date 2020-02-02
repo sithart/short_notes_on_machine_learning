@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://chrisalbon.com/deep_learning/setup/prevent_nvidia_drivers_from_upgrading/</loc>
+    <lastmod>2020-02-01T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/git_and_github/basics/stop_git_from_asking_for_password_every_command/</loc>
+    <lastmod>2020-02-01T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chrisalbon.com/snowflake/sql/tables/add_column/</loc>
     <lastmod>2019-01-28T00:00:00-07:00</lastmod>
   </url>
@@ -1788,7 +1798,7 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/git/github_cheatsheet/</loc>
+    <loc>https://chrisalbon.com/git_and_github/basics/github_cheatsheet/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
   
@@ -3117,7 +3127,7 @@
   
   <url>
     <loc>https://chrisalbon.com/</loc>
-    <lastmod>2019-01-28T00:00:00-07:00</lastmod>
+    <lastmod>2020-02-01T00:00:00-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -3129,13 +3139,13 @@
   
   <url>
     <loc>https://chrisalbon.com/deep_learning/index.xml</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
+    <lastmod>2020-02-01T00:00:00-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/git/index.xml</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
+    <loc>https://chrisalbon.com/git_and_github/index.xml</loc>
+    <lastmod>2020-02-01T00:00:00-07:00</lastmod>
     <priority>0</priority>
   </url>
   

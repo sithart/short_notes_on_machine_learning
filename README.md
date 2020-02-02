@@ -48,3 +48,9 @@ alias nn='cd /Users/chrisalbon/dropbox/cra/projects/notes && git pull && hugo &&
 ```
 
 Note that when you run `nn` you might be prompted for an application password. You can get that / generate that from GitHub.com in account settings.
+
+## To Do
+
+- Fix Github issues
+- Hunt for minor errors
+- Refactor make.ipynb to make it .py and cleaner
