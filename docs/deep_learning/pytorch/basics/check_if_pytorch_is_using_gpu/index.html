@@ -16,16 +16,16 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<meta property="og:title" content="GitHub Cheatsheet" />
-<meta property="og:description" content="A simple cheatsheet for GitHub." />
+<meta property="og:title" content="Check If PyTorch Is Using The GPU" />
+<meta property="og:description" content="Check if PyTorch is using the GPU instead of a CPU" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://chrisalbon.com/git/github_cheatsheet/" />
-<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
-<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
+<meta property="og:url" content="https://chrisalbon.com/deep_learning/pytorch/basics/check_if_pytorch_is_using_gpu/" />
+<meta property="article:published_time" content="2020-02-01T00:00:00-07:00"/>
+<meta property="article:modified_time" content="2020-02-01T00:00:00-07:00"/>
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="GitHub Cheatsheet"/>
-<meta name="twitter:description" content="A simple cheatsheet for GitHub."/>
+<meta name="twitter:title" content="Check If PyTorch Is Using The GPU"/>
+<meta name="twitter:description" content="Check if PyTorch is using the GPU instead of a CPU"/>
 <meta name="generator" content="Hugo 0.54.0" /> 
     
     
@@ -33,20 +33,20 @@
 {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
-  "headline": "GitHub Cheatsheet",
-  "url": "https://chrisalbon.com/git/github_cheatsheet/",
-  "wordCount": "340",
-  "datePublished": "2017-12-20T11:53:49-07:00",
-  "dateModified": "2017-12-20T11:53:49-07:00",
+  "headline": "Check If PyTorch Is Using The GPU",
+  "url": "https://chrisalbon.com/deep_learning/pytorch/basics/check_if_pytorch_is_using_gpu/",
+  "wordCount": "113",
+  "datePublished": "2020-02-01T00:00:00-07:00",
+  "dateModified": "2020-02-01T00:00:00-07:00",
   "author": {
     "@type": "Person",
     "name": "Chris Albon"
   },
-  "description": "A simple cheatsheet for GitHub."
+  "description": "Check if PyTorch is using the GPU instead of a CPU"
 }
 </script> 
 
-    <title>GitHub Cheatsheet</title>
+    <title>Check If PyTorch Is Using The GPU</title>
 
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
@@ -112,6 +112,7 @@ MathJax.Hub.Config({
                             <a class="dropdown-item" href="https://chrisalbon.com/#regex">Regular Expressions</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#mathematics">Mathematics</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#aws">AWS</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#git_and_github">Git &amp; GitHub</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#computer_science">Computer Science</a>
                         </div>
                     </li>
@@ -156,138 +157,53 @@ MathJax.Hub.Config({
       <div class="alert alert-warning flashcard_ad" role="alert">
           Learning machine learning? Try my <a href="https://machinelearningflashcards.com" class="alert-link">machine learning flashcards</a> or <a href='https://amzn.to/2HwnWty' class="alert-link">Machine Learning with Python Cookbook</a>.
       </div>
-    <h1 class="technical_note_title">GitHub Cheatsheet</h1>
+    <h1 class="technical_note_title">Check If PyTorch Is Using The GPU</h1>
     <div class="technical_note_date">
-      <time datetime=" 2017-12-20T11:53:49-07:00 "> 20 Dec 2017</time>
+      <time datetime=" 2020-02-01T00:00:00-07:00 "> 01 Feb 2020</time>
     </div>
   </header>
   <div class="content">
       
   
 
-<h2 id="find-the-version-of-git">Find The Version Of Git</h2>
+<p>I find this is always the first thing I want to run when setting up a deep learning environment, whether a desktop machine or on AWS. These commands simply load PyTorch and check to make sure PyTorch can use the GPU.</p>
 
-<p><code>git --version</code></p>
+<h2 id="preliminaries">Preliminaries</h2>
 
-<h2 id="create-a-new-git-repository">Create A New Git Repository</h2>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Import PyTorch</span>
+<span class="kn">import</span> <span class="nn">torch</span></code></pre></div>
 
-<ol>
-<li><p>Go to the fold of the project.</p></li>
+<h2 id="check-if-there-are-multiple-devices-i-e-gpu-cards">Check If There Are Multiple Devices (i.e. GPU cards)</h2>
 
-<li><p>Run <code>git init</code></p></li>
-</ol>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># How many GPUs are there?</span>
+<span class="k">print</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">device_count</span><span class="p">())</span></code></pre></div>
 
-<h2 id="clone-an-existing-git-repository">Clone An Existing Git Repository</h2>
+<pre><code>1
+</code></pre>
 
-<p>Cloning is the process of pulling down a copy of a repository stored on a server.</p>
+<h2 id="check-which-is-the-current-gpu">Check Which Is The Current GPU?</h2>
 
-<ol>
-<li><p>Go to the parent folder of where you want to repository&rsquo;s folder to be in.</p></li>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Which GPU Is The Current GPU?</span>
+<span class="k">print</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">current_device</span><span class="p">())</span></code></pre></div>
 
-<li><p><code>git clone [url to repository's git file] [name of folder / repository you want]</code></p></li>
-</ol>
+<pre><code>0
+</code></pre>
 
-<h2 id="check-the-status-of-a-git-repository">Check The Status Of A Git Repository</h2>
+<h2 id="what-is-the-name-of-the-current-gpu">What Is The Name Of The Current GPU?</h2>
 
-<p><code>git status</code></p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Get the name of the current GPU</span>
+<span class="k">print</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">get_device_name</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">current_device</span><span class="p">()))</span></code></pre></div>
 
-<h2 id="tell-git-to-track-a-file">Tell Git To Track A File</h2>
+<pre><code>GeForce GTX 1080 Ti
+</code></pre>
 
-<p><code>git add readme.md</code></p>
+<h2 id="is-pytorch-using-a-gpu">Is PyTorch Using A GPU?</h2>
 
-<h2 id="make-a-commit">Make A Commit</h2>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Is PyTorch using a GPU?</span>
+<span class="k">print</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">())</span></code></pre></div>
 
-<p><code>git commit --m &quot;First commit&quot;</code></p>
-
-<h2 id="tell-git-to-track-a-whole-folder">Tell Git To Track A Whole Folder</h2>
-
-<p><code>git add chapter2/</code></p>
-
-<h2 id="tell-git-to-track-and-stage-all-files-and-subfolders-in-a-directory">Tell Git To Track (And Stage) All Files And Subfolders In A Directory</h2>
-
-<p><code>git add -A</code></p>
-
-<h2 id="view-all-branches">View All Branches</h2>
-
-<p><code>git branch</code></p>
-
-<h2 id="create-a-new-branch">Create A New Branch</h2>
-
-<p><code>git branch new_model</code></p>
-
-<h2 id="switch-to-a-branch">Switch To A Branch</h2>
-
-<p><code>git checkout new_model</code></p>
-
-<h2 id="create-a-new-branch-and-switch-to-it">Create A New Branch And Switch To It</h2>
-
-<p><code>git checkout -b new_ux</code></p>
-
-<h2 id="merge-one-branch-into-another">Merge One Branch Into Another</h2>
-
-<ol>
-<li><p>Switch to the branch you want to pull changes into: <code>git checkout master</code></p></li>
-
-<li><p>Pull changes from another branch into your branch: <code>git merge new_ux</code></p></li>
-</ol>
-
-<h2 id="set-a-remote-github-repository">Set A Remote Github Repository</h2>
-
-<ol>
-<li><p>Go to GitHub.com and create a new repository.</p></li>
-
-<li><p>Set that repository&rsquo;s url as the origin repo: <code>git remote add origin https://github.com/chrisalbon/git_tutorial.git</code></p></li>
-</ol>
-
-<h2 id="push-master-branch-to-a-github-repository">Push Master Branch To A Github Repository</h2>
-
-<p>The <code>-u</code> sets the origin as the default for this branch</p>
-
-<p><code>git push -u origin master</code></p>
-
-<h2 id="pull-down-from-a-branch-from-a-github-repository-to-local-repository">Pull Down From A Branch From A GitHub Repository To Local Repository</h2>
-
-<p><code>git pull origin master</code></p>
-
-<h2 id="pull-down-all-branches-from-github">Pull Down All Branches From GitHub</h2>
-
-<p><code>git fetch origin</code></p>
-
-<h2 id="view-all-remote-branches">View All Remote Branches</h2>
-
-<p><code>git branch --remote</code></p>
-
-<h2 id="view-log">View Log</h2>
-
-<p><code>git log</code></p>
-
-<h2 id="view-unstaged-changes-to-files">View Unstaged Changes To Files</h2>
-
-<p><code>git diff</code></p>
-
-<h2 id="unstage-a-file">Unstage A File</h2>
-
-<p><code>git reset filename</code></p>
-
-<h2 id="undo-last-commit-move-commits-changes-to-staging">Undo Last Commit, Move Commits Changes To Staging</h2>
-
-<p><code>git reset --soft HEAD^</code></p>
-
-<h2 id="undo-last-commit-remove-all-changes-in-your-working-directory">Undo Last Commit, Remove All Changes In Your Working Directory</h2>
-
-<p><code>git reset --hard HEAD^</code></p>
-
-<h2 id="clone-a-remote-repository-locally">Clone A Remote Repository Locally</h2>
-
-<p><code>git clone url</code></p>
-
-<h2 id="show-changes-from-a-particular-commit">Show Changes From A Particular Commit</h2>
-
-<p><code>git show --pretty=&quot;format:&quot; &lt;commitID&gt;</code></p>
-
-<h2 id="revert-a-commit-by-creating-a-new-commit-with-opposite-changes">Revert A Commit By Creating A New Commit With Opposite Changes</h2>
-
-<p><code>git revert &lt;commitID&gt;</code></p>
+<pre><code>True
+</code></pre>
 
 </div>
   <aside>
@@ -312,7 +228,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted">Copyright &copy; Chris Albon, <time datetime="2020">2020</time>. All 619 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted">Copyright &copy; Chris Albon, <time datetime="2020">2020</time>. All 622 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

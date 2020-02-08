@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://chrisalbon.com/deep_learning/pytorch/basics/check_if_pytorch_is_using_gpu/</loc>
+    <lastmod>2020-02-01T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chrisalbon.com/deep_learning/setup/prevent_nvidia_drivers_from_upgrading/</loc>
     <lastmod>2020-02-01T00:00:00-07:00</lastmod>
   </url>

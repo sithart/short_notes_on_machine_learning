@@ -12,6 +12,16 @@
     
     
     <item>
+      <title>Check If PyTorch Is Using The GPU</title>
+      <link>https://chrisalbon.com/deep_learning/pytorch/basics/check_if_pytorch_is_using_gpu/</link>
+      <pubDate>Sat, 01 Feb 2020 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/deep_learning/pytorch/basics/check_if_pytorch_is_using_gpu/</guid>
+      <description>I find this is always the first thing I want to run when setting up a deep learning environment, whether a desktop machine or on AWS. These commands simply load PyTorch and check to make sure PyTorch can use the GPU.
+Preliminaries # Import PyTorch import torch Check If There Are Multiple Devices (i.e. GPU cards) # How many GPUs are there? print(torch.cuda.device_count()) 1  Check Which Is The Current GPU?</description>
+    </item>
+    
+    <item>
       <title>Prevent Ubuntu 18.06 And Nvidia Drivers From Updating</title>
       <link>https://chrisalbon.com/deep_learning/setup/prevent_nvidia_drivers_from_upgrading/</link>
       <pubDate>Sat, 01 Feb 2020 00:00:00 -0700</pubDate>
