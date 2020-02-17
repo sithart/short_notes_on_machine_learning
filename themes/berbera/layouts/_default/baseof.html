@@ -31,9 +31,9 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
         
     <!-- RSS feed for all posts -->
-    <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" /> 
+    <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }} All Notes And Articles" /> 
     <!-- RSS feed for leadership posts -->
-    <link href="{{ .Site.BaseURL }}#articles" rel="alternate" type="application/rss+xml" title="Leadership posts" />
+    <link href="{{ .Site.BaseURL }}/articles/index.xml" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }} Articles" />
     
     {{ partial "mathjax_support.html" . }}
 
@@ -74,26 +74,13 @@
                             <a class="dropdown-item" href="{{ .Site.BaseURL }}#computer_science">Computer Science</a>
                         </div>
                     </li>
-                    <!-- <a class="dropdown-item" href="{{ .Site.BaseURL }}leadership/index.xml">RSS</a>-->
-                    <!--<li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false">
-                            Technical Management
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ .Site.BaseURL }}#technical_management">Notes</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{ .Site.BaseURL }}#">Newsletter</a>
-                        </div>
-                    </li>-->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ .Site.BaseURL }}#technical_management">Management</a>
+                    </li>
                     
                     <li class="nav-item">
                         <a class="nav-link" href="{{ .Site.BaseURL }}#articles">Articles</a>
                     </li>
-                    <!--
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ .Site.BaseURL }}#articles">Articles</a>
-                    </li>-->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
@@ -105,7 +92,7 @@
                             <a class="dropdown-item" href="https://twitter.com/chrisalbon">Twitter</a>
                             <a class="dropdown-item" href="https://www.amazon.com/Machine-Learning-Python-Cookbook-Preprocessing/dp/1491989386">ML Book</a>
                             <a class="dropdown-item" href="https://machinelearningflashcards.com/">ML Flashcards</a>
-                            <a class="dropdown-item" href="{{ .Site.BaseURL }}#">Newsletter</a>
+                            <!--<a class="dropdown-item" href="{{ .Site.BaseURL }}#">Newsletter</a>-->
                         </div>
                     </li>
                 </ul>

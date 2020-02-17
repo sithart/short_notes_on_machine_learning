@@ -6,7 +6,7 @@
                 <h1>
                     <span class="minor_line">Notes On Using</span>
                     <br>
-                    <span class="major_line">Data Science &amp; Artificial Intelligence</span>
+                    <span class="major_line">Data Science &amp; Machine Learning</span>
                     <br>
                     <span class="minor_line">To Fight For Something That Matters</span>
                 </h1>
@@ -1067,9 +1067,32 @@
             </div>
         </div>
 
+        <div class="row" id="technical_management">
+            <div class="col-sm-12">
+                <h3 class="category_header">Technical Management</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <ul>
+                            {{ range (where .Pages "File.Dir" "in" "/technical_management/").ByTitle }}
+                            <li>
+                                <a href="{{.Permalink}}">{{.Title}}</a>
+                            </li>
+                            {{ end }}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="row" id="articles">
             <div class="col-sm-12">
-                <h3 class="category_header">Articles</h3>
+                <h3 class="category_header">Articles<!-- <a style="float: right;" href="{{ .Site.BaseURL }}/articles/index.xml">RSS</a>-->
+                </h3>
             </div>
         </div>
 

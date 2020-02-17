@@ -211,6 +211,15 @@ Create Table Of Superheroes -- Create a table called SUPERHEROES. CREATE OR REPL
     </item>
     
     <item>
+      <title>Give Table An Alias</title>
+      <link>https://chrisalbon.com/technical_management/test_file/</link>
+      <pubDate>Mon, 28 Jan 2019 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/technical_management/test_file/</guid>
+      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sagittis nisl rhoncus mattis rhoncus urna neque. Eget nunc scelerisque viverra mauris in. Nulla aliquet porttitor lacus luctus. Nulla at volutpat diam ut venenatis tellus in. Cum sociis natoque penatibus et magnis. Auctor augue mauris augue neque. Senectus et netus et malesuada fames. Diam sollicitudin tempor id eu. Vestibulum lectus mauris ultrices eros in cursus.</description>
+    </item>
+    
+    <item>
       <title>Left Join</title>
       <link>https://chrisalbon.com/snowflake/sql/merge_and_join/left_join/</link>
       <pubDate>Mon, 28 Jan 2019 00:00:00 -0700</pubDate>
