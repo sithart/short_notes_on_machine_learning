@@ -436,6 +436,10 @@ Non-Technical Notes
   font-weight: bold;
 }
 
+.non-technical_note code{
+  font-size: .7em;
+}
+
 /* ---------------------------------------------------------
 Articles
 ---------------------------------------------------------*/
