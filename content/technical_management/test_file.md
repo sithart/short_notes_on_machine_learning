@@ -1,10 +1,10 @@
 ---
-title: "Give Table An Alias"
+title: "Non-Technical Note Template"
 author: "Chris Albon"
 date: 2019-01-28T00:00:00-07:00
-description: "Give a table an alias in Snowflake using SQL."
+description: "This is a non-technical note template."
 type: non-technical_note
-draft: false
+draft: true
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sagittis nisl rhoncus mattis rhoncus urna neque. Eget nunc scelerisque viverra mauris in. Nulla aliquet porttitor lacus luctus. Nulla at volutpat diam ut venenatis tellus in. Cum sociis natoque penatibus et magnis. Auctor augue mauris augue neque. Senectus et netus et malesuada fames. Diam sollicitudin tempor id eu. Vestibulum lectus mauris ultrices eros in cursus. Integer enim neque volutpat ac tincidunt vitae semper. Commodo odio aenean sed adipiscing diam donec adipiscing tristique. Hendrerit gravida rutrum quisque non. At consectetur lorem donec massa sapien faucibus et molestie. Quam nulla porttitor massa id neque aliquam vestibulum.
