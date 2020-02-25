@@ -9,7 +9,7 @@ The master record of a note is either a Jupyter Notebook or a Markdown file. The
 ## Full Deploy Procedure
 
 1. Run `make.ipynb` to convert the Jupyter Notebooks and associated images into Markdown files.
-2. Run `hugo` to convert the Markdown files into HTML pages
+2. Run `hugo` to convert the Markdown files into HTML pages.
 3. Run `git add -A` 
 4. Run `git commit -m "commit message"`
 5. Run `git push`
