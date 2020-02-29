@@ -20,13 +20,27 @@
 <meta property="og:description" content="How to join multiple tables in an SQL database." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/postgresql/merging_and_joining/join_multiple_tables/" />
+
+
+
 <meta property="article:published_time" content="2018-06-17T00:00:00-07:00"/>
+
 <meta property="article:modified_time" content="2018-06-17T00:00:00-07:00"/>
+
+
+
+
+
+
+
+
+
+
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Join Multiple Table"/>
 <meta name="twitter:description" content="How to join multiple tables in an SQL database."/>
-<meta name="generator" content="Hugo 0.54.0" /> 
+<meta name="generator" content="Hugo 0.40.1" /> 
     
     
 <script type="application/ld+json">
@@ -212,19 +226,19 @@ MathJax.Hub.Config({
 
 <h2 id="insert-rows-into-weapon-table">Insert Rows Into Weapon Table</h2>
 
-<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">weapons</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">weapon</span><span class="p">,</span> <span class="n">weight</span><span class="p">)</span>
+<p><div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">weapons</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">weapon</span><span class="p">,</span> <span class="n">weight</span><span class="p">)</span>
 <span class="k">VALUES</span> <span class="p">(</span><span class="s1">&#39;Dallar Woodfoot&#39;</span><span class="p">,</span><span class="s1">&#39;Axe&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
        <span class="p">(</span><span class="s1">&#39;Cordin Garner&#39;</span><span class="p">,</span> <span class="s1">&#39;Halberd&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
        <span class="p">(</span><span class="s1">&#39;Keat Knigh&#39;</span><span class="p">,</span> <span class="s1">&#39;Dagger&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
-       <span class="p">(</span><span class="s1">&#39;Colbat Nalor&#39;</span><span class="p">,</span> <span class="s1">&#39;Dagger&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span></code></pre></div>
+       <span class="p">(</span><span class="s1">&#39;Colbat Nalor&#39;</span><span class="p">,</span> <span class="s1">&#39;Dagger&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span></code></pre></div></p>
 
 <h2 id="insert-rows-into-armor-table">Insert Rows Into Armor Table</h2>
 
-<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">armor</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="n">helm</span><span class="p">)</span>
+<p><div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">armor</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="n">helm</span><span class="p">)</span>
 <span class="k">VALUES</span> <span class="p">(</span><span class="s1">&#39;Dallar Woodfoot&#39;</span><span class="p">,</span> <span class="s1">&#39;Leather&#39;</span><span class="p">,</span> <span class="s1">&#39;Leather&#39;</span><span class="p">),</span>
        <span class="p">(</span><span class="s1">&#39;Cordin Garner&#39;</span><span class="p">,</span> <span class="s1">&#39;Leather&#39;</span><span class="p">,</span> <span class="k">NULL</span><span class="p">),</span>
        <span class="p">(</span><span class="s1">&#39;Keat Knigh&#39;</span><span class="p">,</span> <span class="s1">&#39;Plate&#39;</span><span class="p">,</span> <span class="s1">&#39;Plate&#39;</span><span class="p">),</span>
-       <span class="p">(</span><span class="s1">&#39;Colbat Nalor&#39;</span><span class="p">,</span> <span class="s1">&#39;Plate&#39;</span><span class="p">,</span> <span class="s1">&#39;Plate&#39;</span><span class="p">)</span></code></pre></div>
+       <span class="p">(</span><span class="s1">&#39;Colbat Nalor&#39;</span><span class="p">,</span> <span class="s1">&#39;Plate&#39;</span><span class="p">,</span> <span class="s1">&#39;Plate&#39;</span><span class="p">)</span></code></pre></div></p>
 
 <h2 id="join-all-tables">Join All Tables</h2>
 

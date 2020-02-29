@@ -20,13 +20,27 @@
 <meta property="og:description" content="Give a column an alias in Snowflake using SQL." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/snowflake/sql/basics/give_column_alias/" />
+
+
+
 <meta property="article:published_time" content="2019-01-28T00:00:00-07:00"/>
+
 <meta property="article:modified_time" content="2019-01-28T00:00:00-07:00"/>
+
+
+
+
+
+
+
+
+
+
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Give Column An Alias"/>
 <meta name="twitter:description" content="Give a column an alias in Snowflake using SQL."/>
-<meta name="generator" content="Hugo 0.54.0" /> 
+<meta name="generator" content="Hugo 0.40.1" /> 
     
     
 <script type="application/ld+json">
@@ -184,13 +198,13 @@ MathJax.Hub.Config({
 
 <h2 id="insert-rows-for-each-superhero">Insert Rows For Each Superhero</h2>
 
-<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- Insert rows into SUPERHEROES
+<p><div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- Insert rows into SUPERHEROES
 </span><span class="c1"></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">SUPERHEROES</span> 
     <span class="c1">-- With the values
 </span><span class="c1"></span>    <span class="k">VALUES</span>
     <span class="p">(</span><span class="s1">&#39;XF6K4&#39;</span><span class="p">,</span> <span class="s1">&#39;Chris Maki&#39;</span><span class="p">,</span> <span class="s1">&#39;The Bomber&#39;</span><span class="p">,</span> <span class="s1">&#39;-100.20&#39;</span><span class="p">,</span> <span class="s1">&#39;14&#39;</span><span class="p">),</span>
     <span class="p">(</span><span class="s1">&#39;KDEJ4&#39;</span><span class="p">,</span> <span class="s1">&#39;Rich Richardson&#39;</span><span class="p">,</span> <span class="s1">&#39;Mr. Money&#39;</span><span class="p">,</span> <span class="s1">&#39;233.20&#39;</span><span class="p">,</span> <span class="s1">&#39;12&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="s1">&#39;KD5SK&#39;</span><span class="p">,</span> <span class="s1">&#39;Donny Mav&#39;</span><span class="p">,</span> <span class="s1">&#39;Nuke Miner&#39;</span><span class="p">,</span> <span class="s1">&#39;200.30&#39;</span><span class="p">,</span> <span class="s1">&#39;59&#39;</span><span class="p">);</span></code></pre></div>
+    <span class="p">(</span><span class="s1">&#39;KD5SK&#39;</span><span class="p">,</span> <span class="s1">&#39;Donny Mav&#39;</span><span class="p">,</span> <span class="s1">&#39;Nuke Miner&#39;</span><span class="p">,</span> <span class="s1">&#39;200.30&#39;</span><span class="p">,</span> <span class="s1">&#39;59&#39;</span><span class="p">);</span></code></pre></div></p>
 
 <h2 id="create-an-alias-for-column">Create An Alias For Column</h2>
 

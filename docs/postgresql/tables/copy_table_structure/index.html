@@ -20,13 +20,27 @@
 <meta property="og:description" content="How to copy a table&#39;s structure in an SQL database." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/postgresql/tables/copy_table_structure/" />
+
+
+
 <meta property="article:published_time" content="2018-06-17T00:00:00-07:00"/>
+
 <meta property="article:modified_time" content="2018-06-17T00:00:00-07:00"/>
+
+
+
+
+
+
+
+
+
+
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Copy Table Structure"/>
 <meta name="twitter:description" content="How to copy a table&#39;s structure in an SQL database."/>
-<meta name="generator" content="Hugo 0.54.0" /> 
+<meta name="generator" content="Hugo 0.40.1" /> 
     
     
 <script type="application/ld+json">
@@ -182,11 +196,11 @@ MathJax.Hub.Config({
 
 <h2 id="create-new-table-using-existing-table-s-structure">Create New Table Using Existing Table&rsquo;s Structure</h2>
 
-<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- Create table called adventurers_copy using the same columns as...
+<p><div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- Create table called adventurers_copy using the same columns as...
 </span><span class="c1"></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">adventurers_copy</span> <span class="k">AS</span> <span class="p">(</span>
     <span class="c1">-- The adventurers table
 </span><span class="c1"></span>    <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">adventurers</span>
-<span class="p">)</span></code></pre></div>
+<span class="p">)</span></code></pre></div></p>
 
 </div>
   <aside>

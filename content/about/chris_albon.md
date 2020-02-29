@@ -19,22 +19,41 @@ I earned a Ph.D. in Political Science from the University of California, Davis r
 -   Email: &#099;&#114;&#097;&#108;&#098;&#111;&#110;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;
 -   Twitter: [@chrisalbon](https://twitter.com/chrisalbon)
 
-## Selected Work Experience
+## Selected Experience
 
--   **Director of Data Science**, [Devoted Health](http://www.devoted.com/), 2018 - Present
-    - Devoted Health is a unicorn health startup created by former Obama Administration officials to better care for elderly Americans. I recruited, hired, and manage a high impact, psychologically safe team delivering all data science systems across the organization.
--   **Chief Data Scientist**, [BRCK](https://www.brck.com/), 2017 - 2018
-    - BRCK is a Kenyan startup telecom startup providering free and accessible internet around East Africa. I was the first data science hire at BRCK, responsible for lead all analytical, statistical, and machine learning efforts.
+-   **Director of Data Science**, [Devoted Health](http://www.devoted.com/), July 2018 - Present
+    - Created a psychologically safe and high output team culture during a period of explosive growth and high pressure _(Management)_
+    - Developed and drove a data science recruitment and candidate evaluation pipeline that grew the team from 3 to 10 in less than a year
+    - Designed and deployed the company's data science architecture from scratch _(System Design, Python, SQL, Periscope Data, Airflow, Snowflake)_
+    - Created a company-wide data driven culture with over 90% of the company's 415 employees active users of analytics and an analytics platform with a DAU/MAU ratio of 0.5
+    - Shipped a sales analytics system that drove Devoted's ~400% growth in the 2020 open enrollment
+    - Shipped a mail targeting system determining millions of dollars in advertising spending
+    - Shipped a financial tracking system accurately handling tens of millions of events
+-   **Chief Data Scientist**, [BRCK](https://www.brck.com/), June 2017 - July 2018
+    - Implemented a data science and machine learning strategy across the company _(Management)_
+    - Built the company's data science architecture from the ground up _(System Design, SQL, Python, Jupyter, Dask)_
+    - Deployed machine learning models that improved network performance, lowered operating cost, and identified optimal deployment locations _(Scikit-Learn, Statsmodels, Keras)_
+-   **Co-founder & Chief Science Officer**, [Yonder](https://www.yonder.co/), 2015 - 2016
+    - Led the technical team that shipped the first version of the product on time and on budget _(Management, System Design, Python, Scikit-Learn)_
+-   **Director of Data**, [Ushahidi](http://www.ushahidi.com), 2013 - 2015
+    - Recruited and managed a team of data scientists analyzing and modeling mobile messaging during humanitarian crises _(Management, Python, Scikit-Learn)_
+    - Designed, built, and launched an open API of humanitarian crisis data _(System Design, Python)_
+-   **Project Director**, [FrontlineSMS](http://www.frontlinesms.com), 2011 - 2013
+    - Incorporated free, open source SMS messaging software into local humanitarian, intl. development, and election monitoring actions around the world.
+
+## Selected Projects
+-   **Creator**, [ChrisAlbon.com](https://chrisalbon.com), 2015 - Present
+    - Created one of the most popular Python and Machine Learning tutorial sites online
+    - Personally wrote over 600 technical tutorials on Python, Pandas, Scala, SQL, Scikit-Learn, Keras, PyTorch, command line, and more
+    - Serves over 20,000 unique visitors every weekday
 -   **Author**, [Machine Learning With Python Cookbook](https://amzn.to/2HwnWty), [O’Reilly Media](https://www.oreilly.com/), 2018
--   **Creator**, [Machine Learning Flashcards](http://machinelearningflashcards.com/), 2017
+    - Authored the Python machine learning book in O'Reilly Media's cookbook series
+    - Book is a highly regarded desk reference for working data scientists with 4.6 stars on Amazon
+-   **Author**, [Machine Learning Flashcards](http://machinelearningflashcards.com/), 2018
+    - Created 300 hand-drawn digital flashcards describing concepts in machine learning
+    - Sold almost 10,000 copies and helped dozens of folks get jobs in machine learning
 -   **Co-founder & Co-host**, [Partially Derivative](http://www.partiallyderivative.com), 2014 - 2017
     -   Co-founded a popular podcast on data science and machine learning.
--   **Co-founder & Chief Science Officer**, [Yonder](https://www.yonder.co/), 2015 - 2016
-    -   Managed the technical team that built the first three versions of the product, including backend, frontend, machine learning, and UX.
--   **Director of Data**, [Ushahidi](http://www.ushahidi.com), 2013 - 2015
-    -   Ushahidi is a Kenyan non-profit creating mapping software for disaster response, humanitarian projects, ecological efforts, and political activism. I built Ushahidi’s data science team from scratch and created innovative machine learning approaches to crisis data.
--   **Project Director**, [FrontlineSMS](http://www.frontlinesms.com), 2011 - 2013
-    -   FrontlineSMS is a US-UK-Kenya based non-profit building open source SMS tools to assist local groups with disaster relief, election monitoring, and humanitarian efforts. I led FrontlineSMS’s effort to improve the transparency and accountability of governments through low resource mobile technology.
 
 ## Education
 
