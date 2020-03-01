@@ -1067,9 +1067,9 @@
             </div>
         </div>
 
-        <div class="row" id="technical_management">
+        <div class="row" id="data_science_management">
             <div class="col-sm-12">
-                <h3 class="category_header">Technical Management</h3>
+                <h3 class="category_header">Data Science Management</h3>
             </div>
         </div>
 
@@ -1078,7 +1078,7 @@
                 <div class="card">
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/technical_management/").ByTitle }}
+                            {{ range (where .Pages "File.Dir" "in" "/data_science_management/").ByTitle }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
