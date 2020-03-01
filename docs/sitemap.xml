@@ -113,6 +113,11 @@
   </url>
   
   <url>
+    <loc>https://chrisalbon.com/data_science_management/non-technical_note_template/</loc>
+    <lastmod>2019-01-28T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chrisalbon.com/snowflake/sql/basics/query_table/</loc>
     <lastmod>2019-01-28T00:00:00-07:00</lastmod>
   </url>
@@ -3139,6 +3144,12 @@
   <url>
     <loc>https://chrisalbon.com/computer_science/index.xml</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/data_science_management/index.xml</loc>
+    <lastmod>2019-01-28T00:00:00-07:00</lastmod>
     <priority>0</priority>
   </url>
   

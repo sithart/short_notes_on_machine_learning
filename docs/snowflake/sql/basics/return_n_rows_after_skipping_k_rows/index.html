@@ -20,28 +20,14 @@
 <meta property="og:description" content="Return the rows of a table after skipping some rows in Snowflake using SQL." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/snowflake/sql/basics/return_n_rows_after_skipping_k_rows/" />
-
-
-
 <meta property="article:published_time" content="2019-01-28T00:00:00-07:00"/>
-
 <meta property="article:modified_time" content="2019-01-28T00:00:00-07:00"/>
-
-
-
-
-
-
-
-
-
-
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Return N Rows After Skipping First K Rows"/>
 <meta name="twitter:description" content="Return the rows of a table after skipping some rows in Snowflake using SQL."/>
-<meta name="generator" content="Hugo 0.40.1" /> 
-    
+<meta name="generator" content="Hugo 0.54.0" />
+
     
 <script type="application/ld+json">
 {
@@ -70,12 +56,12 @@
     <link href="https://chrisalbon.com/css/custom.css" rel="stylesheet"> 
     <link href="https://chrisalbon.com/css/syntax.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
-        
+
     
     <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
-    
+
     <script type="text/javascript" async
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
@@ -133,7 +119,7 @@ MathJax.Hub.Config({
                     <li class="nav-item">
                         <a class="nav-link" href="https://chrisalbon.com/#data_science_management">Management</a>
                     </li>
-                    
+
                     <li class="nav-item">
                         <a class="nav-link" href="https://chrisalbon.com/#articles">Articles</a>
                     </li>
@@ -194,7 +180,7 @@ MathJax.Hub.Config({
 
 <h2 id="insert-rows-for-each-superhero">Insert Rows For Each Superhero</h2>
 
-<p><div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- Insert rows into SUPERHEROES
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- Insert rows into SUPERHEROES
 </span><span class="c1"></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">SUPERHEROES</span> 
     <span class="c1">-- With the values
 </span><span class="c1"></span>    <span class="k">VALUES</span>
@@ -207,7 +193,7 @@ MathJax.Hub.Config({
     <span class="p">(</span><span class="s1">&#39;Augustine&#39;</span><span class="p">,</span> <span class="s1">&#39;12&#39;</span><span class="p">,</span> <span class="s1">&#39;California&#39;</span><span class="p">),</span>
     <span class="p">(</span><span class="s1">&#39;The Kid&#39;</span><span class="p">,</span> <span class="s1">&#39;21&#39;</span><span class="p">,</span> <span class="s1">&#39;New York&#39;</span><span class="p">),</span>
     <span class="p">(</span><span class="s1">&#39;The Viking&#39;</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="s1">&#39;New York&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="s1">&#39;Skull Hustle&#39;</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="s1">&#39;New York&#39;</span><span class="p">);</span></code></pre></div></p>
+    <span class="p">(</span><span class="s1">&#39;Skull Hustle&#39;</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="s1">&#39;New York&#39;</span><span class="p">);</span></code></pre></div>
 
 <h2 id="return-rows-after-skipping-rows">Return Rows After Skipping Rows</h2>
 
@@ -275,7 +261,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted">Copyright &copy; Chris Albon, <time datetime="2020">2020</time>. All 622 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted">Copyright &copy; Chris Albon, <time datetime="2020">2020</time>. All 623 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

@@ -13,8 +13,8 @@
     gtag('config', 'UA-66582-32');
     </script>
 
-    {{ partial "head-meta.html" . }} 
-    
+    {{ partial "head-meta.html" . }}
+
     {{ block "schema-dot-org" . }}
     <!-- schema.org metadata differs for Nodes and Pages -->
     {{ end }}
@@ -29,12 +29,12 @@
     <link href="{{ .Site.BaseURL }}css/custom.css" rel="stylesheet"> 
     <link href="{{ .Site.BaseURL }}css/syntax.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
-        
+
     <!-- RSS feed for all posts -->
     <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }} All Notes And Articles" /> 
     <!-- RSS feed for leadership posts -->
     <link href="{{ .Site.BaseURL }}/articles/index.xml" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }} Articles" />
-    
+
     {{ partial "mathjax_support.html" . }}
 
 </head>
@@ -77,7 +77,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ .Site.BaseURL }}#data_science_management">Management</a>
                     </li>
-                    
+
                     <li class="nav-item">
                         <a class="nav-link" href="{{ .Site.BaseURL }}#articles">Articles</a>
                     </li>

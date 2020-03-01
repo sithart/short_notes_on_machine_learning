@@ -436,7 +436,7 @@ Non-Technical Notes
   font-weight: bold;
 }
 
-.non-technical_note code{
+.non-technical_note p code{
   font-size: .7em;
 }
 
