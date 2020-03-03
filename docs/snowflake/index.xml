@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>snowflake - Chris Albon</title>
+    <title> - Chris Albon</title>
     <link>https://chrisalbon.com/snowflake/index.xml</link>
     <description></description>
     <generator>Hugo -- gohugo.io</generator>
@@ -121,7 +121,7 @@ Create Table Of Superheroes -- Create a table called SUPERHEROES. CREATE OR REPL
       <pubDate>Mon, 28 Jan 2019 00:00:00 -0700</pubDate>
       
       <guid>https://chrisalbon.com/snowflake/sql/tables/delete_table/</guid>
-      <description>Create Table Of Superheroes -- Create a table called SUPERHEROES. If it already exists, replace it. CREATE OR REPLACE TABLE SUPERHEROES ( -- Column called ID allowing up to five characters  &amp;#34;ID&amp;#34; VARCHAR(5), -- Column called NAME allowing up to 100 characters  &amp;#34;NAME&amp;#34; VARCHAR(100), -- Column called ALTER_EGO allowing up to 100 characters  &amp;#34;ALTER_EGO&amp;#34; VARCHAR(100) ); Insert Rows For Each Superhero -- Insert rows into SUPERHEROES INSERT INTO SUPERHEROES -- With the values  VALUES (&amp;#39;XF6K4&amp;#39;, &amp;#39;Chris Maki&amp;#39;, &amp;#39;The Bomber&amp;#39;), (&amp;#39;KD5SK&amp;#39;, &amp;#39;Donny Mav&amp;#39;, &amp;#39;Nuke Miner&amp;#39;); View Table Of Superheroes -- View the SUPERHEROES table SELECT * FROM SUPERHEROES;   ID NAME ALTER_EGO     XF6K4 Chris Maki The Bomber   KD5SK Donny Mav Nuke Miner</description>
+      <description>Create Table Of Superheroes -- Create a table called SUPERHEROES. If it already exists, replace it. CREATE OR REPLACE TABLE SUPERHEROES ( -- Column called ID allowing up to five characters  &amp;#34;ID&amp;#34; VARCHAR(5), -- Column called NAME allowing up to 100 characters  &amp;#34;NAME&amp;#34; VARCHAR(100), -- Column called ALTER_EGO allowing up to 100 characters  &amp;#34;ALTER_EGO&amp;#34; VARCHAR(100) ); Insert Rows For Each Superhero -- Insert rows into SUPERHEROES INSERT INTO SUPERHEROES -- With the values  VALUES (&amp;#39;XF6K4&amp;#39;, &amp;#39;Chris Maki&amp;#39;, &amp;#39;The Bomber&amp;#39;), (&amp;#39;KD5SK&amp;#39;, &amp;#39;Donny Mav&amp;#39;, &amp;#39;Nuke Miner&amp;#39;);</description>
     </item>
     
     <item>

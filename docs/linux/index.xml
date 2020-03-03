@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>linux - Chris Albon</title>
+    <title> - Chris Albon</title>
     <link>https://chrisalbon.com/linux/index.xml</link>
     <description></description>
     <generator>Hugo -- gohugo.io</generator>
@@ -434,7 +434,8 @@ if (( &amp;#34;$age&amp;#34;&amp;gt; 17 &amp;amp;&amp;amp; &amp;#34;$age&amp;#34
       <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
       
       <guid>https://chrisalbon.com/linux/text/join_and_sort_text/</guid>
-      <description> Make Three Files, Each With List Of Fruit echo &amp;#34;Apple&amp;#34; &amp;gt;&amp;gt; fruit_1.txt; echo &amp;#34;Banana&amp;#34; &amp;gt;&amp;gt; fruit_1.txt; echo &amp;#34;Orange&amp;#34; &amp;gt;&amp;gt; fruit_1.txtecho &amp;#34;Tangerine&amp;#34; &amp;gt;&amp;gt; fruit_2.txt; echo &amp;#34;Grape&amp;#34; &amp;gt;&amp;gt; fruit_2.txt; echo &amp;#34;Nectarine&amp;#34; &amp;gt;&amp;gt; fruit_2.txtecho &amp;#34;Strawberry&amp;#34; &amp;gt;&amp;gt; fruit_3.txt; echo &amp;#34;Blueberry&amp;#34; &amp;gt;&amp;gt; fruit_3.txt; echo &amp;#34;Mango&amp;#34; &amp;gt;&amp;gt; fruit_3.txt Merge And Sort Into New File sort fruit_1.txt fruit_2.txt fruit_3.txt &amp;gt; fruit.txt View Contents Of New File cat fruit.txt Apple Banana Blueberry Grape Mango Nectarine Orange Strawberry Tangerine  </description>
+      <description> Make Three Files, Each With List Of Fruit echo &amp;#34;Apple&amp;#34; &amp;gt;&amp;gt; fruit_1.txt; echo &amp;#34;Banana&amp;#34; &amp;gt;&amp;gt; fruit_1.txt; echo &amp;#34;Orange&amp;#34; &amp;gt;&amp;gt; fruit_1.txtecho &amp;#34;Tangerine&amp;#34; &amp;gt;&amp;gt; fruit_2.txt; echo &amp;#34;Grape&amp;#34; &amp;gt;&amp;gt; fruit_2.txt; echo &amp;#34;Nectarine&amp;#34; &amp;gt;&amp;gt; fruit_2.txtecho &amp;#34;Strawberry&amp;#34; &amp;gt;&amp;gt; fruit_3.txt; echo &amp;#34;Blueberry&amp;#34; &amp;gt;&amp;gt; fruit_3.txt; echo &amp;#34;Mango&amp;#34; &amp;gt;&amp;gt; fruit_3.txt Merge And Sort Into New File sort fruit_1.txt fruit_2.txt fruit_3.txt &amp;gt; fruit.txt
+View Contents Of New File cat fruit.txt Apple Banana Blueberry Grape Mango Nectarine Orange Strawberry Tangerine  </description>
     </item>
     
     <item>
