@@ -22,22 +22,22 @@ I earned a Ph.D. in Political Science from the University of California, Davis r
 ## Selected Experience
 
 -   **Director of Data Science**, [Devoted Health](http://www.devoted.com/), July 2018 - Present
-    - Created a psychologically safe and high output team culture during a period of explosive growth and high pressure _(Management)_
+    - Created a psychologically safe and high output team culture during a period of explosive growth and high pressure <span style="color: #9e9e9e;">_(Management)_</span>
     - Developed and drove a data science recruitment and candidate evaluation pipeline that grew the team from 3 to 10 in less than a year
-    - Designed and deployed the company's data science architecture from scratch _(System Design, Python, SQL, Periscope Data, Airflow, Snowflake)_
+    - Designed and deployed the company's data science architecture from scratch <span style="color: #9e9e9e;">_(System Design, Python, SQL, Periscope Data, Airflow, Snowflake)_</span>
     - Created a company-wide data driven culture with over 90% of the company's 415 employees active users of analytics and an analytics platform with a DAU/MAU ratio of 0.5
     - Shipped a sales analytics system that drove Devoted's ~400% growth in the 2020 open enrollment
     - Shipped a mail targeting system determining millions of dollars in advertising spending
     - Shipped a financial tracking system accurately handling tens of millions of events
 -   **Chief Data Scientist**, [BRCK](https://www.brck.com/), June 2017 - July 2018
-    - Implemented a data science and machine learning strategy across the company _(Management)_
-    - Built the company's data science architecture from the ground up _(System Design, SQL, Python, Jupyter, Dask)_
-    - Deployed machine learning models that improved network performance, lowered operating cost, and identified optimal deployment locations _(Scikit-Learn, Statsmodels, Keras)_
+    - Implemented a data science and machine learning strategy across the company <span style="color: #9e9e9e;">_(Management)_</span>
+    - Built the company's data science architecture from the ground up <span style="color: #9e9e9e;">_(System Design, SQL, Python, Jupyter, Dask)_</span>
+    - Deployed machine learning models that improved network performance, lowered operating cost, and identified optimal deployment locations <span style="color: #9e9e9e;">_(Scikit-Learn, Statsmodels, Keras)_</span>
 -   **Co-founder & Chief Science Officer**, [Yonder](https://www.yonder.co/), 2015 - 2016
-    - Led the technical team that shipped the first version of the product on time and on budget _(Management, System Design, Python, Scikit-Learn)_
+    - Led the technical team that shipped the first version of the product on time and on budget <span style="color: #9e9e9e;">_(Management, System Design, Python, Scikit-Learn)_</span>
 -   **Director of Data**, [Ushahidi](http://www.ushahidi.com), 2013 - 2015
-    - Recruited and managed a team of data scientists analyzing and modeling mobile messaging during humanitarian crises _(Management, Python, Scikit-Learn)_
-    - Designed, built, and launched an open API of humanitarian crisis data _(System Design, Python)_
+    - Recruited and managed a team of data scientists analyzing and modeling mobile messaging during humanitarian crises <span style="color: #9e9e9e;">_(Management, Python, Scikit-Learn)_
+    - Designed, built, and launched an open API of humanitarian crisis data <span style="color: #9e9e9e;">_(System Design, Python)_</span>
 -   **Project Director**, [FrontlineSMS](http://www.frontlinesms.com), 2011 - 2013
     - Incorporated free, open source SMS messaging software into local humanitarian, intl. development, and election monitoring actions around the world.
 
