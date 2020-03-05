@@ -26,9 +26,9 @@
                     <a href="https://amzn.to/2HwnWty">Machine Learning With Python Cookbook</a>.</p>
             </div>
         </div>
-       
 
-        
+
+
 
         <div class="row" id="machine_learning">
             <div class="col-sm-12">
@@ -511,6 +511,23 @@
         <div class="row" id="statistics">
             <div class="col-sm-12">
                 <h3 class="category_header">Statistics</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <h4 class="card-header">Basics</h4>
+                    <div class="card-body">
+                        <ul>
+                            {{ range (where .Pages "File.Dir" "in" "/statistics/basics/").ByTitle }}
+                            <li>
+                                <a href="{{.Permalink}}">{{.Title}}</a>
+                            </li>
+                            {{ end }}
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
 

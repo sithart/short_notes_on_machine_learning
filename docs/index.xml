@@ -5511,6 +5511,17 @@ def summation(a, b): &amp;#34;&amp;#34;&amp;#34; Takes two inputs and outputs th
     </item>
     
     <item>
+      <title>Trimmed Mean</title>
+      <link>https://chrisalbon.com/statistics/basics/trimmed_mean/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/statistics/basics/trimmed_mean/</guid>
+      <description>Trimmed means are averaging techniques that do not count (i.e. trim off) extreme values. The goal is to make mean calculations more robust to extreme values by not considering those values when calculating the mean.
+SciPy offers a great methods of calculating trimmed means.
+Preliminaries # Import libraries import pandas as pd from scipy import stats Create DataFrame # Create dataframe with two extreme values data = {&amp;#39;name&amp;#39;: [&amp;#39;Jason&amp;#39;, &amp;#39;Molly&amp;#39;, &amp;#39;Tina&amp;#39;, &amp;#39;Jake&amp;#39;, &amp;#39;Amy&amp;#39;, &amp;#39;Bob&amp;#39;, &amp;#39;Jack&amp;#39;, &amp;#39;Jill&amp;#39;, &amp;#39;Kelly&amp;#39;, &amp;#39;Mark&amp;#39;, &amp;#39;Kao&amp;#39;, &amp;#39;Dillon&amp;#39;], &amp;#39;score&amp;#39;: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 100, 100] } df = pd.</description>
+    </item>
+    
+    <item>
       <title>Try, Catch, Finally</title>
       <link>https://chrisalbon.com/scala/basics/try_catch_finally/</link>
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>

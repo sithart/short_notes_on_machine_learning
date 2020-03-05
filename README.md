@@ -35,19 +35,19 @@ To reduce the barriers to publishing a new note as much as possible, here are so
 # Notes Project
 
 # Go to Notes folder
-alias n='cd /Users/chrisalbon/dropbox/cra/projects/notes'
+alias nn='cd /Users/chrisalbon/dropbox/cra/projects/notes'
 
 # Go to Notes folder and open Jupyter Notebook
-alias jn='cd /Users/chrisalbon/dropbox/cra/projects/notes && jupyter notebook'
+alias njn='cd /Users/chrisalbon/dropbox/cra/projects/notes && jupyter notebook'
 
 # Launch in Hugo server of Notes site
-alias hs='cd /Users/chrisalbon/dropbox/cra/projects/notes && hugo server'
+alias nhs='cd /Users/chrisalbon/dropbox/cra/projects/notes && hugo server'
 
 # Publish a new note
-alias nn='cd /Users/chrisalbon/dropbox/cra/projects/notes && git pull && hugo && git add -A && git commit -m "made changes" && gp && git push'
+alias nnn='cd /Users/chrisalbon/dropbox/cra/projects/notes && git pull && hugo && git add -A && git commit -m "made changes" && gp && git push'
 ```
 
-Note that when you run `nn` you might be prompted for an application password. You can get that / generate that from GitHub.com in account settings.
+Note that when you run `nnn` you might be prompted for an application password. You can get that / generate that from GitHub.com in account settings.
 
 ## To Do
 
