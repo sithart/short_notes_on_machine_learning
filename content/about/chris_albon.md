@@ -46,12 +46,12 @@ I earned a Ph.D. in Political Science from the University of California, Davis r
     - Created one of the most popular Python and Machine Learning tutorial sites online
     - Personally wrote over 600 technical tutorials on Python, Pandas, Scala, SQL, Scikit-Learn, Keras, PyTorch, command line, and more
     - Serves over 20,000 unique visitors every weekday
+-   **Author**, [Machine Learning Flashcards](http://machinelearningflashcards.com/), 2018 - Present
+    - Created 300 hand-drawn digital flashcards describing concepts in machine learning
+    - Sold almost 10,000 copies and helped dozens of folks get jobs in machine learning
 -   **Author**, [Machine Learning With Python Cookbook](https://amzn.to/2HwnWty), [O’Reilly Media](https://www.oreilly.com/), 2018
     - Authored the Python machine learning book in O'Reilly Media's cookbook series
     - Book is a highly regarded desk reference for working data scientists with 4.6 stars on Amazon
--   **Author**, [Machine Learning Flashcards](http://machinelearningflashcards.com/), 2018
-    - Created 300 hand-drawn digital flashcards describing concepts in machine learning
-    - Sold almost 10,000 copies and helped dozens of folks get jobs in machine learning
 -   **Co-founder & Co-host**, [Partially Derivative](http://www.partiallyderivative.com), 2014 - 2017
     -   Co-founded a popular podcast on data science and machine learning.
 
