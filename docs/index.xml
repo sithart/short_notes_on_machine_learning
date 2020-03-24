@@ -341,16 +341,6 @@ Create Table Of Superheroes -- Create a table called SUPERHEROES. If it already 
     </item>
     
     <item>
-      <title>What I Said To My Team During COVID-19</title>
-      <link>https://chrisalbon.com/data_science_management/what_i_said_to_my_team_during_covid-19/</link>
-      <pubDate>Mon, 28 Jan 2019 00:00:00 -0700</pubDate>
-      
-      <guid>https://chrisalbon.com/data_science_management/what_i_said_to_my_team_during_covid-19/</guid>
-      <description>Hey all. With everything that is going on, I want to be explicit with you all about how we work in this new reality.
- All this is not normal. This is not a regular work week but from home, this is something harder. We are still learning how to operate in this new reality, we will make mistakes at the start, and we will get better at it in time.</description>
-    </item>
-    
-    <item>
       <title>Create A Class</title>
       <link>https://chrisalbon.com/python/object_oriented/create_a_class/</link>
       <pubDate>Sun, 16 Dec 2018 11:53:49 -0700</pubDate>
