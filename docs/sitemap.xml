@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://chrisalbon.com/data_science_management/what_i_said_to_my_team_during_covid-19/</loc>
+    <lastmod>2020-03-24T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chrisalbon.com/deep_learning/pytorch/basics/check_if_pytorch_is_using_gpu/</loc>
     <lastmod>2020-02-01T00:00:00-07:00</lastmod>
   </url>
@@ -109,11 +114,6 @@
   
   <url>
     <loc>https://chrisalbon.com/snowflake/sql/merge_and_join/left_join/</loc>
-    <lastmod>2019-01-28T00:00:00-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/data_science_management/non-technical_note_template/</loc>
     <lastmod>2019-01-28T00:00:00-07:00</lastmod>
   </url>
   
@@ -3142,7 +3142,7 @@
   
   <url>
     <loc>https://chrisalbon.com/</loc>
-    <lastmod>2020-02-01T00:00:00-07:00</lastmod>
+    <lastmod>2020-03-24T00:00:00-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -3154,7 +3154,7 @@
   
   <url>
     <loc>https://chrisalbon.com/data_science_management/index.xml</loc>
-    <lastmod>2019-01-28T00:00:00-07:00</lastmod>
+    <lastmod>2020-03-24T00:00:00-07:00</lastmod>
     <priority>0</priority>
   </url>
   
