@@ -7,6 +7,8 @@ type: technical_note
 draft: false
 ---
 
+`WHERE` filters rows before grouping (i.e. `GROUP BY`) while `HAVING` filters rows after grouping.
+
 ## Create Table
 
 {{< highlight sql >}}

@@ -593,6 +593,16 @@ tar cf regiment.tar regiment_data View Contents Of Directory ls -l total 24 drwx
     </item>
     
     <item>
+      <title>Calculate Requests Sent</title>
+      <link>https://chrisalbon.com/postgresql/interview_questions/calculate_requests_sent/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/postgresql/interview_questions/calculate_requests_sent/</guid>
+      <description>Question You are given a table containing a country code, the number of requests attempted, and the percentage of those requests that failed to sent. Calculate:
+ The total number of requests attempted by country. The total number of failed requests attempted by country.  Answer Create Table -- Drop table if exists DROP TABLE IF EXISTS global_usage -- Create table called documents CREATE TABLE global_usage ( -- string variable  country varchar(255), -- integer variable  requests_attempted int, -- float variable  percent_requests_failed float ); Insert Data Into Table -- Insert data into the table INSERT INTO global_usage (country, requests_attempted, percent_requests_failed) VALUES (&amp;#39;US&amp;#39;, 100, .</description>
+    </item>
+    
+    <item>
       <title>Calculate Running Total</title>
       <link>https://chrisalbon.com/postgresql/numeric/calculate_running_total/</link>
       <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
@@ -1188,7 +1198,8 @@ Quickly Describe A Command whatis mkdir mkdir (1) - make directories mkdir (2) -
       <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
       
       <guid>https://chrisalbon.com/postgresql/basics/group_rows_with_conditions/</guid>
-      <description>Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Rows -- Insert into the table adventurers INSERT INTO adventurers (name, age, race, weapon) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Human&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;)</description>
+      <description>WHERE filters rows before grouping (i.e. GROUP BY) while HAVING filters rows after grouping.
+Create Table -- Create table called adventurers CREATE TABLE adventurers ( -- string variable  name varchar(255), -- integer variable  age int, -- string variable  race varchar(255), -- string variable  weapon varchar(255) ) Insert Rows -- Insert into the table adventurers INSERT INTO adventurers (name, age, race, weapon) VALUES (&amp;#39;Fjoak Doom-Wife&amp;#39;, 28, &amp;#39;Human&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Alooneric Cortte&amp;#39;, 29, &amp;#39;Human&amp;#39;, &amp;#39;Bow&amp;#39;), (&amp;#39;Piperel Ramsay&amp;#39;, 35, &amp;#39;Elf&amp;#39;, &amp;#39;Axe&amp;#39;), (&amp;#39;Casimir Yardley&amp;#39;, 14, &amp;#39;Elf&amp;#39;, &amp;#39;Bow&amp;#39;)</description>
     </item>
     
     <item>
@@ -1663,6 +1674,17 @@ Create Code That Will Produce Error ls a_fake_directory/ ls: a_fake_directory/: 
     </item>
     
     <item>
+      <title>Sort By Natural Ordering</title>
+      <link>https://chrisalbon.com/postgresql/interview_questions/sort_column_natural_ordering/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/postgresql/interview_questions/sort_column_natural_ordering/</guid>
+      <description>Question You are given a column of strings, sort them in natural order.
+Answer Natural ordering is simply the ordering that a human would expect.
+Create Table CREATE TABLE documents ( -- string variable  name varchar(255) ) Insert Values Into Table -- Insert into the table documents INSERT INTO documents (name) -- a list of files (notice the numbering) VALUES (&amp;#39;file1.txt&amp;#39;), (&amp;#39;file2.txt&amp;#39;), (&amp;#39;file3.txt&amp;#39;), (&amp;#39;file4.txt&amp;#39;), (&amp;#39;file5.txt&amp;#39;), (&amp;#39;file6.txt&amp;#39;), (&amp;#39;file7.txt&amp;#39;), (&amp;#39;file8.txt&amp;#39;), (&amp;#39;file9.</description>
+    </item>
+    
+    <item>
       <title>Sort Rows</title>
       <link>https://chrisalbon.com/linux/inputs_and_outputs/sort_rows/</link>
       <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
@@ -1835,6 +1857,18 @@ Create Example File With List Of Names echo &amp;#39;Luca Gartside&amp;#39; &amp
     </item>
     
     <item>
+      <title>What Happens When You Add NULL And Integer</title>
+      <link>https://chrisalbon.com/postgresql/interview_questions/what_happens_when_you_add_null_and_integer/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/postgresql/interview_questions/what_happens_when_you_add_null_and_integer/</guid>
+      <description>Question What happens when you add a NULL value and an integer?
+Answer You get an error.
+-- Drop table if exists DROP TABLE IF EXISTS names; -- Create table called names CREATE TABLE names ( -- string variable  name varchar(255), -- integer variable  score int ) -- Insert into the table INSERT INTO names (name, score) -- two rows VALUES (NULL, 1), (&amp;#39;Tommy&amp;#39;, 1)
+-- Add a column with a NULL value and a integer SELECT name + score as results FROM names</description>
+    </item>
+    
+    <item>
       <title>Write Errors To File</title>
       <link>https://chrisalbon.com/linux/inputs_and_outputs/write_errors_to_file/</link>
       <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
@@ -1900,7 +1934,7 @@ Preliminaries # Load libraries from sklearn.datasets import load_iris from sklea
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/about/chris_albon/</guid>
-      <description>I am the Director of Data Science at Devoted Health, using data science and machine learning to help fix America&amp;rsquo;s health care system. Previously, I was Director of Data Science at the Kenyan startup BRCK, cofounded Yonder, created the data science podcast Partially Derivative, was the Director of Data Science at the humanitarian non-profit Ushahidi, and was the director of the low-resource technology governance project at FrontlineSMS. I also wrote Machine Learning For Python Cookbook (O&amp;rsquo;Reilly 2018) and created Machine Learning Flashcards.</description>
+      <description>Until April 2020, I was the Director of Data Science at Devoted Health, using data science and machine learning to help fix America&amp;rsquo;s health care system. Before that, I was Director of Data Science at the Kenyan startup BRCK, cofounded Yonder, created the data science podcast Partially Derivative, was the Director of Data Science at the humanitarian non-profit Ushahidi, and was the director of the low-resource technology governance project at FrontlineSMS.</description>
     </item>
     
     <item>

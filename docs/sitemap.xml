@@ -308,6 +308,11 @@
   </url>
   
   <url>
+    <loc>https://chrisalbon.com/postgresql/interview_questions/calculate_requests_sent/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chrisalbon.com/postgresql/numeric/calculate_running_total/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
@@ -873,6 +878,11 @@
   </url>
   
   <url>
+    <loc>https://chrisalbon.com/postgresql/interview_questions/sort_column_natural_ordering/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chrisalbon.com/linux/inputs_and_outputs/sort_rows/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
@@ -959,6 +969,11 @@
   
   <url>
     <loc>https://chrisalbon.com/postgresql/basics/view_unique_values/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/postgresql/interview_questions/what_happens_when_you_add_null_and_integer/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
