@@ -21,7 +21,7 @@ I earned a Ph.D. in Political Science from the University of California, Davis r
 
 ## Selected Experience
 
--   **Director of Data Science**, [Devoted Health](http://www.devoted.com/), July 2018 - Present
+-   **Director of Data Science**, [Devoted Health](http://www.devoted.com/), July 2018 - April 2020
     - Created a psychologically safe and high output team culture during a period of explosive growth and high pressure <span style="color: #9e9e9e;">_(Management)_</span>
     - Developed and drove a data science recruitment and candidate evaluation pipeline that grew the team from 3 to 10 in less than a year
     - Designed and deployed the company's data science architecture from scratch <span style="color: #9e9e9e;">_(System Design, Python, SQL, Periscope Data, Airflow, Snowflake)_</span>
