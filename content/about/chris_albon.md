@@ -29,13 +29,13 @@ I earned a Ph.D. in Political Science from the University of California, Davis r
     - Shipped a sales analytics system that drove Devoted's ~400% growth in the 2020 open enrollment
     - Shipped a mail targeting system determining millions of dollars in advertising spending
     - Shipped a financial tracking system accurately handling tens of millions of events
--   **Chief Data Scientist**, [BRCK](https://www.brck.com/), June 2017 - July 2018
+-   **Director of Data Science**, [BRCK](https://www.brck.com/), June 2017 - July 2018
     - Implemented a data science and machine learning strategy across the company <span style="color: #9e9e9e;">_(Management)_</span>
     - Built the company's data science architecture from the ground up <span style="color: #9e9e9e;">_(System Design, SQL, Python, Jupyter, Dask)_</span>
     - Deployed machine learning models that improved network performance, lowered operating cost, and identified optimal deployment locations <span style="color: #9e9e9e;">_(Scikit-Learn, Statsmodels, Keras)_</span>
--   **Co-founder & Chief Science Officer**, [Yonder](https://www.yonder.co/), 2015 - 2016
+-   **Co-founder**, [Yonder](https://www.yonder.co/), 2015 - 2016
     - Led the technical team that shipped the first version of the product on time and on budget <span style="color: #9e9e9e;">_(Management, System Design, Python, Scikit-Learn)_</span>
--   **Director of Data**, [Ushahidi](http://www.ushahidi.com), 2013 - 2015
+-   **Director of Data Science**, [Ushahidi](http://www.ushahidi.com), 2013 - 2015
     - Recruited and managed a team of data scientists analyzing and modeling mobile messaging during humanitarian crises <span style="color: #9e9e9e;">_(Management, Python, Scikit-Learn)_
     - Designed, built, and launched an open API of humanitarian crisis data <span style="color: #9e9e9e;">_(System Design, Python)_</span>
 -   **Project Director**, [FrontlineSMS](http://www.frontlinesms.com), 2011 - 2013
