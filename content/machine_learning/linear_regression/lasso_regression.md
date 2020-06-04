@@ -35,7 +35,7 @@ scaler = StandardScaler()
 X_std = scaler.fit_transform(X)
 ```
 
-## Fit Ridge Regression
+## Fit Lasso Regression
 
 The hyperparameter, $\alpha$, lets us control how much we penalize the coefficients, with higher values of $\alpha$ creating simpler modelers. The ideal value of $\alpha$ should be tuned like any other hyperparameter. In scikit-learn, $\alpha$ is set using the `alpha` parameter.
 

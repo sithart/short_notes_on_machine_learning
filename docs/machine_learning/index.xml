@@ -844,7 +844,7 @@ KNN has three basic parts:
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/linear_regression/lasso_regression/</guid>
-      <description>Preliminaries # Load library from sklearn.linear_model import Lasso from sklearn.datasets import load_boston from sklearn.preprocessing import StandardScaler Load Boston Housing Dataset # Load data boston = load_boston() X = boston.data y = boston.target Standardize Features # Standarize features scaler = StandardScaler() X_std = scaler.fit_transform(X) Fit Ridge Regression The hyperparameter, $\alpha$, lets us control how much we penalize the coefficients, with higher values of $\alpha$ creating simpler modelers. The ideal value of $\alpha$ should be tuned like any other hyperparameter.</description>
+      <description>Preliminaries # Load library from sklearn.linear_model import Lasso from sklearn.datasets import load_boston from sklearn.preprocessing import StandardScaler Load Boston Housing Dataset # Load data boston = load_boston() X = boston.data y = boston.target Standardize Features # Standarize features scaler = StandardScaler() X_std = scaler.fit_transform(X) Fit Lasso Regression The hyperparameter, $\alpha$, lets us control how much we penalize the coefficients, with higher values of $\alpha$ creating simpler modelers. The ideal value of $\alpha$ should be tuned like any other hyperparameter.</description>
     </item>
     
     <item>
