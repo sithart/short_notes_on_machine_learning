@@ -44,6 +44,6 @@ The hyperparameter, $\alpha$, lets us control how much we penalize the coefficie
 # Create lasso regression with alpha value
 regr = Lasso(alpha=0.5)
 
-# Fit the linear regression
+# Fit the lasso regression
 model = regr.fit(X_std, y)
 ```
