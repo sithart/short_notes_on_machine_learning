@@ -1934,7 +1934,7 @@ Preliminaries # Load libraries from sklearn.datasets import load_iris from sklea
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/about/chris_albon/</guid>
-      <description>Until April 2020, I was the Director of Data Science at Devoted Health, using data science and machine learning to help fix America&amp;rsquo;s health care system. Before that, I was Director of Data Science at the Kenyan startup BRCK, cofounded Yonder, created the data science podcast Partially Derivative, was the Director of Data Science at the humanitarian non-profit Ushahidi, and was the director of the low-resource technology governance project at FrontlineSMS.</description>
+      <description>I am the Director of Machine Learning at the Wikimedia Foundation. Previously, I was the Director of Data Science at Devoted Health, Director of Data Science at the Kenyan startup BRCK, cofounded Yonder, created the data science podcast Partially Derivative, was the Director of Data Science at the humanitarian non-profit Ushahidi, and was the director of the low-resource technology governance project at FrontlineSMS. I also wrote Machine Learning For Python Cookbook (O&amp;rsquo;Reilly 2018) and created Machine Learning Flashcards.</description>
     </item>
     
     <item>
