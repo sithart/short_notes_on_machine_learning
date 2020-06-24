@@ -9,6 +9,8 @@ draft: false
 
 In 2017, I built this [deep learning machine](https://pcpartpicker.com/user/chrisalbon/saved/yzLJVn) as a solution to my growing AWS bill. In 2020, I struggled to get this machine to run Kubeflow locally. Here are the instructions that worked for me.
 
+Some of these instructions are based on this [Ubuntu.com tutorial](https://ubuntu.com/tutorials/deploy-kubeflow-ubuntu-windows-mac#3-install-microk8s).
+
 ## Turn On Virtualization On AMD Chipset
 
 In BIOS, go to:
@@ -50,13 +52,13 @@ sudo chown -f -R $USER ~/.kube
 ### Deploy Kubeflow
 
 {{< highlight bash >}}
-microk8s.enable dns dashboard storage
+sudo microk8s.enable dns dashboard storage
 {{< /highlight >}}
 
 ### Start Kubeflow
 
 {{< highlight bash >}}
-microk8s.enable kubeflow
+sudo microk8s.enable kubeflow
 {{< /highlight >}}
 
 This is what you should see:
@@ -121,5 +123,5 @@ You can go to Kubeflow's UI using the link and login informatin presented above.
 ## Shut Down Kubeflow
 
 {{< highlight bash >}}
-microk8s disable kubeflow
+sudo microk8s disable kubeflow
 {{< /highlight >}}

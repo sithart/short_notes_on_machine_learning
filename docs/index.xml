@@ -18,6 +18,7 @@
       
       <guid>https://chrisalbon.com/machine_learning_engineering/installing_kubeflow_on_ubuntu/</guid>
       <description>In 2017, I built this deep learning machine as a solution to my growing AWS bill. In 2020, I struggled to get this machine to run Kubeflow locally. Here are the instructions that worked for me.
+Some of these instructions are based on this Ubuntu.com tutorial.
 Turn On Virtualization On AMD Chipset In BIOS, go to:
  M.I.T. Advanced Frequency Settings Advanced CPU Core Settings Set SVM Mode to Enabled  Install MicroK8s MicroK8s is a small version of Kubernetes that will work well locally.</description>
     </item>

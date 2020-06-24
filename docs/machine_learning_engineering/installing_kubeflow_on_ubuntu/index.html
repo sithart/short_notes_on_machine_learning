@@ -49,7 +49,7 @@
   "@type": "BlogPosting",
   "headline": "Installing Kubeflow On Ubuntu",
   "url": "https://chrisalbon.com/machine_learning_engineering/installing_kubeflow_on_ubuntu/",
-  "wordCount": "530",
+  "wordCount": "543",
   "datePublished": "2020-06-23T00:00:00-07:00",
   "dateModified": "2020-06-23T00:00:00-07:00",
   "author": {
@@ -183,6 +183,8 @@ MathJax.Hub.Config({
 
 <p>In 2017, I built this <a href="https://pcpartpicker.com/user/chrisalbon/saved/yzLJVn">deep learning machine</a> as a solution to my growing AWS bill. In 2020, I struggled to get this machine to run Kubeflow locally. Here are the instructions that worked for me.</p>
 
+<p>Some of these instructions are based on this <a href="https://ubuntu.com/tutorials/deploy-kubeflow-ubuntu-windows-mac#3-install-microk8s">Ubuntu.com tutorial</a>.</p>
+
 <h2 id="turn-on-virtualization-on-amd-chipset">Turn On Virtualization On AMD Chipset</h2>
 
 <p>In BIOS, go to:</p>
@@ -217,11 +219,11 @@ sudo chown -f -R <span class="nv">$USER</span> ~/.kube</code></pre></div>
 
 <h3 id="deploy-kubeflow">Deploy Kubeflow</h3>
 
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">microk8s.enable dns dashboard storage</code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo microk8s.enable dns dashboard storage</code></pre></div>
 
 <h3 id="start-kubeflow">Start Kubeflow</h3>
 
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">microk8s.enable kubeflow</code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo microk8s.enable kubeflow</code></pre></div>
 
 <p>This is what you should see:</p>
 
@@ -282,7 +284,7 @@ To see these values again, run:
 
 <h2 id="shut-down-kubeflow">Shut Down Kubeflow</h2>
 
-<p><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">microk8s disable kubeflow</code></pre></div></p>
+<p><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo microk8s disable kubeflow</code></pre></div></p>
 
 </div>
   <aside>
