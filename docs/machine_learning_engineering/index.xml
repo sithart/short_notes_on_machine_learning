@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title> - Chris Albon</title>
+    <link>https://chrisalbon.com/machine_learning_engineering/index.xml</link>
+    <description></description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 17 Jun 2020 00:00:00 -0700</lastBuildDate>
+    
+        <atom:link href="https://chrisalbon.com/machine_learning_engineering/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Installing Kubeflow On Ubuntu</title>
+      <link>https://chrisalbon.com/machine_learning_engineering/installing_kubeflow_on_ubuntu/</link>
+      <pubDate>Wed, 17 Jun 2020 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning_engineering/installing_kubeflow_on_ubuntu/</guid>
+      <description>In 2017, I built this deep learning machine as a solution to my growing AWS bill. In 2020, I struggled to get this machine to run Kubeflow locally. Here are the instructions that worked for me.
+Turn On Virtualization On AMD Chipset In BIOS, go to:
+ M.I.T. Advanced Frequency Settings Advanced CPU Core Settings Set SVM Mode to Enabled  Install MicroK8s MicroK8s is a small version of Kubernetes that will work well locally.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1097,9 +1097,9 @@
             </div>
         </div>
 
-        <div class="row" id="data_science_management">
+        <div class="row" id="regex">
             <div class="col-sm-12">
-                <h3 class="category_header">Data Science Management</h3>
+                <h3 class="category_header">Machine Learning Engineering</h3>
             </div>
         </div>
 
@@ -1108,7 +1108,29 @@
                 <div class="card">
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/data_science_management/").ByTitle }}
+                            {{ range (where .Pages "File.Dir" "in" "/machine_learning_engineering/").ByTitle }}
+                            <li>
+                                <a href="{{.Permalink}}">{{.Title}}</a>
+                            </li>
+                            {{ end }}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" id="engineering_management">
+            <div class="col-sm-12">
+                <h3 class="category_header">Engineering Management</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <ul>
+                            {{ range (where .Pages "File.Dir" "in" "/engineering_management/").ByTitle }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
