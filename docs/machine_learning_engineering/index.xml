@@ -6,7 +6,7 @@
     <description></description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 17 Jun 2020 00:00:00 -0700</lastBuildDate>
+    <lastBuildDate>Tue, 23 Jun 2020 00:00:00 -0700</lastBuildDate>
     
         <atom:link href="https://chrisalbon.com/machine_learning_engineering/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Installing Kubeflow On Ubuntu</title>
       <link>https://chrisalbon.com/machine_learning_engineering/installing_kubeflow_on_ubuntu/</link>
-      <pubDate>Wed, 17 Jun 2020 00:00:00 -0700</pubDate>
+      <pubDate>Tue, 23 Jun 2020 00:00:00 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning_engineering/installing_kubeflow_on_ubuntu/</guid>
       <description>In 2017, I built this deep learning machine as a solution to my growing AWS bill. In 2020, I struggled to get this machine to run Kubeflow locally. Here are the instructions that worked for me.

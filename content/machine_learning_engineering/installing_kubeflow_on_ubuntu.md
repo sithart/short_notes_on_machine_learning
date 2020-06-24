@@ -1,7 +1,7 @@
 ---
 title: "Installing Kubeflow On Ubuntu"
 author: "Chris Albon"
-date: 2020-06-17T00:00:00-07:00
+date: 2020-06-23T00:00:00-07:00
 description: "How to install Kubeflow locally on Ubuntu."
 type: technical_note
 draft: false
