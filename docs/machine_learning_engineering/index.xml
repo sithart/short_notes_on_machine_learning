@@ -6,17 +6,37 @@
     <description></description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 23 Jun 2020 00:00:00 -0700</lastBuildDate>
+    <lastBuildDate>Fri, 03 Jul 2020 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://chrisalbon.com/machine_learning_engineering/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Basic YAML File</title>
+      <link>https://chrisalbon.com/machine_learning_engineering/yaml/basic_yaml_file/</link>
+      <pubDate>Fri, 03 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning_engineering/yaml/basic_yaml_file/</guid>
+      <description>YAML files can optionally begin and end with ---.
+---# This is a basic YAML filename:Chrisjob:Wikimediapet:dog--- </description>
+    </item>
+    
+    <item>
+      <title>Comments</title>
+      <link>https://chrisalbon.com/machine_learning_engineering/yaml/comments/</link>
+      <pubDate>Fri, 03 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning_engineering/yaml/comments/</guid>
+      <description>YAML files can optionally begin and end with ---.
+---# This is a basic YAML filename:Chrisjob:Wikimediapet:dog--- </description>
+    </item>
+    
+    <item>
       <title>Installing Kubeflow On Ubuntu</title>
-      <link>https://chrisalbon.com/machine_learning_engineering/installing_kubeflow_on_ubuntu/</link>
+      <link>https://chrisalbon.com/machine_learning_engineering/kubeflow/installing_kubeflow_on_ubuntu/</link>
       <pubDate>Tue, 23 Jun 2020 00:00:00 -0700</pubDate>
       
-      <guid>https://chrisalbon.com/machine_learning_engineering/installing_kubeflow_on_ubuntu/</guid>
+      <guid>https://chrisalbon.com/machine_learning_engineering/kubeflow/installing_kubeflow_on_ubuntu/</guid>
       <description>In 2017, I built this deep learning machine as a solution to my growing AWS bill. In 2020, I struggled to get this machine to run Kubeflow locally. Here are the instructions that worked for me.
 Some of these instructions are based on this Ubuntu.com tutorial.
 Turn On Virtualization On AMD Chipset In BIOS, go to:
