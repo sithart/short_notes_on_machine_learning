@@ -1,13 +1,13 @@
 ---
-title: "Key Value Pairs"
+title: "Key-Value Pairs"
 author: "Chris Albon"
 date: 2020-07-03T00:00:00-00:00
-description: "Key value pairs in YAML files."
+description: "Key-value pairs in YAML files."
 type: technical_note
 draft: false
 ---
 
-Key-value pairs are created using a colon and a space: 'key: value'.
+Key-value pairs are created using a colon and a space: `key: value`.
 
 {{< highlight yaml >}}
 ---

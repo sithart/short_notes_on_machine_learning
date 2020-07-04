@@ -32,12 +32,12 @@
     </item>
     
     <item>
-      <title>Key Value Pairs</title>
+      <title>Key-Value Pairs</title>
       <link>https://chrisalbon.com/machine_learning_engineering/yaml/key_value_pairs/</link>
       <pubDate>Fri, 03 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning_engineering/yaml/key_value_pairs/</guid>
-      <description>Key-value pairs are created using a colon and a space: &amp;lsquo;key: value&amp;rsquo;.
+      <description>Key-value pairs are created using a colon and a space: key: value.
 ---# key: valuefirst_name:Chrislast_name:Albonoccupation:machinelearningengineer </description>
     </item>
     
