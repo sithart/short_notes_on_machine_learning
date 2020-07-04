@@ -7,7 +7,7 @@ type: technical_note
 draft: false
 ---
 
-YAML files can optionally begin and end with `---`.
+YAML files can optionally begin with `---`.
 
 {{< highlight yaml >}}
 ---
@@ -15,5 +15,4 @@ YAML files can optionally begin and end with `---`.
 name: Chris
 job: Wikimedia
 pet: dog
----
 {{< /highlight >}}

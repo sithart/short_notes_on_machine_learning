@@ -15,5 +15,4 @@ Comments in YAML are preceeded by `#` and a space.
 name: Chris
 job: Wikimedia
 pet: dog
----
 {{< /highlight >}}

@@ -7,13 +7,11 @@ type: technical_note
 draft: false
 ---
 
-Strings in 
+Strings in YAML files can have no quotations, double-quotes, or single-quotes.
 
 {{< highlight yaml >}}
 ---
-# This is a comment. 
-name: Chris
-job: Wikimedia
-pet: dog
----
+- This is a string.
+- "This is a string."
+- 'This is a string.'
 {{< /highlight >}}
