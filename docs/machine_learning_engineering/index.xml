@@ -32,16 +32,6 @@
     </item>
     
     <item>
-      <title>Comments</title>
-      <link>https://chrisalbon.com/machine_learning_engineering/yaml/strings/</link>
-      <pubDate>Fri, 03 Jul 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://chrisalbon.com/machine_learning_engineering/yaml/strings/</guid>
-      <description>Strings in YAML files can have no quotations, double-quotes, or single-quotes.
-----Thisisastring.-&amp;#34;This is a string.&amp;#34;-&amp;#39;This is a string.&amp;#39; </description>
-    </item>
-    
-    <item>
       <title>Lists</title>
       <link>https://chrisalbon.com/machine_learning_engineering/yaml/lists/</link>
       <pubDate>Fri, 03 Jul 2020 00:00:00 +0000</pubDate>
@@ -51,6 +41,16 @@
 Lists Using Dashes ----&amp;#34;Apple&amp;#34;-&amp;#34;Banana&amp;#34;-&amp;#34;Green Bean&amp;#34;-&amp;#34;Pineapple&amp;#34;-&amp;#34;Grape&amp;#34; Lists Using Brackets And Commas ---[&amp;#34;Apple&amp;#34;,&amp;#34;Banana&amp;#34;,&amp;#34;Green Bean&amp;#34;,&amp;#34;Pineapple&amp;#34;,&amp;#34;Grape&amp;#34;]
 Create Lists Within Lists Nested list item should be indented two spaces.
 ----&amp;#34;Apple&amp;#34;:-&amp;#34;Fuji&amp;#34;-&amp;#34;Granny&amp;#34;-&amp;#34;Green&amp;#34;-&amp;#34;Honeybrook&amp;#34;-&amp;#34;Banana&amp;#34;-&amp;#34;Green Bean&amp;#34;-&amp;#34;Pineapple&amp;#34;-&amp;#34;Grape&amp;#34;</description>
+    </item>
+    
+    <item>
+      <title>Strings</title>
+      <link>https://chrisalbon.com/machine_learning_engineering/yaml/strings/</link>
+      <pubDate>Fri, 03 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning_engineering/yaml/strings/</guid>
+      <description>Strings in YAML files can have no quotations, double-quotes, or single-quotes.
+----Thisisastring.-&amp;#34;This is a string.&amp;#34;-&amp;#39;This is a string.&amp;#39; </description>
     </item>
     
     <item>
