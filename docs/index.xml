@@ -27,8 +27,18 @@
       <pubDate>Fri, 03 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning_engineering/yaml/comments/</guid>
-      <description>YAML files can optionally begin and end with ---.
----# This is a basic YAML filename:Chrisjob:Wikimediapet:dog--- </description>
+      <description>Comments in YAML are preceeded by # and a space.
+---# This is a comment. name:Chrisjob:Wikimediapet:dog--- </description>
+    </item>
+    
+    <item>
+      <title>Comments</title>
+      <link>https://chrisalbon.com/machine_learning_engineering/yaml/strings/</link>
+      <pubDate>Fri, 03 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning_engineering/yaml/strings/</guid>
+      <description>Strings in
+---# This is a comment. name:Chrisjob:Wikimediapet:dog--- </description>
     </item>
     
     <item>
