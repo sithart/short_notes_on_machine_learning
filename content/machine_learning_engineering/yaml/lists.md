@@ -7,7 +7,7 @@ type: technical_note
 draft: false
 ---
 
-There are two says to create lists in YAML files.
+There are two ways to create lists in YAML files, using newlines/dashes and using brackets/commas.
 
 ## Lists Using Dashes
 

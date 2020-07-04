@@ -32,12 +32,22 @@
     </item>
     
     <item>
+      <title>Key Value Pairs</title>
+      <link>https://chrisalbon.com/machine_learning_engineering/yaml/key_value_pairs/</link>
+      <pubDate>Fri, 03 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning_engineering/yaml/key_value_pairs/</guid>
+      <description>Key-value pairs are created using a colon and a space: &amp;lsquo;key: value&amp;rsquo;.
+---# key: valuefirst_name:Chrislast_name:Albonoccupation:machinelearningengineer </description>
+    </item>
+    
+    <item>
       <title>Lists</title>
       <link>https://chrisalbon.com/machine_learning_engineering/yaml/lists/</link>
       <pubDate>Fri, 03 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning_engineering/yaml/lists/</guid>
-      <description>There are two says to create lists in YAML files.
+      <description>There are two ways to create lists in YAML files, using newlines/dashes and using brackets/commas.
 Lists Using Dashes ----&amp;#34;Apple&amp;#34;-&amp;#34;Banana&amp;#34;-&amp;#34;Green Bean&amp;#34;-&amp;#34;Pineapple&amp;#34;-&amp;#34;Grape&amp;#34; Lists Using Brackets And Commas ---[&amp;#34;Apple&amp;#34;,&amp;#34;Banana&amp;#34;,&amp;#34;Green Bean&amp;#34;,&amp;#34;Pineapple&amp;#34;,&amp;#34;Grape&amp;#34;]
 Create Lists Within Lists Nested list item should be indented two spaces.
 ----&amp;#34;Apple&amp;#34;:-&amp;#34;Fuji&amp;#34;-&amp;#34;Granny&amp;#34;-&amp;#34;Green&amp;#34;-&amp;#34;Honeybrook&amp;#34;-&amp;#34;Banana&amp;#34;-&amp;#34;Green Bean&amp;#34;-&amp;#34;Pineapple&amp;#34;-&amp;#34;Grape&amp;#34;</description>
