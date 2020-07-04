@@ -7,7 +7,7 @@ type: technical_note
 draft: false
 ---
 
-Key-value pairs are created using a colon and a space: `key: value`.
+Key-value pairs are created a key string and a value string separated using a colon and a space: `key: value`.
 
 {{< highlight yaml >}}
 ---
