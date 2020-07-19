@@ -26,7 +26,7 @@ regimentNamesCapitalized_f = []
 for i in regimentNames:
     # capitalize the item and add it to regimentNamesCapitalized_f
     regimentNamesCapitalized_f.append(i.upper())
-
+    
 # View the outcome
 regimentNamesCapitalized_f
 ```

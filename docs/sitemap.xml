@@ -3,6 +3,26 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://chrisalbon.com/linux/basics/close_a_program/</loc>
+    <lastmod>2020-07-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/basics/end_standard_input_entry/</loc>
+    <lastmod>2020-07-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/python/basics/using_iterable_as_function_arguments/</loc>
+    <lastmod>2020-07-12T11:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/python/basics/handling_long_lines_of_code/</loc>
+    <lastmod>2020-07-07T11:53:49-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chrisalbon.com/machine_learning_engineering/yaml/basic_yaml_file/</loc>
     <lastmod>2020-07-03T00:00:00+00:00</lastmod>
   </url>
@@ -33,6 +53,11 @@
   </url>
   
   <url>
+    <loc>https://chrisalbon.com/python/basics/tuples_vs_named_tuples/</loc>
+    <lastmod>2020-06-24T11:53:49-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chrisalbon.com/machine_learning_engineering/kubeflow/installing_kubeflow_on_ubuntu/</loc>
     <lastmod>2020-06-23T00:00:00-07:00</lastmod>
   </url>
@@ -55,6 +80,16 @@
   <url>
     <loc>https://chrisalbon.com/git_and_github/basics/stop_git_from_asking_for_password_every_command/</loc>
     <lastmod>2020-02-01T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/statistics/basics/interpolation/</loc>
+    <lastmod>2019-12-20T11:53:49-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/machine_learning/trees_and_forests/outlier_detection_with_isolation_forests/</loc>
+    <lastmod>2019-12-20T11:53:49-07:00</lastmod>
   </url>
   
   <url>
@@ -213,7 +248,17 @@
   </url>
   
   <url>
+    <loc>https://chrisalbon.com/python/basics/append_using_an_operator/</loc>
+    <lastmod>2018-12-16T11:53:49-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chrisalbon.com/python/object_oriented/create_a_class/</loc>
+    <lastmod>2018-12-16T11:53:49-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/python/object_oriented/create_a_class_variable/</loc>
     <lastmod>2018-12-16T11:53:49-07:00</lastmod>
   </url>
   
@@ -228,12 +273,27 @@
   </url>
   
   <url>
+    <loc>https://chrisalbon.com/python/object_oriented/create_custom_version_of_builtin_data_type/</loc>
+    <lastmod>2018-12-16T11:53:49-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/python/basics/function_example/</loc>
+    <lastmod>2018-12-16T11:53:49-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chrisalbon.com/python/basics/list_all_files_of_particular_type_in_directory/</loc>
     <lastmod>2018-11-20T11:53:49-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://chrisalbon.com/linux/text/add_columns_to_text/</loc>
+    <lastmod>2018-07-16T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/shell_scripts/arguments/</loc>
     <lastmod>2018-07-16T00:00:00-07:00</lastmod>
   </url>
   
@@ -258,12 +318,27 @@
   </url>
   
   <url>
+    <loc>https://chrisalbon.com/linux/shell_scripts/double_vs_single_quotes/</loc>
+    <lastmod>2018-07-16T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chrisalbon.com/linux/text/extract_text/</loc>
     <lastmod>2018-07-16T00:00:00-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://chrisalbon.com/linux/text/find_and_replace/</loc>
+    <lastmod>2018-07-16T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/processes/measure_how_long_a_process_takes/</loc>
+    <lastmod>2018-07-16T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/basics/modify_file_permissions/</loc>
     <lastmod>2018-07-16T00:00:00-07:00</lastmod>
   </url>
   
@@ -279,6 +354,16 @@
   
   <url>
     <loc>https://chrisalbon.com/linux/basics/see_disk_drive_space/</loc>
+    <lastmod>2018-07-16T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/shell_scripts/simple_shell_script/</loc>
+    <lastmod>2018-07-16T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/linux/basics/view_disk_information/</loc>
     <lastmod>2018-07-16T00:00:00-07:00</lastmod>
   </url>
   
@@ -2128,6 +2213,11 @@
   </url>
   
   <url>
+    <loc>https://chrisalbon.com/machine_learning/basics/untitled/</loc>
+    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chrisalbon.com/machine_learning/basics/loading_features_from_dictionaries/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
@@ -3173,6 +3263,10 @@
   </url>
   
   <url>
+    <loc>https://chrisalbon.com/python/basics/untitled/</loc>
+  </url>
+  
+  <url>
     <loc>https://chrisalbon.com/about/index.xml</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
     <priority>0</priority>
@@ -3192,7 +3286,7 @@
   
   <url>
     <loc>https://chrisalbon.com/</loc>
-    <lastmod>2020-07-03T00:00:00+00:00</lastmod>
+    <lastmod>2020-07-17T00:00:00-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -3222,7 +3316,7 @@
   
   <url>
     <loc>https://chrisalbon.com/linux/index.xml</loc>
-    <lastmod>2018-07-16T00:00:00-07:00</lastmod>
+    <lastmod>2020-07-17T00:00:00-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -3234,7 +3328,7 @@
   
   <url>
     <loc>https://chrisalbon.com/machine_learning/index.xml</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
+    <lastmod>2019-12-20T11:53:49-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -3252,7 +3346,7 @@
   
   <url>
     <loc>https://chrisalbon.com/python/index.xml</loc>
-    <lastmod>2018-12-16T11:53:49-07:00</lastmod>
+    <lastmod>2020-07-12T11:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -3276,7 +3370,7 @@
   
   <url>
     <loc>https://chrisalbon.com/statistics/index.xml</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
+    <lastmod>2019-12-20T11:53:49-07:00</lastmod>
     <priority>0</priority>
   </url>
   

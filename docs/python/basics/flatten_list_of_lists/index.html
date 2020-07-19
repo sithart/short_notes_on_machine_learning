@@ -49,7 +49,7 @@
   "@type": "BlogPosting",
   "headline": "Flatten Lists Of Lists",
   "url": "https://chrisalbon.com/python/basics/flatten_list_of_lists/",
-  "wordCount": "51",
+  "wordCount": "70",
   "datePublished": "2017-12-20T11:53:49-07:00",
   "dateModified": "2017-12-20T11:53:49-07:00",
   "author": {
@@ -177,11 +177,18 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a list containing three lists of names</span>
+  
+
+<h2 id="create-a-list-of-lists">Create A List Of Lists</h2>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a list containing three lists of names</span>
 <span class="n">list_of_lists</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;Amy&#39;</span><span class="p">,</span><span class="s1">&#39;Betty&#39;</span><span class="p">,</span><span class="s1">&#39;Cathryn&#39;</span><span class="p">,</span><span class="s1">&#39;Dana&#39;</span><span class="p">],</span> 
                  <span class="p">[</span><span class="s1">&#39;Elizabeth&#39;</span><span class="p">,</span><span class="s1">&#39;Fay&#39;</span><span class="p">,</span><span class="s1">&#39;Gora&#39;</span><span class="p">],</span> 
-                  <span class="p">[</span><span class="s1">&#39;Heidi&#39;</span><span class="p">,</span><span class="s1">&#39;Jane&#39;</span><span class="p">,</span><span class="s1">&#39;Kayley&#39;</span><span class="p">]]</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># For each element in list_of_lists, take each element in the list</span>
-<span class="n">flattened_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">list_of_lists</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">row</span><span class="p">]</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># View the flattened list</span>
+                  <span class="p">[</span><span class="s1">&#39;Heidi&#39;</span><span class="p">,</span><span class="s1">&#39;Jane&#39;</span><span class="p">,</span><span class="s1">&#39;Kayley&#39;</span><span class="p">]]</span></code></pre></div>
+<h2 id="flatten-the-lists-of-lists-into-a-single-list">Flatten The Lists Of Lists Into A Single List</h2>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># For each element in list_of_lists, take each element in the list</span>
+<span class="n">flattened_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">list_of_lists</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">row</span><span class="p">]</span></code></pre></div>
+<h2 id="view-flat-list">View Flat List</h2>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># View the flattened list</span>
 <span class="n">flattened_list</span></code></pre></div>
 <pre><code>['Amy',
  'Betty',
@@ -218,7 +225,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted">Copyright &copy; Chris Albon, <time datetime="2020">2020</time>. All 634 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted">Copyright &copy; Chris Albon, <time datetime="2020">2020</time>. All 653 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

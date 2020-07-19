@@ -6,10 +6,21 @@
     <description></description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 20 Dec 2017 11:53:49 -0700</lastBuildDate>
+    <lastBuildDate>Fri, 20 Dec 2019 11:53:49 -0700</lastBuildDate>
     
         <atom:link href="https://chrisalbon.com/statistics/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Linear Interpolation</title>
+      <link>https://chrisalbon.com/statistics/basics/interpolation/</link>
+      <pubDate>Fri, 20 Dec 2019 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/statistics/basics/interpolation/</guid>
+      <description>Linear interpolation is used when we want to calculate a value between two points.
+Imagine we want to calculate some point, $(x, y)$ that is between two other points $(x_1, y_1)$ and $(x_2, y_2)$. To do this, we first select some value $x$ value (often halfway between $x_2$ and $x_1$ on the x-axis) and then calculate $x$&amp;rsquo;s corresponding $y$ value using the following formula:
+$$y = y_1 + \frac{y_2 - y_1}{x_2 - x_1} * (x-x_1)$$</description>
+    </item>
     
     <item>
       <title>Bessels Correction</title>

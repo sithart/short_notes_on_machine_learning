@@ -15,7 +15,7 @@
         <div class="row">
             <div class="col-sm-12 blurb">
                 <p>
-                    <a href="about/chris_albon/">I am the Director of Machine Learning</a> at the <a href="https://wikimediafoundation.org/">Wikimedia Foundation</a>. I have spent a decade applying statistical learning, artificial intelligence, and software engineering to political, social, and humanitarian
+                    <a href="about/chris_albon/">I am the Director of Machine Learning</a> at the <a href="https://wikimediafoundation.org/">Wikimedia Foundation</a>. I have spent over a decade applying statistical learning, artificial intelligence, and software engineering to political, social, and humanitarian
                     efforts.</p>
                 <p>Learning machine learning? Check out my
                     <a href="https://machinelearningflashcards.com">Machine Learning Flashcards</a> or my book,
@@ -945,6 +945,23 @@
                     <div class="card-body">
                         <ul>
                             {{ range (where .Pages "File.Dir" "in" "/linux/processes/").ByTitle }}
+                            <li>
+                                <a href="{{.Permalink}}">{{.Title}}</a>
+                            </li>
+                            {{ end }}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <h4 class="card-header">Shell Scripts</h4>
+                    <div class="card-body">
+                        <ul>
+                            {{ range (where .Pages "File.Dir" "in" "/linux/shell_scripts/").ByTitle }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>

@@ -6,6 +6,8 @@ description: "Flatten lists of lists using Python."
 type: technical_note
 draft: false
 ---
+## Create A List Of Lists
+
 
 ```python
 # Create a list containing three lists of names
@@ -14,11 +16,15 @@ list_of_lists = [['Amy','Betty','Cathryn','Dana'],
                   ['Heidi','Jane','Kayley']]
 ```
 
+## Flatten The Lists Of Lists Into A Single List
+
 
 ```python
 # For each element in list_of_lists, take each element in the list
 flattened_list = [i for row in list_of_lists for i in row]
 ```
+
+## View Flat List
 
 
 ```python

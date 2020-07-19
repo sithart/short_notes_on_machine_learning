@@ -16,14 +16,14 @@ echo "Khaydarbi Melikov is a foot soldier." >> regiment_version1.txt
 echo "Khaydarbi Melikov is a member of the the Maroon Martyrs regiment" >> regiment_version1.txt
 {{< /highlight >}}
 
-## Create Text File 2 
+## Create Text File 2
 
 {{< highlight markdown >}}
 echo "Khaydarbi Melikov is a foot soldier." >> regiment_version2.txt
 echo "Khaydarbi Melikov is a member of the Reserve regiment" >> regiment_version2.txt
 {{< /highlight >}}
 
-## View Text File 1 
+## View Text File 1
 
 {{< highlight markdown >}}
 $ cat regiment_version1.txt

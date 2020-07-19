@@ -6,10 +6,49 @@
     <description></description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 03 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 17 Jul 2020 00:00:00 -0700</lastBuildDate>
     
         <atom:link href="https://chrisalbon.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Close A Program</title>
+      <link>https://chrisalbon.com/linux/basics/close_a_program/</link>
+      <pubDate>Fri, 17 Jul 2020 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/basics/close_a_program/</guid>
+      <description>Get Into A Program cat You can now in the cat program.
+Exit Standard Input To exit the program. Press control + C</description>
+    </item>
+    
+    <item>
+      <title>End Standard Input Entry</title>
+      <link>https://chrisalbon.com/linux/basics/end_standard_input_entry/</link>
+      <pubDate>Fri, 17 Jul 2020 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/basics/end_standard_input_entry/</guid>
+      <description>Get Into Standard Input Entry mode cat Now anything you type will not be a command but rather standard input entry for cat
+Exit Standard Input To exit standard input entry. Press control + D</description>
+    </item>
+    
+    <item>
+      <title>Using Iterable As Function Arguments</title>
+      <link>https://chrisalbon.com/python/basics/using_iterable_as_function_arguments/</link>
+      <pubDate>Sun, 12 Jul 2020 11:00:00 +0000</pubDate>
+      
+      <guid>https://chrisalbon.com/python/basics/using_iterable_as_function_arguments/</guid>
+      <description>Create Arguments # Create a list with three values scores = [1,2,3]# Create a dictionary with a single key-value pair scores_with_names = {&amp;#39;amy_score&amp;#39;: &amp;#34;200&amp;#34;} Create Function With Positional Arguments # Create a function with three positional arguments def show_team_scores(jack_score, amy_score, sarah_score): # Print each of the positional arguments print(jack_score, amy_score, sarah_score)# Run the function with * and an iterable object (in this case a list) show_team_scores(*scores) 1 2 3  Create Function Using Keyword Arguments # Create a function with three keyword arguments with default values def show_team_scores(jack_score=0, amy_score=0, sarah_score=0): # Print each of the keyword arguments print(jack_score, amy_score, sarah_score)# Run the function with ** and a dictionary show_team_scores(**scores_with_names) 0 200 0  Notice how jack_score and sarah_score used the default values, while amy_score used the argument value we defined in scores_with_names.</description>
+    </item>
+    
+    <item>
+      <title>Handling Long Lines Of Code</title>
+      <link>https://chrisalbon.com/python/basics/handling_long_lines_of_code/</link>
+      <pubDate>Tue, 07 Jul 2020 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/python/basics/handling_long_lines_of_code/</guid>
+      <description>Often engineers and data scientists run into a situation where they have a very long line of code. This is both ugly and break&amp;rsquo;s Pythonic best practices.
+Preliminaries import statistics Create Data ages_of_community_members = [39, 23, 55, 23, 53, 27, 34, 67, 32, 34, 56] number_of_ages = [4, 4, 5, 6, 7, 8, 5, 7, 3, 2, 4] Create Long Line Of Code member_years_by_age = [first_list_element * second_list_element for first_list_element, second_list_element in zip(ages_of_community_members, number_of_ages)] Shorten Long Line While you can use \ to break up lines of code.</description>
+    </item>
     
     <item>
       <title>Basic YAML File</title>
@@ -76,6 +115,16 @@ Multiline Strings Preserving Newlines To preserve line breaks, use |.
     </item>
     
     <item>
+      <title>Tuples Vs. Named Tuples</title>
+      <link>https://chrisalbon.com/python/basics/tuples_vs_named_tuples/</link>
+      <pubDate>Wed, 24 Jun 2020 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/python/basics/tuples_vs_named_tuples/</guid>
+      <description>Preliminaries # Import the collections library import collections Create A Tuple A tuple is a simple, efficient data type widely used in Python. However, it uses numerical indexes which can be frustrating to use when tuples are large.
+# Create a long tuple employee = (&amp;#39;Jane&amp;#39;, &amp;#39;Miller&amp;#39;, &amp;#39;Engineer&amp;#39;, &amp;#39;29&amp;#39;, &amp;#39;3023 Homespun Place&amp;#39;, &amp;#39;#4023&amp;#39;, &amp;#39;Jacksonville&amp;#39;, &amp;#39;FL&amp;#39;, &amp;#39;49342&amp;#39;, &amp;#39;USA&amp;#39; ) View Tuple # Print tuple employee (&#39;Jane&#39;, &#39;Miller&#39;, &#39;Engineer&#39;, &#39;29&#39;, &#39;3023 Homespun Place&#39;, &#39;#4023&#39;, &#39;Jacksonville&#39;, &#39;FL&#39;, &#39;49342&#39;, &#39;USA&#39;)  Select State Value From Tuple # The state is the 7th element in the tuple, so the index is 6 employee[6] &#39;Jacksonville&#39;  Create A Named Tuple Named tuples are special variation of tuples that are just as memory efficent but allows you to select elements in tuples by name.</description>
+    </item>
+    
+    <item>
       <title>Installing Kubeflow On Ubuntu</title>
       <link>https://chrisalbon.com/machine_learning_engineering/kubeflow/installing_kubeflow_on_ubuntu/</link>
       <pubDate>Tue, 23 Jun 2020 00:00:00 -0700</pubDate>
@@ -127,6 +176,26 @@ Check NVIDIA Driver Version nvidia-smi</description>
       <description>If you cloned your GitHub repository using HTTPS, every time you push or pull a repository from GitHub Git will prompt you for your GitHub username and password. This becomes particularly frustrating if you use multi-factor authentication because you cannot use your regular password but instead use a generated token. You can read more instructions on how to set up that token here.
 To fix this:
  Enter the directory containing your repo.</description>
+    </item>
+    
+    <item>
+      <title>Linear Interpolation</title>
+      <link>https://chrisalbon.com/statistics/basics/interpolation/</link>
+      <pubDate>Fri, 20 Dec 2019 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/statistics/basics/interpolation/</guid>
+      <description>Linear interpolation is used when we want to calculate a value between two points.
+Imagine we want to calculate some point, $(x, y)$ that is between two other points $(x_1, y_1)$ and $(x_2, y_2)$. To do this, we first select some value $x$ value (often halfway between $x_2$ and $x_1$ on the x-axis) and then calculate $x$&amp;rsquo;s corresponding $y$ value using the following formula:
+$$y = y_1 + \frac{y_2 - y_1}{x_2 - x_1} * (x-x_1)$$</description>
+    </item>
+    
+    <item>
+      <title>Outlier Detection With Isolation Forests</title>
+      <link>https://chrisalbon.com/machine_learning/trees_and_forests/outlier_detection_with_isolation_forests/</link>
+      <pubDate>Fri, 20 Dec 2019 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning/trees_and_forests/outlier_detection_with_isolation_forests/</guid>
+      <description>An isolation forest is comprised of many of a special kind of tree. In each node the tree, a random feature is split in a random point (for example, if values in a feature range between 0 and 100, a random split might be 34). This process continues until every data point is isolated in its own brand. This is repeated until the end result is a forest of trees.</description>
     </item>
     
     <item>
@@ -418,12 +487,31 @@ Create Table Of Superheroes -- Create a table called SUPERHEROES. If it already 
     </item>
     
     <item>
+      <title>Append Using The Operator</title>
+      <link>https://chrisalbon.com/python/basics/append_using_an_operator/</link>
+      <pubDate>Sun, 16 Dec 2018 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/python/basics/append_using_an_operator/</guid>
+      <description> Create A List # Create a list of three names names = [&amp;#39;chris&amp;#39;, &amp;#39;nguyen&amp;#39;, &amp;#39;jack&amp;#39;] Create A Value To Append To The List # Create a string list variable containing a name to_append = [&amp;#39;sarah&amp;#39;] Append Value To List # Create a new list with all the original names plus the appended name names += to_append View New List # View the new list names [&#39;chris&#39;, &#39;nguyen&#39;, &#39;jack&#39;, &#39;sarah&#39;]  </description>
+    </item>
+    
+    <item>
       <title>Create A Class</title>
       <link>https://chrisalbon.com/python/object_oriented/create_a_class/</link>
       <pubDate>Sun, 16 Dec 2018 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/object_oriented/create_a_class/</guid>
       <description> Create Simple Class class Soldier: pass Create Instance Of Class jason = Soldier()</description>
+    </item>
+    
+    <item>
+      <title>Create A Class Variable</title>
+      <link>https://chrisalbon.com/python/object_oriented/create_a_class_variable/</link>
+      <pubDate>Sun, 16 Dec 2018 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/python/object_oriented/create_a_class_variable/</guid>
+      <description>Class variables are shared by all instances of that class. For example, if a class variable is a list, all instances of that class can modify that single list.
+Create Class Containing Class Variable # Create a class called persons class person: # Create list variable that is shared amongst all classes # i.e. a class variable all_persons = [] # Create an init method requiring a name argument def __init__(self, name): # Set the name variable self.</description>
     </item>
     
     <item>
@@ -445,6 +533,27 @@ Create Table Of Superheroes -- Create a table called SUPERHEROES. If it already 
     </item>
     
     <item>
+      <title>Customize Built-in Data Types</title>
+      <link>https://chrisalbon.com/python/object_oriented/create_custom_version_of_builtin_data_type/</link>
+      <pubDate>Sun, 16 Dec 2018 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/python/object_oriented/create_custom_version_of_builtin_data_type/</guid>
+      <description>This is a toy example of how we can extending a built-in data type (i.e. a class) in Python to add additional functionality.
+Create New Class From list # Create a class that inherits from the built-in list class class CapitalizedList(list): # Create a method called capitalize def capitalize(self): # Create a list capitalized_list = [] # For each element in the instance for element in self: # Uppercase the string and append to the capitalized list capitalized_list.</description>
+    </item>
+    
+    <item>
+      <title>Function Example</title>
+      <link>https://chrisalbon.com/python/basics/function_example/</link>
+      <pubDate>Sun, 16 Dec 2018 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/python/basics/function_example/</guid>
+      <description>There are many features to use with functions in Python from docstrings to type annotation to naming conventions. This is my version of a best practice function in Python.
+This function uses numpydoc docstring format and typing hinting.
+Create Function # Define a function called word_count that takes in a argument  # called document is a string and outputs an integer. def word_count(document: str) -&amp;gt; int: &amp;#34;&amp;#34;&amp;#34;Counts the number of words in a string.</description>
+    </item>
+    
+    <item>
       <title>List All Files Of Certain Type In A Directory</title>
       <link>https://chrisalbon.com/python/basics/list_all_files_of_particular_type_in_directory/</link>
       <pubDate>Tue, 20 Nov 2018 11:53:49 -0700</pubDate>
@@ -460,6 +569,16 @@ Create Table Of Superheroes -- Create a table called SUPERHEROES. If it already 
       
       <guid>https://chrisalbon.com/linux/text/add_columns_to_text/</guid>
       <description>Create A File With Comma Separated Text echo &amp;#34;chris, 34, male&amp;#34; &amp;gt;&amp;gt; staff.txtecho &amp;#34;sarah, 22, female&amp;#34; &amp;gt;&amp;gt; staff.txtecho &amp;#34;Bob, 59, male&amp;#34; &amp;gt;&amp;gt; staff.txt View File cat staff.txt chris, 34, male sarah, 22, female Bob, 59, male  Extract Text By Breaking Into Columns And Save To File cut the text in staff.txt that is separated by commas (-d &#39;,&#39;) into columns, then take the second (-f 2) column, and finally save to ages.</description>
+    </item>
+    
+    <item>
+      <title>Arguments</title>
+      <link>https://chrisalbon.com/linux/shell_scripts/arguments/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/shell_scripts/arguments/</guid>
+      <description>Shell scripts can accept positional arguments. They also have some useful built-in arguments.
+Write The Shell Script #!/bin/sh  echo &amp;#39;This is the first argument:&amp;#39; echo $1 echo &amp;#39;This is the second argument:&amp;#39; echo $2 echo &amp;#39;This is the third argument:&amp;#39; echo $3 echo &amp;#39;-----------&amp;#39; echo &amp;#39;This is the number of arguments:&amp;#39; echo $# echo &amp;#39;-----------&amp;#39; echo &amp;#39;This is all the arguments&amp;#39;: echo $@ echo &amp;#39;-----------&amp;#39; echo &amp;#39;This is the process ID&amp;#39;: echo $$ echo &amp;#39;-----------&amp;#39; echo &amp;#39;This is the script filename&amp;#39;: echo $0 echo &amp;#39;-----------&amp;#39; echo &amp;#39;This is the exit code&amp;#39;: echo $?</description>
     </item>
     
     <item>
@@ -503,6 +622,16 @@ Create Example Files touch devops.txt hr.txt marketing.txt operations.txt procur
     </item>
     
     <item>
+      <title>Double Vs. Single Quotes</title>
+      <link>https://chrisalbon.com/linux/shell_scripts/double_vs_single_quotes/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/shell_scripts/double_vs_single_quotes/</guid>
+      <description> Shell variables (e.g. $PATH) are treated as simple strings when wrapped in single quotes but as variables when wrapped in double quotes.
+Write The Shell Script #!/bin/sh  # Print a string surrounded in single quotes echo &amp;#39;Single Quotes: $PATH&amp;#39; # Print a string surrounded in double quotes echo &amp;#34;Double Quotes: $PATH&amp;#34; Run The Shell Script sh quotes.sh Single Quotes: $PATH Double Quotes: /home/chris/anaconda3/bin:/home/chris/anaconda3/condabin:/home/chris/.local/bin:/home/chris/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin#!/bin/sh  </description>
+    </item>
+    
+    <item>
       <title>Extract Text</title>
       <link>https://chrisalbon.com/linux/text/extract_text/</link>
       <pubDate>Mon, 16 Jul 2018 00:00:00 -0700</pubDate>
@@ -520,6 +649,25 @@ Create A File With Comma Separated Text echo &amp;#34;chris, 34, male&amp;#34; &
       <guid>https://chrisalbon.com/linux/text/find_and_replace/</guid>
       <description> Create Example File With List Of Adventurers echo &amp;#39;Luca Gartside&amp;#39; &amp;gt;&amp;gt; adventurers.txtecho &amp;#39;Reule Smyth&amp;#39; &amp;gt;&amp;gt; adventurers.txtecho &amp;#39;Spencer Smit&amp;#39; &amp;gt;&amp;gt; adventurers.txt View Original File $ cat adventurers.txt Luca Gartside Reule Smyth Spencer Smit  Search And Replace Here we use the streaming edit (sed) command to replace Spencer Smit with Matthew Aldworth in the file adventurers.txt
 $ sed &amp;#34;s/Spencer Smit/Matthew Aldworth/&amp;#34; adventurers.txt Luca Gartside Reule Smyth Matthew Aldworth  </description>
+    </item>
+    
+    <item>
+      <title>Measure How Long A Process Takes</title>
+      <link>https://chrisalbon.com/linux/processes/measure_how_long_a_process_takes/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/processes/measure_how_long_a_process_takes/</guid>
+      <description>Time A Process -- Time running the Python program main.py/usr/bin/time python main.py 2.16user 0.16system 0:15.71elapsed 14%CPU (0avgtext+0avgdata 63676maxresident)k 0inputs+0outputs (0major+17289minor)pagefaults 0swaps  The process took 2.16 seconds of CPU time, 0.16 seconds of kernel time, and a total of 15.71 seconds of total time.</description>
+    </item>
+    
+    <item>
+      <title>Modify File Permissions</title>
+      <link>https://chrisalbon.com/linux/basics/modify_file_permissions/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/basics/modify_file_permissions/</guid>
+      <description>Make File touch file.txt View File Permissions ls -al file.txt -rw-r--r-- 1 chris chris 0 Jul 18 16:59 file.txt  Add Execute Permission To User chmod u+x file.txt Add Write Permission To Group chmod g+w file.txt Remove Read Permission From World Note: &amp;ldquo;World&amp;rdquo; in this case means every user who isn&amp;rsquo;t file&amp;rsquo;s owner or in the file&amp;rsquo;s owner usergroup.
+chmod o-r file.txt View File Permissions ls -al file.txt -rwxrw---- 1 chris chris 0 Jul 18 16:59 file.</description>
     </item>
     
     <item>
@@ -550,6 +698,26 @@ Make File touch untitled.txt View Directory Contents Directory ls -l total 0 -rw
       <guid>https://chrisalbon.com/linux/basics/see_disk_drive_space/</guid>
       <description> To view the amount of used and free memory on a system, we can use the df command.
 View Disk Drive Space df Filesystem 512-blocks Used Available Capacity iused ifree %iused Mounted on /dev/disk1s1 975221040 415404896 554253656 43% 2387799 9223372036852388008 0% / devfs 382 382 0 100% 662 0 100% /dev /dev/disk1s4 975221040 4194384 554253656 1% 2 9223372036854775805 0% /private/var/vm map -hosts 0 0 0 100% 0 0 100% /net map auto_home 0 0 0 100% 0 0 100% /home  </description>
+    </item>
+    
+    <item>
+      <title>Simple Shell Script</title>
+      <link>https://chrisalbon.com/linux/shell_scripts/simple_shell_script/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/shell_scripts/simple_shell_script/</guid>
+      <description> Write The Shell Script #!/bin/sh  # Print something echo Hello World Run The Shell Script sh test.sh
+Hello World  </description>
+    </item>
+    
+    <item>
+      <title>View Disk Information</title>
+      <link>https://chrisalbon.com/linux/basics/view_disk_information/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/basics/view_disk_information/</guid>
+      <description> This is how you can view external hard drives on your Ubuntu system. lshw stands for &amp;ldquo;list hardware&amp;rdquo;.
+View Disk Information sudo lshw -C disk  *-disk description: ATA Disk product: Samsung SSD 850 physical id: 0.0.0 bus info: scsi@0:0.0.0 logical name: /dev/sda version: 3B6Q serial: S3PJNF0JA08928L size: 931GiB (1TB) capabilities: gpt-1.00 partitioned partitioned:gpt configuration: ansiversion=5 guid=ef511d90-6a19-46f8-9510-08d164ad898a logicalsectorsize=512 sectorsize=512  </description>
     </item>
     
     <item>
@@ -2010,7 +2178,7 @@ Preliminaries # Load libraries from sklearn.datasets import load_iris from sklea
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/about/chris_albon/</guid>
-      <description>I am the Director of Machine Learning at the Wikimedia Foundation. Previously, I was the Director of Data Science at Devoted Health, Director of Data Science at the Kenyan startup BRCK, cofounded Yonder, created the data science podcast Partially Derivative, was the Director of Data Science at the humanitarian non-profit Ushahidi, and was the director of the low-resource technology governance project at FrontlineSMS. I also wrote Machine Learning For Python Cookbook (O&amp;rsquo;Reilly 2018) and created Machine Learning Flashcards.</description>
+      <description>I have spent over a decade applying statistical learning, artificial intelligence, and software engineering to political, social, and humanitarian efforts. I am the Director of Machine Learning at the Wikimedia Foundation. Previously, I was the Director of Data Science at Devoted Health, Director of Data Science at the Kenyan startup BRCK, cofounded the AI startup Yonder, created the data science podcast Partially Derivative, was the Director of Data Science at the humanitarian non-profit Ushahidi, and was the director of the low-resource technology governance project at FrontlineSMS.</description>
     </item>
     
     <item>
@@ -3331,7 +3499,7 @@ scikit-learn&amp;rsquo;s LogisticRegressionCV method includes a parameter Cs. If
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/basics/flatten_list_of_lists/</guid>
-      <description># Create a list containing three lists of names list_of_lists = [[&amp;#39;Amy&amp;#39;,&amp;#39;Betty&amp;#39;,&amp;#39;Cathryn&amp;#39;,&amp;#39;Dana&amp;#39;], [&amp;#39;Elizabeth&amp;#39;,&amp;#39;Fay&amp;#39;,&amp;#39;Gora&amp;#39;], [&amp;#39;Heidi&amp;#39;,&amp;#39;Jane&amp;#39;,&amp;#39;Kayley&amp;#39;]]# For each element in list_of_lists, take each element in the list flattened_list = [i for row in list_of_lists for i in row]# View the flattened list flattened_list [&#39;Amy&#39;, &#39;Betty&#39;, &#39;Cathryn&#39;, &#39;Dana&#39;, &#39;Elizabeth&#39;, &#39;Fay&#39;, &#39;Gora&#39;, &#39;Heidi&#39;, &#39;Jane&#39;, &#39;Kayley&#39;]  </description>
+      <description> Create A List Of Lists # Create a list containing three lists of names list_of_lists = [[&amp;#39;Amy&amp;#39;,&amp;#39;Betty&amp;#39;,&amp;#39;Cathryn&amp;#39;,&amp;#39;Dana&amp;#39;], [&amp;#39;Elizabeth&amp;#39;,&amp;#39;Fay&amp;#39;,&amp;#39;Gora&amp;#39;], [&amp;#39;Heidi&amp;#39;,&amp;#39;Jane&amp;#39;,&amp;#39;Kayley&amp;#39;]] Flatten The Lists Of Lists Into A Single List # For each element in list_of_lists, take each element in the list flattened_list = [i for row in list_of_lists for i in row] View Flat List # View the flattened list flattened_list [&#39;Amy&#39;, &#39;Betty&#39;, &#39;Cathryn&#39;, &#39;Dana&#39;, &#39;Elizabeth&#39;, &#39;Fay&#39;, &#39;Gora&#39;, &#39;Heidi&#39;, &#39;Jane&#39;, &#39;Kayley&#39;]  </description>
     </item>
     
     <item>
@@ -4013,6 +4181,15 @@ Preliminaries # Import modules import pandas as pd # Set ipython&amp;#39;s max r
       
       <guid>https://chrisalbon.com/python/data_wrangling/pandas_dataframe_importing_csv/</guid>
       <description>import modules import pandas as pd import numpy as np Create dataframe (that we will be importing) raw_data = {&amp;#39;first_name&amp;#39;: [&amp;#39;Jason&amp;#39;, &amp;#39;Molly&amp;#39;, &amp;#39;Tina&amp;#39;, &amp;#39;Jake&amp;#39;, &amp;#39;Amy&amp;#39;], &amp;#39;last_name&amp;#39;: [&amp;#39;Miller&amp;#39;, &amp;#39;Jacobson&amp;#39;, &amp;#34;.&amp;#34;, &amp;#39;Milner&amp;#39;, &amp;#39;Cooze&amp;#39;], &amp;#39;age&amp;#39;: [42, 52, 36, 24, 73], &amp;#39;preTestScore&amp;#39;: [4, 24, 31, &amp;#34;.&amp;#34;, &amp;#34;.&amp;#34;], &amp;#39;postTestScore&amp;#39;: [&amp;#34;25,000&amp;#34;, &amp;#34;94,000&amp;#34;, 57, 62, 70]} df = pd.DataFrame(raw_data, columns = [&amp;#39;first_name&amp;#39;, &amp;#39;last_name&amp;#39;, &amp;#39;age&amp;#39;, &amp;#39;preTestScore&amp;#39;, &amp;#39;postTestScore&amp;#39;]) df   .dataframe thead tr:only-child th { text-align: right; } .</description>
+    </item>
+    
+    <item>
+      <title>Loading Features From Dictionaries</title>
+      <link>https://chrisalbon.com/machine_learning/basics/untitled/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning/basics/untitled/</guid>
+      <description>from sklearn import datasetsimport numpy as npiris = datasets.load_iris()X = iris.data[:, [2, 3]]X array([[1.4, 0.2], [1.4, 0.2], [1.3, 0.2], [1.5, 0.2], [1.4, 0.2], [1.7, 0.4], [1.4, 0.3], [1.5, 0.2], [1.4, 0.2], [1.5, 0.1], [1.5, 0.2], [1.6, 0.2], [1.4, 0.1], [1.1, 0.1], [1.2, 0.2], [1.5, 0.4], [1.3, 0.4], [1.4, 0.3], [1.7, 0.3], [1.5, 0.3], [1.7, 0.2], [1.5, 0.4], [1. , 0.2], [1.7, 0.5], [1.9, 0.2], [1.6, 0.2], [1.6, 0.4], [1.5, 0.2], [1.</description>
     </item>
     
     <item>
@@ -5956,6 +6133,15 @@ During Mozambique’s civil war, RENAMO’s campaign against the government heal
       
       <guid>https://chrisalbon.com/articles/health_systems/</guid>
       <description>While health systems vary in the role of the private sector, the priority given to primary and specialized care, the level of access enjoyed by citizens, and a host of other characteristics, most health systems (particularly in less developed states) share a basic structure based on a hierarchical organization of health care provision. Most citizens’ primary point of contact with health systems is usually through health posts, health clinics, and health centers.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://chrisalbon.com/python/basics/untitled/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://chrisalbon.com/python/basics/untitled/</guid>
+      <description># Load library import pandas as pd # Create URL url = &amp;#39;https://raw.githubusercontent.com/chrisalbon/sim_data/master/titanic.csv&amp;#39; # Load data as a dataframe dataframe = pd.read_csv(url) # Show first 5 rows dataframe.head(5)  .dataframe tbody tr th:only-of-type { vertical-align: middle; } .dataframe tbody tr th { vertical-align: top; } .dataframe thead th { text-align: right; }    Name PClass Age Sex Survived SexCode     0 Allen, Miss Elisabeth Walton 1st 29.</description>
     </item>
     
   </channel>

@@ -6,10 +6,48 @@
     <description></description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 16 Dec 2018 11:53:49 -0700</lastBuildDate>
+    <lastBuildDate>Sun, 12 Jul 2020 11:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://chrisalbon.com/python/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Using Iterable As Function Arguments</title>
+      <link>https://chrisalbon.com/python/basics/using_iterable_as_function_arguments/</link>
+      <pubDate>Sun, 12 Jul 2020 11:00:00 +0000</pubDate>
+      
+      <guid>https://chrisalbon.com/python/basics/using_iterable_as_function_arguments/</guid>
+      <description>Create Arguments # Create a list with three values scores = [1,2,3]# Create a dictionary with a single key-value pair scores_with_names = {&amp;#39;amy_score&amp;#39;: &amp;#34;200&amp;#34;} Create Function With Positional Arguments # Create a function with three positional arguments def show_team_scores(jack_score, amy_score, sarah_score): # Print each of the positional arguments print(jack_score, amy_score, sarah_score)# Run the function with * and an iterable object (in this case a list) show_team_scores(*scores) 1 2 3  Create Function Using Keyword Arguments # Create a function with three keyword arguments with default values def show_team_scores(jack_score=0, amy_score=0, sarah_score=0): # Print each of the keyword arguments print(jack_score, amy_score, sarah_score)# Run the function with ** and a dictionary show_team_scores(**scores_with_names) 0 200 0  Notice how jack_score and sarah_score used the default values, while amy_score used the argument value we defined in scores_with_names.</description>
+    </item>
+    
+    <item>
+      <title>Handling Long Lines Of Code</title>
+      <link>https://chrisalbon.com/python/basics/handling_long_lines_of_code/</link>
+      <pubDate>Tue, 07 Jul 2020 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/python/basics/handling_long_lines_of_code/</guid>
+      <description>Often engineers and data scientists run into a situation where they have a very long line of code. This is both ugly and break&amp;rsquo;s Pythonic best practices.
+Preliminaries import statistics Create Data ages_of_community_members = [39, 23, 55, 23, 53, 27, 34, 67, 32, 34, 56] number_of_ages = [4, 4, 5, 6, 7, 8, 5, 7, 3, 2, 4] Create Long Line Of Code member_years_by_age = [first_list_element * second_list_element for first_list_element, second_list_element in zip(ages_of_community_members, number_of_ages)] Shorten Long Line While you can use \ to break up lines of code.</description>
+    </item>
+    
+    <item>
+      <title>Tuples Vs. Named Tuples</title>
+      <link>https://chrisalbon.com/python/basics/tuples_vs_named_tuples/</link>
+      <pubDate>Wed, 24 Jun 2020 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/python/basics/tuples_vs_named_tuples/</guid>
+      <description>Preliminaries # Import the collections library import collections Create A Tuple A tuple is a simple, efficient data type widely used in Python. However, it uses numerical indexes which can be frustrating to use when tuples are large.
+# Create a long tuple employee = (&amp;#39;Jane&amp;#39;, &amp;#39;Miller&amp;#39;, &amp;#39;Engineer&amp;#39;, &amp;#39;29&amp;#39;, &amp;#39;3023 Homespun Place&amp;#39;, &amp;#39;#4023&amp;#39;, &amp;#39;Jacksonville&amp;#39;, &amp;#39;FL&amp;#39;, &amp;#39;49342&amp;#39;, &amp;#39;USA&amp;#39; ) View Tuple # Print tuple employee (&#39;Jane&#39;, &#39;Miller&#39;, &#39;Engineer&#39;, &#39;29&#39;, &#39;3023 Homespun Place&#39;, &#39;#4023&#39;, &#39;Jacksonville&#39;, &#39;FL&#39;, &#39;49342&#39;, &#39;USA&#39;)  Select State Value From Tuple # The state is the 7th element in the tuple, so the index is 6 employee[6] &#39;Jacksonville&#39;  Create A Named Tuple Named tuples are special variation of tuples that are just as memory efficent but allows you to select elements in tuples by name.</description>
+    </item>
+    
+    <item>
+      <title>Append Using The Operator</title>
+      <link>https://chrisalbon.com/python/basics/append_using_an_operator/</link>
+      <pubDate>Sun, 16 Dec 2018 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/python/basics/append_using_an_operator/</guid>
+      <description> Create A List # Create a list of three names names = [&amp;#39;chris&amp;#39;, &amp;#39;nguyen&amp;#39;, &amp;#39;jack&amp;#39;] Create A Value To Append To The List # Create a string list variable containing a name to_append = [&amp;#39;sarah&amp;#39;] Append Value To List # Create a new list with all the original names plus the appended name names += to_append View New List # View the new list names [&#39;chris&#39;, &#39;nguyen&#39;, &#39;jack&#39;, &#39;sarah&#39;]  </description>
+    </item>
     
     <item>
       <title>Create A Class</title>
@@ -18,6 +56,16 @@
       
       <guid>https://chrisalbon.com/python/object_oriented/create_a_class/</guid>
       <description> Create Simple Class class Soldier: pass Create Instance Of Class jason = Soldier()</description>
+    </item>
+    
+    <item>
+      <title>Create A Class Variable</title>
+      <link>https://chrisalbon.com/python/object_oriented/create_a_class_variable/</link>
+      <pubDate>Sun, 16 Dec 2018 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/python/object_oriented/create_a_class_variable/</guid>
+      <description>Class variables are shared by all instances of that class. For example, if a class variable is a list, all instances of that class can modify that single list.
+Create Class Containing Class Variable # Create a class called persons class person: # Create list variable that is shared amongst all classes # i.e. a class variable all_persons = [] # Create an init method requiring a name argument def __init__(self, name): # Set the name variable self.</description>
     </item>
     
     <item>
@@ -36,6 +84,27 @@
       
       <guid>https://chrisalbon.com/python/object_oriented/create_methods/</guid>
       <description>Create Simple Class # Create a class called Soldier class Soldier: &amp;#34;&amp;#34;&amp;#34;Creates a class representing a soldier.&amp;#34;&amp;#34;&amp;#34; # Whenever an object is created from this class, # assign the name and initial rank. def __init__(self, name, rank): self.name = name self.rank = 1 # Promote soldier to a higher rank def promote(self): # Set rank to current rank plus one self.rank = self.rank + 1 Create Soldier Named Jason # Create an instance of Soldier class called &amp;#39;jason&amp;#39; jason = Soldier(&amp;#39;Jason Miller&amp;#39;, 1) View Jason&amp;rsquo;s Attributes # Display a dictionary of attributes jason.</description>
+    </item>
+    
+    <item>
+      <title>Customize Built-in Data Types</title>
+      <link>https://chrisalbon.com/python/object_oriented/create_custom_version_of_builtin_data_type/</link>
+      <pubDate>Sun, 16 Dec 2018 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/python/object_oriented/create_custom_version_of_builtin_data_type/</guid>
+      <description>This is a toy example of how we can extending a built-in data type (i.e. a class) in Python to add additional functionality.
+Create New Class From list # Create a class that inherits from the built-in list class class CapitalizedList(list): # Create a method called capitalize def capitalize(self): # Create a list capitalized_list = [] # For each element in the instance for element in self: # Uppercase the string and append to the capitalized list capitalized_list.</description>
+    </item>
+    
+    <item>
+      <title>Function Example</title>
+      <link>https://chrisalbon.com/python/basics/function_example/</link>
+      <pubDate>Sun, 16 Dec 2018 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/python/basics/function_example/</guid>
+      <description>There are many features to use with functions in Python from docstrings to type annotation to naming conventions. This is my version of a best practice function in Python.
+This function uses numpydoc docstring format and typing hinting.
+Create Function # Define a function called word_count that takes in a argument  # called document is a string and outputs an integer. def word_count(document: str) -&amp;gt; int: &amp;#34;&amp;#34;&amp;#34;Counts the number of words in a string.</description>
     </item>
     
     <item>
@@ -618,7 +687,7 @@ Exiting If Loop Completed A loop will exit when completed, but using an else sta
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/basics/flatten_list_of_lists/</guid>
-      <description># Create a list containing three lists of names list_of_lists = [[&amp;#39;Amy&amp;#39;,&amp;#39;Betty&amp;#39;,&amp;#39;Cathryn&amp;#39;,&amp;#39;Dana&amp;#39;], [&amp;#39;Elizabeth&amp;#39;,&amp;#39;Fay&amp;#39;,&amp;#39;Gora&amp;#39;], [&amp;#39;Heidi&amp;#39;,&amp;#39;Jane&amp;#39;,&amp;#39;Kayley&amp;#39;]]# For each element in list_of_lists, take each element in the list flattened_list = [i for row in list_of_lists for i in row]# View the flattened list flattened_list [&#39;Amy&#39;, &#39;Betty&#39;, &#39;Cathryn&#39;, &#39;Dana&#39;, &#39;Elizabeth&#39;, &#39;Fay&#39;, &#39;Gora&#39;, &#39;Heidi&#39;, &#39;Jane&#39;, &#39;Kayley&#39;]  </description>
+      <description> Create A List Of Lists # Create a list containing three lists of names list_of_lists = [[&amp;#39;Amy&amp;#39;,&amp;#39;Betty&amp;#39;,&amp;#39;Cathryn&amp;#39;,&amp;#39;Dana&amp;#39;], [&amp;#39;Elizabeth&amp;#39;,&amp;#39;Fay&amp;#39;,&amp;#39;Gora&amp;#39;], [&amp;#39;Heidi&amp;#39;,&amp;#39;Jane&amp;#39;,&amp;#39;Kayley&amp;#39;]] Flatten The Lists Of Lists Into A Single List # For each element in list_of_lists, take each element in the list flattened_list = [i for row in list_of_lists for i in row] View Flat List # View the flattened list flattened_list [&#39;Amy&#39;, &#39;Betty&#39;, &#39;Cathryn&#39;, &#39;Dana&#39;, &#39;Elizabeth&#39;, &#39;Fay&#39;, &#39;Gora&#39;, &#39;Heidi&#39;, &#39;Jane&#39;, &#39;Kayley&#39;]  </description>
     </item>
     
     <item>
@@ -1647,6 +1716,15 @@ __str__ is the output for the end user. It prints what the user wants to see.</d
       
       <guid>https://chrisalbon.com/python/basics/while_statements/</guid>
       <description>Import the random module import random Create a variable of the true number of deaths of an event deaths = 6 Create a variable that is denotes if the while loop should keep running running = True while running is True while running: # Create a variable that randomly create a integer between 0 and 10. guess = random.randint(0,10) # if guess equals deaths, if guess == deaths: # then print this print(&amp;#39;Correct!</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://chrisalbon.com/python/basics/untitled/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://chrisalbon.com/python/basics/untitled/</guid>
+      <description># Load library import pandas as pd # Create URL url = &amp;#39;https://raw.githubusercontent.com/chrisalbon/sim_data/master/titanic.csv&amp;#39; # Load data as a dataframe dataframe = pd.read_csv(url) # Show first 5 rows dataframe.head(5)  .dataframe tbody tr th:only-of-type { vertical-align: middle; } .dataframe tbody tr th { vertical-align: top; } .dataframe thead th { text-align: right; }    Name PClass Age Sex Survived SexCode     0 Allen, Miss Elisabeth Walton 1st 29.</description>
     </item>
     
   </channel>
