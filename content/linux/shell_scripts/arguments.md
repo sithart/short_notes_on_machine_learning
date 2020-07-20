@@ -2,7 +2,7 @@
 title: "Arguments"
 author: "Chris Albon"
 date: 2018-07-16T00:00:00-07:00
-description: "Strings in Linux shell scripts"
+description: "Arguments in Linux shell scripts"
 type: technical_note
 draft: false
 ---

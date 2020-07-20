@@ -51,6 +51,16 @@ Write The Shell Script #!/bin/sh  echo &amp;#39;This is the first argument:&amp;
     </item>
     
     <item>
+      <title>Conditionals</title>
+      <link>https://chrisalbon.com/linux/shell_scripts/conditionals/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/linux/shell_scripts/conditionals/</guid>
+      <description>Shell scripts can accept positional arguments. They also have some useful built-in arguments.
+Write The Shell Script #!/bin/sh  echo &amp;#39;This is the first argument:&amp;#39; echo $1 echo &amp;#39;This is the second argument:&amp;#39; echo $2 echo &amp;#39;This is the third argument:&amp;#39; echo $3 echo &amp;#39;-----------&amp;#39; echo &amp;#39;This is the number of arguments:&amp;#39; echo $# echo &amp;#39;-----------&amp;#39; echo &amp;#39;This is all the arguments&amp;#39;: echo $@ echo &amp;#39;-----------&amp;#39; echo &amp;#39;This is the process ID&amp;#39;: echo $$ echo &amp;#39;-----------&amp;#39; echo &amp;#39;This is the script filename&amp;#39;: echo $0 echo &amp;#39;-----------&amp;#39; echo &amp;#39;This is the exit code&amp;#39;: echo $?</description>
+    </item>
+    
+    <item>
       <title>Copy Files And Directories</title>
       <link>https://chrisalbon.com/linux/basics/copy_files_and_directories/</link>
       <pubDate>Mon, 16 Jul 2018 00:00:00 -0700</pubDate>
