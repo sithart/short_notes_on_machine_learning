@@ -17,6 +17,9 @@
                 <p>
                     <a href="about/chris_albon/">I am the Director of Machine Learning</a> at the <a href="https://wikimediafoundation.org/">Wikimedia Foundation</a>. I have spent over a decade applying statistical learning, artificial intelligence, and software engineering to political, social, and humanitarian
                     efforts.</p>
+                <!--
+                <p>I write a <a href="https://chrisalbon.substack.com/subscribe">newsletter</a> exploring the practical nuts and bolts of building less harmful machine learning systems. </p>
+                -->
                 <p>Learning machine learning? Check out my
                     <a href="https://machinelearningflashcards.com">Machine Learning Flashcards</a> or my book,
                     <a href="https://amzn.to/2HwnWty">Machine Learning With Python Cookbook</a>.</p>
@@ -1033,10 +1036,33 @@
                 </div>
             </div>
         </div>
-<!--
-        <div class="row" id="engineering_management">
+
+        <div class="row" id="docker">
             <div class="col-sm-12">
-                <h3 class="category_header">Engineering Management</h3>
+                <h3 class="category_header">Docker</h3>
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <h4 class="card-header">Basics</h4>
+                    <div class="card-body">
+                        <ul>
+                            {{ range (where .Pages "File.Dir" "in" "/docker/basics/").ByTitle }}
+                            <li>
+                                <a href="{{.Permalink}}">{{.Title}}</a>
+                            </li>
+                            {{ end }}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" id="php">
+            <div class="col-sm-12">
+                <h3 class="category_header">PHP</h3>
             </div>
         </div>
     
@@ -1045,7 +1071,36 @@
                 <div class="card">
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/engineering_management/").ByTitle }}
+                            {{ range (where .Pages "File.Dir" "in" "/php/").ByTitle }}
+                            <li>
+                                <a href="{{.Permalink}}">{{.Title}}</a>
+                            </li>
+                            {{ end }}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!--
+        <div class="row" id="less-harmful-ai">
+            <div class="col-sm-12">
+                <h3 class="category_header">Less Harmful AI</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 blurb">
+                <p class='mb-0'>This is a series of posts exploring the practical side of building less harmful machine learning systems. For the latest posts in this series, subscribe to the <a href="https://chrisalbon.substack.com/subscribe">Less Harmful AI newsletter</a>.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="article_list card-body">
+                        <ul>
+                            {{ range (where .Pages "File.Dir" "in" "/less-harmful-ai/").ByTitle }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>

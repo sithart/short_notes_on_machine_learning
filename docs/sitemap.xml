@@ -3,6 +3,131 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://chrisalbon.com/docker/basics/automatically_generate_human_readable_container_names/</loc>
+    <lastmod>2020-07-22T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/docker/basics/automatically_restart_containers/</loc>
+    <lastmod>2020-07-22T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/docker/basics/connect_containers_filesystem_to_computers_filesystem/</loc>
+    <lastmod>2020-07-22T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/docker/basics/create_a_container/</loc>
+    <lastmod>2020-07-22T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/docker/basics/create_an_image/</loc>
+    <lastmod>2020-07-22T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/docker/basics/create_read-only_container_filesystems/</loc>
+    <lastmod>2020-07-22T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/docker/basics/exporting_all_files_folders_out_of_a_container/</loc>
+    <lastmod>2020-07-22T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/docker/basics/get_bash_shell_in_a_container/</loc>
+    <lastmod>2020-07-22T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/docker/basics/list_containers/</loc>
+    <lastmod>2020-07-22T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/docker/basics/pull_an_image_from_a_repository/</loc>
+    <lastmod>2020-07-22T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/docker/basics/remove_an_image/</loc>
+    <lastmod>2020-07-22T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/docker/basics/rename_a_container/</loc>
+    <lastmod>2020-07-22T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/docker/basics/restart_a_container/</loc>
+    <lastmod>2020-07-22T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/docker/basics/run_a_detached_container/</loc>
+    <lastmod>2020-07-22T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/docker/basics/saving_an_image_as_a_file/</loc>
+    <lastmod>2020-07-22T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/docker/basics/set_container_to_run_a_bash_command_on_start/</loc>
+    <lastmod>2020-07-22T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/php/simple_example/</loc>
+    <lastmod>2020-07-22T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/docker/basics/start_a_container/</loc>
+    <lastmod>2020-07-22T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/docker/basics/stop_a_container/</loc>
+    <lastmod>2020-07-22T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/docker/basics/use_environment_variables/</loc>
+    <lastmod>2020-07-22T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/docker/basics/view_all_changes_to_a_container/</loc>
+    <lastmod>2020-07-22T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/docker/basics/view_container_logs/</loc>
+    <lastmod>2020-07-22T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/docker/basics/view_image_size/</loc>
+    <lastmod>2020-07-22T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/docker/basics/watch_container_logs_live/</loc>
+    <lastmod>2020-07-22T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/docker/basics/work_in_a_container/</loc>
+    <lastmod>2020-07-22T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chrisalbon.com/linux/basics/close_a_program/</loc>
     <lastmod>2020-07-17T00:00:00-07:00</lastmod>
   </url>
@@ -3291,7 +3416,7 @@
   
   <url>
     <loc>https://chrisalbon.com/</loc>
-    <lastmod>2020-07-17T00:00:00-07:00</lastmod>
+    <lastmod>2020-07-22T00:00:00-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -3310,6 +3435,12 @@
   <url>
     <loc>https://chrisalbon.com/deep_learning/index.xml</loc>
     <lastmod>2020-02-01T00:00:00-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/docker/index.xml</loc>
+    <lastmod>2020-07-22T00:00:00-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -3340,6 +3471,12 @@
   <url>
     <loc>https://chrisalbon.com/mathematics/index.xml</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/php/index.xml</loc>
+    <lastmod>2020-07-22T00:00:00-07:00</lastmod>
     <priority>0</priority>
   </url>
   
