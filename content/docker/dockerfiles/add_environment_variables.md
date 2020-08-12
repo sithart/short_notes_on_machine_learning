@@ -8,7 +8,7 @@ draft: False
 
 ## Create Dockerfile
 
-{{< highlight bash >}}
+{{< highlight docker >}}
 # Build from the Python 3.8 slim image
 FROM ubuntu:latest
 
