@@ -6,7 +6,12 @@ type: technical_note
 draft: true
 ---
 
-## TKTKTKT
+## Create Dockerfile
+{{< highlight bash >}}
+TKTKT
+{{< /highlight >}}
+
+## Build Dockerfile
 {{< highlight bash >}}
 TKTKT
 {{< /highlight >}}

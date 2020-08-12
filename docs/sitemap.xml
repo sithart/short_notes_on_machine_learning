@@ -3,6 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://chrisalbon.com/docker/dockerfiles/add_comments/</loc>
+    <lastmod>2020-07-22T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/docker/dockerfiles/add_environment_variables/</loc>
+    <lastmod>2020-07-22T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/docker/dockerfiles/add_metadata/</loc>
+    <lastmod>2020-07-22T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chrisalbon.com/docker/basics/automatically_generate_human_readable_container_names/</loc>
     <lastmod>2020-07-22T00:00:00-07:00</lastmod>
   </url>
@@ -39,6 +54,11 @@
   
   <url>
     <loc>https://chrisalbon.com/docker/basics/get_bash_shell_in_a_container/</loc>
+    <lastmod>2020-07-22T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/docker/dockerfiles/ignore_files_while_building/</loc>
     <lastmod>2020-07-22T00:00:00-07:00</lastmod>
   </url>
   

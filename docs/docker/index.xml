@@ -12,6 +12,37 @@
     
     
     <item>
+      <title>Add Comments</title>
+      <link>https://chrisalbon.com/docker/dockerfiles/add_comments/</link>
+      <pubDate>Wed, 22 Jul 2020 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/docker/dockerfiles/add_comments/</guid>
+      <description> Create Dockerfile Comment Dockerfiles by starting a line with #.
+# Build from the Python 3.8 slim image FROM python:3.8-slim # Update packages RUN apt-get update Build Dockerfile Build the Dockerfile (docker build) in the current directory (.) and call the image chrisalbon/python:updated (--tag chrisalbon/python:updated).
+docker build --tag chrisalbon/python:updated . Sending build context to Docker daemon 4.096kB Step 1/2 : FROM python:3.8-slim ---&amp;gt; 07ea617545cd Step 2/2 : RUN apt-get update ---&amp;gt; Using cache ---&amp;gt; bfa108e3dff9 Successfully built bfa108e3dff9 Successfully tagged python:updated  </description>
+    </item>
+    
+    <item>
+      <title>Add Environment Variables</title>
+      <link>https://chrisalbon.com/docker/dockerfiles/add_environment_variables/</link>
+      <pubDate>Wed, 22 Jul 2020 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/docker/dockerfiles/add_environment_variables/</guid>
+      <description>Create Dockerfile # Build from the Python 3.8 slim image FROM ubuntu:latest # Create a environment variable called db_name ENV db_name=&amp;#34;staff_database&amp;#34; # Create a environment variable called db_password ENV db_password &amp;#34;legendofkorra&amp;#34; Build Dockerfile Build the Dockerfile (docker build) in the current directory (.) and call the image chrisalbon/big-project:v4 (--tag chrisalbon/big-project:v4).
+docker build --tag chrisalbon/big-project:v4 . Sending build context to Docker daemon 2.048kB Step 1/3 : FROM ubuntu:latest ---&amp;gt; 1e4467b07108 Step 2/3 : ENV db_name=&amp;quot;staff_database&amp;quot; ---&amp;gt; Running in 6dfe7174912d Removing intermediate container 6dfe7174912d ---&amp;gt; 7ae6665fd84c Step 3/3 : ENV db_password &amp;quot;legendofkorra&amp;quot; ---&amp;gt; Running in f37d4ad7408b Removing intermediate container f37d4ad7408b ---&amp;gt; f4ac811b0c45 Successfully built f4ac811b0c45 Successfully tagged chrisalbon/big-project:v4  Run Docker Container Create and start (docker container run) an interactive (-it) container named project_v4 (--name project_v4) from the image called chrisalbon/big-project:v4 and then run /bin/bash.</description>
+    </item>
+    
+    <item>
+      <title>Add Metadata</title>
+      <link>https://chrisalbon.com/docker/dockerfiles/add_metadata/</link>
+      <pubDate>Wed, 22 Jul 2020 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/docker/dockerfiles/add_metadata/</guid>
+      <description>Create Dockerfile # Build from the Python 3.8 slim image FROM python:3.8-slim # Maintainer label LABEL maintainer=&amp;#34;coder@chrisalbon.com&amp;#34; # Labels from http://label-schema.org/rc1/ LABEL org.label-schema.name=&amp;#34;chrisalbon/python-slim-3.8&amp;#34; LABEL org.label-schema.description=&amp;#34;A test container for ChrisAlbon.com&amp;#34; LABEL org.label-schema.url=&amp;#34;https://chrisalbon.com/&amp;#34; # Update packages RUN apt-get update Build Dockerfile Build the Dockerfile (docker build) in the current directory (.) and call the image chrisalbon/python-slim-3.8 (--tag chrisalbon/python-slim-3.8).
+docker build --tag chrisalbon/python:updated . Sending build context to Docker daemon 2.048kB Step 1/6 : FROM python:3.</description>
+    </item>
+    
+    <item>
       <title>Automatically Generate Human-Readable Container Names</title>
       <link>https://chrisalbon.com/docker/basics/automatically_generate_human_readable_container_names/</link>
       <pubDate>Wed, 22 Jul 2020 00:00:00 -0700</pubDate>
@@ -94,6 +125,15 @@ docker container export --output special-project.tar special-project A tar file 
       <description>Run Detached Container Create and start a Docker container (docker run) that is detached (-detacted), named www (--name www), and uses the Docker image ngix:latest.
 docker run --detach --name www nginx:latest f104467b9c7fea62ef6a1b369f90da246eb170dd5c90f6d1d9feede9c2dc7ea1  SSH Into Container Execute (docker exec) /bin/bash on the interactive (-it) container called www.
 sudo docker exec -it www /bin/bash root@f104467b9c7f:/#  View Container&amp;rsquo;s Filesystem View all files and folders (ls) that displays using long format and shows hidden files (-al)</description>
+    </item>
+    
+    <item>
+      <title>Ignore Files While Building</title>
+      <link>https://chrisalbon.com/docker/dockerfiles/ignore_files_while_building/</link>
+      <pubDate>Wed, 22 Jul 2020 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/docker/dockerfiles/ignore_files_while_building/</guid>
+      <description>Create File Called .dockerignore touch .dockerignore Add File Contents # Ignore any file called .git .git # Ignore any file with a .ipynb extension *.ipynb # Except don&amp;#39;t ignore important_analysis.ipynb !important_analysis.ipynb # Ignore every file and folder in secret_project/ directory secret_project/ Any Docker build in the directory with the .dockerignore file will follow rules declared above.</description>
     </item>
     
     <item>
