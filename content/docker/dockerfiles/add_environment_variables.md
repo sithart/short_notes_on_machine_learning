@@ -9,7 +9,7 @@ draft: False
 ## Create Dockerfile
 
 {{< highlight docker >}}
-# Build from the Python 3.8 slim image
+# Build from ubuntu:latest
 FROM ubuntu:latest
 
 # Create a environment variable called db_name
