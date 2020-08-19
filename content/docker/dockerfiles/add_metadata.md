@@ -24,7 +24,7 @@ LABEL org.label-schema.url="https://chrisalbon.com/"
 RUN apt-get update
 {{< /highlight >}}
 
-## Build Dockerfile
+## Build Image From Dockerfile
 
 Build the Dockerfile (`docker build`) in the current directory (`.`) and call the image chrisalbon/python-slim-3.8 (`--tag chrisalbon/python-slim-3.8`).
 

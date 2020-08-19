@@ -18,7 +18,7 @@ FROM python:3.8-slim
 RUN apt-get update
 {{< /highlight >}}
 
-## Build Dockerfile
+## Build Image From Dockerfile
 
 Build the Dockerfile (`docker build`) in the current directory (`.`) and call the image chrisalbon/python:updated (`--tag chrisalbon/python:updated`).
 

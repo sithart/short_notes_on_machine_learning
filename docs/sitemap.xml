@@ -93,12 +93,27 @@
   </url>
   
   <url>
+    <loc>https://chrisalbon.com/docker/dockerfiles/run_command_when_container_starts/</loc>
+    <lastmod>2020-07-22T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/docker/dockerfiles/run_command_while_building_image/</loc>
+    <lastmod>2020-07-22T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chrisalbon.com/docker/basics/saving_an_image_as_a_file/</loc>
     <lastmod>2020-07-22T00:00:00-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://chrisalbon.com/docker/basics/set_container_to_run_a_bash_command_on_start/</loc>
+    <lastmod>2020-07-22T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/docker/dockerfiles/set_default_working_directory/</loc>
     <lastmod>2020-07-22T00:00:00-07:00</lastmod>
   </url>
   

@@ -18,7 +18,7 @@
       
       <guid>https://chrisalbon.com/docker/dockerfiles/add_comments/</guid>
       <description> Create Dockerfile Comment Dockerfiles by starting a line with #.
-# Build from the Python 3.8 slim image FROM python:3.8-slim # Update packages RUN apt-get update Build Dockerfile Build the Dockerfile (docker build) in the current directory (.) and call the image chrisalbon/python:updated (--tag chrisalbon/python:updated).
+# Build from the Python 3.8 slim image FROM python:3.8-slim # Update packages RUN apt-get update Build Image From Dockerfile Build the Dockerfile (docker build) in the current directory (.) and call the image chrisalbon/python:updated (--tag chrisalbon/python:updated).
 docker build --tag chrisalbon/python:updated . Sending build context to Docker daemon 4.096kB Step 1/2 : FROM python:3.8-slim ---&amp;gt; 07ea617545cd Step 2/2 : RUN apt-get update ---&amp;gt; Using cache ---&amp;gt; bfa108e3dff9 Successfully built bfa108e3dff9 Successfully tagged python:updated  </description>
     </item>
     
@@ -28,8 +28,8 @@ docker build --tag chrisalbon/python:updated . Sending build context to Docker d
       <pubDate>Wed, 22 Jul 2020 00:00:00 -0700</pubDate>
       
       <guid>https://chrisalbon.com/docker/dockerfiles/add_environment_variables/</guid>
-      <description>Create Dockerfile # Build from ubuntu:latestFROMubuntu:latest# Create a environment variable called db_nameENVdb_name=&amp;#34;staff_database&amp;#34;# Create a environment variable called db_passwordENVdb_password &amp;#34;legendofkorra&amp;#34; Build Dockerfile Build the Dockerfile (docker build) in the current directory (.) and call the image chrisalbon/big-project:v4 (--tag chrisalbon/big-project:v4).
-docker build --tag chrisalbon/big-project:v4 . Sending build context to Docker daemon 2.048kB Step 1/3 : FROM ubuntu:latest ---&amp;gt; 1e4467b07108 Step 2/3 : ENV db_name=&amp;quot;staff_database&amp;quot; ---&amp;gt; Running in 6dfe7174912d Removing intermediate container 6dfe7174912d ---&amp;gt; 7ae6665fd84c Step 3/3 : ENV db_password &amp;quot;legendofkorra&amp;quot; ---&amp;gt; Running in f37d4ad7408b Removing intermediate container f37d4ad7408b ---&amp;gt; f4ac811b0c45 Successfully built f4ac811b0c45 Successfully tagged chrisalbon/big-project:v4  Run Docker Container Create and start (docker container run) an interactive (-it) container named project_v4 (--name project_v4) from the image called chrisalbon/big-project:v4 and then run /bin/bash.</description>
+      <description>Create Dockerfile # Build from ubuntu:latestFROMubuntu:latest# Create a environment variable called db_nameENVdb_name=&amp;#34;staff_database&amp;#34;# Create a environment variable called db_passwordENVdb_password &amp;#34;legendofkorra&amp;#34; Build Image From Dockerfile Build the Dockerfile (docker build) in the current directory (.) and call the image chrisalbon/big-project:v4 (--tag chrisalbon/big-project:v4).
+docker build --tag chrisalbon/big-project:v4 . Sending build context to Docker daemon 2.048kB Step 1/3 : FROM ubuntu:latest ---&amp;gt; 1e4467b07108 Step 2/3 : ENV db_name=&amp;quot;staff_database&amp;quot; ---&amp;gt; Running in 6dfe7174912d Removing intermediate container 6dfe7174912d ---&amp;gt; 7ae6665fd84c Step 3/3 : ENV db_password &amp;quot;legendofkorra&amp;quot; ---&amp;gt; Running in f37d4ad7408b Removing intermediate container f37d4ad7408b ---&amp;gt; f4ac811b0c45 Successfully built f4ac811b0c45 Successfully tagged chrisalbon/big-project:v4  Run Docker Container From Image Create and start (docker container run) an interactive (-it) container named project_v4 (--name project_v4) from the image called chrisalbon/big-project:v4 and then run /bin/bash.</description>
     </item>
     
     <item>
@@ -38,8 +38,8 @@ docker build --tag chrisalbon/big-project:v4 . Sending build context to Docker d
       <pubDate>Wed, 22 Jul 2020 00:00:00 -0700</pubDate>
       
       <guid>https://chrisalbon.com/docker/dockerfiles/add_metadata/</guid>
-      <description>Create Dockerfile # Build from the Python 3.8 slim image FROM python:3.8-slim # Maintainer label LABEL maintainer=&amp;#34;coder@chrisalbon.com&amp;#34; # Labels from http://label-schema.org/rc1/ LABEL org.label-schema.name=&amp;#34;chrisalbon/python-slim-3.8&amp;#34; LABEL org.label-schema.description=&amp;#34;A test container for ChrisAlbon.com&amp;#34; LABEL org.label-schema.url=&amp;#34;https://chrisalbon.com/&amp;#34; # Update packages RUN apt-get update Build Dockerfile Build the Dockerfile (docker build) in the current directory (.) and call the image chrisalbon/python-slim-3.8 (--tag chrisalbon/python-slim-3.8).
-docker build --tag chrisalbon/python:updated . Sending build context to Docker daemon 2.048kB Step 1/6 : FROM python:3.</description>
+      <description>Create Dockerfile # Build from the Python 3.8 slim image FROM python:3.8-slim # Maintainer label LABEL maintainer=&amp;#34;coder@chrisalbon.com&amp;#34; # Labels from http://label-schema.org/rc1/ LABEL org.label-schema.name=&amp;#34;chrisalbon/python-slim-3.8&amp;#34; LABEL org.label-schema.description=&amp;#34;A test container for ChrisAlbon.com&amp;#34; LABEL org.label-schema.url=&amp;#34;https://chrisalbon.com/&amp;#34; # Update packages RUN apt-get update Build Image From Dockerfile Build the Dockerfile (docker build) in the current directory (.) and call the image chrisalbon/python-slim-3.8 (--tag chrisalbon/python-slim-3.8).
+docker build --tag chrisalbon/python:updated . Sending build context to Docker daemon 2.</description>
     </item>
     
     <item>
@@ -200,6 +200,28 @@ docker run --detach --name special-project python:3.8-slim e9f9ace9b2c4b8d5fc06a
     </item>
     
     <item>
+      <title>Run Command When Container Starts</title>
+      <link>https://chrisalbon.com/docker/dockerfiles/run_command_when_container_starts/</link>
+      <pubDate>Wed, 22 Jul 2020 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/docker/dockerfiles/run_command_when_container_starts/</guid>
+      <description>Create Dockerfile You can use ENTRYPOINT and CMD to run a command when a container starts. ENTRYPOINT defines the program to run while CMD defines the argument to pass. Note that if ENTRYPOINT is not defined, CMD will send commands to /bin/sh -c
+# Build from base image FROM ubuntu:latest # Maintainer label LABEL maintainer=&amp;#34;coder@chrisalbon.com&amp;#34; # Ping Google.com five times ENTRYPOINT [&amp;#34;/bin/echo&amp;#34;] CMD [&amp;#34;Hello&amp;#34;, &amp;#34;World&amp;#34;] Build Image From Dockerfile Build the Dockerfile (docker build) in the current directory (.</description>
+    </item>
+    
+    <item>
+      <title>Run Command While Building Image</title>
+      <link>https://chrisalbon.com/docker/dockerfiles/run_command_while_building_image/</link>
+      <pubDate>Wed, 22 Jul 2020 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/docker/dockerfiles/run_command_while_building_image/</guid>
+      <description>Create Dockerfile RUN executes a command while building an image from a Dockerfile.
+CMD executes a command while building a container from an image.
+# Build from base image FROM ubuntu:latest # Maintainer label LABEL maintainer=&amp;#34;coder@chrisalbon.com&amp;#34; # Install git RUN apt-get update &amp;amp;&amp;amp; apt-get install -y git Build Image From Dockerfile Build the Dockerfile (docker build) in the current directory (.) and call the image chrisalbon/ubuntu:with-git (--tag chrisalbon/ubuntu:with-git).
+docker build --tag chrisalbon/ubuntu:with-git .</description>
+    </item>
+    
+    <item>
       <title>Saving An Image As A File</title>
       <link>https://chrisalbon.com/docker/basics/saving_an_image_as_a_file/</link>
       <pubDate>Wed, 22 Jul 2020 00:00:00 -0700</pubDate>
@@ -218,6 +240,17 @@ docker save -o python-3.8.tar python:3.8-slim Check File Exists View all files a
       <guid>https://chrisalbon.com/docker/basics/set_container_to_run_a_bash_command_on_start/</guid>
       <description>Create Docker Container With Entrypoint And Default Command Create a Docker container (docker container create) called application (--name application) built of the ubuntu:latest image. Upon starting the container launches bash (--entrypoint &amp;quot;/bin/bash&amp;quot;) and runs -c &amp;quot;echo &#39;hello world&#39;&amp;quot;.
 docker container create --name application --entrypoint &amp;#34;/bin/bash&amp;#34; ubuntu:latest -c &amp;#34;echo &amp;#39;hello world&amp;#39;&amp;#34; 70a1a028a374e5c61007c01062c8be0f59a4406a89000ea0a59451553628a0bf  Create New Image Create a new image (docker container commit) from the application container called new-application. Add author info (-a &amp;quot;Chris Albon&amp;quot;) and a commit message (-m &amp;quot;Added analysis file&amp;quot;).</description>
+    </item>
+    
+    <item>
+      <title>Set Default Working Directory</title>
+      <link>https://chrisalbon.com/docker/dockerfiles/set_default_working_directory/</link>
+      <pubDate>Wed, 22 Jul 2020 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/docker/dockerfiles/set_default_working_directory/</guid>
+      <description>Create Dockerfile WORKDIR sets the default working directory of an image. If the directory does not already exist it will be created.
+# Build from base image FROM ubuntu:latest # Set Default Working Directory WORKDIR &amp;#34;/projects/super-secret-project&amp;#34; Build Image From Dockerfile Build the Dockerfile (docker build) in the current directory (.) and call the image chrisalbon/ubuntu:with-git (--tag chrisalbon/big-project:super-secret).
+docker build --tag chrisalbon/big-project:super-secret . Sending build context to Docker daemon 2.048kB Step 1/2 : FROM ubuntu:latest ---&amp;gt; 1e4467b07108 Step 2/2 : WORKDIR &amp;quot;/projects/super-secret-project&amp;quot; ---&amp;gt; Running in a8351b81583a Removing intermediate container a8351b81583a ---&amp;gt; 06d74fe681a4 Successfully built 06d74fe681a4 Successfully tagged chrisalbon/big-project:super-secret  Run Docker Container From Image Start and create (docker run) an interative (-it) Docker container called super-secret-project (--name super-secret-project) from the image called chrisalbon/big-project:super-secret.</description>
     </item>
     
     <item>

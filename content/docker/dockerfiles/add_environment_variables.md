@@ -19,7 +19,7 @@ ENV db_name="staff_database"
 ENV db_password "legendofkorra"
 {{< /highlight >}}
 
-## Build Dockerfile
+## Build Image From Dockerfile
 
 Build the Dockerfile (`docker build`) in the current directory (`.`) and call the image chrisalbon/big-project:v4 (`--tag chrisalbon/big-project:v4`).
 
@@ -42,7 +42,7 @@ Successfully built f4ac811b0c45
 Successfully tagged chrisalbon/big-project:v4
 ```
 
-## Run Docker Container
+## Run Docker Container From Image
 
 Create and start (`docker container run`) an interactive (`-it`) container named project_v4 (`--name project_v4`) from the image called `chrisalbon/big-project:v4` and then run `/bin/bash`.
 
