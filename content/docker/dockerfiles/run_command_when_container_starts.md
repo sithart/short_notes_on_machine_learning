@@ -24,7 +24,7 @@ CMD ["Hello", "World"]
 
 ## Build Image From Dockerfile
 
-Build the Dockerfile (`docker build`) in the current directory (`.`) and call the image chrisalbon/ubuntu:with-git (`--tag chrisalbon/ubuntu:hello-world`).
+Build the Dockerfile (`docker build`) in the current directory (`.`) and call the image chrisalbon/ubuntu:hello-world (`--tag chrisalbon/ubuntu:hello-world`).
 
 {{< highlight bash >}}
 docker build --tag chrisalbon/ubuntu:hello-world .

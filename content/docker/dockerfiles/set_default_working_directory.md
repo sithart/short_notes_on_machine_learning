@@ -20,7 +20,7 @@ WORKDIR "/projects/super-secret-project"
 
 ## Build Image From Dockerfile
 
-Build the Dockerfile (`docker build`) in the current directory (`.`) and call the image chrisalbon/ubuntu:with-git (`--tag chrisalbon/big-project:super-secret`).
+Build the Dockerfile (`docker build`) in the current directory (`.`) and call the image chrisalbon/ubuntu:super-secret (`--tag chrisalbon/big-project:super-secret`).
 
 {{< highlight bash >}}
 docker build --tag chrisalbon/big-project:super-secret .

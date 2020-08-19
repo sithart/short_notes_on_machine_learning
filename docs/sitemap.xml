@@ -13,6 +13,11 @@
   </url>
   
   <url>
+    <loc>https://chrisalbon.com/docker/dockerfiles/add_files_and_folders_to_images/</loc>
+    <lastmod>2020-07-22T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chrisalbon.com/docker/dockerfiles/add_metadata/</loc>
     <lastmod>2020-07-22T00:00:00-07:00</lastmod>
   </url>
@@ -59,6 +64,11 @@
   
   <url>
     <loc>https://chrisalbon.com/docker/dockerfiles/ignore_files_while_building/</loc>
+    <lastmod>2020-07-22T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/docker/basics/inspect_an_image/</loc>
     <lastmod>2020-07-22T00:00:00-07:00</lastmod>
   </url>
   

@@ -33,6 +33,16 @@ docker build --tag chrisalbon/big-project:v4 . Sending build context to Docker d
     </item>
     
     <item>
+      <title>Add Files And Folders To Images</title>
+      <link>https://chrisalbon.com/docker/dockerfiles/add_files_and_folders_to_images/</link>
+      <pubDate>Wed, 22 Jul 2020 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/docker/dockerfiles/add_files_and_folders_to_images/</guid>
+      <description>Make Files And Folders mkdir projects touch projects/master_plan.txt touch projects/backup_plan.txt touch config.txt Create Dockerfile With COPY the final argument is the destination directory in the image, all other arguments are the source files and folders in the host filesystem.
+# Build from base image FROM ubuntu:latest # Add Files And Folders To Image COPY [&amp;#34;projects&amp;#34;, &amp;#34;config.txt&amp;#34;, &amp;#34;./special-projects/&amp;#34;] Build Image From Dockerfile Build the Dockerfile (docker build) in the current directory (.</description>
+    </item>
+    
+    <item>
       <title>Add Metadata</title>
       <link>https://chrisalbon.com/docker/dockerfiles/add_metadata/</link>
       <pubDate>Wed, 22 Jul 2020 00:00:00 -0700</pubDate>
@@ -134,6 +144,16 @@ sudo docker exec -it www /bin/bash root@f104467b9c7f:/#  View Container&amp;rsqu
       
       <guid>https://chrisalbon.com/docker/dockerfiles/ignore_files_while_building/</guid>
       <description>Create File Called .dockerignore touch .dockerignore Add File Contents # Ignore any file called .git .git # Ignore any file with a .ipynb extension *.ipynb # Except don&amp;#39;t ignore important_analysis.ipynb !important_analysis.ipynb # Ignore every file and folder in secret_project/ directory secret_project/ Any Docker build in the directory with the .dockerignore file will follow rules declared above.</description>
+    </item>
+    
+    <item>
+      <title>Inspect An Image</title>
+      <link>https://chrisalbon.com/docker/basics/inspect_an_image/</link>
+      <pubDate>Wed, 22 Jul 2020 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/docker/basics/inspect_an_image/</guid>
+      <description>Inspect Image Inspect (docker inspect) the image called python:3.8-slim.
+docker inspect python:3.8-slim [ { &amp;quot;Id&amp;quot;: &amp;quot;sha256:07ea617545cdb52d1b3e5c5002e83cd4a5f1207175111cc6d1722272099cb459&amp;quot;, &amp;quot;RepoTags&amp;quot;: [ &amp;quot;python:3.8-slim&amp;quot; ], &amp;quot;RepoDigests&amp;quot;: [ &amp;quot;python@sha256:f7edd1bb431a224e7f4f3e23cbb22738e82f4895a6d28f86294ce006177360c3&amp;quot; ], &amp;quot;Parent&amp;quot;: &amp;quot;&amp;quot;, &amp;quot;Comment&amp;quot;: &amp;quot;&amp;quot;, &amp;quot;Created&amp;quot;: &amp;quot;2020-08-05T08:23:20.747039147Z&amp;quot;, &amp;quot;Container&amp;quot;: &amp;quot;9dd453d5c0d64d80ecca0bd83665e08bf91c0ac293e57e55d6fc7bb123d14392&amp;quot;, &amp;quot;ContainerConfig&amp;quot;: { &amp;quot;Hostname&amp;quot;: &amp;quot;9dd453d5c0d6&amp;quot;, &amp;quot;Domainname&amp;quot;: &amp;quot;&amp;quot;, &amp;quot;User&amp;quot;: &amp;quot;&amp;quot;, &amp;quot;AttachStdin&amp;quot;: false, &amp;quot;AttachStdout&amp;quot;: false, &amp;quot;AttachStderr&amp;quot;: false, &amp;quot;Tty&amp;quot;: false, &amp;quot;OpenStdin&amp;quot;: false, &amp;quot;StdinOnce&amp;quot;: false, &amp;quot;Env&amp;quot;: [ &amp;quot;PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin&amp;quot;, &amp;quot;LANG=C.UTF-8&amp;quot;, &amp;quot;GPG_KEY=E3FF2839C048B25C084DEBE9B26995E310250568&amp;quot;, &amp;quot;PYTHON_VERSION=3.8.5&amp;quot;, &amp;quot;PYTHON_PIP_VERSION=20.2.1&amp;quot;, &amp;quot;PYTHON_GET_PIP_URL=https://github.com/pypa/get-pip/raw/5578af97f8b2b466f4cdbebe18a3ba2d48ad1434/get-pip.py&amp;quot;, &amp;quot;PYTHON_GET_PIP_SHA256=d4d62a0850fe0c2e6325b2cc20d818c580563de5a2038f917e3cb0e25280b4d1&amp;quot; ], &amp;quot;Cmd&amp;quot;: [ &amp;quot;/bin/sh&amp;quot;, &amp;quot;-c&amp;quot;, &amp;quot;#(nop) &amp;quot;, &amp;quot;CMD [\&amp;quot;python3\&amp;quot;]&amp;quot; ], &amp;quot;ArgsEscaped&amp;quot;: true, &amp;quot;Image&amp;quot;: &amp;quot;sha256:1da6a87e8405ca89ea5233d60082ef0819f8e9754f6223dd8ff6d6a11df16765&amp;quot;, &amp;quot;Volumes&amp;quot;: null, &amp;quot;WorkingDir&amp;quot;: &amp;quot;&amp;quot;, &amp;quot;Entrypoint&amp;quot;: null, &amp;quot;OnBuild&amp;quot;: null, &amp;quot;Labels&amp;quot;: {} }, &amp;quot;DockerVersion&amp;quot;: &amp;quot;18.</description>
     </item>
     
     <item>
@@ -249,7 +269,7 @@ docker container create --name application --entrypoint &amp;#34;/bin/bash&amp;#
       
       <guid>https://chrisalbon.com/docker/dockerfiles/set_default_working_directory/</guid>
       <description>Create Dockerfile WORKDIR sets the default working directory of an image. If the directory does not already exist it will be created.
-# Build from base image FROM ubuntu:latest # Set Default Working Directory WORKDIR &amp;#34;/projects/super-secret-project&amp;#34; Build Image From Dockerfile Build the Dockerfile (docker build) in the current directory (.) and call the image chrisalbon/ubuntu:with-git (--tag chrisalbon/big-project:super-secret).
+# Build from base image FROM ubuntu:latest # Set Default Working Directory WORKDIR &amp;#34;/projects/super-secret-project&amp;#34; Build Image From Dockerfile Build the Dockerfile (docker build) in the current directory (.) and call the image chrisalbon/ubuntu:super-secret (--tag chrisalbon/big-project:super-secret).
 docker build --tag chrisalbon/big-project:super-secret . Sending build context to Docker daemon 2.048kB Step 1/2 : FROM ubuntu:latest ---&amp;gt; 1e4467b07108 Step 2/2 : WORKDIR &amp;quot;/projects/super-secret-project&amp;quot; ---&amp;gt; Running in a8351b81583a Removing intermediate container a8351b81583a ---&amp;gt; 06d74fe681a4 Successfully built 06d74fe681a4 Successfully tagged chrisalbon/big-project:super-secret  Run Docker Container From Image Start and create (docker run) an interative (-it) Docker container called super-secret-project (--name super-secret-project) from the image called chrisalbon/big-project:super-secret.</description>
     </item>
     
