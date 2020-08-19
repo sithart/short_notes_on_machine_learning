@@ -49,7 +49,7 @@
   "@type": "BlogPosting",
   "headline": "Add Files And Folders To Images",
   "url": "https://chrisalbon.com/docker/dockerfiles/add_files_and_folders_to_images/",
-  "wordCount": "157",
+  "wordCount": "278",
   "datePublished": "2020-07-22T00:00:00-07:00",
   "dateModified": "2020-07-22T00:00:00-07:00",
   "author": {
@@ -183,6 +183,7 @@ MathJax.Hub.Config({
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">mkdir projects
 touch projects/master_plan.txt
 touch projects/backup_plan.txt
+mkdir projects/secret-projects
 touch config.txt</code></pre></div>
 
 <h2 id="create-dockerfile">Create Dockerfile</h2>
@@ -201,30 +202,45 @@ touch config.txt</code></pre></div>
 
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">docker build --tag chrisalbon/big-project:copy-example .</code></pre></div>
 
-<pre><code>Sending build context to Docker daemon  4.096kB
+<pre><code>Sending build context to Docker daemon  4.608kB
 Step 1/2 : FROM ubuntu:latest
  ---&gt; 1e4467b07108
 Step 2/2 : COPY [&quot;projects&quot;, &quot;config.txt&quot;, &quot;./special-projects/&quot;]
- ---&gt; f4613c3edb81
-Successfully built f4613c3edb81
+ ---&gt; 487c17de4145
+Successfully built 487c17de4145
 Successfully tagged chrisalbon/big-project:copy-example
 </code></pre>
 
 <h2 id="run-docker-container-from-image">Run Docker Container From Image</h2>
 
-<p>Start and create (<code>docker run</code>) an interative (<code>-it</code>) Docker container called super-secret-project (<code>--name super-secret-project</code>) from the image called <code>chrisalbon/big-project:super-secret</code>. Remove the container after it stops (<code>-rm</code>)</p>
+<p>Start and create (<code>docker run</code>) an interative (<code>-it</code>) Docker container called copy-example (<code>--name copy-example</code>) from the image called <code>chrisalbon/big-project:copy-example</code>. Remove the container after it stops (<code>-rm</code>)</p>
 
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">docker container run -it --name super-secret-project chrisalbon/big-project:super-secret /bin/bash</code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">docker container run -it --name copy-example chrisalbon/big-project:copy-example /bin/bash</code></pre></div>
 
-<pre><code>root@798559f1cf26:/projects/super-secret-project#
+<pre><code>root@607a348aad51:/#
 </code></pre>
 
-<h2 id="print-working-directory">Print Working Directory</h2>
+<h2 id="view-destination-directory">View Destination Directory</h2>
 
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">pwd</code></pre></div>
+<p>View all files and folders (<code>ls</code>) that displays using long format and shows hidden files (<code>-al</code>) in the directory <code>special-projects</code>.</p>
 
-<pre><code>/projects/super-secret-project
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">ls -al /special-projects</code></pre></div>
+
+<pre><code>total 12
+drwxr-xr-x 3 root root 4096 Aug 19 05:14 .
+drwxr-xr-x 1 root root 4096 Aug 19 05:15 ..
+-rw-rw-r-- 1 root root    0 Aug 19 04:42 backup_plan.txt
+-rw-rw-r-- 1 root root    0 Aug 19 04:42 config.txt
+-rw-rw-r-- 1 root root    0 Aug 19 04:41 master_plan.txt
+drwxrwxr-x 2 root root 4096 Aug 19 05:12 secret-projects
 </code></pre>
+
+<p>Notice two things:</p>
+
+<ol>
+<li>Multiple source directories were placed in a single destination directory.</li>
+<li>All files and directories have their ownership set to <code>root</code>. After the <code>COPY</code> line in the Dockerfile, you can use a <code>RUN</code> line to change file ownerships and permissions.</li>
+</ol>
 
 </div>
   <aside>
@@ -249,7 +265,7 @@ Successfully tagged chrisalbon/big-project:copy-example
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 688 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 689 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

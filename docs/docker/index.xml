@@ -12,6 +12,16 @@
     
     
     <item>
+      <title>Add A Volume</title>
+      <link>https://chrisalbon.com/docker/dockerfiles/add_a_volume/</link>
+      <pubDate>Wed, 22 Jul 2020 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/docker/dockerfiles/add_a_volume/</guid>
+      <description>Create Dockerfile VOLUME creates volume that both exists as a directory inside the container&amp;rsquo;s filesystem and is accessible on the host&amp;rsquo;s file system. However, note that the name of the volume in the host file system is a long string of random characters, NOT the same name as the directory in the container&amp;rsquo;s filesystem.
+Volumes are the prefered way to store persistence data from a container and can be used to share data between containers.</description>
+    </item>
+    
+    <item>
       <title>Add Comments</title>
       <link>https://chrisalbon.com/docker/dockerfiles/add_comments/</link>
       <pubDate>Wed, 22 Jul 2020 00:00:00 -0700</pubDate>
@@ -38,7 +48,7 @@ docker build --tag chrisalbon/big-project:v4 . Sending build context to Docker d
       <pubDate>Wed, 22 Jul 2020 00:00:00 -0700</pubDate>
       
       <guid>https://chrisalbon.com/docker/dockerfiles/add_files_and_folders_to_images/</guid>
-      <description>Make Files And Folders mkdir projects touch projects/master_plan.txt touch projects/backup_plan.txt touch config.txt Create Dockerfile With COPY the final argument is the destination directory in the image, all other arguments are the source files and folders in the host filesystem.
+      <description>Make Files And Folders mkdir projects touch projects/master_plan.txt touch projects/backup_plan.txt mkdir projects/secret-projects touch config.txt Create Dockerfile With COPY the final argument is the destination directory in the image, all other arguments are the source files and folders in the host filesystem.
 # Build from base image FROM ubuntu:latest # Add Files And Folders To Image COPY [&amp;#34;projects&amp;#34;, &amp;#34;config.txt&amp;#34;, &amp;#34;./special-projects/&amp;#34;] Build Image From Dockerfile Build the Dockerfile (docker build) in the current directory (.</description>
     </item>
     

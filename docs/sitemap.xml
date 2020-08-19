@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://chrisalbon.com/docker/dockerfiles/add_a_volume/</loc>
+    <lastmod>2020-07-22T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chrisalbon.com/docker/dockerfiles/add_comments/</loc>
     <lastmod>2020-07-22T00:00:00-07:00</lastmod>
   </url>

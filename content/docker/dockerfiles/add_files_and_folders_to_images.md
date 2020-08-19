@@ -12,6 +12,7 @@ draft: False
 mkdir projects
 touch projects/master_plan.txt
 touch projects/backup_plan.txt
+mkdir projects/secret-projects
 touch config.txt
 {{< /highlight >}}
 
@@ -35,45 +36,44 @@ Build the Dockerfile (`docker build`) in the current directory (`.`) and call th
 docker build --tag chrisalbon/big-project:copy-example .
 {{< /highlight >}}
 ```
-Sending build context to Docker daemon  4.096kB
+Sending build context to Docker daemon  4.608kB
 Step 1/2 : FROM ubuntu:latest
  ---> 1e4467b07108
 Step 2/2 : COPY ["projects", "config.txt", "./special-projects/"]
- ---> f4613c3edb81
-Successfully built f4613c3edb81
+ ---> 487c17de4145
+Successfully built 487c17de4145
 Successfully tagged chrisalbon/big-project:copy-example
 ```
 
-
 ## Run Docker Container From Image
 
-Start and create (`docker run`) an interative (`-it`) Docker container called super-secret-project (`--name super-secret-project`) from the image called `chrisalbon/big-project:super-secret`. Remove the container after it stops (`-rm`)
+Start and create (`docker run`) an interative (`-it`) Docker container called copy-example (`--name copy-example`) from the image called `chrisalbon/big-project:copy-example`. Remove the container after it stops (`-rm`)
 
 {{< highlight bash >}}
-docker container run -it --name super-secret-project chrisalbon/big-project:super-secret /bin/bash
+docker container run -it --name copy-example chrisalbon/big-project:copy-example /bin/bash
 {{< /highlight >}}
 ```
-root@798559f1cf26:/projects/super-secret-project#
+root@607a348aad51:/#
 ```
 
-## Print Working Directory
+## View Destination Directory
+
+View all files and folders (`ls`) that displays using long format and shows hidden files (`-al`) in the directory `special-projects`.
 
 {{< highlight bash >}}
-pwd
+ls -al /special-projects
 {{< /highlight >}}
 ```
-/projects/super-secret-project
+total 12
+drwxr-xr-x 3 root root 4096 Aug 19 05:14 .
+drwxr-xr-x 1 root root 4096 Aug 19 05:15 ..
+-rw-rw-r-- 1 root root    0 Aug 19 04:42 backup_plan.txt
+-rw-rw-r-- 1 root root    0 Aug 19 04:42 config.txt
+-rw-rw-r-- 1 root root    0 Aug 19 04:41 master_plan.txt
+drwxrwxr-x 2 root root 4096 Aug 19 05:12 secret-projects
 ```
 
+Notice two things:
 
-
-
-
-
-
-
-
-
-
-
-
+1. Multiple source directories were placed in a single destination directory.
+2. All files and directories have their ownership set to `root`. After the `COPY` line in the Dockerfile, you can use a `RUN` line to change file ownerships and permissions.
