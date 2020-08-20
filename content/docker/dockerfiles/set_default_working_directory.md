@@ -14,7 +14,7 @@ draft: False
 # Build from base image
 FROM ubuntu:latest
 
-# Set Default Working Directory
+# Set default working directory
 WORKDIR "/projects/super-secret-project"
 {{< /highlight >}}
 
@@ -39,7 +39,7 @@ Successfully tagged chrisalbon/big-project:super-secret
 
 ## Run Docker Container From Image
 
-Start and create (`docker run`) an interative (`-it`) Docker container called super-secret-project (`--name super-secret-project`) from the image called `chrisalbon/big-project:super-secret`. Remove the container after it stops (`-rm`)
+Start and create (`docker run`) an interative (`-it`) Docker container called super-secret-project (`--name super-secret-project`) from the image called `chrisalbon/big-project:super-secret`. Open a bash shell (`/bin/bash`). Remove the container after it stops (`-rm`).
 
 {{< highlight bash >}}
 docker container run -it --name super-secret-project chrisalbon/big-project:super-secret /bin/bash

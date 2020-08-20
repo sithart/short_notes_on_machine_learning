@@ -12,6 +12,16 @@
     
     
     <item>
+      <title>Add A File From A URL To Images</title>
+      <link>https://chrisalbon.com/docker/dockerfiles/add_a_file_from_a_url_to_images/</link>
+      <pubDate>Wed, 22 Jul 2020 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/docker/dockerfiles/add_a_file_from_a_url_to_images/</guid>
+      <description>Create Dockerfile # Build from base image FROM ubuntu:latest # Add file from URL to tmp directory ADD [&amp;#34;https://raw.githubusercontent.com/chrisalbon/notes/master/LICENSE.txt&amp;#34;, &amp;#34;/tmp/&amp;#34;] Build Image From Dockerfile Build the Dockerfile (docker build) in the current directory (.) and call the image chrisalbon/ubuntu:file-from-url (--tag chrisalbon/ubuntu:file-from-url).
+docker build --tag chrisalbon/ubuntu:file-from-url . Sending build context to Docker daemon 4.608kB Step 1/2 : FROM ubuntu:latest ---&amp;gt; 1e4467b07108 Step 2/2 : ADD [&amp;quot;https://raw.githubusercontent.com/chrisalbon/notes/master/LICENSE.txt&amp;quot;, &amp;quot;/tmp/&amp;quot;] Downloading 223B ---&amp;gt; 9ef46cc7fd3a Successfully built 9ef46cc7fd3a Successfully tagged chrisalbon/ubuntu:file-from-url  Run Docker Container From Image Start and create (docker run) an interative (-it) Docker container from the image called chrisalbon/ubuntu:file-from-url.</description>
+    </item>
+    
+    <item>
       <title>Add A Volume</title>
       <link>https://chrisalbon.com/docker/dockerfiles/add_a_volume/</link>
       <pubDate>Wed, 22 Jul 2020 00:00:00 -0700</pubDate>
@@ -49,7 +59,7 @@ docker build --tag chrisalbon/big-project:v4 . Sending build context to Docker d
       
       <guid>https://chrisalbon.com/docker/dockerfiles/add_files_and_folders_to_images/</guid>
       <description>Make Files And Folders mkdir projects touch projects/master_plan.txt touch projects/backup_plan.txt mkdir projects/secret-projects touch config.txt Create Dockerfile With COPY the final argument is the destination directory in the image, all other arguments are the source files and folders in the host filesystem.
-# Build from base image FROM ubuntu:latest # Add Files And Folders To Image COPY [&amp;#34;projects&amp;#34;, &amp;#34;config.txt&amp;#34;, &amp;#34;./special-projects/&amp;#34;] Build Image From Dockerfile Build the Dockerfile (docker build) in the current directory (.</description>
+# Build from base image FROM ubuntu:latest # Add files and folders to image COPY [&amp;#34;projects&amp;#34;, &amp;#34;config.txt&amp;#34;, &amp;#34;./special-projects/&amp;#34;] Build Image From Dockerfile Build the Dockerfile (docker build) in the current directory (.</description>
     </item>
     
     <item>
@@ -252,6 +262,16 @@ docker build --tag chrisalbon/ubuntu:with-git .</description>
     </item>
     
     <item>
+      <title>Run Many Commands While Building Image</title>
+      <link>https://chrisalbon.com/docker/dockerfiles/run_many_commands_while_building_image/</link>
+      <pubDate>Wed, 22 Jul 2020 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/docker/dockerfiles/run_many_commands_while_building_image/</guid>
+      <description>Create Dockerfile A new image layer is created every time RUN is executed, therefore it is most often advisable to chain build steps using &amp;amp;&amp;amp;.
+# Build from base image FROM ubuntu:latest # Run many commands RUN apt-get update \  &amp;amp;&amp;amp; apt-get install -y git \  &amp;amp;&amp;amp; touch config.txt \  &amp;amp;&amp;amp; mkdir secret_project \  &amp;amp;&amp;amp; touch secret_project/project_alpha.txt \  &amp;amp;&amp;amp; touch secret_project/project_beta.txt \  &amp;amp;&amp;amp; touch secret_project/project_delta.</description>
+    </item>
+    
+    <item>
       <title>Saving An Image As A File</title>
       <link>https://chrisalbon.com/docker/basics/saving_an_image_as_a_file/</link>
       <pubDate>Wed, 22 Jul 2020 00:00:00 -0700</pubDate>
@@ -279,7 +299,7 @@ docker container create --name application --entrypoint &amp;#34;/bin/bash&amp;#
       
       <guid>https://chrisalbon.com/docker/dockerfiles/set_default_working_directory/</guid>
       <description>Create Dockerfile WORKDIR sets the default working directory of an image. If the directory does not already exist it will be created.
-# Build from base image FROM ubuntu:latest # Set Default Working Directory WORKDIR &amp;#34;/projects/super-secret-project&amp;#34; Build Image From Dockerfile Build the Dockerfile (docker build) in the current directory (.) and call the image chrisalbon/ubuntu:super-secret (--tag chrisalbon/big-project:super-secret).
+# Build from base image FROM ubuntu:latest # Set default working directory WORKDIR &amp;#34;/projects/super-secret-project&amp;#34; Build Image From Dockerfile Build the Dockerfile (docker build) in the current directory (.) and call the image chrisalbon/ubuntu:super-secret (--tag chrisalbon/big-project:super-secret).
 docker build --tag chrisalbon/big-project:super-secret . Sending build context to Docker daemon 2.048kB Step 1/2 : FROM ubuntu:latest ---&amp;gt; 1e4467b07108 Step 2/2 : WORKDIR &amp;quot;/projects/super-secret-project&amp;quot; ---&amp;gt; Running in a8351b81583a Removing intermediate container a8351b81583a ---&amp;gt; 06d74fe681a4 Successfully built 06d74fe681a4 Successfully tagged chrisalbon/big-project:super-secret  Run Docker Container From Image Start and create (docker run) an interative (-it) Docker container called super-secret-project (--name super-secret-project) from the image called chrisalbon/big-project:super-secret.</description>
     </item>
     

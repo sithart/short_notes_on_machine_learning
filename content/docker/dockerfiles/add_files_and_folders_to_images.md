@@ -24,7 +24,7 @@ With `COPY` the final argument is the destination directory in the image, all ot
 # Build from base image
 FROM ubuntu:latest
 
-# Add Files And Folders To Image
+# Add files and folders to image
 COPY ["projects", "config.txt", "./special-projects/"]
 {{< /highlight >}}
 
@@ -47,7 +47,7 @@ Successfully tagged chrisalbon/big-project:copy-example
 
 ## Run Docker Container From Image
 
-Start and create (`docker run`) an interative (`-it`) Docker container called copy-example (`--name copy-example`) from the image called `chrisalbon/big-project:copy-example`. Remove the container after it stops (`-rm`)
+Start and create (`docker run`) an interative (`-it`) Docker container called copy-example (`--name copy-example`) from the image called `chrisalbon/big-project:copy-example`. Open a shell (`/bin/bash`). Remove the container after it stops (`-rm`)
 
 {{< highlight bash >}}
 docker container run -it --name copy-example chrisalbon/big-project:copy-example /bin/bash

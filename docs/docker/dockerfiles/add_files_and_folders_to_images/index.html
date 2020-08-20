@@ -49,7 +49,7 @@
   "@type": "BlogPosting",
   "headline": "Add Files And Folders To Images",
   "url": "https://chrisalbon.com/docker/dockerfiles/add_files_and_folders_to_images/",
-  "wordCount": "278",
+  "wordCount": "282",
   "datePublished": "2020-07-22T00:00:00-07:00",
   "dateModified": "2020-07-22T00:00:00-07:00",
   "author": {
@@ -193,7 +193,7 @@ touch config.txt</code></pre></div>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Build from base image
 </span><span class="c1"></span>FROM ubuntu:latest
 
-<span class="c1"># Add Files And Folders To Image
+<span class="c1"># Add files and folders to image
 </span><span class="c1"></span>COPY <span class="o">[</span><span class="s2">&#34;projects&#34;</span>, <span class="s2">&#34;config.txt&#34;</span>, <span class="s2">&#34;./special-projects/&#34;</span><span class="o">]</span></code></pre></div>
 
 <h2 id="build-image-from-dockerfile">Build Image From Dockerfile</h2>
@@ -213,7 +213,7 @@ Successfully tagged chrisalbon/big-project:copy-example
 
 <h2 id="run-docker-container-from-image">Run Docker Container From Image</h2>
 
-<p>Start and create (<code>docker run</code>) an interative (<code>-it</code>) Docker container called copy-example (<code>--name copy-example</code>) from the image called <code>chrisalbon/big-project:copy-example</code>. Remove the container after it stops (<code>-rm</code>)</p>
+<p>Start and create (<code>docker run</code>) an interative (<code>-it</code>) Docker container called copy-example (<code>--name copy-example</code>) from the image called <code>chrisalbon/big-project:copy-example</code>. Open a shell (<code>/bin/bash</code>). Remove the container after it stops (<code>-rm</code>)</p>
 
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">docker container run -it --name copy-example chrisalbon/big-project:copy-example /bin/bash</code></pre></div>
 
@@ -265,7 +265,7 @@ drwxrwxr-x 2 root root 4096 Aug 19 05:12 secret-projects
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 689 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 691 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 
