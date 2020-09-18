@@ -6,6 +6,8 @@ type: technical_note
 draft: false
 ---
 
+Don't use `docker kill`. It forces the process to stop without giving it a chance to do clean-up in the system. Instead use `docker stop`.
+
 ## Run Container
 
 Create and start (`docker run`) a detached (`--detach`) Docker container called secret-project (`--name secret-project`) based on the Docker image `python:3.8-slim`.

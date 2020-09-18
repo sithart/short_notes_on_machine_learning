@@ -50,7 +50,7 @@ root@7a5f4dbb0dc7:/#
 View all files and folders (`ls`) that displays using long format and shows hidden files (`-al`) in the directory `tmp`.
 
 {{< highlight bash >}}
-ls -al /special-projects
+ls -al tmp/
 {{< /highlight >}}
 ```
 total 12

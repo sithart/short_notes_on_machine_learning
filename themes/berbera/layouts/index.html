@@ -1046,10 +1046,10 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
-                    <h4 class="card-header">Basics</h4>
+                    <h4 class="card-header">Command Line</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/docker/basics/").ByTitle }}
+                            {{ range (where .Pages "File.Dir" "in" "/docker/command_line/").ByTitle }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>

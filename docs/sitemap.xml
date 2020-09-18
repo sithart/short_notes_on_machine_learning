@@ -33,42 +33,47 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/docker/basics/automatically_generate_human_readable_container_names/</loc>
+    <loc>https://chrisalbon.com/docker/command_line/automatically_generate_human_readable_container_names/</loc>
     <lastmod>2020-07-22T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/docker/basics/automatically_restart_containers/</loc>
+    <loc>https://chrisalbon.com/docker/command_line/automatically_restart_containers/</loc>
     <lastmod>2020-07-22T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/docker/basics/connect_containers_filesystem_to_computers_filesystem/</loc>
+    <loc>https://chrisalbon.com/docker/command_line/connect_containers_filesystem_to_computers_filesystem/</loc>
     <lastmod>2020-07-22T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/docker/basics/create_a_container/</loc>
+    <loc>https://chrisalbon.com/docker/command_line/create_a_container/</loc>
     <lastmod>2020-07-22T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/docker/basics/create_an_image/</loc>
+    <loc>https://chrisalbon.com/docker/command_line/create_an_image/</loc>
     <lastmod>2020-07-22T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/docker/basics/create_read-only_container_filesystems/</loc>
+    <loc>https://chrisalbon.com/docker/command_line/create_read-only_container_filesystems/</loc>
     <lastmod>2020-07-22T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/docker/basics/exporting_all_files_folders_out_of_a_container/</loc>
+    <loc>https://chrisalbon.com/docker/command_line/exporting_all_files_folders_out_of_a_container/</loc>
     <lastmod>2020-07-22T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/docker/basics/get_bash_shell_in_a_container/</loc>
+    <loc>https://chrisalbon.com/docker/dockerfiles/expose_a_port/</loc>
+    <lastmod>2020-07-22T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/docker/command_line/get_bash_shell_in_a_container/</loc>
     <lastmod>2020-07-22T00:00:00-07:00</lastmod>
   </url>
   
@@ -78,37 +83,47 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/docker/basics/inspect_an_image/</loc>
+    <loc>https://chrisalbon.com/docker/command_line/inspect_a_container/</loc>
     <lastmod>2020-07-22T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/docker/basics/list_containers/</loc>
+    <loc>https://chrisalbon.com/docker/command_line/inspect_an_image/</loc>
     <lastmod>2020-07-22T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/docker/basics/pull_an_image_from_a_repository/</loc>
+    <loc>https://chrisalbon.com/docker/command_line/list_containers/</loc>
     <lastmod>2020-07-22T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/docker/basics/remove_an_image/</loc>
+    <loc>https://chrisalbon.com/docker/command_line/publish_to_dockerhub/</loc>
     <lastmod>2020-07-22T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/docker/basics/rename_a_container/</loc>
+    <loc>https://chrisalbon.com/docker/command_line/pull_an_image_from_a_repository/</loc>
     <lastmod>2020-07-22T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/docker/basics/restart_a_container/</loc>
+    <loc>https://chrisalbon.com/docker/command_line/remove_an_image/</loc>
     <lastmod>2020-07-22T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/docker/basics/run_a_detached_container/</loc>
+    <loc>https://chrisalbon.com/docker/command_line/rename_a_container/</loc>
+    <lastmod>2020-07-22T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/docker/command_line/restart_a_container/</loc>
+    <lastmod>2020-07-22T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/docker/command_line/run_a_detached_container/</loc>
     <lastmod>2020-07-22T00:00:00-07:00</lastmod>
   </url>
   
@@ -123,17 +138,32 @@
   </url>
   
   <url>
+    <loc>https://chrisalbon.com/docker/dockerfiles/run_commands_as_user/</loc>
+    <lastmod>2020-07-22T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chrisalbon.com/docker/dockerfiles/run_many_commands_while_building_image/</loc>
     <lastmod>2020-07-22T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/docker/basics/saving_an_image_as_a_file/</loc>
+    <loc>https://chrisalbon.com/docker/command_line/save_a_containers_bash_history/</loc>
     <lastmod>2020-07-22T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/docker/basics/set_container_to_run_a_bash_command_on_start/</loc>
+    <loc>https://chrisalbon.com/docker/command_line/saving_an_image_as_a_file/</loc>
+    <lastmod>2020-07-22T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/docker/dockerfiles/set_a_default_working_directory/</loc>
+    <lastmod>2020-07-22T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/docker/command_line/set_container_to_run_a_bash_command_on_start/</loc>
     <lastmod>2020-07-22T00:00:00-07:00</lastmod>
   </url>
   
@@ -148,42 +178,42 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/docker/basics/start_a_container/</loc>
+    <loc>https://chrisalbon.com/docker/command_line/start_a_container/</loc>
     <lastmod>2020-07-22T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/docker/basics/stop_a_container/</loc>
+    <loc>https://chrisalbon.com/docker/command_line/stop_a_container/</loc>
     <lastmod>2020-07-22T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/docker/basics/use_environment_variables/</loc>
+    <loc>https://chrisalbon.com/docker/command_line/use_environment_variables/</loc>
     <lastmod>2020-07-22T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/docker/basics/view_all_changes_to_a_container/</loc>
+    <loc>https://chrisalbon.com/docker/command_line/view_all_changes_to_a_container/</loc>
     <lastmod>2020-07-22T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/docker/basics/view_container_logs/</loc>
+    <loc>https://chrisalbon.com/docker/command_line/view_container_logs/</loc>
     <lastmod>2020-07-22T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/docker/basics/view_image_size/</loc>
+    <loc>https://chrisalbon.com/docker/command_line/view_image_size/</loc>
     <lastmod>2020-07-22T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/docker/basics/watch_container_logs_live/</loc>
+    <loc>https://chrisalbon.com/docker/command_line/watch_container_logs_live/</loc>
     <lastmod>2020-07-22T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/docker/basics/work_in_a_container/</loc>
+    <loc>https://chrisalbon.com/docker/command_line/work_in_a_container/</loc>
     <lastmod>2020-07-22T00:00:00-07:00</lastmod>
   </url>
   
