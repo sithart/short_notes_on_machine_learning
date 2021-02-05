@@ -20,27 +20,13 @@
 <meta property="og:description" content="Get a bash shell in a running container in Docker." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/docker/command_line/get_bash_shell_in_a_container/" />
-
-
-
-<meta property="article:published_time" content="2020-07-22T00:00:00-07:00"/>
-
-<meta property="article:modified_time" content="2020-07-22T00:00:00-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2020-07-22T00:00:00-07:00" />
+<meta property="article:modified_time" content="2020-07-22T00:00:00-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Get Bash Shell In A Container"/>
 <meta name="twitter:description" content="Get a bash shell in a running container in Docker."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Get Bash Shell In A Container",
-  "url": "https://chrisalbon.com/docker/command_line/get_bash_shell_in_a_container/",
+  "url": "https:\/\/chrisalbon.com\/docker\/command_line\/get_bash_shell_in_a_container\/",
   "wordCount": "296",
   "datePublished": "2020-07-22T00:00:00-07:00",
   "dateModified": "2020-07-22T00:00:00-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,33 +170,18 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<h2 id="run-detached-container">Run Detached Container</h2>
-
+  <h2 id="run-detached-container">Run Detached Container</h2>
 <p>Create and start a Docker container (<code>docker run</code>) that is detached (<code>-detacted</code>), named www (<code>--name www</code>), and uses the Docker image <code>ngix:latest</code>.</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">docker run --detach --name www nginx:latest</code></pre></div>
-
 <pre><code>f104467b9c7fea62ef6a1b369f90da246eb170dd5c90f6d1d9feede9c2dc7ea1
-</code></pre>
-
-<h2 id="ssh-into-container">SSH Into Container</h2>
-
+</code></pre><h2 id="ssh-into-container">SSH Into Container</h2>
 <p>Execute (<code>docker exec</code>) <code>/bin/bash</code> on the interactive (<code>-it</code>) container called <code>www</code>.</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo docker <span class="nb">exec</span> -it www /bin/bash</code></pre></div>
-
 <pre><code>root@f104467b9c7f:/#
-</code></pre>
-
-<h2 id="view-container-s-filesystem">View Container&rsquo;s Filesystem</h2>
-
+</code></pre><h2 id="view-containers-filesystem">View Container&rsquo;s Filesystem</h2>
 <p>View all files and folders (<code>ls</code>) that displays using long format and shows hidden files (<code>-al</code>)</p>
-
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># View container&#39;s filesystem
-</span><span class="c1"></span>ls -al</code></pre></div>
-
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># View container&#39;s filesystem</span>
+ls -al</code></pre></div>
 <pre><code>total 88
 drwxr-xr-x   1 root root 4096 Aug  2 05:37 .
 drwxr-xr-x   1 root root 4096 Aug  2 05:37 ..
@@ -229,7 +208,6 @@ drwxrwxrwt   1 root root 4096 Jul 22 03:23 tmp
 drwxr-xr-x   1 root root 4096 Jul 20 00:00 usr
 drwxr-xr-x   1 root root 4096 Jul 20 00:00 var
 </code></pre>
-
 </div>
   <aside>
       <div class="bug_reporting">
@@ -253,7 +231,7 @@ drwxr-xr-x   1 root root 4096 Jul 20 00:00 var
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

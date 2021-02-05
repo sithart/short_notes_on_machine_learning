@@ -20,27 +20,13 @@
 <meta property="og:description" content="T-tests in Python." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/statistics/frequentist/t-tests/" />
-
-
-
-<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
-
-<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00" />
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="T-Tests"/>
 <meta name="twitter:description" content="T-tests in Python."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "T-Tests",
-  "url": "https://chrisalbon.com/statistics/frequentist/t-tests/",
+  "url": "https:\/\/chrisalbon.com\/statistics\/frequentist\/t-tests\/",
   "wordCount": "302",
   "datePublished": "2017-12-20T11:53:49-07:00",
   "dateModified": "2017-12-20T11:53:49-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,47 +170,39 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<h2 id="preliminaries">Preliminaries</h2>
+  <h2 id="preliminaries">Preliminaries</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span></code></pre></div>
-<h2 id="create-data">Create Data</h2>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+</code></pre></div><h2 id="create-data">Create Data</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a list of 20 observations drawn from a random distribution </span>
 <span class="c1"># with mean 1 and a standard deviation of 1.5</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
 
 <span class="c1"># Create a list of 20 observations drawn from a random distribution </span>
 <span class="c1"># with mean 0 and a standard deviation of 1.5</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span></code></pre></div>
-<h2 id="one-sample-two-sided-t-test">One Sample Two-Sided T-Test</h2>
-
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+</code></pre></div><h2 id="one-sample-two-sided-t-test">One Sample Two-Sided T-Test</h2>
 <p>Imagine the one sample T-test and drawing a (normally shaped) hill centered at <code>1</code> and &ldquo;spread&rdquo; out with a standard deviation of <code>1.5</code>, then placing a flag at <code>0</code> and looking at where on the hill the flag is location. Is it near the top? Far away from the hill? If the flag is near the very bottom of the hill or farther, then the t-test p-score will be below <code>0.05</code>.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Run a t-test to test if the mean of x is statistically significantly different than 0</span>
 <span class="n">pvalue</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_1samp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
 
 <span class="c1"># View the p-value</span>
-<span class="n">pvalue</span></code></pre></div>
-<pre><code>0.00010976647757800537
+<span class="n">pvalue</span>
+</code></pre></div><pre><code>0.00010976647757800537
 </code></pre>
-
 <h2 id="two-variable-unpaired-two-sided-t-test-with-equal-variances">Two Variable Unpaired Two-Sided T-Test With Equal Variances</h2>
-
 <p>Imagine the one sample T-test and drawing two (normally shaped) hills centered at their means and their &lsquo;flattness&rsquo; (individual spread) based on the standard deviation. The T-test looks at how much the two hills are overlapping. Are they basically on top of each other? Do just the bottoms of the hill just barely touch? If the tails of the hills are just barely overlapping or are not overlapping at all, the t-test p-score will be below 0.05.</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span></code></pre></div>
-<pre><code>0.00035082056802728071
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+</code></pre></div><pre><code>0.00035082056802728071
 </code></pre>
-
 <h2 id="two-variable-unpaired-two-sided-t-test-with-unequal-variances">Two Variable Unpaired Two-Sided T-Test With Unequal Variances</h2>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">equal_var</span><span class="o">=</span><span class="bp">False</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span></code></pre></div>
-<pre><code>0.00035089238660076095
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">equal_var</span><span class="o">=</span><span class="bp">False</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+</code></pre></div><pre><code>0.00035089238660076095
 </code></pre>
-
 <h2 id="two-variable-paired-two-sided-t-test">Two Variable Paired Two-Sided T-Test</h2>
-
 <p>Paired T-tests are used when we are taking repeated samples and want to take into account the fact that the two distributions we are testing are paired.</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">stats</span><span class="o">.</span><span class="n">ttest_rel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span></code></pre></div>
-<pre><code>0.00034222792790150386
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">stats</span><span class="o">.</span><span class="n">ttest_rel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+</code></pre></div><pre><code>0.00034222792790150386
 </code></pre>
 
 </div>
@@ -242,7 +228,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

@@ -20,27 +20,13 @@
 <meta property="og:description" content="Converting strings to datetime using Python." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/python/basics/strings_to_datetime/" />
-
-
-
-<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
-
-<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00" />
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Converting Strings To Datetime"/>
 <meta name="twitter:description" content="Converting strings to datetime using Python."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Converting Strings To Datetime",
-  "url": "https://chrisalbon.com/python/basics/strings_to_datetime/",
+  "url": "https:\/\/chrisalbon.com\/python\/basics\/strings_to_datetime\/",
   "wordCount": "288",
   "datePublished": "2017-12-20T11:53:49-07:00",
   "dateModified": "2017-12-20T11:53:49-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,55 +170,48 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<h3 id="import-modules">Import modules</h3>
+  <h3 id="import-modules">Import modules</h3>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
 <span class="kn">from</span> <span class="nn">dateutil.parser</span> <span class="kn">import</span> <span class="n">parse</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span></code></pre></div>
-<h3 id="create-a-string-variable-with-the-war-start-time">Create a string variable with the war start time</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">war_start</span> <span class="o">=</span> <span class="s1">&#39;2011-01-03&#39;</span></code></pre></div>
-<h3 id="convert-the-string-to-datetime-format">Convert the string to datetime format</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">war_start</span><span class="p">,</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span></code></pre></div>
-<pre><code>datetime.datetime(2011, 1, 3, 0, 0)
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+</code></pre></div><h3 id="create-a-string-variable-with-the-war-start-time">Create a string variable with the war start time</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">war_start</span> <span class="o">=</span> <span class="s1">&#39;2011-01-03&#39;</span>
+</code></pre></div><h3 id="convert-the-string-to-datetime-format">Convert the string to datetime format</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">war_start</span><span class="p">,</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+</code></pre></div><pre><code>datetime.datetime(2011, 1, 3, 0, 0)
 </code></pre>
-
 <h3 id="create-a-list-of-strings-as-dates">Create a list of strings as dates</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">attack_dates</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;7/2/2011&#39;</span><span class="p">,</span> <span class="s1">&#39;8/6/2012&#39;</span><span class="p">,</span> <span class="s1">&#39;11/13/2013&#39;</span><span class="p">,</span> <span class="s1">&#39;5/26/2011&#39;</span><span class="p">,</span> <span class="s1">&#39;5/2/2001&#39;</span><span class="p">]</span></code></pre></div>
-<h3 id="convert-attack-dates-strings-into-datetime-format">Convert attack_dates strings into datetime format</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="p">[</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;%m/</span><span class="si">%d</span><span class="s1">/%Y&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">attack_dates</span><span class="p">]</span></code></pre></div>
-<pre><code>[datetime.datetime(2011, 7, 2, 0, 0),
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">attack_dates</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;7/2/2011&#39;</span><span class="p">,</span> <span class="s1">&#39;8/6/2012&#39;</span><span class="p">,</span> <span class="s1">&#39;11/13/2013&#39;</span><span class="p">,</span> <span class="s1">&#39;5/26/2011&#39;</span><span class="p">,</span> <span class="s1">&#39;5/2/2001&#39;</span><span class="p">]</span>
+</code></pre></div><h3 id="convert-attack_dates-strings-into-datetime-format">Convert attack_dates strings into datetime format</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="p">[</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;%m/</span><span class="si">%d</span><span class="s1">/%Y&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">attack_dates</span><span class="p">]</span>
+</code></pre></div><pre><code>[datetime.datetime(2011, 7, 2, 0, 0),
  datetime.datetime(2012, 8, 6, 0, 0),
  datetime.datetime(2013, 11, 13, 0, 0),
  datetime.datetime(2011, 5, 26, 0, 0),
  datetime.datetime(2001, 5, 2, 0, 0)]
 </code></pre>
-
 <h3 id="use-parse-to-attempt-to-auto-convert-common-string-formats">Use parse() to attempt to auto-convert common string formats</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">parse</span><span class="p">(</span><span class="n">war_start</span><span class="p">)</span></code></pre></div>
-<pre><code>datetime.datetime(2011, 1, 3, 0, 0)
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">parse</span><span class="p">(</span><span class="n">war_start</span><span class="p">)</span>
+</code></pre></div><pre><code>datetime.datetime(2011, 1, 3, 0, 0)
 </code></pre>
-
-<h3 id="use-parse-on-every-element-of-the-attack-dates-string">Use parse() on every element of the attack_dates string</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="p">[</span><span class="n">parse</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">attack_dates</span><span class="p">]</span></code></pre></div>
-<pre><code>[datetime.datetime(2011, 7, 2, 0, 0),
+<h3 id="use-parse-on-every-element-of-the-attack_dates-string">Use parse() on every element of the attack_dates string</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="p">[</span><span class="n">parse</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">attack_dates</span><span class="p">]</span>
+</code></pre></div><pre><code>[datetime.datetime(2011, 7, 2, 0, 0),
  datetime.datetime(2012, 8, 6, 0, 0),
  datetime.datetime(2013, 11, 13, 0, 0),
  datetime.datetime(2011, 5, 26, 0, 0),
  datetime.datetime(2001, 5, 2, 0, 0)]
 </code></pre>
-
 <h3 id="use-parse-but-designate-that-the-day-is-first">Use parse, but designate that the day is first</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">parse</span><span class="p">(</span><span class="n">war_start</span><span class="p">,</span> <span class="n">dayfirst</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span></code></pre></div>
-<pre><code>datetime.datetime(2011, 3, 1, 0, 0)
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">parse</span><span class="p">(</span><span class="n">war_start</span><span class="p">,</span> <span class="n">dayfirst</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</code></pre></div><pre><code>datetime.datetime(2011, 3, 1, 0, 0)
 </code></pre>
-
 <h3 id="create-a-dataframe">Create a dataframe</h3>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;2014-05-01 18:47:05.069722&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-01 18:47:05.119994&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-02 18:47:05.178768&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-02 18:47:05.230071&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-02 18:47:05.230071&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-02 18:47:05.280592&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-03 18:47:05.332662&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-03 18:47:05.385109&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-04 18:47:05.436523&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-04 18:47:05.486877&#39;</span><span class="p">],</span> 
         <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]}</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">])</span>
-<span class="k">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span></code></pre></div>
-<pre><code>                         date  value
+<span class="k">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</code></pre></div><pre><code>                         date  value
 0  2014-05-01 18:47:05.069722      1
 1  2014-05-01 18:47:05.119994      1
 2  2014-05-02 18:47:05.178768      1
@@ -236,10 +223,9 @@ MathJax.Hub.Config({
 8  2014-05-04 18:47:05.436523      1
 9  2014-05-04 18:47:05.486877      1
 </code></pre>
-
-<h3 id="convert-df-date-from-string-to-datetime">Convert <code>df['date']</code> from string to datetime</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">])</span></code></pre></div>
-<pre><code>0   2014-05-01 18:47:05.069722
+<h3 id="convert-dfdate-from-string-to-datetime">Convert <code>df['date']</code> from string to datetime</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">])</span>
+</code></pre></div><pre><code>0   2014-05-01 18:47:05.069722
 1   2014-05-01 18:47:05.119994
 2   2014-05-02 18:47:05.178768
 3   2014-05-02 18:47:05.230071
@@ -275,7 +261,7 @@ Name: date, dtype: datetime64[ns]
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

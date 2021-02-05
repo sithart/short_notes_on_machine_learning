@@ -58,13 +58,13 @@ sudo microk8s.enable dns dashboard storage
 ### Start Kubeflow
 
 {{< highlight bash >}}
-sudo microk8s.enable kubeflow
+microk8s.enable kubeflow
 {{< /highlight >}}
 
 This is what you should see:
 
 {{< highlight bash >}}
-(base) chris@deeplearning:~$ sudo microk8s.enable kubeflow
+(base) chris@deeplearning:~$ microk8s.enable kubeflow
 Enabling dns...
 Enabling storage...
 Enabling dashboard...

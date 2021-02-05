@@ -20,27 +20,13 @@
 <meta property="og:description" content="A simple unit test in Python." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/python/testing/simple_unit_test/" />
-
-
-
-<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
-
-<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00" />
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Simple Unit Test"/>
 <meta name="twitter:description" content="A simple unit test in Python."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Simple Unit Test",
-  "url": "https://chrisalbon.com/python/testing/simple_unit_test/",
+  "url": "https:\/\/chrisalbon.com\/python\/testing\/simple_unit_test\/",
   "wordCount": "100",
   "datePublished": "2017-12-20T11:53:49-07:00",
   "dateModified": "2017-12-20T11:53:49-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,27 +170,24 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<h2 id="preliminaries">Preliminaries</h2>
+  <h2 id="preliminaries">Preliminaries</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">unittest</span>
-<span class="kn">import</span> <span class="nn">sys</span></code></pre></div>
-<h2 id="create-function-to-be-tested">Create Function To Be Tested</h2>
+<span class="kn">import</span> <span class="nn">sys</span>
+</code></pre></div><h2 id="create-function-to-be-tested">Create Function To Be Tested</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">multiply</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span></code></pre></div>
-<h2 id="create-test">Create Test</h2>
-
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span>
+</code></pre></div><h2 id="create-test">Create Test</h2>
 <p>Note: It is standard practice to name a unit test <code>test_</code> + <code>&lt;function being tested&gt;</code>. This naming standard allows for automated test using some libraries.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a test case</span>
 <span class="k">class</span> <span class="nc">TestMultiply</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
     <span class="c1"># Create the unit test</span>
     <span class="k">def</span> <span class="nf">test_multiply_two_integers_together</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># Test if 4 equals the output of multiply(2,2)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">multiply</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span></code></pre></div>
-<h2 id="run-test">Run Test</h2>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">multiply</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+</code></pre></div><h2 id="run-test">Run Test</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Run the unit test (and don&#39;t shut down the Jupyter Notebook)</span>
-<span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="n">argv</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ignored&#39;</span><span class="p">,</span> <span class="s1">&#39;-v&#39;</span><span class="p">],</span> <span class="nb">exit</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span></code></pre></div>
-<pre><code>test_multiply_two_integers_together (__main__.TestMultiply) ... ok
+<span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="n">argv</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ignored&#39;</span><span class="p">,</span> <span class="s1">&#39;-v&#39;</span><span class="p">],</span> <span class="nb">exit</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</code></pre></div><pre><code>test_multiply_two_integers_together (__main__.TestMultiply) ... ok
 
 ----------------------------------------------------------------------
 Ran 1 test in 0.001s
@@ -233,7 +224,7 @@ OK
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

@@ -20,27 +20,13 @@
 <meta property="og:description" content="Set the default working directory using Dockerfiles." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/docker/dockerfiles/set_default_working_directory/" />
-
-
-
-<meta property="article:published_time" content="2020-07-22T00:00:00-07:00"/>
-
-<meta property="article:modified_time" content="2020-07-22T00:00:00-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2020-07-22T00:00:00-07:00" />
+<meta property="article:modified_time" content="2020-07-22T00:00:00-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Set Default Working Directory"/>
 <meta name="twitter:description" content="Set the default working directory using Dockerfiles."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Set Default Working Directory",
-  "url": "https://chrisalbon.com/docker/dockerfiles/set_default_working_directory/",
+  "url": "https:\/\/chrisalbon.com\/docker\/dockerfiles\/set_default_working_directory\/",
   "wordCount": "147",
   "datePublished": "2020-07-22T00:00:00-07:00",
   "dateModified": "2020-07-22T00:00:00-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,24 +170,16 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<h2 id="create-dockerfile">Create Dockerfile</h2>
-
+  <h2 id="create-dockerfile">Create Dockerfile</h2>
 <p><code>WORKDIR</code> sets the default working directory of an image. If the directory does not already exist it will be created.</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Build from base image</span>
+FROM ubuntu:latest
 
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Build from base image
-</span><span class="c1"></span>FROM ubuntu:latest
-
-<span class="c1"># Set default working directory
-</span><span class="c1"></span>WORKDIR <span class="s2">&#34;/projects/super-secret-project&#34;</span></code></pre></div>
-
+<span class="c1"># Set default working directory</span>
+WORKDIR <span class="s2">&#34;/projects/super-secret-project&#34;</span></code></pre></div>
 <h2 id="build-image-from-dockerfile">Build Image From Dockerfile</h2>
-
 <p>Build the Dockerfile (<code>docker build</code>) in the current directory (<code>.</code>) and call the image chrisalbon/ubuntu:super-secret (<code>--tag chrisalbon/big-project:super-secret</code>).</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">docker build --tag chrisalbon/big-project:super-secret .</code></pre></div>
-
 <pre><code>Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM ubuntu:latest
  ---&gt; 1e4467b07108
@@ -203,24 +189,14 @@ Removing intermediate container a8351b81583a
  ---&gt; 06d74fe681a4
 Successfully built 06d74fe681a4
 Successfully tagged chrisalbon/big-project:super-secret
-</code></pre>
-
-<h2 id="run-docker-container-from-image">Run Docker Container From Image</h2>
-
+</code></pre><h2 id="run-docker-container-from-image">Run Docker Container From Image</h2>
 <p>Start and create (<code>docker run</code>) an interative (<code>-it</code>) Docker container called super-secret-project (<code>--name super-secret-project</code>) from the image called <code>chrisalbon/big-project:super-secret</code>. Open a bash shell (<code>/bin/bash</code>). Remove the container after it stops (<code>-rm</code>).</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">docker container run -it --name super-secret-project chrisalbon/big-project:super-secret /bin/bash</code></pre></div>
-
 <pre><code>root@798559f1cf26:/projects/super-secret-project#
-</code></pre>
-
-<h2 id="print-working-directory">Print Working Directory</h2>
-
+</code></pre><h2 id="print-working-directory">Print Working Directory</h2>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">pwd</code></pre></div>
-
 <pre><code>/projects/super-secret-project
 </code></pre>
-
 </div>
   <aside>
       <div class="bug_reporting">
@@ -244,7 +220,7 @@ Successfully tagged chrisalbon/big-project:super-secret
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

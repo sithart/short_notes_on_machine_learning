@@ -20,27 +20,13 @@
 <meta property="og:description" content="How to create symbolic links using the Linux command line." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/linux/basics/create_symbolic_links/" />
-
-
-
-<meta property="article:published_time" content="2018-06-17T00:00:00-07:00"/>
-
-<meta property="article:modified_time" content="2018-06-17T00:00:00-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2018-06-17T00:00:00-07:00" />
+<meta property="article:modified_time" content="2018-06-17T00:00:00-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Create Symbolic Links"/>
 <meta name="twitter:description" content="How to create symbolic links using the Linux command line."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Create Symbolic Links",
-  "url": "https://chrisalbon.com/linux/basics/create_symbolic_links/",
+  "url": "https:\/\/chrisalbon.com\/linux\/basics\/create_symbolic_links\/",
   "wordCount": "183",
   "datePublished": "2018-06-17T00:00:00-07:00",
   "dateModified": "2018-06-17T00:00:00-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,48 +170,28 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<p>In Linux, we can use <code>ln</code> to create a link between files. A common use case is shown below, where we have a symbolic link from the current configuration file <code>config_settings_v293.txt</code> and a link <code>config_setting.txt</code>. In our code, we can refer <code>config_settings.txt</code> as if we were refering to <code>config_settings_v293.txt</code>. However, when a new version of the configuration settings is released, <code>config_settings_v294.txt</code>, we can swap the symbolic link from <code>config_settings_v293.txt</code> to <code>config_settings_v294.txt</code> without changing all the code that references <code>config_settings.txt</code>.</p>
-
+  <p>In Linux, we can use <code>ln</code> to create a link between files. A common use case is shown below, where we have a symbolic link from the current configuration file <code>config_settings_v293.txt</code> and a link <code>config_setting.txt</code>. In our code, we can refer <code>config_settings.txt</code> as if we were refering to <code>config_settings_v293.txt</code>. However, when a new version of the configuration settings is released, <code>config_settings_v294.txt</code>, we can swap the symbolic link from <code>config_settings_v293.txt</code> to <code>config_settings_v294.txt</code> without changing all the code that references <code>config_settings.txt</code>.</p>
 <p>Note that <code>-nsf</code> is a common set of options for <code>ln</code>:</p>
-
 <ul>
 <li><code>-s</code> make symbolic links instead of hard links</li>
 <li><code>-f</code> if target file delete it so we can replace it with our new link</li>
 <li><code>-n</code> if the target file or directory is a link, don&rsquo;t follow the link</li>
 </ul>
-
 <h2 id="create-file">Create File</h2>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">echo &#39;Configuration settings version 293&#39; &gt; config_settings_v293.txt</code></pre></div>
-
 <h2 id="create-symbolic-link-to-file">Create Symbolic Link To File</h2>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">ln -nsf config_settings_v293.txt config_settings.txt</code></pre></div>
-
 <h2 id="view-symbolic-link">View Symbolic Link</h2>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">cat config_settings.txt</code></pre></div>
-
 <pre><code>Configuration settings version 293
-</code></pre>
-
-<h2 id="create-new-file">Create New File</h2>
-
+</code></pre><h2 id="create-new-file">Create New File</h2>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">echo &#39;Configuration settings version 294&#39; &gt; config_settings_v294.txt</code></pre></div>
-
 <h2 id="create-symbolic-link-to-new-file">Create Symbolic Link To New File</h2>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">ln -nsf config_settings_v294.txt config_settings.txt</code></pre></div>
-
 <h2 id="view-symbolic-link-1">View Symbolic Link</h2>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">cat config_settings.txt</code></pre></div>
-
 <pre><code>Configuration settings version 294
 </code></pre>
-
 </div>
   <aside>
       <div class="bug_reporting">
@@ -241,7 +215,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

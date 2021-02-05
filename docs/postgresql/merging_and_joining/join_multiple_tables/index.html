@@ -20,27 +20,13 @@
 <meta property="og:description" content="How to join multiple tables in an SQL database." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/postgresql/merging_and_joining/join_multiple_tables/" />
-
-
-
-<meta property="article:published_time" content="2018-06-17T00:00:00-07:00"/>
-
-<meta property="article:modified_time" content="2018-06-17T00:00:00-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2018-06-17T00:00:00-07:00" />
+<meta property="article:modified_time" content="2018-06-17T00:00:00-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Join Multiple Table"/>
 <meta name="twitter:description" content="How to join multiple tables in an SQL database."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Join Multiple Table",
-  "url": "https://chrisalbon.com/postgresql/merging_and_joining/join_multiple_tables/",
+  "url": "https:\/\/chrisalbon.com\/postgresql\/merging_and_joining\/join_multiple_tables\/",
   "wordCount": "228",
   "datePublished": "2018-06-17T00:00:00-07:00",
   "dateModified": "2018-06-17T00:00:00-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,10 +170,7 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<h2 id="create-table-of-elves">Create Table Of Elves</h2>
-
+  <h2 id="create-table-of-elves">Create Table Of Elves</h2>
 <div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- Create table called elves
 </span><span class="c1"></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">elves</span> <span class="p">(</span>
     <span class="c1">-- string variable
@@ -189,9 +180,7 @@ MathJax.Hub.Config({
     <span class="c1">-- string variable
 </span><span class="c1"></span>    <span class="n">race</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span>
 <span class="p">)</span></code></pre></div>
-
 <h2 id="create-table-of-weapons">Create Table Of Weapons</h2>
-
 <div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- Create table called weapons
 </span><span class="c1"></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">weapons</span> <span class="p">(</span>
     <span class="c1">-- string variable
@@ -201,9 +190,7 @@ MathJax.Hub.Config({
     <span class="c1">-- integer variable
 </span><span class="c1"></span>    <span class="n">weight</span> <span class="nb">int</span>
 <span class="p">)</span></code></pre></div>
-
 <h2 id="create-table-of-armor">Create Table Of Armor</h2>
-
 <div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- Create table called armor
 </span><span class="c1"></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">armor</span> <span class="p">(</span>
     <span class="c1">-- string variable
@@ -213,34 +200,26 @@ MathJax.Hub.Config({
     <span class="c1">-- string variable
 </span><span class="c1"></span>    <span class="n">helm</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span>
 <span class="p">)</span></code></pre></div>
-
 <h2 id="insert-rows-into-elf-table">Insert Rows Into Elf Table</h2>
-
 <div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">elves</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">race</span><span class="p">)</span>
 <span class="k">VALUES</span> <span class="p">(</span><span class="s1">&#39;Dallar Woodfoot&#39;</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="s1">&#39;Elf&#39;</span><span class="p">),</span>
        <span class="p">(</span><span class="s1">&#39;Cordin Garner&#39;</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="s1">&#39;Elf&#39;</span><span class="p">),</span>
        <span class="p">(</span><span class="s1">&#39;Keat Knigh&#39;</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="s1">&#39;Elf&#39;</span><span class="p">),</span>
        <span class="p">(</span><span class="s1">&#39;Colbat Nalor&#39;</span><span class="p">,</span> <span class="mi">124</span><span class="p">,</span> <span class="s1">&#39;Elf&#39;</span><span class="p">)</span></code></pre></div>
-
 <h2 id="insert-rows-into-weapon-table">Insert Rows Into Weapon Table</h2>
-
-<p><div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">weapons</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">weapon</span><span class="p">,</span> <span class="n">weight</span><span class="p">)</span>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">weapons</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">weapon</span><span class="p">,</span> <span class="n">weight</span><span class="p">)</span>
 <span class="k">VALUES</span> <span class="p">(</span><span class="s1">&#39;Dallar Woodfoot&#39;</span><span class="p">,</span><span class="s1">&#39;Axe&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
        <span class="p">(</span><span class="s1">&#39;Cordin Garner&#39;</span><span class="p">,</span> <span class="s1">&#39;Halberd&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
        <span class="p">(</span><span class="s1">&#39;Keat Knigh&#39;</span><span class="p">,</span> <span class="s1">&#39;Dagger&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
-       <span class="p">(</span><span class="s1">&#39;Colbat Nalor&#39;</span><span class="p">,</span> <span class="s1">&#39;Dagger&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span></code></pre></div></p>
-
+       <span class="p">(</span><span class="s1">&#39;Colbat Nalor&#39;</span><span class="p">,</span> <span class="s1">&#39;Dagger&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span></code></pre></div>
 <h2 id="insert-rows-into-armor-table">Insert Rows Into Armor Table</h2>
-
-<p><div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">armor</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="n">helm</span><span class="p">)</span>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">armor</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="n">helm</span><span class="p">)</span>
 <span class="k">VALUES</span> <span class="p">(</span><span class="s1">&#39;Dallar Woodfoot&#39;</span><span class="p">,</span> <span class="s1">&#39;Leather&#39;</span><span class="p">,</span> <span class="s1">&#39;Leather&#39;</span><span class="p">),</span>
        <span class="p">(</span><span class="s1">&#39;Cordin Garner&#39;</span><span class="p">,</span> <span class="s1">&#39;Leather&#39;</span><span class="p">,</span> <span class="k">NULL</span><span class="p">),</span>
        <span class="p">(</span><span class="s1">&#39;Keat Knigh&#39;</span><span class="p">,</span> <span class="s1">&#39;Plate&#39;</span><span class="p">,</span> <span class="s1">&#39;Plate&#39;</span><span class="p">),</span>
-       <span class="p">(</span><span class="s1">&#39;Colbat Nalor&#39;</span><span class="p">,</span> <span class="s1">&#39;Plate&#39;</span><span class="p">,</span> <span class="s1">&#39;Plate&#39;</span><span class="p">)</span></code></pre></div></p>
-
+       <span class="p">(</span><span class="s1">&#39;Colbat Nalor&#39;</span><span class="p">,</span> <span class="s1">&#39;Plate&#39;</span><span class="p">,</span> <span class="s1">&#39;Plate&#39;</span><span class="p">)</span></code></pre></div>
 <h2 id="join-all-tables">Join All Tables</h2>
-
-<p><div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- All rows from table
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- All rows from table
 </span><span class="c1"></span><span class="k">SELECT</span> <span class="n">elves</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">weapon</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="n">helm</span> <span class="k">FROM</span> <span class="n">elves</span>
 <span class="c1">-- Join with weapon table using name as key
 </span><span class="c1"></span><span class="k">LEFT</span> <span class="k">JOIN</span> <span class="n">weapons</span> <span class="k">ON</span> <span class="p">(</span><span class="n">elves</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">weapons</span><span class="p">.</span><span class="n">name</span><span class="p">)</span>
@@ -251,8 +230,7 @@ MathJax.Hub.Config({
 <tr><td>Dallar Woodfoot</td><td>25</td><td>Axe</td><td>2</td><td>Leather</td><td>Leather</td></tr>
 <tr><td>Cordin Garner</td><td>29</td><td>Halberd</td><td>3</td><td>Leather</td><td>NULL</td></tr>
 <tr><td>Keat Knigh</td><td>24</td><td>Dagger</td><td>4</td><td>Plate</td><td>Plate</td></tr>
-<tr><td>Colbat Nalor</td><td>124</td><td>Dagger</td><td>5</td><td>Plate</td><td>Plate</td></tr></table></p>
-
+<tr><td>Colbat Nalor</td><td>124</td><td>Dagger</td><td>5</td><td>Plate</td><td>Plate</td></tr></table>
 </div>
   <aside>
       <div class="bug_reporting">
@@ -276,7 +254,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

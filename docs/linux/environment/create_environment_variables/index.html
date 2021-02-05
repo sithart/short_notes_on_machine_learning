@@ -20,27 +20,13 @@
 <meta property="og:description" content="How to make environment variables in the Linux command line." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/linux/environment/create_environment_variables/" />
-
-
-
-<meta property="article:published_time" content="2018-06-17T00:00:00-07:00"/>
-
-<meta property="article:modified_time" content="2018-06-17T00:00:00-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2018-06-17T00:00:00-07:00" />
+<meta property="article:modified_time" content="2018-06-17T00:00:00-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Create Environment Variable"/>
 <meta name="twitter:description" content="How to make environment variables in the Linux command line."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Create Environment Variable",
-  "url": "https://chrisalbon.com/linux/environment/create_environment_variables/",
+  "url": "https:\/\/chrisalbon.com\/linux\/environment\/create_environment_variables\/",
   "wordCount": "166",
   "datePublished": "2018-06-17T00:00:00-07:00",
   "dateModified": "2018-06-17T00:00:00-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,16 +170,10 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<p>The best way to store login credentials and API tokens/secrets is by creating environment variables for them. This means they are variables in the Linux system and thus not present in any code that is shared on GitHub.</p>
-
+  <p>The best way to store login credentials and API tokens/secrets is by creating environment variables for them. This means they are variables in the Linux system and thus not present in any code that is shared on GitHub.</p>
 <p>There are many ways to create environment variables, but my personal preference is to add them to the <code>.bashrc</code> file in our <code>home</code> directory. <code>.bashrc</code> does a lot of things, but it is a standard place to put customizations to our system &ndash; for example, custom variables.</p>
-
 <h2 id="view-the-end-of-bashrc-file">View The End Of <code>.bashrc</code> File</h2>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">tail ~/.bashrc</code></pre></div>
-
 <pre><code>    . /usr/share/bash-completion/bash_completion
   elif [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
@@ -196,16 +184,10 @@ fi
 export PATH=&quot;/home/chris/anaconda3/bin:$PATH&quot;
 
 alias lcl='ls -l'
-</code></pre>
-
-<h2 id="append-environment-variable-to-end-of-bashrc">Append Environment Variable To End Of <code>.bashrc</code></h2>
-
+</code></pre><h2 id="append-environment-variable-to-end-of-bashrc">Append Environment Variable To End Of <code>.bashrc</code></h2>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">echo &#39;APIKEY=&#34;cH4ris_1s_c000l&#34;&#39; &gt;&gt; ~/.bashrc</code></pre></div>
-
 <h2 id="view-the-end-of-bashrc-file-1">View The End Of <code>.bashrc</code> File</h2>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">tail ~/.bashrc</code></pre></div>
-
 <pre><code>  elif [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
   fi
@@ -216,19 +198,12 @@ export PATH=&quot;/home/chris/anaconda3/bin:$PATH&quot;
 
 alias lcl='ls -l'
 APIKEY=&quot;cH4ris_1s_c000l&quot;
-</code></pre>
-
-<h2 id="reload-bashrc">Reload <code>.bashrc</code></h2>
-
+</code></pre><h2 id="reload-bashrc">Reload <code>.bashrc</code></h2>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">source ~/.bashrc</code></pre></div>
-
 <h2 id="view-new-environment-variable">View New Environment Variable</h2>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">echo $APIKEY</code></pre></div>
-
 <pre><code>cH4ris_1s_c000l
 </code></pre>
-
 </div>
   <aside>
       <div class="bug_reporting">
@@ -252,7 +227,7 @@ APIKEY=&quot;cH4ris_1s_c000l&quot;
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title> - Chris Albon</title>
+    <title>deep_learning - Chris Albon</title>
     <link>https://chrisalbon.com/deep_learning/index.xml</link>
     <description></description>
     <generator>Hugo -- gohugo.io</generator>
@@ -18,7 +17,7 @@
       
       <guid>https://chrisalbon.com/deep_learning/pytorch/basics/check_if_pytorch_is_using_gpu/</guid>
       <description>I find this is always the first thing I want to run when setting up a deep learning environment, whether a desktop machine or on AWS. These commands simply load PyTorch and check to make sure PyTorch can use the GPU.
-Preliminaries # Import PyTorch import torch Check If There Are Multiple Devices (i.e. GPU cards) # How many GPUs are there? print(torch.cuda.device_count()) 1  Check Which Is The Current GPU?</description>
+Preliminaries # Import PyTorch import torch Check If There Are Multiple Devices (i.e. GPU cards) # How many GPUs are there? print(torch.cuda.device_count()) 1 Check Which Is The Current GPU? # Which GPU Is The Current GPU?</description>
     </item>
     
     <item>
@@ -78,6 +77,15 @@ Check NVIDIA Driver Version nvidia-smi</description>
     </item>
     
     <item>
+      <title>k-Fold Cross-Validating Neural Networks</title>
+      <link>https://chrisalbon.com/deep_learning/keras/k-fold_cross-validating_neural_networks/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/deep_learning/keras/k-fold_cross-validating_neural_networks/</guid>
+      <description>If we have smaller data it can be useful to benefit from k-fold cross-validation to maximize our ability to evaluate the neural network&amp;rsquo;s performance. This is possible in Keras because we can &amp;ldquo;wrap&amp;rdquo; any neural network such that it can use the evaluation features available in scikit-learn, including k-fold cross-validation. To accomplish this, we first have to create a function that returns a compiled neural network. Next we use KerasClassifier (if we have a classifier, if we have a regressor we can use KerasRegressor) to wrap the model so it can be used by scikit-learn.</description>
+    </item>
+    
+    <item>
       <title>LSTM Recurrent Neural Network</title>
       <link>https://chrisalbon.com/deep_learning/keras/lstm_recurrent_neural_network/</link>
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
@@ -92,7 +100,7 @@ Check NVIDIA Driver Version nvidia-smi</description>
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/deep_learning/keras/neural_network_early_stopping/</guid>
-      <description>Preliminaries # Load libraries import numpy as np from keras.datasets import imdb from keras.preprocessing.text import Tokenizer from keras import models from keras import layers from keras.callbacks import EarlyStopping, ModelCheckpoint # Set random seed np.random.seed(0) Using TensorFlow backend.  Load Movie Review Text Data # Set the number of features we want number_of_features = 1000 # Load data and target vector from movie review data (train_data, train_target), (test_data, test_target) = imdb.</description>
+      <description>Preliminaries # Load libraries import numpy as np from keras.datasets import imdb from keras.preprocessing.text import Tokenizer from keras import models from keras import layers from keras.callbacks import EarlyStopping, ModelCheckpoint # Set random seed np.random.seed(0) Using TensorFlow backend.  Load Movie Review Text Data # Set the number of features we want number_of_features = 1000 # Load data and target vector from movie review data (train_data, train_target), (test_data, test_target) = imdb.load_data(num_words=number_of_features) # Convert movie review data to a one-hot encoded feature matrix tokenizer = Tokenizer(num_words=number_of_features) train_features = tokenizer.</description>
     </item>
     
     <item>
@@ -157,15 +165,6 @@ For these reasons, it is best practice (although not always necessary, for examp
       
       <guid>https://chrisalbon.com/deep_learning/keras/visualize_performance_history/</guid>
       <description>Preliminaries # Load libraries import numpy as np from keras.datasets import imdb from keras.preprocessing.text import Tokenizer from keras import models from keras import layers import matplotlib.pyplot as plt # Set random seed np.random.seed(0) Using TensorFlow backend.  Load Movie Review Data # Set the number of features we want number_of_features = 10000 # Load data and target vector from movie review data (train_data, train_target), (test_data, test_target) = imdb.load_data(num_words=number_of_features) # Convert movie review data to a one-hot encoded feature matrix tokenizer = Tokenizer(num_words=number_of_features) train_features = tokenizer.</description>
-    </item>
-    
-    <item>
-      <title>k-Fold Cross-Validating Neural Networks</title>
-      <link>https://chrisalbon.com/deep_learning/keras/k-fold_cross-validating_neural_networks/</link>
-      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
-      
-      <guid>https://chrisalbon.com/deep_learning/keras/k-fold_cross-validating_neural_networks/</guid>
-      <description>If we have smaller data it can be useful to benefit from k-fold cross-validation to maximize our ability to evaluate the neural network&amp;rsquo;s performance. This is possible in Keras because we can &amp;ldquo;wrap&amp;rdquo; any neural network such that it can use the evaluation features available in scikit-learn, including k-fold cross-validation. To accomplish this, we first have to create a function that returns a compiled neural network. Next we use KerasClassifier (if we have a classifier, if we have a regressor we can use KerasRegressor) to wrap the model so it can be used by scikit-learn.</description>
     </item>
     
   </channel>

@@ -20,27 +20,13 @@
 <meta property="og:description" content="Apply Operations To Groups In Pandas." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/python/data_wrangling/pandas_apply_operations_to_groups/" />
-
-
-
-<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
-
-<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00" />
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Apply Operations To Groups In Pandas"/>
 <meta name="twitter:description" content="Apply Operations To Groups In Pandas."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,8 +34,8 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Apply Operations To Groups In Pandas",
-  "url": "https://chrisalbon.com/python/data_wrangling/pandas_apply_operations_to_groups/",
-  "wordCount": "967",
+  "url": "https:\/\/chrisalbon.com\/python\/data_wrangling\/pandas_apply_operations_to_groups\/",
+  "wordCount": "968",
   "datePublished": "2017-12-20T11:53:49-07:00",
   "dateModified": "2017-12-20T11:53:49-07:00",
   "author": {
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,32 +170,31 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<h2 id="preliminaries">Preliminaries</h2>
+  <h2 id="preliminaries">Preliminaries</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># import modules</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create dataframe</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create dataframe</span>
 <span class="n">raw_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;regiment&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Nighthawks&#39;</span><span class="p">,</span> <span class="s1">&#39;Nighthawks&#39;</span><span class="p">,</span> <span class="s1">&#39;Nighthawks&#39;</span><span class="p">,</span> <span class="s1">&#39;Nighthawks&#39;</span><span class="p">,</span> <span class="s1">&#39;Dragoons&#39;</span><span class="p">,</span> <span class="s1">&#39;Dragoons&#39;</span><span class="p">,</span> <span class="s1">&#39;Dragoons&#39;</span><span class="p">,</span> <span class="s1">&#39;Dragoons&#39;</span><span class="p">,</span> <span class="s1">&#39;Scouts&#39;</span><span class="p">,</span> <span class="s1">&#39;Scouts&#39;</span><span class="p">,</span> <span class="s1">&#39;Scouts&#39;</span><span class="p">,</span> <span class="s1">&#39;Scouts&#39;</span><span class="p">],</span> 
         <span class="s1">&#39;company&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">,</span> <span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">,</span><span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">],</span> 
         <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Miller&#39;</span><span class="p">,</span> <span class="s1">&#39;Jacobson&#39;</span><span class="p">,</span> <span class="s1">&#39;Ali&#39;</span><span class="p">,</span> <span class="s1">&#39;Milner&#39;</span><span class="p">,</span> <span class="s1">&#39;Cooze&#39;</span><span class="p">,</span> <span class="s1">&#39;Jacon&#39;</span><span class="p">,</span> <span class="s1">&#39;Ryaner&#39;</span><span class="p">,</span> <span class="s1">&#39;Sone&#39;</span><span class="p">,</span> <span class="s1">&#39;Sloan&#39;</span><span class="p">,</span> <span class="s1">&#39;Piger&#39;</span><span class="p">,</span> <span class="s1">&#39;Riani&#39;</span><span class="p">,</span> <span class="s1">&#39;Ali&#39;</span><span class="p">],</span> 
         <span class="s1">&#39;preTestScore&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
         <span class="s1">&#39;postTestScore&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">94</span><span class="p">,</span> <span class="mi">57</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">94</span><span class="p">,</span> <span class="mi">57</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">70</span><span class="p">]}</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;regiment&#39;</span><span class="p">,</span> <span class="s1">&#39;company&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;preTestScore&#39;</span><span class="p">,</span> <span class="s1">&#39;postTestScore&#39;</span><span class="p">])</span>
-<span class="n">df</span></code></pre></div>
-<div>
+<span class="n">df</span>
+</code></pre></div><div>
 <style>
     .dataframe thead tr:only-child th {
         text-align: right;
     }
+<pre><code>.dataframe thead th {
+    text-align: left;
+}
 
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
+.dataframe tbody tr th {
+    vertical-align: top;
+}
+</code></pre>
+<p></style></p>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -315,17 +308,14 @@ MathJax.Hub.Config({
 </div>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a groupby variable that groups preTestScores by regiment</span>
 <span class="n">groupby_regiment</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;preTestScore&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;regiment&#39;</span><span class="p">])</span>
-<span class="n">groupby_regiment</span></code></pre></div>
-<pre><code>&lt;pandas.core.groupby.SeriesGroupBy object at 0x113ddb550&gt;
+<span class="n">groupby_regiment</span>
+</code></pre></div><pre><code>&lt;pandas.core.groupby.SeriesGroupBy object at 0x113ddb550&gt;
 </code></pre>
-
 <p>&ldquo;This grouped variable is now a GroupBy object. It has not actually computed anything yet except for some intermediate data about the group key <code>df['key1']</code>. The idea is that this object has all of the information needed to then apply some operation to each of the groups.&rdquo; - Python for Data Analysis</p>
-
 <h2 id="view-a-grouping">View a grouping</h2>
-
 <p>Use list() to show what a grouping looks like</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;preTestScore&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;regiment&#39;</span><span class="p">]))</span></code></pre></div>
-<pre><code>[('Dragoons', 4     3
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;preTestScore&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;regiment&#39;</span><span class="p">]))</span>
+</code></pre></div><pre><code>[('Dragoons', 4     3
   5     4
   6    24
   7    31
@@ -339,23 +329,22 @@ MathJax.Hub.Config({
   11    3
   Name: preTestScore, dtype: int64)]
 </code></pre>
-
 <h2 id="descriptive-statistics-by-group">Descriptive statistics by group</h2>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="p">[</span><span class="s1">&#39;preTestScore&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;regiment&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span></code></pre></div>
-<div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="p">[</span><span class="s1">&#39;preTestScore&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;regiment&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</code></pre></div><div>
 <style>
     .dataframe thead tr:only-child th {
         text-align: right;
     }
+<pre><code>.dataframe thead th {
+    text-align: left;
+}
 
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
+.dataframe tbody tr th {
+    vertical-align: top;
+}
+</code></pre>
+<p></style></p>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -418,19 +407,17 @@ MathJax.Hub.Config({
   </tbody>
 </table>
 </div>
-
-<h3 id="mean-of-each-regiment-s-pretestscore">Mean of each regiment&rsquo;s preTestScore</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">groupby_regiment</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span></code></pre></div>
-<pre><code>regiment
+<h3 id="mean-of-each-regiments-pretestscore">Mean of each regiment&rsquo;s preTestScore</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">groupby_regiment</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</code></pre></div><pre><code>regiment
 Dragoons      15.50
 Nighthawks    15.25
 Scouts         2.50
 Name: preTestScore, dtype: float64
 </code></pre>
-
 <h3 id="mean-pretestscores-grouped-by-regiment-and-company">Mean preTestScores grouped by regiment and company</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="p">[</span><span class="s1">&#39;preTestScore&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;regiment&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;company&#39;</span><span class="p">]])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span></code></pre></div>
-<pre><code>regiment    company
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="p">[</span><span class="s1">&#39;preTestScore&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;regiment&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;company&#39;</span><span class="p">]])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</code></pre></div><pre><code>regiment    company
 Dragoons    1st         3.5
             2nd        27.5
 Nighthawks  1st        14.0
@@ -439,23 +426,22 @@ Scouts      1st         2.5
             2nd         2.5
 Name: preTestScore, dtype: float64
 </code></pre>
-
 <h3 id="mean-pretestscores-grouped-by-regiment-and-company-without-heirarchical-indexing">Mean preTestScores grouped by regiment and company without heirarchical indexing</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="p">[</span><span class="s1">&#39;preTestScore&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;regiment&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;company&#39;</span><span class="p">]])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span></code></pre></div>
-<div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="p">[</span><span class="s1">&#39;preTestScore&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;regiment&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;company&#39;</span><span class="p">]])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
+</code></pre></div><div>
 <style>
     .dataframe thead tr:only-child th {
         text-align: right;
     }
+<pre><code>.dataframe thead th {
+    text-align: left;
+}
 
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
+.dataframe tbody tr th {
+    vertical-align: top;
+}
+</code></pre>
+<p></style></p>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -488,23 +474,22 @@ Name: preTestScore, dtype: float64
   </tbody>
 </table>
 </div>
-
 <h3 id="group-the-entire-dataframe-by-regiment-and-company">Group the entire dataframe by regiment and company</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;regiment&#39;</span><span class="p">,</span> <span class="s1">&#39;company&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span></code></pre></div>
-<div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;regiment&#39;</span><span class="p">,</span> <span class="s1">&#39;company&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</code></pre></div><div>
 <style>
     .dataframe thead tr:only-child th {
         text-align: right;
     }
+<pre><code>.dataframe thead th {
+    text-align: left;
+}
 
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
+.dataframe tbody tr th {
+    vertical-align: top;
+}
+</code></pre>
+<p></style></p>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -557,10 +542,9 @@ Name: preTestScore, dtype: float64
   </tbody>
 </table>
 </div>
-
 <h3 id="number-of-observations-in-each-regiment-and-company">Number of observations in each regiment and company</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;regiment&#39;</span><span class="p">,</span> <span class="s1">&#39;company&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">size</span><span class="p">()</span></code></pre></div>
-<pre><code>regiment    company
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;regiment&#39;</span><span class="p">,</span> <span class="s1">&#39;company&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+</code></pre></div><pre><code>regiment    company
 Dragoons    1st        2
             2nd        2
 Nighthawks  1st        2
@@ -569,15 +553,14 @@ Scouts      1st        2
             2nd        2
 dtype: int64
 </code></pre>
-
 <h2 id="iterate-an-operations-over-groups">Iterate an operations over groups</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Group the dataframe by regiment, and for each regiment,</span>
 <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;regiment&#39;</span><span class="p">):</span> 
     <span class="c1"># print the name of the regiment</span>
     <span class="k">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
     <span class="c1"># print the data of that regiment</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">group</span><span class="p">)</span></code></pre></div>
-<pre><code>Dragoons
+    <span class="k">print</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
+</code></pre></div><pre><code>Dragoons
    regiment company    name  preTestScore  postTestScore
 4  Dragoons     1st   Cooze             3             70
 5  Dragoons     1st   Jacon             4             25
@@ -596,12 +579,10 @@ Scouts
 10   Scouts     2nd  Riani             2             62
 11   Scouts     2nd    Ali             3             70
 </code></pre>
-
 <h3 id="group-by-columns">Group by columns</h3>
-
 <p>Specifically in this case: group by the data types of the columns (i.e. axis=1) and then use list() to view what that grouping looks like</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span></code></pre></div>
-<pre><code>[(dtype('int64'),     preTestScore  postTestScore
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+</code></pre></div><pre><code>[(dtype('int64'),     preTestScore  postTestScore
   0              4             25
   1             24             94
   2             31             57
@@ -628,23 +609,22 @@ Scouts
   10      Scouts     2nd     Riani
   11      Scouts     2nd       Ali)]
 </code></pre>
-
-<h3 id="in-the-dataframe-df-group-by-regiments-take-the-mean-values-of-the-other-variables-for-those-groups-then-display-them-with-the-prefix-mean">In the dataframe &ldquo;df&rdquo;, group by &ldquo;regiments, take the mean values of the other variables for those groups, then display them with the prefix_mean</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;regiment&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">add_prefix</span><span class="p">(</span><span class="s1">&#39;mean_&#39;</span><span class="p">)</span></code></pre></div>
-<div>
+<h3 id="in-the-dataframe-df-group-by-regiments-take-the-mean-values-of-the-other-variables-for-those-groups-then-display-them-with-the-prefix_mean">In the dataframe &ldquo;df&rdquo;, group by &ldquo;regiments, take the mean values of the other variables for those groups, then display them with the prefix_mean</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;regiment&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">add_prefix</span><span class="p">(</span><span class="s1">&#39;mean_&#39;</span><span class="p">)</span>
+</code></pre></div><div>
 <style>
     .dataframe thead tr:only-child th {
         text-align: right;
     }
+<pre><code>.dataframe thead th {
+    text-align: left;
+}
 
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
+.dataframe tbody tr th {
+    vertical-align: top;
+}
+</code></pre>
+<p></style></p>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -677,30 +657,29 @@ Scouts
   </tbody>
 </table>
 </div>
-
 <h3 id="create-a-function-to-get-the-stats-of-a-group">Create a function to get the stats of a group</h3>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">get_stats</span><span class="p">(</span><span class="n">group</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;min&#39;</span><span class="p">:</span> <span class="n">group</span><span class="o">.</span><span class="nb">min</span><span class="p">(),</span> <span class="s1">&#39;max&#39;</span><span class="p">:</span> <span class="n">group</span><span class="o">.</span><span class="nb">max</span><span class="p">(),</span> <span class="s1">&#39;count&#39;</span><span class="p">:</span> <span class="n">group</span><span class="o">.</span><span class="n">count</span><span class="p">(),</span> <span class="s1">&#39;mean&#39;</span><span class="p">:</span> <span class="n">group</span><span class="o">.</span><span class="n">mean</span><span class="p">()}</span></code></pre></div>
-<h3 id="create-bins-and-bin-up-posttestscore-by-those-pins">Create bins and bin up postTestScore by those pins</h3>
+    <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;min&#39;</span><span class="p">:</span> <span class="n">group</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="s1">&#39;max&#39;</span><span class="p">:</span> <span class="n">group</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="s1">&#39;count&#39;</span><span class="p">:</span> <span class="n">group</span><span class="o">.</span><span class="n">count</span><span class="p">(),</span> <span class="s1">&#39;mean&#39;</span><span class="p">:</span> <span class="n">group</span><span class="o">.</span><span class="n">mean</span><span class="p">()}</span>
+</code></pre></div><h3 id="create-bins-and-bin-up-posttestscore-by-those-pins">Create bins and bin up postTestScore by those pins</h3>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">bins</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
 <span class="n">group_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Low&#39;</span><span class="p">,</span> <span class="s1">&#39;Okay&#39;</span><span class="p">,</span> <span class="s1">&#39;Good&#39;</span><span class="p">,</span> <span class="s1">&#39;Great&#39;</span><span class="p">]</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;categories&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;postTestScore&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">group_names</span><span class="p">)</span></code></pre></div>
-<h3 id="apply-the-get-stats-function-to-each-posttestscore-bin">Apply the get_stats() function to each postTestScore bin</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="p">[</span><span class="s1">&#39;postTestScore&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;categories&#39;</span><span class="p">])</span><span class="o">.</span><span class="nb">apply</span><span class="p">(</span><span class="n">get_stats</span><span class="p">)</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span></code></pre></div>
-<div>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;categories&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;postTestScore&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">group_names</span><span class="p">)</span>
+</code></pre></div><h3 id="apply-the-get_stats-function-to-each-posttestscore-bin">Apply the get_stats() function to each postTestScore bin</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="p">[</span><span class="s1">&#39;postTestScore&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;categories&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">get_stats</span><span class="p">)</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
+</code></pre></div><div>
 <style>
     .dataframe thead tr:only-child th {
         text-align: right;
     }
+<pre><code>.dataframe thead th {
+    text-align: left;
+}
 
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
+.dataframe tbody tr th {
+    vertical-align: top;
+}
+</code></pre>
+<p></style></p>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -774,7 +753,7 @@ Scouts
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

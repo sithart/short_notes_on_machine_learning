@@ -20,27 +20,13 @@
 <meta property="og:description" content="reate A Temporary File Using Python." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/python/basics/create_a_temporary_file/" />
-
-
-
-<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
-
-<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00" />
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Create A Temporary File"/>
 <meta name="twitter:description" content="reate A Temporary File Using Python."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Create A Temporary File",
-  "url": "https://chrisalbon.com/python/basics/create_a_temporary_file/",
+  "url": "https:\/\/chrisalbon.com\/python\/basics\/create_a_temporary_file\/",
   "wordCount": "91",
   "datePublished": "2017-12-20T11:53:49-07:00",
   "dateModified": "2017-12-20T11:53:49-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,34 +170,30 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<h2 id="preliminaries">Preliminaries</h2>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">tempfile</span> <span class="kn">import</span> <span class="n">NamedTemporaryFile</span></code></pre></div>
-<h2 id="create-a-temporary-file">Create A Temporary File</h2>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">f</span> <span class="o">=</span> <span class="n">NamedTemporaryFile</span><span class="p">(</span><span class="s1">&#39;w+t&#39;</span><span class="p">)</span></code></pre></div>
-<h2 id="write-to-the-temp-file">Write To The Temp File</h2>
+  <h2 id="preliminaries">Preliminaries</h2>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">tempfile</span> <span class="kn">import</span> <span class="n">NamedTemporaryFile</span>
+</code></pre></div><h2 id="create-a-temporary-file">Create A Temporary File</h2>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">f</span> <span class="o">=</span> <span class="n">NamedTemporaryFile</span><span class="p">(</span><span class="s1">&#39;w+t&#39;</span><span class="p">)</span>
+</code></pre></div><h2 id="write-to-the-temp-file">Write To The Temp File</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Write to the file, the output is the number of characters</span>
-<span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;Nobody lived on Deadweather but us and the pirates. It wasn’t hard to understand why.&#39;</span><span class="p">)</span></code></pre></div>
-<pre><code>85
+<span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;Nobody lived on Deadweather but us and the pirates. It wasn’t hard to understand why.&#39;</span><span class="p">)</span>
+</code></pre></div><pre><code>85
 </code></pre>
-
-<h2 id="view-the-tmp-file-s-name">View The Tmp File&rsquo;s Name</h2>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">f</span><span class="o">.</span><span class="n">name</span></code></pre></div>
-<pre><code>'/var/folders/0b/pj3wsd750fjf8xzfb0n127w80000gn/T/tmphv1dkovx'
+<h2 id="view-the-tmp-files-name">View The Tmp File&rsquo;s Name</h2>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">f</span><span class="o">.</span><span class="n">name</span>
+</code></pre></div><pre><code>'/var/folders/0b/pj3wsd750fjf8xzfb0n127w80000gn/T/tmphv1dkovx'
 </code></pre>
-
 <h2 id="read-the-file">Read The File</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Go to the top of the file</span>
 <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="c1"># Read the file</span>
-<span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span></code></pre></div>
-<pre><code>'Nobody lived on Deadweather but us and the pirates. It wasn’t hard to understand why.'
+<span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</code></pre></div><pre><code>'Nobody lived on Deadweather but us and the pirates. It wasn’t hard to understand why.'
 </code></pre>
-
 <h2 id="close-and-thus-delete-the-file">Close (And Thus Delete) The File</h2>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
 </div>
   <aside>
       <div class="bug_reporting">
@@ -227,7 +217,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

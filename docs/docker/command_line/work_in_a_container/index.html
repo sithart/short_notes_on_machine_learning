@@ -20,27 +20,13 @@
 <meta property="og:description" content="Work in a container in Docker." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/docker/command_line/work_in_a_container/" />
-
-
-
-<meta property="article:published_time" content="2020-07-22T00:00:00-07:00"/>
-
-<meta property="article:modified_time" content="2020-07-22T00:00:00-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2020-07-22T00:00:00-07:00" />
+<meta property="article:modified_time" content="2020-07-22T00:00:00-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Work In A Container"/>
 <meta name="twitter:description" content="Work in a container in Docker."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Work In A Container",
-  "url": "https://chrisalbon.com/docker/command_line/work_in_a_container/",
+  "url": "https:\/\/chrisalbon.com\/docker\/command_line\/work_in_a_container\/",
   "wordCount": "347",
   "datePublished": "2020-07-22T00:00:00-07:00",
   "dateModified": "2020-07-22T00:00:00-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,14 +170,9 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<h2 id="create-docker-container">Create Docker Container</h2>
-
+  <h2 id="create-docker-container">Create Docker Container</h2>
 <p>Run a Docker container (<code>docker container run</code>) interactively (<code>-it</code>) called project (<code>--name project</code>) based on the image <code>ubuntu:latest</code> and then run <code>/bin/bash</code> to get terminal.</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">docker container run -it --name project ubuntu:latest /bin/bash</code></pre></div>
-
 <pre><code>Unable to find image 'ubuntu:latest' locally
 latest: Pulling from library/ubuntu
 3ff22d22a855: Pull complete
@@ -193,16 +182,10 @@ b7f616834fd0: Pull complete
 Digest: sha256:5d1d5407f353843ecf8b16524bc5565aa332e9e6a1297c73a92d3e754b8a636d
 Status: Downloaded newer image for ubuntu:latest
 root@60655028c0d0:/#
-</code></pre>
-
-<p>You are now put into the Bash terminal of the Docker image.</p>
-
-<h2 id="show-container-s-filesystem">Show Container&rsquo;s Filesystem</h2>
-
+</code></pre><p>You are now put into the Bash terminal of the Docker image.</p>
+<h2 id="show-containers-filesystem">Show Container&rsquo;s Filesystem</h2>
 <p>View all files and folders (<code>ls</code>) that displays using long format and shows hidden files (<code>-al</code>)</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">ls -al</code></pre></div>
-
 <pre><code>total 56
 drwxr-xr-x   1 root root 4096 Aug  7 18:37 .
 drwxr-xr-x   1 root root 4096 Aug  7 18:37 ..
@@ -228,9 +211,7 @@ dr-xr-xr-x  13 root root    0 Aug  7 18:37 sys
 drwxrwxrwt   2 root root 4096 Jul 20 14:57 tmp
 drwxr-xr-x   1 root root 4096 Jul 20 14:43 usr
 drwxr-xr-x   1 root root 4096 Jul 20 14:57 var
-</code></pre>
-
-<p>We can see from <code>ls -al</code> that we are in the root directory of a Ubuntu installation.</p>
+</code></pre><p>We can see from <code>ls -al</code> that we are in the root directory of a Ubuntu installation.</p>
 
 </div>
   <aside>
@@ -255,7 +236,7 @@ drwxr-xr-x   1 root root 4096 Jul 20 14:57 var
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

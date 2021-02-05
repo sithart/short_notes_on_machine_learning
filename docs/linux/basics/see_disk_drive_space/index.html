@@ -20,27 +20,13 @@
 <meta property="og:description" content="See the amount of disk drive space using the Linux command line." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/linux/basics/see_disk_drive_space/" />
-
-
-
-<meta property="article:published_time" content="2018-07-16T00:00:00-07:00"/>
-
-<meta property="article:modified_time" content="2018-07-16T00:00:00-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2018-07-16T00:00:00-07:00" />
+<meta property="article:modified_time" content="2018-07-16T00:00:00-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="See Disk Drive Space"/>
 <meta name="twitter:description" content="See the amount of disk drive space using the Linux command line."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "See Disk Drive Space",
-  "url": "https://chrisalbon.com/linux/basics/see_disk_drive_space/",
+  "url": "https:\/\/chrisalbon.com\/linux\/basics\/see_disk_drive_space\/",
   "wordCount": "80",
   "datePublished": "2018-07-16T00:00:00-07:00",
   "dateModified": "2018-07-16T00:00:00-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,14 +170,9 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<p>To view the amount of used and free memory on a system, we can use the <code>df</code> command.</p>
-
+  <p>To view the amount of used and free memory on a system, we can use the <code>df</code> command.</p>
 <h3 id="view-disk-drive-space">View Disk Drive Space</h3>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">df</code></pre></div>
-
 <pre><code>Filesystem    512-blocks      Used Available Capacity iused               ifree %iused  Mounted on
 /dev/disk1s1   975221040 415404896 554253656    43% 2387799 9223372036852388008    0%   /
 devfs                382       382         0   100%     662                   0  100%   /dev
@@ -191,7 +180,6 @@ devfs                382       382         0   100%     662                   0 
 map -hosts             0         0         0   100%       0                   0  100%   /net
 map auto_home          0         0         0   100%       0                   0  100%   /home
 </code></pre>
-
 </div>
   <aside>
       <div class="bug_reporting">
@@ -215,7 +203,7 @@ map auto_home          0         0         0   100%       0                   0 
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

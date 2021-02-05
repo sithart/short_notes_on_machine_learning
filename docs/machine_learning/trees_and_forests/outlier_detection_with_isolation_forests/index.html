@@ -20,27 +20,13 @@
 <meta property="og:description" content="Outlier Detection With Isolation Forests Using Python." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/machine_learning/trees_and_forests/outlier_detection_with_isolation_forests/" />
-
-
-
-<meta property="article:published_time" content="2019-12-20T11:53:49-07:00"/>
-
-<meta property="article:modified_time" content="2019-12-20T11:53:49-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2019-12-20T11:53:49-07:00" />
+<meta property="article:modified_time" content="2019-12-20T11:53:49-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Outlier Detection With Isolation Forests"/>
 <meta name="twitter:description" content="Outlier Detection With Isolation Forests Using Python."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,8 +34,8 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Outlier Detection With Isolation Forests",
-  "url": "https://chrisalbon.com/machine_learning/trees_and_forests/outlier_detection_with_isolation_forests/",
-  "wordCount": "994",
+  "url": "https:\/\/chrisalbon.com\/machine_learning\/trees_and_forests\/outlier_detection_with_isolation_forests\/",
+  "wordCount": "995",
   "datePublished": "2019-12-20T11:53:49-07:00",
   "dateModified": "2019-12-20T11:53:49-07:00",
   "author": {
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,18 +170,13 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<p>An isolation forest is comprised of many of a special kind of tree. In each node the tree, a random feature is split in a random point (for example, if values in a feature range between 0 and 100, a random split might be 34). This process continues until every data point is isolated in its own brand. This is repeated until the end result is a forest of trees.</p>
-
+  <p>An isolation forest is comprised of many of a special kind of tree. In each node the tree, a random feature is split in a random point (for example, if values in a feature range between 0 and 100, a random split might be 34). This process continues until every data point is isolated in its own brand. This is repeated until the end result is a forest of trees.</p>
 <p>The intuition is that isolating a non-outlier data point will require many splits to be isolated because it is very similar to other data points. On the flip side, an outlier data point will require few splits to be isolated because it is very disimilar to the other data points.</p>
-
 <h2 id="preliminaries">Preliminaries</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_blobs</span>
 <span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">IsolationForest</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span></code></pre></div>
-<h2 id="create-data">Create Data</h2>
-
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+</code></pre></div><h2 id="create-data">Create Data</h2>
 <p><code>make_blobs</code> with a single center will create a single cluster of data.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Make the features (X) with 200 samples,</span>
 <span class="n">X</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">make_blobs</span><span class="p">(</span><span class="n">n_samples</span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span>
@@ -201,8 +190,8 @@ MathJax.Hub.Config({
                   <span class="n">shuffle</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
 
 <span class="c1"># View the two features</span>
-<span class="n">X</span></code></pre></div>
-<pre><code>array([[4.73967471, 7.72630304],
+<span class="n">X</span>
+</code></pre></div><pre><code>array([[4.73967471, 7.72630304],
        [3.37828574, 8.01554621],
        [3.51365219, 8.78544516],
        [4.85330559, 9.33483891],
@@ -503,14 +492,13 @@ MathJax.Hub.Config({
        [3.74852215, 9.4031086 ],
        [3.65649213, 8.3902306 ]])
 </code></pre>
-
 <h2 id="add-outlier-to-data">Add Outlier To Data</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create an outlier data point</span>
 <span class="n">outlier</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">]]</span>
 
 <span class="c1"># Concat the outlier with the </span>
-<span class="n">X_with_outlier</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">outlier</span><span class="p">,</span> <span class="n">X</span><span class="p">))</span></code></pre></div>
-<h2 id="train-isolation-forest">Train Isolation Forest</h2>
+<span class="n">X_with_outlier</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">outlier</span><span class="p">,</span> <span class="n">X</span><span class="p">))</span>
+</code></pre></div><h2 id="train-isolation-forest">Train Isolation Forest</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Setup the isolation forest</span>
 <span class="n">clf</span> <span class="o">=</span> <span class="n">IsolationForest</span><span class="p">(</span><span class="c1"># Randomly sample observations for each tree with replacement</span>
                       <span class="n">bootstrap</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> 
@@ -522,21 +510,21 @@ MathJax.Hub.Config({
                       <span class="n">behaviour</span><span class="o">=</span><span class="s1">&#39;new&#39;</span><span class="p">)</span>
 
 <span class="c1"># Train the isolation forest</span>
-<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_with_outlier</span><span class="p">)</span></code></pre></div>
-<pre><code>IsolationForest(behaviour='new', bootstrap=True, contamination='auto',
+<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_with_outlier</span><span class="p">)</span>
+</code></pre></div><pre><code>IsolationForest(behaviour='new', bootstrap=True, contamination='auto',
         max_features=1.0, max_samples='auto', n_estimators=100,
         n_jobs=None, random_state=None, verbose=0)
 </code></pre>
-
 <h2 id="predict-if-new-data-point-is-outlier">Predict If New Data Point Is Outlier</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a new data point that is an outlier</span>
-<span class="n">new_data_point</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">200</span><span class="p">,</span><span class="mi">20</span><span class="p">]]</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Predict if the new data point is an outlier (1 is not an outlier, -1 is an outlier)</span>
-<span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">new_data_point</span><span class="p">)</span></code></pre></div>
-<pre><code>array([-1])
+<span class="n">new_data_point</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">200</span><span class="p">,</span><span class="mi">20</span><span class="p">]]</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Predict if the new data point is an outlier (1 is not an outlier, -1 is an outlier)</span>
+<span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">new_data_point</span><span class="p">)</span>
+</code></pre></div><pre><code>array([-1])
 </code></pre>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Display the anomaly score for the new data point (lower is more abnormal)</span>
-<span class="n">clf</span><span class="o">.</span><span class="n">score_samples</span><span class="p">(</span><span class="n">new_data_point</span><span class="p">)</span></code></pre></div>
-<pre><code>array([-0.7477598])
+<span class="n">clf</span><span class="o">.</span><span class="n">score_samples</span><span class="p">(</span><span class="n">new_data_point</span><span class="p">)</span>
+</code></pre></div><pre><code>array([-0.7477598])
 </code></pre>
 
 </div>
@@ -562,7 +550,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

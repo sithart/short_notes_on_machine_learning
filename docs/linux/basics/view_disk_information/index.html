@@ -20,27 +20,13 @@
 <meta property="og:description" content="View disk information using the Linux command line." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/linux/basics/view_disk_information/" />
-
-
-
-<meta property="article:published_time" content="2018-07-16T00:00:00-07:00"/>
-
-<meta property="article:modified_time" content="2018-07-16T00:00:00-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2018-07-16T00:00:00-07:00" />
+<meta property="article:modified_time" content="2018-07-16T00:00:00-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="View Disk Information"/>
 <meta name="twitter:description" content="View disk information using the Linux command line."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "View Disk Information",
-  "url": "https://chrisalbon.com/linux/basics/view_disk_information/",
+  "url": "https:\/\/chrisalbon.com\/linux\/basics\/view_disk_information\/",
   "wordCount": "58",
   "datePublished": "2018-07-16T00:00:00-07:00",
   "dateModified": "2018-07-16T00:00:00-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,14 +170,9 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<p>This is how you can view external hard drives on your Ubuntu system. <code>lshw</code> stands for <a href="https://linux.die.net/man/1/lshw">&ldquo;list hardware&rdquo;</a>.</p>
-
+  <p>This is how you can view external hard drives on your Ubuntu system. <code>lshw</code> stands for <a href="https://linux.die.net/man/1/lshw">&ldquo;list hardware&rdquo;</a>.</p>
 <h2 id="view-disk-information">View Disk Information</h2>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">sudo lshw -C disk</code></pre></div>
-
 <pre><code>  *-disk                    
        description: ATA Disk
        product: Samsung SSD 850
@@ -196,7 +185,6 @@ MathJax.Hub.Config({
        capabilities: gpt-1.00 partitioned partitioned:gpt
        configuration: ansiversion=5 guid=ef511d90-6a19-46f8-9510-08d164ad898a logicalsectorsize=512 sectorsize=512
 </code></pre>
-
 </div>
   <aside>
       <div class="bug_reporting">
@@ -220,7 +208,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

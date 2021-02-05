@@ -20,27 +20,13 @@
 <meta property="og:description" content="Find unique values in pandas dataframes." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/python/data_wrangling/pandas_find_unique_values/" />
-
-
-
-<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
-
-<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00" />
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Find Unique Values In Pandas Dataframes"/>
 <meta name="twitter:description" content="Find unique values in pandas dataframes."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,8 +34,8 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Find Unique Values In Pandas Dataframes",
-  "url": "https://chrisalbon.com/python/data_wrangling/pandas_find_unique_values/",
-  "wordCount": "204",
+  "url": "https:\/\/chrisalbon.com\/python\/data_wrangling\/pandas_find_unique_values\/",
+  "wordCount": "206",
   "datePublished": "2017-12-20T11:53:49-07:00",
   "dateModified": "2017-12-20T11:53:49-07:00",
   "author": {
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -177,27 +171,29 @@ MathJax.Hub.Config({
   <div class="content">
       
   <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">raw_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;regiment&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;51st&#39;</span><span class="p">,</span> <span class="s1">&#39;29th&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">,</span> <span class="s1">&#39;19th&#39;</span><span class="p">,</span> <span class="s1">&#39;12th&#39;</span><span class="p">,</span> <span class="s1">&#39;101st&#39;</span><span class="p">,</span> <span class="s1">&#39;90th&#39;</span><span class="p">,</span> <span class="s1">&#39;30th&#39;</span><span class="p">,</span> <span class="s1">&#39;193th&#39;</span><span class="p">,</span> <span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;94th&#39;</span><span class="p">,</span> <span class="s1">&#39;91th&#39;</span><span class="p">],</span> 
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">raw_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;regiment&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;51st&#39;</span><span class="p">,</span> <span class="s1">&#39;29th&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">,</span> <span class="s1">&#39;19th&#39;</span><span class="p">,</span> <span class="s1">&#39;12th&#39;</span><span class="p">,</span> <span class="s1">&#39;101st&#39;</span><span class="p">,</span> <span class="s1">&#39;90th&#39;</span><span class="p">,</span> <span class="s1">&#39;30th&#39;</span><span class="p">,</span> <span class="s1">&#39;193th&#39;</span><span class="p">,</span> <span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;94th&#39;</span><span class="p">,</span> <span class="s1">&#39;91th&#39;</span><span class="p">],</span> 
             <span class="s1">&#39;trucks&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;MAZ-7310&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="s1">&#39;MAZ-7310&#39;</span><span class="p">,</span> <span class="s1">&#39;MAZ-7310&#39;</span><span class="p">,</span> <span class="s1">&#39;Tatra 810&#39;</span><span class="p">,</span> <span class="s1">&#39;Tatra 810&#39;</span><span class="p">,</span> <span class="s1">&#39;Tatra 810&#39;</span><span class="p">,</span> <span class="s1">&#39;Tatra 810&#39;</span><span class="p">,</span> <span class="s1">&#39;ZIS-150&#39;</span><span class="p">,</span> <span class="s1">&#39;Tatra 810&#39;</span><span class="p">,</span> <span class="s1">&#39;ZIS-150&#39;</span><span class="p">,</span> <span class="s1">&#39;ZIS-150&#39;</span><span class="p">],</span>
             <span class="s1">&#39;tanks&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Merkava Mark 4&#39;</span><span class="p">,</span> <span class="s1">&#39;Merkava Mark 4&#39;</span><span class="p">,</span> <span class="s1">&#39;Merkava Mark 4&#39;</span><span class="p">,</span> <span class="s1">&#39;Leopard 2A6M&#39;</span><span class="p">,</span> <span class="s1">&#39;Leopard 2A6M&#39;</span><span class="p">,</span> <span class="s1">&#39;Leopard 2A6M&#39;</span><span class="p">,</span> <span class="s1">&#39;Arjun MBT&#39;</span><span class="p">,</span> <span class="s1">&#39;Leopard 2A6M&#39;</span><span class="p">,</span> <span class="s1">&#39;Arjun MBT&#39;</span><span class="p">,</span> <span class="s1">&#39;Arjun MBT&#39;</span><span class="p">,</span> <span class="s1">&#39;Arjun MBT&#39;</span><span class="p">,</span> <span class="s1">&#39;Arjun MBT&#39;</span><span class="p">],</span>
             <span class="s1">&#39;aircraft&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="s1">&#39;Harbin Z-9&#39;</span><span class="p">,</span> <span class="s1">&#39;Harbin Z-9&#39;</span><span class="p">,</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="s1">&#39;Harbin Z-9&#39;</span><span class="p">,</span> <span class="s1">&#39;SH-60B Seahawk&#39;</span><span class="p">,</span> <span class="s1">&#39;SH-60B Seahawk&#39;</span><span class="p">,</span> <span class="s1">&#39;SH-60B Seahawk&#39;</span><span class="p">,</span> <span class="s1">&#39;SH-60B Seahawk&#39;</span><span class="p">,</span> <span class="s1">&#39;SH-60B Seahawk&#39;</span><span class="p">]}</span>
 
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;regiment&#39;</span><span class="p">,</span> <span class="s1">&#39;trucks&#39;</span><span class="p">,</span> <span class="s1">&#39;tanks&#39;</span><span class="p">,</span> <span class="s1">&#39;aircraft&#39;</span><span class="p">])</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># View the top few rows</span>
-<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span></code></pre></div>
-<div>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;regiment&#39;</span><span class="p">,</span> <span class="s1">&#39;trucks&#39;</span><span class="p">,</span> <span class="s1">&#39;tanks&#39;</span><span class="p">,</span> <span class="s1">&#39;aircraft&#39;</span><span class="p">])</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># View the top few rows</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -249,12 +245,12 @@ MathJax.Hub.Config({
 </div>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a list of unique values by turning the</span>
 <span class="c1"># pandas column into a set</span>
-<span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">trucks</span><span class="p">))</span></code></pre></div>
-<pre><code>[nan, 'MAZ-7310', 'Tatra 810', 'ZIS-150']
+<span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">trucks</span><span class="p">))</span>
+</code></pre></div><pre><code>[nan, 'MAZ-7310', 'Tatra 810', 'ZIS-150']
 </code></pre>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a list of unique values in df.trucks</span>
-<span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;trucks&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span></code></pre></div>
-<pre><code>['MAZ-7310', nan, 'Tatra 810', 'ZIS-150']
+<span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;trucks&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+</code></pre></div><pre><code>['MAZ-7310', nan, 'Tatra 810', 'ZIS-150']
 </code></pre>
 
 </div>
@@ -280,7 +276,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

@@ -20,27 +20,13 @@
 <meta property="og:description" content="Histograms In MatPlotLib." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/python/data_visualization/matplotlib_histogram/" />
-
-
-
-<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
-
-<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00" />
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Histograms In MatPlotLib"/>
 <meta name="twitter:description" content="Histograms In MatPlotLib."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Histograms In MatPlotLib",
-  "url": "https://chrisalbon.com/python/data_visualization/matplotlib_histogram/",
+  "url": "https:\/\/chrisalbon.com\/python\/data_visualization\/matplotlib_histogram\/",
   "wordCount": "533",
   "datePublished": "2017-12-20T11:53:49-07:00",
   "dateModified": "2017-12-20T11:53:49-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,9 +170,7 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<h2 id="preliminaries">Preliminaries</h2>
+  <h2 id="preliminaries">Preliminaries</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
@@ -189,11 +181,11 @@ MathJax.Hub.Config({
 <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_row&#39;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
 
 <span class="c1"># Set iPython&#39;s max column width to 50</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span></code></pre></div>
-<h2 id="create-dataframe">Create dataframe</h2>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+</code></pre></div><h2 id="create-dataframe">Create dataframe</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://www.dropbox.com/s/52cb7kcflr8qm2u/5kings_battles_v1.csv?dl=1&#39;</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span></code></pre></div>
-<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div><div style="max-height:1000px;max-width:1500px;overflow:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -369,7 +361,6 @@ MathJax.Hub.Config({
   </tbody>
 </table>
 </div>
-
 <h2 id="make-plot-with-bins-of-fixed-size">Make plot with bins of fixed size</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Make two variables of the attacker and defender size, but leaving out</span>
 <span class="c1"># cases when there are over 10000 attackers</span>
@@ -377,7 +368,7 @@ MathJax.Hub.Config({
 <span class="n">data2</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;defender_size&#39;</span><span class="p">][</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;attacker_size&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">90000</span><span class="p">]</span>
 
 <span class="c1"># Create bins of 2000 each</span>
-<span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">data1</span><span class="o">.</span><span class="nb">min</span><span class="p">(),</span> <span class="n">data2</span><span class="o">.</span><span class="nb">max</span><span class="p">(),</span> <span class="mi">2000</span><span class="p">)</span> <span class="c1"># fixed bin size</span>
+<span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">data1</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">data2</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="mi">2000</span><span class="p">)</span> <span class="c1"># fixed bin size</span>
 
 <span class="c1"># Plot a histogram of attacker size</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data1</span><span class="p">,</span> 
@@ -402,9 +393,8 @@ MathJax.Hub.Config({
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Number of battles&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></div>
-<p><img src="matplotlib_histogram_6_0.png" alt="png" /></p>
-
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div><p><img src="matplotlib_histogram_6_0.png" alt="png"></p>
 <h2 id="make-plot-with-fixed-number-of-bins">Make plot with fixed number of bins</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Make two variables of the attacker and defender size, but leaving out</span>
 <span class="c1"># cases when there are over 10000 attackers</span>
@@ -450,8 +440,8 @@ MathJax.Hub.Config({
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Number of battles&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></div>
-<p><img src="matplotlib_histogram_8_0.png" alt="png" /></p>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div><p><img src="matplotlib_histogram_8_0.png" alt="png"></p>
 
 </div>
   <aside>
@@ -476,7 +466,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

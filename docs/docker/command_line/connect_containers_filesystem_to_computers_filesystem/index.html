@@ -20,35 +20,21 @@
 <meta property="og:description" content="How to connect a container&#39;s filesystem to a computer filesystem in Docker." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/docker/command_line/connect_containers_filesystem_to_computers_filesystem/" />
-
-
-
-<meta property="article:published_time" content="2020-07-22T00:00:00-07:00"/>
-
-<meta property="article:modified_time" content="2020-07-22T00:00:00-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2020-07-22T00:00:00-07:00" />
+<meta property="article:modified_time" content="2020-07-22T00:00:00-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Connect Container&#39;s Filesystem To Computer&#39;s Filesystem"/>
 <meta name="twitter:description" content="How to connect a container&#39;s filesystem to a computer filesystem in Docker."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
 {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
-  "headline": "Connect Container&#39;s Filesystem To Computer&#39;s Filesystem",
-  "url": "https://chrisalbon.com/docker/command_line/connect_containers_filesystem_to_computers_filesystem/",
+  "headline": "Connect Container\u0027s Filesystem To Computer\u0027s Filesystem",
+  "url": "https:\/\/chrisalbon.com\/docker\/command_line\/connect_containers_filesystem_to_computers_filesystem\/",
   "wordCount": "430",
   "datePublished": "2020-07-22T00:00:00-07:00",
   "dateModified": "2020-07-22T00:00:00-07:00",
@@ -56,7 +42,7 @@
     "@type": "Person",
     "name": ""
   },
-  "description": "How to connect a container&#39;s filesystem to a computer filesystem in Docker."
+  "description": "How to connect a container\u0027s filesystem to a computer filesystem in Docker."
 }
 </script> 
 
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,51 +170,29 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<p>Imagine we want to map <code>important_file_in_container.txt</code> inside the container with <code>important_file.txt</code> outside the container. For example, if we wanted to output the logs from a process inside the container to a log file outside the container.</p>
-
+  <p>Imagine we want to map <code>important_file_in_container.txt</code> inside the container with <code>important_file.txt</code> outside the container. For example, if we wanted to output the logs from a process inside the container to a log file outside the container.</p>
 <h2 id="create-file">Create File</h2>
-
 <p>Create a file (<code>touch</code>) called <code>important_file.txt</code>.</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">touch important_file.txt</code></pre></div>
-
 <h2 id="create-two-filepaths">Create Two Filepaths</h2>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Create absolute filepath to file on computer filesystem</span>
+<span class="nv">ORIGINAL</span><span class="o">=</span>~/sandbox/docker/important_file.txt
 
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Create absolute filepath to file on computer filesystem
-</span><span class="c1"></span><span class="nv">ORIGINAL</span><span class="o">=</span>~/sandbox/docker/important_file.txt
-
-<span class="c1"># Create absolute path to where we want to create or replace
-</span><span class="c1"># a file inside the container
-</span><span class="c1"></span><span class="nv">CONTAINER</span><span class="o">=</span>/important_file_in_container.txt</code></pre></div>
-
+<span class="c1"># Create absolute path to where we want to create or replace</span>
+<span class="c1"># a file inside the container</span>
+<span class="nv">CONTAINER</span><span class="o">=</span>/important_file_in_container.txt</code></pre></div>
 <h2 id="create-container-with-a-mount-bind">Create Container With A Mount Bind</h2>
-
 <p>Create and start a detached (<code>-d</code>) Docker container (<code>docker run</code>) based on the Docker image <code>nginx:latest</code> called website (<code>--name website</code>). Create a mount bind point (<code>--mount type=bind</code>) connecting the file specified by ORIGINAL outside the container (<code>src=${ORIGINAL}</code>)  with the file specified by CONTAINER inside the container (<code>dst=${CONTAINER}</code>).</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">docker run -d --name website --mount <span class="nv">type</span><span class="o">=</span>bind,src<span class="o">=</span><span class="si">${</span><span class="nv">ORIGINAL</span><span class="si">}</span>,dst<span class="o">=</span><span class="si">${</span><span class="nv">CONTAINER</span><span class="si">}</span> nginx:latest</code></pre></div>
-
 <pre><code>5ca87a0c5c8b5e0535540b8fb4890ec8aae0b6a3d0189dabf9746ab9122abc58
-</code></pre>
-
-<h2 id="ssh-into-container">SSH Into Container</h2>
-
+</code></pre><h2 id="ssh-into-container">SSH Into Container</h2>
 <p>Execute (<code>docker exec</code>) <code>/bin/bash</code> interactively (<code>-it</code>) on the Docker container called <code>website</code>.</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">docker <span class="nb">exec</span> -it website /bin/bash</code></pre></div>
-
 <pre><code>root@5ca87a0c5c8b:/#
-</code></pre>
-
-<h2 id="view-files-and-folder-in-container">View Files And Folder In Container</h2>
-
+</code></pre><h2 id="view-files-and-folder-in-container">View Files And Folder In Container</h2>
 <p>View all files and folders (<code>ls</code>) that displays using long format and shows hidden files (<code>-al</code>)</p>
-
 <p>Notice that <code>important_file_in_container.txt</code> exists inside the container. That is functionally the same file at <code>important_file.txt</code> outside the container.</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">ls -al</code></pre></div>
-
 <pre><code>total 88
 drwxr-xr-x   1 root root 4096 Aug  2 05:58 .
 drwxr-xr-x   1 root root 4096 Aug  2 05:58 ..
@@ -248,7 +220,6 @@ drwxrwxrwt   1 root root 4096 Jul 22 03:23 tmp
 drwxr-xr-x   1 root root 4096 Jul 20 00:00 usr
 drwxr-xr-x   1 root root 4096 Jul 20 00:00 var
 </code></pre>
-
 </div>
   <aside>
       <div class="bug_reporting">
@@ -272,7 +243,7 @@ drwxr-xr-x   1 root root 4096 Jul 20 00:00 var
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

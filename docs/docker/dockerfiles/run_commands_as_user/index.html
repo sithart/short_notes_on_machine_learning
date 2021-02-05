@@ -20,27 +20,13 @@
 <meta property="og:description" content="Run commands as a user using Dockerfiles." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/docker/dockerfiles/run_commands_as_user/" />
-
-
-
-<meta property="article:published_time" content="2020-07-22T00:00:00-07:00"/>
-
-<meta property="article:modified_time" content="2020-07-22T00:00:00-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2020-07-22T00:00:00-07:00" />
+<meta property="article:modified_time" content="2020-07-22T00:00:00-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Run Commands As A User"/>
 <meta name="twitter:description" content="Run commands as a user using Dockerfiles."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Run Commands As A User",
-  "url": "https://chrisalbon.com/docker/dockerfiles/run_commands_as_user/",
+  "url": "https:\/\/chrisalbon.com\/docker\/dockerfiles\/run_commands_as_user\/",
   "wordCount": "527",
   "datePublished": "2020-07-22T00:00:00-07:00",
   "dateModified": "2020-07-22T00:00:00-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,31 +170,24 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
+  <h2 id="create-dockerfile">Create Dockerfile</h2>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Build from base image</span>
+FROM ubuntu:latest
 
-<h2 id="create-dockerfile">Create Dockerfile</h2>
+<span class="c1"># Add a user named chris</span>
+RUN useradd -ms /bin/bash  chris
 
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Build from base image
-</span><span class="c1"></span>FROM ubuntu:latest
+<span class="c1"># Create a file</span>
+RUN touch before_user_command.txt
 
-<span class="c1"># Add a user named chris
-</span><span class="c1"></span>RUN useradd -ms /bin/bash  chris
+<span class="c1"># Change to user &#34;Chris&#34;</span>
+USER chris
 
-<span class="c1"># Create a file
-</span><span class="c1"></span>RUN touch before_user_command.txt
-
-<span class="c1"># Change to user &#34;Chris&#34;
-</span><span class="c1"></span>USER chris
-
-<span class="c1"># Create a file
-</span><span class="c1"></span>RUN touch ~/after_user_command.txt</code></pre></div>
-
+<span class="c1"># Create a file</span>
+RUN touch ~/after_user_command.txt</code></pre></div>
 <h2 id="build-image-from-dockerfile">Build Image From Dockerfile</h2>
-
 <p>Build the Dockerfile (<code>docker build</code>) in the current directory (<code>.</code>) and call the image chrisalbon/big-project:user-example (<code>--tag chrisalbon/big-project:user-example</code>).</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">docker build --tag chrisalbon/big-project:user-example .</code></pre></div>
-
 <pre><code>Sending build context to Docker daemon  4.608kB
 Step 1/5 : FROM ubuntu:latest
  ---&gt; 1e4467b07108
@@ -219,23 +206,13 @@ Removing intermediate container bb67374528f9
  ---&gt; 2fb9292fcd9b
 Successfully built 2fb9292fcd9b
 Successfully tagged chrisalbon/big-project:user-example
-</code></pre>
-
-<h2 id="run-docker-container-from-image">Run Docker Container From Image</h2>
-
+</code></pre><h2 id="run-docker-container-from-image">Run Docker Container From Image</h2>
 <p>Start and create (<code>docker run</code>) an interative (<code>-it</code>) Docker container from the image called <code>chrisalbon/big-project:user-example</code>. Remove the container after it stops (<code>-rm</code>)</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">docker run --rm -it chrisalbon/big-project:user-example</code></pre></div>
-
 <pre><code>chris@e0d25c2a9195:/$
-</code></pre>
-
-<h2 id="view-root-directory">View Root Directory</h2>
-
+</code></pre><h2 id="view-root-directory">View Root Directory</h2>
 <p>View all files and folders (<code>ls</code>) that displays using long format and shows hidden files (<code>-al</code>) in the root directory.</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">ls -al</code></pre></div>
-
 <pre><code>total 56
 drwxr-xr-x   1 root root 4096 Aug 25 02:10 .
 drwxr-xr-x   1 root root 4096 Aug 25 02:10 ..
@@ -262,16 +239,10 @@ dr-xr-xr-x  13 root root    0 Aug 25 02:07 sys
 drwxrwxrwt   2 root root 4096 Jul 20 14:57 tmp
 drwxr-xr-x   1 root root 4096 Jul 20 14:43 usr
 drwxr-xr-x   1 root root 4096 Jul 20 14:57 var
-</code></pre>
-
-<p>Notice that <code>root</code> owns <code>before_user_command.txt</code>.</p>
-
+</code></pre><p>Notice that <code>root</code> owns <code>before_user_command.txt</code>.</p>
 <h2 id="view-user-home-directory">View User Home Directory</h2>
-
 <p>View all files and folders (<code>ls</code>) that displays using long format and shows hidden files (<code>-al</code>)  in the directory <code>home/chris/</code>.</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">ls -al home/chris/</code></pre></div>
-
 <pre><code>total 20
 drwxr-xr-x 1 chris chris 4096 Aug 25 02:10 .
 drwxr-xr-x 1 root  root  4096 Aug 25 02:04 ..
@@ -279,9 +250,7 @@ drwxr-xr-x 1 root  root  4096 Aug 25 02:04 ..
 -rw-r--r-- 1 chris chris 3771 Feb 25 12:03 .bashrc
 -rw-r--r-- 1 chris chris  807 Feb 25 12:03 .profile
 -rw-r--r-- 1 chris chris    0 Aug 25 02:10 after_user_command.txt
-</code></pre>
-
-<p>Notice that <code>chris</code> owns <code>after_user_command.txt</code>.</p>
+</code></pre><p>Notice that <code>chris</code> owns <code>after_user_command.txt</code>.</p>
 
 </div>
   <aside>
@@ -306,7 +275,7 @@ drwxr-xr-x 1 root  root  4096 Aug 25 02:04 ..
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

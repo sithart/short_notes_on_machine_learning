@@ -20,27 +20,13 @@
 <meta property="og:description" content="How to write the standard error of a command or program to a file using the Linux command line." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/linux/inputs_and_outputs/append_output_and_errors_to_file/" />
-
-
-
-<meta property="article:published_time" content="2018-06-17T00:00:00-07:00"/>
-
-<meta property="article:modified_time" content="2018-06-17T00:00:00-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2018-06-17T00:00:00-07:00" />
+<meta property="article:modified_time" content="2018-06-17T00:00:00-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Append Outputs And Errors To File"/>
 <meta name="twitter:description" content="How to write the standard error of a command or program to a file using the Linux command line."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Append Outputs And Errors To File",
-  "url": "https://chrisalbon.com/linux/inputs_and_outputs/append_output_and_errors_to_file/",
+  "url": "https:\/\/chrisalbon.com\/linux\/inputs_and_outputs\/append_output_and_errors_to_file\/",
   "wordCount": "114",
   "datePublished": "2018-06-17T00:00:00-07:00",
   "dateModified": "2018-06-17T00:00:00-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,46 +170,26 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<p>To write both the output and the errors of a program to a file, we can use the <code>&amp;&gt;&gt;</code> on newer versions of bash to append (not write over) either standard outputs or standard errors to a file.</p>
-
+  <p>To write both the output and the errors of a program to a file, we can use the <code>&amp;&gt;&gt;</code> on newer versions of bash to append (not write over) either standard outputs or standard errors to a file.</p>
 <h2 id="create-code-that-will-produce-an-output">Create Code That Will Produce An Output</h2>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">pwd</code></pre></div>
-
 <pre><code>/home/chris/example_directory
-</code></pre>
-
-<h2 id="create-code-that-will-produce-an-error">Create Code That Will Produce An Error</h2>
-
+</code></pre><h2 id="create-code-that-will-produce-an-error">Create Code That Will Produce An Error</h2>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">pwd -thisisafakeargumenttoproduceerror</code></pre></div>
-
 <pre><code>-bash: pwd: -t: invalid option
 pwd: usage: pwd [-LP]
-</code></pre>
-
-<h2 id="create-file-to-hold-output-and-errors">Create File To Hold Output And Errors</h2>
-
+</code></pre><h2 id="create-file-to-hold-output-and-errors">Create File To Hold Output And Errors</h2>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">touch log.txt</code></pre></div>
-
-<h2 id="append-working-code-s-output-to-file">Append Working Code&rsquo;s Output To File</h2>
-
-<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">pwd &amp;&gt;&gt; log.txt</code></pre></div>
-
-<h2 id="append-error-producing-code-s-error-to-file">Append Error-Producing Code&rsquo;s Error To File</h2>
-
-<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">pwd -thisisafakeargumenttoproduceerror &amp;&gt;&gt; log.txt</code></pre></div>
-
+<h2 id="append-working-codes-output-to-file">Append Working Code&rsquo;s Output To File</h2>
+<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">pwd <span class="err">&amp;</span>&gt;&gt; log.txt</code></pre></div>
+<h2 id="append-error-producing-codes-error-to-file">Append Error-Producing Code&rsquo;s Error To File</h2>
+<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">pwd -thisisafakeargumenttoproduceerror <span class="err">&amp;</span>&gt;&gt; log.txt</code></pre></div>
 <h2 id="view-file-contents-to-show-both-output-and-error">View File Contents To Show Both Output And Error</h2>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">cat log.txt</code></pre></div>
-
 <pre><code>/home/chris/example_directory
 -bash: pwd: -t: invalid option
 pwd: usage: pwd [-LP]
 </code></pre>
-
 </div>
   <aside>
       <div class="bug_reporting">
@@ -239,7 +213,7 @@ pwd: usage: pwd [-LP]
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

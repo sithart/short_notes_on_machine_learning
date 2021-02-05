@@ -20,27 +20,13 @@
 <meta property="og:description" content="How to add line numbers to text using the Linux command line." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/linux/text/adding_line_numbers/" />
-
-
-
-<meta property="article:published_time" content="2018-06-17T00:00:00-07:00"/>
-
-<meta property="article:modified_time" content="2018-06-17T00:00:00-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2018-06-17T00:00:00-07:00" />
+<meta property="article:modified_time" content="2018-06-17T00:00:00-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Adding Line Numbers"/>
 <meta name="twitter:description" content="How to add line numbers to text using the Linux command line."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Adding Line Numbers",
-  "url": "https://chrisalbon.com/linux/text/adding_line_numbers/",
+  "url": "https:\/\/chrisalbon.com\/linux\/text\/adding_line_numbers\/",
   "wordCount": "40",
   "datePublished": "2018-06-17T00:00:00-07:00",
   "dateModified": "2018-06-17T00:00:00-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,30 +170,19 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<h2 id="make-file-with-some-content">Make File With Some Content</h2>
-
+  <h2 id="make-file-with-some-content">Make File With Some Content</h2>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">echo &#34;Jan&#34; &gt;&gt; sales.txt; echo &#34;Feb&#34; &gt;&gt; sales.txt; echo &#34;Mar&#34; &gt;&gt; sales.txt</code></pre></div>
-
 <h2 id="make-file-contents">Make File Contents</h2>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">cat sales.txt</code></pre></div>
-
 <pre><code>Jan
 Feb
 Mar
-</code></pre>
-
-<h2 id="make-file-contents-with-line-numbers">Make File Contents With Line Numbers</h2>
-
+</code></pre><h2 id="make-file-contents-with-line-numbers">Make File Contents With Line Numbers</h2>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">cat -n sales.txt</code></pre></div>
-
 <pre><code>     1	Jan
      2	Feb
      3	Mar
 </code></pre>
-
 </div>
   <aside>
       <div class="bug_reporting">
@@ -223,7 +206,7 @@ Mar
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

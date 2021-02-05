@@ -20,27 +20,13 @@
 <meta property="og:description" content="Monitor a website for changes with Python." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/python/web_scraping/monitor_a_website/" />
-
-
-
-<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
-
-<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00" />
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Monitor A Website For Changes With Python"/>
 <meta name="twitter:description" content="Monitor a website for changes with Python."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Monitor A Website For Changes With Python",
-  "url": "https://chrisalbon.com/python/web_scraping/monitor_a_website/",
+  "url": "https:\/\/chrisalbon.com\/python\/web_scraping\/monitor_a_website\/",
   "wordCount": "406",
   "datePublished": "2017-12-20T11:53:49-07:00",
   "dateModified": "2017-12-20T11:53:49-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,14 +170,9 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<p>In this snippet, we create a continous loop that, at set times, scrapes a website, checks to see if it contains some text and if so, emails me. Specifically I used this script to find when Venture Beat had published an article about my company.</p>
-
+  <p>In this snippet, we create a continous loop that, at set times, scrapes a website, checks to see if it contains some text and if so, emails me. Specifically I used this script to find when Venture Beat had published an article about my company.</p>
 <p>It should be noted that there are more efficient ways of setting scripts to run at certain times, notable cron. However, this is a quick and dirty solution.</p>
-
 <p><em>Note: I&rsquo;ve commented out the last few lines of this tutorial, which attempts to send an email. Before running this code, uncomment those lines</em></p>
-
 <h2 id="preliminaries">Preliminaries</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Import requests (to download the page)</span>
 <span class="kn">import</span> <span class="nn">requests</span>
@@ -195,8 +184,8 @@ MathJax.Hub.Config({
 <span class="kn">import</span> <span class="nn">time</span>
 
 <span class="c1"># Import smtplib (to allow us to email)</span>
-<span class="kn">import</span> <span class="nn">smtplib</span></code></pre></div>
-<h2 id="monitoring-script">Monitoring Script</h2>
+<span class="kn">import</span> <span class="nn">smtplib</span>
+</code></pre></div><h2 id="monitoring-script">Monitoring Script</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># This is a pretty simple script. The script downloads the homepage of VentureBeat, and if it finds some text, emails me.</span>
 <span class="c1"># If it does not find some text, it waits 60 seconds and downloads the homepage again.</span>
 
@@ -243,8 +232,8 @@ MathJax.Hub.Config({
         <span class="c1"># disconnect from the server</span>
         <span class="c1"># server.quit()</span>
         
-        <span class="k">break</span></code></pre></div>
-<pre><code>From: YOUR_EMAIL_ADDRESS
+        <span class="k">break</span>
+</code></pre></div><pre><code>From: YOUR_EMAIL_ADDRESS
 To: ['AN_EMAIL_ADDRESS', 'A_SECOND_EMAIL_ADDRESS', 'A_THIRD_EMAIL_ADDRESS']
 Message: Subject: This is Chris's script talking, CHECK GOOGLE!
 </code></pre>
@@ -272,7 +261,7 @@ Message: Subject: This is Chris's script talking, CHECK GOOGLE!
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

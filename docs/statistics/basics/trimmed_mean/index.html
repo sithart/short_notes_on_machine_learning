@@ -20,27 +20,13 @@
 <meta property="og:description" content="Trimmed Mean Using Python." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/statistics/basics/trimmed_mean/" />
-
-
-
-<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
-
-<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00" />
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Trimmed Mean"/>
 <meta name="twitter:description" content="Trimmed Mean Using Python."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Trimmed Mean",
-  "url": "https://chrisalbon.com/statistics/basics/trimmed_mean/",
+  "url": "https:\/\/chrisalbon.com\/statistics\/basics\/trimmed_mean\/",
   "wordCount": "299",
   "datePublished": "2017-12-20T11:53:49-07:00",
   "dateModified": "2017-12-20T11:53:49-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,37 +170,33 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<p>Trimmed means are averaging techniques that do not count (i.e. trim off) extreme values. The goal is to make mean calculations more robust to extreme values by not considering those values when calculating the mean.</p>
-
+  <p>Trimmed means are averaging techniques that do not count (i.e. trim off) extreme values. The goal is to make mean calculations more robust to extreme values by not considering those values when calculating the mean.</p>
 <p><a href="https://docs.scipy.org/">SciPy</a> offers a great methods of calculating trimmed means.</p>
-
 <h2 id="preliminaries">Preliminaries</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Import libraries</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span></code></pre></div>
-<h2 id="create-dataframe">Create DataFrame</h2>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+</code></pre></div><h2 id="create-dataframe">Create DataFrame</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create dataframe with two extreme values</span>
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Jason&#39;</span><span class="p">,</span> <span class="s1">&#39;Molly&#39;</span><span class="p">,</span> <span class="s1">&#39;Tina&#39;</span><span class="p">,</span> <span class="s1">&#39;Jake&#39;</span><span class="p">,</span> <span class="s1">&#39;Amy&#39;</span><span class="p">,</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;Jack&#39;</span><span class="p">,</span> <span class="s1">&#39;Jill&#39;</span><span class="p">,</span> <span class="s1">&#39;Kelly&#39;</span><span class="p">,</span> <span class="s1">&#39;Mark&#39;</span><span class="p">,</span> <span class="s1">&#39;Kao&#39;</span><span class="p">,</span> <span class="s1">&#39;Dillon&#39;</span><span class="p">],</span> 
         <span class="s1">&#39;score&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
        <span class="p">}</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="n">df</span></code></pre></div>
-<div>
+<span class="n">df</span>
+</code></pre></div><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -279,35 +269,30 @@ MathJax.Hub.Config({
   </tbody>
 </table>
 </div>
-
 <h2 id="calculate-non-trimmed-mean">Calculate Non-Trimmed Mean</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Calculate non-trimmed mean</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span></code></pre></div>
-<pre><code>21.25
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</code></pre></div><pre><code>21.25
 </code></pre>
-
 <h2 id="calculate-mean-after-trimming-off-highest-and-lowest">Calculate Mean After Trimming Off Highest And Lowest</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Trim off the 20% most extreme scores (lowest and highest)</span>
-<span class="n">stats</span><span class="o">.</span><span class="n">trim_mean</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">],</span> <span class="n">proportiontocut</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span></code></pre></div>
-<pre><code>6.5
+<span class="n">stats</span><span class="o">.</span><span class="n">trim_mean</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">],</span> <span class="n">proportiontocut</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+</code></pre></div><pre><code>6.5
 </code></pre>
-
 <p>We can use <code>trimboth</code> to see which values are used to calculate the trimmed mean:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Trim off the 20% most extreme scores and view the non-trimmed values</span>
-<span class="n">stats</span><span class="o">.</span><span class="n">trimboth</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">],</span> <span class="n">proportiontocut</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span></code></pre></div>
-<pre><code>array([ 3,  5,  4,  6,  7,  8,  9, 10])
+<span class="n">stats</span><span class="o">.</span><span class="n">trimboth</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">],</span> <span class="n">proportiontocut</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+</code></pre></div><pre><code>array([ 3,  5,  4,  6,  7,  8,  9, 10])
 </code></pre>
-
 <h2 id="calculate-mean-after-trimming-only-highest-extremes">Calculate Mean After Trimming Only Highest Extremes</h2>
-
 <p>The <code>right</code> tail refers to the highest values in the array and <code>left</code> refers to the lowest values in the array.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Trim off the highest 20% of values and view trimmed mean</span>
-<span class="n">stats</span><span class="o">.</span><span class="n">trim1</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">],</span> <span class="n">proportiontocut</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">tail</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span></code></pre></div>
-<pre><code>5.5
+<span class="n">stats</span><span class="o">.</span><span class="n">trim1</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">],</span> <span class="n">proportiontocut</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">tail</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</code></pre></div><pre><code>5.5
 </code></pre>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Trim off the highest 20% of values and view non-trimmed values</span>
-<span class="n">stats</span><span class="o">.</span><span class="n">trim1</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">],</span> <span class="n">proportiontocut</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">tail</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span></code></pre></div>
-<pre><code>array([ 1,  3,  2,  4,  5,  6,  7,  9,  8, 10])
+<span class="n">stats</span><span class="o">.</span><span class="n">trim1</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">],</span> <span class="n">proportiontocut</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">tail</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
+</code></pre></div><pre><code>array([ 1,  3,  2,  4,  5,  6,  7,  9,  8, 10])
 </code></pre>
 
 </div>
@@ -333,7 +318,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

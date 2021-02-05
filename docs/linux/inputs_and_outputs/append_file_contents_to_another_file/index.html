@@ -20,27 +20,13 @@
 <meta property="og:description" content="How to check the amount of free memory in a system using the Linux command line." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/linux/inputs_and_outputs/append_file_contents_to_another_file/" />
-
-
-
-<meta property="article:published_time" content="2018-06-17T00:00:00-07:00"/>
-
-<meta property="article:modified_time" content="2018-06-17T00:00:00-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2018-06-17T00:00:00-07:00" />
+<meta property="article:modified_time" content="2018-06-17T00:00:00-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Append File Contents To Another File"/>
 <meta name="twitter:description" content="How to check the amount of free memory in a system using the Linux command line."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Append File Contents To Another File",
-  "url": "https://chrisalbon.com/linux/inputs_and_outputs/append_file_contents_to_another_file/",
+  "url": "https:\/\/chrisalbon.com\/linux\/inputs_and_outputs\/append_file_contents_to_another_file\/",
   "wordCount": "83",
   "datePublished": "2018-06-17T00:00:00-07:00",
   "dateModified": "2018-06-17T00:00:00-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,32 +170,19 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<h2 id="create-a-file-with-a-record-of-a-sale">Create A File With A Record Of A Sale</h2>
-
+  <h2 id="create-a-file-with-a-record-of-a-sale">Create A File With A Record Of A Sale</h2>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">echo &#39;Bob Jones bought an apple for $2&#39; &gt; sales_monday.txt</code></pre></div>
-
 <h2 id="create-a-file-with-a-record-of-a-sale-1">Create A File With A Record Of A Sale</h2>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">echo &#39;Sarah Miller bought an orange for $2&#39; &gt; sales_tuesday.txt</code></pre></div>
-
 <h2 id="create-an-empty-file-for-all-sales">Create An Empty File For All Sales</h2>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">touch sales.txt</code></pre></div>
-
 <h2 id="append-contents-of-both-files-to-all-sales-file">Append Contents Of Both Files To All Sales File</h2>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">cat sales_monday.txt sales_tuesday.txt &gt;&gt; sales.txt</code></pre></div>
-
 <h2 id="view-contents-of-all-sales-file">View Contents Of All Sales File</h2>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">cat sales.txt</code></pre></div>
-
 <pre><code>Bob Jones bought an apple for $2
 Sarah Miller bought an orange for $2
 </code></pre>
-
 </div>
   <aside>
       <div class="bug_reporting">
@@ -225,7 +206,7 @@ Sarah Miller bought an orange for $2
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

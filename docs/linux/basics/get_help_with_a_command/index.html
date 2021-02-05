@@ -20,27 +20,13 @@
 <meta property="og:description" content="How to get help with a command using the Linux command line." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/linux/basics/get_help_with_a_command/" />
-
-
-
-<meta property="article:published_time" content="2018-06-17T00:00:00-07:00"/>
-
-<meta property="article:modified_time" content="2018-06-17T00:00:00-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2018-06-17T00:00:00-07:00" />
+<meta property="article:modified_time" content="2018-06-17T00:00:00-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Get Help With A Command"/>
 <meta name="twitter:description" content="How to get help with a command using the Linux command line."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Get Help With A Command",
-  "url": "https://chrisalbon.com/linux/basics/get_help_with_a_command/",
+  "url": "https:\/\/chrisalbon.com\/linux\/basics\/get_help_with_a_command\/",
   "wordCount": "217",
   "datePublished": "2018-06-17T00:00:00-07:00",
   "dateModified": "2018-06-17T00:00:00-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,28 +170,16 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<p>The <code>--help</code> argument is a common choice for quickly learning about a command. Particularly useful, <code>--help</code> shows the arguments for that particular command so we don&rsquo;t have to look them up online.</p>
-
+  <p>The <code>--help</code> argument is a common choice for quickly learning about a command. Particularly useful, <code>--help</code> shows the arguments for that particular command so we don&rsquo;t have to look them up online.</p>
 <p>Another option is the <code>whatis</code> command, which prints a one-line description of the command.</p>
-
 <h2 id="quickly-describe-a-command">Quickly Describe A Command</h2>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">whatis mkdir</code></pre></div>
-
 <pre><code>mkdir (1)            - make directories
 mkdir (2)            - create a directory
-</code></pre>
-
-<p>Note that in this case there are two mkdir commands with slightly different descriptions, but you can ignore that.</p>
-
+</code></pre><p>Note that in this case there are two mkdir commands with slightly different descriptions, but you can ignore that.</p>
 <h2 id="get-help-with-a-command">Get Help With A Command</h2>
-
 <p>In this example, we get help for the command <code>mkdir</code> (make directory).</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">mkdir --help</code></pre></div>
-
 <pre><code>Usage: mkdir [OPTION]... DIRECTORY...
 Create the DIRECTORY(ies), if they do not already exist.
 
@@ -216,7 +198,6 @@ GNU coreutils online help: &lt;http://www.gnu.org/software/coreutils/&gt;
 Full documentation at: &lt;http://www.gnu.org/software/coreutils/mkdir&gt;
 or available locally via: info '(coreutils) mkdir invocation'
 </code></pre>
-
 </div>
   <aside>
       <div class="bug_reporting">
@@ -240,7 +221,7 @@ or available locally via: info '(coreutils) mkdir invocation'
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

@@ -20,27 +20,13 @@
 <meta property="og:description" content="String indexing using Python." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/python/basics/string_indexing/" />
-
-
-
-<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
-
-<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00" />
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="String Indexing"/>
 <meta name="twitter:description" content="String indexing using Python."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "String Indexing",
-  "url": "https://chrisalbon.com/python/basics/string_indexing/",
+  "url": "https:\/\/chrisalbon.com\/python\/basics\/string_indexing\/",
   "wordCount": "82",
   "datePublished": "2017-12-20T11:53:49-07:00",
   "dateModified": "2017-12-20T11:53:49-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,43 +170,35 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<h3 id="create-a-string">Create a string</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">string</span> <span class="o">=</span> <span class="s1">&#39;Strings are defined as ordered collections of characters.&#39;</span></code></pre></div>
-<h3 id="print-the-entire-string">Print the entire string</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">string</span><span class="p">[:]</span></code></pre></div>
-<pre><code>'Strings are defined as ordered collections of characters.'
+  <h3 id="create-a-string">Create a string</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">string</span> <span class="o">=</span> <span class="s1">&#39;Strings are defined as ordered collections of characters.&#39;</span>
+</code></pre></div><h3 id="print-the-entire-string">Print the entire string</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">string</span><span class="p">[:]</span>
+</code></pre></div><pre><code>'Strings are defined as ordered collections of characters.'
 </code></pre>
-
 <h3 id="print-the-first-three-characters">Print the first three characters</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">string</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span></code></pre></div>
-<pre><code>'Str'
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">string</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+</code></pre></div><pre><code>'Str'
 </code></pre>
-
 <h3 id="print-the-first-three-characters-1">Print the first three characters</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">string</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span></code></pre></div>
-<pre><code>'Str'
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">string</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
+</code></pre></div><pre><code>'Str'
 </code></pre>
-
 <h3 id="print-the-last-three-characters">Print the last three characters</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">string</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]</span></code></pre></div>
-<pre><code>'rs.'
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">string</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]</span>
+</code></pre></div><pre><code>'rs.'
 </code></pre>
-
 <h3 id="print-the-third-to-fifth-character">Print the third to fifth character</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">string</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span></code></pre></div>
-<pre><code>'rin'
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">string</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+</code></pre></div><pre><code>'rin'
 </code></pre>
-
 <h3 id="print-the-first-to-the-tenth-character-skipping-every-other-character">Print the first to the tenth character, skipping every other character</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">string</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span></code></pre></div>
-<pre><code>'Srnsa'
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">string</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+</code></pre></div><pre><code>'Srnsa'
 </code></pre>
-
 <h3 id="print-the-string-in-reverse">Print the string in reverse</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">string</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span></code></pre></div>
-<pre><code>'.sretcarahc fo snoitcelloc deredro sa denifed era sgnirtS'
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">string</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</code></pre></div><pre><code>'.sretcarahc fo snoitcelloc deredro sa denifed era sgnirtS'
 </code></pre>
 
 </div>
@@ -238,7 +224,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

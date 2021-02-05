@@ -20,27 +20,13 @@
 <meta property="og:description" content="How to select the best number of component in truncated singular value composition for dimensionality reduction using Python." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/machine_learning/feature_engineering/select_best_number_of_components_in_tsvd/" />
-
-
-
-<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
-
-<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00" />
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Selecting The Best Number Of Components For TSVD"/>
 <meta name="twitter:description" content="How to select the best number of component in truncated singular value composition for dimensionality reduction using Python."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Selecting The Best Number Of Components For TSVD",
-  "url": "https://chrisalbon.com/machine_learning/feature_engineering/select_best_number_of_components_in_tsvd/",
+  "url": "https:\/\/chrisalbon.com\/machine_learning\/feature_engineering\/select_best_number_of_components_in_tsvd\/",
   "wordCount": "197",
   "datePublished": "2017-12-20T11:53:49-07:00",
   "dateModified": "2017-12-20T11:53:49-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,16 +170,14 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<h2 id="preliminaries">Preliminaries</h2>
+  <h2 id="preliminaries">Preliminaries</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Load libraries</span>
 <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
 <span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">TruncatedSVD</span>
 <span class="kn">from</span> <span class="nn">scipy.sparse</span> <span class="kn">import</span> <span class="n">csr_matrix</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span></code></pre></div>
-<h2 id="load-digits-data-and-make-sparse">Load Digits Data And Make Sparse</h2>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+</code></pre></div><h2 id="load-digits-data-and-make-sparse">Load Digits Data And Make Sparse</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Load the data</span>
 <span class="n">digits</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_digits</span><span class="p">()</span>
 
@@ -193,15 +185,15 @@ MathJax.Hub.Config({
 <span class="n">X</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">digits</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
 
 <span class="c1"># Make sparse matrix</span>
-<span class="n">X_sparse</span> <span class="o">=</span> <span class="n">csr_matrix</span><span class="p">(</span><span class="n">X</span><span class="p">)</span></code></pre></div>
-<h2 id="run-truncated-singular-value-decomposition">Run Truncated Singular Value Decomposition</h2>
+<span class="n">X_sparse</span> <span class="o">=</span> <span class="n">csr_matrix</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</code></pre></div><h2 id="run-truncated-singular-value-decomposition">Run Truncated Singular Value Decomposition</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create and run an TSVD with one less than number of features</span>
 <span class="n">tsvd</span> <span class="o">=</span> <span class="n">TruncatedSVD</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="n">X_sparse</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">X_tsvd</span> <span class="o">=</span> <span class="n">tsvd</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span></code></pre></div>
-<h2 id="create-list-of-explained-variances">Create List Of Explained Variances</h2>
+<span class="n">X_tsvd</span> <span class="o">=</span> <span class="n">tsvd</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</code></pre></div><h2 id="create-list-of-explained-variances">Create List Of Explained Variances</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># List of explained variances</span>
-<span class="n">tsvd_var_ratios</span> <span class="o">=</span> <span class="n">tsvd</span><span class="o">.</span><span class="n">explained_variance_ratio_</span></code></pre></div>
-<h2 id="create-function-calculating-number-of-components-required-to-pass-threshold">Create Function Calculating Number Of Components Required To Pass Threshold</h2>
+<span class="n">tsvd_var_ratios</span> <span class="o">=</span> <span class="n">tsvd</span><span class="o">.</span><span class="n">explained_variance_ratio_</span>
+</code></pre></div><h2 id="create-function-calculating-number-of-components-required-to-pass-threshold">Create Function Calculating Number Of Components Required To Pass Threshold</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a function</span>
 <span class="k">def</span> <span class="nf">select_n_components</span><span class="p">(</span><span class="n">var_ratio</span><span class="p">,</span> <span class="n">goal_var</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
     <span class="c1"># Set initial variance explained so far</span>
@@ -225,11 +217,11 @@ MathJax.Hub.Config({
             <span class="k">break</span>
             
     <span class="c1"># Return the number of components</span>
-    <span class="k">return</span> <span class="n">n_components</span></code></pre></div>
-<h2 id="run-function">Run Function</h2>
+    <span class="k">return</span> <span class="n">n_components</span>
+</code></pre></div><h2 id="run-function">Run Function</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Run function</span>
-<span class="n">select_n_components</span><span class="p">(</span><span class="n">tsvd_var_ratios</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">)</span></code></pre></div>
-<pre><code>40
+<span class="n">select_n_components</span><span class="p">(</span><span class="n">tsvd_var_ratios</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">)</span>
+</code></pre></div><pre><code>40
 </code></pre>
 
 </div>
@@ -255,7 +247,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

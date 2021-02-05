@@ -9,7 +9,7 @@ min_version = 0.25
   name = "Chris Albon"
   homepage = "https://chrisalbon.com"
 
-[based on]
+[based]
   name = "Alan Orth"
   homepage = "https://englishbulgaria.net"
 

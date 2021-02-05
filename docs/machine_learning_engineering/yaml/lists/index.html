@@ -20,27 +20,13 @@
 <meta property="og:description" content="Lists in YAML files." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/machine_learning_engineering/yaml/lists/" />
-
-
-
-<meta property="article:published_time" content="2020-07-03T00:00:00&#43;00:00"/>
-
-<meta property="article:modified_time" content="2020-07-03T00:00:00&#43;00:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2020-07-03T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-07-03T00:00:00+00:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Lists"/>
 <meta name="twitter:description" content="Lists in YAML files."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,10 +34,10 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Lists",
-  "url": "https://chrisalbon.com/machine_learning_engineering/yaml/lists/",
-  "wordCount": "41",
-  "datePublished": "2020-07-03T00:00:00&#43;00:00",
-  "dateModified": "2020-07-03T00:00:00&#43;00:00",
+  "url": "https:\/\/chrisalbon.com\/machine_learning_engineering\/yaml\/lists\/",
+  "wordCount": "55",
+  "datePublished": "2020-07-03T00:00:00\u002b00:00",
+  "dateModified": "2020-07-03T00:00:00\u002b00:00",
   "author": {
     "@type": "Person",
     "name": "Chris Albon"
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,38 +170,29 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<p>There are two ways to create lists in YAML files, using newlines/dashes and using brackets/commas.</p>
-
+  <p>There are two ways to create lists in YAML files, using newlines/dashes and using brackets/commas.</p>
 <h2 id="lists-using-dashes">Lists Using Dashes</h2>
-
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">---<span class="w">
-</span><span class="w"></span>-<span class="w"> </span><span class="s2">&#34;Apple&#34;</span><span class="w">
-</span><span class="w"></span>-<span class="w"> </span><span class="s2">&#34;Banana&#34;</span><span class="w">
-</span><span class="w"></span>-<span class="w"> </span><span class="s2">&#34;Green Bean&#34;</span><span class="w">
-</span><span class="w"></span>-<span class="w"> </span><span class="s2">&#34;Pineapple&#34;</span><span class="w">
-</span><span class="w"></span>-<span class="w"> </span><span class="s2">&#34;Grape&#34;</span></code></pre></div>
-
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nn">---</span><span class="w">
+</span><span class="w"></span>- <span class="s2">&#34;Apple&#34;</span><span class="w">
+</span><span class="w"></span>- <span class="s2">&#34;Banana&#34;</span><span class="w">
+</span><span class="w"></span>- <span class="s2">&#34;Green Bean&#34;</span><span class="w">
+</span><span class="w"></span>- <span class="s2">&#34;Pineapple&#34;</span><span class="w">
+</span><span class="w"></span>- <span class="s2">&#34;Grape&#34;</span></code></pre></div>
 <h2 id="lists-using-brackets-and-commas">Lists Using Brackets And Commas</h2>
-
-<p><div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">---<span class="w">
-</span><span class="w"></span><span class="p">[</span><span class="s2">&#34;Apple&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;Banana&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;Green Bean&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;Pineapple&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;Grape&#34;</span><span class="p">]</span></code></pre></div></p>
-
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nn">---</span><span class="w">
+</span><span class="w"></span><span class="p">[</span><span class="s2">&#34;Apple&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;Banana&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;Green Bean&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;Pineapple&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;Grape&#34;</span><span class="p">]</span></code></pre></div>
 <h2 id="create-lists-within-lists">Create Lists Within Lists</h2>
-
 <p>Nested list item should be indented <em>two</em> spaces.</p>
-
-<p><div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">---<span class="w">
-</span><span class="w"></span>-<span class="w"> </span><span class="s2">&#34;Apple&#34;</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span>-<span class="w"> </span><span class="s2">&#34;Fuji&#34;</span><span class="w">
-</span><span class="w">  </span>-<span class="w"> </span><span class="s2">&#34;Granny&#34;</span><span class="w">
-</span><span class="w">  </span>-<span class="w"> </span><span class="s2">&#34;Green&#34;</span><span class="w">
-</span><span class="w">  </span>-<span class="w"> </span><span class="s2">&#34;Honeybrook&#34;</span><span class="w">
-</span><span class="w"></span>-<span class="w"> </span><span class="s2">&#34;Banana&#34;</span><span class="w">
-</span><span class="w"></span>-<span class="w"> </span><span class="s2">&#34;Green Bean&#34;</span><span class="w">
-</span><span class="w"></span>-<span class="w"> </span><span class="s2">&#34;Pineapple&#34;</span><span class="w">
-</span><span class="w"></span>-<span class="w"> </span><span class="s2">&#34;Grape&#34;</span></code></pre></div></p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nn">---</span><span class="w">
+</span><span class="w"></span>- <span class="s2">&#34;Apple&#34;</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span>- <span class="s2">&#34;Fuji&#34;</span><span class="w">
+</span><span class="w">  </span>- <span class="s2">&#34;Granny&#34;</span><span class="w">
+</span><span class="w">  </span>- <span class="s2">&#34;Green&#34;</span><span class="w">
+</span><span class="w">  </span>- <span class="s2">&#34;Honeybrook&#34;</span><span class="w">
+</span><span class="w"></span>- <span class="s2">&#34;Banana&#34;</span><span class="w">
+</span><span class="w"></span>- <span class="s2">&#34;Green Bean&#34;</span><span class="w">
+</span><span class="w"></span>- <span class="s2">&#34;Pineapple&#34;</span><span class="w">
+</span><span class="w"></span>- <span class="s2">&#34;Grape&#34;</span></code></pre></div>
 
 </div>
   <aside>
@@ -232,7 +217,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

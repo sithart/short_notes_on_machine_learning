@@ -19,25 +19,13 @@
 <meta property="og:title" content="404 Page not found" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="" />
-
-
-
-
-
-
-
-
-
-
-
-
+<meta property="og:url" content="https://chrisalbon.com/404.html" />
 
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="404 Page not found"/>
 <meta name="twitter:description" content=""/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
     
@@ -55,26 +43,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -155,7 +151,7 @@ MathJax.Hub.Config({
             </center>
           </h1>
           <div class="card-body">
-            <p>You have found a link that is broken. However, there is hope. Here is every single page on the site listed alphabetically. Use <code>control-f</code> (Windows) or <code>cmd-f</code> (MacOS) to search page titles.</p>
+            <p>You have found a link that is broken. Below is every single page listed alphabetically. Use <code>control-f</code> (Windows) or <code>cmd-f</code> (MacOS) to search page titles.</p>
             <ul>
               
               <li>
@@ -163,7 +159,7 @@ MathJax.Hub.Config({
               </li>
               
               <li>
-                <a href="https://chrisalbon.com/machine_learning/feature_selection/anova_f-value_for_feature_selection/">ANOVA F-value For Feature Selection</a>
+                <a href="https://chrisalbon.com/articles/100_day_sprint/">100 Day Sprint</a>
               </li>
               
               <li>
@@ -259,6 +255,14 @@ MathJax.Hub.Config({
               </li>
               
               <li>
+                <a href="https://chrisalbon.com/machine_learning/feature_selection/anova_f-value_for_feature_selection/">ANOVA F-value For Feature Selection</a>
+              </li>
+              
+              <li>
+                <a href="https://chrisalbon.com/python/basics/any_all_max_min_sum/">any(), all(), max(), min(), sum()</a>
+              </li>
+              
+              <li>
                 <a href="https://chrisalbon.com/linux/inputs_and_outputs/append_error_to_file/">Append Error To File</a>
               </li>
               
@@ -308,6 +312,10 @@ MathJax.Hub.Config({
               
               <li>
                 <a href="https://chrisalbon.com/linux/basics/archive_and_unarchive_files/">Archive And Unarchive Files</a>
+              </li>
+              
+              <li>
+                <a href="https://chrisalbon.com/mathematics/basics/argmin_and_argmax/">argmin and argmax</a>
               </li>
               
               <li>
@@ -595,15 +603,15 @@ MathJax.Hub.Config({
               </li>
               
               <li>
-                <a href="https://chrisalbon.com/python/data_wrangling/csv_to_python_code/">Convert A CSV Into Python Code To Recreate It</a>
-              </li>
-              
-              <li>
                 <a href="https://chrisalbon.com/python/data_wrangling/pandas_convert_categorical_to_dummies/">Convert A Categorical Variable Into Dummy Variables</a>
               </li>
               
               <li>
                 <a href="https://chrisalbon.com/python/data_wrangling/pandas_convert_numeric_categorical_to_numeric_with_patsy/">Convert A Categorical Variable Into Dummy Variables</a>
+              </li>
+              
+              <li>
+                <a href="https://chrisalbon.com/python/data_wrangling/csv_to_python_code/">Convert A CSV Into Python Code To Recreate It</a>
               </li>
               
               <li>
@@ -635,11 +643,11 @@ MathJax.Hub.Config({
               </li>
               
               <li>
-                <a href="https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/convert_strings_to_dates/">Convert Strings To Dates</a>
+                <a href="https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/convert_pandas_column_timezone/">Convert pandas Columns Time Zone</a>
               </li>
               
               <li>
-                <a href="https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/convert_pandas_column_timezone/">Convert pandas Columns Time Zone</a>
+                <a href="https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/convert_strings_to_dates/">Convert Strings To Dates</a>
               </li>
               
               <li>
@@ -691,6 +699,10 @@ MathJax.Hub.Config({
               </li>
               
               <li>
+                <a href="https://chrisalbon.com/python/data_wrangling/pandas_create_column_using_conditional/">Create a Column Based on a Conditional in pandas</a>
+              </li>
+              
+              <li>
                 <a href="https://chrisalbon.com/docker/command_line/create_a_container/">Create A Container</a>
               </li>
               
@@ -700,6 +712,10 @@ MathJax.Hub.Config({
               
               <li>
                 <a href="https://chrisalbon.com/python/basics/create_a_new_file_and_the_write_to_it/">Create A New File Then Write To It</a>
+              </li>
+              
+              <li>
+                <a href="https://chrisalbon.com/python/data_wrangling/pandas_create_column_with_loop/">Create A pandas Column With A For Loop</a>
               </li>
               
               <li>
@@ -720,10 +736,6 @@ MathJax.Hub.Config({
               
               <li>
                 <a href="https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/create_a_vector/">Create A Vector</a>
-              </li>
-              
-              <li>
-                <a href="https://chrisalbon.com/python/data_wrangling/pandas_create_column_with_loop/">Create A pandas Column With A For Loop</a>
               </li>
               
               <li>
@@ -863,10 +875,6 @@ MathJax.Hub.Config({
               </li>
               
               <li>
-                <a href="https://chrisalbon.com/python/data_wrangling/pandas_create_column_using_conditional/">Create a Column Based on a Conditional in pandas</a>
-              </li>
-              
-              <li>
                 <a href="https://chrisalbon.com/python/data_visualization/seaborn_pandas_timeseries_plot/">Creating A Time Series Plot With Seaborn And pandas</a>
               </li>
               
@@ -907,10 +915,6 @@ MathJax.Hub.Config({
               </li>
               
               <li>
-                <a href="https://chrisalbon.com/machine_learning/clustering/dbscan_clustering/">DBSCAN Clustering</a>
-              </li>
-              
-              <li>
                 <a href="https://chrisalbon.com/python/basics/data_structure_basics/">Data Structure Basics</a>
               </li>
               
@@ -920,6 +924,10 @@ MathJax.Hub.Config({
               
               <li>
                 <a href="https://chrisalbon.com/python/basics/date_and_time_basics/">Date And Time Basics</a>
+              </li>
+              
+              <li>
+                <a href="https://chrisalbon.com/machine_learning/clustering/dbscan_clustering/">DBSCAN Clustering</a>
               </li>
               
               <li>
@@ -1367,11 +1375,11 @@ MathJax.Hub.Config({
               </li>
               
               <li>
-                <a href="https://chrisalbon.com/git_and_github/basics/github_cheatsheet/">GitHub Cheatsheet</a>
+                <a href="https://chrisalbon.com/git_and_github/index.xml">Git_and_githubs</a>
               </li>
               
               <li>
-                <a href="https://chrisalbon.com/git_and_github/index.xml">Git_and_githubs</a>
+                <a href="https://chrisalbon.com/git_and_github/basics/github_cheatsheet/">GitHub Cheatsheet</a>
               </li>
               
               <li>
@@ -1484,6 +1492,10 @@ MathJax.Hub.Config({
               
               <li>
                 <a href="https://chrisalbon.com/machine_learning/nearest_neighbors/identifying_best_value_of_k/">Identifying Best Value Of k</a>
+              </li>
+              
+              <li>
+                <a href="https://chrisalbon.com/python/basics/if_and_if_else_statements/">if and if else</a>
               </li>
               
               <li>
@@ -1619,15 +1631,19 @@ MathJax.Hub.Config({
               </li>
               
               <li>
+                <a href="https://chrisalbon.com/deep_learning/keras/k-fold_cross-validating_neural_networks/">k-Fold Cross-Validating Neural Networks</a>
+              </li>
+              
+              <li>
+                <a href="https://chrisalbon.com/machine_learning/clustering/k-means_clustering/">k-Means Clustering</a>
+              </li>
+              
+              <li>
                 <a href="https://chrisalbon.com/machine_learning/nearest_neighbors/k-nearest_neighbors_classifer/">K-Nearest Neighbors Classification</a>
               </li>
               
               <li>
                 <a href="https://chrisalbon.com/machine_learning_engineering/yaml/key_value_pairs/">Key-Value Pairs</a>
-              </li>
-              
-              <li>
-                <a href="https://chrisalbon.com/deep_learning/keras/lstm_recurrent_neural_network/">LSTM Recurrent Neural Network</a>
               </li>
               
               <li>
@@ -1731,11 +1747,11 @@ MathJax.Hub.Config({
               </li>
               
               <li>
-                <a href="https://chrisalbon.com/machine_learning/basics/untitled/">Loading Features From Dictionaries</a>
+                <a href="https://chrisalbon.com/machine_learning/basics/loading_features_from_dictionaries/">Loading Features From Dictionaries</a>
               </li>
               
               <li>
-                <a href="https://chrisalbon.com/machine_learning/basics/loading_features_from_dictionaries/">Loading Features From Dictionaries</a>
+                <a href="https://chrisalbon.com/machine_learning/basics/untitled/">Loading Features From Dictionaries</a>
               </li>
               
               <li>
@@ -1784,6 +1800,10 @@ MathJax.Hub.Config({
               
               <li>
                 <a href="https://chrisalbon.com/python/data_wrangling/pandas_lowercase_column_names/">Lower Case Column Names In Pandas Dataframe</a>
+              </li>
+              
+              <li>
+                <a href="https://chrisalbon.com/deep_learning/keras/lstm_recurrent_neural_network/">LSTM Recurrent Neural Network</a>
               </li>
               
               <li>
@@ -1883,11 +1903,11 @@ MathJax.Hub.Config({
               </li>
               
               <li>
-                <a href="https://chrisalbon.com/regex/patterns/match_us_phone_numbers/">Match US Phone Numbers</a>
+                <a href="https://chrisalbon.com/regex/patterns/match_us_uk_spellings/">Match US and UK Spellings</a>
               </li>
               
               <li>
-                <a href="https://chrisalbon.com/regex/patterns/match_us_uk_spellings/">Match US and UK Spellings</a>
+                <a href="https://chrisalbon.com/regex/patterns/match_us_phone_numbers/">Match US Phone Numbers</a>
               </li>
               
               <li>
@@ -2044,6 +2064,14 @@ MathJax.Hub.Config({
               
               <li>
                 <a href="https://chrisalbon.com/machine_learning/trees_and_forests/outlier_detection_with_isolation_forests/">Outlier Detection With Isolation Forests</a>
+              </li>
+              
+              <li>
+                <a href="https://chrisalbon.com/python/data_wrangling/pandas_data_structures/">pandas Data Structures</a>
+              </li>
+              
+              <li>
+                <a href="https://chrisalbon.com/python/data_wrangling/pandas_time_series_basics/">pandas Time Series Basics</a>
               </li>
               
               <li>
@@ -2291,6 +2319,10 @@ MathJax.Hub.Config({
               </li>
               
               <li>
+                <a href="https://chrisalbon.com/python/basics/repr_vs_str/">repr vs. str</a>
+              </li>
+              
+              <li>
                 <a href="https://chrisalbon.com/machine_learning/preprocessing_structured_data/rescale_a_feature/">Rescale A Feature</a>
               </li>
               
@@ -2372,10 +2404,6 @@ MathJax.Hub.Config({
               
               <li>
                 <a href="https://chrisalbon.com/aws/basics/run_project_jupyter_on_amazon_ec2/">Run Project Jupyter Notebooks On Amazon EC2</a>
-              </li>
-              
-              <li>
-                <a href="https://chrisalbon.com/machine_learning/support_vector_machines/svc_parameters_using_rbf_kernel/">SVC Parameters When Using RBF Kernel</a>
               </li>
               
               <li>
@@ -2511,6 +2539,10 @@ MathJax.Hub.Config({
               </li>
               
               <li>
+                <a href="https://chrisalbon.com/python/data_wrangling/pandas_selecting_rows_on_conditions/">Selecting pandas DataFrame Rows Based On Conditions</a>
+              </li>
+              
+              <li>
                 <a href="https://chrisalbon.com/machine_learning/linear_regression/selecting_best_alpha_value_in_ridge_regression/">Selecting The Best Alpha Value In Ridge Regression</a>
               </li>
               
@@ -2520,10 +2552,6 @@ MathJax.Hub.Config({
               
               <li>
                 <a href="https://chrisalbon.com/machine_learning/feature_engineering/select_best_number_of_components_in_tsvd/">Selecting The Best Number Of Components For TSVD</a>
-              </li>
-              
-              <li>
-                <a href="https://chrisalbon.com/python/data_wrangling/pandas_selecting_rows_on_conditions/">Selecting pandas DataFrame Rows Based On Conditions</a>
               </li>
               
               <li>
@@ -2712,6 +2740,10 @@ MathJax.Hub.Config({
               
               <li>
                 <a href="https://chrisalbon.com/machine_learning/support_vector_machines/support_vector_classifier/">Support Vector Classifier</a>
+              </li>
+              
+              <li>
+                <a href="https://chrisalbon.com/machine_learning/support_vector_machines/svc_parameters_using_rbf_kernel/">SVC Parameters When Using RBF Kernel</a>
               </li>
               
               <li>
@@ -2927,6 +2959,10 @@ MathJax.Hub.Config({
               </li>
               
               <li>
+                <a href="https://chrisalbon.com/linux/basics/view_version_of_package/">View The Version Of A Package</a>
+              </li>
+              
+              <li>
                 <a href="https://chrisalbon.com/postgresql/basics/view_unique_values/">View Unique Values</a>
               </li>
               
@@ -2967,6 +3003,10 @@ MathJax.Hub.Config({
               </li>
               
               <li>
+                <a href="https://chrisalbon.com/python/basics/while_statements/">while Statement</a>
+              </li>
+              
+              <li>
                 <a href="https://chrisalbon.com/docker/command_line/work_in_a_container/">Work In A Container</a>
               </li>
               
@@ -2990,42 +3030,6 @@ MathJax.Hub.Config({
                 <a href="https://chrisalbon.com/scala/basics/zip_together_two_lists/">Zip Together Two Lists</a>
               </li>
               
-              <li>
-                <a href="https://chrisalbon.com/python/basics/any_all_max_min_sum/">any(), all(), max(), min(), sum()</a>
-              </li>
-              
-              <li>
-                <a href="https://chrisalbon.com/mathematics/basics/argmin_and_argmax/">argmin and argmax</a>
-              </li>
-              
-              <li>
-                <a href="https://chrisalbon.com/python/basics/if_and_if_else_statements/">if and if else</a>
-              </li>
-              
-              <li>
-                <a href="https://chrisalbon.com/deep_learning/keras/k-fold_cross-validating_neural_networks/">k-Fold Cross-Validating Neural Networks</a>
-              </li>
-              
-              <li>
-                <a href="https://chrisalbon.com/machine_learning/clustering/k-means_clustering/">k-Means Clustering</a>
-              </li>
-              
-              <li>
-                <a href="https://chrisalbon.com/python/data_wrangling/pandas_data_structures/">pandas Data Structures</a>
-              </li>
-              
-              <li>
-                <a href="https://chrisalbon.com/python/data_wrangling/pandas_time_series_basics/">pandas Time Series Basics</a>
-              </li>
-              
-              <li>
-                <a href="https://chrisalbon.com/python/basics/repr_vs_str/">repr vs. str</a>
-              </li>
-              
-              <li>
-                <a href="https://chrisalbon.com/python/basics/while_statements/">while Statement</a>
-              </li>
-              
             </ul>
           </div>
         </div>
@@ -3044,7 +3048,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title> - Chris Albon</title>
+    <title>git_and_github - Chris Albon</title>
     <link>https://chrisalbon.com/git_and_github/index.xml</link>
     <description></description>
     <generator>Hugo -- gohugo.io</generator>
@@ -29,11 +28,11 @@ To fix this:
       
       <guid>https://chrisalbon.com/git_and_github/basics/github_cheatsheet/</guid>
       <description>Find The Version Of Git git --version
-Create A New Git Repository  Go to the fold of the project.
- Run git init
+Create A New Git Repository   Go to the fold of the project.
+  Run git init
   Clone An Existing Git Repository Cloning is the process of pulling down a copy of a repository stored on a server.
- Go to the parent folder of where you want to repository&amp;rsquo;s folder to be in.
- git clone [url to repository&#39;s git file] [name of folder / repository you want]</description>
+  Go to the parent folder of where you want to repository&amp;rsquo;s folder to be in.
+  git clone [url to repository&#39;s git file] [name of folder / repository you want]</description>
     </item>
     
   </channel>

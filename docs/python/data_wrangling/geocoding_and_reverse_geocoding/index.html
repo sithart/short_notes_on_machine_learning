@@ -20,27 +20,13 @@
 <meta property="og:description" content="Geocoding and reverse geocoding in Python." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/python/data_wrangling/geocoding_and_reverse_geocoding/" />
-
-
-
-<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
-
-<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00" />
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Geocoding And Reverse Geocoding"/>
 <meta name="twitter:description" content="Geocoding and reverse geocoding in Python."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,8 +34,8 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Geocoding And Reverse Geocoding",
-  "url": "https://chrisalbon.com/python/data_wrangling/geocoding_and_reverse_geocoding/",
-  "wordCount": "787",
+  "url": "https:\/\/chrisalbon.com\/python\/data_wrangling\/geocoding_and_reverse_geocoding\/",
+  "wordCount": "790",
   "datePublished": "2017-12-20T11:53:49-07:00",
   "dateModified": "2017-12-20T11:53:49-07:00",
   "author": {
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,46 +170,41 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<p>Geocoding (converting a physical address or location into latitude/longitude) and reverse geocoding (converting a lat/long to a physical address or location) are common tasks when working with geo-data.</p>
-
+  <p>Geocoding (converting a physical address or location into latitude/longitude) and reverse geocoding (converting a lat/long to a physical address or location) are common tasks when working with geo-data.</p>
 <p>Python offers a number of packages to make the task incredibly easy. In the tutorial below, I use pygeocoder, a wrapper for Google&rsquo;s geo-API, to both geocode and reverse geocode.</p>
-
 <h2 id="preliminaries">Preliminaries</h2>
-
 <p>First we want to load the packages we will want to use in the script. Specifically, I am loading pygeocoder for its geo-functionality, pandas for its dataframe structures, and numpy for its missing value (np.nan) functionality.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Load packages</span>
 <span class="kn">from</span> <span class="nn">pygeocoder</span> <span class="kn">import</span> <span class="n">Geocoder</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span></code></pre></div>
-<h2 id="create-some-simulated-geo-data">Create some simulated geo data</h2>
-
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+</code></pre></div><h2 id="create-some-simulated-geo-data">Create some simulated geo data</h2>
 <p>Geo-data comes in a wide variety of forms, in this case we have a Python dictionary of five latitude and longitude strings, with each coordinate in a coordinate pair separated by a comma.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a dictionary of raw data</span>
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Site 1&#39;</span><span class="p">:</span> <span class="s1">&#39;31.336968, -109.560959&#39;</span><span class="p">,</span>
         <span class="s1">&#39;Site 2&#39;</span><span class="p">:</span> <span class="s1">&#39;31.347745, -108.229963&#39;</span><span class="p">,</span>
         <span class="s1">&#39;Site 3&#39;</span><span class="p">:</span> <span class="s1">&#39;32.277621, -107.734724&#39;</span><span class="p">,</span>
         <span class="s1">&#39;Site 4&#39;</span><span class="p">:</span> <span class="s1">&#39;31.655494, -106.420484&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;Site 5&#39;</span><span class="p">:</span> <span class="s1">&#39;30.295053, -104.014528&#39;</span><span class="p">}</span></code></pre></div>
-<p>While technically unnecessary, because I originally come from R, I am a big fan of dataframes, so let us turn the dictionary of simulated data into a dataframe.</p>
+        <span class="s1">&#39;Site 5&#39;</span><span class="p">:</span> <span class="s1">&#39;30.295053, -104.014528&#39;</span><span class="p">}</span>
+</code></pre></div><p>While technically unnecessary, because I originally come from R, I am a big fan of dataframes, so let us turn the dictionary of simulated data into a dataframe.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Convert the dictionary into a pandas dataframe</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># View the dataframe</span>
-<span class="n">df</span></code></pre></div>
-<div>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># View the dataframe</span>
+<span class="n">df</span>
+</code></pre></div><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -247,7 +236,6 @@ MathJax.Hub.Config({
   </tbody>
 </table>
 </div>
-
 <p>You can see now that we have a a dataframe with five rows, with each now containing a string of latitude and longitude. Before we can work with the data, we&rsquo;ll need to 1) separate the strings into latitude and longitude and 2) convert them into floats. The function below does just that.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create two lists for the loop results to be placed</span>
 <span class="n">lat</span> <span class="o">=</span> <span class="p">[]</span>
@@ -272,24 +260,24 @@ MathJax.Hub.Config({
 
 <span class="c1"># Create two new columns from lat and lon</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;latitude&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">lat</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;longitude&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">lon</span></code></pre></div>
-<p>Let&rsquo;s take a took a what we have now.</p>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;longitude&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">lon</span>
+</code></pre></div><p>Let&rsquo;s take a took a what we have now.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># View the dataframe</span>
-<span class="n">df</span></code></pre></div>
-<div>
+<span class="n">df</span>
+</code></pre></div><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -333,58 +321,52 @@ MathJax.Hub.Config({
   </tbody>
 </table>
 </div>
-
 <p>Awesome. This is exactly what we want to see, one column of floats for latitude and one column of floats for longitude.</p>
-
 <h2 id="reverse-geocoding">Reverse Geocoding</h2>
-
 <p>To reverse geocode, we feed a specific latitude and longitude pair, in this case the first row (indexed as &lsquo;0&rsquo;) into pygeocoder&rsquo;s reverse_geocoder function.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Convert longitude and latitude to a location</span>
-<span class="n">results</span> <span class="o">=</span> <span class="n">Geocoder</span><span class="o">.</span><span class="n">reverse_geocode</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;latitude&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;longitude&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span></code></pre></div>
-<p>Now we can take can start pulling out the data that we want.</p>
+<span class="n">results</span> <span class="o">=</span> <span class="n">Geocoder</span><span class="o">.</span><span class="n">reverse_geocode</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;latitude&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;longitude&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+</code></pre></div><p>Now we can take can start pulling out the data that we want.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Print the lat/long</span>
-<span class="n">results</span><span class="o">.</span><span class="n">coordinates</span></code></pre></div>
-<pre><code>(31.3372728, -109.5609559)
+<span class="n">results</span><span class="o">.</span><span class="n">coordinates</span>
+</code></pre></div><pre><code>(31.3372728, -109.5609559)
 </code></pre>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Print the city</span>
-<span class="n">results</span><span class="o">.</span><span class="n">city</span></code></pre></div>
-<pre><code>'Douglas'
+<span class="n">results</span><span class="o">.</span><span class="n">city</span>
+</code></pre></div><pre><code>'Douglas'
 </code></pre>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Print the country</span>
-<span class="n">results</span><span class="o">.</span><span class="n">country</span></code></pre></div>
-<pre><code>'United States'
+<span class="n">results</span><span class="o">.</span><span class="n">country</span>
+</code></pre></div><pre><code>'United States'
 </code></pre>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Print the street address (if applicable)</span>
-<span class="n">results</span><span class="o">.</span><span class="n">street_address</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Print the admin1 level</span>
-<span class="n">results</span><span class="o">.</span><span class="n">administrative_area_level_1</span></code></pre></div>
-<pre><code>'Arizona'
+<span class="n">results</span><span class="o">.</span><span class="n">street_address</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Print the admin1 level</span>
+<span class="n">results</span><span class="o">.</span><span class="n">administrative_area_level_1</span>
+</code></pre></div><pre><code>'Arizona'
 </code></pre>
-
 <h2 id="geocoding">Geocoding</h2>
-
 <p>For geocoding, we need to submit a string containing an address or location (such as a city) into the geocode function. However, not all strings are formatted in a way that Google&rsquo;s geo-API can make sense of them. We can text if an input is valid by using the .geocode().valid_address function.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Verify that an address is valid (i.e. in Google&#39;s system)</span>
-<span class="n">Geocoder</span><span class="o">.</span><span class="n">geocode</span><span class="p">(</span><span class="s2">&#34;4207 N Washington Ave, Douglas, AZ 85607&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">valid_address</span></code></pre></div>
-<pre><code>True
+<span class="n">Geocoder</span><span class="o">.</span><span class="n">geocode</span><span class="p">(</span><span class="s2">&#34;4207 N Washington Ave, Douglas, AZ 85607&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">valid_address</span>
+</code></pre></div><pre><code>True
 </code></pre>
-
 <p>Because the output was True, we now know that this is a valid address and thus can print the latitude and longitude coordinates.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Print the lat/long</span>
-<span class="n">results</span><span class="o">.</span><span class="n">coordinates</span></code></pre></div>
-<pre><code>(31.3372728, -109.5609559)
+<span class="n">results</span><span class="o">.</span><span class="n">coordinates</span>
+</code></pre></div><pre><code>(31.3372728, -109.5609559)
 </code></pre>
-
 <p>But even more interesting, once the address is processed by the Google geo API, we can parse it and easily separate street numbers, street names, etc.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Find the lat/long of a certain address</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">Geocoder</span><span class="o">.</span><span class="n">geocode</span><span class="p">(</span><span class="s2">&#34;7250 South Tucson Boulevard, Tucson, AZ 85756&#34;</span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Print the street number</span>
-<span class="n">result</span><span class="o">.</span><span class="n">street_number</span></code></pre></div>
-<pre><code>'7250'
+<span class="n">result</span> <span class="o">=</span> <span class="n">Geocoder</span><span class="o">.</span><span class="n">geocode</span><span class="p">(</span><span class="s2">&#34;7250 South Tucson Boulevard, Tucson, AZ 85756&#34;</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Print the street number</span>
+<span class="n">result</span><span class="o">.</span><span class="n">street_number</span>
+</code></pre></div><pre><code>'7250'
 </code></pre>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Print the street name</span>
-<span class="n">result</span><span class="o">.</span><span class="n">route</span></code></pre></div>
-<pre><code>'South Tucson Boulevard'
+<span class="n">result</span><span class="o">.</span><span class="n">route</span>
+</code></pre></div><pre><code>'South Tucson Boulevard'
 </code></pre>
-
 <p>And there you have it. Python makes this entire process easy and inserting it into an analysis only takes a few minutes. Good luck!</p>
 
 </div>
@@ -410,7 +392,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

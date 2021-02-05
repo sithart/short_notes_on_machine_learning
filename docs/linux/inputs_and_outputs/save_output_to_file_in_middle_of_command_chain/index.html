@@ -20,27 +20,13 @@
 <meta property="og:description" content="How to save the output of a file in the middle of the command chain using the Linux command line." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/linux/inputs_and_outputs/save_output_to_file_in_middle_of_command_chain/" />
-
-
-
-<meta property="article:published_time" content="2018-06-17T00:00:00-07:00"/>
-
-<meta property="article:modified_time" content="2018-06-17T00:00:00-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2018-06-17T00:00:00-07:00" />
+<meta property="article:modified_time" content="2018-06-17T00:00:00-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Save Output To File In Middle Of Command Chain"/>
 <meta name="twitter:description" content="How to save the output of a file in the middle of the command chain using the Linux command line."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,8 +34,8 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Save Output To File In Middle Of Command Chain",
-  "url": "https://chrisalbon.com/linux/inputs_and_outputs/save_output_to_file_in_middle_of_command_chain/",
-  "wordCount": "198",
+  "url": "https:\/\/chrisalbon.com\/linux\/inputs_and_outputs\/save_output_to_file_in_middle_of_command_chain\/",
+  "wordCount": "203",
   "datePublished": "2018-06-17T00:00:00-07:00",
   "dateModified": "2018-06-17T00:00:00-07:00",
   "author": {
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,35 +170,24 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<p>The <code>tee</code> command creates a T-junction in a command pipeline, both saving the standard output of the previous command to a file and passing the standard output onward down the pipeline. It is often useful when we want to see the data at intermediate steps in a command pipeline without interrupting it.</p>
-
+  <p>The <code>tee</code> command creates a T-junction in a command pipeline, both saving the standard output of the previous command to a file and passing the standard output onward down the pipeline. It is often useful when we want to see the data at intermediate steps in a command pipeline without interrupting it.</p>
 <h2 id="create-example-file-with-list-of-file-names">Create Example File With List Of File Names</h2>
-
-<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">echo &#39;data_science.txt&#39; &gt;&gt; files.txt<span class="err">
-</span><span class="err"></span>echo &#39;data_science.html&#39; &gt;&gt; files.txt<span class="err">
-</span><span class="err"></span>echo &#39;data_science.csv&#39; &gt;&gt; files.txt<span class="err">
-</span><span class="err"></span>echo &#39;sales.txt&#39; &gt;&gt; files.txt<span class="err">
-</span><span class="err"></span>echo &#39;operations.html&#39; &gt;&gt; files.txt<span class="err">
-</span><span class="err"></span>echo &#39;deep_learning.csv&#39; &gt;&gt; files.txt</code></pre></div>
-
+<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">echo &#39;data_science.txt&#39; &gt;&gt; files.txt
+echo &#39;data_science.html&#39; &gt;&gt; files.txt
+echo &#39;data_science.csv&#39; &gt;&gt; files.txt
+echo &#39;sales.txt&#39; &gt;&gt; files.txt
+echo &#39;operations.html&#39; &gt;&gt; files.txt
+echo &#39;deep_learning.csv&#39; &gt;&gt; files.txt</code></pre></div>
 <h2 id="view-file">View File</h2>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">cat files.txt</code></pre></div>
-
 <pre><code>data_science.txt
 data_science.html
 data_science.csv
 sales.txt
 operations.html
 deep_learning.csv
-</code></pre>
-
-<h2 id="create-pipeline-with-tees">Create Pipeline With Tees</h2>
-
+</code></pre><h2 id="create-pipeline-with-tees">Create Pipeline With Tees</h2>
 <p>In this pipeline, we:</p>
-
 <ol>
 <li><code>cat files.txt</code>, view all filenames</li>
 <li><code>tee all_files.txt</code>, save all filenames to file</li>
@@ -213,40 +196,25 @@ deep_learning.csv
 <li><code>grep .csv</code>, view only filenames with <code>.csv</code> in filename</li>
 <li><code>tee data_science_csv_files.txt</code>, save all data science csv filenames to file</li>
 </ol>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">cat files.txt | tee all_files.txt | grep data_science | tee data_science_files.txt | grep .csv | tee data_science_csv_files.txt</code></pre></div>
-
 <pre><code>data_science.csv
-</code></pre>
-
-<h2 id="view-file-with-all-filenames">View File With All Filenames</h2>
-
+</code></pre><h2 id="view-file-with-all-filenames">View File With All Filenames</h2>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">cat all_files.txt</code></pre></div>
-
 <pre><code>data_science.txt
 data_science.html
 data_science.csv
 sales.txt
 operations.html
 deep_learning.csv
-</code></pre>
-
-<h2 id="view-file-with-data-science-filenames">View File With Data Science Filenames</h2>
-
+</code></pre><h2 id="view-file-with-data-science-filenames">View File With Data Science Filenames</h2>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">cat data_science_files.txt</code></pre></div>
-
 <pre><code>data_science.txt
 data_science.html
 data_science.csv
-</code></pre>
-
-<h2 id="view-file-with-data-science-csv-filenames">View File With Data Science CSV Filenames</h2>
-
+</code></pre><h2 id="view-file-with-data-science-csv-filenames">View File With Data Science CSV Filenames</h2>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">cat data_science_csv_files.txt</code></pre></div>
-
 <pre><code>data_science.csv
 </code></pre>
-
 </div>
   <aside>
       <div class="bug_reporting">
@@ -270,7 +238,7 @@ data_science.csv
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

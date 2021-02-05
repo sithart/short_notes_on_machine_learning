@@ -20,27 +20,13 @@
 <meta property="og:description" content="How to find files based on multiple conditions using the Linux command line." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/linux/search/find_files_based_on_multiple_conditions/" />
-
-
-
-<meta property="article:published_time" content="2018-06-17T00:00:00-07:00"/>
-
-<meta property="article:modified_time" content="2018-06-17T00:00:00-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2018-06-17T00:00:00-07:00" />
+<meta property="article:modified_time" content="2018-06-17T00:00:00-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Find Files Based On Multiple Conditions"/>
 <meta name="twitter:description" content="How to find files based on multiple conditions using the Linux command line."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Find Files Based On Multiple Conditions",
-  "url": "https://chrisalbon.com/linux/search/find_files_based_on_multiple_conditions/",
+  "url": "https:\/\/chrisalbon.com\/linux\/search\/find_files_based_on_multiple_conditions\/",
   "wordCount": "131",
   "datePublished": "2018-06-17T00:00:00-07:00",
   "dateModified": "2018-06-17T00:00:00-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,16 +170,10 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<h2 id="make-files-and-directories">Make Files And Directories</h2>
-
+  <h2 id="make-files-and-directories">Make Files And Directories</h2>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">touch sales.txt, marketing.txt, data_science.csv, product.html; mkdir sales marketing</code></pre></div>
-
 <h2 id="view-files-and-directories">View Files And Directories</h2>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">ls -l</code></pre></div>
-
 <pre><code>total 8
 -rw-rw-r-- 1 chris chris    0 Jul 31 09:02 data_science.csv,
 drwxrwxr-x 2 chris chris 4096 Jul 31 09:02 marketing
@@ -193,28 +181,18 @@ drwxrwxr-x 2 chris chris 4096 Jul 31 09:02 marketing
 -rw-rw-r-- 1 chris chris    0 Jul 31 09:02 product.html
 drwxrwxr-x 2 chris chris 4096 Jul 31 09:02 sales
 -rw-rw-r-- 1 chris chris    0 Jul 31 09:02 sales.txt,
-</code></pre>
-
-<h2 id="find-files-and-greater-than-500mbs">Find Files And Greater Than 500MBs</h2>
-
+</code></pre><h2 id="find-files-and-greater-than-500mbs">Find Files And Greater Than 500MBs</h2>
 <p><code>-type f</code> specifies that we only want to find files, not directories.</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">find ~ \( -type f \) -and \( -size +500M \)</code></pre></div>
-
 <pre><code>/home/chris/anaconda3/lib/python3.6/site-packages/tensorflow/python/_pywrap_tensorflow_internal.so
 /home/chris/Downloads/Anaconda3-5.2.0-Linux-x86_64.sh
 /home/chris/Downloads/cuda_9.0.176_384.81_linux.run
-</code></pre>
-
-<h2 id="find-files-that-have-permission-300-or-are-greater-than-500mbs">Find Files That Have Permission 300 Or Are Greater Than 500MBs</h2>
-
+</code></pre><h2 id="find-files-that-have-permission-300-or-are-greater-than-500mbs">Find Files That Have Permission 300 Or Are Greater Than 500MBs</h2>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">find ~ \( -perm 0300 \) -or \( -size +500M \)</code></pre></div>
-
 <pre><code>/home/chris/anaconda3/lib/python3.6/site-packages/tensorflow/python/_pywrap_tensorflow_internal.so
 /home/chris/Downloads/Anaconda3-5.2.0-Linux-x86_64.sh
 /home/chris/Downloads/cuda_9.0.176_384.81_linux.run
 </code></pre>
-
 </div>
   <aside>
       <div class="bug_reporting">
@@ -238,7 +216,7 @@ drwxrwxr-x 2 chris chris 4096 Jul 31 09:02 sales
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

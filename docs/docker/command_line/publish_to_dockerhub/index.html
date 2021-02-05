@@ -20,27 +20,13 @@
 <meta property="og:description" content="Run commands as a user using Dockerfiles." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/docker/command_line/publish_to_dockerhub/" />
-
-
-
-<meta property="article:published_time" content="2020-07-22T00:00:00-07:00"/>
-
-<meta property="article:modified_time" content="2020-07-22T00:00:00-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2020-07-22T00:00:00-07:00" />
+<meta property="article:modified_time" content="2020-07-22T00:00:00-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Publish To Docker Hub"/>
 <meta name="twitter:description" content="Run commands as a user using Dockerfiles."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Publish To Docker Hub",
-  "url": "https://chrisalbon.com/docker/command_line/publish_to_dockerhub/",
+  "url": "https:\/\/chrisalbon.com\/docker\/command_line\/publish_to_dockerhub\/",
   "wordCount": "161",
   "datePublished": "2020-07-22T00:00:00-07:00",
   "dateModified": "2020-07-22T00:00:00-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,30 +170,19 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<h2 id="create-dockerfile">Create Dockerfile</h2>
-
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Build from base image
-</span><span class="c1"></span>FROM ubuntu:latest</code></pre></div>
-
+  <h2 id="create-dockerfile">Create Dockerfile</h2>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Build from base image</span>
+FROM ubuntu:latest</code></pre></div>
 <h2 id="build-image-from-dockerfile">Build Image From Dockerfile</h2>
-
 <p>Build the Dockerfile (<code>docker image build</code>) in the current directory (<code>.</code>) and call the image chrisalbon/big-project:dockerhub-example (<code>--tag chrisalbon/big-project:dockerhub-example</code>).</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">docker image build --tag chrisalbon/dockerhub-example .</code></pre></div>
-
 <pre><code>Sending build context to Docker daemon  4.608kB
 Step 1/1 : FROM ubuntu:latest
  ---&gt; 1e4467b07108
 Successfully built 1e4467b07108
 Successfully tagged chrisalbon/dockerhub-example:latest
-</code></pre>
-
-<h2 id="log-in-to-docker-hub">Log In To Docker Hub</h2>
-
+</code></pre><h2 id="log-in-to-docker-hub">Log In To Docker Hub</h2>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">docker login</code></pre></div>
-
 <pre><code>Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com to create one.
 Username: BananaBoatBoy
 Password: 
@@ -208,14 +191,9 @@ Configure a credential helper to remove this warning. See
 https://docs.docker.com/engine/reference/commandline/login/#credentials-store
 
 Login Succeeded
-</code></pre>
-
-<h2 id="publish-to-docker-hub">Publish To Docker Hub</h2>
-
+</code></pre><h2 id="publish-to-docker-hub">Publish To Docker Hub</h2>
 <p>Publish the Docker image (<code>docker image push</code>) <code>chrisalbon/dockerhub-example</code> to Docker Hub.</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">docker image push chrisalbon/dockerhub-example</code></pre></div>
-
 <pre><code>The push refers to repository [docker.io/chrisalbon/dockerhub-example]
 095624243293: Mounted from library/ubuntu 
 a37e74863e72: Mounted from library/ubuntu 
@@ -223,7 +201,6 @@ a37e74863e72: Mounted from library/ubuntu
 ce3011290956: Mounted from library/ubuntu 
 latest: digest: sha256:60f560e52264ed1cb7829a0d59b1ee7740d7580e0eb293aca2d722136edb1e24 size: 1152
 </code></pre>
-
 </div>
   <aside>
       <div class="bug_reporting">
@@ -247,7 +224,7 @@ latest: digest: sha256:60f560e52264ed1cb7829a0d59b1ee7740d7580e0eb293aca2d722136
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

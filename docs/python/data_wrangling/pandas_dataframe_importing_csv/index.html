@@ -20,27 +20,13 @@
 <meta property="og:description" content="Loading a CSV into pandas." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/python/data_wrangling/pandas_dataframe_importing_csv/" />
-
-
-
-<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
-
-<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00" />
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Loading A CSV Into pandas"/>
 <meta name="twitter:description" content="Loading a CSV into pandas."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,8 +34,8 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Loading A CSV Into pandas",
-  "url": "https://chrisalbon.com/python/data_wrangling/pandas_dataframe_importing_csv/",
-  "wordCount": "895",
+  "url": "https:\/\/chrisalbon.com\/python\/data_wrangling\/pandas_dataframe_importing_csv\/",
+  "wordCount": "896",
   "datePublished": "2017-12-20T11:53:49-07:00",
   "dateModified": "2017-12-20T11:53:49-07:00",
   "author": {
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,33 +170,31 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<h3 id="import-modules">import modules</h3>
+  <h3 id="import-modules">import modules</h3>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span></code></pre></div>
-<h3 id="create-dataframe-that-we-will-be-importing">Create dataframe (that we will be importing)</h3>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+</code></pre></div><h3 id="create-dataframe-that-we-will-be-importing">Create dataframe (that we will be importing)</h3>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">raw_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;first_name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Jason&#39;</span><span class="p">,</span> <span class="s1">&#39;Molly&#39;</span><span class="p">,</span> <span class="s1">&#39;Tina&#39;</span><span class="p">,</span> <span class="s1">&#39;Jake&#39;</span><span class="p">,</span> <span class="s1">&#39;Amy&#39;</span><span class="p">],</span> 
         <span class="s1">&#39;last_name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Miller&#39;</span><span class="p">,</span> <span class="s1">&#39;Jacobson&#39;</span><span class="p">,</span> <span class="s2">&#34;.&#34;</span><span class="p">,</span> <span class="s1">&#39;Milner&#39;</span><span class="p">,</span> <span class="s1">&#39;Cooze&#39;</span><span class="p">],</span> 
         <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">42</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">73</span><span class="p">],</span> 
         <span class="s1">&#39;preTestScore&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="s2">&#34;.&#34;</span><span class="p">,</span> <span class="s2">&#34;.&#34;</span><span class="p">],</span>
         <span class="s1">&#39;postTestScore&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;25,000&#34;</span><span class="p">,</span> <span class="s2">&#34;94,000&#34;</span><span class="p">,</span> <span class="mi">57</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">70</span><span class="p">]}</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;first_name&#39;</span><span class="p">,</span> <span class="s1">&#39;last_name&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;preTestScore&#39;</span><span class="p">,</span> <span class="s1">&#39;postTestScore&#39;</span><span class="p">])</span>
-<span class="n">df</span></code></pre></div>
-<div>
+<span class="n">df</span>
+</code></pre></div><div>
 <style>
     .dataframe thead tr:only-child th {
         text-align: right;
     }
+<pre><code>.dataframe thead th {
+    text-align: left;
+}
 
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
+.dataframe tbody tr th {
+    vertical-align: top;
+}
+</code></pre>
+<p></style></p>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -258,26 +250,25 @@ MathJax.Hub.Config({
   </tbody>
 </table>
 </div>
-
 <h3 id="save-dataframe-as-csv-in-the-working-director">Save dataframe as csv in the working director</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;pandas_dataframe_importing_csv/example.csv&#39;</span><span class="p">)</span></code></pre></div>
-<h3 id="load-a-csv">Load a csv</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;pandas_dataframe_importing_csv/example.csv&#39;</span><span class="p">)</span>
+</code></pre></div><h3 id="load-a-csv">Load a csv</h3>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;pandas_dataframe_importing_csv/example.csv&#39;</span><span class="p">)</span>
-<span class="n">df</span></code></pre></div>
-<div>
+<span class="n">df</span>
+</code></pre></div><div>
 <style>
     .dataframe thead tr:only-child th {
         text-align: right;
     }
+<pre><code>.dataframe thead th {
+    text-align: left;
+}
 
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
+.dataframe tbody tr th {
+    vertical-align: top;
+}
+</code></pre>
+<p></style></p>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -339,24 +330,23 @@ MathJax.Hub.Config({
   </tbody>
 </table>
 </div>
-
 <h3 id="load-a-csv-with-no-headers">Load a csv with no headers</h3>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;pandas_dataframe_importing_csv/example.csv&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
-<span class="n">df</span></code></pre></div>
-<div>
+<span class="n">df</span>
+</code></pre></div><div>
 <style>
     .dataframe thead tr:only-child th {
         text-align: right;
     }
+<pre><code>.dataframe thead th {
+    text-align: left;
+}
 
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
+.dataframe tbody tr th {
+    vertical-align: top;
+}
+</code></pre>
+<p></style></p>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -427,24 +417,23 @@ MathJax.Hub.Config({
   </tbody>
 </table>
 </div>
-
 <h3 id="load-a-csv-while-specifying-column-names">Load a csv while specifying column names</h3>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;pandas_dataframe_importing_csv/example.csv&#39;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;UID&#39;</span><span class="p">,</span> <span class="s1">&#39;First Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Last Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="s1">&#39;Pre-Test Score&#39;</span><span class="p">,</span> <span class="s1">&#39;Post-Test Score&#39;</span><span class="p">])</span>
-<span class="n">df</span></code></pre></div>
-<div>
+<span class="n">df</span>
+</code></pre></div><div>
 <style>
     .dataframe thead tr:only-child th {
         text-align: right;
     }
+<pre><code>.dataframe thead th {
+    text-align: left;
+}
 
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
+.dataframe tbody tr th {
+    vertical-align: top;
+}
+</code></pre>
+<p></style></p>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -515,24 +504,23 @@ MathJax.Hub.Config({
   </tbody>
 </table>
 </div>
-
 <h3 id="load-a-csv-with-setting-the-index-column-to-uid">Load a csv with setting the index column to UID</h3>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;pandas_dataframe_importing_csv/example.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;UID&#39;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;UID&#39;</span><span class="p">,</span> <span class="s1">&#39;First Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Last Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="s1">&#39;Pre-Test Score&#39;</span><span class="p">,</span> <span class="s1">&#39;Post-Test Score&#39;</span><span class="p">])</span>
-<span class="n">df</span></code></pre></div>
-<div>
+<span class="n">df</span>
+</code></pre></div><div>
 <style>
     .dataframe thead tr:only-child th {
         text-align: right;
     }
+<pre><code>.dataframe thead th {
+    text-align: left;
+}
 
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
+.dataframe tbody tr th {
+    vertical-align: top;
+}
+</code></pre>
+<p></style></p>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -604,24 +592,23 @@ MathJax.Hub.Config({
   </tbody>
 </table>
 </div>
-
 <h3 id="load-a-csv-while-setting-the-index-columns-to-first-name-and-last-name">Load a csv while setting the index columns to First Name and Last Name</h3>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;pandas_dataframe_importing_csv/example.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;First Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Last Name&#39;</span><span class="p">],</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;UID&#39;</span><span class="p">,</span> <span class="s1">&#39;First Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Last Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="s1">&#39;Pre-Test Score&#39;</span><span class="p">,</span> <span class="s1">&#39;Post-Test Score&#39;</span><span class="p">])</span>
-<span class="n">df</span></code></pre></div>
-<div>
+<span class="n">df</span>
+</code></pre></div><div>
 <style>
     .dataframe thead tr:only-child th {
         text-align: right;
     }
+<pre><code>.dataframe thead th {
+    text-align: left;
+}
 
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
+.dataframe tbody tr th {
+    vertical-align: top;
+}
+</code></pre>
+<p></style></p>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -693,24 +680,23 @@ MathJax.Hub.Config({
   </tbody>
 </table>
 </div>
-
-<h3 id="load-a-csv-while-specifying-as-missing-values">Load a csv while specifying &ldquo;.&rdquo; as missing values</h3>
+<h3 id="load-a-csv-while-specifying--as-missing-values">Load a csv while specifying &ldquo;.&rdquo; as missing values</h3>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;pandas_dataframe_importing_csv/example.csv&#39;</span><span class="p">,</span> <span class="n">na_values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;.&#39;</span><span class="p">])</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">isnull</span><span class="p">(</span><span class="n">df</span><span class="p">)</span></code></pre></div>
-<div>
+<span class="n">pd</span><span class="o">.</span><span class="n">isnull</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</code></pre></div><div>
 <style>
     .dataframe thead tr:only-child th {
         text-align: right;
     }
+<pre><code>.dataframe thead th {
+    text-align: left;
+}
 
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
+.dataframe tbody tr th {
+    vertical-align: top;
+}
+</code></pre>
+<p></style></p>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -772,24 +758,24 @@ MathJax.Hub.Config({
   </tbody>
 </table>
 </div>
-
-<h3 id="load-a-csv-while-specifying-and-na-as-missing-values-in-the-last-name-column-and-as-missing-values-in-pre-test-score-column">Load a csv while specifying &ldquo;.&rdquo; and &ldquo;NA&rdquo; as missing values in the Last Name column and &ldquo;.&rdquo; as missing values in Pre-Test Score column</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">sentinels</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Last Name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;NA&#39;</span><span class="p">],</span> <span class="s1">&#39;Pre-Test Score&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;.&#39;</span><span class="p">]}</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;pandas_dataframe_importing_csv/example.csv&#39;</span><span class="p">,</span> <span class="n">na_values</span><span class="o">=</span><span class="n">sentinels</span><span class="p">)</span>
-<span class="n">df</span></code></pre></div>
-<div>
+<h3 id="load-a-csv-while-specifying--and-na-as-missing-values-in-the-last-name-column-and--as-missing-values-in-pre-test-score-column">Load a csv while specifying &ldquo;.&rdquo; and &ldquo;NA&rdquo; as missing values in the Last Name column and &ldquo;.&rdquo; as missing values in Pre-Test Score column</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">sentinels</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Last Name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;NA&#39;</span><span class="p">],</span> <span class="s1">&#39;Pre-Test Score&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;.&#39;</span><span class="p">]}</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;pandas_dataframe_importing_csv/example.csv&#39;</span><span class="p">,</span> <span class="n">na_values</span><span class="o">=</span><span class="n">sentinels</span><span class="p">)</span>
+<span class="n">df</span>
+</code></pre></div><div>
 <style>
     .dataframe thead tr:only-child th {
         text-align: right;
     }
+<pre><code>.dataframe thead th {
+    text-align: left;
+}
 
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
+.dataframe tbody tr th {
+    vertical-align: top;
+}
+</code></pre>
+<p></style></p>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -851,24 +837,23 @@ MathJax.Hub.Config({
   </tbody>
 </table>
 </div>
-
 <h3 id="load-a-csv-while-skipping-the-top-3-rows">Load a csv while skipping the top 3 rows</h3>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;pandas_dataframe_importing_csv/example.csv&#39;</span><span class="p">,</span> <span class="n">na_values</span><span class="o">=</span><span class="n">sentinels</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">df</span></code></pre></div>
-<div>
+<span class="n">df</span>
+</code></pre></div><div>
 <style>
     .dataframe thead tr:only-child th {
         text-align: right;
     }
+<pre><code>.dataframe thead th {
+    text-align: left;
+}
 
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
+.dataframe tbody tr th {
+    vertical-align: top;
+}
+</code></pre>
+<p></style></p>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -903,24 +888,23 @@ MathJax.Hub.Config({
   </tbody>
 </table>
 </div>
-
-<h3 id="load-a-csv-while-interpreting-in-strings-around-numbers-as-thousands-seperators">Load a csv while interpreting &ldquo;,&rdquo; in strings around numbers as thousands seperators</h3>
+<h3 id="load-a-csv-while-interpreting--in-strings-around-numbers-as-thousands-seperators">Load a csv while interpreting &ldquo;,&rdquo; in strings around numbers as thousands seperators</h3>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;pandas_dataframe_importing_csv/example.csv&#39;</span><span class="p">,</span> <span class="n">thousands</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
-<span class="n">df</span></code></pre></div>
-<div>
+<span class="n">df</span>
+</code></pre></div><div>
 <style>
     .dataframe thead tr:only-child th {
         text-align: right;
     }
+<pre><code>.dataframe thead th {
+    text-align: left;
+}
 
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
+.dataframe tbody tr th {
+    vertical-align: top;
+}
+</code></pre>
+<p></style></p>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1006,7 +990,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

@@ -20,27 +20,13 @@
 <meta property="og:description" content="How to find and replace using the Linux command line." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/linux/text/find_and_replace/" />
-
-
-
-<meta property="article:published_time" content="2018-07-16T00:00:00-07:00"/>
-
-<meta property="article:modified_time" content="2018-07-16T00:00:00-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2018-07-16T00:00:00-07:00" />
+<meta property="article:modified_time" content="2018-07-16T00:00:00-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Find And Replace"/>
 <meta name="twitter:description" content="How to find and replace using the Linux command line."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,8 +34,8 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Find And Replace",
-  "url": "https://chrisalbon.com/linux/text/find_and_replace/",
-  "wordCount": "66",
+  "url": "https:\/\/chrisalbon.com\/linux\/text\/find_and_replace\/",
+  "wordCount": "68",
   "datePublished": "2018-07-16T00:00:00-07:00",
   "dateModified": "2018-07-16T00:00:00-07:00",
   "author": {
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,34 +170,22 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<h2 id="create-example-file-with-list-of-adventurers">Create Example File With List Of Adventurers</h2>
-
-<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">echo &#39;Luca Gartside&#39; &gt;&gt; adventurers.txt<span class="err">
-</span><span class="err"></span>echo &#39;Reule Smyth&#39; &gt;&gt; adventurers.txt<span class="err">
-</span><span class="err"></span>echo &#39;Spencer Smit&#39; &gt;&gt; adventurers.txt</code></pre></div>
-
+  <h2 id="create-example-file-with-list-of-adventurers">Create Example File With List Of Adventurers</h2>
+<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">echo &#39;Luca Gartside&#39; &gt;&gt; adventurers.txt
+echo &#39;Reule Smyth&#39; &gt;&gt; adventurers.txt
+echo &#39;Spencer Smit&#39; &gt;&gt; adventurers.txt</code></pre></div>
 <h2 id="view-original-file">View Original File</h2>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">$ cat adventurers.txt</code></pre></div>
-
 <pre><code>Luca Gartside
 Reule Smyth
 Spencer Smit
-</code></pre>
-
-<h2 id="search-and-replace">Search And Replace</h2>
-
+</code></pre><h2 id="search-and-replace">Search And Replace</h2>
 <p>Here we use the streaming edit (<code>sed</code>) command to replace <code>Spencer Smit</code> with <code>Matthew Aldworth</code> in the file <code>adventurers.txt</code></p>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">$ sed &#34;s/Spencer Smit/Matthew Aldworth/&#34; adventurers.txt</code></pre></div>
-
 <pre><code>Luca Gartside
 Reule Smyth
 Matthew Aldworth
 </code></pre>
-
 </div>
   <aside>
       <div class="bug_reporting">
@@ -227,7 +209,7 @@ Matthew Aldworth
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

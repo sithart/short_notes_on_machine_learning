@@ -20,27 +20,13 @@
 <meta property="og:description" content="The effect of alpha values on lasso regression in Scikit-Learn" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/machine_learning/linear_regression/effect_of_alpha_on_lasso_regression/" />
-
-
-
-<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
-
-<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00" />
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Effect Of Alpha On Lasso Regression"/>
 <meta name="twitter:description" content="The effect of alpha values on lasso regression in Scikit-Learn"/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,8 +34,8 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Effect Of Alpha On Lasso Regression",
-  "url": "https://chrisalbon.com/machine_learning/linear_regression/effect_of_alpha_on_lasso_regression/",
-  "wordCount": "407",
+  "url": "https:\/\/chrisalbon.com\/machine_learning\/linear_regression\/effect_of_alpha_on_lasso_regression\/",
+  "wordCount": "408",
   "datePublished": "2017-12-20T11:53:49-07:00",
   "dateModified": "2017-12-20T11:53:49-07:00",
   "author": {
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,28 +170,22 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<p>Often we want conduct a process called <a href="https://en.wikipedia.org/wiki/Regularization_(mathematics)">regularization</a>, wherein we penalize the number of features in a model in order to only keep the most important features. This can be particularly important when you have a dataset with 100,000+ features.</p>
-
+  <p>Often we want conduct a process called <a href="https://en.wikipedia.org/wiki/Regularization_(mathematics)">regularization</a>, wherein we penalize the number of features in a model in order to only keep the most important features. This can be particularly important when you have a dataset with 100,000+ features.</p>
 <p><a href="https://en.wikipedia.org/wiki/Lasso_(statistics)">Lasso regression</a> is a common modeling technique to do regularization. The math behind it is pretty interesting, but practically, what you need to know is that Lasso regression comes with a parameter, <code>alpha</code>, and the higher the <code>alpha</code>, the most feature coefficients are zero.</p>
-
 <p>That is, when <code>alpha</code> is <code>0</code>, Lasso regression produces the same coefficients as a linear regression. When <code>alpha</code> is very very large, all coefficients are zero.</p>
-
 <p>In this tutorial, I run three lasso regressions, with varying levels of alpha, and show the resulting effect on the coefficients.</p>
-
 <h2 id="preliminaries">Preliminaries</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">Lasso</span>
 <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
 <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_boston</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span></code></pre></div>
-<h2 id="load-data">Load Data</h2>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+</code></pre></div><h2 id="load-data">Load Data</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">boston</span> <span class="o">=</span> <span class="n">load_boston</span><span class="p">()</span>
 <span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">boston</span><span class="p">[</span><span class="s2">&#34;data&#34;</span><span class="p">])</span>
 <span class="n">Y</span> <span class="o">=</span> <span class="n">boston</span><span class="p">[</span><span class="s2">&#34;target&#34;</span><span class="p">]</span>
-<span class="n">names</span> <span class="o">=</span> <span class="n">boston</span><span class="p">[</span><span class="s2">&#34;feature_names&#34;</span><span class="p">]</span></code></pre></div>
-<h2 id="run-three-lasso-regressions-varying-alpha-levels">Run Three Lasso Regressions, Varying Alpha Levels</h2>
+<span class="n">names</span> <span class="o">=</span> <span class="n">boston</span><span class="p">[</span><span class="s2">&#34;feature_names&#34;</span><span class="p">]</span>
+</code></pre></div><h2 id="run-three-lasso-regressions-varying-alpha-levels">Run Three Lasso Regressions, Varying Alpha Levels</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a function called lasso,</span>
 <span class="k">def</span> <span class="nf">lasso</span><span class="p">(</span><span class="n">alphas</span><span class="p">):</span>
     <span class="s1">&#39;&#39;&#39;
@@ -224,22 +212,23 @@ MathJax.Hub.Config({
         <span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">lasso</span><span class="o">.</span><span class="n">coef_</span>
         
     <span class="c1"># Return the datafram    </span>
-    <span class="k">return</span> <span class="n">df</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Run the function called, Lasso</span>
-<span class="n">lasso</span><span class="p">([</span><span class="o">.</span><span class="mo">0001</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span></code></pre></div>
-<div>
+    <span class="k">return</span> <span class="n">df</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Run the function called, Lasso</span>
+<span class="n">lasso</span><span class="p">([</span><span class="o">.</span><span class="mo">0001</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+</code></pre></div><div>
 <style>
     .dataframe thead tr:only-child th {
         text-align: right;
     }
+<pre><code>.dataframe thead th {
+    text-align: left;
+}
 
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
+.dataframe tbody tr th {
+    vertical-align: top;
+}
+</code></pre>
+<p></style></p>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -345,7 +334,6 @@ MathJax.Hub.Config({
   </tbody>
 </table>
 </div>
-
 <p>Notice that as the alpha value increases, more features have a coefficient of 0.</p>
 
 </div>
@@ -371,7 +359,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

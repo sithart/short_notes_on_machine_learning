@@ -20,27 +20,13 @@
 <meta property="og:description" content="Automatically Generate Human-Readable Container Names In Docker." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/docker/command_line/automatically_generate_human_readable_container_names/" />
-
-
-
-<meta property="article:published_time" content="2020-07-22T00:00:00-07:00"/>
-
-<meta property="article:modified_time" content="2020-07-22T00:00:00-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2020-07-22T00:00:00-07:00" />
+<meta property="article:modified_time" content="2020-07-22T00:00:00-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Automatically Generate Human-Readable Container Names"/>
 <meta name="twitter:description" content="Automatically Generate Human-Readable Container Names In Docker."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Automatically Generate Human-Readable Container Names",
-  "url": "https://chrisalbon.com/docker/command_line/automatically_generate_human_readable_container_names/",
+  "url": "https:\/\/chrisalbon.com\/docker\/command_line\/automatically_generate_human_readable_container_names\/",
   "wordCount": "129",
   "datePublished": "2020-07-22T00:00:00-07:00",
   "dateModified": "2020-07-22T00:00:00-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,38 +170,24 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<p>If you don&rsquo;t define a name for a docker container an automatically generated name will be created.</p>
-
+  <p>If you don&rsquo;t define a name for a docker container an automatically generated name will be created.</p>
 <h2 id="create-three-containers">Create Three Containers</h2>
-
 <p>Create and start (<code>docker run</code>) a detacted (<code>--detach</code>) container using the <code>nginx:latest</code> Docker image. Run this three times.</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">docker run --detach nginx:latest
 docker run --detach nginx:latest
 docker run --detach nginx:latest</code></pre></div>
-
 <pre><code>6b29f78dbf01f7642cca1c54f69e8c068e6048536ef3307cd2960d56192ca11
 495ee8ab187a60a9a4f2ecbe40f9de944d597a9afec1be43826249609541d3b
 6a96b04886182535b63dfe46111644626ff2f036b3c4cac6c9908100d27b2719
-</code></pre>
-
-<h2 id="view-automatically-generated-names">View Automatically Generated Names</h2>
-
+</code></pre><h2 id="view-automatically-generated-names">View Automatically Generated Names</h2>
 <p>Show the Docker containers that are running (<code>docker ps</code>).</p>
-
 <p>Add (<code>-a</code>) to view all containers.</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">docker ps</code></pre></div>
-
 <pre><code>CONTAINER ID        IMAGE                       COMMAND                  CREATED             STATUS              PORTS               NAMES
 6a96b0488618        nginx:latest                &quot;/docker-entrypoint.…&quot;   4 seconds ago       Up 2 seconds        80/tcp              nifty_antonelli
 495ee8ab187a        nginx:latest                &quot;/docker-entrypoint.…&quot;   6 seconds ago       Up 4 seconds        80/tcp              silly_ramanujan
 6b29f78dbf01        nginx:latest                &quot;/docker-entrypoint.…&quot;   8 seconds ago       Up 7 seconds        80/tcp              dazzling_diffie
-</code></pre>
-
-<p>In this example, the three automatically generated human-readable names are <code>nifty_antonelli</code>, <code>silly_ramanujan</code>, and <code>dazzling_diffie</code>.</p>
+</code></pre><p>In this example, the three automatically generated human-readable names are <code>nifty_antonelli</code>, <code>silly_ramanujan</code>, and <code>dazzling_diffie</code>.</p>
 
 </div>
   <aside>
@@ -232,7 +212,7 @@ docker run --detach nginx:latest</code></pre></div>
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

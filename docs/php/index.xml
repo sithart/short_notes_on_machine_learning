@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title> - Chris Albon</title>
+    <title>php - Chris Albon</title>
     <link>https://chrisalbon.com/php/index.xml</link>
     <description></description>
     <generator>Hugo -- gohugo.io</generator>
@@ -17,7 +16,7 @@
       <pubDate>Wed, 22 Jul 2020 00:00:00 -0700</pubDate>
       
       <guid>https://chrisalbon.com/php/simple_example/</guid>
-      <description> Write A Simple PHP Example &amp;lt;?php print &amp;#34;Hello, World!&amp;#34;; ?&amp;gt;  Hello, World!  </description>
+      <description>Write A Simple PHP Example &amp;lt;?php print &amp;#34;Hello, World!&amp;#34;; ?&amp;gt; Hello, World! </description>
     </item>
     
   </channel>

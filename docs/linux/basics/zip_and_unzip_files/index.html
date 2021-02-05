@@ -20,27 +20,13 @@
 <meta property="og:description" content="How to zip and unzip files using the Linux command line." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/linux/basics/zip_and_unzip_files/" />
-
-
-
-<meta property="article:published_time" content="2018-06-17T00:00:00-07:00"/>
-
-<meta property="article:modified_time" content="2018-06-17T00:00:00-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2018-06-17T00:00:00-07:00" />
+<meta property="article:modified_time" content="2018-06-17T00:00:00-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Zip And Unzip Files"/>
 <meta name="twitter:description" content="How to zip and unzip files using the Linux command line."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,8 +34,8 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Zip And Unzip Files",
-  "url": "https://chrisalbon.com/linux/basics/zip_and_unzip_files/",
-  "wordCount": "111",
+  "url": "https:\/\/chrisalbon.com\/linux\/basics\/zip_and_unzip_files\/",
+  "wordCount": "112",
   "datePublished": "2018-06-17T00:00:00-07:00",
   "dateModified": "2018-06-17T00:00:00-07:00",
   "author": {
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,45 +170,27 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<h2 id="make-files">Make Files</h2>
-
-<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">echo &#34;The number of soldiers in the regiment is 24.&#34;<span class="k"> &gt; </span><span class="ge">regiment.txt
-</span><span class="ge"></span>echo &#34;The regiment has seen five battles.&#34; &gt; battles.txt</code></pre></div>
-
+  <h2 id="make-files">Make Files</h2>
+<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">echo &#34;The number of soldiers in the regiment is 24.&#34; &gt; regiment.txt
+echo &#34;The regiment has seen five battles.&#34; &gt; battles.txt</code></pre></div>
 <h2 id="zip-files">Zip Files</h2>
-
 <p>The <code>-v</code> argument is optional, prints an output with the details of the operation.</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">gzip regiment.txt battles.txt -v</code></pre></div>
-
 <pre><code>regiment.txt:	 -2.2% -- replaced with regiment.txt.gz
 battles.txt:	 -5.6% -- replaced with battles.txt.gz
-</code></pre>
-
-<h2 id="view-contents-of-directory">View Contents Of Directory</h2>
-
+</code></pre><h2 id="view-contents-of-directory">View Contents Of Directory</h2>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">ls -l</code></pre></div>
-
 <pre><code>total 8
 -rw-rw-r-- 1 chris chris 68 Jul 31 13:15 battles.txt.gz
 -rw-rw-r-- 1 chris chris 78 Jul 31 13:15 regiment.txt.gz
-</code></pre>
-
-<h2 id="unzip-files">Unzip Files</h2>
-
+</code></pre><h2 id="unzip-files">Unzip Files</h2>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">gunzip regiment.txt battles.txt</code></pre></div>
-
 <h2 id="view-contents-of-directory-1">View Contents Of Directory</h2>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">ls -l</code></pre></div>
-
 <pre><code>total 8
 -rw-rw-r-- 1 chris chris 36 Jul 31 13:17 battles.txt
 -rw-rw-r-- 1 chris chris 46 Jul 31 13:17 regiment.txt
 </code></pre>
-
 </div>
   <aside>
       <div class="bug_reporting">
@@ -238,7 +214,7 @@ battles.txt:	 -5.6% -- replaced with battles.txt.gz
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

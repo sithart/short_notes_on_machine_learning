@@ -20,35 +20,21 @@
 <meta property="og:description" content="Save a container&#39;s bash history." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/docker/command_line/save_a_containers_bash_history/" />
-
-
-
-<meta property="article:published_time" content="2020-07-22T00:00:00-07:00"/>
-
-<meta property="article:modified_time" content="2020-07-22T00:00:00-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2020-07-22T00:00:00-07:00" />
+<meta property="article:modified_time" content="2020-07-22T00:00:00-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Save A Container&#39;s Bash History"/>
 <meta name="twitter:description" content="Save a container&#39;s bash history."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
 {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
-  "headline": "Save A Container&#39;s Bash History",
-  "url": "https://chrisalbon.com/docker/command_line/save_a_containers_bash_history/",
+  "headline": "Save A Container\u0027s Bash History",
+  "url": "https:\/\/chrisalbon.com\/docker\/command_line\/save_a_containers_bash_history\/",
   "wordCount": "112",
   "datePublished": "2020-07-22T00:00:00-07:00",
   "dateModified": "2020-07-22T00:00:00-07:00",
@@ -56,7 +42,7 @@
     "@type": "Person",
     "name": ""
   },
-  "description": "Save a container&#39;s bash history."
+  "description": "Save a container\u0027s bash history."
 }
 </script> 
 
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,36 +170,22 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<h2 id="create-dockerfile">Create Dockerfile</h2>
-
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Build from base image
-</span><span class="c1"></span>FROM ubuntu:latest</code></pre></div>
-
+  <h2 id="create-dockerfile">Create Dockerfile</h2>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Build from base image</span>
+FROM ubuntu:latest</code></pre></div>
 <h2 id="build-image-from-dockerfile">Build Image From Dockerfile</h2>
-
 <p>Build the Dockerfile (<code>docker build</code>) in the current directory (<code>.</code>) and call the image chrisalbon/ubuntu:ubuntu (<code>--tag chrisalbon/big-project:ubuntu</code>).</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">docker build --tag chrisalbon/big-project:ubuntu .</code></pre></div>
-
 <pre><code>Sending build context to Docker daemon  4.608kB
 Step 1/1 : FROM ubuntu:latest
  ---&gt; 1e4467b07108
 Successfully built 1e4467b07108
 Successfully tagged chrisalbon/big-project:ubuntu
-</code></pre>
-
-<h2 id="run-docker-container-while-saving-bash-history">Run Docker Container While Saving Bash History</h2>
-
+</code></pre><h2 id="run-docker-container-while-saving-bash-history">Run Docker Container While Saving Bash History</h2>
 <p>Run container (<code>docker run</code>) called <code>chrisalbon/big-project:ubuntu</code> while connecting the container&rsquo;s bash history (<code>/root/.bash_history</code>) with a file on the host machine (<code>~/.containers_bash_history</code>). Make it interative (<code>-it</code>). Run bash (<code>/bin/bash</code>).</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">docker run -v ~/.containers_bash_history:/root/.bash_history -it chrisalbon/big-project:ubuntu /bin/bash</code></pre></div>
-
 <pre><code>root@104183340a88:/#
-</code></pre>
-
-<p>The container&rsquo;s bash history will now be recorded on the host machine in <code>~/.containers_bash_history</code>.</p>
+</code></pre><p>The container&rsquo;s bash history will now be recorded on the host machine in <code>~/.containers_bash_history</code>.</p>
 
 </div>
   <aside>
@@ -230,7 +210,7 @@ Successfully tagged chrisalbon/big-project:ubuntu
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

@@ -20,27 +20,13 @@
 <meta property="og:description" content="Indexing and slicing NumPy arrays in Python." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/python/basics/indexing_and_slicing_numpy_arrays/" />
-
-
-
-<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
-
-<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00" />
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Indexing And Slicing NumPy Arrays"/>
 <meta name="twitter:description" content="Indexing and slicing NumPy arrays in Python."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,8 +34,8 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Indexing And Slicing NumPy Arrays",
-  "url": "https://chrisalbon.com/python/basics/indexing_and_slicing_numpy_arrays/",
-  "wordCount": "342",
+  "url": "https:\/\/chrisalbon.com\/python\/basics\/indexing_and_slicing_numpy_arrays\/",
+  "wordCount": "345",
   "datePublished": "2017-12-20T11:53:49-07:00",
   "dateModified": "2017-12-20T11:53:49-07:00",
   "author": {
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,35 +170,32 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<h2 id="slicing-arrays">Slicing Arrays</h2>
-
+  <h2 id="slicing-arrays">Slicing Arrays</h2>
 <h3 id="explanation-of-broadcasting">Explanation Of Broadcasting</h3>
-
 <p>Unlike many other data types, slicing an array into a new variable means that any chances to that new variable are broadcasted to the original variable. Put other way, a slice is a hotlink to the original array variable, not a separate and independent copy of it.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Import Modules</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create an array of battle casualties from the first to the last battle</span>
-<span class="n">battleDeaths</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1245</span><span class="p">,</span> <span class="mi">2732</span><span class="p">,</span> <span class="mi">3853</span><span class="p">,</span> <span class="mi">4824</span><span class="p">,</span> <span class="mi">5292</span><span class="p">,</span> <span class="mi">6184</span><span class="p">,</span> <span class="mi">7282</span><span class="p">,</span> <span class="mi">81393</span><span class="p">,</span> <span class="mi">932</span><span class="p">,</span> <span class="mi">10834</span><span class="p">])</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Divide the array of battle deaths into start, middle, and end of the war</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create an array of battle casualties from the first to the last battle</span>
+<span class="n">battleDeaths</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1245</span><span class="p">,</span> <span class="mi">2732</span><span class="p">,</span> <span class="mi">3853</span><span class="p">,</span> <span class="mi">4824</span><span class="p">,</span> <span class="mi">5292</span><span class="p">,</span> <span class="mi">6184</span><span class="p">,</span> <span class="mi">7282</span><span class="p">,</span> <span class="mi">81393</span><span class="p">,</span> <span class="mi">932</span><span class="p">,</span> <span class="mi">10834</span><span class="p">])</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Divide the array of battle deaths into start, middle, and end of the war</span>
 <span class="n">warStart</span> <span class="o">=</span> <span class="n">battleDeaths</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">];</span> <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Death from battles at the start of war:&#39;</span><span class="p">,</span> <span class="n">warStart</span><span class="p">)</span>
 <span class="n">warMiddle</span> <span class="o">=</span> <span class="n">battleDeaths</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">7</span><span class="p">];</span> <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Death from battles at the middle of war:&#39;</span><span class="p">,</span> <span class="n">warMiddle</span><span class="p">)</span>
-<span class="n">warEnd</span> <span class="o">=</span> <span class="n">battleDeaths</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">10</span><span class="p">];</span> <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Death from battles at the end of war:&#39;</span><span class="p">,</span> <span class="n">warEnd</span><span class="p">)</span></code></pre></div>
-<pre><code>Death from battles at the start of war: [1245 2732 3853]
+<span class="n">warEnd</span> <span class="o">=</span> <span class="n">battleDeaths</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">10</span><span class="p">];</span> <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Death from battles at the end of war:&#39;</span><span class="p">,</span> <span class="n">warEnd</span><span class="p">)</span>
+</code></pre></div><pre><code>Death from battles at the start of war: [1245 2732 3853]
 Death from battles at the middle of war: [4824 5292 6184 7282]
 Death from battles at the end of war: [81393   932 10834]
 </code></pre>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Change the battle death numbers from the first battle</span>
-<span class="n">warStart</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">11101</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># View that change reflected in the warStart slice of the battleDeaths array</span>
-<span class="n">warStart</span></code></pre></div>
-<pre><code>array([11101,  2732,  3853])
+<span class="n">warStart</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">11101</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># View that change reflected in the warStart slice of the battleDeaths array</span>
+<span class="n">warStart</span>
+</code></pre></div><pre><code>array([11101,  2732,  3853])
 </code></pre>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># View that change reflected in (i.e. &#34;broadcasted to) the original battleDeaths array</span>
-<span class="n">battleDeaths</span></code></pre></div>
-<pre><code>array([11101,  2732,  3853,  4824,  5292,  6184,  7282, 81393,   932, 10834])
+<span class="n">battleDeaths</span>
+</code></pre></div><pre><code>array([11101,  2732,  3853,  4824,  5292,  6184,  7282, 81393,   932, 10834])
 </code></pre>
-
 <h2 id="indexing-arrays">Indexing Arrays</h2>
-
 <p>Note: This multidimensional array behaves like a dataframe or matrix (i.e. columns and rows)</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create an array of regiment information</span>
 <span class="n">regimentNames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Nighthawks&#39;</span><span class="p">,</span> <span class="s1">&#39;Sky Warriors&#39;</span><span class="p">,</span> <span class="s1">&#39;Rough Riders&#39;</span><span class="p">,</span> <span class="s1">&#39;New Birds&#39;</span><span class="p">]</span>
@@ -213,26 +204,26 @@ Death from battles at the end of war: [81393   932 10834]
 <span class="n">regimentCommander</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Mitchell&#39;</span><span class="p">,</span> <span class="s1">&#39;Blackthorn&#39;</span><span class="p">,</span> <span class="s1">&#39;Baker&#39;</span><span class="p">,</span> <span class="s1">&#39;Miller&#39;</span><span class="p">]</span>
 
 <span class="n">regiments</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">regimentNames</span><span class="p">,</span> <span class="n">regimentNumber</span><span class="p">,</span> <span class="n">regimentSize</span><span class="p">,</span> <span class="n">regimentCommander</span><span class="p">])</span>
-<span class="n">regiments</span></code></pre></div>
-<pre><code>array([['Nighthawks', 'Sky Warriors', 'Rough Riders', 'New Birds'],
+<span class="n">regiments</span>
+</code></pre></div><pre><code>array([['Nighthawks', 'Sky Warriors', 'Rough Riders', 'New Birds'],
        ['1', '2', '3', '4'],
        ['1092', '2039', '3011', '4099'],
        ['Mitchell', 'Blackthorn', 'Baker', 'Miller']], 
       dtype='&lt;U12')
 </code></pre>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># View the first column of the matrix</span>
-<span class="n">regiments</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span></code></pre></div>
-<pre><code>array(['Nighthawks', '1', '1092', 'Mitchell'], 
+<span class="n">regiments</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+</code></pre></div><pre><code>array(['Nighthawks', '1', '1092', 'Mitchell'], 
       dtype='&lt;U12')
 </code></pre>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># View the second row of the matrix</span>
-<span class="n">regiments</span><span class="p">[</span><span class="mi">1</span><span class="p">,]</span></code></pre></div>
-<pre><code>array(['1', '2', '3', '4'], 
+<span class="n">regiments</span><span class="p">[</span><span class="mi">1</span><span class="p">,]</span>
+</code></pre></div><pre><code>array(['1', '2', '3', '4'], 
       dtype='&lt;U12')
 </code></pre>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># View the top-right quarter of the matrix</span>
-<span class="n">regiments</span><span class="p">[:</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">:]</span></code></pre></div>
-<pre><code>array([['Rough Riders', 'New Birds'],
+<span class="n">regiments</span><span class="p">[:</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">:]</span>
+</code></pre></div><pre><code>array([['Rough Riders', 'New Birds'],
        ['3', '4']], 
       dtype='&lt;U12')
 </code></pre>
@@ -260,7 +251,7 @@ Death from battles at the end of war: [81393   932 10834]
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

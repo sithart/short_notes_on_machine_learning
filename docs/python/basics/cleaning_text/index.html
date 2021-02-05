@@ -20,27 +20,13 @@
 <meta property="og:description" content="Cleaning text using Python." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/python/basics/cleaning_text/" />
-
-
-
-<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
-
-<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00" />
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Cleaning Text"/>
 <meta name="twitter:description" content="Cleaning text using Python."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Cleaning Text",
-  "url": "https://chrisalbon.com/python/basics/cleaning_text/",
+  "url": "https:\/\/chrisalbon.com\/python\/basics\/cleaning_text\/",
   "wordCount": "244",
   "datePublished": "2017-12-20T11:53:49-07:00",
   "dateModified": "2017-12-20T11:53:49-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,14 +170,12 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<h2 id="create-some-raw-text">Create some raw text</h2>
+  <h2 id="create-some-raw-text">Create some raw text</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a list of three strings.</span>
 <span class="n">incoming_reports</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;We are attacking on their left flank but are losing many men.&#34;</span><span class="p">,</span> 
                <span class="s2">&#34;We cannot see the enemy army. Nothing else to report.&#34;</span><span class="p">,</span> 
-               <span class="s2">&#34;We are ready to attack but are waiting for your orders.&#34;</span><span class="p">]</span></code></pre></div>
-<h2 id="separate-by-word">Separate by word</h2>
+               <span class="s2">&#34;We are ready to attack but are waiting for your orders.&#34;</span><span class="p">]</span>
+</code></pre></div><h2 id="separate-by-word">Separate by word</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># import word tokenizer</span>
 <span class="kn">from</span> <span class="nn">nltk.tokenize</span> <span class="kn">import</span> <span class="n">word_tokenize</span>
 
@@ -191,8 +183,8 @@ MathJax.Hub.Config({
 <span class="n">tokenized_reports</span> <span class="o">=</span> <span class="p">[</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">report</span><span class="p">)</span> <span class="k">for</span> <span class="n">report</span> <span class="ow">in</span> <span class="n">incoming_reports</span><span class="p">]</span>
 
 <span class="c1"># View tokenized_reports</span>
-<span class="n">tokenized_reports</span></code></pre></div>
-<pre><code>[['We',
+<span class="n">tokenized_reports</span>
+</code></pre></div><pre><code>[['We',
   'are',
   'attacking',
   'on',
@@ -238,7 +230,7 @@ MathJax.Hub.Config({
 <span class="kn">import</span> <span class="nn">string</span>
 
 
-<span class="n">regex</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="nb">compile</span><span class="p">(</span><span class="s1">&#39;[</span><span class="si">%s</span><span class="s1">]&#39;</span> <span class="o">%</span> <span class="n">re</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">punctuation</span><span class="p">))</span> <span class="c1">#see documentation here: http://docs.python.org/2/library/string.html</span>
+<span class="n">regex</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">&#39;[</span><span class="si">%s</span><span class="s1">]&#39;</span> <span class="o">%</span> <span class="n">re</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">punctuation</span><span class="p">))</span> <span class="c1">#see documentation here: http://docs.python.org/2/library/string.html</span>
 
 <span class="n">tokenized_reports_no_punctuation</span> <span class="o">=</span> <span class="p">[]</span>
 
@@ -252,8 +244,8 @@ MathJax.Hub.Config({
     
     <span class="n">tokenized_reports_no_punctuation</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_review</span><span class="p">)</span>
     
-<span class="n">tokenized_reports_no_punctuation</span></code></pre></div>
-<pre><code>[['We',
+<span class="n">tokenized_reports_no_punctuation</span>
+</code></pre></div><pre><code>[['We',
   'are',
   'attacking',
   'on',
@@ -288,7 +280,6 @@ MathJax.Hub.Config({
   'your',
   'orders']]
 </code></pre>
-
 <h2 id="remove-filler-words">Remove filler words</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span>
 
@@ -300,8 +291,8 @@ MathJax.Hub.Config({
             <span class="n">new_term_vector</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
     <span class="n">tokenized_reports_no_stopwords</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_term_vector</span><span class="p">)</span>
             
-<span class="n">tokenized_reports_no_stopwords</span></code></pre></div>
-<pre><code>[['We', 'attacking', 'left', 'flank', 'losing', 'many', 'men'],
+<span class="n">tokenized_reports_no_stopwords</span>
+</code></pre></div><pre><code>[['We', 'attacking', 'left', 'flank', 'losing', 'many', 'men'],
  ['We', 'see', 'enemy', 'army', 'Nothing', 'else', 'report'],
  ['We', 'ready', 'attack', 'waiting', 'orders']]
 </code></pre>
@@ -329,7 +320,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

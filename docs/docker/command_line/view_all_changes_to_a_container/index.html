@@ -20,27 +20,13 @@
 <meta property="og:description" content="View all changes to a filesystem in Docker." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/docker/command_line/view_all_changes_to_a_container/" />
-
-
-
-<meta property="article:published_time" content="2020-07-22T00:00:00-07:00"/>
-
-<meta property="article:modified_time" content="2020-07-22T00:00:00-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2020-07-22T00:00:00-07:00" />
+<meta property="article:modified_time" content="2020-07-22T00:00:00-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="View All Changes To A Container"/>
 <meta name="twitter:description" content="View all changes to a filesystem in Docker."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "View All Changes To A Container",
-  "url": "https://chrisalbon.com/docker/command_line/view_all_changes_to_a_container/",
+  "url": "https:\/\/chrisalbon.com\/docker\/command_line\/view_all_changes_to_a_container\/",
   "wordCount": "423",
   "datePublished": "2020-07-22T00:00:00-07:00",
   "dateModified": "2020-07-22T00:00:00-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,14 +170,9 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<h2 id="create-docker-container">Create Docker Container</h2>
-
+  <h2 id="create-docker-container">Create Docker Container</h2>
 <p>Run an interactive (<code>-it</code>) Docker container called project (<code>--name project</code>) based on the <code>ubuntu:latest</code> image, then run <code>/bin/bash</code>.</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">docker container run -it --name project ubuntu:latest /bin/bash</code></pre></div>
-
 <pre><code>Unable to find image 'ubuntu:latest' locally
 latest: Pulling from library/ubuntu
 3ff22d22a855: Pull complete
@@ -193,20 +182,12 @@ b7f616834fd0: Pull complete
 Digest: sha256:5d1d5407f353843ecf8b16524bc5565aa332e9e6a1297c73a92d3e754b8a636d
 Status: Downloaded newer image for ubuntu:latest
 root@60655028c0d0:/#
-</code></pre>
-
-<h2 id="create-file">Create File</h2>
-
+</code></pre><h2 id="create-file">Create File</h2>
 <p>Create an empty file (<code>touch</code>) called <code>file.txt</code>.</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">touch file.txt</code></pre></div>
-
-<h2 id="show-container-s-filesystem">Show Container&rsquo;s Filesystem</h2>
-
+<h2 id="show-containers-filesystem">Show Container&rsquo;s Filesystem</h2>
 <p>View all files and folders (<code>ls</code>) that displays using long format and shows hidden files (<code>-al</code>)</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">ls -al</code></pre></div>
-
 <pre><code>total 56
 drwxr-xr-x   1 root root 4096 Aug  7 19:24 .
 drwxr-xr-x   1 root root 4096 Aug  7 19:24 ..
@@ -233,32 +214,21 @@ dr-xr-xr-x  13 root root    0 Aug  7 18:37 sys
 drwxrwxrwt   2 root root 4096 Jul 20 14:57 tmp
 drwxr-xr-x   1 root root 4096 Jul 20 14:43 usr
 drwxr-xr-x   1 root root 4096 Jul 20 14:57 var
-</code></pre>
-
-<p>Notice that <code>file.txt</code> exists in the container&rsquo;s root directory.</p>
-
+</code></pre><p>Notice that <code>file.txt</code> exists in the container&rsquo;s root directory.</p>
 <h2 id="exit-container">Exit Container</h2>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">exit</code></pre></div>
-
 <h2 id="view-changes-to-container">View Changes To Container</h2>
-
 <p>View the differences between the current state of <code>big-project</code> and the original image it is based on.</p>
-
 <ul>
 <li><code>A</code> means the file or directory was added.</li>
 <li><code>C</code> means the file or directory was changed.</li>
 <li><code>D</code> means the file or directory was deleted.</li>
 </ul>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">docker diff big-project</code></pre></div>
-
 <pre><code>C /root
 A /root/.bash_history
 A /file.txt
-</code></pre>
-
-<p>From this command we can see that we changed the root directory, changed <code>.bash_history</code> because we ran a bash command, and added a file called <code>file.txt</code>.</p>
+</code></pre><p>From this command we can see that we changed the root directory, changed <code>.bash_history</code> because we ran a bash command, and added a file called <code>file.txt</code>.</p>
 
 </div>
   <aside>
@@ -283,7 +253,7 @@ A /file.txt
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

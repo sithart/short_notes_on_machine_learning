@@ -20,27 +20,13 @@
 <meta property="og:description" content="How to view the first and last parts of files using the Linux command line." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/linux/basics/view_first_and_last_parts_of_files/" />
-
-
-
-<meta property="article:published_time" content="2018-06-17T00:00:00-07:00"/>
-
-<meta property="article:modified_time" content="2018-06-17T00:00:00-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2018-06-17T00:00:00-07:00" />
+<meta property="article:modified_time" content="2018-06-17T00:00:00-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="View First And Last Parts Of Files"/>
 <meta name="twitter:description" content="How to view the first and last parts of files using the Linux command line."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,8 +34,8 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "View First And Last Parts Of Files",
-  "url": "https://chrisalbon.com/linux/basics/view_first_and_last_parts_of_files/",
-  "wordCount": "171",
+  "url": "https:\/\/chrisalbon.com\/linux\/basics\/view_first_and_last_parts_of_files\/",
+  "wordCount": "182",
   "datePublished": "2018-06-17T00:00:00-07:00",
   "dateModified": "2018-06-17T00:00:00-07:00",
   "author": {
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,29 +170,22 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<p>The sort command reorganizes lines in a text file or standard output (technically the same thing) so they are arranged numerically and alphabetically.</p>
-
+  <p>The sort command reorganizes lines in a text file or standard output (technically the same thing) so they are arranged numerically and alphabetically.</p>
 <h2 id="create-example-file-with-list-of-names">Create Example File With List Of Names</h2>
-
-<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">echo &#39;Luca Gartside&#39; &gt;&gt; adventurers.txt<span class="err">
-</span><span class="err"></span>echo &#39;Reule Smyth&#39; &gt;&gt; adventurers.txt<span class="err">
-</span><span class="err"></span>echo &#39;Spencer Smit&#39; &gt;&gt; adventurers.txt<span class="err">
-</span><span class="err"></span>echo &#39;Crurnirk Steelflow&#39; &gt;&gt; adventurers.txt<span class="err">
-</span><span class="err"></span>echo &#39;Uli Pinetotem&#39; &gt;&gt; adventurers.txt<span class="err">
-</span><span class="err"></span>echo &#39;Ognem Dustsplitter&#39; &gt;&gt; adventurers.txt<span class="err">
-</span><span class="err"></span>echo &#39;Ebil Frugroll&#39; &gt;&gt; adventurers.txt<span class="err">
-</span><span class="err"></span>echo &#39;Gordon Humphrey&#39; &gt;&gt; adventurers.txt<span class="err">
-</span><span class="err"></span>echo &#39;Jermaine Randall&#39; &gt;&gt; adventurers.txt<span class="err">
-</span><span class="err"></span>echo &#39;Eli Steele&#39; &gt;&gt; adventurers.txt<span class="err">
-</span><span class="err"></span>echo &#39;Gregory Potts&#39; &gt;&gt; adventurers.txt<span class="err">
-</span><span class="err"></span>echo &#39;Emil Carter&#39; &gt;&gt; adventurers.txt</code></pre></div>
-
+<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">echo &#39;Luca Gartside&#39; &gt;&gt; adventurers.txt
+echo &#39;Reule Smyth&#39; &gt;&gt; adventurers.txt
+echo &#39;Spencer Smit&#39; &gt;&gt; adventurers.txt
+echo &#39;Crurnirk Steelflow&#39; &gt;&gt; adventurers.txt
+echo &#39;Uli Pinetotem&#39; &gt;&gt; adventurers.txt
+echo &#39;Ognem Dustsplitter&#39; &gt;&gt; adventurers.txt
+echo &#39;Ebil Frugroll&#39; &gt;&gt; adventurers.txt
+echo &#39;Gordon Humphrey&#39; &gt;&gt; adventurers.txt
+echo &#39;Jermaine Randall&#39; &gt;&gt; adventurers.txt
+echo &#39;Eli Steele&#39; &gt;&gt; adventurers.txt
+echo &#39;Gregory Potts&#39; &gt;&gt; adventurers.txt
+echo &#39;Emil Carter&#39; &gt;&gt; adventurers.txt</code></pre></div>
 <h2 id="view-file">View File</h2>
-
-<p><div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">cat adventurers.txt</code></pre></div></p>
-
+<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">cat adventurers.txt</code></pre></div>
 <pre><code>Luca Gartside
 Reule Smyth
 Spencer Smit
@@ -211,12 +198,8 @@ Jermaine Randall
 Eli Steele
 Gregory Potts
 Emil Carter
-</code></pre>
-
-<h2 id="view-first-10-lines-of-fine">View First 10 Lines Of Fine</h2>
-
+</code></pre><h2 id="view-first-10-lines-of-fine">View First 10 Lines Of Fine</h2>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">head adventurers.txt</code></pre></div>
-
 <pre><code>Luca Gartside
 Reule Smyth
 Spencer Smit
@@ -227,28 +210,19 @@ Ebil Frugroll
 Gordon Humphrey
 Jermaine Randall
 Eli Steele
-</code></pre>
-
-<h2 id="view-first-3-lines-of-fine">View First 3 Lines Of Fine</h2>
-
+</code></pre><h2 id="view-first-3-lines-of-fine">View First 3 Lines Of Fine</h2>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">head -n 3 adventurers.txt</code></pre></div>
-
 <pre><code>Luca Gartside
 Reule Smyth
 Spencer Smit
-</code></pre>
-
-<h2 id="view-last-5-lines-of-fine">View Last 5 Lines Of Fine</h2>
-
+</code></pre><h2 id="view-last-5-lines-of-fine">View Last 5 Lines Of Fine</h2>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">tail -n 5 adventurers.txt</code></pre></div>
-
 <pre><code>Gordon Humphrey
 Jermaine Randall
 Eli Steele
 Gregory Potts
 Emil Carter
 </code></pre>
-
 </div>
   <aside>
       <div class="bug_reporting">
@@ -272,7 +246,7 @@ Emil Carter
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

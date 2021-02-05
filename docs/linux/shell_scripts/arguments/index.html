@@ -20,27 +20,13 @@
 <meta property="og:description" content="Arguments in Linux shell scripts" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/linux/shell_scripts/arguments/" />
-
-
-
-<meta property="article:published_time" content="2018-07-16T00:00:00-07:00"/>
-
-<meta property="article:modified_time" content="2018-07-16T00:00:00-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2018-07-16T00:00:00-07:00" />
+<meta property="article:modified_time" content="2018-07-16T00:00:00-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Arguments"/>
 <meta name="twitter:description" content="Arguments in Linux shell scripts"/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Arguments",
-  "url": "https://chrisalbon.com/linux/shell_scripts/arguments/",
+  "url": "https:\/\/chrisalbon.com\/linux\/shell_scripts\/arguments\/",
   "wordCount": "158",
   "datePublished": "2018-07-16T00:00:00-07:00",
   "dateModified": "2018-07-16T00:00:00-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,12 +170,8 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<p>Shell scripts can accept positional arguments. They also have some useful built-in arguments.</p>
-
+  <p>Shell scripts can accept positional arguments. They also have some useful built-in arguments.</p>
 <h2 id="write-the-shell-script">Write The Shell Script</h2>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/sh
 </span><span class="cp"></span>
 <span class="nb">echo</span> <span class="s1">&#39;This is the first argument:&#39;</span>
@@ -215,11 +205,8 @@ MathJax.Hub.Config({
 
 <span class="nb">echo</span> <span class="s1">&#39;This is the exit code&#39;</span>:
 <span class="nb">echo</span> <span class="nv">$?</span></code></pre></div>
-
 <h2 id="run-the-shell-script">Run The Shell Script</h2>
-
-<p><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sh arguments.sh banana apple grape</code></pre></div></p>
-
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sh arguments.sh banana apple grape</code></pre></div>
 <pre><code>This is the first argument:
 banana
 This is the second argument:
@@ -242,7 +229,6 @@ test.sh
 This is the exit code:
 0
 </code></pre>
-
 </div>
   <aside>
       <div class="bug_reporting">
@@ -266,7 +252,7 @@ This is the exit code:
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title> - Chris Albon</title>
+    <title>python - Chris Albon</title>
     <link>https://chrisalbon.com/python/index.xml</link>
     <description></description>
     <generator>Hugo -- gohugo.io</generator>
@@ -17,7 +16,7 @@
       <pubDate>Sun, 12 Jul 2020 11:00:00 +0000</pubDate>
       
       <guid>https://chrisalbon.com/python/basics/using_iterable_as_function_arguments/</guid>
-      <description>Create Arguments # Create a list with three values scores = [1,2,3]# Create a dictionary with a single key-value pair scores_with_names = {&amp;#39;amy_score&amp;#39;: &amp;#34;200&amp;#34;} Create Function With Positional Arguments # Create a function with three positional arguments def show_team_scores(jack_score, amy_score, sarah_score): # Print each of the positional arguments print(jack_score, amy_score, sarah_score)# Run the function with * and an iterable object (in this case a list) show_team_scores(*scores) 1 2 3  Create Function Using Keyword Arguments # Create a function with three keyword arguments with default values def show_team_scores(jack_score=0, amy_score=0, sarah_score=0): # Print each of the keyword arguments print(jack_score, amy_score, sarah_score)# Run the function with ** and a dictionary show_team_scores(**scores_with_names) 0 200 0  Notice how jack_score and sarah_score used the default values, while amy_score used the argument value we defined in scores_with_names.</description>
+      <description>Create Arguments # Create a list with three values scores = [1,2,3] # Create a dictionary with a single key-value pair scores_with_names = {&amp;#39;amy_score&amp;#39;: &amp;#34;200&amp;#34;} Create Function With Positional Arguments # Create a function with three positional arguments def show_team_scores(jack_score, amy_score, sarah_score): # Print each of the positional arguments print(jack_score, amy_score, sarah_score) # Run the function with * and an iterable object (in this case a list) show_team_scores(*scores) 1 2 3  Create Function Using Keyword Arguments # Create a function with three keyword arguments with default values def show_team_scores(jack_score=0, amy_score=0, sarah_score=0): # Print each of the keyword arguments print(jack_score, amy_score, sarah_score) # Run the function with ** and a dictionary show_team_scores(**scores_with_names) 0 200 0  Notice how jack_score and sarah_score used the default values, while amy_score used the argument value we defined in scores_with_names.</description>
     </item>
     
     <item>
@@ -46,7 +45,7 @@ Preliminaries import statistics Create Data ages_of_community_members = [39, 23,
       <pubDate>Sun, 16 Dec 2018 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/basics/append_using_an_operator/</guid>
-      <description> Create A List # Create a list of three names names = [&amp;#39;chris&amp;#39;, &amp;#39;nguyen&amp;#39;, &amp;#39;jack&amp;#39;] Create A Value To Append To The List # Create a string list variable containing a name to_append = [&amp;#39;sarah&amp;#39;] Append Value To List # Create a new list with all the original names plus the appended name names += to_append View New List # View the new list names [&#39;chris&#39;, &#39;nguyen&#39;, &#39;jack&#39;, &#39;sarah&#39;]  </description>
+      <description>Create A List # Create a list of three names names = [&amp;#39;chris&amp;#39;, &amp;#39;nguyen&amp;#39;, &amp;#39;jack&amp;#39;] Create A Value To Append To The List # Create a string list variable containing a name to_append = [&amp;#39;sarah&amp;#39;] Append Value To List # Create a new list with all the original names plus the appended name names += to_append View New List # View the new list names [&#39;chris&#39;, &#39;nguyen&#39;, &#39;jack&#39;, &#39;sarah&#39;]  </description>
     </item>
     
     <item>
@@ -55,7 +54,7 @@ Preliminaries import statistics Create Data ages_of_community_members = [39, 23,
       <pubDate>Sun, 16 Dec 2018 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/object_oriented/create_a_class/</guid>
-      <description> Create Simple Class class Soldier: pass Create Instance Of Class jason = Soldier()</description>
+      <description>Create Simple Class class Soldier: pass Create Instance Of Class jason = Soldier() </description>
     </item>
     
     <item>
@@ -74,7 +73,7 @@ Create Class Containing Class Variable # Create a class called persons class per
       <pubDate>Sun, 16 Dec 2018 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/object_oriented/create_attributes/</guid>
-      <description> Create Simple Class class Soldier: pass Create Instance Of Class jason = Soldier() Create Attribute jason.age = 36 jason.height = 124 View Attributes # Display a dictionary of attributes jason.__dict__ {&#39;age&#39;: 36, &#39;height&#39;: 124}  </description>
+      <description>Create Simple Class class Soldier: pass Create Instance Of Class jason = Soldier() Create Attribute jason.age = 36 jason.height = 124 View Attributes # Display a dictionary of attributes jason.__dict__ {&#39;age&#39;: 36, &#39;height&#39;: 124}  </description>
     </item>
     
     <item>
@@ -113,7 +112,7 @@ Create Function # Define a function called word_count that takes in a argument  
       <pubDate>Tue, 20 Nov 2018 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/basics/list_all_files_of_particular_type_in_directory/</guid>
-      <description>Preliminaries import os List All .ipynb Files In Directory [x for x in os.listdir() if x.endswith(&amp;#34;.ipynb&amp;#34;)] [&#39;create_a_new_file_and_the_write_to_it.ipynb&#39;, &#39;unpacking_a_tuple.ipynb&#39;, &#39;unpacking_function_arguments.ipynb&#39;, &#39;convert_html_symbols_to_strings.ipynb&#39;, &#39;arithmetic_basics.ipynb&#39;, &#39;cleaning_text.ipynb&#39;, &#39;applying_functions_to_list_items.ipynb&#39;, &#39;while_statements.ipynb&#39;, &#39;continue_and_break_loops.ipynb&#39;, &#39;queues_and_stacks.ipynb&#39;, &#39;numpy_array_basics.ipynb&#39;, &#39;schedule_run_in_the_future.ipynb&#39;, &#39;Untitled.ipynb&#39;, &#39;repr_vs_str.ipynb&#39;, &#39;using_named_tuples_to_store_data.ipynb&#39;, &#39;hard_wrapping_text.ipynb&#39;, &#39;string_formatting.ipynb&#39;, &#39;functions_vs_generators.ipynb&#39;, &#39;nesting_lists.ipynb&#39;, &#39;sort_a_list_of_strings_by_length.ipynb&#39;, &#39;filter_items_in_list_with_filter.ipynb&#39;, &#39;swapping_variable_values.ipynb&#39;, &#39;iterating_over_dictionary_keys.ipynb&#39;, &#39;iterate_ifelse_over_list.ipynb&#39;, &#39;recursive_functions.ipynb&#39;, &#39;for_loops.ipynb&#39;, &#39;use_command_line_arguments_in_a_function.ipynb&#39;, &#39;logical_operations.ipynb&#39;, &#39;strings_to_datetime.ipynb&#39;, &#39;flatten_list_of_lists.ipynb&#39;, &#39;nested_for_loops_using_list_comprehension.ipynb&#39;, &#39;Untitled1.ipynb&#39;, &#39;function_basics.ipynb&#39;, &#39;find_the_max_value_in_a_dictionary.ipynb&#39;, &#39;any_all_max_min_sum.ipynb&#39;, &#39;display_json.ipynb&#39;, &#39;exiting_a_loop.ipynb&#39;, &#39;date_and_time_basics.ipynb&#39;, &#39;add_padding_around_string.ipynb&#39;, &#39;iterate_over_multiple_lists_simultaneously.ipynb&#39;, &#39;breaking_up_string_variables.ipynb&#39;, &#39;mocking_functions.ipynb&#39;, &#39;compare_two_dictionaries.ipynb&#39;, &#39;chain_together_lists.ipynb&#39;, &#39;function_annotation_examples.ipynb&#39;, &#39;brute_force_d20_simulator.ipynb&#39;, &#39;string_operations.ipynb&#39;, &#39;data_structure_basics.ipynb&#39;, &#39;string_indexing.ipynb&#39;, &#39;math_operations.ipynb&#39;, &#39;numpy_array_basic_operations.ipynb&#39;, &#39;ifelse_on_any_or_all_elements.ipynb&#39;, &#39;sort_a_list_by_last_name.ipynb&#39;, &#39;apply_operations_over_items_in_lists.</description>
+      <description>Preliminaries import os List All .ipynb Files In Directory [x for x in os.listdir() if x.endswith(&amp;#34;.ipynb&amp;#34;)] [&#39;create_a_new_file_and_the_write_to_it.ipynb&#39;, &#39;unpacking_a_tuple.ipynb&#39;, &#39;unpacking_function_arguments.ipynb&#39;, &#39;convert_html_symbols_to_strings.ipynb&#39;, &#39;arithmetic_basics.ipynb&#39;, &#39;cleaning_text.ipynb&#39;, &#39;applying_functions_to_list_items.ipynb&#39;, &#39;while_statements.ipynb&#39;, &#39;continue_and_break_loops.ipynb&#39;, &#39;queues_and_stacks.ipynb&#39;, &#39;numpy_array_basics.ipynb&#39;, &#39;schedule_run_in_the_future.ipynb&#39;, &#39;Untitled.ipynb&#39;, &#39;repr_vs_str.ipynb&#39;, &#39;using_named_tuples_to_store_data.ipynb&#39;, &#39;hard_wrapping_text.ipynb&#39;, &#39;string_formatting.ipynb&#39;, &#39;functions_vs_generators.ipynb&#39;, &#39;nesting_lists.ipynb&#39;, &#39;sort_a_list_of_strings_by_length.ipynb&#39;, &#39;filter_items_in_list_with_filter.ipynb&#39;, &#39;swapping_variable_values.ipynb&#39;, &#39;iterating_over_dictionary_keys.ipynb&#39;, &#39;iterate_ifelse_over_list.ipynb&#39;, &#39;recursive_functions.ipynb&#39;, &#39;for_loops.ipynb&#39;, &#39;use_command_line_arguments_in_a_function.ipynb&#39;, &#39;logical_operations.ipynb&#39;, &#39;strings_to_datetime.ipynb&#39;, &#39;flatten_list_of_lists.ipynb&#39;, &#39;nested_for_loops_using_list_comprehension.ipynb&#39;, &#39;Untitled1.ipynb&#39;, &#39;function_basics.ipynb&#39;, &#39;find_the_max_value_in_a_dictionary.ipynb&#39;, &#39;any_all_max_min_sum.ipynb&#39;, &#39;display_json.ipynb&#39;, &#39;exiting_a_loop.ipynb&#39;, &#39;date_and_time_basics.ipynb&#39;, &#39;add_padding_around_string.ipynb&#39;, &#39;iterate_over_multiple_lists_simultaneously.ipynb&#39;, &#39;breaking_up_string_variables.ipynb&#39;, &#39;mocking_functions.ipynb&#39;, &#39;compare_two_dictionaries.ipynb&#39;, &#39;chain_together_lists.ipynb&#39;, &#39;function_annotation_examples.ipynb&#39;, &#39;brute_force_d20_simulator.ipynb&#39;, &#39;string_operations.ipynb&#39;, &#39;data_structure_basics.ipynb&#39;, &#39;string_indexing.ipynb&#39;, &#39;math_operations.ipynb&#39;, &#39;numpy_array_basic_operations.ipynb&#39;, &#39;ifelse_on_any_or_all_elements.ipynb&#39;, &#39;sort_a_list_by_last_name.ipynb&#39;, &#39;apply_operations_over_items_in_lists.ipynb&#39;, &#39;all_combinations_of_a_list_of_objects.</description>
     </item>
     
     <item>
@@ -131,7 +130,7 @@ Create Function # Define a function called word_count that takes in a argument  
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/basics/add_padding_around_string/</guid>
-      <description> Create Some Text text = &amp;#39;Chapter 1&amp;#39; Add Padding Around Text # Add Spaces Of Padding To The Left format(text, &amp;#39;&amp;gt;20&amp;#39;) &#39; Chapter 1&#39;  # Add Spaces Of Padding To The Right format(text, &amp;#39;&amp;lt;20&amp;#39;) &#39;Chapter 1 &#39;  # Add Spaces Of Padding On Each Side format(text, &amp;#39;^20&amp;#39;) &#39; Chapter 1 &#39;  # Add * Of Padding On Each Side format(text, &amp;#39;*^20&amp;#39;) &#39;*****Chapter 1******&#39;  </description>
+      <description>Create Some Text text = &amp;#39;Chapter 1&amp;#39; Add Padding Around Text # Add Spaces Of Padding To The Left format(text, &amp;#39;&amp;gt;20&amp;#39;) &#39; Chapter 1&#39;  # Add Spaces Of Padding To The Right format(text, &amp;#39;&amp;lt;20&amp;#39;) &#39;Chapter 1 &#39;  # Add Spaces Of Padding On Each Side format(text, &amp;#39;^20&amp;#39;) &#39; Chapter 1 &#39;  # Add * Of Padding On Each Side format(text, &amp;#39;*^20&amp;#39;) &#39;*****Chapter 1******&#39;  </description>
     </item>
     
     <item>
@@ -141,6 +140,15 @@ Create Function # Define a function called word_count that takes in a argument  
       
       <guid>https://chrisalbon.com/python/basics/all_combinations_of_a_list_of_objects/</guid>
       <description>Preliminary # Import combinations with replacements from itertools from itertools import combinations_with_replacement Create a list of objects # Create a list of objects to combine list_of_objects = [&amp;#39;warplanes&amp;#39;, &amp;#39;armor&amp;#39;, &amp;#39;infantry&amp;#39;] Find all combinations (with replacement) for the list # Create an empty list object to hold the results of the loop combinations = [] # Create a loop for every item in the length of list_of_objects, that, for i in list(range(len(list_of_objects))): # Finds every combination (with replacement) for each object in the list combinations.</description>
+    </item>
+    
+    <item>
+      <title>any(), all(), max(), min(), sum()</title>
+      <link>https://chrisalbon.com/python/basics/any_all_max_min_sum/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/python/basics/any_all_max_min_sum/</guid>
+      <description>Create Data data = [34, 54, 50, 20, 20] any() # Return true if any element is True any(data) True  all() # Return true if all elements are True all(data) True  max() # Return max value max(data) 54  min() # Return the min value min(data) 20  sum() # Return the total value sum(data) 178  </description>
     </item>
     
     <item>
@@ -158,7 +166,7 @@ Create Function # Define a function called word_count that takes in a argument  
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/basics/apply_operations_over_items_in_lists/</guid>
-      <description>Method 1: map() # Create a list of casualties from battles battleDeaths = [482, 93, 392, 920, 813, 199, 374, 237, 244]# Create a function that updates all battle deaths by adding 100 def updated(x): return x + 100# Create a list that applies updated() to all elements of battleDeaths list(map(updated, battleDeaths)) [582, 193, 492, 1020, 913, 299, 474, 337, 344]  Method 2: for x in y # Create a list of deaths casualties = [482, 93, 392, 920, 813, 199, 374, 237, 244]# Create a variable where we will put the updated casualty numbers casualtiesUpdated = []# Create a function that for each item in casualties, adds 10 for x in casualties: casualtiesUpdated.</description>
+      <description>Method 1: map() # Create a list of casualties from battles battleDeaths = [482, 93, 392, 920, 813, 199, 374, 237, 244] # Create a function that updates all battle deaths by adding 100 def updated(x): return x + 100 # Create a list that applies updated() to all elements of battleDeaths list(map(updated, battleDeaths)) [582, 193, 492, 1020, 913, 299, 474, 337, 344]  Method 2: for x in y # Create a list of deaths casualties = [482, 93, 392, 920, 813, 199, 374, 237, 244] # Create a variable where we will put the updated casualty numbers casualtiesUpdated = [] # Create a function that for each item in casualties, adds 10 for x in casualties: casualtiesUpdated.</description>
     </item>
     
     <item>
@@ -167,7 +175,7 @@ Create Function # Define a function called word_count that takes in a argument  
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/data_wrangling/pandas_apply_operations_to_groups/</guid>
-      <description>Preliminaries # import modules import pandas as pd# Create dataframe raw_data = {&amp;#39;regiment&amp;#39;: [&amp;#39;Nighthawks&amp;#39;, &amp;#39;Nighthawks&amp;#39;, &amp;#39;Nighthawks&amp;#39;, &amp;#39;Nighthawks&amp;#39;, &amp;#39;Dragoons&amp;#39;, &amp;#39;Dragoons&amp;#39;, &amp;#39;Dragoons&amp;#39;, &amp;#39;Dragoons&amp;#39;, &amp;#39;Scouts&amp;#39;, &amp;#39;Scouts&amp;#39;, &amp;#39;Scouts&amp;#39;, &amp;#39;Scouts&amp;#39;], &amp;#39;company&amp;#39;: [&amp;#39;1st&amp;#39;, &amp;#39;1st&amp;#39;, &amp;#39;2nd&amp;#39;, &amp;#39;2nd&amp;#39;, &amp;#39;1st&amp;#39;, &amp;#39;1st&amp;#39;, &amp;#39;2nd&amp;#39;, &amp;#39;2nd&amp;#39;,&amp;#39;1st&amp;#39;, &amp;#39;1st&amp;#39;, &amp;#39;2nd&amp;#39;, &amp;#39;2nd&amp;#39;], &amp;#39;name&amp;#39;: [&amp;#39;Miller&amp;#39;, &amp;#39;Jacobson&amp;#39;, &amp;#39;Ali&amp;#39;, &amp;#39;Milner&amp;#39;, &amp;#39;Cooze&amp;#39;, &amp;#39;Jacon&amp;#39;, &amp;#39;Ryaner&amp;#39;, &amp;#39;Sone&amp;#39;, &amp;#39;Sloan&amp;#39;, &amp;#39;Piger&amp;#39;, &amp;#39;Riani&amp;#39;, &amp;#39;Ali&amp;#39;], &amp;#39;preTestScore&amp;#39;: [4, 24, 31, 2, 3, 4, 24, 31, 2, 3, 2, 3], &amp;#39;postTestScore&amp;#39;: [25, 94, 57, 62, 70, 25, 94, 57, 62, 70, 62, 70]} df = pd.</description>
+      <description>Preliminaries # import modules import pandas as pd # Create dataframe raw_data = {&amp;#39;regiment&amp;#39;: [&amp;#39;Nighthawks&amp;#39;, &amp;#39;Nighthawks&amp;#39;, &amp;#39;Nighthawks&amp;#39;, &amp;#39;Nighthawks&amp;#39;, &amp;#39;Dragoons&amp;#39;, &amp;#39;Dragoons&amp;#39;, &amp;#39;Dragoons&amp;#39;, &amp;#39;Dragoons&amp;#39;, &amp;#39;Scouts&amp;#39;, &amp;#39;Scouts&amp;#39;, &amp;#39;Scouts&amp;#39;, &amp;#39;Scouts&amp;#39;], &amp;#39;company&amp;#39;: [&amp;#39;1st&amp;#39;, &amp;#39;1st&amp;#39;, &amp;#39;2nd&amp;#39;, &amp;#39;2nd&amp;#39;, &amp;#39;1st&amp;#39;, &amp;#39;1st&amp;#39;, &amp;#39;2nd&amp;#39;, &amp;#39;2nd&amp;#39;,&amp;#39;1st&amp;#39;, &amp;#39;1st&amp;#39;, &amp;#39;2nd&amp;#39;, &amp;#39;2nd&amp;#39;], &amp;#39;name&amp;#39;: [&amp;#39;Miller&amp;#39;, &amp;#39;Jacobson&amp;#39;, &amp;#39;Ali&amp;#39;, &amp;#39;Milner&amp;#39;, &amp;#39;Cooze&amp;#39;, &amp;#39;Jacon&amp;#39;, &amp;#39;Ryaner&amp;#39;, &amp;#39;Sone&amp;#39;, &amp;#39;Sloan&amp;#39;, &amp;#39;Piger&amp;#39;, &amp;#39;Riani&amp;#39;, &amp;#39;Ali&amp;#39;], &amp;#39;preTestScore&amp;#39;: [4, 24, 31, 2, 3, 4, 24, 31, 2, 3, 2, 3], &amp;#39;postTestScore&amp;#39;: [25, 94, 57, 62, 70, 25, 94, 57, 62, 70, 62, 70]} df = pd.</description>
     </item>
     
     <item>
@@ -185,7 +193,7 @@ Create Function # Define a function called word_count that takes in a argument  
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/data_wrangling/pandas_apply_operations_to_dataframes/</guid>
-      <description>Import Modules import pandas as pd import numpy as np Create a dataframe data = {&amp;#39;name&amp;#39;: [&amp;#39;Jason&amp;#39;, &amp;#39;Molly&amp;#39;, &amp;#39;Tina&amp;#39;, &amp;#39;Jake&amp;#39;, &amp;#39;Amy&amp;#39;], &amp;#39;year&amp;#39;: [2012, 2012, 2013, 2014, 2014], &amp;#39;reports&amp;#39;: [4, 24, 31, 2, 3], &amp;#39;coverage&amp;#39;: [25, 94, 57, 62, 70]} df = pd.DataFrame(data, index = [&amp;#39;Cochice&amp;#39;, &amp;#39;Pima&amp;#39;, &amp;#39;Santa Cruz&amp;#39;, &amp;#39;Maricopa&amp;#39;, &amp;#39;Yuma&amp;#39;]) df  .dataframe tbody tr th:only-of-type { vertical-align: middle; } .dataframe tbody tr th { vertical-align: top; } .dataframe thead th { text-align: right; }    coverage name reports year     Cochice 25 Jason 4 2012   Pima 94 Molly 24 2012   Santa Cruz 57 Tina 31 2013   Maricopa 62 Jake 2 2014   Yuma 70 Amy 3 2014     Create a capitalization lambda function capitalizer = lambda x: x.</description>
+      <description>Import Modules import pandas as pd import numpy as np Create a dataframe data = {&amp;#39;name&amp;#39;: [&amp;#39;Jason&amp;#39;, &amp;#39;Molly&amp;#39;, &amp;#39;Tina&amp;#39;, &amp;#39;Jake&amp;#39;, &amp;#39;Amy&amp;#39;], &amp;#39;year&amp;#39;: [2012, 2012, 2013, 2014, 2014], &amp;#39;reports&amp;#39;: [4, 24, 31, 2, 3], &amp;#39;coverage&amp;#39;: [25, 94, 57, 62, 70]} df = pd.DataFrame(data, index = [&amp;#39;Cochice&amp;#39;, &amp;#39;Pima&amp;#39;, &amp;#39;Santa Cruz&amp;#39;, &amp;#39;Maricopa&amp;#39;, &amp;#39;Yuma&amp;#39;]) df  .dataframe tbody tr th:only-of-type { vertical-align: middle; } .dataframe tbody tr th { vertical-align: top; } .dataframe thead th { text-align: right; }</description>
     </item>
     
     <item>
@@ -203,7 +211,7 @@ Create Function # Define a function called word_count that takes in a argument  
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/data_wrangling/pandas_assign_new_column_dataframe/</guid>
-      <description> Preliminaries import pandas as pd Create Dataframe # Create empty dataframe df = pd.DataFrame() # Create a column df[&amp;#39;name&amp;#39;] = [&amp;#39;John&amp;#39;, &amp;#39;Steve&amp;#39;, &amp;#39;Sarah&amp;#39;] # View dataframe df    name     0 John   1 Steve   2 Sarah     Assign New Column To Dataframe # Assign a new column to df called &amp;#39;age&amp;#39; with a list of ages df.assign(age = [31, 32, 19])    name age     0 John 31   1 Steve 32   2 Sarah 19     </description>
+      <description>Preliminaries import pandas as pd Create Dataframe # Create empty dataframe df = pd.DataFrame() # Create a column df[&amp;#39;name&amp;#39;] = [&amp;#39;John&amp;#39;, &amp;#39;Steve&amp;#39;, &amp;#39;Sarah&amp;#39;] # View dataframe df    name     0 John   1 Steve   2 Sarah     Assign New Column To Dataframe # Assign a new column to df called &amp;#39;age&amp;#39; with a list of ages df.assign(age = [31, 32, 19])    name age     0 John 31   1 Steve 32   2 Sarah 19     </description>
     </item>
     
     <item>
@@ -248,7 +256,7 @@ Create Function # Define a function called word_count that takes in a argument  
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/basics/numpy_array_basic_operations/</guid>
-      <description># Import modules import numpy as np# Create an array civilian_deaths = np.array([4352, 233, 3245, 256, 2394]) civilian_deaths array([4352, 233, 3245, 256, 2394])  # Mean value of the array civilian_deaths.mean() 2096.0  # Total amount of deaths civilian_deaths.sum() 10480  # Smallest value in the array civilian_deaths.min() 233  # Largest value in the array civilian_deaths.max() 4352  </description>
+      <description># Import modules import numpy as np # Create an array civilian_deaths = np.array([4352, 233, 3245, 256, 2394]) civilian_deaths array([4352, 233, 3245, 256, 2394])  # Mean value of the array civilian_deaths.mean() 2096.0  # Total amount of deaths civilian_deaths.sum() 10480  # Smallest value in the array civilian_deaths.min() 233  # Largest value in the array civilian_deaths.max() 4352  </description>
     </item>
     
     <item>
@@ -268,7 +276,7 @@ Create Function # Define a function called word_count that takes in a argument  
       <guid>https://chrisalbon.com/python/data_wrangling/break_list_into_chunks_of_equal_size/</guid>
       <description>In this snippet we take a list and break it up into n-size chunks. This is a very common practice when dealing with APIs that have a maximum request size.
 Credit for this nifty function goes to Ned Batchelder who posted it on StackOverflow.
-# Create a list of first names first_names = [&amp;#39;Steve&amp;#39;, &amp;#39;Jane&amp;#39;, &amp;#39;Sara&amp;#39;, &amp;#39;Mary&amp;#39;,&amp;#39;Jack&amp;#39;,&amp;#39;Bob&amp;#39;, &amp;#39;Bily&amp;#39;, &amp;#39;Boni&amp;#39;, &amp;#39;Chris&amp;#39;,&amp;#39;Sori&amp;#39;, &amp;#39;Will&amp;#39;, &amp;#39;Won&amp;#39;,&amp;#39;Li&amp;#39;]# Create a function called &amp;#34;chunks&amp;#34; with two arguments, l and n: def chunks(l, n): # For item i in a range that is a length of l, for i in range(0, len(l), n): # Create an index range for l of n items: yield l[i:i+n]# Create a list that from the results of the function chunks: list(chunks(first_names, 5)) [[&#39;Steve&#39;, &#39;Jane&#39;, &#39;Sara&#39;, &#39;Mary&#39;, &#39;Jack&#39;], [&#39;Bob&#39;, &#39;Bily&#39;, &#39;Boni&#39;, &#39;Chris&#39;, &#39;Sori&#39;], [&#39;Will&#39;, &#39;Won&#39;, &#39;Li&#39;]]  </description>
+# Create a list of first names first_names = [&amp;#39;Steve&amp;#39;, &amp;#39;Jane&amp;#39;, &amp;#39;Sara&amp;#39;, &amp;#39;Mary&amp;#39;,&amp;#39;Jack&amp;#39;,&amp;#39;Bob&amp;#39;, &amp;#39;Bily&amp;#39;, &amp;#39;Boni&amp;#39;, &amp;#39;Chris&amp;#39;,&amp;#39;Sori&amp;#39;, &amp;#39;Will&amp;#39;, &amp;#39;Won&amp;#39;,&amp;#39;Li&amp;#39;] # Create a function called &amp;#34;chunks&amp;#34; with two arguments, l and n: def chunks(l, n): # For item i in a range that is a length of l, for i in range(0, len(l), n): # Create an index range for l of n items: yield l[i:i+n] # Create a list that from the results of the function chunks: list(chunks(first_names, 5)) [[&#39;Steve&#39;, &#39;Jane&#39;, &#39;Sara&#39;, &#39;Mary&#39;, &#39;Jack&#39;], [&#39;Bob&#39;, &#39;Bily&#39;, &#39;Boni&#39;, &#39;Chris&#39;, &#39;Sori&#39;], [&#39;Will&#39;, &#39;Won&#39;, &#39;Li&#39;]]  </description>
     </item>
     
     <item>
@@ -286,7 +294,7 @@ Credit for this nifty function goes to Ned Batchelder who posted it on StackOver
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/basics/breaking_up_string_variables/</guid>
-      <description> Basic name assignment variableName = &amp;#39;This is a string.&amp;#39; List assignment One, Two, Three = [1, 2, 3] Break up a string into variables firstLetter, secondLetter, thirdLetter, fourthLetter = &amp;#39;Bark&amp;#39;firstLetter &#39;B&#39;  secondLetter &#39;a&#39;  thirdLetter &#39;r&#39;  fourthLetter &#39;k&#39;  Breaking up a number into separate variables firstNumber, secondNumber, thirdNumber, fourthNumber = &amp;#39;9485&amp;#39;firstNumber &#39;9&#39;  secondNumber &#39;4&#39;  thirdNumber &#39;8&#39;  fourthNumber &#39;5&#39;  Assign the first letter of &amp;lsquo;spam&amp;rsquo; into varible a, assign all the remaining letters to variable b a, *b = &amp;#39;spam&amp;#39; a &#39;s&#39;  b [&#39;p&#39;, &#39;a&#39;, &#39;m&#39;]  </description>
+      <description>Basic name assignment variableName = &amp;#39;This is a string.&amp;#39; List assignment One, Two, Three = [1, 2, 3] Break up a string into variables firstLetter, secondLetter, thirdLetter, fourthLetter = &amp;#39;Bark&amp;#39; firstLetter &#39;B&#39;  secondLetter &#39;a&#39;  thirdLetter &#39;r&#39;  fourthLetter &#39;k&#39;  Breaking up a number into separate variables firstNumber, secondNumber, thirdNumber, fourthNumber = &amp;#39;9485&amp;#39; firstNumber &#39;9&#39;  secondNumber &#39;4&#39;  thirdNumber &#39;8&#39;  fourthNumber &#39;5&#39;  Assign the first letter of &amp;lsquo;spam&amp;rsquo; into varible a, assign all the remaining letters to variable b a, *b = &amp;#39;spam&amp;#39; a &#39;s&#39;  b [&#39;p&#39;, &#39;a&#39;, &#39;m&#39;]  </description>
     </item>
     
     <item>
@@ -314,7 +322,7 @@ Import random module import random Create a variable with a TRUE value rolling =
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/basics/chain_together_lists/</guid>
-      <description> Preliminaries from itertools import chain Create Two Lists # Create a list of allies allies = [&amp;#39;Spain&amp;#39;, &amp;#39;Germany&amp;#39;, &amp;#39;Namibia&amp;#39;, &amp;#39;Austria&amp;#39;] # Create a list of enemies enemies = [&amp;#39;Mexico&amp;#39;, &amp;#39;United Kingdom&amp;#39;, &amp;#39;France&amp;#39;] Iterate Over Both Lists As A Single Sequence # For each country in allies and enemies for country in chain(allies, enemies): # print the country print(country) Spain Germany Namibia Austria Mexico United Kingdom France  </description>
+      <description>Preliminaries from itertools import chain Create Two Lists # Create a list of allies allies = [&amp;#39;Spain&amp;#39;, &amp;#39;Germany&amp;#39;, &amp;#39;Namibia&amp;#39;, &amp;#39;Austria&amp;#39;] # Create a list of enemies enemies = [&amp;#39;Mexico&amp;#39;, &amp;#39;United Kingdom&amp;#39;, &amp;#39;France&amp;#39;] Iterate Over Both Lists As A Single Sequence # For each country in allies and enemies for country in chain(allies, enemies): # print the country print(country) Spain Germany Namibia Austria Mexico United Kingdom France  </description>
     </item>
     
     <item>
@@ -332,7 +340,7 @@ Import random module import random Create a variable with a TRUE value rolling =
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/data_visualization/seaborn_color_palettes/</guid>
-      <description>Preliminaries import pandas as pd %matplotlib inline import matplotlib.pyplot as plt import seaborn as snsdata = {&amp;#39;date&amp;#39;: [&amp;#39;2014-05-01 18:47:05.069722&amp;#39;, &amp;#39;2014-05-01 18:47:05.119994&amp;#39;, &amp;#39;2014-05-02 18:47:05.178768&amp;#39;, &amp;#39;2014-05-02 18:47:05.230071&amp;#39;, &amp;#39;2014-05-02 18:47:05.230071&amp;#39;, &amp;#39;2014-05-02 18:47:05.280592&amp;#39;, &amp;#39;2014-05-03 18:47:05.332662&amp;#39;, &amp;#39;2014-05-03 18:47:05.385109&amp;#39;, &amp;#39;2014-05-04 18:47:05.436523&amp;#39;, &amp;#39;2014-05-04 18:47:05.486877&amp;#39;], &amp;#39;deaths_regiment_1&amp;#39;: [34, 43, 14, 15, 15, 14, 31, 25, 62, 41], &amp;#39;deaths_regiment_2&amp;#39;: [52, 66, 78, 15, 15, 5, 25, 25, 86, 1], &amp;#39;deaths_regiment_3&amp;#39;: [13, 73, 82, 58, 52, 87, 26, 5, 56, 75], &amp;#39;deaths_regiment_4&amp;#39;: [44, 75, 26, 15, 15, 14, 54, 25, 24, 72], &amp;#39;deaths_regiment_5&amp;#39;: [25, 24, 25, 15, 57, 68, 21, 27, 62, 5], &amp;#39;deaths_regiment_6&amp;#39;: [84, 84, 26, 15, 15, 14, 26, 25, 62, 24], &amp;#39;deaths_regiment_7&amp;#39;: [46, 57, 26, 15, 15, 14, 26, 25, 62, 41]} df = pd.</description>
+      <description>Preliminaries import pandas as pd %matplotlib inline import matplotlib.pyplot as plt import seaborn as sns data = {&amp;#39;date&amp;#39;: [&amp;#39;2014-05-01 18:47:05.069722&amp;#39;, &amp;#39;2014-05-01 18:47:05.119994&amp;#39;, &amp;#39;2014-05-02 18:47:05.178768&amp;#39;, &amp;#39;2014-05-02 18:47:05.230071&amp;#39;, &amp;#39;2014-05-02 18:47:05.230071&amp;#39;, &amp;#39;2014-05-02 18:47:05.280592&amp;#39;, &amp;#39;2014-05-03 18:47:05.332662&amp;#39;, &amp;#39;2014-05-03 18:47:05.385109&amp;#39;, &amp;#39;2014-05-04 18:47:05.436523&amp;#39;, &amp;#39;2014-05-04 18:47:05.486877&amp;#39;], &amp;#39;deaths_regiment_1&amp;#39;: [34, 43, 14, 15, 15, 14, 31, 25, 62, 41], &amp;#39;deaths_regiment_2&amp;#39;: [52, 66, 78, 15, 15, 5, 25, 25, 86, 1], &amp;#39;deaths_regiment_3&amp;#39;: [13, 73, 82, 58, 52, 87, 26, 5, 56, 75], &amp;#39;deaths_regiment_4&amp;#39;: [44, 75, 26, 15, 15, 14, 54, 25, 24, 72], &amp;#39;deaths_regiment_5&amp;#39;: [25, 24, 25, 15, 57, 68, 21, 27, 62, 5], &amp;#39;deaths_regiment_6&amp;#39;: [84, 84, 26, 15, 15, 14, 26, 25, 62, 24], &amp;#39;deaths_regiment_7&amp;#39;: [46, 57, 26, 15, 15, 14, 26, 25, 62, 41]} df = pd.</description>
     </item>
     
     <item>
@@ -350,7 +358,7 @@ Import random module import random Create a variable with a TRUE value rolling =
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/basics/concurrent_processing/</guid>
-      <description> Preliminaries from concurrent import futures Create Data data = range(100) Create Function # Create some function that takes a value def some_function(value): # And outputs it raised to its own power return value**value Run The Function On The Data Concurrently # With a pool of workers with futures.ProcessPoolExecutor() as executor: # Map the function to the data result = executor.map(some_function, data) View Results # List the first 5 outputs list(result)[0:5] [1, 1, 4, 27, 256]  </description>
+      <description>Preliminaries from concurrent import futures Create Data data = range(100) Create Function # Create some function that takes a value def some_function(value): # And outputs it raised to its own power return value**value Run The Function On The Data Concurrently # With a pool of workers with futures.ProcessPoolExecutor() as executor: # Map the function to the data result = executor.map(some_function, data) View Results # List the first 5 outputs list(result)[0:5] [1, 1, 4, 27, 256]  </description>
     </item>
     
     <item>
@@ -359,7 +367,7 @@ Import random module import random Create a variable with a TRUE value rolling =
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/data_wrangling/construct_a_dictionary_from_multiple_lists/</guid>
-      <description> Create Two Lists # Create a list of theofficer&amp;#39;s name officer_names = [&amp;#39;Sodoni Dogla&amp;#39;, &amp;#39;Chris Jefferson&amp;#39;, &amp;#39;Jessica Billars&amp;#39;, &amp;#39;Michael Mulligan&amp;#39;, &amp;#39;Steven Johnson&amp;#39;] # Create a list of the officer&amp;#39;s army officer_armies = [&amp;#39;Purple Army&amp;#39;, &amp;#39;Orange Army&amp;#39;, &amp;#39;Green Army&amp;#39;, &amp;#39;Red Army&amp;#39;, &amp;#39;Blue Army&amp;#39;] Construct A Dictionary From The Two Lists # Create a dictionary that is the zip of the two lists dict(zip(officer_names, officer_armies)) {&#39;Chris Jefferson&#39;: &#39;Orange Army&#39;, &#39;Jessica Billars&#39;: &#39;Green Army&#39;, &#39;Michael Mulligan&#39;: &#39;Red Army&#39;, &#39;Sodoni Dogla&#39;: &#39;Purple Army&#39;, &#39;Steven Johnson&#39;: &#39;Blue Army&#39;}  </description>
+      <description>Create Two Lists # Create a list of theofficer&amp;#39;s name officer_names = [&amp;#39;Sodoni Dogla&amp;#39;, &amp;#39;Chris Jefferson&amp;#39;, &amp;#39;Jessica Billars&amp;#39;, &amp;#39;Michael Mulligan&amp;#39;, &amp;#39;Steven Johnson&amp;#39;] # Create a list of the officer&amp;#39;s army officer_armies = [&amp;#39;Purple Army&amp;#39;, &amp;#39;Orange Army&amp;#39;, &amp;#39;Green Army&amp;#39;, &amp;#39;Red Army&amp;#39;, &amp;#39;Blue Army&amp;#39;] Construct A Dictionary From The Two Lists # Create a dictionary that is the zip of the two lists dict(zip(officer_names, officer_armies)) {&#39;Chris Jefferson&#39;: &#39;Orange Army&#39;, &#39;Jessica Billars&#39;: &#39;Green Army&#39;, &#39;Michael Mulligan&#39;: &#39;Red Army&#39;, &#39;Sodoni Dogla&#39;: &#39;Purple Army&#39;, &#39;Steven Johnson&#39;: &#39;Blue Army&#39;}  </description>
     </item>
     
     <item>
@@ -368,7 +376,26 @@ Import random module import random Create a variable with a TRUE value rolling =
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/basics/continue_and_break_loops/</guid>
-      <description>Import the random module import random Create a while loop # set running to true running = True# while running is true while running: # Create a random integer between 0 and 5 s = random.randint(0,5) # If the integer is less than 3 if s &amp;lt; 3: # Print this print(&amp;#39;It is too small, starting over.&amp;#39;) # Reset the next interation of the loop # (i.e skip everything below and restart from the top) continue # If the integer is 4 if s == 4: running = False # Print this print(&amp;#39;It is 4!</description>
+      <description>Import the random module import random Create a while loop # set running to true running = True # while running is true while running: # Create a random integer between 0 and 5 s = random.randint(0,5) # If the integer is less than 3 if s &amp;lt; 3: # Print this print(&amp;#39;It is too small, starting over.&amp;#39;) # Reset the next interation of the loop # (i.e skip everything below and restart from the top) continue # If the integer is 4 if s == 4: running = False # Print this print(&amp;#39;It is 4!</description>
+    </item>
+    
+    <item>
+      <title>Convert A Categorical Variable Into Dummy Variables</title>
+      <link>https://chrisalbon.com/python/data_wrangling/pandas_convert_categorical_to_dummies/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/python/data_wrangling/pandas_convert_categorical_to_dummies/</guid>
+      <description># import modules import pandas as pd # Create a dataframe raw_data = {&amp;#39;first_name&amp;#39;: [&amp;#39;Jason&amp;#39;, &amp;#39;Molly&amp;#39;, &amp;#39;Tina&amp;#39;, &amp;#39;Jake&amp;#39;, &amp;#39;Amy&amp;#39;], &amp;#39;last_name&amp;#39;: [&amp;#39;Miller&amp;#39;, &amp;#39;Jacobson&amp;#39;, &amp;#39;Ali&amp;#39;, &amp;#39;Milner&amp;#39;, &amp;#39;Cooze&amp;#39;], &amp;#39;sex&amp;#39;: [&amp;#39;male&amp;#39;, &amp;#39;female&amp;#39;, &amp;#39;male&amp;#39;, &amp;#39;female&amp;#39;, &amp;#39;female&amp;#39;]} df = pd.DataFrame(raw_data, columns = [&amp;#39;first_name&amp;#39;, &amp;#39;last_name&amp;#39;, &amp;#39;sex&amp;#39;]) df  .dataframe tbody tr th:only-of-type { vertical-align: middle; } .dataframe tbody tr th { vertical-align: top; } .dataframe thead th { text-align: right; }  
+  first_name last_name sex     0 Jason Miller male   1 Molly Jacobson female   2 Tina Ali male   3 Jake Milner female   4 Amy Cooze female     # Create a set of dummy variables from the sex variable pd.</description>
+    </item>
+    
+    <item>
+      <title>Convert A Categorical Variable Into Dummy Variables</title>
+      <link>https://chrisalbon.com/python/data_wrangling/pandas_convert_numeric_categorical_to_numeric_with_patsy/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/python/data_wrangling/pandas_convert_numeric_categorical_to_numeric_with_patsy/</guid>
+      <description># import modules import pandas as pd import patsy # Create dataframe raw_data = {&amp;#39;countrycode&amp;#39;: [1, 2, 3, 2, 1]} df = pd.DataFrame(raw_data, columns = [&amp;#39;countrycode&amp;#39;]) df    countrycode     0 1   1 2   2 3   3 2   4 1     # Convert the countrycode variable into three binary variables patsy.dmatrix(&amp;#39;C(countrycode)-1&amp;#39;, df, return_type=&amp;#39;dataframe&amp;#39;)    C(countrycode)[1] C(countrycode)[2] C(countrycode)[3]     0 1.</description>
     </item>
     
     <item>
@@ -378,24 +405,6 @@ Import random module import random Create a variable with a TRUE value rolling =
       
       <guid>https://chrisalbon.com/python/data_wrangling/csv_to_python_code/</guid>
       <description>Preliminaries # Import the pandas package import pandas as pd Load the external dataset # Load the csv file as a pandas dataframe df_original = pd.read_csv(&amp;#39;http://vincentarelbundock.github.io/Rdatasets/csv/datasets/iris.csv&amp;#39;) df = pd.read_csv(&amp;#39;http://vincentarelbundock.github.io/Rdatasets/csv/datasets/iris.csv&amp;#39;) Print the code required to create that dataset # Print the code to create the dataframe print(&amp;#39;==============================&amp;#39;) print(&amp;#39;RUN THE CODE BELOW THIS LINE&amp;#39;) print(&amp;#39;==============================&amp;#39;) print(&amp;#39;raw_data =&amp;#39;, df.to_dict(orient=&amp;#39;list&amp;#39;)) print(&amp;#39;df = pd.DataFrame(raw_data, columns = &amp;#39; + str(list(df_original)) + &amp;#39;)&amp;#39;) ============================== RUN THE CODE BELOW THIS LINE ============================== raw_data = {&#39;Sepal.</description>
-    </item>
-    
-    <item>
-      <title>Convert A Categorical Variable Into Dummy Variables</title>
-      <link>https://chrisalbon.com/python/data_wrangling/pandas_convert_categorical_to_dummies/</link>
-      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
-      
-      <guid>https://chrisalbon.com/python/data_wrangling/pandas_convert_categorical_to_dummies/</guid>
-      <description># import modules import pandas as pd# Create a dataframe raw_data = {&amp;#39;first_name&amp;#39;: [&amp;#39;Jason&amp;#39;, &amp;#39;Molly&amp;#39;, &amp;#39;Tina&amp;#39;, &amp;#39;Jake&amp;#39;, &amp;#39;Amy&amp;#39;], &amp;#39;last_name&amp;#39;: [&amp;#39;Miller&amp;#39;, &amp;#39;Jacobson&amp;#39;, &amp;#39;Ali&amp;#39;, &amp;#39;Milner&amp;#39;, &amp;#39;Cooze&amp;#39;], &amp;#39;sex&amp;#39;: [&amp;#39;male&amp;#39;, &amp;#39;female&amp;#39;, &amp;#39;male&amp;#39;, &amp;#39;female&amp;#39;, &amp;#39;female&amp;#39;]} df = pd.DataFrame(raw_data, columns = [&amp;#39;first_name&amp;#39;, &amp;#39;last_name&amp;#39;, &amp;#39;sex&amp;#39;]) df  .dataframe tbody tr th:only-of-type { vertical-align: middle; } .dataframe tbody tr th { vertical-align: top; } .dataframe thead th { text-align: right; }    first_name last_name sex     0 Jason Miller male   1 Molly Jacobson female   2 Tina Ali male   3 Jake Milner female   4 Amy Cooze female     # Create a set of dummy variables from the sex variable pd.</description>
-    </item>
-    
-    <item>
-      <title>Convert A Categorical Variable Into Dummy Variables</title>
-      <link>https://chrisalbon.com/python/data_wrangling/pandas_convert_numeric_categorical_to_numeric_with_patsy/</link>
-      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
-      
-      <guid>https://chrisalbon.com/python/data_wrangling/pandas_convert_numeric_categorical_to_numeric_with_patsy/</guid>
-      <description># import modules import pandas as pd import patsy# Create dataframe raw_data = {&amp;#39;countrycode&amp;#39;: [1, 2, 3, 2, 1]} df = pd.DataFrame(raw_data, columns = [&amp;#39;countrycode&amp;#39;]) df    countrycode     0 1   1 2   2 3   3 2   4 1     # Convert the countrycode variable into three binary variables patsy.dmatrix(&amp;#39;C(countrycode)-1&amp;#39;, df, return_type=&amp;#39;dataframe&amp;#39;)    C(countrycode)[1] C(countrycode)[2] C(countrycode)[3]     0 1.</description>
     </item>
     
     <item>
@@ -413,7 +422,7 @@ Import random module import random Create a variable with a TRUE value rolling =
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/data_wrangling/pandas_convert_to_datetime/</guid>
-      <description># Import Preliminaries import pandas as pd# Create a dataset with the index being a set of names raw_data = {&amp;#39;date&amp;#39;: [&amp;#39;2014-06-01T01:21:38.004053&amp;#39;, &amp;#39;2014-06-02T01:21:38.004053&amp;#39;, &amp;#39;2014-06-03T01:21:38.004053&amp;#39;], &amp;#39;score&amp;#39;: [25, 94, 57]} df = pd.DataFrame(raw_data, columns = [&amp;#39;date&amp;#39;, &amp;#39;score&amp;#39;]) df    date score     0 2014-06-01T01:21:38.004053 25   1 2014-06-02T01:21:38.004053 94   2 2014-06-03T01:21:38.004053 57     # Transpose the dataset, so that the index (in this case the names) are columns df[&amp;#34;date&amp;#34;] = pd.</description>
+      <description># Import Preliminaries import pandas as pd # Create a dataset with the index being a set of names raw_data = {&amp;#39;date&amp;#39;: [&amp;#39;2014-06-01T01:21:38.004053&amp;#39;, &amp;#39;2014-06-02T01:21:38.004053&amp;#39;, &amp;#39;2014-06-03T01:21:38.004053&amp;#39;], &amp;#39;score&amp;#39;: [25, 94, 57]} df = pd.DataFrame(raw_data, columns = [&amp;#39;date&amp;#39;, &amp;#39;score&amp;#39;]) df    date score     0 2014-06-01T01:21:38.004053 25   1 2014-06-02T01:21:38.004053 94   2 2014-06-03T01:21:38.004053 57     # Transpose the dataset, so that the index (in this case the names) are columns df[&amp;#34;date&amp;#34;] = pd.</description>
     </item>
     
     <item>
@@ -422,7 +431,7 @@ Import random module import random Create a variable with a TRUE value rolling =
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/basics/convert_html_symbols_to_strings/</guid>
-      <description>## Preliminariesimport html## Create Texttext = &amp;#39;This item costs &amp;amp;#165;400 or &amp;amp;#163;4.&amp;#39;## Convert To Stringhtml.unescape(text) &#39;This item costs ¥400 or £4.&#39;  ## Convert To HTML Entitieshtml.escape(text) &#39;This item costs &amp;amp;amp;#165;400 or &amp;amp;amp;#163;4.&#39;  </description>
+      <description>## Preliminaries import html ## Create Text text = &amp;#39;This item costs &amp;amp;#165;400 or &amp;amp;#163;4.&amp;#39; ## Convert To String html.unescape(text) &#39;This item costs ¥400 or £4.&#39;  ## Convert To HTML Entities html.escape(text) &#39;This item costs &amp;amp;amp;#165;400 or &amp;amp;amp;#163;4.&#39;  </description>
     </item>
     
     <item>
@@ -444,6 +453,15 @@ Import random module import random Create a variable with a TRUE value rolling =
     </item>
     
     <item>
+      <title>Create a Column Based on a Conditional in pandas</title>
+      <link>https://chrisalbon.com/python/data_wrangling/pandas_create_column_using_conditional/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/python/data_wrangling/pandas_create_column_using_conditional/</guid>
+      <description>Preliminaries # Import required modules import pandas as pd import numpy as np Make a dataframe data = {&amp;#39;name&amp;#39;: [&amp;#39;Jason&amp;#39;, &amp;#39;Molly&amp;#39;, &amp;#39;Tina&amp;#39;, &amp;#39;Jake&amp;#39;, &amp;#39;Amy&amp;#39;], &amp;#39;age&amp;#39;: [42, 52, 36, 24, 73], &amp;#39;preTestScore&amp;#39;: [4, 24, 31, 2, 3], &amp;#39;postTestScore&amp;#39;: [25, 94, 57, 62, 70]} df = pd.DataFrame(data, columns = [&amp;#39;name&amp;#39;, &amp;#39;age&amp;#39;, &amp;#39;preTestScore&amp;#39;, &amp;#39;postTestScore&amp;#39;]) df    name age preTestScore postTestScore     0 Jason 42 4 25   1 Molly 52 24 94   2 Tina 36 31 57   3 Jake 24 2 62   4 Amy 73 3 70     Add a new column for elderly # Create a new column called df.</description>
+    </item>
+    
+    <item>
       <title>Create A New File Then Write To It</title>
       <link>https://chrisalbon.com/python/basics/create_a_new_file_and_the_write_to_it/</link>
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
@@ -453,12 +471,21 @@ Import random module import random Create a variable with a TRUE value rolling =
     </item>
     
     <item>
+      <title>Create A pandas Column With A For Loop</title>
+      <link>https://chrisalbon.com/python/data_wrangling/pandas_create_column_with_loop/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/python/data_wrangling/pandas_create_column_with_loop/</guid>
+      <description>Preliminaries import pandas as pd import numpy as np Create an example dataframe raw_data = {&amp;#39;student_name&amp;#39;: [&amp;#39;Miller&amp;#39;, &amp;#39;Jacobson&amp;#39;, &amp;#39;Ali&amp;#39;, &amp;#39;Milner&amp;#39;, &amp;#39;Cooze&amp;#39;, &amp;#39;Jacon&amp;#39;, &amp;#39;Ryaner&amp;#39;, &amp;#39;Sone&amp;#39;, &amp;#39;Sloan&amp;#39;, &amp;#39;Piger&amp;#39;, &amp;#39;Riani&amp;#39;, &amp;#39;Ali&amp;#39;], &amp;#39;test_score&amp;#39;: [76, 88, 84, 67, 53, 96, 64, 91, 77, 73, 52, np.NaN]} df = pd.DataFrame(raw_data, columns = [&amp;#39;student_name&amp;#39;, &amp;#39;test_score&amp;#39;]) Create a function to assign letter grades # Create a list to store the data grades = [] # For each row in the column, for row in df[&amp;#39;test_score&amp;#39;]: # if more than a value, if row &amp;gt; 95: # Append a letter grade grades.</description>
+    </item>
+    
+    <item>
       <title>Create A Pipeline In Pandas</title>
       <link>https://chrisalbon.com/python/data_wrangling/pandas_create_pipeline/</link>
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/data_wrangling/pandas_create_pipeline/</guid>
-      <description>Pandas&amp;rsquo; pipeline feature allows you to string together Python functions in order to build a pipeline of data processing.
+      <description>Pandas&#39; pipeline feature allows you to string together Python functions in order to build a pipeline of data processing.
 Preliminaries import pandas as pd Create Dataframe # Create empty dataframe df = pd.DataFrame() # Create a column df[&amp;#39;name&amp;#39;] = [&amp;#39;John&amp;#39;, &amp;#39;Steve&amp;#39;, &amp;#39;Sarah&amp;#39;] df[&amp;#39;gender&amp;#39;] = [&amp;#39;Male&amp;#39;, &amp;#39;Male&amp;#39;, &amp;#39;Female&amp;#39;] df[&amp;#39;age&amp;#39;] = [31, 32, 19] # View dataframe df    name gender age     0 John Male 31   1 Steve Male 32   2 Sarah Female 19     Create Functions To Process Data # Create a function that def mean_age_by_group(dataframe, col): # groups the data by a column and returns the mean age per group return dataframe.</description>
     </item>
     
@@ -472,15 +499,6 @@ Preliminaries import pandas as pd Create Dataframe # Create empty dataframe df =
     </item>
     
     <item>
-      <title>Create A pandas Column With A For Loop</title>
-      <link>https://chrisalbon.com/python/data_wrangling/pandas_create_column_with_loop/</link>
-      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
-      
-      <guid>https://chrisalbon.com/python/data_wrangling/pandas_create_column_with_loop/</guid>
-      <description>Preliminaries import pandas as pd import numpy as np Create an example dataframe raw_data = {&amp;#39;student_name&amp;#39;: [&amp;#39;Miller&amp;#39;, &amp;#39;Jacobson&amp;#39;, &amp;#39;Ali&amp;#39;, &amp;#39;Milner&amp;#39;, &amp;#39;Cooze&amp;#39;, &amp;#39;Jacon&amp;#39;, &amp;#39;Ryaner&amp;#39;, &amp;#39;Sone&amp;#39;, &amp;#39;Sloan&amp;#39;, &amp;#39;Piger&amp;#39;, &amp;#39;Riani&amp;#39;, &amp;#39;Ali&amp;#39;], &amp;#39;test_score&amp;#39;: [76, 88, 84, 67, 53, 96, 64, 91, 77, 73, 52, np.NaN]} df = pd.DataFrame(raw_data, columns = [&amp;#39;student_name&amp;#39;, &amp;#39;test_score&amp;#39;]) Create a function to assign letter grades # Create a list to store the data grades = [] # For each row in the column, for row in df[&amp;#39;test_score&amp;#39;]: # if more than a value, if row &amp;gt; 95: # Append a letter grade grades.</description>
-    </item>
-    
-    <item>
       <title>Create Counts Of Items</title>
       <link>https://chrisalbon.com/python/data_wrangling/creating_counts_of_items/</link>
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
@@ -490,21 +508,12 @@ Preliminaries import pandas as pd Create Dataframe # Create empty dataframe df =
     </item>
     
     <item>
-      <title>Create a Column Based on a Conditional in pandas</title>
-      <link>https://chrisalbon.com/python/data_wrangling/pandas_create_column_using_conditional/</link>
-      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
-      
-      <guid>https://chrisalbon.com/python/data_wrangling/pandas_create_column_using_conditional/</guid>
-      <description>Preliminaries # Import required modules import pandas as pd import numpy as np Make a dataframe data = {&amp;#39;name&amp;#39;: [&amp;#39;Jason&amp;#39;, &amp;#39;Molly&amp;#39;, &amp;#39;Tina&amp;#39;, &amp;#39;Jake&amp;#39;, &amp;#39;Amy&amp;#39;], &amp;#39;age&amp;#39;: [42, 52, 36, 24, 73], &amp;#39;preTestScore&amp;#39;: [4, 24, 31, 2, 3], &amp;#39;postTestScore&amp;#39;: [25, 94, 57, 62, 70]} df = pd.DataFrame(data, columns = [&amp;#39;name&amp;#39;, &amp;#39;age&amp;#39;, &amp;#39;preTestScore&amp;#39;, &amp;#39;postTestScore&amp;#39;]) df    name age preTestScore postTestScore     0 Jason 42 4 25   1 Molly 52 24 94   2 Tina 36 31 57   3 Jake 24 2 62   4 Amy 73 3 70     Add a new column for elderly # Create a new column called df.</description>
-    </item>
-    
-    <item>
       <title>Creating A Time Series Plot With Seaborn And pandas</title>
       <link>https://chrisalbon.com/python/data_visualization/seaborn_pandas_timeseries_plot/</link>
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/data_visualization/seaborn_pandas_timeseries_plot/</guid>
-      <description>Preliminaries import pandas as pd %matplotlib inline import matplotlib.pyplot as plt import seaborn as snsdata = {&amp;#39;date&amp;#39;: [&amp;#39;2014-05-01 18:47:05.069722&amp;#39;, &amp;#39;2014-05-01 18:47:05.119994&amp;#39;, &amp;#39;2014-05-02 18:47:05.178768&amp;#39;, &amp;#39;2014-05-02 18:47:05.230071&amp;#39;, &amp;#39;2014-05-02 18:47:05.230071&amp;#39;, &amp;#39;2014-05-02 18:47:05.280592&amp;#39;, &amp;#39;2014-05-03 18:47:05.332662&amp;#39;, &amp;#39;2014-05-03 18:47:05.385109&amp;#39;, &amp;#39;2014-05-04 18:47:05.436523&amp;#39;, &amp;#39;2014-05-04 18:47:05.486877&amp;#39;], &amp;#39;deaths_regiment_1&amp;#39;: [34, 43, 14, 15, 15, 14, 31, 25, 62, 41], &amp;#39;deaths_regiment_2&amp;#39;: [52, 66, 78, 15, 15, 5, 25, 25, 86, 1], &amp;#39;deaths_regiment_3&amp;#39;: [13, 73, 82, 58, 52, 87, 26, 5, 56, 75], &amp;#39;deaths_regiment_4&amp;#39;: [44, 75, 26, 15, 15, 14, 54, 25, 24, 72], &amp;#39;deaths_regiment_5&amp;#39;: [25, 24, 25, 15, 57, 68, 21, 27, 62, 5], &amp;#39;deaths_regiment_6&amp;#39;: [84, 84, 26, 15, 15, 14, 26, 25, 62, 24], &amp;#39;deaths_regiment_7&amp;#39;: [46, 57, 26, 15, 15, 14, 26, 25, 62, 41]} df = pd.</description>
+      <description>Preliminaries import pandas as pd %matplotlib inline import matplotlib.pyplot as plt import seaborn as sns data = {&amp;#39;date&amp;#39;: [&amp;#39;2014-05-01 18:47:05.069722&amp;#39;, &amp;#39;2014-05-01 18:47:05.119994&amp;#39;, &amp;#39;2014-05-02 18:47:05.178768&amp;#39;, &amp;#39;2014-05-02 18:47:05.230071&amp;#39;, &amp;#39;2014-05-02 18:47:05.230071&amp;#39;, &amp;#39;2014-05-02 18:47:05.280592&amp;#39;, &amp;#39;2014-05-03 18:47:05.332662&amp;#39;, &amp;#39;2014-05-03 18:47:05.385109&amp;#39;, &amp;#39;2014-05-04 18:47:05.436523&amp;#39;, &amp;#39;2014-05-04 18:47:05.486877&amp;#39;], &amp;#39;deaths_regiment_1&amp;#39;: [34, 43, 14, 15, 15, 14, 31, 25, 62, 41], &amp;#39;deaths_regiment_2&amp;#39;: [52, 66, 78, 15, 15, 5, 25, 25, 86, 1], &amp;#39;deaths_regiment_3&amp;#39;: [13, 73, 82, 58, 52, 87, 26, 5, 56, 75], &amp;#39;deaths_regiment_4&amp;#39;: [44, 75, 26, 15, 15, 14, 54, 25, 24, 72], &amp;#39;deaths_regiment_5&amp;#39;: [25, 24, 25, 15, 57, 68, 21, 27, 62, 5], &amp;#39;deaths_regiment_6&amp;#39;: [84, 84, 26, 15, 15, 14, 26, 25, 62, 24], &amp;#39;deaths_regiment_7&amp;#39;: [46, 57, 26, 15, 15, 14, 26, 25, 62, 41]} df = pd.</description>
     </item>
     
     <item>
@@ -513,7 +522,7 @@ Preliminaries import pandas as pd Create Dataframe # Create empty dataframe df =
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/data_wrangling/create_list_from_dictionary_keys_and_values/</guid>
-      <description> Create a dictionary dict = {&amp;#39;county&amp;#39;: [&amp;#39;Cochice&amp;#39;, &amp;#39;Pima&amp;#39;, &amp;#39;Santa Cruz&amp;#39;, &amp;#39;Maricopa&amp;#39;, &amp;#39;Yuma&amp;#39;], &amp;#39;year&amp;#39;: [2012, 2012, 2013, 2014, 2014], &amp;#39;fireReports&amp;#39;: [4, 24, 31, 2, 3]} Create a list from the dictionary keys # Create a list of keys list(dict.keys()) [&#39;fireReports&#39;, &#39;year&#39;, &#39;county&#39;]  Create a list from the dictionary values # Create a list of values list(dict.values()) [[4, 24, 31, 2, 3], [2012, 2012, 2013, 2014, 2014], [&#39;Cochice&#39;, &#39;Pima&#39;, &#39;Santa Cruz&#39;, &#39;Maricopa&#39;, &#39;Yuma&#39;]]  </description>
+      <description>Create a dictionary dict = {&amp;#39;county&amp;#39;: [&amp;#39;Cochice&amp;#39;, &amp;#39;Pima&amp;#39;, &amp;#39;Santa Cruz&amp;#39;, &amp;#39;Maricopa&amp;#39;, &amp;#39;Yuma&amp;#39;], &amp;#39;year&amp;#39;: [2012, 2012, 2013, 2014, 2014], &amp;#39;fireReports&amp;#39;: [4, 24, 31, 2, 3]} Create a list from the dictionary keys # Create a list of keys list(dict.keys()) [&#39;fireReports&#39;, &#39;year&#39;, &#39;county&#39;]  Create a list from the dictionary values # Create a list of values list(dict.values()) [[4, 24, 31, 2, 3], [2012, 2012, 2013, 2014, 2014], [&#39;Cochice&#39;, &#39;Pima&#39;, &#39;Santa Cruz&#39;, &#39;Maricopa&#39;, &#39;Yuma&#39;]]  </description>
     </item>
     
     <item>
@@ -522,7 +531,7 @@ Preliminaries import pandas as pd Create Dataframe # Create empty dataframe df =
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/data_visualization/seaborn_scatterplot/</guid>
-      <description>Preliminaries import pandas as pd %matplotlib inline import random import matplotlib.pyplot as plt import seaborn as sns Create data # Create empty dataframe df = pd.DataFrame() # Add columns df[&amp;#39;x&amp;#39;] = random.sample(range(1, 1000), 5) df[&amp;#39;y&amp;#39;] = random.sample(range(1, 1000), 5) df[&amp;#39;z&amp;#39;] = [1,0,0,1,0] df[&amp;#39;k&amp;#39;] = [&amp;#39;male&amp;#39;,&amp;#39;male&amp;#39;,&amp;#39;male&amp;#39;,&amp;#39;female&amp;#39;,&amp;#39;female&amp;#39;]# View first few rows of data df.head()   .dataframe thead tr:only-child th { text-align: right; } .dataframe thead th { text-align: left; } .</description>
+      <description>Preliminaries import pandas as pd %matplotlib inline import random import matplotlib.pyplot as plt import seaborn as sns Create data # Create empty dataframe df = pd.DataFrame() # Add columns df[&amp;#39;x&amp;#39;] = random.sample(range(1, 1000), 5) df[&amp;#39;y&amp;#39;] = random.sample(range(1, 1000), 5) df[&amp;#39;z&amp;#39;] = [1,0,0,1,0] df[&amp;#39;k&amp;#39;] = [&amp;#39;male&amp;#39;,&amp;#39;male&amp;#39;,&amp;#39;male&amp;#39;,&amp;#39;female&amp;#39;,&amp;#39;female&amp;#39;] # View first few rows of data df.head()   .dataframe thead tr:only-child th { text-align: right; } .dataframe thead th { text-align: left; } .</description>
     </item>
     
     <item>
@@ -531,7 +540,7 @@ Preliminaries import pandas as pd Create Dataframe # Create empty dataframe df =
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/data_wrangling/pandas_crosstabs/</guid>
-      <description>Import pandas import pandas as pdraw_data = {&amp;#39;regiment&amp;#39;: [&amp;#39;Nighthawks&amp;#39;, &amp;#39;Nighthawks&amp;#39;, &amp;#39;Nighthawks&amp;#39;, &amp;#39;Nighthawks&amp;#39;, &amp;#39;Dragoons&amp;#39;, &amp;#39;Dragoons&amp;#39;, &amp;#39;Dragoons&amp;#39;, &amp;#39;Dragoons&amp;#39;, &amp;#39;Scouts&amp;#39;, &amp;#39;Scouts&amp;#39;, &amp;#39;Scouts&amp;#39;, &amp;#39;Scouts&amp;#39;], &amp;#39;company&amp;#39;: [&amp;#39;infantry&amp;#39;, &amp;#39;infantry&amp;#39;, &amp;#39;cavalry&amp;#39;, &amp;#39;cavalry&amp;#39;, &amp;#39;infantry&amp;#39;, &amp;#39;infantry&amp;#39;, &amp;#39;cavalry&amp;#39;, &amp;#39;cavalry&amp;#39;,&amp;#39;infantry&amp;#39;, &amp;#39;infantry&amp;#39;, &amp;#39;cavalry&amp;#39;, &amp;#39;cavalry&amp;#39;], &amp;#39;experience&amp;#39;: [&amp;#39;veteran&amp;#39;, &amp;#39;rookie&amp;#39;, &amp;#39;veteran&amp;#39;, &amp;#39;rookie&amp;#39;, &amp;#39;veteran&amp;#39;, &amp;#39;rookie&amp;#39;, &amp;#39;veteran&amp;#39;, &amp;#39;rookie&amp;#39;,&amp;#39;veteran&amp;#39;, &amp;#39;rookie&amp;#39;, &amp;#39;veteran&amp;#39;, &amp;#39;rookie&amp;#39;], &amp;#39;name&amp;#39;: [&amp;#39;Miller&amp;#39;, &amp;#39;Jacobson&amp;#39;, &amp;#39;Ali&amp;#39;, &amp;#39;Milner&amp;#39;, &amp;#39;Cooze&amp;#39;, &amp;#39;Jacon&amp;#39;, &amp;#39;Ryaner&amp;#39;, &amp;#39;Sone&amp;#39;, &amp;#39;Sloan&amp;#39;, &amp;#39;Piger&amp;#39;, &amp;#39;Riani&amp;#39;, &amp;#39;Ali&amp;#39;], &amp;#39;preTestScore&amp;#39;: [4, 24, 31, 2, 3, 4, 24, 31, 2, 3, 2, 3], &amp;#39;postTestScore&amp;#39;: [25, 94, 57, 62, 70, 25, 94, 57, 62, 70, 62, 70]} df = pd.</description>
+      <description>Import pandas import pandas as pd raw_data = {&amp;#39;regiment&amp;#39;: [&amp;#39;Nighthawks&amp;#39;, &amp;#39;Nighthawks&amp;#39;, &amp;#39;Nighthawks&amp;#39;, &amp;#39;Nighthawks&amp;#39;, &amp;#39;Dragoons&amp;#39;, &amp;#39;Dragoons&amp;#39;, &amp;#39;Dragoons&amp;#39;, &amp;#39;Dragoons&amp;#39;, &amp;#39;Scouts&amp;#39;, &amp;#39;Scouts&amp;#39;, &amp;#39;Scouts&amp;#39;, &amp;#39;Scouts&amp;#39;], &amp;#39;company&amp;#39;: [&amp;#39;infantry&amp;#39;, &amp;#39;infantry&amp;#39;, &amp;#39;cavalry&amp;#39;, &amp;#39;cavalry&amp;#39;, &amp;#39;infantry&amp;#39;, &amp;#39;infantry&amp;#39;, &amp;#39;cavalry&amp;#39;, &amp;#39;cavalry&amp;#39;,&amp;#39;infantry&amp;#39;, &amp;#39;infantry&amp;#39;, &amp;#39;cavalry&amp;#39;, &amp;#39;cavalry&amp;#39;], &amp;#39;experience&amp;#39;: [&amp;#39;veteran&amp;#39;, &amp;#39;rookie&amp;#39;, &amp;#39;veteran&amp;#39;, &amp;#39;rookie&amp;#39;, &amp;#39;veteran&amp;#39;, &amp;#39;rookie&amp;#39;, &amp;#39;veteran&amp;#39;, &amp;#39;rookie&amp;#39;,&amp;#39;veteran&amp;#39;, &amp;#39;rookie&amp;#39;, &amp;#39;veteran&amp;#39;, &amp;#39;rookie&amp;#39;], &amp;#39;name&amp;#39;: [&amp;#39;Miller&amp;#39;, &amp;#39;Jacobson&amp;#39;, &amp;#39;Ali&amp;#39;, &amp;#39;Milner&amp;#39;, &amp;#39;Cooze&amp;#39;, &amp;#39;Jacon&amp;#39;, &amp;#39;Ryaner&amp;#39;, &amp;#39;Sone&amp;#39;, &amp;#39;Sloan&amp;#39;, &amp;#39;Piger&amp;#39;, &amp;#39;Riani&amp;#39;, &amp;#39;Ali&amp;#39;], &amp;#39;preTestScore&amp;#39;: [4, 24, 31, 2, 3, 4, 24, 31, 2, 3, 2, 3], &amp;#39;postTestScore&amp;#39;: [25, 94, 57, 62, 70, 25, 94, 57, 62, 70, 62, 70]} df = pd.</description>
     </item>
     
     <item>
@@ -551,7 +560,7 @@ Lists are mutable.
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/basics/date_and_time_basics/</guid>
-      <description># Import modules from datetime import datetime from datetime import timedelta# Create a variable with the current time now = datetime.now() now datetime.datetime(2014, 5, 11, 20, 5, 11, 688051)  # The current year now.year 2014  # The current month now.month 5  # The current day now.day 11  # The current hour now.hour 20  # The current minute now.minute 5  # The difference between two dates delta = datetime(2011, 1, 7) - datetime(2011, 1, 6) delta datetime.</description>
+      <description># Import modules from datetime import datetime from datetime import timedelta # Create a variable with the current time now = datetime.now() now datetime.datetime(2014, 5, 11, 20, 5, 11, 688051)  # The current year now.year 2014  # The current month now.month 5  # The current day now.day 11  # The current hour now.hour 20  # The current minute now.minute 5  # The difference between two dates delta = datetime(2011, 1, 7) - datetime(2011, 1, 6) delta datetime.</description>
     </item>
     
     <item>
@@ -596,7 +605,7 @@ Lists are mutable.
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/basics/display_scientific_notation_as_floats/</guid>
-      <description>Create Values # Create a numbers in scientific notation value_scientific_notation = 6.32000000e-03 # Create a vector of numbers in scientific notation vector_scientific_notation = [6.32000000e-03, 1.80000000e+01, 2.31000000e+00, 0.00000000e+00, 5.38000000e-01, 6.57500000e+00, 6.52000000e+01, 4.09000000e+00, 1.00000000e+00, 2.96000000e+02, 1.53000000e+01, 3.96900000e+02, 4.98000000e+00] Display Values As Floats # Display value as a float &amp;#39;{:f}&amp;#39;.format(value_scientific_notation) &#39;0.006320&#39;  # Display vector values as floats [&amp;#39;{:f}&amp;#39;.format(x) for x in vector_scientific_notation] [&#39;0.006320&#39;, &#39;18.000000&#39;, &#39;2.310000&#39;, &#39;0.000000&#39;, &#39;0.538000&#39;, &#39;6.575000&#39;, &#39;65.200000&#39;, &#39;4.090000&#39;, &#39;1.000000&#39;, &#39;296.</description>
+      <description>Create Values # Create a numbers in scientific notation value_scientific_notation = 6.32000000e-03 # Create a vector of numbers in scientific notation vector_scientific_notation = [6.32000000e-03, 1.80000000e+01, 2.31000000e+00, 0.00000000e+00, 5.38000000e-01, 6.57500000e+00, 6.52000000e+01, 4.09000000e+00, 1.00000000e+00, 2.96000000e+02, 1.53000000e+01, 3.96900000e+02, 4.98000000e+00] Display Values As Floats # Display value as a float &amp;#39;{:f}&amp;#39;.format(value_scientific_notation) &#39;0.006320&#39;  # Display vector values as floats [&amp;#39;{:f}&amp;#39;.format(x) for x in vector_scientific_notation] [&#39;0.006320&#39;, &#39;18.000000&#39;, &#39;2.310000&#39;, &#39;0.000000&#39;, &#39;0.538000&#39;, &#39;6.575000&#39;, &#39;65.200000&#39;, &#39;4.090000&#39;, &#39;1.000000&#39;, &#39;296.000000&#39;, &#39;15.</description>
     </item>
     
     <item>
@@ -614,7 +623,8 @@ Lists are mutable.
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/data_wrangling/pandas_dropping_column_and_rows/</guid>
-      <description>Import modules import pandas as pd Create a dataframe data = {&amp;#39;name&amp;#39;: [&amp;#39;Jason&amp;#39;, &amp;#39;Molly&amp;#39;, &amp;#39;Tina&amp;#39;, &amp;#39;Jake&amp;#39;, &amp;#39;Amy&amp;#39;], &amp;#39;year&amp;#39;: [2012, 2012, 2013, 2014, 2014], &amp;#39;reports&amp;#39;: [4, 24, 31, 2, 3]} df = pd.DataFrame(data, index = [&amp;#39;Cochice&amp;#39;, &amp;#39;Pima&amp;#39;, &amp;#39;Santa Cruz&amp;#39;, &amp;#39;Maricopa&amp;#39;, &amp;#39;Yuma&amp;#39;]) df   .dataframe thead tr:only-child th { text-align: right; } .dataframe thead th { text-align: left; } .dataframe tbody tr th { vertical-align: top; }    name reports year     Cochice Jason 4 2012   Pima Molly 24 2012   Santa Cruz Tina 31 2013   Maricopa Jake 2 2014   Yuma Amy 3 2014     Drop an observation (row) df.</description>
+      <description>Import modules import pandas as pd Create a dataframe data = {&amp;#39;name&amp;#39;: [&amp;#39;Jason&amp;#39;, &amp;#39;Molly&amp;#39;, &amp;#39;Tina&amp;#39;, &amp;#39;Jake&amp;#39;, &amp;#39;Amy&amp;#39;], &amp;#39;year&amp;#39;: [2012, 2012, 2013, 2014, 2014], &amp;#39;reports&amp;#39;: [4, 24, 31, 2, 3]} df = pd.DataFrame(data, index = [&amp;#39;Cochice&amp;#39;, &amp;#39;Pima&amp;#39;, &amp;#39;Santa Cruz&amp;#39;, &amp;#39;Maricopa&amp;#39;, &amp;#39;Yuma&amp;#39;]) df   .dataframe thead tr:only-child th { text-align: right; } .dataframe thead th { text-align: left; } .dataframe tbody tr th { vertical-align: top; }  
+  name reports year     Cochice Jason 4 2012   Pima Molly 24 2012   Santa Cruz Tina 31 2013   Maricopa Jake 2 2014   Yuma Amy 3 2014     Drop an observation (row) df.</description>
     </item>
     
     <item>
@@ -623,7 +633,7 @@ Lists are mutable.
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/data_wrangling/enumerate_a_list/</guid>
-      <description># Create a list of strings data = [&amp;#39;One&amp;#39;,&amp;#39;Two&amp;#39;,&amp;#39;Three&amp;#39;,&amp;#39;Four&amp;#39;,&amp;#39;Five&amp;#39;]# For each item in the enumerated variable, data for item in enumerate(data): # Print the whole enumerated element print(item) # Print only the value (not the index number) print(item[1]) (0, &#39;One&#39;) One (1, &#39;Two&#39;) Two (2, &#39;Three&#39;) Three (3, &#39;Four&#39;) Four (4, &#39;Five&#39;) Five  </description>
+      <description># Create a list of strings data = [&amp;#39;One&amp;#39;,&amp;#39;Two&amp;#39;,&amp;#39;Three&amp;#39;,&amp;#39;Four&amp;#39;,&amp;#39;Five&amp;#39;] # For each item in the enumerated variable, data for item in enumerate(data): # Print the whole enumerated element print(item) # Print only the value (not the index number) print(item[1]) (0, &#39;One&#39;) One (1, &#39;Two&#39;) Two (2, &#39;Three&#39;) Three (3, &#39;Four&#39;) Four (4, &#39;Five&#39;) Five  </description>
     </item>
     
     <item>
@@ -642,7 +652,7 @@ Exiting If Loop Completed A loop will exit when completed, but using an else sta
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/data_wrangling/pandas_expand_cells_containing_lists/</guid>
-      <description># import pandas import pandas as pd# create a dataset raw_data = {&amp;#39;score&amp;#39;: [1,2,3], &amp;#39;tags&amp;#39;: [[&amp;#39;apple&amp;#39;,&amp;#39;pear&amp;#39;,&amp;#39;guava&amp;#39;],[&amp;#39;truck&amp;#39;,&amp;#39;car&amp;#39;,&amp;#39;plane&amp;#39;],[&amp;#39;cat&amp;#39;,&amp;#39;dog&amp;#39;,&amp;#39;mouse&amp;#39;]]} df = pd.DataFrame(raw_data, columns = [&amp;#39;score&amp;#39;, &amp;#39;tags&amp;#39;]) # view the dataset df    score tags     0 1 [apple, pear, guava]   1 2 [truck, car, plane]   2 3 [cat, dog, mouse]     # expand df.tags into its own dataframe tags = df[&amp;#39;tags&amp;#39;].apply(pd.Series) # rename each variable is tags tags = tags.</description>
+      <description># import pandas import pandas as pd # create a dataset raw_data = {&amp;#39;score&amp;#39;: [1,2,3], &amp;#39;tags&amp;#39;: [[&amp;#39;apple&amp;#39;,&amp;#39;pear&amp;#39;,&amp;#39;guava&amp;#39;],[&amp;#39;truck&amp;#39;,&amp;#39;car&amp;#39;,&amp;#39;plane&amp;#39;],[&amp;#39;cat&amp;#39;,&amp;#39;dog&amp;#39;,&amp;#39;mouse&amp;#39;]]} df = pd.DataFrame(raw_data, columns = [&amp;#39;score&amp;#39;, &amp;#39;tags&amp;#39;]) # view the dataset df    score tags     0 1 [apple, pear, guava]   1 2 [truck, car, plane]   2 3 [cat, dog, mouse]     # expand df.tags into its own dataframe tags = df[&amp;#39;tags&amp;#39;].</description>
     </item>
     
     <item>
@@ -651,7 +661,7 @@ Exiting If Loop Completed A loop will exit when completed, but using an else sta
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/data_wrangling/filter_dataframes/</guid>
-      <description>Import modules import pandas as pd Create Dataframe data = {&amp;#39;name&amp;#39;: [&amp;#39;Jason&amp;#39;, &amp;#39;Molly&amp;#39;, &amp;#39;Tina&amp;#39;, &amp;#39;Jake&amp;#39;, &amp;#39;Amy&amp;#39;], &amp;#39;year&amp;#39;: [2012, 2012, 2013, 2014, 2014], &amp;#39;reports&amp;#39;: [4, 24, 31, 2, 3], &amp;#39;coverage&amp;#39;: [25, 94, 57, 62, 70]} df = pd.DataFrame(data, index = [&amp;#39;Cochice&amp;#39;, &amp;#39;Pima&amp;#39;, &amp;#39;Santa Cruz&amp;#39;, &amp;#39;Maricopa&amp;#39;, &amp;#39;Yuma&amp;#39;]) df   .dataframe thead tr:only-child th { text-align: right; } .dataframe thead th { text-align: left; } .dataframe tbody tr th { vertical-align: top; }    coverage name reports year     Cochice 25 Jason 4 2012   Pima 94 Molly 24 2012   Santa Cruz 57 Tina 31 2013   Maricopa 62 Jake 2 2014   Yuma 70 Amy 3 2014     View Column df[&amp;#39;name&amp;#39;] Cochice Jason Pima Molly Santa Cruz Tina Maricopa Jake Yuma Amy Name: name, dtype: object  View Two Columns df[[&amp;#39;name&amp;#39;, &amp;#39;reports&amp;#39;]]   .</description>
+      <description>Import modules import pandas as pd Create Dataframe data = {&amp;#39;name&amp;#39;: [&amp;#39;Jason&amp;#39;, &amp;#39;Molly&amp;#39;, &amp;#39;Tina&amp;#39;, &amp;#39;Jake&amp;#39;, &amp;#39;Amy&amp;#39;], &amp;#39;year&amp;#39;: [2012, 2012, 2013, 2014, 2014], &amp;#39;reports&amp;#39;: [4, 24, 31, 2, 3], &amp;#39;coverage&amp;#39;: [25, 94, 57, 62, 70]} df = pd.DataFrame(data, index = [&amp;#39;Cochice&amp;#39;, &amp;#39;Pima&amp;#39;, &amp;#39;Santa Cruz&amp;#39;, &amp;#39;Maricopa&amp;#39;, &amp;#39;Yuma&amp;#39;]) df   .dataframe thead tr:only-child th { text-align: right; } .dataframe thead th { text-align: left; } .dataframe tbody tr th { vertical-align: top; }</description>
     </item>
     
     <item>
@@ -660,7 +670,7 @@ Exiting If Loop Completed A loop will exit when completed, but using an else sta
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/data_wrangling/pandas_find_largest_value_in_column/</guid>
-      <description># import modules %matplotlib inline import pandas as pd import matplotlib.pyplot as plt import numpy as np# Create dataframe raw_data = {&amp;#39;first_name&amp;#39;: [&amp;#39;Jason&amp;#39;, &amp;#39;Molly&amp;#39;, &amp;#39;Tina&amp;#39;, &amp;#39;Jake&amp;#39;, &amp;#39;Amy&amp;#39;], &amp;#39;last_name&amp;#39;: [&amp;#39;Miller&amp;#39;, &amp;#39;Jacobson&amp;#39;, &amp;#39;Ali&amp;#39;, &amp;#39;Milner&amp;#39;, &amp;#39;Cooze&amp;#39;], &amp;#39;age&amp;#39;: [42, 52, 36, 24, 73], &amp;#39;preTestScore&amp;#39;: [4, 24, 31, 2, 3], &amp;#39;postTestScore&amp;#39;: [25, 94, 57, 62, 70]} df = pd.DataFrame(raw_data, columns = [&amp;#39;first_name&amp;#39;, &amp;#39;last_name&amp;#39;, &amp;#39;age&amp;#39;, &amp;#39;preTestScore&amp;#39;, &amp;#39;postTestScore&amp;#39;]) df    first_name last_name age preTestScore postTestScore     0 Jason Miller 42 4 25   1 Molly Jacobson 52 24 94   2 Tina Ali 36 31 57   3 Jake Milner 24 2 62   4 Amy Cooze 73 3 70     # Index of the row with the highest value in the preTestScore column df[&amp;#39;preTestScore&amp;#39;].</description>
+      <description># import modules %matplotlib inline import pandas as pd import matplotlib.pyplot as plt import numpy as np # Create dataframe raw_data = {&amp;#39;first_name&amp;#39;: [&amp;#39;Jason&amp;#39;, &amp;#39;Molly&amp;#39;, &amp;#39;Tina&amp;#39;, &amp;#39;Jake&amp;#39;, &amp;#39;Amy&amp;#39;], &amp;#39;last_name&amp;#39;: [&amp;#39;Miller&amp;#39;, &amp;#39;Jacobson&amp;#39;, &amp;#39;Ali&amp;#39;, &amp;#39;Milner&amp;#39;, &amp;#39;Cooze&amp;#39;], &amp;#39;age&amp;#39;: [42, 52, 36, 24, 73], &amp;#39;preTestScore&amp;#39;: [4, 24, 31, 2, 3], &amp;#39;postTestScore&amp;#39;: [25, 94, 57, 62, 70]} df = pd.DataFrame(raw_data, columns = [&amp;#39;first_name&amp;#39;, &amp;#39;last_name&amp;#39;, &amp;#39;age&amp;#39;, &amp;#39;preTestScore&amp;#39;, &amp;#39;postTestScore&amp;#39;]) df    first_name last_name age preTestScore postTestScore     0 Jason Miller 42 4 25   1 Molly Jacobson 52 24 94   2 Tina Ali 36 31 57   3 Jake Milner 24 2 62   4 Amy Cooze 73 3 70     # Index of the row with the highest value in the preTestScore column df[&amp;#39;preTestScore&amp;#39;].</description>
     </item>
     
     <item>
@@ -669,7 +679,7 @@ Exiting If Loop Completed A loop will exit when completed, but using an else sta
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/basics/find_the_max_value_in_a_dictionary/</guid>
-      <description> Create A Dictionary ages = {&amp;#39;John&amp;#39;: 21, &amp;#39;Mike&amp;#39;: 52, &amp;#39;Sarah&amp;#39;: 12, &amp;#39;Bob&amp;#39;: 43 } Find The Maximum Value Of The Values max(zip(ages.values(), ages.keys())) (52, &#39;Mike&#39;)  </description>
+      <description>Create A Dictionary ages = {&amp;#39;John&amp;#39;: 21, &amp;#39;Mike&amp;#39;: 52, &amp;#39;Sarah&amp;#39;: 12, &amp;#39;Bob&amp;#39;: 43 } Find The Maximum Value Of The Values max(zip(ages.values(), ages.keys())) (52, &#39;Mike&#39;)  </description>
     </item>
     
     <item>
@@ -678,7 +688,7 @@ Exiting If Loop Completed A loop will exit when completed, but using an else sta
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/data_wrangling/pandas_find_unique_values/</guid>
-      <description>import pandas as pd import numpy as npraw_data = {&amp;#39;regiment&amp;#39;: [&amp;#39;51st&amp;#39;, &amp;#39;29th&amp;#39;, &amp;#39;2nd&amp;#39;, &amp;#39;19th&amp;#39;, &amp;#39;12th&amp;#39;, &amp;#39;101st&amp;#39;, &amp;#39;90th&amp;#39;, &amp;#39;30th&amp;#39;, &amp;#39;193th&amp;#39;, &amp;#39;1st&amp;#39;, &amp;#39;94th&amp;#39;, &amp;#39;91th&amp;#39;], &amp;#39;trucks&amp;#39;: [&amp;#39;MAZ-7310&amp;#39;, np.nan, &amp;#39;MAZ-7310&amp;#39;, &amp;#39;MAZ-7310&amp;#39;, &amp;#39;Tatra 810&amp;#39;, &amp;#39;Tatra 810&amp;#39;, &amp;#39;Tatra 810&amp;#39;, &amp;#39;Tatra 810&amp;#39;, &amp;#39;ZIS-150&amp;#39;, &amp;#39;Tatra 810&amp;#39;, &amp;#39;ZIS-150&amp;#39;, &amp;#39;ZIS-150&amp;#39;], &amp;#39;tanks&amp;#39;: [&amp;#39;Merkava Mark 4&amp;#39;, &amp;#39;Merkava Mark 4&amp;#39;, &amp;#39;Merkava Mark 4&amp;#39;, &amp;#39;Leopard 2A6M&amp;#39;, &amp;#39;Leopard 2A6M&amp;#39;, &amp;#39;Leopard 2A6M&amp;#39;, &amp;#39;Arjun MBT&amp;#39;, &amp;#39;Leopard 2A6M&amp;#39;, &amp;#39;Arjun MBT&amp;#39;, &amp;#39;Arjun MBT&amp;#39;, &amp;#39;Arjun MBT&amp;#39;, &amp;#39;Arjun MBT&amp;#39;], &amp;#39;aircraft&amp;#39;: [&amp;#39;none&amp;#39;, &amp;#39;none&amp;#39;, &amp;#39;none&amp;#39;, &amp;#39;Harbin Z-9&amp;#39;, &amp;#39;Harbin Z-9&amp;#39;, &amp;#39;none&amp;#39;, &amp;#39;Harbin Z-9&amp;#39;, &amp;#39;SH-60B Seahawk&amp;#39;, &amp;#39;SH-60B Seahawk&amp;#39;, &amp;#39;SH-60B Seahawk&amp;#39;, &amp;#39;SH-60B Seahawk&amp;#39;, &amp;#39;SH-60B Seahawk&amp;#39;]} df = pd.</description>
+      <description>import pandas as pd import numpy as np raw_data = {&amp;#39;regiment&amp;#39;: [&amp;#39;51st&amp;#39;, &amp;#39;29th&amp;#39;, &amp;#39;2nd&amp;#39;, &amp;#39;19th&amp;#39;, &amp;#39;12th&amp;#39;, &amp;#39;101st&amp;#39;, &amp;#39;90th&amp;#39;, &amp;#39;30th&amp;#39;, &amp;#39;193th&amp;#39;, &amp;#39;1st&amp;#39;, &amp;#39;94th&amp;#39;, &amp;#39;91th&amp;#39;], &amp;#39;trucks&amp;#39;: [&amp;#39;MAZ-7310&amp;#39;, np.nan, &amp;#39;MAZ-7310&amp;#39;, &amp;#39;MAZ-7310&amp;#39;, &amp;#39;Tatra 810&amp;#39;, &amp;#39;Tatra 810&amp;#39;, &amp;#39;Tatra 810&amp;#39;, &amp;#39;Tatra 810&amp;#39;, &amp;#39;ZIS-150&amp;#39;, &amp;#39;Tatra 810&amp;#39;, &amp;#39;ZIS-150&amp;#39;, &amp;#39;ZIS-150&amp;#39;], &amp;#39;tanks&amp;#39;: [&amp;#39;Merkava Mark 4&amp;#39;, &amp;#39;Merkava Mark 4&amp;#39;, &amp;#39;Merkava Mark 4&amp;#39;, &amp;#39;Leopard 2A6M&amp;#39;, &amp;#39;Leopard 2A6M&amp;#39;, &amp;#39;Leopard 2A6M&amp;#39;, &amp;#39;Arjun MBT&amp;#39;, &amp;#39;Leopard 2A6M&amp;#39;, &amp;#39;Arjun MBT&amp;#39;, &amp;#39;Arjun MBT&amp;#39;, &amp;#39;Arjun MBT&amp;#39;, &amp;#39;Arjun MBT&amp;#39;], &amp;#39;aircraft&amp;#39;: [&amp;#39;none&amp;#39;, &amp;#39;none&amp;#39;, &amp;#39;none&amp;#39;, &amp;#39;Harbin Z-9&amp;#39;, &amp;#39;Harbin Z-9&amp;#39;, &amp;#39;none&amp;#39;, &amp;#39;Harbin Z-9&amp;#39;, &amp;#39;SH-60B Seahawk&amp;#39;, &amp;#39;SH-60B Seahawk&amp;#39;, &amp;#39;SH-60B Seahawk&amp;#39;, &amp;#39;SH-60B Seahawk&amp;#39;, &amp;#39;SH-60B Seahawk&amp;#39;]} df = pd.</description>
     </item>
     
     <item>
@@ -687,7 +697,7 @@ Exiting If Loop Completed A loop will exit when completed, but using an else sta
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/basics/flatten_list_of_lists/</guid>
-      <description> Create A List Of Lists # Create a list containing three lists of names list_of_lists = [[&amp;#39;Amy&amp;#39;,&amp;#39;Betty&amp;#39;,&amp;#39;Cathryn&amp;#39;,&amp;#39;Dana&amp;#39;], [&amp;#39;Elizabeth&amp;#39;,&amp;#39;Fay&amp;#39;,&amp;#39;Gora&amp;#39;], [&amp;#39;Heidi&amp;#39;,&amp;#39;Jane&amp;#39;,&amp;#39;Kayley&amp;#39;]] Flatten The Lists Of Lists Into A Single List # For each element in list_of_lists, take each element in the list flattened_list = [i for row in list_of_lists for i in row] View Flat List # View the flattened list flattened_list [&#39;Amy&#39;, &#39;Betty&#39;, &#39;Cathryn&#39;, &#39;Dana&#39;, &#39;Elizabeth&#39;, &#39;Fay&#39;, &#39;Gora&#39;, &#39;Heidi&#39;, &#39;Jane&#39;, &#39;Kayley&#39;]  </description>
+      <description>Create A List Of Lists # Create a list containing three lists of names list_of_lists = [[&amp;#39;Amy&amp;#39;,&amp;#39;Betty&amp;#39;,&amp;#39;Cathryn&amp;#39;,&amp;#39;Dana&amp;#39;], [&amp;#39;Elizabeth&amp;#39;,&amp;#39;Fay&amp;#39;,&amp;#39;Gora&amp;#39;], [&amp;#39;Heidi&amp;#39;,&amp;#39;Jane&amp;#39;,&amp;#39;Kayley&amp;#39;]] Flatten The Lists Of Lists Into A Single List # For each element in list_of_lists, take each element in the list flattened_list = [i for row in list_of_lists for i in row] View Flat List # View the flattened list flattened_list [&#39;Amy&#39;, &#39;Betty&#39;, &#39;Cathryn&#39;, &#39;Dana&#39;, &#39;Elizabeth&#39;, &#39;Fay&#39;, &#39;Gora&#39;, &#39;Heidi&#39;, &#39;Jane&#39;, &#39;Kayley&#39;]  </description>
     </item>
     
     <item>
@@ -705,7 +715,7 @@ Exiting If Loop Completed A loop will exit when completed, but using an else sta
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/basics/formatting_numbers/</guid>
-      <description> Create A Long Number annual_revenue = 9282904.9282872782 Format Number # Format rounded to two decimal places format(annual_revenue, &amp;#39;0.2f&amp;#39;) &#39;9282904.93&#39;  # Format with commas and rounded to one decimal place format(annual_revenue, &amp;#39;0,.1f&amp;#39;) &#39;9,282,904.9&#39;  # Format as scientific notation format(annual_revenue, &amp;#39;e&amp;#39;) &#39;9.282905e+06&#39;  # Format as scientific notation rounded to two deciminals format(annual_revenue, &amp;#39;0.2E&amp;#39;) &#39;9.28E+06&#39;  </description>
+      <description>Create A Long Number annual_revenue = 9282904.9282872782 Format Number # Format rounded to two decimal places format(annual_revenue, &amp;#39;0.2f&amp;#39;) &#39;9282904.93&#39;  # Format with commas and rounded to one decimal place format(annual_revenue, &amp;#39;0,.1f&amp;#39;) &#39;9,282,904.9&#39;  # Format as scientific notation format(annual_revenue, &amp;#39;e&amp;#39;) &#39;9.282905e+06&#39;  # Format as scientific notation rounded to two deciminals format(annual_revenue, &amp;#39;0.2E&amp;#39;) &#39;9.28E+06&#39;  </description>
     </item>
     
     <item>
@@ -714,7 +724,7 @@ Exiting If Loop Completed A loop will exit when completed, but using an else sta
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/basics/function_annotation_examples/</guid>
-      <description> Create A Function With Annotations &amp;#39;&amp;#39;&amp;#39; Create a function. The argument &amp;#39;text&amp;#39; is the string to print with the default value &amp;#39;default string&amp;#39; and the argument The argument &amp;#39;n&amp;#39; is an integer of times to print with the default value of 1. The function should return a string. &amp;#39;&amp;#39;&amp;#39; def print_text(text:&amp;#39;string to print&amp;#39;=&amp;#39;default string&amp;#39;, n:&amp;#39;integer, times to print&amp;#39;=1) -&amp;gt; str: return text * n Run The Function # Run the function with arguments print_text(&amp;#39;string&amp;#39;, 4) &#39;stringstringstringstring&#39;  # Run the function with default arguments print_text() &#39;default string&#39;  </description>
+      <description>Create A Function With Annotations &amp;#39;&amp;#39;&amp;#39; Create a function. The argument &amp;#39;text&amp;#39; is the string to print with the default value &amp;#39;default string&amp;#39; and the argument The argument &amp;#39;n&amp;#39; is an integer of times to print with the default value of 1. The function should return a string. &amp;#39;&amp;#39;&amp;#39; def print_text(text:&amp;#39;string to print&amp;#39;=&amp;#39;default string&amp;#39;, n:&amp;#39;integer, times to print&amp;#39;=1) -&amp;gt; str: return text * n Run The Function # Run the function with arguments print_text(&amp;#39;string&amp;#39;, 4) &#39;stringstringstringstring&#39;  # Run the function with default arguments print_text() &#39;default string&#39;  </description>
     </item>
     
     <item>
@@ -732,7 +742,7 @@ Exiting If Loop Completed A loop will exit when completed, but using an else sta
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/basics/functions_vs_generators/</guid>
-      <description>Create A Function # Create a function that def function(names): # For each name in a list of names for name in names: # Returns the name return name# Create a variable of that function students = function([&amp;#39;Abe&amp;#39;, &amp;#39;Bob&amp;#39;, &amp;#39;Christina&amp;#39;, &amp;#39;Derek&amp;#39;, &amp;#39;Eleanor&amp;#39;])# Run the function students &#39;Abe&#39;  Now we have a problem, we were only returned the name of the first student. Why? Because the function only ran the for name in names iteration once!</description>
+      <description>Create A Function # Create a function that def function(names): # For each name in a list of names for name in names: # Returns the name return name # Create a variable of that function students = function([&amp;#39;Abe&amp;#39;, &amp;#39;Bob&amp;#39;, &amp;#39;Christina&amp;#39;, &amp;#39;Derek&amp;#39;, &amp;#39;Eleanor&amp;#39;]) # Run the function students &#39;Abe&#39;  Now we have a problem, we were only returned the name of the first student. Why? Because the function only ran the for name in names iteration once!</description>
     </item>
     
     <item>
@@ -751,7 +761,7 @@ Exiting If Loop Completed A loop will exit when completed, but using an else sta
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/basics/generating_random_numbers_with_numpy/</guid>
-      <description> Import Numpy import numpy as np Generate A Random Number From The Normal Distribution np.random.normal() 0.5661104974399703  Generate Four Random Numbers From The Normal Distribution np.random.normal(size=4) array([-1.03175853, 1.2867365 , -0.23560103, -1.05225393])  Generate Four Random Numbers From The Uniform Distribution np.random.uniform(size=4) array([ 0.00193123, 0.51932356, 0.87656884, 0.33684494])  Generate Four Random Integers Between 1 and 100 np.random.randint(low=1, high=100, size=4) array([96, 25, 94, 77])  </description>
+      <description>Import Numpy import numpy as np Generate A Random Number From The Normal Distribution np.random.normal() 0.5661104974399703  Generate Four Random Numbers From The Normal Distribution np.random.normal(size=4) array([-1.03175853, 1.2867365 , -0.23560103, -1.05225393])  Generate Four Random Numbers From The Uniform Distribution np.random.uniform(size=4) array([ 0.00193123, 0.51932356, 0.87656884, 0.33684494])  Generate Four Random Integers Between 1 and 100 np.random.randint(low=1, high=100, size=4) array([96, 25, 94, 77])  </description>
     </item>
     
     <item>
@@ -760,7 +770,7 @@ Exiting If Loop Completed A loop will exit when completed, but using an else sta
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/basics/generator_expressions/</guid>
-      <description># Create a list of students students = [&amp;#39;Abe&amp;#39;, &amp;#39;Bob&amp;#39;, &amp;#39;Christina&amp;#39;, &amp;#39;Derek&amp;#39;, &amp;#39;Eleanor&amp;#39;]# Create a generator expression that yields lower-case versions of the student&amp;#39;s names lowercase_names = (student.lower() for student in students)# View the generator object lowercase_names &amp;lt;generator object &amp;lt;genexpr&amp;gt; at 0x104837518&amp;gt;  # Get the next name lower-cased next(lowercase_names) &#39;abe&#39;  # Get the next name lower-cased next(lowercase_names) &#39;bob&#39;  # Get the remaining names lower-cased list(lowercase_names) [&#39;christina&#39;, &#39;derek&#39;, &#39;eleanor&#39;]  </description>
+      <description># Create a list of students students = [&amp;#39;Abe&amp;#39;, &amp;#39;Bob&amp;#39;, &amp;#39;Christina&amp;#39;, &amp;#39;Derek&amp;#39;, &amp;#39;Eleanor&amp;#39;] # Create a generator expression that yields lower-case versions of the student&amp;#39;s names lowercase_names = (student.lower() for student in students) # View the generator object lowercase_names &amp;lt;generator object &amp;lt;genexpr&amp;gt; at 0x104837518&amp;gt;  # Get the next name lower-cased next(lowercase_names) &#39;abe&#39;  # Get the next name lower-cased next(lowercase_names) &#39;bob&#39;  # Get the remaining names lower-cased list(lowercase_names) [&#39;christina&#39;, &#39;derek&#39;, &#39;eleanor&#39;]  </description>
     </item>
     
     <item>
@@ -800,7 +810,8 @@ Preliminaries from geopy.geocoders import Nominatim geolocator = Nominatim() imp
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/data_wrangling/pandas_group_by_time/</guid>
-      <description>Import required modules import pandas as pd import numpy as np Create a dataframe df = pd.DataFrame() df[&amp;#39;german_army&amp;#39;] = np.random.randint(low=20000, high=30000, size=100) df[&amp;#39;allied_army&amp;#39;] = np.random.randint(low=20000, high=40000, size=100) df.index = pd.date_range(&amp;#39;1/1/2014&amp;#39;, periods=100, freq=&amp;#39;H&amp;#39;) df.head()  .dataframe tbody tr th:only-of-type { vertical-align: middle; } .dataframe tbody tr th { vertical-align: top; } .dataframe thead th { text-align: right; }    german_army allied_army     2014-01-01 00:00:00 21413 37604   2014-01-01 01:00:00 25913 21144   2014-01-01 02:00:00 22418 34201   2014-01-01 03:00:00 20704 37313   2014-01-01 04:00:00 27859 24467     Truncate the dataframe df.</description>
+      <description>Import required modules import pandas as pd import numpy as np Create a dataframe df = pd.DataFrame() df[&amp;#39;german_army&amp;#39;] = np.random.randint(low=20000, high=30000, size=100) df[&amp;#39;allied_army&amp;#39;] = np.random.randint(low=20000, high=40000, size=100) df.index = pd.date_range(&amp;#39;1/1/2014&amp;#39;, periods=100, freq=&amp;#39;H&amp;#39;) df.head()  .dataframe tbody tr th:only-of-type { vertical-align: middle; } .dataframe tbody tr th { vertical-align: top; } .dataframe thead th { text-align: right; }  
+  german_army allied_army     2014-01-01 00:00:00 21413 37604   2014-01-01 01:00:00 25913 21144   2014-01-01 02:00:00 22418 34201   2014-01-01 03:00:00 20704 37313   2014-01-01 04:00:00 27859 24467     Truncate the dataframe df.</description>
     </item>
     
     <item>
@@ -820,7 +831,7 @@ Preliminaries from geopy.geocoders import Nominatim geolocator = Nominatim() imp
       <guid>https://chrisalbon.com/python/data_wrangling/pandas_group_data_by_time/</guid>
       <description>On March 13, 2016, version 0.18.0 of Pandas was released, with significant changes in how the resampling function operates. This tutorial follows v0.18.0 and will not work for previous versions of pandas.
 First let&amp;rsquo;s load the modules we care about
-Preliminaries # Import required packages import pandas as pd import datetime import numpy as np Next, let&amp;rsquo;s create some sample data that we can group by time as an sample.</description>
+Preliminaries # Import required packages import pandas as pd import datetime import numpy as np Next, let&amp;rsquo;s create some sample data that we can group by time as an sample. In this example I am creating a dataframe with two columns with 365 rows.</description>
     </item>
     
     <item>
@@ -838,7 +849,7 @@ Preliminaries # Import required packages import pandas as pd import datetime imp
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/data_wrangling/pandas_group_rows_by/</guid>
-      <description># Import modules import pandas as pd# Example dataframe raw_data = {&amp;#39;regiment&amp;#39;: [&amp;#39;Nighthawks&amp;#39;, &amp;#39;Nighthawks&amp;#39;, &amp;#39;Nighthawks&amp;#39;, &amp;#39;Nighthawks&amp;#39;, &amp;#39;Dragoons&amp;#39;, &amp;#39;Dragoons&amp;#39;, &amp;#39;Dragoons&amp;#39;, &amp;#39;Dragoons&amp;#39;, &amp;#39;Scouts&amp;#39;, &amp;#39;Scouts&amp;#39;, &amp;#39;Scouts&amp;#39;, &amp;#39;Scouts&amp;#39;], &amp;#39;company&amp;#39;: [&amp;#39;1st&amp;#39;, &amp;#39;1st&amp;#39;, &amp;#39;2nd&amp;#39;, &amp;#39;2nd&amp;#39;, &amp;#39;1st&amp;#39;, &amp;#39;1st&amp;#39;, &amp;#39;2nd&amp;#39;, &amp;#39;2nd&amp;#39;,&amp;#39;1st&amp;#39;, &amp;#39;1st&amp;#39;, &amp;#39;2nd&amp;#39;, &amp;#39;2nd&amp;#39;], &amp;#39;name&amp;#39;: [&amp;#39;Miller&amp;#39;, &amp;#39;Jacobson&amp;#39;, &amp;#39;Ali&amp;#39;, &amp;#39;Milner&amp;#39;, &amp;#39;Cooze&amp;#39;, &amp;#39;Jacon&amp;#39;, &amp;#39;Ryaner&amp;#39;, &amp;#39;Sone&amp;#39;, &amp;#39;Sloan&amp;#39;, &amp;#39;Piger&amp;#39;, &amp;#39;Riani&amp;#39;, &amp;#39;Ali&amp;#39;], &amp;#39;preTestScore&amp;#39;: [4, 24, 31, 2, 3, 4, 24, 31, 2, 3, 2, 3], &amp;#39;postTestScore&amp;#39;: [25, 94, 57, 62, 70, 25, 94, 57, 62, 70, 62, 70]} df = pd.</description>
+      <description># Import modules import pandas as pd # Example dataframe raw_data = {&amp;#39;regiment&amp;#39;: [&amp;#39;Nighthawks&amp;#39;, &amp;#39;Nighthawks&amp;#39;, &amp;#39;Nighthawks&amp;#39;, &amp;#39;Nighthawks&amp;#39;, &amp;#39;Dragoons&amp;#39;, &amp;#39;Dragoons&amp;#39;, &amp;#39;Dragoons&amp;#39;, &amp;#39;Dragoons&amp;#39;, &amp;#39;Scouts&amp;#39;, &amp;#39;Scouts&amp;#39;, &amp;#39;Scouts&amp;#39;, &amp;#39;Scouts&amp;#39;], &amp;#39;company&amp;#39;: [&amp;#39;1st&amp;#39;, &amp;#39;1st&amp;#39;, &amp;#39;2nd&amp;#39;, &amp;#39;2nd&amp;#39;, &amp;#39;1st&amp;#39;, &amp;#39;1st&amp;#39;, &amp;#39;2nd&amp;#39;, &amp;#39;2nd&amp;#39;,&amp;#39;1st&amp;#39;, &amp;#39;1st&amp;#39;, &amp;#39;2nd&amp;#39;, &amp;#39;2nd&amp;#39;], &amp;#39;name&amp;#39;: [&amp;#39;Miller&amp;#39;, &amp;#39;Jacobson&amp;#39;, &amp;#39;Ali&amp;#39;, &amp;#39;Milner&amp;#39;, &amp;#39;Cooze&amp;#39;, &amp;#39;Jacon&amp;#39;, &amp;#39;Ryaner&amp;#39;, &amp;#39;Sone&amp;#39;, &amp;#39;Sloan&amp;#39;, &amp;#39;Piger&amp;#39;, &amp;#39;Riani&amp;#39;, &amp;#39;Ali&amp;#39;], &amp;#39;preTestScore&amp;#39;: [4, 24, 31, 2, 3, 4, 24, 31, 2, 3, 2, 3], &amp;#39;postTestScore&amp;#39;: [25, 94, 57, 62, 70, 25, 94, 57, 62, 70, 62, 70]} df = pd.</description>
     </item>
     
     <item>
@@ -856,7 +867,7 @@ Preliminaries # Import required packages import pandas as pd import datetime imp
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/data_wrangling/pandas_hierarchical_data/</guid>
-      <description># import modules import pandas as pd# Create dataframe raw_data = {&amp;#39;regiment&amp;#39;: [&amp;#39;Nighthawks&amp;#39;, &amp;#39;Nighthawks&amp;#39;, &amp;#39;Nighthawks&amp;#39;, &amp;#39;Nighthawks&amp;#39;, &amp;#39;Dragoons&amp;#39;, &amp;#39;Dragoons&amp;#39;, &amp;#39;Dragoons&amp;#39;, &amp;#39;Dragoons&amp;#39;, &amp;#39;Scouts&amp;#39;, &amp;#39;Scouts&amp;#39;, &amp;#39;Scouts&amp;#39;, &amp;#39;Scouts&amp;#39;], &amp;#39;company&amp;#39;: [&amp;#39;1st&amp;#39;, &amp;#39;1st&amp;#39;, &amp;#39;2nd&amp;#39;, &amp;#39;2nd&amp;#39;, &amp;#39;1st&amp;#39;, &amp;#39;1st&amp;#39;, &amp;#39;2nd&amp;#39;, &amp;#39;2nd&amp;#39;,&amp;#39;1st&amp;#39;, &amp;#39;1st&amp;#39;, &amp;#39;2nd&amp;#39;, &amp;#39;2nd&amp;#39;], &amp;#39;name&amp;#39;: [&amp;#39;Miller&amp;#39;, &amp;#39;Jacobson&amp;#39;, &amp;#39;Ali&amp;#39;, &amp;#39;Milner&amp;#39;, &amp;#39;Cooze&amp;#39;, &amp;#39;Jacon&amp;#39;, &amp;#39;Ryaner&amp;#39;, &amp;#39;Sone&amp;#39;, &amp;#39;Sloan&amp;#39;, &amp;#39;Piger&amp;#39;, &amp;#39;Riani&amp;#39;, &amp;#39;Ali&amp;#39;], &amp;#39;preTestScore&amp;#39;: [4, 24, 31, 2, 3, 4, 24, 31, 2, 3, 2, 3], &amp;#39;postTestScore&amp;#39;: [25, 94, 57, 62, 70, 25, 94, 57, 62, 70, 62, 70]} df = pd.</description>
+      <description># import modules import pandas as pd # Create dataframe raw_data = {&amp;#39;regiment&amp;#39;: [&amp;#39;Nighthawks&amp;#39;, &amp;#39;Nighthawks&amp;#39;, &amp;#39;Nighthawks&amp;#39;, &amp;#39;Nighthawks&amp;#39;, &amp;#39;Dragoons&amp;#39;, &amp;#39;Dragoons&amp;#39;, &amp;#39;Dragoons&amp;#39;, &amp;#39;Dragoons&amp;#39;, &amp;#39;Scouts&amp;#39;, &amp;#39;Scouts&amp;#39;, &amp;#39;Scouts&amp;#39;, &amp;#39;Scouts&amp;#39;], &amp;#39;company&amp;#39;: [&amp;#39;1st&amp;#39;, &amp;#39;1st&amp;#39;, &amp;#39;2nd&amp;#39;, &amp;#39;2nd&amp;#39;, &amp;#39;1st&amp;#39;, &amp;#39;1st&amp;#39;, &amp;#39;2nd&amp;#39;, &amp;#39;2nd&amp;#39;,&amp;#39;1st&amp;#39;, &amp;#39;1st&amp;#39;, &amp;#39;2nd&amp;#39;, &amp;#39;2nd&amp;#39;], &amp;#39;name&amp;#39;: [&amp;#39;Miller&amp;#39;, &amp;#39;Jacobson&amp;#39;, &amp;#39;Ali&amp;#39;, &amp;#39;Milner&amp;#39;, &amp;#39;Cooze&amp;#39;, &amp;#39;Jacon&amp;#39;, &amp;#39;Ryaner&amp;#39;, &amp;#39;Sone&amp;#39;, &amp;#39;Sloan&amp;#39;, &amp;#39;Piger&amp;#39;, &amp;#39;Riani&amp;#39;, &amp;#39;Ali&amp;#39;], &amp;#39;preTestScore&amp;#39;: [4, 24, 31, 2, 3, 4, 24, 31, 2, 3, 2, 3], &amp;#39;postTestScore&amp;#39;: [25, 94, 57, 62, 70, 25, 94, 57, 62, 70, 62, 70]} df = pd.</description>
     </item>
     
     <item>
@@ -874,8 +885,17 @@ Preliminaries # Import required packages import pandas as pd import datetime imp
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/basics/how_to_use_default_dicts/</guid>
-      <description> Preliminaries import collections Create A DefaultDict Default Dicts work just like regular dictionaries, except a key is called that doesn&amp;rsquo;t have a value, a default value (note: value, not key) is supplied.
-# Create a defaultdict with the default value of 0 (int&amp;#39;s default value is 0) arrests = collections.defaultdict(int)  Add A New Key With A Value # Add an entry of a person with 10 arrests arrests[&amp;#39;Sarah Miller&amp;#39;] = 10# View dictionary arrests defaultdict(int, {&#39;Sarah Miller&#39;: 10})  Add A New Key Without A Value # Add an entry of a person with no value for arrests, # thus the default value is used arrests[&amp;#39;Bill James&amp;#39;] 0  # View dictionary arrests defaultdict(int, {&#39;Bill James&#39;: 0, &#39;Sarah Miller&#39;: 10})  </description>
+      <description>Preliminaries import collections Create A DefaultDict Default Dicts work just like regular dictionaries, except a key is called that doesn&amp;rsquo;t have a value, a default value (note: value, not key) is supplied.
+# Create a defaultdict with the default value of 0 (int&amp;#39;s default value is 0) arrests = collections.defaultdict(int) Add A New Key With A Value # Add an entry of a person with 10 arrests arrests[&amp;#39;Sarah Miller&amp;#39;] = 10 # View dictionary arrests defaultdict(int, {&#39;Sarah Miller&#39;: 10})  Add A New Key Without A Value # Add an entry of a person with no value for arrests, # thus the default value is used arrests[&amp;#39;Bill James&amp;#39;] 0  # View dictionary arrests defaultdict(int, {&#39;Bill James&#39;: 0, &#39;Sarah Miller&#39;: 10})  </description>
+    </item>
+    
+    <item>
+      <title>if and if else</title>
+      <link>https://chrisalbon.com/python/basics/if_and_if_else_statements/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/python/basics/if_and_if_else_statements/</guid>
+      <description>Create a variable with the status of the conflict.  1 if the conflict is active 0 if the conflict is not active unknown if the status of the conflict is unknwon  conflict_active = 1 If the conflict is active print a statement if conflict_active == 1: print(&amp;#39;The conflict is active.&amp;#39;) The conflict is active.  If the conflict is active print a statement, if not, print a different statement if conflict_active == 1: print(&amp;#39;The conflict is active.</description>
     </item>
     
     <item>
@@ -894,7 +914,7 @@ Preliminaries # Import required packages import pandas as pd import datetime imp
       
       <guid>https://chrisalbon.com/python/basics/indexing_and_slicing_numpy_arrays/</guid>
       <description>Slicing Arrays Explanation Of Broadcasting Unlike many other data types, slicing an array into a new variable means that any chances to that new variable are broadcasted to the original variable. Put other way, a slice is a hotlink to the original array variable, not a separate and independent copy of it.
-# Import Modules import numpy as np# Create an array of battle casualties from the first to the last battle battleDeaths = np.</description>
+# Import Modules import numpy as np # Create an array of battle casualties from the first to the last battle battleDeaths = np.</description>
     </item>
     
     <item>
@@ -903,7 +923,7 @@ Preliminaries # Import required packages import pandas as pd import datetime imp
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/basics/numpy_indexing_and_slicing/</guid>
-      <description># Import modules import numpy as np# Create a 2x2 array battle_deaths = [[344, 2345], [253, 4345]] deaths = np.array(battle_deaths) deaths array([[ 344, 2345], [ 253, 4345]])  # Select the top row, second item deaths[0, 1] 2345  # Select the second column deaths[:, 1] array([2345, 4345])  # Select the second row deaths[1, :] array([ 253, 4345])  # Create an array of civilian deaths civilian_deaths = np.array([4352, 233, 3245, 256, 2394]) civilian_deaths array([4352, 233, 3245, 256, 2394])  # Find the index of battles with less than 500 deaths few_civ_deaths = np.</description>
+      <description># Import modules import numpy as np # Create a 2x2 array battle_deaths = [[344, 2345], [253, 4345]] deaths = np.array(battle_deaths) deaths array([[ 344, 2345], [ 253, 4345]])  # Select the top row, second item deaths[0, 1] 2345  # Select the second column deaths[:, 1] array([2345, 4345])  # Select the second row deaths[1, :] array([ 253, 4345])  # Create an array of civilian deaths civilian_deaths = np.</description>
     </item>
     
     <item>
@@ -912,7 +932,7 @@ Preliminaries # Import required packages import pandas as pd import datetime imp
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/basics/iterate_ifelse_over_list/</guid>
-      <description> Create some data word_list = [&amp;#39;Egypt&amp;#39;, &amp;#39;Watching&amp;#39;, &amp;#39;Eleanor&amp;#39;] vowels = [&amp;#39;A&amp;#39;, &amp;#39;E&amp;#39;, &amp;#39;I&amp;#39;, &amp;#39;O&amp;#39;, &amp;#39;U&amp;#39;] Create a for loop # for each item in the word_list, for word in word_list: # if any word starts with e, where e is vowels, if any([word.startswith(e) for e in vowels]): # then print is valid, print(&amp;#39;Is valid&amp;#39;) # if not,  else: # print invalid print(&amp;#39;Invalid&amp;#39;) Is valid Invalid Is valid  </description>
+      <description>Create some data word_list = [&amp;#39;Egypt&amp;#39;, &amp;#39;Watching&amp;#39;, &amp;#39;Eleanor&amp;#39;] vowels = [&amp;#39;A&amp;#39;, &amp;#39;E&amp;#39;, &amp;#39;I&amp;#39;, &amp;#39;O&amp;#39;, &amp;#39;U&amp;#39;] Create a for loop # for each item in the word_list, for word in word_list: # if any word starts with e, where e is vowels, if any([word.startswith(e) for e in vowels]): # then print is valid, print(&amp;#39;Is valid&amp;#39;) # if not,  else: # print invalid print(&amp;#39;Invalid&amp;#39;) Is valid Invalid Is valid  </description>
     </item>
     
     <item>
@@ -921,7 +941,7 @@ Preliminaries # Import required packages import pandas as pd import datetime imp
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/basics/iterate_over_multiple_lists_simultaneously/</guid>
-      <description> Create Two Lists names = [&amp;#39;James&amp;#39;, &amp;#39;Bob&amp;#39;, &amp;#39;Sarah&amp;#39;, &amp;#39;Marco&amp;#39;, &amp;#39;Nancy&amp;#39;, &amp;#39;Sally&amp;#39;] ages = [42, 13, 14, 25, 63, 23] Iterate Over Both Lists At Once for name, age in zip(names, ages): print(name, age) James 42 Bob 13 Sarah 14 Marco 25 Nancy 63 Sally 23  </description>
+      <description>Create Two Lists names = [&amp;#39;James&amp;#39;, &amp;#39;Bob&amp;#39;, &amp;#39;Sarah&amp;#39;, &amp;#39;Marco&amp;#39;, &amp;#39;Nancy&amp;#39;, &amp;#39;Sally&amp;#39;] ages = [42, 13, 14, 25, 63, 23] Iterate Over Both Lists At Once for name, age in zip(names, ages): print(name, age) James 42 Bob 13 Sarah 14 Marco 25 Nancy 63 Sally 23  </description>
     </item>
     
     <item>
@@ -930,7 +950,7 @@ Preliminaries # Import required packages import pandas as pd import datetime imp
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/basics/iterating_over_dictionary_keys/</guid>
-      <description>Create A Dictionary Officers = {&amp;#39;Michael Mulligan&amp;#39;: &amp;#39;Red Army&amp;#39;, &amp;#39;Steven Johnson&amp;#39;: &amp;#39;Blue Army&amp;#39;, &amp;#39;Jessica Billars&amp;#39;: &amp;#39;Green Army&amp;#39;, &amp;#39;Sodoni Dogla&amp;#39;: &amp;#39;Purple Army&amp;#39;, &amp;#39;Chris Jefferson&amp;#39;: &amp;#39;Orange Army&amp;#39;}Officers {&#39;Chris Jefferson&#39;: &#39;Orange Army&#39;, &#39;Jessica Billars&#39;: &#39;Green Army&#39;, &#39;Michael Mulligan&#39;: &#39;Red Army&#39;, &#39;Sodoni Dogla&#39;: &#39;Purple Army&#39;, &#39;Steven Johnson&#39;: &#39;Blue Army&#39;}  Use Dictionary Comprehension # Display all dictionary entries where the key doesn&amp;#39;t start with &amp;#39;Chris&amp;#39; {keys : Officers[keys] for keys in Officers if not keys.</description>
+      <description>Create A Dictionary Officers = {&amp;#39;Michael Mulligan&amp;#39;: &amp;#39;Red Army&amp;#39;, &amp;#39;Steven Johnson&amp;#39;: &amp;#39;Blue Army&amp;#39;, &amp;#39;Jessica Billars&amp;#39;: &amp;#39;Green Army&amp;#39;, &amp;#39;Sodoni Dogla&amp;#39;: &amp;#39;Purple Army&amp;#39;, &amp;#39;Chris Jefferson&amp;#39;: &amp;#39;Orange Army&amp;#39;} Officers {&#39;Chris Jefferson&#39;: &#39;Orange Army&#39;, &#39;Jessica Billars&#39;: &#39;Green Army&#39;, &#39;Michael Mulligan&#39;: &#39;Red Army&#39;, &#39;Sodoni Dogla&#39;: &#39;Purple Army&#39;, &#39;Steven Johnson&#39;: &#39;Blue Army&#39;}  Use Dictionary Comprehension # Display all dictionary entries where the key doesn&amp;#39;t start with &amp;#39;Chris&amp;#39; {keys : Officers[keys] for keys in Officers if not keys.</description>
     </item>
     
     <item>
@@ -948,7 +968,7 @@ Preliminaries # Import required packages import pandas as pd import datetime imp
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/basics/lambda_functions/</guid>
-      <description> In Python, it is possible to string lambda functions together.
+      <description>In Python, it is possible to string lambda functions together.
 Create a series, called pipeline, that contains three mini functions pipeline = [lambda x: x **2 - 1 + 5, lambda x: x **20 - 2 + 3, lambda x: x **200 - 1 + 4] For each item in pipeline, run the lambda function with x = 3 for f in pipeline: print(f(3)) 13 3486784402 265613988875874769338781322035779626829233452653394495974574961739092490901302182994384699044004  </description>
     </item>
     
@@ -968,7 +988,7 @@ Preliminaries # Import modules import pandas as pd # Set ipython&amp;#39;s max r
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/data_wrangling/load_json_file_into_pandas/</guid>
-      <description> Preliminaries # Load library import pandas as pd Load JSON File # Create URL to JSON file (alternatively this can be a filepath) url = &amp;#39;https://raw.githubusercontent.com/chrisalbon/simulated_datasets/master/data.json&amp;#39; # Load the first sheet of the JSON file into a data frame df = pd.read_json(url, orient=&amp;#39;columns&amp;#39;) # View the first ten rows df.head(10)   .dataframe thead tr:only-child th { text-align: right; } .dataframe thead th { text-align: left; } .dataframe tbody tr th { vertical-align: top; }    category datetime integer     0 0 2015-01-01 00:00:00 5   1 0 2015-01-01 00:00:01 5   10 0 2015-01-01 00:00:10 5   11 0 2015-01-01 00:00:11 5   12 0 2015-01-01 00:00:12 8   13 0 2015-01-01 00:00:13 9   14 0 2015-01-01 00:00:14 8   15 0 2015-01-01 00:00:15 8   16 0 2015-01-01 00:00:16 2   17 0 2015-01-01 00:00:17 1     </description>
+      <description>Preliminaries # Load library import pandas as pd Load JSON File # Create URL to JSON file (alternatively this can be a filepath) url = &amp;#39;https://raw.githubusercontent.com/chrisalbon/simulated_datasets/master/data.json&amp;#39; # Load the first sheet of the JSON file into a data frame df = pd.read_json(url, orient=&amp;#39;columns&amp;#39;) # View the first ten rows df.head(10)   .dataframe thead tr:only-child th { text-align: right; } .dataframe thead th { text-align: left; } .dataframe tbody tr th { vertical-align: top; }</description>
     </item>
     
     <item>
@@ -977,7 +997,7 @@ Preliminaries # Import modules import pandas as pd # Set ipython&amp;#39;s max r
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/data_wrangling/load_excel_file_into_pandas/</guid>
-      <description> Preliminaries # Load library import pandas as pd Load Excel File # Create URL to Excel file (alternatively this can be a filepath) url = &amp;#39;https://raw.githubusercontent.com/chrisalbon/simulated_datasets/master/data.xlsx&amp;#39; # Load the first sheet of the Excel file into a data frame df = pd.read_excel(url, sheetname=0, header=1) # View the first ten rows df.head(10)   .dataframe thead tr:only-child th { text-align: right; } .dataframe thead th { text-align: left; } .dataframe tbody tr th { vertical-align: top; }    5 2015-01-01 00:00:00 0     0 5 2015-01-01 00:00:01 0   1 9 2015-01-01 00:00:02 0   2 6 2015-01-01 00:00:03 0   3 6 2015-01-01 00:00:04 0   4 9 2015-01-01 00:00:05 0   5 7 2015-01-01 00:00:06 0   6 1 2015-01-01 00:00:07 0   7 6 2015-01-01 00:00:08 0   8 9 2015-01-01 00:00:09 0   9 5 2015-01-01 00:00:10 0     </description>
+      <description>Preliminaries # Load library import pandas as pd Load Excel File # Create URL to Excel file (alternatively this can be a filepath) url = &amp;#39;https://raw.githubusercontent.com/chrisalbon/simulated_datasets/master/data.xlsx&amp;#39; # Load the first sheet of the Excel file into a data frame df = pd.read_excel(url, sheetname=0, header=1) # View the first ten rows df.head(10)   .dataframe thead tr:only-child th { text-align: right; } .dataframe thead th { text-align: left; } .dataframe tbody tr th { vertical-align: top; }</description>
     </item>
     
     <item>
@@ -986,7 +1006,7 @@ Preliminaries # Import modules import pandas as pd # Set ipython&amp;#39;s max r
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/data_wrangling/pandas_dataframe_load_xls/</guid>
-      <description># import modules import pandas as pd# Import the excel file and call it xls_file xls_file = pd.ExcelFile(&amp;#39;../data/example.xls&amp;#39;) xls_file &amp;lt;pandas.io.excel.ExcelFile at 0x111912be0&amp;gt;  # View the excel file&amp;#39;s sheet names xls_file.sheet_names [&#39;Sheet1&#39;]  # Load the xls file&amp;#39;s Sheet1 as a dataframe df = xls_file.parse(&amp;#39;Sheet1&amp;#39;) df    year deaths_attacker deaths_defender soldiers_attacker soldiers_defender wounded_attacker wounded_defender     0 1945 425 423 2532 37235 41 14   1 1956 242 264 6346 2523 214 1424   2 1964 323 1231 3341 2133 131 131   3 1969 223 23 6732 1245 12 12   4 1971 783 23 12563 2671 123 34   5 1981 436 42 2356 7832 124 124   6 1982 324 124 253 2622 264 1124   7 1992 3321 631 5277 3331 311 1431   8 1999 262 232 2732 2522 132 122   9 2004 843 213 6278 26773 623 2563     </description>
+      <description># import modules import pandas as pd # Import the excel file and call it xls_file xls_file = pd.ExcelFile(&amp;#39;../data/example.xls&amp;#39;) xls_file &amp;lt;pandas.io.excel.ExcelFile at 0x111912be0&amp;gt;  # View the excel file&amp;#39;s sheet names xls_file.sheet_names [&#39;Sheet1&#39;]  # Load the xls file&amp;#39;s Sheet1 as a dataframe df = xls_file.parse(&amp;#39;Sheet1&amp;#39;) df    year deaths_attacker deaths_defender soldiers_attacker soldiers_defender wounded_attacker wounded_defender     0 1945 425 423 2532 37235 41 14   1 1956 242 264 6346 2523 214 1424   2 1964 323 1231 3341 2133 131 131   3 1969 223 23 6732 1245 12 12   4 1971 783 23 12563 2671 123 34   5 1981 436 42 2356 7832 124 124   6 1982 324 124 253 2622 264 1124   7 1992 3321 631 5277 3331 311 1431   8 1999 262 232 2732 2522 132 122   9 2004 843 213 6278 26773 623 2563     </description>
     </item>
     
     <item>
@@ -1004,7 +1024,7 @@ Preliminaries # Import modules import pandas as pd # Set ipython&amp;#39;s max r
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/basics/logical_operations/</guid>
-      <description>Create some simulated variables x = 6y = 9z = 12 x or y x or y 6  x and y x and y 9  not x not x False  x is equal to y x == y False  x is not equal to y x != y True  One is less than two 1 &amp;lt; 2 True  Two is less than or equal to four 2 &amp;lt;= 4 True  Three is equal to five 3 == 5 False  Three is not equal to four 3 !</description>
+      <description>Create some simulated variables x = 6 y = 9 z = 12 x or y x or y 6  x and y x and y 9  not x not x False  x is equal to y x == y False  x is not equal to y x != y True  One is less than two 1 &amp;lt; 2 True  Two is less than or equal to four 2 &amp;lt;= 4 True  Three is equal to five 3 == 5 False  Three is not equal to four 3 !</description>
     </item>
     
     <item>
@@ -1022,7 +1042,7 @@ Preliminaries # Import modules import pandas as pd # Set ipython&amp;#39;s max r
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/basics/looping_over_two_lists/</guid>
-      <description># Create a list of length 3: armies = [&amp;#39;Red Army&amp;#39;, &amp;#39;Blue Army&amp;#39;, &amp;#39;Green Army&amp;#39;] # Create a list of length 4: units = [&amp;#39;Red Infantry&amp;#39;, &amp;#39;Blue Armor&amp;#39;,&amp;#39;Green Artillery&amp;#39;,&amp;#39;Orange Aircraft&amp;#39;]# For each element in the first list, for army, unit in zip(armies, units): # Display the corresponding index element of the second list: print(army, &amp;#39;has the following options:&amp;#39;, unit) Red Army has the following options: Red Infantry Blue Army has the following options: Blue Armor Green Army has the following options: Green Artillery  Notice that the fourth item of the second list, orange aircraft, did not display.</description>
+      <description># Create a list of length 3: armies = [&amp;#39;Red Army&amp;#39;, &amp;#39;Blue Army&amp;#39;, &amp;#39;Green Army&amp;#39;] # Create a list of length 4: units = [&amp;#39;Red Infantry&amp;#39;, &amp;#39;Blue Armor&amp;#39;,&amp;#39;Green Artillery&amp;#39;,&amp;#39;Orange Aircraft&amp;#39;] # For each element in the first list, for army, unit in zip(armies, units): # Display the corresponding index element of the second list: print(army, &amp;#39;has the following options:&amp;#39;, unit) Red Army has the following options: Red Infantry Blue Army has the following options: Blue Armor Green Army has the following options: Green Artillery  Notice that the fourth item of the second list, orange aircraft, did not display.</description>
     </item>
     
     <item>
@@ -1040,7 +1060,7 @@ Preliminaries # Import modules import pandas as pd # Set ipython&amp;#39;s max r
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/data_wrangling/pandas_make_new_columns_using_functions/</guid>
-      <description># Import modules import pandas as pd# Example dataframe raw_data = {&amp;#39;regiment&amp;#39;: [&amp;#39;Nighthawks&amp;#39;, &amp;#39;Nighthawks&amp;#39;, &amp;#39;Nighthawks&amp;#39;, &amp;#39;Nighthawks&amp;#39;, &amp;#39;Dragoons&amp;#39;, &amp;#39;Dragoons&amp;#39;, &amp;#39;Dragoons&amp;#39;, &amp;#39;Dragoons&amp;#39;, &amp;#39;Scouts&amp;#39;, &amp;#39;Scouts&amp;#39;, &amp;#39;Scouts&amp;#39;, &amp;#39;Scouts&amp;#39;], &amp;#39;company&amp;#39;: [&amp;#39;1st&amp;#39;, &amp;#39;1st&amp;#39;, &amp;#39;2nd&amp;#39;, &amp;#39;2nd&amp;#39;, &amp;#39;1st&amp;#39;, &amp;#39;1st&amp;#39;, &amp;#39;2nd&amp;#39;, &amp;#39;2nd&amp;#39;,&amp;#39;1st&amp;#39;, &amp;#39;1st&amp;#39;, &amp;#39;2nd&amp;#39;, &amp;#39;2nd&amp;#39;], &amp;#39;name&amp;#39;: [&amp;#39;Miller&amp;#39;, &amp;#39;Jacobson&amp;#39;, &amp;#39;Ali&amp;#39;, &amp;#39;Milner&amp;#39;, &amp;#39;Cooze&amp;#39;, &amp;#39;Jacon&amp;#39;, &amp;#39;Ryaner&amp;#39;, &amp;#39;Sone&amp;#39;, &amp;#39;Sloan&amp;#39;, &amp;#39;Piger&amp;#39;, &amp;#39;Riani&amp;#39;, &amp;#39;Ali&amp;#39;], &amp;#39;preTestScore&amp;#39;: [4, 24, 31, 2, 3, 4, 24, 31, 2, 3, 2, 3], &amp;#39;postTestScore&amp;#39;: [25, 94, 57, 62, 70, 25, 94, 57, 62, 70, 62, 70]} df = pd.</description>
+      <description># Import modules import pandas as pd # Example dataframe raw_data = {&amp;#39;regiment&amp;#39;: [&amp;#39;Nighthawks&amp;#39;, &amp;#39;Nighthawks&amp;#39;, &amp;#39;Nighthawks&amp;#39;, &amp;#39;Nighthawks&amp;#39;, &amp;#39;Dragoons&amp;#39;, &amp;#39;Dragoons&amp;#39;, &amp;#39;Dragoons&amp;#39;, &amp;#39;Dragoons&amp;#39;, &amp;#39;Scouts&amp;#39;, &amp;#39;Scouts&amp;#39;, &amp;#39;Scouts&amp;#39;, &amp;#39;Scouts&amp;#39;], &amp;#39;company&amp;#39;: [&amp;#39;1st&amp;#39;, &amp;#39;1st&amp;#39;, &amp;#39;2nd&amp;#39;, &amp;#39;2nd&amp;#39;, &amp;#39;1st&amp;#39;, &amp;#39;1st&amp;#39;, &amp;#39;2nd&amp;#39;, &amp;#39;2nd&amp;#39;,&amp;#39;1st&amp;#39;, &amp;#39;1st&amp;#39;, &amp;#39;2nd&amp;#39;, &amp;#39;2nd&amp;#39;], &amp;#39;name&amp;#39;: [&amp;#39;Miller&amp;#39;, &amp;#39;Jacobson&amp;#39;, &amp;#39;Ali&amp;#39;, &amp;#39;Milner&amp;#39;, &amp;#39;Cooze&amp;#39;, &amp;#39;Jacon&amp;#39;, &amp;#39;Ryaner&amp;#39;, &amp;#39;Sone&amp;#39;, &amp;#39;Sloan&amp;#39;, &amp;#39;Piger&amp;#39;, &amp;#39;Riani&amp;#39;, &amp;#39;Ali&amp;#39;], &amp;#39;preTestScore&amp;#39;: [4, 24, 31, 2, 3, 4, 24, 31, 2, 3, 2, 3], &amp;#39;postTestScore&amp;#39;: [25, 94, 57, 62, 70, 25, 94, 57, 62, 70, 62, 70]} df = pd.</description>
     </item>
     
     <item>
@@ -1067,7 +1087,7 @@ Preliminaries # Import modules import pandas as pd # Set ipython&amp;#39;s max r
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/basics/math_operations/</guid>
-      <description>Import the math module import math Display the value of pi. math.pi 3.141592653589793  Display the value of e. math.e 2.718281828459045  Sine, cosine, and tangent math.sin(2 * math.pi / 180) 0.03489949670250097  Exponent 2 ** 4, pow(2, 4) (16, 16)  Absolute value abs(-20) 20  Summation sum((1, 2, 3, 4)) 10  Minimum min(3, 9, 10, 12) 3  Maximum max(3, 5, 10, 15) 15  Floor math.</description>
+      <description>Import the math module import math Display the value of pi. math.pi 3.141592653589793  Display the value of e. math.e 2.718281828459045  Sine, cosine, and tangent math.sin(2 * math.pi / 180) 0.03489949670250097  Exponent 2 ** 4, pow(2, 4) (16, 16)  Absolute value abs(-20) 20  Summation sum((1, 2, 3, 4)) 10  Minimum min(3, 9, 10, 12) 3  Maximum max(3, 5, 10, 15) 15  Floor math.floor(2.949) 2  Truncate (drop decimal digits) math.</description>
     </item>
     
     <item>
@@ -1076,7 +1096,7 @@ Preliminaries # Import modules import pandas as pd # Set ipython&amp;#39;s max r
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/data_visualization/matplotlib_simple_example/</guid>
-      <description> Tell Jupyter to load matplotlib and display all visuals created inline (that is, on this page) %matplotlib inline Import matplotlib&amp;rsquo;s pyplot module import matplotlib.pyplot as pyplot Create a simple plot pyplot.plot([1.6, 2.7]) [&amp;lt;matplotlib.lines.Line2D at 0x10c4e7978&amp;gt;]  </description>
+      <description>Tell Jupyter to load matplotlib and display all visuals created inline (that is, on this page) %matplotlib inline Import matplotlib&amp;rsquo;s pyplot module import matplotlib.pyplot as pyplot Create a simple plot pyplot.plot([1.6, 2.7]) [&amp;lt;matplotlib.lines.Line2D at 0x10c4e7978&amp;gt;]  </description>
     </item>
     
     <item>
@@ -1104,7 +1124,7 @@ Preliminaries # Import modules import pandas as pd # Set ipython&amp;#39;s max r
       
       <guid>https://chrisalbon.com/python/basics/mocking_functions/</guid>
       <description>Preliminaries import unittest import mock from math import exp The Scenario Imagine we have a function that takes in some external API or database and we want to test that function, but with fake (or mocked) inputs. The Python mock library lets us do that.
-For this tutorial pretend that math.exp is some expensive operation (e.g. database query, API call, etc) that costs \$10,000 every time we use it. To test it without paying \$10,000, we can create mock_function which imitates the behavior of math.</description>
+For this tutorial pretend that math.exp is some expensive operation (e.g. database query, API call, etc) that costs $10,000 every time we use it. To test it without paying $10,000, we can create mock_function which imitates the behavior of math.</description>
     </item>
     
     <item>
@@ -1123,7 +1143,8 @@ It should be noted that there are more efficient ways of setting scripts to run 
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/data_wrangling/pandas_moving_average/</guid>
-      <description>Import Modules # Import pandas import pandas as pd Create Dataframe # Create data data = {&amp;#39;score&amp;#39;: [1,1,1,2,2,2,3,3,3]} # Create dataframe df = pd.DataFrame(data) # View dataframe df   .dataframe thead tr:only-child th { text-align: right; } .dataframe thead th { text-align: left; } .dataframe tbody tr th { vertical-align: top; }    score     0 1   1 1   2 1   3 2   4 2   5 2   6 3   7 3   8 3     Calculate Rolling Mean # Calculate the moving average.</description>
+      <description>Import Modules # Import pandas import pandas as pd Create Dataframe # Create data data = {&amp;#39;score&amp;#39;: [1,1,1,2,2,2,3,3,3]} # Create dataframe df = pd.DataFrame(data) # View dataframe df   .dataframe thead tr:only-child th { text-align: right; } .dataframe thead th { text-align: left; } .dataframe tbody tr th { vertical-align: top; }  
+  score     0 1   1 1   2 1   3 2   4 2   5 2   6 3   7 3   8 3     Calculate Rolling Mean # Calculate the moving average.</description>
     </item>
     
     <item>
@@ -1132,7 +1153,7 @@ It should be noted that there are more efficient ways of setting scripts to run 
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/basics/nested_for_loops_using_list_comprehension/</guid>
-      <description># Create two lists squads = [&amp;#34;1st Squad&amp;#34;, &amp;#39;2nd Squad&amp;#39;, &amp;#39;3rd Squad&amp;#39;] regiments = [&amp;#34;51st Regiment&amp;#34;, &amp;#39;15th Regiment&amp;#39;, &amp;#39;12th Regiment&amp;#39;]# Create a tuple for each regiment in regiments, for each squad in sqauds [(regiment, squad) for regiment in regiments for squad in squads ] [(&#39;51st Regiment&#39;, &#39;1st Squad&#39;), (&#39;51st Regiment&#39;, &#39;2nd Squad&#39;), (&#39;51st Regiment&#39;, &#39;3rd Squad&#39;), (&#39;15th Regiment&#39;, &#39;1st Squad&#39;), (&#39;15th Regiment&#39;, &#39;2nd Squad&#39;), (&#39;15th Regiment&#39;, &#39;3rd Squad&#39;), (&#39;12th Regiment&#39;, &#39;1st Squad&#39;), (&#39;12th Regiment&#39;, &#39;2nd Squad&#39;), (&#39;12th Regiment&#39;, &#39;3rd Squad&#39;)]  </description>
+      <description># Create two lists squads = [&amp;#34;1st Squad&amp;#34;, &amp;#39;2nd Squad&amp;#39;, &amp;#39;3rd Squad&amp;#39;] regiments = [&amp;#34;51st Regiment&amp;#34;, &amp;#39;15th Regiment&amp;#39;, &amp;#39;12th Regiment&amp;#39;] # Create a tuple for each regiment in regiments, for each squad in sqauds [(regiment, squad) for regiment in regiments for squad in squads ] [(&#39;51st Regiment&#39;, &#39;1st Squad&#39;), (&#39;51st Regiment&#39;, &#39;2nd Squad&#39;), (&#39;51st Regiment&#39;, &#39;3rd Squad&#39;), (&#39;15th Regiment&#39;, &#39;1st Squad&#39;), (&#39;15th Regiment&#39;, &#39;2nd Squad&#39;), (&#39;15th Regiment&#39;, &#39;3rd Squad&#39;), (&#39;12th Regiment&#39;, &#39;1st Squad&#39;), (&#39;12th Regiment&#39;, &#39;2nd Squad&#39;), (&#39;12th Regiment&#39;, &#39;3rd Squad&#39;)]  </description>
     </item>
     
     <item>
@@ -1141,7 +1162,7 @@ It should be noted that there are more efficient ways of setting scripts to run 
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/basics/nesting_lists/</guid>
-      <description># Create a list of three nested lists, each with three items state_regions = [[&amp;#39;California&amp;#39;, &amp;#39;Oregon&amp;#39;, &amp;#39;Washington&amp;#39;], [&amp;#39;Texas&amp;#39;,&amp;#39;Georgia&amp;#39;,&amp;#39;Alabama&amp;#39;], [&amp;#39;Maine&amp;#39;,&amp;#39;Vermont&amp;#39;,&amp;#39;New York&amp;#39;]]# View the list state_regions [[&#39;California&#39;, &#39;Oregon&#39;, &#39;Washington&#39;], [&#39;Texas&#39;, &#39;Georgia&#39;, &#39;Alabama&#39;], [&#39;Maine&#39;, &#39;Vermont&#39;, &#39;New York&#39;]]  # Print the second list&amp;#39;s third item state_regions[1][2] &#39;Alabama&#39;  </description>
+      <description># Create a list of three nested lists, each with three items state_regions = [[&amp;#39;California&amp;#39;, &amp;#39;Oregon&amp;#39;, &amp;#39;Washington&amp;#39;], [&amp;#39;Texas&amp;#39;,&amp;#39;Georgia&amp;#39;,&amp;#39;Alabama&amp;#39;], [&amp;#39;Maine&amp;#39;,&amp;#39;Vermont&amp;#39;,&amp;#39;New York&amp;#39;]] # View the list state_regions [[&#39;California&#39;, &#39;Oregon&#39;, &#39;Washington&#39;], [&#39;Texas&#39;, &#39;Georgia&#39;, &#39;Alabama&#39;], [&#39;Maine&#39;, &#39;Vermont&#39;, &#39;New York&#39;]]  # Print the second list&amp;#39;s third item state_regions[1][2] &#39;Alabama&#39;  </description>
     </item>
     
     <item>
@@ -1150,7 +1171,8 @@ It should be noted that there are more efficient ways of setting scripts to run 
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/data_wrangling/pandas_normalize_column/</guid>
-      <description>Preliminaries # Import required modules import pandas as pd from sklearn import preprocessing # Set charts to view inline %matplotlib inline Create Unnormalized Data # Create an example dataframe with a column of unnormalized data data = {&amp;#39;score&amp;#39;: [234,24,14,27,-74,46,73,-18,59,160]} df = pd.DataFrame(data) df  .dataframe tbody tr th:only-of-type { vertical-align: middle; } .dataframe tbody tr th { vertical-align: top; } .dataframe thead th { text-align: right; }    score     0 234   1 24   2 14   3 27   4 -74   5 46   6 73   7 -18   8 59   9 160     # View the unnormalized data df[&amp;#39;score&amp;#39;].</description>
+      <description>Preliminaries # Import required modules import pandas as pd from sklearn import preprocessing # Set charts to view inline %matplotlib inline Create Unnormalized Data # Create an example dataframe with a column of unnormalized data data = {&amp;#39;score&amp;#39;: [234,24,14,27,-74,46,73,-18,59,160]} df = pd.DataFrame(data) df  .dataframe tbody tr th:only-of-type { vertical-align: middle; } .dataframe tbody tr th { vertical-align: top; } .dataframe thead th { text-align: right; }  
+  score     0 234   1 24   2 14   3 27   4 -74   5 46   6 73   7 -18   8 59   9 160     # View the unnormalized data df[&amp;#39;score&amp;#39;].</description>
     </item>
     
     <item>
@@ -1159,7 +1181,27 @@ It should be noted that there are more efficient ways of setting scripts to run 
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/basics/numpy_array_basics/</guid>
-      <description># Import modules import numpy as np# Create a list battle_deaths = [3246, 326, 2754, 2547, 2457, 3456] battle_deaths [3246, 326, 2754, 2547, 2457, 3456]  # Create an array from numpy deaths = np.array(battle_deaths) deaths array([3246, 326, 2754, 2547, 2457, 3456])  # Create an array of zeros defectors = np.zeros(6) defectors array([ 0., 0., 0., 0., 0., 0.])  # Create a range from 0 to 100 zero_to_99 = np.</description>
+      <description># Import modules import numpy as np # Create a list battle_deaths = [3246, 326, 2754, 2547, 2457, 3456] battle_deaths [3246, 326, 2754, 2547, 2457, 3456]  # Create an array from numpy deaths = np.array(battle_deaths) deaths array([3246, 326, 2754, 2547, 2457, 3456])  # Create an array of zeros defectors = np.zeros(6) defectors array([ 0., 0., 0., 0., 0., 0.])  # Create a range from 0 to 100 zero_to_99 = np.</description>
+    </item>
+    
+    <item>
+      <title>pandas Data Structures</title>
+      <link>https://chrisalbon.com/python/data_wrangling/pandas_data_structures/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/python/data_wrangling/pandas_data_structures/</guid>
+      <description>Import modules import pandas as pd Series 101 Series are one-dimensional arrays (like R&amp;rsquo;s vectors)
+Create a series of the number of floodingReports floodingReports = pd.Series([5, 6, 2, 9, 12]) floodingReports 0 5 1 6 2 2 3 9 4 12 dtype: int64  Note that the first column of numbers (0 to 4) are the index.
+Set county names to be the index of the floodingReports series floodingReports = pd.</description>
+    </item>
+    
+    <item>
+      <title>pandas Time Series Basics</title>
+      <link>https://chrisalbon.com/python/data_wrangling/pandas_time_series_basics/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/python/data_wrangling/pandas_time_series_basics/</guid>
+      <description>Import modules from datetime import datetime import pandas as pd %matplotlib inline import matplotlib.pyplot as pyplot Create a dataframe data = {&amp;#39;date&amp;#39;: [&amp;#39;2014-05-01 18:47:05.069722&amp;#39;, &amp;#39;2014-05-01 18:47:05.119994&amp;#39;, &amp;#39;2014-05-02 18:47:05.178768&amp;#39;, &amp;#39;2014-05-02 18:47:05.230071&amp;#39;, &amp;#39;2014-05-02 18:47:05.230071&amp;#39;, &amp;#39;2014-05-02 18:47:05.280592&amp;#39;, &amp;#39;2014-05-03 18:47:05.332662&amp;#39;, &amp;#39;2014-05-03 18:47:05.385109&amp;#39;, &amp;#39;2014-05-04 18:47:05.436523&amp;#39;, &amp;#39;2014-05-04 18:47:05.486877&amp;#39;], &amp;#39;battle_deaths&amp;#39;: [34, 25, 26, 15, 15, 14, 26, 25, 62, 41]} df = pd.DataFrame(data, columns = [&amp;#39;date&amp;#39;, &amp;#39;battle_deaths&amp;#39;]) print(df)  date battle_deaths 0 2014-05-01 18:47:05.069722 34 1 2014-05-01 18:47:05.</description>
     </item>
     
     <item>
@@ -1169,7 +1211,7 @@ It should be noted that there are more efficient ways of setting scripts to run 
       
       <guid>https://chrisalbon.com/python/basics/parallel_processing/</guid>
       <description>This tutorial is inspired by Chris Kiehl&amp;rsquo;s great post on multiprocessing.
-Preliminaries from multiprocessing import Pool from multiprocessing.dummy import Pool as ThreadPool  Create Some Data # Create a list of some data data = range(29999) Create An Operation To Execute On The Data # Create a function that takes a data point def some_function(datum): # and returns the datum raised to the power of itself return datum**datum Traditional Approach %%time # Create an empty for the results results = [] # For each value in the data for datum in data: # Append the output of the function when applied to that datum results.</description>
+Preliminaries from multiprocessing import Pool from multiprocessing.dummy import Pool as ThreadPool Create Some Data # Create a list of some data data = range(29999) Create An Operation To Execute On The Data # Create a function that takes a data point def some_function(datum): # and returns the datum raised to the power of itself return datum**datum Traditional Approach %%time # Create an empty for the results results = [] # For each value in the data for datum in data: # Append the output of the function when applied to that datum results.</description>
     </item>
     
     <item>
@@ -1178,7 +1220,7 @@ Preliminaries from multiprocessing import Pool from multiprocessing.dummy import
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/basics/partial_function_applications/</guid>
-      <description> Partial function application allows us to create &amp;ldquo;functions&amp;rdquo; from other functions with pre-filled arguments. This can be very useful when we want to pipe the output of one function into a function requiring two functions.
+      <description>Partial function application allows us to create &amp;ldquo;functions&amp;rdquo; from other functions with pre-filled arguments. This can be very useful when we want to pipe the output of one function into a function requiring two functions.
 Preliminaries from functools import partial Create A Function def multiply(x, y): return x * y Create A Function With Y Pre-Filled double = partial(multiply, y=2) Run The Partial Function double(3) 6  </description>
     </item>
     
@@ -1225,7 +1267,7 @@ Preliminaries from functools import partial Create A Function def multiply(x, y)
       
       <guid>https://chrisalbon.com/python/data_wrangling/pandas_change_column_of_strings/</guid>
       <description>Often I need or want to change the case of all items in a column of strings (e.g. BRAZIL to Brazil, etc.). There are many ways to accomplish this but I have settled on this one as the easiest and quickest.
-# Import pandas import pandas as pd # Create a list of first names first_names = pd.Series([&amp;#39;Steve Murrey&amp;#39;, &amp;#39;Jane Fonda&amp;#39;, &amp;#39;Sara McGully&amp;#39;, &amp;#39;Mary Jane&amp;#39;])# print the column first_names 0 Steve Murrey 1 Jane Fonda 2 Sara McGully 3 Mary Jane dtype: object  # print the column with lower case first_names.</description>
+# Import pandas import pandas as pd # Create a list of first names first_names = pd.Series([&amp;#39;Steve Murrey&amp;#39;, &amp;#39;Jane Fonda&amp;#39;, &amp;#39;Sara McGully&amp;#39;, &amp;#39;Mary Jane&amp;#39;]) # print the column first_names 0 Steve Murrey 1 Jane Fonda 2 Sara McGully 3 Mary Jane dtype: object  # print the column with lower case first_names.</description>
     </item>
     
     <item>
@@ -1243,7 +1285,7 @@ Preliminaries from functools import partial Create A Function def multiply(x, y)
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/data_wrangling/pandas_dataframe_ranking_rows/</guid>
-      <description># import modules import pandas as pd# Create dataframe data = {&amp;#39;name&amp;#39;: [&amp;#39;Jason&amp;#39;, &amp;#39;Molly&amp;#39;, &amp;#39;Tina&amp;#39;, &amp;#39;Jake&amp;#39;, &amp;#39;Amy&amp;#39;], &amp;#39;year&amp;#39;: [2012, 2012, 2013, 2014, 2014], &amp;#39;reports&amp;#39;: [4, 24, 31, 2, 3], &amp;#39;coverage&amp;#39;: [25, 94, 57, 62, 70]} df = pd.DataFrame(data, index = [&amp;#39;Cochice&amp;#39;, &amp;#39;Pima&amp;#39;, &amp;#39;Santa Cruz&amp;#39;, &amp;#39;Maricopa&amp;#39;, &amp;#39;Yuma&amp;#39;]) df   coverage name reports year     Cochice  25  Jason  4  2012   Pima  94  Molly  24  2012   Santa Cruz  57  Tina  31  2013   Maricopa  62  Jake  2  2014   Yuma  70  Amy  3  2014    5 rows × 4 columns</description>
+      <description># import modules import pandas as pd # Create dataframe data = {&amp;#39;name&amp;#39;: [&amp;#39;Jason&amp;#39;, &amp;#39;Molly&amp;#39;, &amp;#39;Tina&amp;#39;, &amp;#39;Jake&amp;#39;, &amp;#39;Amy&amp;#39;], &amp;#39;year&amp;#39;: [2012, 2012, 2013, 2014, 2014], &amp;#39;reports&amp;#39;: [4, 24, 31, 2, 3], &amp;#39;coverage&amp;#39;: [25, 94, 57, 62, 70]} df = pd.DataFrame(data, index = [&amp;#39;Cochice&amp;#39;, &amp;#39;Pima&amp;#39;, &amp;#39;Santa Cruz&amp;#39;, &amp;#39;Maricopa&amp;#39;, &amp;#39;Yuma&amp;#39;]) df   coverage name reports year     Cochice  25  Jason  4  2012   Pima  94  Molly  24  2012   Santa Cruz  57  Tina  31  2013   Maricopa  62  Jake  2  2014   Yuma  70  Amy  3  2014    5 rows × 4 columns</description>
     </item>
     
     <item>
@@ -1252,7 +1294,7 @@ Preliminaries from functools import partial Create A Function def multiply(x, y)
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/basics/recursive_functions/</guid>
-      <description> Simple factorial print(5*4*3*2*1) 120  Recursive function The tell-tale sign of a recursive function is a function that calls itself
+      <description>Simple factorial print(5*4*3*2*1) 120  Recursive function The tell-tale sign of a recursive function is a function that calls itself
 # Create a function inputing n, that, def factorial(n): # if n is less than or equal to 1, if n &amp;lt;= 1: # return n, return n # if not, return n multiplied by the output # of the factorial function of one less than n return n*factorial(n-1) # run the function factorial(5) 120  </description>
     </item>
     
@@ -1271,7 +1313,7 @@ Preliminaries from functools import partial Create A Function def multiply(x, y)
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/data_wrangling/regex_by_example/</guid>
-      <description># Import regex import re# Create some data text = &amp;#39;A flock of 120 quick brown foxes jumped over 30 lazy brown, bears.&amp;#39; ^ Matches beginning of line. re.findall(&amp;#39;^A&amp;#39;, text) [&#39;A&#39;]  $ Matches end of line. re.findall(&amp;#39;bears.$&amp;#39;, text) [&#39;bears.&#39;]  . Matches any single character except newline. re.findall(&amp;#39;f..es&amp;#39;, text) [&#39;foxes&#39;]  [...] Matches any single character in brackets. # Find all vowels re.findall(&amp;#39;[aeiou]&amp;#39;, text) [&#39;o&#39;, &#39;o&#39;, &#39;u&#39;, &#39;i&#39;, &#39;o&#39;, &#39;o&#39;, &#39;e&#39;, &#39;u&#39;, &#39;e&#39;, &#39;o&#39;, &#39;e&#39;, &#39;a&#39;, &#39;o&#39;, &#39;e&#39;, &#39;a&#39;]  [# ^.</description>
+      <description># Import regex import re # Create some data text = &amp;#39;A flock of 120 quick brown foxes jumped over 30 lazy brown, bears.&amp;#39; ^ Matches beginning of line. re.findall(&amp;#39;^A&amp;#39;, text) [&#39;A&#39;]  $ Matches end of line. re.findall(&amp;#39;bears.$&amp;#39;, text) [&#39;bears.&#39;]  . Matches any single character except newline. re.findall(&amp;#39;f..es&amp;#39;, text) [&#39;foxes&#39;]  [...] Matches any single character in brackets. # Find all vowels re.findall(&amp;#39;[aeiou]&amp;#39;, text) [&#39;o&#39;, &#39;o&#39;, &#39;u&#39;, &#39;i&#39;, &#39;o&#39;, &#39;o&#39;, &#39;e&#39;, &#39;u&#39;, &#39;e&#39;, &#39;o&#39;, &#39;e&#39;, &#39;a&#39;, &#39;o&#39;, &#39;e&#39;, &#39;a&#39;]  [# ^.</description>
     </item>
     
     <item>
@@ -1280,7 +1322,7 @@ Preliminaries from functools import partial Create A Function def multiply(x, y)
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/data_wrangling/pandas_dataframe_reindexing/</guid>
-      <description>Series # Import Modules import pandas as pd import numpy as np# Create a pandas series of the risk of fire in Southern Arizona brushFireRisk = pd.Series([34, 23, 12, 23], index = [&amp;#39;Bisbee&amp;#39;, &amp;#39;Douglas&amp;#39;, &amp;#39;Sierra Vista&amp;#39;, &amp;#39;Tombstone&amp;#39;]) brushFireRisk Bisbee 34 Douglas 23 Sierra Vista 12 Tombstone 23 dtype: int64  # Reindex the series and create a new series variable brushFireRiskReindexed = brushFireRisk.reindex([&amp;#39;Tombstone&amp;#39;, &amp;#39;Douglas&amp;#39;, &amp;#39;Bisbee&amp;#39;, &amp;#39;Sierra Vista&amp;#39;, &amp;#39;Barley&amp;#39;, &amp;#39;Tucson&amp;#39;]) brushFireRiskReindexed Tombstone 23.</description>
+      <description>Series # Import Modules import pandas as pd import numpy as np # Create a pandas series of the risk of fire in Southern Arizona brushFireRisk = pd.Series([34, 23, 12, 23], index = [&amp;#39;Bisbee&amp;#39;, &amp;#39;Douglas&amp;#39;, &amp;#39;Sierra Vista&amp;#39;, &amp;#39;Tombstone&amp;#39;]) brushFireRisk Bisbee 34 Douglas 23 Sierra Vista 12 Tombstone 23 dtype: int64  # Reindex the series and create a new series variable brushFireRiskReindexed = brushFireRisk.reindex([&amp;#39;Tombstone&amp;#39;, &amp;#39;Douglas&amp;#39;, &amp;#39;Bisbee&amp;#39;, &amp;#39;Sierra Vista&amp;#39;, &amp;#39;Barley&amp;#39;, &amp;#39;Tucson&amp;#39;]) brushFireRiskReindexed Tombstone 23.</description>
     </item>
     
     <item>
@@ -1312,6 +1354,16 @@ Preliminaries # Import required modules import pandas as pd Create example data 
     </item>
     
     <item>
+      <title>repr vs. str</title>
+      <link>https://chrisalbon.com/python/basics/repr_vs_str/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/python/basics/repr_vs_str/</guid>
+      <description>Preliminaries import datetime Create A Simple Object class Regiment(object): def __init__(self, date=datetime.datetime.now()): self.date = date def __repr__(self): return date def __str__(self): return str(date) __repr__ is for the developer. It is string representation of the object and the code needed to reproduce the object.
+__str__ is the output for the end user. It prints what the user wants to see.</description>
+    </item>
+    
+    <item>
       <title>Saving A pandas Dataframe As A CSV</title>
       <link>https://chrisalbon.com/python/data_wrangling/pandas_saving_dataframe_as_csv/</link>
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
@@ -1335,7 +1387,7 @@ Preliminaries # Import required modules import pandas as pd Create example data 
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/basics/schedule_run_in_the_future/</guid>
-      <description># Import required modules import sched import time # setup the scheduler with our time settings s = sched.scheduler(time.time, time.sleep)# Create a function we want to run in the future. def print_time(): print(&amp;#34;Executive Order 66&amp;#34;)# Create a function for the delay def print_some_times(): # Create a scheduled job that will run # the function called &amp;#39;print_time&amp;#39; # after 10 seconds, and with priority 1. s.enter(10, 1, print_time) # Run the scheduler s.</description>
+      <description># Import required modules import sched import time # setup the scheduler with our time settings s = sched.scheduler(time.time, time.sleep) # Create a function we want to run in the future. def print_time(): print(&amp;#34;Executive Order 66&amp;#34;) # Create a function for the delay def print_some_times(): # Create a scheduled job that will run # the function called &amp;#39;print_time&amp;#39; # after 10 seconds, and with priority 1. s.enter(10, 1, print_time) # Run the scheduler s.</description>
     </item>
     
     <item>
@@ -1344,7 +1396,7 @@ Preliminaries # Import required modules import pandas as pd Create example data 
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/data_wrangling/pandas_search_column_for_value/</guid>
-      <description># Import modules import pandas as pdraw_data = {&amp;#39;first_name&amp;#39;: [&amp;#39;Jason&amp;#39;, &amp;#39;Jason&amp;#39;, &amp;#39;Tina&amp;#39;, &amp;#39;Jake&amp;#39;, &amp;#39;Amy&amp;#39;], &amp;#39;last_name&amp;#39;: [&amp;#39;Miller&amp;#39;, &amp;#39;Miller&amp;#39;, &amp;#39;Ali&amp;#39;, &amp;#39;Milner&amp;#39;, &amp;#39;Cooze&amp;#39;], &amp;#39;age&amp;#39;: [42, 42, 36, 24, 73], &amp;#39;preTestScore&amp;#39;: [4, 4, 31, 2, 3], &amp;#39;postTestScore&amp;#39;: [25, 25, 57, 62, 70]} df = pd.DataFrame(raw_data, columns = [&amp;#39;first_name&amp;#39;, &amp;#39;last_name&amp;#39;, &amp;#39;age&amp;#39;, &amp;#39;preTestScore&amp;#39;, &amp;#39;postTestScore&amp;#39;]) df    first_name last_name age preTestScore postTestScore     0 Jason Miller 42 4 25   1 Jason Miller 42 4 25   2 Tina Ali 36 31 57   3 Jake Milner 24 2 62   4 Amy Cooze 73 3 70     Find where a value exists in a column # View preTestscore where postTestscore is greater than 50 df[&amp;#39;preTestScore&amp;#39;].</description>
+      <description># Import modules import pandas as pd raw_data = {&amp;#39;first_name&amp;#39;: [&amp;#39;Jason&amp;#39;, &amp;#39;Jason&amp;#39;, &amp;#39;Tina&amp;#39;, &amp;#39;Jake&amp;#39;, &amp;#39;Amy&amp;#39;], &amp;#39;last_name&amp;#39;: [&amp;#39;Miller&amp;#39;, &amp;#39;Miller&amp;#39;, &amp;#39;Ali&amp;#39;, &amp;#39;Milner&amp;#39;, &amp;#39;Cooze&amp;#39;], &amp;#39;age&amp;#39;: [42, 42, 36, 24, 73], &amp;#39;preTestScore&amp;#39;: [4, 4, 31, 2, 3], &amp;#39;postTestScore&amp;#39;: [25, 25, 57, 62, 70]} df = pd.DataFrame(raw_data, columns = [&amp;#39;first_name&amp;#39;, &amp;#39;last_name&amp;#39;, &amp;#39;age&amp;#39;, &amp;#39;preTestScore&amp;#39;, &amp;#39;postTestScore&amp;#39;]) df    first_name last_name age preTestScore postTestScore     0 Jason Miller 42 4 25   1 Jason Miller 42 4 25   2 Tina Ali 36 31 57   3 Jake Milner 24 2 62   4 Amy Cooze 73 3 70     Find where a value exists in a column # View preTestscore where postTestscore is greater than 50 df[&amp;#39;preTestScore&amp;#39;].</description>
     </item>
     
     <item>
@@ -1353,7 +1405,7 @@ Preliminaries # Import required modules import pandas as pd Create example data 
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/basics/select_random_element_from_list/</guid>
-      <description> Preliminaries from random import choice Create List # Make a list of crew members crew_members = [&amp;#39;Steve&amp;#39;, &amp;#39;Stacy&amp;#39;, &amp;#39;Miller&amp;#39;, &amp;#39;Chris&amp;#39;, &amp;#39;Bill&amp;#39;, &amp;#39;Jack&amp;#39;] Select Random Item From List # Choose a random crew member choice(crew_members) &#39;Stacy&#39;  </description>
+      <description>Preliminaries from random import choice Create List # Make a list of crew members crew_members = [&amp;#39;Steve&amp;#39;, &amp;#39;Stacy&amp;#39;, &amp;#39;Miller&amp;#39;, &amp;#39;Chris&amp;#39;, &amp;#39;Bill&amp;#39;, &amp;#39;Jack&amp;#39;] Select Random Item From List # Choose a random crew member choice(crew_members) &#39;Stacy&#39;  </description>
     </item>
     
     <item>
@@ -1362,7 +1414,7 @@ Preliminaries # Import required modules import pandas as pd Create example data 
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/data_wrangling/pandas_select_rows_when_column_has_certain_values/</guid>
-      <description>Preliminaries # Import modules import pandas as pd # Set ipython&amp;#39;s max row display pd.set_option(&amp;#39;display.max_row&amp;#39;, 1000) # Set iPython&amp;#39;s max column width to 50 pd.set_option(&amp;#39;display.max_columns&amp;#39;, 50) Create an example dataframe # Create an example dataframe data = {&amp;#39;name&amp;#39;: [&amp;#39;Jason&amp;#39;, &amp;#39;Molly&amp;#39;, &amp;#39;Tina&amp;#39;, &amp;#39;Jake&amp;#39;, &amp;#39;Amy&amp;#39;], &amp;#39;year&amp;#39;: [2012, 2012, 2013, 2014, 2014], &amp;#39;reports&amp;#39;: [4, 24, 31, 2, 3]} df = pd.DataFrame(data, index = [&amp;#39;Cochice&amp;#39;, &amp;#39;Pima&amp;#39;, &amp;#39;Santa Cruz&amp;#39;, &amp;#39;Maricopa&amp;#39;, &amp;#39;Yuma&amp;#39;]) df    name reports year     Cochice Jason 4 2012   Pima Molly 24 2012   Santa Cruz Tina 31 2013   Maricopa Jake 2 2014   Yuma Amy 3 2014     Grab rows based on column values value_list = [&amp;#39;Tina&amp;#39;, &amp;#39;Molly&amp;#39;, &amp;#39;Jason&amp;#39;]#Grab DataFrame rows where column has certain values df[df.</description>
+      <description>Preliminaries # Import modules import pandas as pd # Set ipython&amp;#39;s max row display pd.set_option(&amp;#39;display.max_row&amp;#39;, 1000) # Set iPython&amp;#39;s max column width to 50 pd.set_option(&amp;#39;display.max_columns&amp;#39;, 50) Create an example dataframe # Create an example dataframe data = {&amp;#39;name&amp;#39;: [&amp;#39;Jason&amp;#39;, &amp;#39;Molly&amp;#39;, &amp;#39;Tina&amp;#39;, &amp;#39;Jake&amp;#39;, &amp;#39;Amy&amp;#39;], &amp;#39;year&amp;#39;: [2012, 2012, 2013, 2014, 2014], &amp;#39;reports&amp;#39;: [4, 24, 31, 2, 3]} df = pd.DataFrame(data, index = [&amp;#39;Cochice&amp;#39;, &amp;#39;Pima&amp;#39;, &amp;#39;Santa Cruz&amp;#39;, &amp;#39;Maricopa&amp;#39;, &amp;#39;Yuma&amp;#39;]) df    name reports year     Cochice Jason 4 2012   Pima Molly 24 2012   Santa Cruz Tina 31 2013   Maricopa Jake 2 2014   Yuma Amy 3 2014     Grab rows based on column values value_list = [&amp;#39;Tina&amp;#39;, &amp;#39;Molly&amp;#39;, &amp;#39;Jason&amp;#39;] #Grab DataFrame rows where column has certain values df[df.</description>
     </item>
     
     <item>
@@ -1371,7 +1423,7 @@ Preliminaries # Import required modules import pandas as pd Create example data 
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/data_wrangling/pandas_select_rows_containing_values/</guid>
-      <description>import pandas as pd# Create an example dataframe data = {&amp;#39;name&amp;#39;: [&amp;#39;Jason&amp;#39;, &amp;#39;Molly&amp;#39;], &amp;#39;country&amp;#39;: [[&amp;#39;Syria&amp;#39;, &amp;#39;Lebanon&amp;#39;],[&amp;#39;Spain&amp;#39;, &amp;#39;Morocco&amp;#39;]]} df = pd.DataFrame(data) df    country name     0 [Syria, Lebanon] Jason   1 [Spain, Morocco] Molly     df[df[&amp;#39;country&amp;#39;].map(lambda country: &amp;#39;Syria&amp;#39; in country)]    country name     0 [Syria, Lebanon] Jason     </description>
+      <description>import pandas as pd # Create an example dataframe data = {&amp;#39;name&amp;#39;: [&amp;#39;Jason&amp;#39;, &amp;#39;Molly&amp;#39;], &amp;#39;country&amp;#39;: [[&amp;#39;Syria&amp;#39;, &amp;#39;Lebanon&amp;#39;],[&amp;#39;Spain&amp;#39;, &amp;#39;Morocco&amp;#39;]]} df = pd.DataFrame(data) df    country name     0 [Syria, Lebanon] Jason   1 [Spain, Morocco] Molly     df[df[&amp;#39;country&amp;#39;].map(lambda country: &amp;#39;Syria&amp;#39; in country)]    country name     0 [Syria, Lebanon] Jason     </description>
     </item>
     
     <item>
@@ -1380,7 +1432,7 @@ Preliminaries # Import required modules import pandas as pd Create example data 
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/data_wrangling/pandas_select_rows_multiple_filters/</guid>
-      <description># import pandas as pd import pandas as pd# Create an example dataframe data = {&amp;#39;name&amp;#39;: [&amp;#39;A&amp;#39;, &amp;#39;B&amp;#39;, &amp;#39;C&amp;#39;, &amp;#39;D&amp;#39;, &amp;#39;E&amp;#39;], &amp;#39;score&amp;#39;: [1,2,3,4,5]} df = pd.DataFrame(data) df    name score     0 A 1   1 B 2   2 C 3   3 D 4   4 E 5     # Select rows of the dataframe where df.</description>
+      <description># import pandas as pd import pandas as pd # Create an example dataframe data = {&amp;#39;name&amp;#39;: [&amp;#39;A&amp;#39;, &amp;#39;B&amp;#39;, &amp;#39;C&amp;#39;, &amp;#39;D&amp;#39;, &amp;#39;E&amp;#39;], &amp;#39;score&amp;#39;: [1,2,3,4,5]} df = pd.DataFrame(data) df    name score     0 A 1   1 B 2   2 C 3   3 D 4   4 E 5     # Select rows of the dataframe where df.</description>
     </item>
     
     <item>
@@ -1389,7 +1441,8 @@ Preliminaries # Import required modules import pandas as pd Create example data 
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/basics/filter_items_in_list_with_filter/</guid>
-      <description># Create an list of items denoting the number of soldiers in each regiment, view the list regimentSize = (5345, 6436, 3453, 2352, 5212, 6232, 2124, 3425, 1200, 1000, 1211); regimentSize (5345, 6436, 3453, 2352, 5212, 6232, 2124, 3425, 1200, 1000, 1211)  One-line Method This line of code does the same thing as the multiline method below, it is just more compact (but also more complicated to understand.</description>
+      <description># Create an list of items denoting the number of soldiers in each regiment, view the list regimentSize = (5345, 6436, 3453, 2352, 5212, 6232, 2124, 3425, 1200, 1000, 1211); regimentSize (5345, 6436, 3453, 2352, 5212, 6232, 2124, 3425, 1200, 1000, 1211)  One-line Method This line of code does the same thing as the multiline method below, it is just more compact (but also more complicated to understand.
+# Create a list called smallRegiments that filters regimentSize to  # find all items that fulfill the lambda function (which looks for all items under 2500).</description>
     </item>
     
     <item>
@@ -1398,7 +1451,7 @@ Preliminaries # Import required modules import pandas as pd Create example data 
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/data_wrangling/pandas_selecting_rows_on_conditions/</guid>
-      <description>Preliminaries # Import modules import pandas as pd import numpy as np# Create a dataframe raw_data = {&amp;#39;first_name&amp;#39;: [&amp;#39;Jason&amp;#39;, &amp;#39;Molly&amp;#39;, np.nan, np.nan, np.nan], &amp;#39;nationality&amp;#39;: [&amp;#39;USA&amp;#39;, &amp;#39;USA&amp;#39;, &amp;#39;France&amp;#39;, &amp;#39;UK&amp;#39;, &amp;#39;UK&amp;#39;], &amp;#39;age&amp;#39;: [42, 52, 36, 24, 70]} df = pd.DataFrame(raw_data, columns = [&amp;#39;first_name&amp;#39;, &amp;#39;nationality&amp;#39;, &amp;#39;age&amp;#39;]) df    first_name nationality age     0 Jason USA 42   1 Molly USA 52   2 NaN France 36   3 NaN UK 24   4 NaN UK 70     Method 1: Using Boolean Variables # Create variable with TRUE if nationality is USA american = df[&amp;#39;nationality&amp;#39;] == &amp;#34;USA&amp;#34; # Create variable with TRUE if age is greater than 50 elderly = df[&amp;#39;age&amp;#39;] &amp;gt; 50 # Select all cases where nationality is USA and age is greater than 50 df[american &amp;amp; elderly]    first_name nationality age     1 Molly USA 52     Method 2: Using variable attributes # Select all cases where the first name is not missing and nationality is USA  df[df[&amp;#39;first_name&amp;#39;].</description>
+      <description>Preliminaries # Import modules import pandas as pd import numpy as np # Create a dataframe raw_data = {&amp;#39;first_name&amp;#39;: [&amp;#39;Jason&amp;#39;, &amp;#39;Molly&amp;#39;, np.nan, np.nan, np.nan], &amp;#39;nationality&amp;#39;: [&amp;#39;USA&amp;#39;, &amp;#39;USA&amp;#39;, &amp;#39;France&amp;#39;, &amp;#39;UK&amp;#39;, &amp;#39;UK&amp;#39;], &amp;#39;age&amp;#39;: [42, 52, 36, 24, 70]} df = pd.DataFrame(raw_data, columns = [&amp;#39;first_name&amp;#39;, &amp;#39;nationality&amp;#39;, &amp;#39;age&amp;#39;]) df    first_name nationality age     0 Jason USA 42   1 Molly USA 52   2 NaN France 36   3 NaN UK 24   4 NaN UK 70     Method 1: Using Boolean Variables # Create variable with TRUE if nationality is USA american = df[&amp;#39;nationality&amp;#39;] == &amp;#34;USA&amp;#34; # Create variable with TRUE if age is greater than 50 elderly = df[&amp;#39;age&amp;#39;] &amp;gt; 50 # Select all cases where nationality is USA and age is greater than 50 df[american &amp;amp; elderly]    first_name nationality age     1 Molly USA 52     Method 2: Using variable attributes # Select all cases where the first name is not missing and nationality is USA  df[df[&amp;#39;first_name&amp;#39;].</description>
     </item>
     
     <item>
@@ -1445,7 +1498,7 @@ c = plt.scatter(theta, r, c=colors, s=area, cmap=plt.cm.RdYlGn) c1 = plt.scatter
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/basics/sort_a_list_by_last_name/</guid>
-      <description>Create a list of names commander_names = [&amp;#34;Alan Brooke&amp;#34;, &amp;#34;George Marshall&amp;#34;, &amp;#34;Frank Jack Fletcher&amp;#34;, &amp;#34;Conrad Helfrich&amp;#34;, &amp;#34;Albert Kesselring&amp;#34;]  Sort Alphabetically By Last Name To complete the sort, we will combine three operations:
+      <description>Create a list of names commander_names = [&amp;#34;Alan Brooke&amp;#34;, &amp;#34;George Marshall&amp;#34;, &amp;#34;Frank Jack Fletcher&amp;#34;, &amp;#34;Conrad Helfrich&amp;#34;, &amp;#34;Albert Kesselring&amp;#34;] Sort Alphabetically By Last Name To complete the sort, we will combine three operations:
  lambda x: x.split(&amp;quot; &amp;quot;), which is a function that takes a string x and breaks it up along each blank space. This outputs a list. [-1], which takes the last element of a list. sorted(), which sorts a list.</description>
     </item>
     
@@ -1455,7 +1508,7 @@ c = plt.scatter(theta, r, c=colors, s=area, cmap=plt.cm.RdYlGn) c1 = plt.scatter
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/basics/sort_a_list_of_strings_by_length/</guid>
-      <description> Create a list of names commander_names = [&amp;#34;Alan Brooke&amp;#34;, &amp;#34;George Marshall&amp;#34;, &amp;#34;Frank Jack Fletcher&amp;#34;, &amp;#34;Conrad Helfrich&amp;#34;, &amp;#34;Albert Kesselring&amp;#34;]  Sort Alphabetically By Length To complete the sort, we will combine two operations:
+      <description>Create a list of names commander_names = [&amp;#34;Alan Brooke&amp;#34;, &amp;#34;George Marshall&amp;#34;, &amp;#34;Frank Jack Fletcher&amp;#34;, &amp;#34;Conrad Helfrich&amp;#34;, &amp;#34;Albert Kesselring&amp;#34;] Sort Alphabetically By Length To complete the sort, we will combine two operations:
  lambda x: len(x), which returns the length of each string. sorted(), which sorts a list.  # Sort a variable called &amp;#39;commander_names&amp;#39; by the length of each string sorted(commander_names, key=lambda x: len(x)) [&#39;Alan Brooke&#39;, &#39;George Marshall&#39;, &#39;Conrad Helfrich&#39;, &#39;Albert Kesselring&#39;, &#39;Frank Jack Fletcher&#39;]  </description>
     </item>
     
@@ -1493,7 +1546,7 @@ c = plt.scatter(theta, r, c=colors, s=area, cmap=plt.cm.RdYlGn) c1 = plt.scatter
       
       <guid>https://chrisalbon.com/python/basics/store_api_credentials_for_open_source_projects/</guid>
       <description>One issue which repeated comes up is how to manage private API credentials when the project is available on GitHub. This is the method I use for my own projects. I store all credentials in a JSON file and tell gitignore to not upload that file. Then when I am running that code locally, load the API credentials from the JSON file.
-Preliminaries import json Step 1: Create a JSON with the API credentials credentials = {&amp;#39;access_secret&amp;#39;: &amp;#39;392n39d93&amp;#39;, &amp;#39;access_token&amp;#39;: &amp;#39;sdf424f&amp;#39;, &amp;#39;consumer_key&amp;#39;: &amp;#39;sdf3223&amp;#39;, &amp;#39;consumer_secret&amp;#39;: &amp;#39;dsf2344&amp;#39;}with open(&amp;#39;credentials.</description>
+Preliminaries import json Step 1: Create a JSON with the API credentials credentials = {&amp;#39;access_secret&amp;#39;: &amp;#39;392n39d93&amp;#39;, &amp;#39;access_token&amp;#39;: &amp;#39;sdf424f&amp;#39;, &amp;#39;consumer_key&amp;#39;: &amp;#39;sdf3223&amp;#39;, &amp;#39;consumer_secret&amp;#39;: &amp;#39;dsf2344&amp;#39;} with open(&amp;#39;credentials.</description>
     </item>
     
     <item>
@@ -1502,7 +1555,7 @@ Preliminaries import json Step 1: Create a JSON with the API credentials credent
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/data_wrangling/streaming_data_pipeline/</guid>
-      <description> Create Some Raw Data raw_data = [1,2,3,4,5,6,7,8,9,10] Create Data Processing Functions # Define a generator that yields input+6 def add_6(numbers): for x in numbers: output = x+6 yield output # Define a generator that yields input-2 def subtract_2(numbers): for x in numbers: output = x-2 yield output # Define a generator that yields input*100  def multiply_by_100(numbers): for x in numbers: output = x*100 yield output Create Data Pipeline # Step 1 of the pipeline step1 = add_6(raw_data) # Step 2 of the pipeline step2 = subtract_2(step1) # Step 3 of the pipeline pipeline = multiply_by_100(step2) Send First Two Pieces Of Raw Data Through Pipeline # First element of the raw data next(pipeline) 500  # Second element of the raw data next(pipeline) 600  Send All Raw Data Through Pipeline # Process all data for raw_data in pipeline: print(raw_data) 700 800 900 1000 1100 1200 1300 1400  </description>
+      <description>Create Some Raw Data raw_data = [1,2,3,4,5,6,7,8,9,10] Create Data Processing Functions # Define a generator that yields input+6 def add_6(numbers): for x in numbers: output = x+6 yield output # Define a generator that yields input-2 def subtract_2(numbers): for x in numbers: output = x-2 yield output # Define a generator that yields input*100  def multiply_by_100(numbers): for x in numbers: output = x*100 yield output Create Data Pipeline # Step 1 of the pipeline step1 = add_6(raw_data) # Step 2 of the pipeline step2 = subtract_2(step1) # Step 3 of the pipeline pipeline = multiply_by_100(step2) Send First Two Pieces Of Raw Data Through Pipeline # First element of the raw data next(pipeline) 500  # Second element of the raw data next(pipeline) 600  Send All Raw Data Through Pipeline # Process all data for raw_data in pipeline: print(raw_data) 700 800 900 1000 1100 1200 1300 1400  </description>
     </item>
     
     <item>
@@ -1511,7 +1564,7 @@ Preliminaries import json Step 1: Create a JSON with the API credentials credent
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/basics/string_formatting/</guid>
-      <description> Import the sys module import sys Print a string with 1 digit and one string. &amp;#39;This is %d%sbird!&amp;#39; % (1, &amp;#39;dead&amp;#39;) &#39;This is 1 dead bird!&#39;  Print a dictionary based string &amp;#39;%(number)dmore %(food)s&amp;#39; % {&amp;#39;number&amp;#39; : 1, &amp;#39;food&amp;#39; : &amp;#39;burger&amp;#39;} &#39;1 more burger&#39;  Print a string about my laptop. &amp;#39;My {1[kind]} runs {0.platform}&amp;#39;.format(sys, {&amp;#39;kind&amp;#39;: &amp;#39;laptop&amp;#39;}) &#39;My laptop runs darwin&#39;  String Formatting Codes  %s string %r repr string %c character (integer or string) %d decimal %i integer %x hex integer %X same as X but with uppercase %e floating point lowercase %E floating point uppercase %f floating point decimal lowercase %F floating point decimal uppercase %g floating point e or f %G floating point E or F %% literal %  </description>
+      <description>Import the sys module import sys Print a string with 1 digit and one string. &amp;#39;This is %d%sbird!&amp;#39; % (1, &amp;#39;dead&amp;#39;) &#39;This is 1 dead bird!&#39;  Print a dictionary based string &amp;#39;%(number)dmore %(food)s&amp;#39; % {&amp;#39;number&amp;#39; : 1, &amp;#39;food&amp;#39; : &amp;#39;burger&amp;#39;} &#39;1 more burger&#39;  Print a string about my laptop. &amp;#39;My {1[kind]} runs {0.platform}&amp;#39;.format(sys, {&amp;#39;kind&amp;#39;: &amp;#39;laptop&amp;#39;}) &#39;My laptop runs darwin&#39;  String Formatting Codes  %s string %r repr string %c character (integer or string) %d decimal %i integer %x hex integer %X same as X but with uppercase %e floating point lowercase %E floating point uppercase %f floating point decimal lowercase %F floating point decimal uppercase %g floating point e or f %G floating point E or F %% literal %  </description>
     </item>
     
     <item>
@@ -1548,7 +1601,7 @@ Preliminaries import json Step 1: Create a JSON with the API credentials credent
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/basics/swapping_variable_values/</guid>
-      <description> Setup the originally variables and their values one = 1 two = 2 View the original variables &amp;#39;one =&amp;#39;, one, &amp;#39;two =&amp;#39;, two (&#39;one =&#39;, 1, &#39;two =&#39;, 2)  Swap the values one, two = two, one View the swapped values, notice how the values for each variable have changed &amp;#39;one =&amp;#39;, one, &amp;#39;two =&amp;#39;, two (&#39;one =&#39;, 2, &#39;two =&#39;, 1)  </description>
+      <description>Setup the originally variables and their values one = 1 two = 2 View the original variables &amp;#39;one =&amp;#39;, one, &amp;#39;two =&amp;#39;, two (&#39;one =&#39;, 1, &#39;two =&#39;, 2)  Swap the values one, two = two, one View the swapped values, notice how the values for each variable have changed &amp;#39;one =&amp;#39;, one, &amp;#39;two =&amp;#39;, two (&#39;one =&#39;, 2, &#39;two =&#39;, 1)  </description>
     </item>
     
     <item>
@@ -1575,7 +1628,7 @@ Preliminaries import json Step 1: Create a JSON with the API credentials credent
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/testing/test_if_an_output_is_close_to_a_value/</guid>
-      <description>Preliminaries import unittest import sys Create Function To Be Tested def add(x, y): return x + y Create Test # Create a test case class TestAdd(unittest.TestCase): # Create the unit test def test_add_two_floats_roughly_equals_11(self): # Test if add(4.48293848, 6.5023845) return roughly (to 1 place) 11 (actual product: 10.98532298) self.assertAlmostEqual(11, add(4.48293848, 6.5023845), places=1) Run Test # Run the unit test (and don&amp;#39;t shut down the Jupyter Notebook) unittest.main(argv=[&amp;#39;ignored&amp;#39;, &amp;#39;-v&amp;#39;], exit=False) test_add_two_floats_roughly_equals_11 (__main__.</description>
+      <description>Preliminaries import unittest import sys Create Function To Be Tested def add(x, y): return x + y Create Test # Create a test case class TestAdd(unittest.TestCase): # Create the unit test def test_add_two_floats_roughly_equals_11(self): # Test if add(4.48293848, 6.5023845) return roughly (to 1 place) 11 (actual product: 10.98532298) self.assertAlmostEqual(11, add(4.48293848, 6.5023845), places=1) Run Test # Run the unit test (and don&amp;#39;t shut down the Jupyter Notebook) unittest.main(argv=[&amp;#39;ignored&amp;#39;, &amp;#39;-v&amp;#39;], exit=False) test_add_two_floats_roughly_equals_11 (__main__.TestAdd) .</description>
     </item>
     
     <item>
@@ -1603,7 +1656,7 @@ def summation(a, b): &amp;#34;&amp;#34;&amp;#34; Takes two inputs and outputs th
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/basics/unpacking_a_tuple/</guid>
-      <description> Create List Of Tuples # Create a list of tuples where the first and second element of each  # super is the first last names, respectively soldiers = [(&amp;#39;Steve&amp;#39;, &amp;#39;Miller&amp;#39;), (&amp;#39;Stacy&amp;#39;, &amp;#39;Markov&amp;#39;), (&amp;#39;Sonya&amp;#39;, &amp;#39;Matthews&amp;#39;), (&amp;#39;Sally&amp;#39;, &amp;#39;Mako&amp;#39;)] Unpack Tuples # For the second element for each tuple in soldiers, for _, last_name in soldiers: # print the second element print(last_name) Miller Markov Matthews Mako  </description>
+      <description>Create List Of Tuples # Create a list of tuples where the first and second element of each  # super is the first last names, respectively soldiers = [(&amp;#39;Steve&amp;#39;, &amp;#39;Miller&amp;#39;), (&amp;#39;Stacy&amp;#39;, &amp;#39;Markov&amp;#39;), (&amp;#39;Sonya&amp;#39;, &amp;#39;Matthews&amp;#39;), (&amp;#39;Sally&amp;#39;, &amp;#39;Mako&amp;#39;)] Unpack Tuples # For the second element for each tuple in soldiers, for _, last_name in soldiers: # print the second element print(last_name) Miller Markov Matthews Mako  </description>
     </item>
     
     <item>
@@ -1612,7 +1665,7 @@ def summation(a, b): &amp;#34;&amp;#34;&amp;#34; Takes two inputs and outputs th
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/basics/unpacking_function_arguments/</guid>
-      <description> Create Argument Objects # Create a dictionary of arguments argument_dict = {&amp;#39;a&amp;#39;:&amp;#39;Alpha&amp;#39;, &amp;#39;b&amp;#39;:&amp;#39;Bravo&amp;#39;} # Create a list of arguments argument_list = [&amp;#39;Alpha&amp;#39;, &amp;#39;Bravo&amp;#39;] Create A Simple Function # Create a function that takes two inputs def simple_function(a, b): # and prints them combined return a + b Run the Function With Unpacked Arguments # Run the function with the unpacked argument dictionary simple_function(**argument_dict) &#39;AlphaBravo&#39;  # Run the function with the unpacked argument list simple_function(*argument_list) &#39;AlphaBravo&#39;  </description>
+      <description>Create Argument Objects # Create a dictionary of arguments argument_dict = {&amp;#39;a&amp;#39;:&amp;#39;Alpha&amp;#39;, &amp;#39;b&amp;#39;:&amp;#39;Bravo&amp;#39;} # Create a list of arguments argument_list = [&amp;#39;Alpha&amp;#39;, &amp;#39;Bravo&amp;#39;] Create A Simple Function # Create a function that takes two inputs def simple_function(a, b): # and prints them combined return a + b Run the Function With Unpacked Arguments # Run the function with the unpacked argument dictionary simple_function(**argument_dict) &#39;AlphaBravo&#39;  # Run the function with the unpacked argument list simple_function(*argument_list) &#39;AlphaBravo&#39;  </description>
     </item>
     
     <item>
@@ -1639,7 +1692,7 @@ def summation(a, b): &amp;#34;&amp;#34;&amp;#34; Takes two inputs and outputs th
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/basics/using_named_tuples_to_store_data/</guid>
-      <description> Preliminaries from collections import namedtuple Create A Named Tuple Vehicle = namedtuple(&amp;#39;Vehicle&amp;#39;, &amp;#39;make model wheels manual&amp;#39;) Create An Entry forrester = Vehicle(&amp;#39;Forrester&amp;#39;, &amp;#39;Subaru&amp;#39;, 4, True) View The Data In Entry forrester.model &#39;Subaru&#39;  forrester.wheels 4  </description>
+      <description>Preliminaries from collections import namedtuple Create A Named Tuple Vehicle = namedtuple(&amp;#39;Vehicle&amp;#39;, &amp;#39;make model wheels manual&amp;#39;) Create An Entry forrester = Vehicle(&amp;#39;Forrester&amp;#39;, &amp;#39;Subaru&amp;#39;, 4, True) View The Data In Entry forrester.model &#39;Subaru&#39;  forrester.wheels 4  </description>
     </item>
     
     <item>
@@ -1648,7 +1701,7 @@ def summation(a, b): &amp;#34;&amp;#34;&amp;#34; Takes two inputs and outputs th
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/python/data_wrangling/pandas_with_seaborn/</guid>
-      <description>Preliminaries import pandas as pd %matplotlib inline import random import matplotlib.pyplot as plt import seaborn as snsdf = pd.DataFrame() df[&amp;#39;x&amp;#39;] = random.sample(range(1, 100), 25) df[&amp;#39;y&amp;#39;] = random.sample(range(1, 100), 25)df.head()    x y     0 18 25   1 42 67   2 52 77   3 4 34   4 14 69     Scatterplot sns.lmplot(&amp;#39;x&amp;#39;, &amp;#39;y&amp;#39;, data=df, fit_reg=False) &amp;lt;seaborn.</description>
+      <description>Preliminaries import pandas as pd %matplotlib inline import random import matplotlib.pyplot as plt import seaborn as sns df = pd.DataFrame() df[&amp;#39;x&amp;#39;] = random.sample(range(1, 100), 25) df[&amp;#39;y&amp;#39;] = random.sample(range(1, 100), 25) df.head()    x y     0 18 25   1 42 67   2 52 77   3 4 34   4 14 69     Scatterplot sns.lmplot(&amp;#39;x&amp;#39;, &amp;#39;y&amp;#39;, data=df, fit_reg=False) &amp;lt;seaborn.</description>
     </item>
     
     <item>
@@ -1659,54 +1712,6 @@ def summation(a, b): &amp;#34;&amp;#34;&amp;#34; Takes two inputs and outputs th
       <guid>https://chrisalbon.com/python/other/aisle_seat_probabilities/</guid>
       <description>There are two types of people in the world, aisle seaters and window seaters. I am an aisle seater, nothing is worse than limited bathroom access on a long flight. The first thing I do when I get my ticket is check to see if I have a window seat. If not, I immediately head over to the airline counter and try to get one.
 Last flight, on Turkish Airlines, I ran into a curious situation.</description>
-    </item>
-    
-    <item>
-      <title>any(), all(), max(), min(), sum()</title>
-      <link>https://chrisalbon.com/python/basics/any_all_max_min_sum/</link>
-      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
-      
-      <guid>https://chrisalbon.com/python/basics/any_all_max_min_sum/</guid>
-      <description> Create Data data = [34, 54, 50, 20, 20] any() # Return true if any element is True any(data) True  all() # Return true if all elements are True all(data) True  max() # Return max value max(data) 54  min() # Return the min value min(data) 20  sum() # Return the total value sum(data) 178  </description>
-    </item>
-    
-    <item>
-      <title>if and if else</title>
-      <link>https://chrisalbon.com/python/basics/if_and_if_else_statements/</link>
-      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
-      
-      <guid>https://chrisalbon.com/python/basics/if_and_if_else_statements/</guid>
-      <description>Create a variable with the status of the conflict.  1 if the conflict is active 0 if the conflict is not active unknown if the status of the conflict is unknwon  conflict_active = 1 If the conflict is active print a statement if conflict_active == 1: print(&amp;#39;The conflict is active.&amp;#39;) The conflict is active.  If the conflict is active print a statement, if not, print a different statement if conflict_active == 1: print(&amp;#39;The conflict is active.</description>
-    </item>
-    
-    <item>
-      <title>pandas Data Structures</title>
-      <link>https://chrisalbon.com/python/data_wrangling/pandas_data_structures/</link>
-      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
-      
-      <guid>https://chrisalbon.com/python/data_wrangling/pandas_data_structures/</guid>
-      <description>Import modules import pandas as pd Series 101 Series are one-dimensional arrays (like R&amp;rsquo;s vectors)
-Create a series of the number of floodingReports floodingReports = pd.Series([5, 6, 2, 9, 12]) floodingReports 0 5 1 6 2 2 3 9 4 12 dtype: int64  Note that the first column of numbers (0 to 4) are the index.
-Set county names to be the index of the floodingReports series floodingReports = pd.</description>
-    </item>
-    
-    <item>
-      <title>pandas Time Series Basics</title>
-      <link>https://chrisalbon.com/python/data_wrangling/pandas_time_series_basics/</link>
-      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
-      
-      <guid>https://chrisalbon.com/python/data_wrangling/pandas_time_series_basics/</guid>
-      <description>Import modules from datetime import datetime import pandas as pd %matplotlib inline import matplotlib.pyplot as pyplot Create a dataframe data = {&amp;#39;date&amp;#39;: [&amp;#39;2014-05-01 18:47:05.069722&amp;#39;, &amp;#39;2014-05-01 18:47:05.119994&amp;#39;, &amp;#39;2014-05-02 18:47:05.178768&amp;#39;, &amp;#39;2014-05-02 18:47:05.230071&amp;#39;, &amp;#39;2014-05-02 18:47:05.230071&amp;#39;, &amp;#39;2014-05-02 18:47:05.280592&amp;#39;, &amp;#39;2014-05-03 18:47:05.332662&amp;#39;, &amp;#39;2014-05-03 18:47:05.385109&amp;#39;, &amp;#39;2014-05-04 18:47:05.436523&amp;#39;, &amp;#39;2014-05-04 18:47:05.486877&amp;#39;], &amp;#39;battle_deaths&amp;#39;: [34, 25, 26, 15, 15, 14, 26, 25, 62, 41]} df = pd.DataFrame(data, columns = [&amp;#39;date&amp;#39;, &amp;#39;battle_deaths&amp;#39;]) print(df)  date battle_deaths 0 2014-05-01 18:47:05.069722 34 1 2014-05-01 18:47:05.</description>
-    </item>
-    
-    <item>
-      <title>repr vs. str</title>
-      <link>https://chrisalbon.com/python/basics/repr_vs_str/</link>
-      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
-      
-      <guid>https://chrisalbon.com/python/basics/repr_vs_str/</guid>
-      <description>Preliminaries import datetime Create A Simple Object class Regiment(object): def __init__(self, date=datetime.datetime.now()): self.date = date def __repr__(self): return date def __str__(self): return str(date) __repr__ is for the developer. It is string representation of the object and the code needed to reproduce the object.
-__str__ is the output for the end user. It prints what the user wants to see.</description>
     </item>
     
     <item>
@@ -1724,7 +1729,8 @@ __str__ is the output for the end user. It prints what the user wants to see.</d
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://chrisalbon.com/python/basics/untitled/</guid>
-      <description># Load library import pandas as pd # Create URL url = &amp;#39;https://raw.githubusercontent.com/chrisalbon/sim_data/master/titanic.csv&amp;#39; # Load data as a dataframe dataframe = pd.read_csv(url) # Show first 5 rows dataframe.head(5)  .dataframe tbody tr th:only-of-type { vertical-align: middle; } .dataframe tbody tr th { vertical-align: top; } .dataframe thead th { text-align: right; }    Name PClass Age Sex Survived SexCode     0 Allen, Miss Elisabeth Walton 1st 29.</description>
+      <description># Load library import pandas as pd # Create URL url = &amp;#39;https://raw.githubusercontent.com/chrisalbon/sim_data/master/titanic.csv&amp;#39; # Load data as a dataframe dataframe = pd.read_csv(url) # Show first 5 rows dataframe.head(5)  .dataframe tbody tr th:only-of-type { vertical-align: middle; } .dataframe tbody tr th { vertical-align: top; } .dataframe thead th { text-align: right; }  
+  Name PClass Age Sex Survived SexCode     0 Allen, Miss Elisabeth Walton 1st 29.</description>
     </item>
     
   </channel>

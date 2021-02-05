@@ -20,27 +20,13 @@
 <meta property="og:description" content="Impute Missing Values With Means." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/machine_learning/preprocessing_structured_data/impute_missing_values_with_means/" />
-
-
-
-<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
-
-<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00" />
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Impute Missing Values With Means"/>
 <meta name="twitter:description" content="Impute Missing Values With Means."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Impute Missing Values With Means",
-  "url": "https://chrisalbon.com/machine_learning/preprocessing_structured_data/impute_missing_values_with_means/",
+  "url": "https:\/\/chrisalbon.com\/machine_learning\/preprocessing_structured_data\/impute_missing_values_with_means\/",
   "wordCount": "252",
   "datePublished": "2017-12-20T11:53:49-07:00",
   "dateModified": "2017-12-20T11:53:49-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,15 +170,12 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<p>Mean imputation replaces missing values with the mean value of that feature/variable. Mean imputation is one of the most &lsquo;naive&rsquo; imputation methods because unlike more complex methods like k-nearest neighbors imputation, it does not use the information we have about an observation to estimate a value for it.</p>
-
+  <p>Mean imputation replaces missing values with the mean value of that feature/variable. Mean imputation is one of the most &lsquo;naive&rsquo; imputation methods because unlike more complex methods like k-nearest neighbors imputation, it does not use the information we have about an observation to estimate a value for it.</p>
 <h2 id="preliminaries">Preliminaries</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">Imputer</span></code></pre></div>
-<h2 id="create-data">Create Data</h2>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">Imputer</span>
+</code></pre></div><h2 id="create-data">Create Data</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create an empty dataset</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
 
@@ -193,8 +184,8 @@ MathJax.Hub.Config({
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;x1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="mf">0.2654</span><span class="p">,</span><span class="mf">0.2615</span><span class="p">,</span><span class="mf">0.5846</span><span class="p">,</span><span class="mf">0.4615</span><span class="p">,</span><span class="mf">0.8308</span><span class="p">,</span><span class="mf">0.4962</span><span class="p">,</span><span class="mf">0.3269</span><span class="p">,</span><span class="mf">0.5346</span><span class="p">,</span><span class="mf">0.6731</span><span class="p">]</span>
 
 <span class="c1"># View the dataset</span>
-<span class="n">df</span></code></pre></div>
-<div>
+<span class="n">df</span>
+</code></pre></div><div>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -257,20 +248,19 @@ MathJax.Hub.Config({
   </tbody>
 </table>
 </div>
-
 <h2 id="fit-imputer">Fit Imputer</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create an imputer object that looks for &#39;Nan&#39; values, then replaces them with the mean value of the feature by columns (axis=0)</span>
 <span class="n">mean_imputer</span> <span class="o">=</span> <span class="n">Imputer</span><span class="p">(</span><span class="n">missing_values</span><span class="o">=</span><span class="s1">&#39;NaN&#39;</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="c1"># Train the imputor on the df dataset</span>
-<span class="n">mean_imputer</span> <span class="o">=</span> <span class="n">mean_imputer</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df</span><span class="p">)</span></code></pre></div>
-<h2 id="apply-imputer">Apply Imputer</h2>
+<span class="n">mean_imputer</span> <span class="o">=</span> <span class="n">mean_imputer</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</code></pre></div><h2 id="apply-imputer">Apply Imputer</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Apply the imputer to the df dataset</span>
-<span class="n">imputed_df</span> <span class="o">=</span> <span class="n">mean_imputer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">values</span><span class="p">)</span></code></pre></div>
-<h2 id="view-data">View Data</h2>
+<span class="n">imputed_df</span> <span class="o">=</span> <span class="n">mean_imputer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+</code></pre></div><h2 id="view-data">View Data</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># View the data</span>
-<span class="n">imputed_df</span></code></pre></div>
-<pre><code>array([[ 0.3051    ,  0.49273333],
+<span class="n">imputed_df</span>
+</code></pre></div><pre><code>array([[ 0.3051    ,  0.49273333],
        [ 0.4949    ,  0.2654    ],
        [ 0.6974    ,  0.2615    ],
        [ 0.3769    ,  0.5846    ],
@@ -281,7 +271,6 @@ MathJax.Hub.Config({
        [ 0.6308    ,  0.5346    ],
        [ 0.5       ,  0.6731    ]])
 </code></pre>
-
 <p>Notice that <code>0.49273333</code> is the imputed value, replacing the <code>np.NaN</code> value.</p>
 
 </div>
@@ -307,7 +296,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

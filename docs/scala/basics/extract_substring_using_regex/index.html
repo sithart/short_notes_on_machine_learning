@@ -20,27 +20,13 @@
 <meta property="og:description" content="Extract substrings using regex using Scala." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/scala/basics/extract_substring_using_regex/" />
-
-
-
-<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
-
-<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00" />
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Extract Substrings Using Regex"/>
 <meta name="twitter:description" content="Extract substrings using regex using Scala."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Extract Substrings Using Regex",
-  "url": "https://chrisalbon.com/scala/basics/extract_substring_using_regex/",
+  "url": "https:\/\/chrisalbon.com\/scala\/basics\/extract_substring_using_regex\/",
   "wordCount": "77",
   "datePublished": "2017-12-20T11:53:49-07:00",
   "dateModified": "2017-12-20T11:53:49-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,25 +170,23 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<h2 id="create-string">Create String</h2>
+  <h2 id="create-string">Create String</h2>
 <div class="highlight"><pre class="chroma"><code class="language-scala" data-lang="scala"><span class="c1">// Create a string value
-</span><span class="c1"></span><span class="k">val</span> <span class="n">text</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">&#34;27 aircraft&#34;</span></code></pre></div>
-<h2 id="create-regex-pattern">Create Regex Pattern</h2>
+</span><span class="c1"></span><span class="k">val</span> <span class="n">text</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">&#34;27 aircraft&#34;</span>
+</code></pre></div><h2 id="create-regex-pattern">Create Regex Pattern</h2>
 <div class="highlight"><pre class="chroma"><code class="language-scala" data-lang="scala"><span class="c1">// Create a regex with two pattern matches (one number and one word)
-</span><span class="c1"></span><span class="k">val</span> <span class="n">pattern</span> <span class="k">=</span> <span class="s">&#34;([0-9]+) ([A-Za-z]+)&#34;</span><span class="o">.</span><span class="n">r</span></code></pre></div>
-<h2 id="extract-substrings-that-match-regex">Extract Substrings That Match Regex</h2>
+</span><span class="c1"></span><span class="k">val</span> <span class="n">pattern</span> <span class="k">=</span> <span class="s">&#34;([0-9]+) ([A-Za-z]+)&#34;</span><span class="o">.</span><span class="n">r</span>
+</code></pre></div><h2 id="extract-substrings-that-match-regex">Extract Substrings That Match Regex</h2>
 <div class="highlight"><pre class="chroma"><code class="language-scala" data-lang="scala"><span class="c1">// Apply the regex pattern such that each of the two pattern matches is assigned to a separate value
-</span><span class="c1"></span><span class="k">val</span> <span class="n">pattern</span><span class="o">(</span><span class="n">vehicle_number</span><span class="o">,</span> <span class="n">vehicle_type</span><span class="o">)</span> <span class="k">=</span> <span class="n">text</span></code></pre></div>
-<h2 id="view-output">View Output</h2>
+</span><span class="c1"></span><span class="k">val</span> <span class="n">pattern</span><span class="o">(</span><span class="n">vehicle_number</span><span class="o">,</span> <span class="n">vehicle_type</span><span class="o">)</span> <span class="k">=</span> <span class="n">text</span>
+</code></pre></div><h2 id="view-output">View Output</h2>
 <div class="highlight"><pre class="chroma"><code class="language-scala" data-lang="scala"><span class="c1">// View the value
-</span><span class="c1"></span><span class="n">vehicle_number</span></code></pre></div>
-<pre><code>27
+</span><span class="c1"></span><span class="n">vehicle_number</span>
+</code></pre></div><pre><code>27
 </code></pre>
 <div class="highlight"><pre class="chroma"><code class="language-scala" data-lang="scala"><span class="c1">// View the value
-</span><span class="c1"></span><span class="n">vehicle_type</span></code></pre></div>
-<pre><code>aircraft
+</span><span class="c1"></span><span class="n">vehicle_type</span>
+</code></pre></div><pre><code>aircraft
 </code></pre>
 
 </div>
@@ -220,7 +212,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

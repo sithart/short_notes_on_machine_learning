@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+	<meta name="generator" content="Hugo 0.79.0" />
 
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-66582-32"></script>
@@ -20,24 +21,12 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://chrisalbon.com/" />
-
-
-
-<meta property="og:updated_time" content="2020-07-22T00:00:00-07:00"/>
-
-
-
-
-
-
-
-
-
+<meta property="og:updated_time" content="2020-12-01T11:53:49-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Chris Albon"/>
 <meta name="twitter:description" content=""/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
     
@@ -55,26 +44,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="https://chrisalbon.com/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="https://chrisalbon.com/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -185,12 +182,16 @@ MathJax.Hub.Config({
                         <div class="card-body">
                             <ul>
                                 
-                                <li>
-                                    <a href="https://chrisalbon.com/machine_learning/basics/untitled/">Loading Features From Dictionaries</a>
-                                </li>
+                                
+                                    
+                                
                                 
                                 <li>
                                     <a href="https://chrisalbon.com/machine_learning/basics/loading_features_from_dictionaries/">Loading Features From Dictionaries</a>
+                                </li>
+                                
+                                <li>
+                                    <a href="https://chrisalbon.com/machine_learning/basics/untitled/">Loading Features From Dictionaries</a>
                                 </li>
                                 
                                 <li>
@@ -238,72 +239,12 @@ MathJax.Hub.Config({
                     <div class="card-body">
                         <ul>
                             
-                            <li>
-                                <a href="https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/transpose_a_vector_or_matrix/">Transpose A Vector Or Matrix</a>
-                            </li>
+                            
+                                
+                            
                             
                             <li>
-                                <a href="https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/selecting_elements_in_an_array/">Selecting Elements In An Array</a>
-                            </li>
-                            
-                            <li>
-                                <a href="https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/reshape_an_array/">Reshape An Array</a>
-                            </li>
-                            
-                            <li>
-                                <a href="https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/invert_a_matrix/">Invert A Matrix</a>
-                            </li>
-                            
-                            <li>
-                                <a href="https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/getting_the_diagonal_of_a_matrix/">Getting The Diagonal Of A Matrix</a>
-                            </li>
-                            
-                            <li>
-                                <a href="https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/flatten_a_matrix/">Flatten A Matrix</a>
-                            </li>
-                            
-                            <li>
-                                <a href="https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/find_the_rank_of_a_matrix/">Find The Rank Of A Matrix</a>
-                            </li>
-                            
-                            <li>
-                                <a href="https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/find_maximum_and_minimum/">Find The Maximum And Minimum</a>
-                            </li>
-                            
-                            <li>
-                                <a href="https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/describe_a_matrix/">Describe An Array</a>
-                            </li>
-                            
-                            <li>
-                                <a href="https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/create_a_vector/">Create A Vector</a>
-                            </li>
-                            
-                            <li>
-                                <a href="https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/create_a_sparse_matrix/">Create A Sparse Matrix</a>
-                            </li>
-                            
-                            <li>
-                                <a href="https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/create_a_matrix/">Create A Matrix</a>
-                            </li>
-                            
-                            <li>
-                                <a href="https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/converting_a_dictionary_into_a_matrix/">Converting A Dictionary Into A Matrix</a>
-                            </li>
-                            
-                            <li>
-                                <a href="https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/calculate_the_trace_of_a_matrix/">Calculate The Trace Of A Matrix</a>
-                            </li>
-                            
-                            <li>
-                                <a href="https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/calculate_the_determinant_of_a_matrix/">Calculate The Determinant Of A Matrix</a>
-                            </li>
-                            
-                            <li>
-                                <a href="https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/calculate_average_variance_and_standard_deviation/">Calculate The Average, Variance, And Standard Deviation</a>
-                            </li>
-                            
-                            <li>
-                                <a href="https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/calculate_dot_product_of_two_vectors/">Calculate Dot Product Of Two Vectors</a>
+                                <a href="https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/adding_and_subtracting_matrices/">Adding And Subtracting Matrices</a>
                             </li>
                             
                             <li>
@@ -311,7 +252,71 @@ MathJax.Hub.Config({
                             </li>
                             
                             <li>
-                                <a href="https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/adding_and_subtracting_matrices/">Adding And Subtracting Matrices</a>
+                                <a href="https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/calculate_dot_product_of_two_vectors/">Calculate Dot Product Of Two Vectors</a>
+                            </li>
+                            
+                            <li>
+                                <a href="https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/calculate_average_variance_and_standard_deviation/">Calculate The Average, Variance, And Standard Deviation</a>
+                            </li>
+                            
+                            <li>
+                                <a href="https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/calculate_the_determinant_of_a_matrix/">Calculate The Determinant Of A Matrix</a>
+                            </li>
+                            
+                            <li>
+                                <a href="https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/calculate_the_trace_of_a_matrix/">Calculate The Trace Of A Matrix</a>
+                            </li>
+                            
+                            <li>
+                                <a href="https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/converting_a_dictionary_into_a_matrix/">Converting A Dictionary Into A Matrix</a>
+                            </li>
+                            
+                            <li>
+                                <a href="https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/create_a_matrix/">Create A Matrix</a>
+                            </li>
+                            
+                            <li>
+                                <a href="https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/create_a_sparse_matrix/">Create A Sparse Matrix</a>
+                            </li>
+                            
+                            <li>
+                                <a href="https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/create_a_vector/">Create A Vector</a>
+                            </li>
+                            
+                            <li>
+                                <a href="https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/describe_a_matrix/">Describe An Array</a>
+                            </li>
+                            
+                            <li>
+                                <a href="https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/find_maximum_and_minimum/">Find The Maximum And Minimum</a>
+                            </li>
+                            
+                            <li>
+                                <a href="https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/find_the_rank_of_a_matrix/">Find The Rank Of A Matrix</a>
+                            </li>
+                            
+                            <li>
+                                <a href="https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/flatten_a_matrix/">Flatten A Matrix</a>
+                            </li>
+                            
+                            <li>
+                                <a href="https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/getting_the_diagonal_of_a_matrix/">Getting The Diagonal Of A Matrix</a>
+                            </li>
+                            
+                            <li>
+                                <a href="https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/invert_a_matrix/">Invert A Matrix</a>
+                            </li>
+                            
+                            <li>
+                                <a href="https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/reshape_an_array/">Reshape An Array</a>
+                            </li>
+                            
+                            <li>
+                                <a href="https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/selecting_elements_in_an_array/">Selecting Elements In An Array</a>
+                            </li>
+                            
+                            <li>
+                                <a href="https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/transpose_a_vector_or_matrix/">Transpose A Vector Or Matrix</a>
                             </li>
                             
                         </ul>
@@ -326,6 +331,10 @@ MathJax.Hub.Config({
                     <h4 class="card-header">Preprocessing Structured Data</h4>
                     <div class="card-body">
                         <ul>
+                            
+                            
+                                
+                            
                             
                             <li>
                                 <a href="https://chrisalbon.com/machine_learning/preprocessing_structured_data/convert_pandas_categorical_column_into_integers_for_scikit-learn/">Convert Pandas Categorical Data For Scikit-Learn</a>
@@ -416,6 +425,10 @@ MathJax.Hub.Config({
                     <div class="card-body">
                         <ul>
                             
+                            
+                                
+                            
+                            
                             <li>
                                 <a href="https://chrisalbon.com/machine_learning/preprocessing_images/binarize_image/">Binarize Images</a>
                             </li>
@@ -489,6 +502,10 @@ MathJax.Hub.Config({
                     <div class="card-body">
                         <ul>
                             
+                            
+                                
+                            
+                            
                             <li>
                                 <a href="https://chrisalbon.com/machine_learning/preprocessing_text/bag_of_words/">Bag Of Words</a>
                             </li>
@@ -542,6 +559,10 @@ MathJax.Hub.Config({
                     <div class="card-body">
                         <ul>
                             
+                            
+                                
+                            
+                            
                             <li>
                                 <a href="https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/break_up_dates_and_times_into_multiple_features/">Break Up Dates And Times Into Multiple Features</a>
                             </li>
@@ -551,11 +572,11 @@ MathJax.Hub.Config({
                             </li>
                             
                             <li>
-                                <a href="https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/convert_strings_to_dates/">Convert Strings To Dates</a>
+                                <a href="https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/convert_pandas_column_timezone/">Convert pandas Columns Time Zone</a>
                             </li>
                             
                             <li>
-                                <a href="https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/convert_pandas_column_timezone/">Convert pandas Columns Time Zone</a>
+                                <a href="https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/convert_strings_to_dates/">Convert Strings To Dates</a>
                             </li>
                             
                             <li>
@@ -594,6 +615,10 @@ MathJax.Hub.Config({
                     <h4 class="card-header">Feature Engineering</h4>
                     <div class="card-body">
                         <ul>
+                            
+                            
+                                
+                            
                             
                             <li>
                                 <a href="https://chrisalbon.com/machine_learning/feature_engineering/dimensionality_reduction_on_sparse_feature_matrix/">Dimensionality Reduction On Sparse Feature Matrix</a>
@@ -640,6 +665,10 @@ MathJax.Hub.Config({
                     <div class="card-body">
                         <ul>
                             
+                            
+                                
+                            
+                            
                             <li>
                                 <a href="https://chrisalbon.com/machine_learning/feature_selection/anova_f-value_for_feature_selection/">ANOVA F-value For Feature Selection</a>
                             </li>
@@ -676,6 +705,10 @@ MathJax.Hub.Config({
                     <h4 class="card-header">Model Evaluation</h4>
                     <div class="card-body">
                         <ul>
+                            
+                            
+                                
+                            
                             
                             <li>
                                 <a href="https://chrisalbon.com/machine_learning/model_evaluation/accuracy/">Accuracy</a>
@@ -754,6 +787,10 @@ MathJax.Hub.Config({
                     <div class="card-body">
                         <ul>
                             
+                            
+                                
+                            
+                            
                             <li>
                                 <a href="https://chrisalbon.com/machine_learning/model_selection/find_best_preprocessing_steps_during_model_selection/">Find Best Preprocessing Steps During Model Selection</a>
                             </li>
@@ -786,6 +823,10 @@ MathJax.Hub.Config({
                     <h4 class="card-header">Linear Regression</h4>
                     <div class="card-body">
                         <ul>
+                            
+                            
+                                
+                            
                             
                             <li>
                                 <a href="https://chrisalbon.com/machine_learning/linear_regression/adding_interaction_terms/">Adding Interaction Terms</a>
@@ -832,6 +873,10 @@ MathJax.Hub.Config({
                     <div class="card-body">
                         <ul>
                             
+                            
+                                
+                            
+                            
                             <li>
                                 <a href="https://chrisalbon.com/machine_learning/logistic_regression/fast_c_hyperparameter_tuning/">Fast C Hyperparameter Tuning</a>
                             </li>
@@ -869,6 +914,14 @@ MathJax.Hub.Config({
                     <div class="card-body">
                         <ul>
                             
+                            
+                                
+                            
+                            
+                            <li>
+                                <a href="https://chrisalbon.com/machine_learning/trees_and_forests/outlier_detection_with_isolation_forests/">Outlier Detection With Isolation Forests</a>
+                            </li>
+                            
                             <li>
                                 <a href="https://chrisalbon.com/machine_learning/trees_and_forests/adaboost_classifier/">Adaboost Classifier</a>
                             </li>
@@ -891,10 +944,6 @@ MathJax.Hub.Config({
                             
                             <li>
                                 <a href="https://chrisalbon.com/machine_learning/trees_and_forests/handle_imbalanced_classes_in_random_forests/">Handle Imbalanced Classes In Random Forest</a>
-                            </li>
-                            
-                            <li>
-                                <a href="https://chrisalbon.com/machine_learning/trees_and_forests/outlier_detection_with_isolation_forests/">Outlier Detection With Isolation Forests</a>
                             </li>
                             
                             <li>
@@ -934,6 +983,10 @@ MathJax.Hub.Config({
                     <div class="card-body">
                         <ul>
                             
+                            
+                                
+                            
+                            
                             <li>
                                 <a href="https://chrisalbon.com/machine_learning/nearest_neighbors/identifying_best_value_of_k/">Identifying Best Value Of k</a>
                             </li>
@@ -959,6 +1012,10 @@ MathJax.Hub.Config({
                     <div class="card-body">
                         <ul>
                             
+                            
+                                
+                            
+                            
                             <li>
                                 <a href="https://chrisalbon.com/machine_learning/support_vector_machines/calibrate_predicted_probabilities_in_svc/">Calibrate Predicted Probabilities In SVC</a>
                             </li>
@@ -980,11 +1037,11 @@ MathJax.Hub.Config({
                             </li>
                             
                             <li>
-                                <a href="https://chrisalbon.com/machine_learning/support_vector_machines/svc_parameters_using_rbf_kernel/">SVC Parameters When Using RBF Kernel</a>
+                                <a href="https://chrisalbon.com/machine_learning/support_vector_machines/support_vector_classifier/">Support Vector Classifier</a>
                             </li>
                             
                             <li>
-                                <a href="https://chrisalbon.com/machine_learning/support_vector_machines/support_vector_classifier/">Support Vector Classifier</a>
+                                <a href="https://chrisalbon.com/machine_learning/support_vector_machines/svc_parameters_using_rbf_kernel/">SVC Parameters When Using RBF Kernel</a>
                             </li>
                             
                         </ul>
@@ -999,6 +1056,10 @@ MathJax.Hub.Config({
                     <h4 class="card-header">Naive Bayes</h4>
                     <div class="card-body">
                         <ul>
+                            
+                            
+                                
+                            
                             
                             <li>
                                 <a href="https://chrisalbon.com/machine_learning/naive_bayes/bernoulli_naive_bayes_classifier/">Bernoulli Naive Bayes Classifier</a>
@@ -1037,6 +1098,10 @@ MathJax.Hub.Config({
                     <div class="card-body">
                         <ul>
                             
+                            
+                                
+                            
+                            
                             <li>
                                 <a href="https://chrisalbon.com/machine_learning/clustering/agglomerative_clustering/">Agglomerative Clustering</a>
                             </li>
@@ -1050,15 +1115,15 @@ MathJax.Hub.Config({
                             </li>
                             
                             <li>
+                                <a href="https://chrisalbon.com/machine_learning/clustering/k-means_clustering/">k-Means Clustering</a>
+                            </li>
+                            
+                            <li>
                                 <a href="https://chrisalbon.com/machine_learning/clustering/meanshift_clustering/">Meanshift Clustering</a>
                             </li>
                             
                             <li>
                                 <a href="https://chrisalbon.com/machine_learning/clustering/minibatch_k-means_clustering/">Mini-Batch k-Means Clustering</a>
-                            </li>
-                            
-                            <li>
-                                <a href="https://chrisalbon.com/machine_learning/clustering/k-means_clustering/">k-Means Clustering</a>
                             </li>
                             
                         </ul>
@@ -1080,6 +1145,10 @@ MathJax.Hub.Config({
                     <div class="card-body">
                         <ul>
                             
+                            
+                                
+                            
+                            
                             <li>
                                 <a href="https://chrisalbon.com/deep_learning/setup/prevent_nvidia_drivers_from_upgrading/">Prevent Ubuntu 18.06 And Nvidia Drivers From Updating</a>
                             </li>
@@ -1096,6 +1165,10 @@ MathJax.Hub.Config({
                     <h4 class="card-header">Keras</h4>
                     <div class="card-body">
                         <ul>
+                            
+                            
+                                
+                            
                             
                             <li>
                                 <a href="https://chrisalbon.com/deep_learning/keras/adding_dropout/">Adding Dropout</a>
@@ -1115,6 +1188,10 @@ MathJax.Hub.Config({
                             
                             <li>
                                 <a href="https://chrisalbon.com/deep_learning/keras/feedforward_neural_network_for_regression/">Feedforward Neural Networks For Regression</a>
+                            </li>
+                            
+                            <li>
+                                <a href="https://chrisalbon.com/deep_learning/keras/k-fold_cross-validating_neural_networks/">k-Fold Cross-Validating Neural Networks</a>
                             </li>
                             
                             <li>
@@ -1153,10 +1230,6 @@ MathJax.Hub.Config({
                                 <a href="https://chrisalbon.com/deep_learning/keras/visualize_performance_history/">Visualize Performance History</a>
                             </li>
                             
-                            <li>
-                                <a href="https://chrisalbon.com/deep_learning/keras/k-fold_cross-validating_neural_networks/">k-Fold Cross-Validating Neural Networks</a>
-                            </li>
-                            
                         </ul>
                     </div>
                 </div>
@@ -1169,6 +1242,10 @@ MathJax.Hub.Config({
                     <h4 class="card-header">PyTorch</h4>
                     <div class="card-body">
                         <ul>
+                            
+                            
+                                
+                            
                             
                             <li>
                                 <a href="https://chrisalbon.com/deep_learning/pytorch/basics/check_if_pytorch_is_using_gpu/">Check If PyTorch Is Using The GPU</a>
@@ -1194,8 +1271,32 @@ MathJax.Hub.Config({
                     <div class="card-body">
                         <ul>
                             
+                            
+                                
+                            
+                            
                             <li>
-                                <a href="https://chrisalbon.com/python/basics/untitled/"></a>
+                                <a href="https://chrisalbon.com/python/basics/using_iterable_as_function_arguments/">Using Iterable As Function Arguments</a>
+                            </li>
+                            
+                            <li>
+                                <a href="https://chrisalbon.com/python/basics/handling_long_lines_of_code/">Handling Long Lines Of Code</a>
+                            </li>
+                            
+                            <li>
+                                <a href="https://chrisalbon.com/python/basics/tuples_vs_named_tuples/">Tuples Vs. Named Tuples</a>
+                            </li>
+                            
+                            <li>
+                                <a href="https://chrisalbon.com/python/basics/append_using_an_operator/">Append Using The Operator</a>
+                            </li>
+                            
+                            <li>
+                                <a href="https://chrisalbon.com/python/basics/function_example/">Function Example</a>
+                            </li>
+                            
+                            <li>
+                                <a href="https://chrisalbon.com/python/basics/list_all_files_of_particular_type_in_directory/">List All Files Of Certain Type In A Directory</a>
                             </li>
                             
                             <li>
@@ -1207,7 +1308,7 @@ MathJax.Hub.Config({
                             </li>
                             
                             <li>
-                                <a href="https://chrisalbon.com/python/basics/append_using_an_operator/">Append Using The Operator</a>
+                                <a href="https://chrisalbon.com/python/basics/any_all_max_min_sum/">any(), all(), max(), min(), sum()</a>
                             </li>
                             
                             <li>
@@ -1327,10 +1428,6 @@ MathJax.Hub.Config({
                             </li>
                             
                             <li>
-                                <a href="https://chrisalbon.com/python/basics/function_example/">Function Example</a>
-                            </li>
-                            
-                            <li>
                                 <a href="https://chrisalbon.com/python/basics/functions_vs_generators/">Functions Vs. Generators</a>
                             </li>
                             
@@ -1343,15 +1440,15 @@ MathJax.Hub.Config({
                             </li>
                             
                             <li>
-                                <a href="https://chrisalbon.com/python/basics/handling_long_lines_of_code/">Handling Long Lines Of Code</a>
-                            </li>
-                            
-                            <li>
                                 <a href="https://chrisalbon.com/python/basics/hard_wrapping_text/">Hard Wrapping Text</a>
                             </li>
                             
                             <li>
                                 <a href="https://chrisalbon.com/python/basics/how_to_use_default_dicts/">How To Use Default Dicts</a>
+                            </li>
+                            
+                            <li>
+                                <a href="https://chrisalbon.com/python/basics/if_and_if_else_statements/">if and if else</a>
                             </li>
                             
                             <li>
@@ -1380,10 +1477,6 @@ MathJax.Hub.Config({
                             
                             <li>
                                 <a href="https://chrisalbon.com/python/basics/lambda_functions/">Lambda Functions</a>
-                            </li>
-                            
-                            <li>
-                                <a href="https://chrisalbon.com/python/basics/list_all_files_of_particular_type_in_directory/">List All Files Of Certain Type In A Directory</a>
                             </li>
                             
                             <li>
@@ -1435,6 +1528,10 @@ MathJax.Hub.Config({
                             </li>
                             
                             <li>
+                                <a href="https://chrisalbon.com/python/basics/repr_vs_str/">repr vs. str</a>
+                            </li>
+                            
+                            <li>
                                 <a href="https://chrisalbon.com/python/basics/schedule_run_in_the_future/">Scheduling Jobs In The Future</a>
                             </li>
                             
@@ -1483,10 +1580,6 @@ MathJax.Hub.Config({
                             </li>
                             
                             <li>
-                                <a href="https://chrisalbon.com/python/basics/tuples_vs_named_tuples/">Tuples Vs. Named Tuples</a>
-                            </li>
-                            
-                            <li>
                                 <a href="https://chrisalbon.com/python/basics/unpacking_a_tuple/">Unpacking A Tuple</a>
                             </li>
                             
@@ -1499,27 +1592,15 @@ MathJax.Hub.Config({
                             </li>
                             
                             <li>
-                                <a href="https://chrisalbon.com/python/basics/using_iterable_as_function_arguments/">Using Iterable As Function Arguments</a>
-                            </li>
-                            
-                            <li>
                                 <a href="https://chrisalbon.com/python/basics/using_named_tuples_to_store_data/">Using Named Tuples To Store Data</a>
                             </li>
                             
                             <li>
-                                <a href="https://chrisalbon.com/python/basics/any_all_max_min_sum/">any(), all(), max(), min(), sum()</a>
-                            </li>
-                            
-                            <li>
-                                <a href="https://chrisalbon.com/python/basics/if_and_if_else_statements/">if and if else</a>
-                            </li>
-                            
-                            <li>
-                                <a href="https://chrisalbon.com/python/basics/repr_vs_str/">repr vs. str</a>
-                            </li>
-                            
-                            <li>
                                 <a href="https://chrisalbon.com/python/basics/while_statements/">while Statement</a>
+                            </li>
+                            
+                            <li>
+                                <a href="https://chrisalbon.com/python/basics/untitled/"></a>
                             </li>
                             
                         </ul>
@@ -1534,6 +1615,14 @@ MathJax.Hub.Config({
                     <h4 class="card-header">Data Wrangling</h4>
                     <div class="card-body">
                         <ul>
+                            
+                            
+                                
+                            
+                            
+                            <li>
+                                <a href="https://chrisalbon.com/python/data_wrangling/columns_shared_by_two_data_frames/">Columns Shared By Two Data Frames</a>
+                            </li>
                             
                             <li>
                                 <a href="https://chrisalbon.com/python/data_wrangling/pandas_apply_function_by_group/">Apply Functions By Group In Pandas</a>
@@ -1560,15 +1649,7 @@ MathJax.Hub.Config({
                             </li>
                             
                             <li>
-                                <a href="https://chrisalbon.com/python/data_wrangling/columns_shared_by_two_data_frames/">Columns Shared By Two Data Frames</a>
-                            </li>
-                            
-                            <li>
                                 <a href="https://chrisalbon.com/python/data_wrangling/construct_a_dictionary_from_multiple_lists/">Construct A Dictionary From Multiple Lists</a>
-                            </li>
-                            
-                            <li>
-                                <a href="https://chrisalbon.com/python/data_wrangling/csv_to_python_code/">Convert A CSV Into Python Code To Recreate It</a>
                             </li>
                             
                             <li>
@@ -1577,6 +1658,10 @@ MathJax.Hub.Config({
                             
                             <li>
                                 <a href="https://chrisalbon.com/python/data_wrangling/pandas_convert_numeric_categorical_to_numeric_with_patsy/">Convert A Categorical Variable Into Dummy Variables</a>
+                            </li>
+                            
+                            <li>
+                                <a href="https://chrisalbon.com/python/data_wrangling/csv_to_python_code/">Convert A CSV Into Python Code To Recreate It</a>
                             </li>
                             
                             <li>
@@ -1592,7 +1677,7 @@ MathJax.Hub.Config({
                             </li>
                             
                             <li>
-                                <a href="https://chrisalbon.com/python/data_wrangling/pandas_create_pipeline/">Create A Pipeline In Pandas</a>
+                                <a href="https://chrisalbon.com/python/data_wrangling/pandas_create_column_using_conditional/">Create a Column Based on a Conditional in pandas</a>
                             </li>
                             
                             <li>
@@ -1600,11 +1685,11 @@ MathJax.Hub.Config({
                             </li>
                             
                             <li>
-                                <a href="https://chrisalbon.com/python/data_wrangling/creating_counts_of_items/">Create Counts Of Items</a>
+                                <a href="https://chrisalbon.com/python/data_wrangling/pandas_create_pipeline/">Create A Pipeline In Pandas</a>
                             </li>
                             
                             <li>
-                                <a href="https://chrisalbon.com/python/data_wrangling/pandas_create_column_using_conditional/">Create a Column Based on a Conditional in pandas</a>
+                                <a href="https://chrisalbon.com/python/data_wrangling/creating_counts_of_items/">Create Counts Of Items</a>
                             </li>
                             
                             <li>
@@ -1732,6 +1817,14 @@ MathJax.Hub.Config({
                             </li>
                             
                             <li>
+                                <a href="https://chrisalbon.com/python/data_wrangling/pandas_data_structures/">pandas Data Structures</a>
+                            </li>
+                            
+                            <li>
+                                <a href="https://chrisalbon.com/python/data_wrangling/pandas_time_series_basics/">pandas Time Series Basics</a>
+                            </li>
+                            
+                            <li>
                                 <a href="https://chrisalbon.com/python/data_wrangling/pandas_pivot_tables/">Pivot Tables In pandas</a>
                             </li>
                             
@@ -1823,14 +1916,6 @@ MathJax.Hub.Config({
                                 <a href="https://chrisalbon.com/python/data_wrangling/pandas_with_seaborn/">Using Seaborn To Visualize A pandas Dataframe</a>
                             </li>
                             
-                            <li>
-                                <a href="https://chrisalbon.com/python/data_wrangling/pandas_data_structures/">pandas Data Structures</a>
-                            </li>
-                            
-                            <li>
-                                <a href="https://chrisalbon.com/python/data_wrangling/pandas_time_series_basics/">pandas Time Series Basics</a>
-                            </li>
-                            
                         </ul>
                     </div>
                 </div>
@@ -1843,6 +1928,10 @@ MathJax.Hub.Config({
                     <h4 class="card-header">Data Visualization</h4>
                     <div class="card-body">
                         <ul>
+                            
+                            
+                                
+                            
                             
                             <li>
                                 <a href="https://chrisalbon.com/python/data_visualization/matplotlib_back_to_back_bar_plot/">Back To Back Bar Plot In MatPlotLib</a>
@@ -1905,6 +1994,10 @@ MathJax.Hub.Config({
                     <div class="card-body">
                         <ul>
                             
+                            
+                                
+                            
+                            
                             <li>
                                 <a href="https://chrisalbon.com/python/web_scraping/beautiful_soup_html_basics/">Beautiful Soup Basic HTML Scraping</a>
                             </li>
@@ -1929,6 +2022,10 @@ MathJax.Hub.Config({
                     <h4 class="card-header">Testing</h4>
                     <div class="card-body">
                         <ul>
+                            
+                            
+                                
+                            
                             
                             <li>
                                 <a href="https://chrisalbon.com/python/testing/simple_unit_test/">Simple Unit Test</a>
@@ -1963,6 +2060,10 @@ MathJax.Hub.Config({
                     <div class="card-body">
                         <ul>
                             
+                            
+                                
+                            
+                            
                             <li>
                                 <a href="https://chrisalbon.com/python/logging/basic_logging/">Basic Logging</a>
                             </li>
@@ -1979,6 +2080,10 @@ MathJax.Hub.Config({
                     <h4 class="card-header">Other</h4>
                     <div class="card-body">
                         <ul>
+                            
+                            
+                                
+                            
                             
                             <li>
                                 <a href="https://chrisalbon.com/python/other/generate_tweets_using_markov_chain/">Generate Tweets Using Markov Chains</a>
@@ -2015,6 +2120,10 @@ MathJax.Hub.Config({
                     <div class="card-body">
                         <ul>
                             
+                            
+                                
+                            
+                            
                             <li>
                                 <a href="https://chrisalbon.com/statistics/basics/interpolation/">Linear Interpolation</a>
                             </li>
@@ -2035,6 +2144,10 @@ MathJax.Hub.Config({
                     <h4 class="card-header">Frequentist</h4>
                     <div class="card-body">
                         <ul>
+                            
+                            
+                                
+                            
                             
                             <li>
                                 <a href="https://chrisalbon.com/statistics/frequentist/bessel_correction/">Bessels Correction</a>
@@ -2081,6 +2194,10 @@ MathJax.Hub.Config({
                 <div class="card">
                     <div class="card-body">
                         <ul>
+                            
+                            
+                                
+                            
                             
                             <li>
                                 <a href="https://chrisalbon.com/scala/basics/break_a_sequence_into_groups/">Break A Sequence Into Groups</a>
@@ -2236,6 +2353,10 @@ MathJax.Hub.Config({
                     <div class="card-body">
                         <ul>
                             
+                            
+                                
+                            
+                            
                             <li>
                                 <a href="https://chrisalbon.com/regex/patterns/match_a_symbol/">Match A Symbol</a>
                             </li>
@@ -2293,11 +2414,11 @@ MathJax.Hub.Config({
                             </li>
                             
                             <li>
-                                <a href="https://chrisalbon.com/regex/patterns/match_us_phone_numbers/">Match US Phone Numbers</a>
+                                <a href="https://chrisalbon.com/regex/patterns/match_us_uk_spellings/">Match US and UK Spellings</a>
                             </li>
                             
                             <li>
-                                <a href="https://chrisalbon.com/regex/patterns/match_us_uk_spellings/">Match US and UK Spellings</a>
+                                <a href="https://chrisalbon.com/regex/patterns/match_us_phone_numbers/">Match US Phone Numbers</a>
                             </li>
                             
                             <li>
@@ -2326,6 +2447,10 @@ MathJax.Hub.Config({
                     <h4 class="card-header">Basics</h4>
                     <div class="card-body">
                         <ul>
+                            
+                            
+                                
+                            
                             
                             <li>
                                 <a href="https://chrisalbon.com/snowflake/sql/basics/convert_columns_into_rows/">Convert Columns Into Rows</a>
@@ -2391,6 +2516,10 @@ MathJax.Hub.Config({
                     <h4 class="card-header">Tables</h4>
                     <div class="card-body">
                         <ul>
+                            
+                            
+                                
+                            
                             
                             <li>
                                 <a href="https://chrisalbon.com/snowflake/sql/tables/add_column/">Add Column</a>
@@ -2483,6 +2612,14 @@ MathJax.Hub.Config({
                     <div class="card-body">
                         <ul>
                             
+                            
+                                
+                            
+                            
+                            <li>
+                                <a href="https://chrisalbon.com/postgresql/basics/create_postgresql_database_with_python/">Create PostgreSQL Database With Python</a>
+                            </li>
+                            
                             <li>
                                 <a href="https://chrisalbon.com/postgresql/basics/apply_operation_to_column/">Apply Operation To Column</a>
                             </li>
@@ -2505,10 +2642,6 @@ MathJax.Hub.Config({
                             
                             <li>
                                 <a href="https://chrisalbon.com/postgresql/basics/create_column_index/">Create Column Index</a>
-                            </li>
-                            
-                            <li>
-                                <a href="https://chrisalbon.com/postgresql/basics/create_postgresql_database_with_python/">Create PostgreSQL Database With Python</a>
                             </li>
                             
                             <li>
@@ -2632,6 +2765,10 @@ MathJax.Hub.Config({
                     <div class="card-body">
                         <ul>
                             
+                            
+                                
+                            
+                            
                             <li>
                                 <a href="https://chrisalbon.com/postgresql/add_delete_change/add_column/">Add Column</a>
                             </li>
@@ -2705,6 +2842,10 @@ MathJax.Hub.Config({
                     <div class="card-body">
                         <ul>
                             
+                            
+                                
+                            
+                            
                             <li>
                                 <a href="https://chrisalbon.com/postgresql/merging_and_joining/all_unique_values_in_two_tables/">All Unique Values In Two Tables</a>
                             </li>
@@ -2766,6 +2907,10 @@ MathJax.Hub.Config({
                     <div class="card-body">
                         <ul>
                             
+                            
+                                
+                            
+                            
                             <li>
                                 <a href="https://chrisalbon.com/postgresql/tables/copy_table_structure/">Copy Table Structure</a>
                             </li>
@@ -2823,6 +2968,10 @@ MathJax.Hub.Config({
                     <div class="card-body">
                         <ul>
                             
+                            
+                                
+                            
+                            
                             <li>
                                 <a href="https://chrisalbon.com/postgresql/text/concatenate_values/">Concatenate Values</a>
                             </li>
@@ -2851,6 +3000,10 @@ MathJax.Hub.Config({
                     <h4 class="card-header">Numeric</h4>
                     <div class="card-body">
                         <ul>
+                            
+                            
+                                
+                            
                             
                             <li>
                                 <a href="https://chrisalbon.com/postgresql/numeric/max_min_and_average_of_column/">Calculate Max, Min, Or Average Of Column</a>
@@ -2885,6 +3038,10 @@ MathJax.Hub.Config({
                     <div class="card-body">
                         <ul>
                             
+                            
+                                
+                            
+                            
                             <li>
                                 <a href="https://chrisalbon.com/postgresql/dates/adding_or_substracting_time/">Adding Or Substracting Time</a>
                             </li>
@@ -2905,6 +3062,10 @@ MathJax.Hub.Config({
                     <h4 class="card-header">Interview Questions</h4>
                     <div class="card-body">
                         <ul>
+                            
+                            
+                                
+                            
                             
                             <li>
                                 <a href="https://chrisalbon.com/postgresql/interview_questions/calculate_requests_sent/">Calculate Requests Sent</a>
@@ -2936,6 +3097,10 @@ MathJax.Hub.Config({
                     <div class="card-body">
                         <ul>
                             
+                            
+                                
+                            
+                            
                             <li>
                                 <a href="https://chrisalbon.com/mathematics/basics/argmin_and_argmax/">argmin and argmax</a>
                             </li>
@@ -2958,9 +3123,17 @@ MathJax.Hub.Config({
                     <div class="card-body">
                         <ul>
                             
+                            
+                                
+                            
+                            
                             <li>
                                 <a href="https://chrisalbon.com/aws/basics/run_project_jupyter_on_amazon_ec2/">Run Project Jupyter Notebooks On Amazon EC2</a>
                             </li>
+                            
+                            
+                            
+                                
                             
                             
                             <li>
@@ -2970,6 +3143,10 @@ MathJax.Hub.Config({
                             <li>
                                 <a href="https://chrisalbon.com/aws/s3/cli/list_buckets/">List Buckets</a>
                             </li>
+                            
+                            
+                            
+                                
                             
                             
                         </ul>
@@ -2990,6 +3167,10 @@ MathJax.Hub.Config({
                     <h4 class="card-header">Algorithms</h4>
                     <div class="card-body">
                         <ul>
+                            
+                            
+                                
+                            
                             
                             <li>
                                 <a href="https://chrisalbon.com/computer_science/algorithms/big-o_notation/">Big-O Notation</a>
@@ -3030,6 +3211,50 @@ MathJax.Hub.Config({
                     <div class="card-body">
                         <ul>
                             
+                            
+                                
+                            
+                            
+                            <li>
+                                <a href="https://chrisalbon.com/linux/basics/close_a_program/">Close A Program</a>
+                            </li>
+                            
+                            <li>
+                                <a href="https://chrisalbon.com/linux/basics/end_standard_input_entry/">End Standard Input Entry</a>
+                            </li>
+                            
+                            <li>
+                                <a href="https://chrisalbon.com/linux/basics/copy_files_and_directories/">Copy Files And Directories</a>
+                            </li>
+                            
+                            <li>
+                                <a href="https://chrisalbon.com/linux/basics/delete_files_and_directories/">Delete Files And Directories</a>
+                            </li>
+                            
+                            <li>
+                                <a href="https://chrisalbon.com/linux/basics/delete_files_and_subdirectories_in_current_directory/">Delete Files And Directories In Current Directory</a>
+                            </li>
+                            
+                            <li>
+                                <a href="https://chrisalbon.com/linux/basics/modify_file_permissions/">Modify File Permissions</a>
+                            </li>
+                            
+                            <li>
+                                <a href="https://chrisalbon.com/linux/basics/move_files_and_directories/">Move Files And Directories</a>
+                            </li>
+                            
+                            <li>
+                                <a href="https://chrisalbon.com/linux/basics/rename_file/">Rename File</a>
+                            </li>
+                            
+                            <li>
+                                <a href="https://chrisalbon.com/linux/basics/see_disk_drive_space/">See Disk Drive Space</a>
+                            </li>
+                            
+                            <li>
+                                <a href="https://chrisalbon.com/linux/basics/view_disk_information/">View Disk Information</a>
+                            </li>
+                            
                             <li>
                                 <a href="https://chrisalbon.com/linux/basics/archive_and_unarchive_files/">Archive And Unarchive Files</a>
                             </li>
@@ -3044,14 +3269,6 @@ MathJax.Hub.Config({
                             
                             <li>
                                 <a href="https://chrisalbon.com/linux/basics/check_current_date_and_time/">Check Current Date And Time</a>
-                            </li>
-                            
-                            <li>
-                                <a href="https://chrisalbon.com/linux/basics/close_a_program/">Close A Program</a>
-                            </li>
-                            
-                            <li>
-                                <a href="https://chrisalbon.com/linux/basics/copy_files_and_directories/">Copy Files And Directories</a>
                             </li>
                             
                             <li>
@@ -3075,18 +3292,6 @@ MathJax.Hub.Config({
                             </li>
                             
                             <li>
-                                <a href="https://chrisalbon.com/linux/basics/delete_files_and_directories/">Delete Files And Directories</a>
-                            </li>
-                            
-                            <li>
-                                <a href="https://chrisalbon.com/linux/basics/delete_files_and_subdirectories_in_current_directory/">Delete Files And Directories In Current Directory</a>
-                            </li>
-                            
-                            <li>
-                                <a href="https://chrisalbon.com/linux/basics/end_standard_input_entry/">End Standard Input Entry</a>
-                            </li>
-                            
-                            <li>
                                 <a href="https://chrisalbon.com/linux/basics/exit_terminal_session/">Exit Terminal Session</a>
                             </li>
                             
@@ -3107,27 +3312,11 @@ MathJax.Hub.Config({
                             </li>
                             
                             <li>
-                                <a href="https://chrisalbon.com/linux/basics/modify_file_permissions/">Modify File Permissions</a>
-                            </li>
-                            
-                            <li>
-                                <a href="https://chrisalbon.com/linux/basics/move_files_and_directories/">Move Files And Directories</a>
-                            </li>
-                            
-                            <li>
                                 <a href="https://chrisalbon.com/linux/basics/multiple_commands_on_one_line/">Multiple Commands On One Line</a>
                             </li>
                             
                             <li>
                                 <a href="https://chrisalbon.com/linux/basics/ping_website/">Ping Website</a>
-                            </li>
-                            
-                            <li>
-                                <a href="https://chrisalbon.com/linux/basics/rename_file/">Rename File</a>
-                            </li>
-                            
-                            <li>
-                                <a href="https://chrisalbon.com/linux/basics/see_disk_drive_space/">See Disk Drive Space</a>
                             </li>
                             
                             <li>
@@ -3163,11 +3352,11 @@ MathJax.Hub.Config({
                             </li>
                             
                             <li>
-                                <a href="https://chrisalbon.com/linux/basics/view_disk_information/">View Disk Information</a>
+                                <a href="https://chrisalbon.com/linux/basics/view_first_and_last_parts_of_files/">View First And Last Parts Of Files</a>
                             </li>
                             
                             <li>
-                                <a href="https://chrisalbon.com/linux/basics/view_first_and_last_parts_of_files/">View First And Last Parts Of Files</a>
+                                <a href="https://chrisalbon.com/linux/basics/view_version_of_package/">View The Version Of A Package</a>
                             </li>
                             
                             <li>
@@ -3190,6 +3379,10 @@ MathJax.Hub.Config({
                     <h4 class="card-header">Inputs And Outputs</h4>
                     <div class="card-body">
                         <ul>
+                            
+                            
+                                
+                            
                             
                             <li>
                                 <a href="https://chrisalbon.com/linux/inputs_and_outputs/append_error_to_file/">Append Error To File</a>
@@ -3248,6 +3441,10 @@ MathJax.Hub.Config({
                     <div class="card-body">
                         <ul>
                             
+                            
+                                
+                            
+                            
                             <li>
                                 <a href="https://chrisalbon.com/linux/search/find_directories/">Find Directories</a>
                             </li>
@@ -3301,16 +3498,12 @@ MathJax.Hub.Config({
                     <div class="card-body">
                         <ul>
                             
+                            
+                                
+                            
+                            
                             <li>
                                 <a href="https://chrisalbon.com/linux/text/add_columns_to_text/">Add Columns To Text</a>
-                            </li>
-                            
-                            <li>
-                                <a href="https://chrisalbon.com/linux/text/adding_line_numbers/">Adding Line Numbers</a>
-                            </li>
-                            
-                            <li>
-                                <a href="https://chrisalbon.com/linux/text/comparing_text_files/">Comparing Text Files</a>
                             </li>
                             
                             <li>
@@ -3323,6 +3516,14 @@ MathJax.Hub.Config({
                             
                             <li>
                                 <a href="https://chrisalbon.com/linux/text/find_and_replace/">Find And Replace</a>
+                            </li>
+                            
+                            <li>
+                                <a href="https://chrisalbon.com/linux/text/adding_line_numbers/">Adding Line Numbers</a>
+                            </li>
+                            
+                            <li>
+                                <a href="https://chrisalbon.com/linux/text/comparing_text_files/">Comparing Text Files</a>
                             </li>
                             
                             <li>
@@ -3349,6 +3550,10 @@ MathJax.Hub.Config({
                     <h4 class="card-header">Flow Control</h4>
                     <div class="card-body">
                         <ul>
+                            
+                            
+                                
+                            
                             
                             <li>
                                 <a href="https://chrisalbon.com/linux/flow_control/for_loops/">For Loops</a>
@@ -3379,12 +3584,16 @@ MathJax.Hub.Config({
                     <div class="card-body">
                         <ul>
                             
-                            <li>
-                                <a href="https://chrisalbon.com/linux/processes/list_processes/">List Processes</a>
-                            </li>
+                            
+                                
+                            
                             
                             <li>
                                 <a href="https://chrisalbon.com/linux/processes/measure_how_long_a_process_takes/">Measure How Long A Process Takes</a>
+                            </li>
+                            
+                            <li>
+                                <a href="https://chrisalbon.com/linux/processes/list_processes/">List Processes</a>
                             </li>
                             
                             <li>
@@ -3403,6 +3612,10 @@ MathJax.Hub.Config({
                     <h4 class="card-header">Shell Scripts</h4>
                     <div class="card-body">
                         <ul>
+                            
+                            
+                                
+                            
                             
                             <li>
                                 <a href="https://chrisalbon.com/linux/shell_scripts/arguments/">Arguments</a>
@@ -3438,12 +3651,16 @@ MathJax.Hub.Config({
                     <div class="card-body">
                         <ul>
                             
-                            <li>
-                                <a href="https://chrisalbon.com/git_and_github/basics/github_cheatsheet/">GitHub Cheatsheet</a>
-                            </li>
+                            
+                                
+                            
                             
                             <li>
                                 <a href="https://chrisalbon.com/git_and_github/basics/stop_git_from_asking_for_password_every_command/">Stop Git From Asking For Password Every Push And Pull From GitHub</a>
+                            </li>
+                            
+                            <li>
+                                <a href="https://chrisalbon.com/git_and_github/basics/github_cheatsheet/">GitHub Cheatsheet</a>
                             </li>
                             
                         </ul>
@@ -3464,6 +3681,10 @@ MathJax.Hub.Config({
                     <h4 class="card-header">YAML</h4>
                     <div class="card-body">
                         <ul>
+                            
+                            
+                                
+                            
                             
                             <li>
                                 <a href="https://chrisalbon.com/machine_learning_engineering/yaml/basic_yaml_file/">Basic YAML File</a>
@@ -3502,6 +3723,10 @@ MathJax.Hub.Config({
                     <div class="card-body">
                         <ul>
                             
+                            
+                                
+                            
+                            
                             <li>
                                 <a href="https://chrisalbon.com/machine_learning_engineering/kubeflow/installing_kubeflow_on_ubuntu/">Installing Kubeflow On Ubuntu</a>
                             </li>
@@ -3524,6 +3749,10 @@ MathJax.Hub.Config({
                     <h4 class="card-header">Command Line</h4>
                     <div class="card-body">
                         <ul>
+                            
+                            
+                                
+                            
                             
                             <li>
                                 <a href="https://chrisalbon.com/docker/command_line/automatically_generate_human_readable_container_names/">Automatically Generate Human-Readable Container Names</a>
@@ -3650,6 +3879,10 @@ MathJax.Hub.Config({
                     <div class="card-body">
                         <ul>
                             
+                            
+                                
+                            
+                            
                             <li>
                                 <a href="https://chrisalbon.com/docker/dockerfiles/add_a_file_from_a_url_to_images/">Add A File From A URL To Images</a>
                             </li>
@@ -3712,6 +3945,24 @@ MathJax.Hub.Config({
             </div>
         </div>
 
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <h4 class="card-header">Docker Compose</h4>
+                    <div class="card-body">
+                        <ul>
+                            
+                            
+                                
+                            
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="row" id="php">
             <div class="col-sm-12">
                 <h3 class="category_header">PHP</h3>
@@ -3723,6 +3974,10 @@ MathJax.Hub.Config({
                 <div class="card">
                     <div class="card-body">
                         <ul>
+                            
+                            
+                                
+                            
                             
                             <li>
                                 <a href="https://chrisalbon.com/php/simple_example/">Simple Example</a>
@@ -3747,6 +4002,15 @@ MathJax.Hub.Config({
                 <div class="card">
                     <div class="article_list card-body">
                         <ul>
+                            
+                            
+                                
+                            
+                            
+                            <li>
+                                
+                                <a href="https://chrisalbon.com/articles/100_day_sprint/">100 Day Sprint</a>
+                            </li>
                             
                             <li>
                                 
@@ -3793,7 +4057,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

@@ -20,27 +20,13 @@
 <meta property="og:description" content="How to synchronize files and directories using the Linux command line." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/linux/basics/synchronize_files_and_directories/" />
-
-
-
-<meta property="article:published_time" content="2018-06-17T00:00:00-07:00"/>
-
-<meta property="article:modified_time" content="2018-06-17T00:00:00-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2018-06-17T00:00:00-07:00" />
+<meta property="article:modified_time" content="2018-06-17T00:00:00-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Synchronize Files And Directories"/>
 <meta name="twitter:description" content="How to synchronize files and directories using the Linux command line."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Synchronize Files And Directories",
-  "url": "https://chrisalbon.com/linux/basics/synchronize_files_and_directories/",
+  "url": "https:\/\/chrisalbon.com\/linux\/basics\/synchronize_files_and_directories\/",
   "wordCount": "165",
   "datePublished": "2018-06-17T00:00:00-07:00",
   "dateModified": "2018-06-17T00:00:00-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,57 +170,33 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<p><code>rsync</code> is a very handy tool for syncing the files and folders in two directories. <code>rsync</code> only copies files that have changed since the time they were sync&rsquo;d.</p>
-
+  <p><code>rsync</code> is a very handy tool for syncing the files and folders in two directories. <code>rsync</code> only copies files that have changed since the time they were sync&rsquo;d.</p>
 <h2 id="make-two-directories">Make Two Directories</h2>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">mkdir origin destination</code></pre></div>
-
 <h2 id="add-files-in-origin-directory">Add Files In Origin Directory</h2>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">touch origin/file.txt</code></pre></div>
-
 <h2 id="view-origin-directory-contents">View Origin Directory Contents</h2>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">ls -l origin</code></pre></div>
-
 <pre><code>total 0
 -rw-rw-r-- 1 chris chris 0 Jul 31 20:04 file.txt
-</code></pre>
-
-<h2 id="view-destination-directory-contents">View Destination Directory Contents</h2>
-
+</code></pre><h2 id="view-destination-directory-contents">View Destination Directory Contents</h2>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">ls -l destination</code></pre></div>
-
 <pre><code>total 0
-</code></pre>
-
-<h2 id="sync-origin-directory-to-destination-directory">Sync Origin Directory To Destination Directory</h2>
-
+</code></pre><h2 id="sync-origin-directory-to-destination-directory">Sync Origin Directory To Destination Directory</h2>
 <p>In this code we sync (<code>rsync</code>) all the files and subdirectories (<code>-a</code>) in <code>origin</code> to <code>destination</code> while printing out details of the process (<code>v</code>), deleting (<code>--delete</code>) any files in <code>destination</code> that no longer exist in <code>origin</code>.</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">rsync -av --delete origin destination</code></pre></div>
-
 <pre><code>sending incremental file list
 origin/
 origin/file.txt
 
 sent 136 bytes  received 39 bytes  350.00 bytes/sec
 total size is 0  speedup is 0.00
-</code></pre>
-
-<h2 id="view-destination-directory-contents-1">View Destination Directory Contents</h2>
-
+</code></pre><h2 id="view-destination-directory-contents-1">View Destination Directory Contents</h2>
 <p>Notice that <code>file.txt</code> in <code>origin</code> is now copied over to <code>destination/origin</code>.</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">ls -l destination/origin</code></pre></div>
-
 <pre><code>total 0
 -rw-rw-r-- 1 chris chris 0 Jul 31 20:04 file.txt
 </code></pre>
-
 </div>
   <aside>
       <div class="bug_reporting">
@@ -250,7 +220,7 @@ total size is 0  speedup is 0.00
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

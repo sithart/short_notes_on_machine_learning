@@ -20,27 +20,13 @@
 <meta property="og:description" content="How to create  object oriented programming in Python." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/python/object_oriented/create_custom_version_of_builtin_data_type/" />
-
-
-
-<meta property="article:published_time" content="2018-12-16T11:53:49-07:00"/>
-
-<meta property="article:modified_time" content="2018-12-16T11:53:49-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2018-12-16T11:53:49-07:00" />
+<meta property="article:modified_time" content="2018-12-16T11:53:49-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Customize Built-in Data Types"/>
 <meta name="twitter:description" content="How to create  object oriented programming in Python."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Customize Built-in Data Types",
-  "url": "https://chrisalbon.com/python/object_oriented/create_custom_version_of_builtin_data_type/",
+  "url": "https:\/\/chrisalbon.com\/python\/object_oriented\/create_custom_version_of_builtin_data_type\/",
   "wordCount": "123",
   "datePublished": "2018-12-16T11:53:49-07:00",
   "dateModified": "2018-12-16T11:53:49-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,10 +170,7 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<p>This is a toy example of how we can extending a built-in data type (i.e. a class) in Python to add additional functionality.</p>
-
+  <p>This is a toy example of how we can extending a built-in data type (i.e. a class) in Python to add additional functionality.</p>
 <h2 id="create-new-class-from-list">Create New Class From <code>list</code></h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a class that inherits from the built-in list class</span>
 <span class="k">class</span> <span class="nc">CapitalizedList</span><span class="p">(</span><span class="nb">list</span><span class="p">):</span>
@@ -197,21 +188,20 @@ MathJax.Hub.Config({
         
         <span class="c1"># Return the capitalized list</span>
         <span class="k">return</span> <span class="n">capitalized_list</span>
-        </code></pre></div>
-<h2 id="create-instance-of-new-class">Create Instance Of New Class</h2>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">capitalized_list</span> <span class="o">=</span> <span class="n">CapitalizedList</span><span class="p">()</span></code></pre></div>
-<h2 id="add-elements-to-new-class">Add Elements To New Class</h2>
+        
+</code></pre></div><h2 id="create-instance-of-new-class">Create Instance Of New Class</h2>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">capitalized_list</span> <span class="o">=</span> <span class="n">CapitalizedList</span><span class="p">()</span>
+</code></pre></div><h2 id="add-elements-to-new-class">Add Elements To New Class</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">capitalized_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;bob&#39;</span><span class="p">)</span>
 <span class="n">capitalized_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;sarah&#39;</span><span class="p">)</span>
-<span class="n">capitalized_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;miller&#39;</span><span class="p">)</span></code></pre></div>
-<h2 id="view-capitalized-list-without-running-capitalize-method">View Capitalized List Without Running <code>capitalize</code> Method</h2>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">capitalized_list</span></code></pre></div>
-<pre><code>['bob', 'sarah', 'miller']
+<span class="n">capitalized_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;miller&#39;</span><span class="p">)</span>
+</code></pre></div><h2 id="view-capitalized-list-without-running-capitalize-method">View Capitalized List Without Running <code>capitalize</code> Method</h2>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">capitalized_list</span>
+</code></pre></div><pre><code>['bob', 'sarah', 'miller']
 </code></pre>
-
 <h2 id="view-capitalized-list-with-running-capitalize-method">View Capitalized List With Running <code>capitalize</code> Method</h2>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">capitalized_list</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span></code></pre></div>
-<pre><code>['BOB', 'SARAH', 'MILLER']
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">capitalized_list</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+</code></pre></div><pre><code>['BOB', 'SARAH', 'MILLER']
 </code></pre>
 
 </div>
@@ -237,7 +227,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

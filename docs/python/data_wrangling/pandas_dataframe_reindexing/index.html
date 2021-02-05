@@ -20,27 +20,13 @@
 <meta property="og:description" content="Reindexing pandas series and dataframes." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/python/data_wrangling/pandas_dataframe_reindexing/" />
-
-
-
-<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
-
-<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00" />
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Reindexing pandas Series And Dataframes"/>
 <meta name="twitter:description" content="Reindexing pandas series and dataframes."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,8 +34,8 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Reindexing pandas Series And Dataframes",
-  "url": "https://chrisalbon.com/python/data_wrangling/pandas_dataframe_reindexing/",
-  "wordCount": "255",
+  "url": "https:\/\/chrisalbon.com\/python\/data_wrangling\/pandas_dataframe_reindexing\/",
+  "wordCount": "256",
   "datePublished": "2017-12-20T11:53:49-07:00",
   "dateModified": "2017-12-20T11:53:49-07:00",
   "author": {
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,15 +170,14 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<h2 id="series">Series</h2>
+  <h2 id="series">Series</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Import Modules</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a pandas series of the risk of fire in Southern Arizona</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a pandas series of the risk of fire in Southern Arizona</span>
 <span class="n">brushFireRisk</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">34</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">23</span><span class="p">],</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Bisbee&#39;</span><span class="p">,</span> <span class="s1">&#39;Douglas&#39;</span><span class="p">,</span> <span class="s1">&#39;Sierra Vista&#39;</span><span class="p">,</span> <span class="s1">&#39;Tombstone&#39;</span><span class="p">])</span>
-<span class="n">brushFireRisk</span></code></pre></div>
-<pre><code>Bisbee          34
+<span class="n">brushFireRisk</span>
+</code></pre></div><pre><code>Bisbee          34
 Douglas         23
 Sierra Vista    12
 Tombstone       23
@@ -192,8 +185,8 @@ dtype: int64
 </code></pre>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Reindex the series and create a new series variable</span>
 <span class="n">brushFireRiskReindexed</span> <span class="o">=</span> <span class="n">brushFireRisk</span><span class="o">.</span><span class="n">reindex</span><span class="p">([</span><span class="s1">&#39;Tombstone&#39;</span><span class="p">,</span> <span class="s1">&#39;Douglas&#39;</span><span class="p">,</span> <span class="s1">&#39;Bisbee&#39;</span><span class="p">,</span> <span class="s1">&#39;Sierra Vista&#39;</span><span class="p">,</span> <span class="s1">&#39;Barley&#39;</span><span class="p">,</span> <span class="s1">&#39;Tucson&#39;</span><span class="p">])</span>
-<span class="n">brushFireRiskReindexed</span></code></pre></div>
-<pre><code>Tombstone       23.0
+<span class="n">brushFireRiskReindexed</span>
+</code></pre></div><pre><code>Tombstone       23.0
 Douglas         23.0
 Bisbee          34.0
 Sierra Vista    12.0
@@ -203,8 +196,8 @@ dtype: float64
 </code></pre>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Reindex the series and fill in any missing indexes as 0</span>
 <span class="n">brushFireRiskReindexed</span> <span class="o">=</span> <span class="n">brushFireRisk</span><span class="o">.</span><span class="n">reindex</span><span class="p">([</span><span class="s1">&#39;Tombstone&#39;</span><span class="p">,</span> <span class="s1">&#39;Douglas&#39;</span><span class="p">,</span> <span class="s1">&#39;Bisbee&#39;</span><span class="p">,</span> <span class="s1">&#39;Sierra Vista&#39;</span><span class="p">,</span> <span class="s1">&#39;Barley&#39;</span><span class="p">,</span> <span class="s1">&#39;Tucson&#39;</span><span class="p">],</span> <span class="n">fill_value</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">brushFireRiskReindexed</span></code></pre></div>
-<pre><code>Tombstone       23
+<span class="n">brushFireRiskReindexed</span>
+</code></pre></div><pre><code>Tombstone       23
 Douglas         23
 Bisbee          34
 Sierra Vista    12
@@ -212,15 +205,14 @@ Barley           0
 Tucson           0
 dtype: int64
 </code></pre>
-
 <h2 id="dataframes">DataFrames</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a dataframe</span>
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;county&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Cochice&#39;</span><span class="p">,</span> <span class="s1">&#39;Pima&#39;</span><span class="p">,</span> <span class="s1">&#39;Santa Cruz&#39;</span><span class="p">,</span> <span class="s1">&#39;Maricopa&#39;</span><span class="p">,</span> <span class="s1">&#39;Yuma&#39;</span><span class="p">],</span> 
         <span class="s1">&#39;year&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2012</span><span class="p">,</span> <span class="mi">2012</span><span class="p">,</span> <span class="mi">2013</span><span class="p">,</span> <span class="mi">2014</span><span class="p">,</span> <span class="mi">2014</span><span class="p">],</span> 
         <span class="s1">&#39;reports&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]}</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="n">df</span></code></pre></div>
-<div>
+<span class="n">df</span>
+</code></pre></div><div>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -265,8 +257,8 @@ dtype: int64
 </table>
 </div>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Change the order (the index) of the rows</span>
-<span class="n">df</span><span class="o">.</span><span class="n">reindex</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span></code></pre></div>
-<div>
+<span class="n">df</span><span class="o">.</span><span class="n">reindex</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+</code></pre></div><div>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -312,8 +304,8 @@ dtype: int64
 </div>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Change the order (the index) of the columns</span>
 <span class="n">columnsTitles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;reports&#39;</span><span class="p">,</span> <span class="s1">&#39;county&#39;</span><span class="p">]</span>
-<span class="n">df</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">columnsTitles</span><span class="p">)</span></code></pre></div>
-<div>
+<span class="n">df</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">columnsTitles</span><span class="p">)</span>
+</code></pre></div><div>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -381,7 +373,7 @@ dtype: int64
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

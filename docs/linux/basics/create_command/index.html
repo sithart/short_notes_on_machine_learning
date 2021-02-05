@@ -20,27 +20,13 @@
 <meta property="og:description" content="How to create a command using the Linux command line." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/linux/basics/create_command/" />
-
-
-
-<meta property="article:published_time" content="2018-06-17T00:00:00-07:00"/>
-
-<meta property="article:modified_time" content="2018-06-17T00:00:00-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2018-06-17T00:00:00-07:00" />
+<meta property="article:modified_time" content="2018-06-17T00:00:00-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Create Command"/>
 <meta name="twitter:description" content="How to create a command using the Linux command line."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Create Command",
-  "url": "https://chrisalbon.com/linux/basics/create_command/",
+  "url": "https:\/\/chrisalbon.com\/linux\/basics\/create_command\/",
   "wordCount": "188",
   "datePublished": "2018-06-17T00:00:00-07:00",
   "dateModified": "2018-06-17T00:00:00-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,35 +170,19 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<h2 id="check-if-command-s-name-is-taken">Check If Command&rsquo;s Name Is Taken</h2>
-
+  <h2 id="check-if-commands-name-is-taken">Check If Command&rsquo;s Name Is Taken</h2>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">type make_example_directory</code></pre></div>
-
 <pre><code>-bash: type: make_example_directory: not found
-</code></pre>
-
-<p>Okay good!</p>
-
+</code></pre><p>Okay good!</p>
 <h2 id="create-custom-command">Create Custom Command</h2>
-
 <p>Let us create a custom command that creates a bunch of files and subdirectories in a directory. I&rsquo;ve used this command a few times for tutorial to simulate a real project. We will separate each command using <code>;</code> so they can all be on one line. Specifically, the commands we will run are:</p>
-
 <p><code>touch config.txt; touch data.csv; touch readme.md; mkdir sales_data; mkdir scripts</code></p>
-
 <p>Notice that the format for creating a command is <code>alias [command_name]='[command contents]'</code></p>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">alias make_fake_project=&#39;touch config.txt; touch data.csv; touch readme.md; mkdir sales_data; mkdir scripts&#39;</code></pre></div>
-
 <h2 id="run-custom-command">Run Custom Command</h2>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">make_fake_project</code></pre></div>
-
 <h2 id="view-directory-contents-to-check-if-command-worked">View Directory Contents To Check If Command Worked</h2>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">ls -l</code></pre></div>
-
 <pre><code>total 12
 -rw-rw-r-- 1 chris chris    0 Jul 25 16:43 config.txt
 -rw-rw-r-- 1 chris chris    0 Jul 25 16:43 data.csv
@@ -213,10 +191,7 @@ drwxrwxr-x 2 chris chris 4096 Jul 25 16:31 example_directory
 -rw-rw-r-- 1 chris chris    0 Jul 25 16:43 readme.md
 drwxrwxr-x 2 chris chris 4096 Jul 25 16:43 sales_data
 drwxrwxr-x 2 chris chris 4096 Jul 25 16:43 scripts
-</code></pre>
-
-<h2 id="delete-custom-command">Delete Custom Command</h2>
-
+</code></pre><h2 id="delete-custom-command">Delete Custom Command</h2>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">unalias make_fake_project</code></pre></div>
 
 </div>
@@ -242,7 +217,7 @@ drwxrwxr-x 2 chris chris 4096 Jul 25 16:43 scripts
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

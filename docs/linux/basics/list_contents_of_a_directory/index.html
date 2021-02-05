@@ -20,27 +20,13 @@
 <meta property="og:description" content="How to list the contents of a directory in a system using the Linux command line." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/linux/basics/list_contents_of_a_directory/" />
-
-
-
-<meta property="article:published_time" content="2018-06-17T00:00:00-07:00"/>
-
-<meta property="article:modified_time" content="2018-06-17T00:00:00-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2018-06-17T00:00:00-07:00" />
+<meta property="article:modified_time" content="2018-06-17T00:00:00-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="List The Contents Of A Directory"/>
 <meta name="twitter:description" content="How to list the contents of a directory in a system using the Linux command line."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "List The Contents Of A Directory",
-  "url": "https://chrisalbon.com/linux/basics/list_contents_of_a_directory/",
+  "url": "https:\/\/chrisalbon.com\/linux\/basics\/list_contents_of_a_directory\/",
   "wordCount": "1029",
   "datePublished": "2018-06-17T00:00:00-07:00",
   "dateModified": "2018-06-17T00:00:00-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,30 +170,19 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<p><code>ls</code> is one of the most useful commands when using the Linux command line. <code>ls</code> lists the contents of the directory.</p>
-
+  <p><code>ls</code> is one of the most useful commands when using the Linux command line. <code>ls</code> lists the contents of the directory.</p>
 <h2 id="list-contents-of-directory">List Contents Of Directory</h2>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">ls</code></pre></div>
-
 <pre><code>bin  compiler_compat  conda-meta  doc  etc  include  lib  libexec  LICENSE.txt  mkspecs  phrasebooks  pkgs  plugins  qml  share  ssl  translations  var  x86_64-conda_cos6-linux-gnu
-</code></pre>
-
-<h2 id="list-contents-of-directory-in-detail">List Contents Of Directory In Detail</h2>
-
+</code></pre><h2 id="list-contents-of-directory-in-detail">List Contents Of Directory In Detail</h2>
 <p>Note that the first column contains the file&rsquo;s permission setting, which are structured as:</p>
-
 <ul>
 <li>Character 1: Type Of File (<code>d</code> means directory)</li>
 <li>Characters 2-4: Access Rights For File&rsquo;s Owner</li>
 <li>Characters 5-7: Access Rights For File&rsquo;s Group</li>
 <li>Characters 7-9: Access Rights For Everyone</li>
 </ul>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">ls -l</code></pre></div>
-
 <pre><code>total 188
 drwxrwxr-x   2 chris chris 12288 Oct 11  2017 bin
 drwxrwxr-x   2 chris chris  4096 Oct 11  2017 compiler_compat
@@ -220,20 +203,12 @@ drwxrwxr-x   4 chris chris  4096 Oct 11  2017 ssl
 drwxrwxr-x   2 chris chris 12288 Oct 11  2017 translations
 drwxrwxr-x   3 chris chris  4096 Oct 11  2017 var
 drwxrwxr-x   3 chris chris  4096 Oct 11  2017 x86_64-conda_cos6-linux-gnu
-</code></pre>
-
-<h2 id="list-all-contents-of-directory-including-hidden-files">List All Contents Of Directory (Including Hidden Files)</h2>
-
+</code></pre><h2 id="list-all-contents-of-directory-including-hidden-files">List All Contents Of Directory (Including Hidden Files)</h2>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">ls -a</code></pre></div>
-
 <pre><code>.   bin              conda-meta  etc      lib      LICENSE.txt  phrasebooks  plugins  share  translations  x86_64-conda_cos6-linux-gnu
 ..  compiler_compat  doc         include  libexec  mkspecs      pkgs         qml      ssl    var
-</code></pre>
-
-<h2 id="view-contents-of-directory-with-human-readable-file-folder-sizes">View Contents Of Directory With Human Readable File/Folder Sizes</h2>
-
+</code></pre><h2 id="view-contents-of-directory-with-human-readable-filefolder-sizes">View Contents Of Directory With Human Readable File/Folder Sizes</h2>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">ls -lh</code></pre></div>
-
 <pre><code>total 188K
 drwxrwxr-x   2 chris chris  12K Oct 11  2017 bin
 drwxrwxr-x   2 chris chris 4.0K Oct 11  2017 compiler_compat
@@ -254,12 +229,8 @@ drwxrwxr-x   4 chris chris 4.0K Oct 11  2017 ssl
 drwxrwxr-x   2 chris chris  12K Oct 11  2017 translations
 drwxrwxr-x   3 chris chris 4.0K Oct 11  2017 var
 drwxrwxr-x   3 chris chris 4.0K Oct 11  2017 x86_64-conda_cos6-linux-gnu
-</code></pre>
-
-<h2 id="view-contents-of-directory-sorted-by-file-size">View Contents Of Directory Sorted By File Size</h2>
-
+</code></pre><h2 id="view-contents-of-directory-sorted-by-file-size">View Contents Of Directory Sorted By File Size</h2>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">ls -lS</code></pre></div>
-
 <pre><code>total 188
 drwxrwxr-x  22 chris chris 36864 Oct 11  2017 lib
 drwxrwxr-x 244 chris chris 36864 Oct 11  2017 pkgs
@@ -280,12 +251,8 @@ drwxrwxr-x  29 chris chris  4096 Oct 11  2017 share
 drwxrwxr-x   4 chris chris  4096 Oct 11  2017 ssl
 drwxrwxr-x   3 chris chris  4096 Oct 11  2017 var
 drwxrwxr-x   3 chris chris  4096 Oct 11  2017 x86_64-conda_cos6-linux-gnu
-</code></pre>
-
-<h2 id="view-contents-of-directory-sorted-by-last-modified">View Contents Of Directory Sorted By Last Modified</h2>
-
+</code></pre><h2 id="view-contents-of-directory-sorted-by-last-modified">View Contents Of Directory Sorted By Last Modified</h2>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">ls -lt</code></pre></div>
-
 <pre><code>total 188
 drwxrwxr-x   2 chris chris 20480 Oct 11  2017 conda-meta
 drwxrwxr-x  22 chris chris 36864 Oct 11  2017 lib
@@ -306,12 +273,8 @@ drwxrwxr-x   4 chris chris  4096 Oct 11  2017 ssl
 drwxrwxr-x   3 chris chris  4096 Oct 11  2017 x86_64-conda_cos6-linux-gnu
 drwxrwxr-x   2 chris chris  4096 Oct 11  2017 compiler_compat
 -rw-r--r--   1 chris chris  5350 Sep 24  2017 LICENSE.txt
-</code></pre>
-
-<h2 id="view-contents-in-reverse-order">View Contents In Reverse Order</h2>
-
+</code></pre><h2 id="view-contents-in-reverse-order">View Contents In Reverse Order</h2>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">ls -ltr</code></pre></div>
-
 <pre><code>total 188
 -rw-r--r--   1 chris chris  5350 Sep 24  2017 LICENSE.txt
 drwxrwxr-x   2 chris chris  4096 Oct 11  2017 compiler_compat
@@ -333,7 +296,6 @@ drwxrwxr-x 244 chris chris 36864 Oct 11  2017 pkgs
 drwxrwxr-x  22 chris chris 36864 Oct 11  2017 lib
 drwxrwxr-x   2 chris chris 20480 Oct 11  2017 conda-meta
 </code></pre>
-
 </div>
   <aside>
       <div class="bug_reporting">
@@ -357,7 +319,7 @@ drwxrwxr-x   2 chris chris 20480 Oct 11  2017 conda-meta
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

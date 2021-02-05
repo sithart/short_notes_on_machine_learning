@@ -20,27 +20,13 @@
 <meta property="og:description" content="Set a Docker container to run a bash command upon launch in Docker." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/docker/command_line/set_container_to_run_a_bash_command_on_start/" />
-
-
-
-<meta property="article:published_time" content="2020-07-22T00:00:00-07:00"/>
-
-<meta property="article:modified_time" content="2020-07-22T00:00:00-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2020-07-22T00:00:00-07:00" />
+<meta property="article:modified_time" content="2020-07-22T00:00:00-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Set Container To Run A Bash Command On Start"/>
 <meta name="twitter:description" content="Set a Docker container to run a bash command upon launch in Docker."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Set Container To Run A Bash Command On Start",
-  "url": "https://chrisalbon.com/docker/command_line/set_container_to_run_a_bash_command_on_start/",
+  "url": "https:\/\/chrisalbon.com\/docker\/command_line\/set_container_to_run_a_bash_command_on_start\/",
   "wordCount": "113",
   "datePublished": "2020-07-22T00:00:00-07:00",
   "dateModified": "2020-07-22T00:00:00-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,35 +170,19 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<h2 id="create-docker-container-with-entrypoint-and-default-command">Create Docker Container With Entrypoint And Default Command</h2>
-
+  <h2 id="create-docker-container-with-entrypoint-and-default-command">Create Docker Container With Entrypoint And Default Command</h2>
 <p>Create a Docker container (<code>docker container create</code>) called application (<code>--name application</code>) built of the <code>ubuntu:latest</code> image. Upon starting the container launches bash (<code>--entrypoint &quot;/bin/bash&quot;</code>) and runs <code>-c &quot;echo 'hello world'&quot;</code>.</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">docker container create --name application --entrypoint <span class="s2">&#34;/bin/bash&#34;</span> ubuntu:latest -c <span class="s2">&#34;echo &#39;hello world&#39;&#34;</span></code></pre></div>
-
 <pre><code>70a1a028a374e5c61007c01062c8be0f59a4406a89000ea0a59451553628a0bf
-</code></pre>
-
-<h2 id="create-new-image">Create New Image</h2>
-
+</code></pre><h2 id="create-new-image">Create New Image</h2>
 <p>Create a new image (<code>docker container commit</code>) from the <code>application</code> container called <code>new-application</code>. Add author info (<code>-a &quot;Chris Albon&quot;</code>) and a commit message (<code>-m &quot;Added analysis file&quot;</code>).</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">docker container commit -a <span class="s2">&#34;Chris Albon&#34;</span> -m <span class="s2">&#34;Added entrypoint and command&#34;</span> application new-application</code></pre></div>
-
 <pre><code>sha256:ce5f6bd0eb9f474ee8491d0e49e356260ef8daf591946539cf84201fd6253168
-</code></pre>
-
-<h2 id="run-new-image">Run New Image</h2>
-
+</code></pre><h2 id="run-new-image">Run New Image</h2>
 <p>Run the docker container (<code>docker container run</code>) called <code>new-application</code>.</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">docker container run new-application</code></pre></div>
-
 <pre><code>hello world
 </code></pre>
-
 </div>
   <aside>
       <div class="bug_reporting">
@@ -228,7 +206,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

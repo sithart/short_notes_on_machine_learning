@@ -20,27 +20,13 @@
 <meta property="og:description" content="Add environment variables in Dockerfiles." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/docker/dockerfiles/add_environment_variables/" />
-
-
-
-<meta property="article:published_time" content="2020-07-22T00:00:00-07:00"/>
-
-<meta property="article:modified_time" content="2020-07-22T00:00:00-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2020-07-22T00:00:00-07:00" />
+<meta property="article:modified_time" content="2020-07-22T00:00:00-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Add Environment Variables"/>
 <meta name="twitter:description" content="Add environment variables in Dockerfiles."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,8 +34,8 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Add Environment Variables",
-  "url": "https://chrisalbon.com/docker/dockerfiles/add_environment_variables/",
-  "wordCount": "144",
+  "url": "https:\/\/chrisalbon.com\/docker\/dockerfiles\/add_environment_variables\/",
+  "wordCount": "146",
   "datePublished": "2020-07-22T00:00:00-07:00",
   "dateModified": "2020-07-22T00:00:00-07:00",
   "author": {
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,25 +170,18 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<h2 id="create-dockerfile">Create Dockerfile</h2>
-
+  <h2 id="create-dockerfile">Create Dockerfile</h2>
 <div class="highlight"><pre class="chroma"><code class="language-docker" data-lang="docker"><span class="c"># Build from ubuntu:latest</span><span class="err">
 </span><span class="err"></span><span class="k">FROM</span><span class="s"> ubuntu:latest</span><span class="err">
 </span><span class="err">
 </span><span class="err"></span><span class="c"># Create a environment variable called db_name</span><span class="err">
-</span><span class="err"></span><span class="k">ENV</span><span class="s"> db_name=&#34;staff_database&#34;</span><span class="err">
+</span><span class="err"></span><span class="k">ENV</span> <span class="nv">db_name</span><span class="o">=</span><span class="s2">&#34;staff_database&#34;</span><span class="err">
 </span><span class="err">
 </span><span class="err"></span><span class="c"># Create a environment variable called db_password</span><span class="err">
-</span><span class="err"></span><span class="k">ENV</span><span class="s"> db_password &#34;legendofkorra&#34;</span></code></pre></div>
-
+</span><span class="err"></span><span class="k">ENV</span> db_password <span class="s2">&#34;legendofkorra&#34;</span></code></pre></div>
 <h2 id="build-image-from-dockerfile">Build Image From Dockerfile</h2>
-
 <p>Build the Dockerfile (<code>docker build</code>) in the current directory (<code>.</code>) and call the image chrisalbon/big-project:v4 (<code>--tag chrisalbon/big-project:v4</code>).</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">docker build --tag chrisalbon/big-project:v4 .</code></pre></div>
-
 <pre><code>Sending build context to Docker daemon  2.048kB
 Step 1/3 : FROM ubuntu:latest
  ---&gt; 1e4467b07108
@@ -208,26 +195,15 @@ Removing intermediate container f37d4ad7408b
  ---&gt; f4ac811b0c45
 Successfully built f4ac811b0c45
 Successfully tagged chrisalbon/big-project:v4
-</code></pre>
-
-<h2 id="run-docker-container-from-image">Run Docker Container From Image</h2>
-
+</code></pre><h2 id="run-docker-container-from-image">Run Docker Container From Image</h2>
 <p>Create and start (<code>docker container run</code>) an interactive (<code>-it</code>) container named project_v4 (<code>--name project_v4</code>) from the image called <code>chrisalbon/big-project:v4</code> and then run <code>/bin/bash</code>.</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">docker container run -it --name project_v4 chrisalbon/big-project:v4 /bin/bash</code></pre></div>
-
 <pre><code>root@20b64531c6c9:/#
-</code></pre>
-
-<h2 id="view-environment-variable">View Environment Variable</h2>
-
+</code></pre><h2 id="view-environment-variable">View Environment Variable</h2>
 <p>Print (<code>echo</code>) the variable <code>$db_name</code>.</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="nv">$db_name</span></code></pre></div>
-
 <pre><code>staff_database
 </code></pre>
-
 </div>
   <aside>
       <div class="bug_reporting">
@@ -251,7 +227,7 @@ Successfully tagged chrisalbon/big-project:v4
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

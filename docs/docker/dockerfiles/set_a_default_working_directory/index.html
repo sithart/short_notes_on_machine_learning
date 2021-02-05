@@ -20,27 +20,13 @@
 <meta property="og:description" content="Set a default working directory using Dockerfiles." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/docker/dockerfiles/set_a_default_working_directory/" />
-
-
-
-<meta property="article:published_time" content="2020-07-22T00:00:00-07:00"/>
-
-<meta property="article:modified_time" content="2020-07-22T00:00:00-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2020-07-22T00:00:00-07:00" />
+<meta property="article:modified_time" content="2020-07-22T00:00:00-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Set A Default Working Directory"/>
 <meta name="twitter:description" content="Set a default working directory using Dockerfiles."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Set A Default Working Directory",
-  "url": "https://chrisalbon.com/docker/dockerfiles/set_a_default_working_directory/",
+  "url": "https:\/\/chrisalbon.com\/docker\/dockerfiles\/set_a_default_working_directory\/",
   "wordCount": "135",
   "datePublished": "2020-07-22T00:00:00-07:00",
   "dateModified": "2020-07-22T00:00:00-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,22 +170,15 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
+  <h2 id="create-dockerfile">Create Dockerfile</h2>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Build from base image</span>
+FROM ubuntu:latest
 
-<h2 id="create-dockerfile">Create Dockerfile</h2>
-
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Build from base image
-</span><span class="c1"></span>FROM ubuntu:latest
-
-<span class="c1"># Set a default working directory to tmp/
-</span><span class="c1"></span>WORKDIR tmp/</code></pre></div>
-
+<span class="c1"># Set a default working directory to tmp/</span>
+WORKDIR tmp/</code></pre></div>
 <h2 id="build-image-from-dockerfile">Build Image From Dockerfile</h2>
-
 <p>Build the Dockerfile (<code>docker build</code>) in the current directory (<code>.</code>) and call the image chrisalbon/big-project:working-directory (<code>--tag chrisalbon/big-project:working-directory</code>).</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">docker build --tag chrisalbon/big-project:working-directory .</code></pre></div>
-
 <pre><code>Sending build context to Docker daemon  4.608kB
 Step 1/2 : FROM ubuntu:latest
  ---&gt; 1e4467b07108
@@ -201,18 +188,11 @@ Removing intermediate container 9937480bdea0
  ---&gt; 89173bdc678a
 Successfully built 89173bdc678a
 Successfully tagged chrisalbon/big-project:working-directory
-</code></pre>
-
-<h2 id="run-docker-container-from-image">Run Docker Container From Image</h2>
-
+</code></pre><h2 id="run-docker-container-from-image">Run Docker Container From Image</h2>
 <p>Start and create (<code>docker run</code>) an interative (<code>-it</code>) Docker container called copy-example (<code>--name working-directory</code>) from the image called <code>chrisalbon/big-project:working-directory</code>. Open a shell (<code>/bin/bash</code>). Remove the container after it stops (<code>-rm</code>)</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">docker container run -it --name working-directory chrisalbon/big-project:working-directory /bin/bash</code></pre></div>
-
 <pre><code>root@a45354732687:/tmp# 
-</code></pre>
-
-<p>Notice that when the container runs the working directory is <code>tmp</code></p>
+</code></pre><p>Notice that when the container runs the working directory is <code>tmp</code></p>
 
 </div>
   <aside>
@@ -237,7 +217,7 @@ Successfully tagged chrisalbon/big-project:working-directory
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

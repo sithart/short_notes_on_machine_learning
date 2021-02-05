@@ -20,27 +20,13 @@
 <meta property="og:description" content="Regular expression by Example." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/python/data_wrangling/regex_by_example/" />
-
-
-
-<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
-
-<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00" />
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Regular Expression By Example"/>
 <meta name="twitter:description" content="Regular expression by Example."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,8 +34,8 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Regular Expression By Example",
-  "url": "https://chrisalbon.com/python/data_wrangling/regex_by_example/",
-  "wordCount": "653",
+  "url": "https:\/\/chrisalbon.com\/python\/data_wrangling\/regex_by_example\/",
+  "wordCount": "654",
   "datePublished": "2017-12-20T11:53:49-07:00",
   "dateModified": "2017-12-20T11:53:49-07:00",
   "author": {
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,36 +170,31 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Import regex</span>
-<span class="kn">import</span> <span class="nn">re</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create some data</span>
-<span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;A flock of 120 quick brown foxes jumped over 30 lazy brown, bears.&#39;</span></code></pre></div>
-<h3 id="matches-beginning-of-line">^ Matches beginning of line.</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;^A&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span></code></pre></div>
-<pre><code>['A']
+  <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Import regex</span>
+<span class="kn">import</span> <span class="nn">re</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create some data</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;A flock of 120 quick brown foxes jumped over 30 lazy brown, bears.&#39;</span>
+</code></pre></div><h3 id="-matches-beginning-of-line">^ Matches beginning of line.</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;^A&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</code></pre></div><pre><code>['A']
 </code></pre>
-
-<h3 id="matches-end-of-line">$ Matches end of line.</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;bears.$&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span></code></pre></div>
-<pre><code>['bears.']
+<h3 id="-matches-end-of-line">$ Matches end of line.</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;bears.$&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</code></pre></div><pre><code>['bears.']
 </code></pre>
-
-<h3 id="matches-any-single-character-except-newline">. Matches any single character except newline.</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;f..es&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span></code></pre></div>
-<pre><code>['foxes']
+<h3 id="-matches-any-single-character-except-newline">. Matches any single character except newline.</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;f..es&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</code></pre></div><pre><code>['foxes']
 </code></pre>
-
-<h3 id="matches-any-single-character-in-brackets"><code>[...]</code> Matches any single character in brackets.</h3>
+<h3 id="-matches-any-single-character-in-brackets"><code>[...]</code> Matches any single character in brackets.</h3>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Find all vowels</span>
-<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;[aeiou]&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span></code></pre></div>
-<pre><code>['o', 'o', 'u', 'i', 'o', 'o', 'e', 'u', 'e', 'o', 'e', 'a', 'o', 'e', 'a']
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;[aeiou]&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</code></pre></div><pre><code>['o', 'o', 'u', 'i', 'o', 'o', 'e', 'u', 'e', 'o', 'e', 'a', 'o', 'e', 'a']
 </code></pre>
-
-<h3 id="matches-any-single-character-not-in-brackets"><code>[# ^...]</code> Matches any single character not in brackets</h3>
+<h3 id="--matches-any-single-character-not-in-brackets"><code>[# ^...]</code> Matches any single character not in brackets</h3>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Find all characters that are not lower-case vowels</span>
-<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;[^aeiou]&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span></code></pre></div>
-<pre><code>['A',
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;[^aeiou]&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</code></pre></div><pre><code>['A',
  ' ',
  'f',
  'l',
@@ -257,37 +246,31 @@ MathJax.Hub.Config({
  's',
  '.']
 </code></pre>
-
-<h3 id="a-b-matches-either-a-or-b"><code>a | b</code> Matches either a or b.</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;a|A&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span></code></pre></div>
-<pre><code>['A', 'a', 'a']
+<h3 id="a--b-matches-either-a-or-b"><code>a | b</code> Matches either a or b.</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;a|A&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</code></pre></div><pre><code>['A', 'a', 'a']
 </code></pre>
-
 <h3 id="re-groups-regular-expressions-and-remembers-matched-text"><code>(re)</code> Groups regular expressions and remembers matched text.</h3>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Find any instance of &#39;fox&#39;</span>
-<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;(foxes)&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span></code></pre></div>
-<pre><code>['foxes']
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;(foxes)&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</code></pre></div><pre><code>['foxes']
 </code></pre>
-
 <h3 id="w-matches-word-characters"><code>\w</code> Matches word characters.</h3>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Break up string into five character blocks</span>
-<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;\w\w\w\w\w&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span></code></pre></div>
-<pre><code>['flock', 'quick', 'brown', 'foxes', 'jumpe', 'brown', 'bears']
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;\w\w\w\w\w&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</code></pre></div><pre><code>['flock', 'quick', 'brown', 'foxes', 'jumpe', 'brown', 'bears']
 </code></pre>
-
 <h3 id="w-matches-nonword-characters"><code>\W</code> Matches nonword characters.</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;\W\W&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span></code></pre></div>
-<pre><code>[', ']
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;\W\W&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</code></pre></div><pre><code>[', ']
 </code></pre>
-
-<h3 id="s-matches-whitespace-equivalent-to-t-n-r-f"><code>\s</code> Matches whitespace. Equivalent to <code>[\t\n\r\f]</code>.</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;\s&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span></code></pre></div>
-<pre><code>[' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+<h3 id="s-matches-whitespace-equivalent-to-tnrf"><code>\s</code> Matches whitespace. Equivalent to <code>[\t\n\r\f]</code>.</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;\s&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</code></pre></div><pre><code>[' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
 </code></pre>
-
 <h3 id="s-matches-nonwhitespace"><code>\S</code> Matches nonwhitespace.</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;\S\S&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span></code></pre></div>
-<pre><code>['fl',
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;\S\S&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</code></pre></div><pre><code>['fl',
  'oc',
  'of',
  '12',
@@ -312,15 +295,13 @@ MathJax.Hub.Config({
  'ar',
  's.']
 </code></pre>
-
 <h3 id="d-matches-digits-equivalent-to-0-9"><code>\d</code> Matches digits. Equivalent to <code>[0-9]</code>.</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;\d\d\d&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span></code></pre></div>
-<pre><code>['120']
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;\d\d\d&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</code></pre></div><pre><code>['120']
 </code></pre>
-
 <h3 id="d-matches-nondigits"><code>\D</code> Matches nondigits.</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;\D\D\D\D\D&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span></code></pre></div>
-<pre><code>['A flo',
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;\D\D\D\D\D&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</code></pre></div><pre><code>['A flo',
  'ck of',
  ' quic',
  'k bro',
@@ -332,135 +313,109 @@ MathJax.Hub.Config({
  ' brow',
  'n, be']
 </code></pre>
-
 <h3 id="a-matches-beginning-of-string"><code>\A</code> Matches beginning of string.</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;\AA&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span></code></pre></div>
-<pre><code>['A']
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;\AA&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</code></pre></div><pre><code>['A']
 </code></pre>
-
 <h3 id="z-matches-end-of-string-if-a-newline-exists-it-matches-just-before-newline"><code>\Z</code> Matches end of string. If a newline exists, it matches just before newline.</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;bears.\Z&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span></code></pre></div>
-<pre><code>['bears.']
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;bears.\Z&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</code></pre></div><pre><code>['bears.']
 </code></pre>
-
 <h3 id="b-matches-end-of-string"><code>\b</code> Matches end of string.</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\b</span><span class="s1">[foxes]&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span></code></pre></div>
-<pre><code>[]
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\b</span><span class="s1">[foxes]&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</code></pre></div><pre><code>[]
 </code></pre>
-
 <h3 id="n-t-etc-matches-newlines-carriage-returns-tabs-etc"><code>\n</code>, <code>\t</code>, etc. Matches newlines, carriage returns, tabs, etc.</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span></code></pre></div>
-<pre><code>[]
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</code></pre></div><pre><code>[]
 </code></pre>
-
-<h3 id="pp-ython-match-python-or-python"><code>[Pp]ython</code> Match &ldquo;Python&rdquo; or &ldquo;python&rdquo;</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;[Ff]oxes&#39;</span><span class="p">,</span> <span class="s1">&#39;foxes Foxes Doxes&#39;</span><span class="p">)</span></code></pre></div>
-<pre><code>['foxes', 'Foxes']
+<h3 id="ppython-match-python-or-python"><code>[Pp]ython</code> Match &ldquo;Python&rdquo; or &ldquo;python&rdquo;</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;[Ff]oxes&#39;</span><span class="p">,</span> <span class="s1">&#39;foxes Foxes Doxes&#39;</span><span class="p">)</span>
+</code></pre></div><pre><code>['foxes', 'Foxes']
 </code></pre>
-
 <h3 id="0-9-match-any-digit-same-as-0123456789"><code>[0-9]</code> Match any digit; same as <code>[0123456789]</code></h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;[Ff]oxes&#39;</span><span class="p">,</span> <span class="s1">&#39;foxes Foxes Doxes&#39;</span><span class="p">)</span></code></pre></div>
-<pre><code>['foxes', 'Foxes']
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;[Ff]oxes&#39;</span><span class="p">,</span> <span class="s1">&#39;foxes Foxes Doxes&#39;</span><span class="p">)</span>
+</code></pre></div><pre><code>['foxes', 'Foxes']
 </code></pre>
-
 <h3 id="a-z-match-any-lowercase-ascii-letter"><code>[a-z]</code> Match any lowercase ASCII letter</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;[a-z]&#39;</span><span class="p">,</span> <span class="s1">&#39;foxes Foxes&#39;</span><span class="p">)</span></code></pre></div>
-<pre><code>['f', 'o', 'x', 'e', 's', 'o', 'x', 'e', 's']
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;[a-z]&#39;</span><span class="p">,</span> <span class="s1">&#39;foxes Foxes&#39;</span><span class="p">)</span>
+</code></pre></div><pre><code>['f', 'o', 'x', 'e', 's', 'o', 'x', 'e', 's']
 </code></pre>
-
 <h3 id="a-z-match-any-uppercase-ascii-letter"><code>[A-Z]</code> Match any uppercase ASCII letter</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;[A-Z]&#39;</span><span class="p">,</span> <span class="s1">&#39;foxes Foxes&#39;</span><span class="p">)</span></code></pre></div>
-<pre><code>['F']
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;[A-Z]&#39;</span><span class="p">,</span> <span class="s1">&#39;foxes Foxes&#39;</span><span class="p">)</span>
+</code></pre></div><pre><code>['F']
 </code></pre>
-
 <h3 id="a-za-z0-9-match-any-of-the-above"><code>[a-zA-Z0-9]</code> Match any of the above</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;[a-zA-Z0-9]&#39;</span><span class="p">,</span> <span class="s1">&#39;foxes Foxes&#39;</span><span class="p">)</span></code></pre></div>
-<pre><code>['f', 'o', 'x', 'e', 's', 'F', 'o', 'x', 'e', 's']
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;[a-zA-Z0-9]&#39;</span><span class="p">,</span> <span class="s1">&#39;foxes Foxes&#39;</span><span class="p">)</span>
+</code></pre></div><pre><code>['f', 'o', 'x', 'e', 's', 'F', 'o', 'x', 'e', 's']
 </code></pre>
-
 <h3 id="aeiou-match-anything-other-than-a-lowercase-vowel"><code>[^aeiou]</code> Match anything other than a lowercase vowel</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;[^aeiou]&#39;</span><span class="p">,</span> <span class="s1">&#39;foxes Foxes&#39;</span><span class="p">)</span></code></pre></div>
-<pre><code>['f', 'x', 's', ' ', 'F', 'x', 's']
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;[^aeiou]&#39;</span><span class="p">,</span> <span class="s1">&#39;foxes Foxes&#39;</span><span class="p">)</span>
+</code></pre></div><pre><code>['f', 'x', 's', ' ', 'F', 'x', 's']
 </code></pre>
-
 <h3 id="0-9-match-anything-other-than-a-digit"><code>[^0-9]</code> Match anything other than a digit</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;[^0-9]&#39;</span><span class="p">,</span> <span class="s1">&#39;foxes Foxes&#39;</span><span class="p">)</span></code></pre></div>
-<pre><code>['f', 'o', 'x', 'e', 's', ' ', 'F', 'o', 'x', 'e', 's']
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;[^0-9]&#39;</span><span class="p">,</span> <span class="s1">&#39;foxes Foxes&#39;</span><span class="p">)</span>
+</code></pre></div><pre><code>['f', 'o', 'x', 'e', 's', ' ', 'F', 'o', 'x', 'e', 's']
 </code></pre>
-
 <h3 id="ruby-match-rub-or-ruby-the-y-is-optional"><code>ruby?</code> Match &ldquo;rub&rdquo; or &ldquo;ruby&rdquo;: the y is optional</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;foxes?&#39;</span><span class="p">,</span> <span class="s1">&#39;foxes Foxes&#39;</span><span class="p">)</span></code></pre></div>
-<pre><code>['foxes']
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;foxes?&#39;</span><span class="p">,</span> <span class="s1">&#39;foxes Foxes&#39;</span><span class="p">)</span>
+</code></pre></div><pre><code>['foxes']
 </code></pre>
-
 <h3 id="ruby-match-rub-plus-0-or-more-ys"><code>ruby*</code> Match &ldquo;rub&rdquo; plus 0 or more ys</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;ox*&#39;</span><span class="p">,</span> <span class="s1">&#39;foxes Foxes&#39;</span><span class="p">)</span></code></pre></div>
-<pre><code>['ox', 'ox']
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;ox*&#39;</span><span class="p">,</span> <span class="s1">&#39;foxes Foxes&#39;</span><span class="p">)</span>
+</code></pre></div><pre><code>['ox', 'ox']
 </code></pre>
-
 <h3 id="ruby-match-rub-plus-1-or-more-ys"><code>ruby+</code> Match &ldquo;rub&rdquo; plus 1 or more ys</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;ox+&#39;</span><span class="p">,</span> <span class="s1">&#39;foxes Foxes&#39;</span><span class="p">)</span></code></pre></div>
-<pre><code>['ox', 'ox']
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;ox+&#39;</span><span class="p">,</span> <span class="s1">&#39;foxes Foxes&#39;</span><span class="p">)</span>
+</code></pre></div><pre><code>['ox', 'ox']
 </code></pre>
-
-<h3 id="d-3-match-exactly-3-digits"><code>\d{3}</code> Match exactly 3 digits</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;\d{3}&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span></code></pre></div>
-<pre><code>['120']
+<h3 id="d3-match-exactly-3-digits"><code>\d{3}</code> Match exactly 3 digits</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;\d{3}&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</code></pre></div><pre><code>['120']
 </code></pre>
-
-<h3 id="d-3-match-3-or-more-digits"><code>\d{3,}</code> Match 3 or more digits</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;\d{2,}&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span></code></pre></div>
-<pre><code>['120', '30']
+<h3 id="d3-match-3-or-more-digits"><code>\d{3,}</code> Match 3 or more digits</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;\d{2,}&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</code></pre></div><pre><code>['120', '30']
 </code></pre>
-
-<h3 id="d-3-5-match-3-4-or-5-digits"><code>\d{3,5}</code> Match 3, 4, or 5 digits</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;\d{2,3}&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span></code></pre></div>
-<pre><code>['120', '30']
+<h3 id="d35-match-3-4-or-5-digits"><code>\d{3,5}</code> Match 3, 4, or 5 digits</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;\d{2,3}&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</code></pre></div><pre><code>['120', '30']
 </code></pre>
-
 <h3 id="python-match-python-at-the-start-of-a-string-or-internal-line"><code>^Python</code> Match &ldquo;Python&rdquo; at the start of a string or internal line</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;^A&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span></code></pre></div>
-<pre><code>['A']
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;^A&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</code></pre></div><pre><code>['A']
 </code></pre>
-
 <h3 id="python-match-python-at-the-end-of-a-string-or-line"><code>Python$</code> Match &ldquo;Python&rdquo; at the end of a string or line</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;bears.$&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span></code></pre></div>
-<pre><code>['bears.']
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;bears.$&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</code></pre></div><pre><code>['bears.']
 </code></pre>
-
 <h3 id="apython-match-python-at-the-start-of-a-string"><code>\APython</code> Match &ldquo;Python&rdquo; at the start of a string</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;\AA&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span></code></pre></div>
-<pre><code>['A']
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;\AA&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</code></pre></div><pre><code>['A']
 </code></pre>
-
-<h3 id="python-z-match-python-at-the-end-of-a-string"><code>Python\Z</code> Match &ldquo;Python&rdquo; at the end of a string</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;bears.\Z&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span></code></pre></div>
-<pre><code>['bears.']
+<h3 id="pythonz-match-python-at-the-end-of-a-string"><code>Python\Z</code> Match &ldquo;Python&rdquo; at the end of a string</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;bears.\Z&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</code></pre></div><pre><code>['bears.']
 </code></pre>
-
 <h3 id="python-match-python-if-followed-by-an-exclamation-point"><code>Python(?=!)</code> Match &ldquo;Python&rdquo;, if followed by an exclamation point</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;bears(?=.)&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span></code></pre></div>
-<pre><code>['bears']
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;bears(?=.)&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</code></pre></div><pre><code>['bears']
 </code></pre>
-
 <h3 id="python-match-python-if-not-followed-by-an-exclamation-point"><code>Python(?!!)</code> Match &ldquo;Python&rdquo;, if not followed by an exclamation point</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;foxes(?!!)&#39;</span><span class="p">,</span> <span class="s1">&#39;foxes foxes!&#39;</span><span class="p">)</span></code></pre></div>
-<pre><code>['foxes']
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;foxes(?!!)&#39;</span><span class="p">,</span> <span class="s1">&#39;foxes foxes!&#39;</span><span class="p">)</span>
+</code></pre></div><pre><code>['foxes']
 </code></pre>
-
-<h3 id="python-perl-match-python-or-perl"><code>python|perl</code> Match &ldquo;python&rdquo; or &ldquo;perl&rdquo;</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;foxes|foxes!&#39;</span><span class="p">,</span> <span class="s1">&#39;foxes foxes!&#39;</span><span class="p">)</span></code></pre></div>
-<pre><code>['foxes', 'foxes']
+<h3 id="pythonperl-match-python-or-perl"><code>python|perl</code> Match &ldquo;python&rdquo; or &ldquo;perl&rdquo;</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;foxes|foxes!&#39;</span><span class="p">,</span> <span class="s1">&#39;foxes foxes!&#39;</span><span class="p">)</span>
+</code></pre></div><pre><code>['foxes', 'foxes']
 </code></pre>
-
-<h3 id="rub-y-le-match-ruby-or-ruble"><code>rub(y|le))</code> Match &ldquo;ruby&rdquo; or &ldquo;ruble&rdquo;</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;fox(es!)&#39;</span><span class="p">,</span> <span class="s1">&#39;foxes foxes!&#39;</span><span class="p">)</span></code></pre></div>
-<pre><code>['es!']
+<h3 id="rubyle-match-ruby-or-ruble"><code>rub(y|le))</code> Match &ldquo;ruby&rdquo; or &ldquo;ruble&rdquo;</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;fox(es!)&#39;</span><span class="p">,</span> <span class="s1">&#39;foxes foxes!&#39;</span><span class="p">)</span>
+</code></pre></div><pre><code>['es!']
 </code></pre>
-
-<h3 id="python-python-followed-by-one-or-more-or-one"><code>Python(!+|\?)</code> &ldquo;Python&rdquo; followed by one or more ! or one ?</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;foxes(!)&#39;</span><span class="p">,</span> <span class="s1">&#39;foxes foxes!&#39;</span><span class="p">)</span></code></pre></div>
-<pre><code>['!']
+<h3 id="python-python-followed-by-one-or-more--or-one-"><code>Python(!+|\?)</code> &ldquo;Python&rdquo; followed by one or more ! or one ?</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;foxes(!)&#39;</span><span class="p">,</span> <span class="s1">&#39;foxes foxes!&#39;</span><span class="p">)</span>
+</code></pre></div><pre><code>['!']
 </code></pre>
 
 </div>
@@ -486,7 +441,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

@@ -20,27 +20,13 @@
 <meta property="og:description" content="How to copy files and directories using the Linux command line." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/linux/basics/copy_files_and_directories/" />
-
-
-
-<meta property="article:published_time" content="2018-07-16T00:00:00-07:00"/>
-
-<meta property="article:modified_time" content="2018-07-16T00:00:00-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2018-07-16T00:00:00-07:00" />
+<meta property="article:modified_time" content="2018-07-16T00:00:00-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Copy Files And Directories"/>
 <meta name="twitter:description" content="How to copy files and directories using the Linux command line."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Copy Files And Directories",
-  "url": "https://chrisalbon.com/linux/basics/copy_files_and_directories/",
+  "url": "https:\/\/chrisalbon.com\/linux\/basics\/copy_files_and_directories\/",
   "wordCount": "133",
   "datePublished": "2018-07-16T00:00:00-07:00",
   "dateModified": "2018-07-16T00:00:00-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,45 +170,25 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<p>The <code>cp</code> command copy-pastes the file to a destination directory. The <code>mv</code> command moves a file (deleting it from the original directory).</p>
-
+  <p>The <code>cp</code> command copy-pastes the file to a destination directory. The <code>mv</code> command moves a file (deleting it from the original directory).</p>
 <h2 id="make-file">Make File</h2>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">touch file.txt</code></pre></div>
-
 <h2 id="make-directory">Make Directory</h2>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">mkdir example</code></pre></div>
-
 <h2 id="view-directory-contents-directory">View Directory Contents Directory</h2>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">ls -l</code></pre></div>
-
 <pre><code>total 4
 drwxrwxr-x 2 chris chris 4096 Jul 24 08:49 example
 -rw-rw-r-- 1 chris chris    0 Jul 24 08:49 file.txt
-</code></pre>
-
-<h2 id="copy-file-to-directory">Copy File To Directory</h2>
-
+</code></pre><h2 id="copy-file-to-directory">Copy File To Directory</h2>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">cp file.txt example</code></pre></div>
-
 <h2 id="change-to-directory">Change To Directory</h2>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">cd example</code></pre></div>
-
 <h2 id="view-directory-contents-directory-1">View Directory Contents Directory</h2>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">ls -l</code></pre></div>
-
 <pre><code>total 0
 -rw-rw-r-- 1 chris chris 0 Jul 24 08:49 file.txt
-</code></pre>
-
-<h3 id="cp-options"><code>cp</code> Options:</h3>
-
+</code></pre><h3 id="cp-options"><code>cp</code> Options:</h3>
 <ul>
 <li><code>-a</code> Copy with original permissions and attributes</li>
 <li><code>-u</code> Copy only files that don&rsquo;t exist or are newer than files with the same names in the destination directory</li>
@@ -246,7 +220,7 @@ drwxrwxr-x 2 chris chris 4096 Jul 24 08:49 example
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

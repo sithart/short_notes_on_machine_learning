@@ -20,27 +20,13 @@
 <meta property="og:description" content="Return the first few rows of a table in Snowflake using SQL." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/snowflake/sql/basics/return_first_few_rows/" />
-
-
-
-<meta property="article:published_time" content="2019-01-28T00:00:00-07:00"/>
-
-<meta property="article:modified_time" content="2019-01-28T00:00:00-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2019-01-28T00:00:00-07:00" />
+<meta property="article:modified_time" content="2019-01-28T00:00:00-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Return First Few Rows"/>
 <meta name="twitter:description" content="Return the first few rows of a table in Snowflake using SQL."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Return First Few Rows",
-  "url": "https://chrisalbon.com/snowflake/sql/basics/return_first_few_rows/",
+  "url": "https:\/\/chrisalbon.com\/snowflake\/sql\/basics\/return_first_few_rows\/",
   "wordCount": "158",
   "datePublished": "2019-01-28T00:00:00-07:00",
   "dateModified": "2019-01-28T00:00:00-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,10 +170,7 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<h2 id="create-table-of-superheroes">Create Table Of Superheroes</h2>
-
+  <h2 id="create-table-of-superheroes">Create Table Of Superheroes</h2>
 <div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- Create a table called SUPERHEROES.
 </span><span class="c1"></span><span class="k">CREATE</span> <span class="k">OR</span> <span class="k">REPLACE</span> <span class="k">TABLE</span> <span class="n">SUPERHEROES</span> <span class="p">(</span>
   <span class="c1">-- Column called ALTER_EGO allowing up to 100 characters
@@ -189,10 +180,8 @@ MathJax.Hub.Config({
   <span class="c1">-- Column called STATE allowing up to 100 characters
 </span><span class="c1"></span>  <span class="s2">&#34;STATE&#34;</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 <span class="p">);</span></code></pre></div>
-
 <h2 id="insert-rows-for-each-superhero">Insert Rows For Each Superhero</h2>
-
-<p><div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- Insert rows into SUPERHEROES
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- Insert rows into SUPERHEROES
 </span><span class="c1"></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">SUPERHEROES</span> 
     <span class="c1">-- With the values
 </span><span class="c1"></span>    <span class="k">VALUES</span>
@@ -205,11 +194,9 @@ MathJax.Hub.Config({
     <span class="p">(</span><span class="s1">&#39;Augustine&#39;</span><span class="p">,</span> <span class="s1">&#39;12&#39;</span><span class="p">,</span> <span class="s1">&#39;California&#39;</span><span class="p">),</span>
     <span class="p">(</span><span class="s1">&#39;The Kid&#39;</span><span class="p">,</span> <span class="s1">&#39;21&#39;</span><span class="p">,</span> <span class="s1">&#39;New York&#39;</span><span class="p">),</span>
     <span class="p">(</span><span class="s1">&#39;The Viking&#39;</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="s1">&#39;New York&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="s1">&#39;Skull Hustle&#39;</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="s1">&#39;New York&#39;</span><span class="p">);</span></code></pre></div></p>
-
+    <span class="p">(</span><span class="s1">&#39;Skull Hustle&#39;</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="s1">&#39;New York&#39;</span><span class="p">);</span></code></pre></div>
 <h2 id="return-first-rows">Return First Rows</h2>
-
-<p><div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- Select all columns from SUPERHEROES
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- Select all columns from SUPERHEROES
 </span><span class="c1"></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">SUPERHEROES</span>
 <span class="c1">-- Return the first five rows
 </span><span class="c1"></span><span class="k">LIMIT</span> <span class="mi">5</span><span class="p">;</span></code></pre></div>
@@ -248,8 +235,7 @@ MathJax.Hub.Config({
             <td>California</td>
         </tr>
     </tbody>
-</table></p>
-
+</table>
 </div>
   <aside>
       <div class="bug_reporting">
@@ -273,7 +259,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

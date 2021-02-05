@@ -20,27 +20,13 @@
 <meta property="og:description" content="About Chris Albon." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/about/chris_albon/" />
-
-
-
-<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
-
-<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00" />
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="About Chris Albon"/>
 <meta name="twitter:description" content="About Chris Albon."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
     
@@ -58,26 +44,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -150,25 +144,17 @@ MathJax.Hub.Config({
 <article>
   <div class="page">
     <div class="content">
-      
-
-<p><img src="chris_albon_banner.jpg"></img></p>
-
+      <p><img src="chris_albon_banner.jpg"></img></p>
 <p>I have spent over a decade applying statistical learning, artificial intelligence, and software engineering to political, social, and humanitarian efforts. I am the Director of Machine Learning at the <a href="https://wikimediafoundation.org/">Wikimedia Foundation</a>. Previously, I was the Director of Data Science at <a href="https://www.devoted.com/">Devoted Health</a>, Director of Data Science at the Kenyan startup <a href="https://www.brck.com/">BRCK</a>, cofounded the AI startup <a href="https://www.Yonder.co">Yonder</a>, created the data science podcast <a href="https://www.partiallyderivative.com">Partially Derivative</a>, was the Director of Data Science at the humanitarian non-profit <a href="https://www.ushahidi.com">Ushahidi</a>, and was the director of the low-resource technology governance project at <a href="http://www.frontlinesms.com">FrontlineSMS</a>. I also wrote <a href="https://www.amazon.com/Machine-Learning-Python-Cookbook-Preprocessing/dp/1491989386">Machine Learning For Python Cookbook</a> (O&rsquo;Reilly 2018) and created <a href="https://machinelearningflashcards.com/">Machine Learning Flashcards</a>.</p>
-
 <p>I earned a Ph.D. in Political Science from the University of California, Davis researching the quantitative impact of civil wars on health care systems. I earned a B.A. from the University of Miami, where I triple majored in political science, international studies, and religious studies.</p>
-
 <ul>
-<li>Email: &#099;&#114;&#097;&#108;&#098;&#111;&#110;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;</li>
+<li>Email: <a href="mailto:cralbon@gmail.com">cralbon@gmail.com</a></li>
 <li>Twitter: <a href="https://twitter.com/chrisalbon">@chrisalbon</a></li>
 </ul>
-
 <h2 id="selected-experience">Selected Experience</h2>
-
 <ul>
 <li><strong>Director of Machine Learning</strong>, <a href="https://wikimediafoundation.org/">Wikimedia Foundation</a>, June 2020 - Present</li>
 <li><strong>Director of Data Science</strong>, <a href="http://www.devoted.com/">Devoted Health</a>, July 2018 - April 2020
-
 <ul>
 <li>Created a psychologically safe and high output team culture during a period of explosive growth and high pressure</li>
 <li>Developed and drove a data science recruitment and candidate evaluation pipeline that grew the team from 3 to 10 in less than a year</li>
@@ -177,80 +163,77 @@ MathJax.Hub.Config({
 <li>Shipped a sales analytics system that drove Devoted&rsquo;s ~400% growth in the 2020 open enrollment</li>
 <li>Shipped a mail targeting system determining millions of dollars in advertising spending</li>
 <li>Shipped a financial tracking system accurately handling tens of millions of events</li>
-</ul></li>
+</ul>
+</li>
 <li><strong>Director of Data Science</strong>, <a href="https://www.brck.com/">BRCK</a>, June 2017 - July 2018
-
 <ul>
 <li>Implemented a data science and machine learning strategy across the company</li>
 <li>Built the company&rsquo;s data science architecture from the ground up</li>
 <li>Deployed machine learning models that improved network performance, lowered operating cost, and identified optimal deployment locations</li>
-</ul></li>
+</ul>
+</li>
 <li><strong>Co-founder</strong>, <a href="https://www.yonder.co/">Yonder</a>, 2015 - 2016
-
 <ul>
 <li>Led the technical team that shipped the first version of the product on time and on budget</li>
-</ul></li>
+</ul>
+</li>
 <li><strong>Director of Data Science</strong>, <a href="http://www.ushahidi.com">Ushahidi</a>, 2013 - 2015
-
 <ul>
 <li>Recruited and managed a team of data scientists analyzing and modeling mobile messaging during humanitarian crises</li>
 <li>Designed, built, and launched an open API of humanitarian crisis data</li>
-</ul></li>
+</ul>
+</li>
 <li><strong>Project Director</strong>, <a href="http://www.frontlinesms.com">FrontlineSMS</a>, 2011 - 2013
-
 <ul>
 <li>Incorporated free, open source SMS messaging software into local humanitarian, intl. development, and election monitoring actions around the world.</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h2 id="selected-projects">Selected Projects</h2>
-
 <ul>
 <li><strong>Creator</strong>, <a href="https://chrisalbon.com">ChrisAlbon.com</a>, 2015 - Present
-
 <ul>
 <li>Created one of the most popular Python and Machine Learning tutorial sites online</li>
 <li>Personally wrote over 600 technical tutorials on Python, Pandas, Scala, SQL, Scikit-Learn, Keras, PyTorch, command line, and more</li>
 <li>Serves over 20,000 unique visitors every weekday</li>
-</ul></li>
+</ul>
+</li>
 <li><strong>Author</strong>, <a href="http://machinelearningflashcards.com/">Machine Learning Flashcards</a>, 2018 - Present
-
 <ul>
 <li>Created 300 hand-drawn digital flashcards describing concepts in machine learning</li>
 <li>Sold almost 10,000 copies and helped dozens of folks get jobs in machine learning</li>
-</ul></li>
+</ul>
+</li>
 <li><strong>Author</strong>, <a href="https://amzn.to/2HwnWty">Machine Learning With Python Cookbook</a>, <a href="https://www.oreilly.com/">O’Reilly Media</a>, 2018
-
 <ul>
 <li>Authored the Python machine learning book in O&rsquo;Reilly Media&rsquo;s cookbook series</li>
 <li>Book is a highly regarded desk reference for working data scientists with 4.6 stars on Amazon</li>
-</ul></li>
+</ul>
+</li>
 <li><strong>Co-founder &amp; Co-host</strong>, <a href="http://www.partiallyderivative.com">Partially Derivative</a>, 2014 - 2017
-
 <ul>
 <li>Co-founded a popular podcast on data science and machine learning.</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h2 id="education">Education</h2>
-
 <ul>
 <li><strong>Ph.D., Political Science</strong>, University of California, Davis. 2012
-
 <ul>
 <li>Dissertation: &ldquo;Civil Wars And Health Systems&rdquo;, a quantitative analysis of the determinants of rebel and government behavior towards health system destruction and reconstruction using original data</li>
 <li>Fields: International Relations, Quantitative Methodology, and Epidemiology</li>
-</ul></li>
+</ul>
+</li>
 <li><strong>M.A., Political Science</strong>, University of California, Davis. 2010
-
 <ul>
 <li>Thesis: &ldquo;U.N. Peace Operations And Public Health After Civil War&rdquo;</li>
-</ul></li>
+</ul>
+</li>
 <li><strong>B.A.</strong>, University of Miami, Miami, FL. 2006
-
 <ul>
 <li>Triple majored in political science, international studies, and religious studies</li>
-</ul></li>
+</ul>
+</li>
 </ul>
 
     </div>
@@ -267,7 +250,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

@@ -1,6 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://chrisalbon.com/articles/100_day_sprint/</loc>
+    <lastmod>2020-12-01T11:53:49-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/articles/index.xml</loc>
+    <lastmod>2020-12-01T11:53:49-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/</loc>
+    <lastmod>2020-12-01T11:53:49-07:00</lastmod>
+  </url>
   
   <url>
     <loc>https://chrisalbon.com/docker/dockerfiles/add_a_file_from_a_url_to_images/</loc>
@@ -63,6 +78,11 @@
   </url>
   
   <url>
+    <loc>https://chrisalbon.com/docker/index.xml</loc>
+    <lastmod>2020-07-22T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chrisalbon.com/docker/command_line/exporting_all_files_folders_out_of_a_container/</loc>
     <lastmod>2020-07-22T00:00:00-07:00</lastmod>
   </url>
@@ -94,6 +114,11 @@
   
   <url>
     <loc>https://chrisalbon.com/docker/command_line/list_containers/</loc>
+    <lastmod>2020-07-22T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/php/index.xml</loc>
     <lastmod>2020-07-22T00:00:00-07:00</lastmod>
   </url>
   
@@ -228,6 +253,16 @@
   </url>
   
   <url>
+    <loc>https://chrisalbon.com/linux/index.xml</loc>
+    <lastmod>2020-07-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/python/index.xml</loc>
+    <lastmod>2020-07-12T11:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chrisalbon.com/python/basics/using_iterable_as_function_arguments/</loc>
     <lastmod>2020-07-12T11:00:00+00:00</lastmod>
   </url>
@@ -258,6 +293,11 @@
   </url>
   
   <url>
+    <loc>https://chrisalbon.com/machine_learning_engineering/index.xml</loc>
+    <lastmod>2020-07-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chrisalbon.com/machine_learning_engineering/yaml/multiline_strings/</loc>
     <lastmod>2020-07-03T00:00:00+00:00</lastmod>
   </url>
@@ -278,12 +318,27 @@
   </url>
   
   <url>
+    <loc>https://chrisalbon.com/data_science_management/index.xml</loc>
+    <lastmod>2020-03-23T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chrisalbon.com/data_science_management/what_i_said_to_my_team_during_covid-19/</loc>
     <lastmod>2020-03-23T00:00:00-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://chrisalbon.com/deep_learning/pytorch/basics/check_if_pytorch_is_using_gpu/</loc>
+    <lastmod>2020-02-01T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/deep_learning/index.xml</loc>
+    <lastmod>2020-02-01T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/git_and_github/index.xml</loc>
     <lastmod>2020-02-01T00:00:00-07:00</lastmod>
   </url>
   
@@ -303,7 +358,17 @@
   </url>
   
   <url>
+    <loc>https://chrisalbon.com/machine_learning/index.xml</loc>
+    <lastmod>2019-12-20T11:53:49-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chrisalbon.com/machine_learning/trees_and_forests/outlier_detection_with_isolation_forests/</loc>
+    <lastmod>2019-12-20T11:53:49-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/statistics/index.xml</loc>
     <lastmod>2019-12-20T11:53:49-07:00</lastmod>
   </url>
   
@@ -434,6 +499,11 @@
   
   <url>
     <loc>https://chrisalbon.com/snowflake/sql/basics/sample_rows_from_table/</loc>
+    <lastmod>2019-01-28T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/snowflake/index.xml</loc>
     <lastmod>2019-01-28T00:00:00-07:00</lastmod>
   </url>
   
@@ -593,6 +663,11 @@
   </url>
   
   <url>
+    <loc>https://chrisalbon.com/postgresql/index.xml</loc>
+    <lastmod>2018-06-18T11:53:49-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chrisalbon.com/postgresql/add_delete_change/add_column/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
@@ -639,6 +714,11 @@
   
   <url>
     <loc>https://chrisalbon.com/linux/basics/archive_and_unarchive_files/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/aws/index.xml</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
   
@@ -1308,6 +1388,11 @@
   </url>
   
   <url>
+    <loc>https://chrisalbon.com/linux/basics/view_version_of_package/</loc>
+    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chrisalbon.com/postgresql/basics/view_unique_values/</loc>
     <lastmod>2018-06-17T00:00:00-07:00</lastmod>
   </url>
@@ -1343,12 +1428,12 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/machine_learning/feature_selection/anova_f-value_for_feature_selection/</loc>
+    <loc>https://chrisalbon.com/about/chris_albon/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/about/chris_albon/</loc>
+    <loc>https://chrisalbon.com/about/index.xml</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
   
@@ -1393,6 +1478,16 @@
   </url>
   
   <url>
+    <loc>https://chrisalbon.com/machine_learning/feature_selection/anova_f-value_for_feature_selection/</loc>
+    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/python/basics/any_all_max_min_sum/</loc>
+    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chrisalbon.com/python/data_wrangling/pandas_apply_function_by_group/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
@@ -1419,6 +1514,11 @@
   
   <url>
     <loc>https://chrisalbon.com/python/data_wrangling/pandas_apply_operations_to_dataframes/</loc>
+    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/mathematics/basics/argmin_and_argmax/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
   
@@ -1613,6 +1713,11 @@
   </url>
   
   <url>
+    <loc>https://chrisalbon.com/computer_science/index.xml</loc>
+    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chrisalbon.com/python/basics/concurrent_processing/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
@@ -1628,17 +1733,17 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/python/data_wrangling/csv_to_python_code/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://chrisalbon.com/python/data_wrangling/pandas_convert_categorical_to_dummies/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://chrisalbon.com/python/data_wrangling/pandas_convert_numeric_categorical_to_numeric_with_patsy/</loc>
+    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/python/data_wrangling/csv_to_python_code/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
   
@@ -1663,12 +1768,12 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/convert_strings_to_dates/</loc>
+    <loc>https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/convert_pandas_column_timezone/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/convert_pandas_column_timezone/</loc>
+    <loc>https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/convert_strings_to_dates/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
   
@@ -1693,12 +1798,22 @@
   </url>
   
   <url>
+    <loc>https://chrisalbon.com/python/data_wrangling/pandas_create_column_using_conditional/</loc>
+    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/create_a_matrix/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://chrisalbon.com/python/basics/create_a_new_file_and_the_write_to_it/</loc>
+    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/python/data_wrangling/pandas_create_column_with_loop/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
   
@@ -1728,11 +1843,6 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/python/data_wrangling/pandas_create_column_with_loop/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://chrisalbon.com/machine_learning/model_evaluation/create_baseline_classification_model/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
@@ -1749,11 +1859,6 @@
   
   <url>
     <loc>https://chrisalbon.com/machine_learning/linear_regression/create_interaction_features/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/python/data_wrangling/pandas_create_column_using_conditional/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
   
@@ -1803,17 +1908,17 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/machine_learning/clustering/dbscan_clustering/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://chrisalbon.com/python/basics/data_structure_basics/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://chrisalbon.com/python/basics/date_and_time_basics/</loc>
+    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/machine_learning/clustering/dbscan_clustering/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
   
@@ -2273,6 +2378,11 @@
   </url>
   
   <url>
+    <loc>https://chrisalbon.com/python/basics/if_and_if_else_statements/</loc>
+    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chrisalbon.com/scala/basics/if_else/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
@@ -2368,12 +2478,17 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/machine_learning/nearest_neighbors/k-nearest_neighbors_classifer/</loc>
+    <loc>https://chrisalbon.com/deep_learning/keras/k-fold_cross-validating_neural_networks/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/deep_learning/keras/lstm_recurrent_neural_network/</loc>
+    <loc>https://chrisalbon.com/machine_learning/clustering/k-means_clustering/</loc>
+    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/machine_learning/nearest_neighbors/k-nearest_neighbors_classifer/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
   
@@ -2433,12 +2548,12 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/machine_learning/basics/untitled/</loc>
+    <loc>https://chrisalbon.com/machine_learning/basics/loading_features_from_dictionaries/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/machine_learning/basics/loading_features_from_dictionaries/</loc>
+    <loc>https://chrisalbon.com/machine_learning/basics/untitled/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
   
@@ -2494,6 +2609,11 @@
   
   <url>
     <loc>https://chrisalbon.com/python/data_wrangling/pandas_lowercase_column_names/</loc>
+    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/deep_learning/keras/lstm_recurrent_neural_network/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
   
@@ -2608,12 +2728,12 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/regex/patterns/match_us_phone_numbers/</loc>
+    <loc>https://chrisalbon.com/regex/patterns/match_us_uk_spellings/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/regex/patterns/match_us_uk_spellings/</loc>
+    <loc>https://chrisalbon.com/regex/patterns/match_us_phone_numbers/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
   
@@ -2634,6 +2754,11 @@
   
   <url>
     <loc>https://chrisalbon.com/python/basics/math_operations/</loc>
+    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/mathematics/index.xml</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
   
@@ -2759,6 +2884,16 @@
   
   <url>
     <loc>https://chrisalbon.com/machine_learning/preprocessing_structured_data/one-hot_encode_nominal_categorical_features/</loc>
+    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/python/data_wrangling/pandas_data_structures/</loc>
+    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/python/data_wrangling/pandas_time_series_basics/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
   
@@ -2918,6 +3053,11 @@
   </url>
   
   <url>
+    <loc>https://chrisalbon.com/regex/index.xml</loc>
+    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chrisalbon.com/python/data_wrangling/regular_expressions_basics/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
@@ -2973,6 +3113,11 @@
   </url>
   
   <url>
+    <loc>https://chrisalbon.com/python/basics/repr_vs_str/</loc>
+    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chrisalbon.com/machine_learning/preprocessing_structured_data/rescale_a_feature/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
@@ -2998,11 +3143,6 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/machine_learning/support_vector_machines/svc_parameters_using_rbf_kernel/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://chrisalbon.com/machine_learning/preprocessing_images/save_images/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
@@ -3019,6 +3159,11 @@
   
   <url>
     <loc>https://chrisalbon.com/machine_learning/basics/saving_machine_learning_models/</loc>
+    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/scala/index.xml</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
   
@@ -3093,6 +3238,11 @@
   </url>
   
   <url>
+    <loc>https://chrisalbon.com/python/data_wrangling/pandas_selecting_rows_on_conditions/</loc>
+    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chrisalbon.com/machine_learning/linear_regression/selecting_best_alpha_value_in_ridge_regression/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
@@ -3104,11 +3254,6 @@
   
   <url>
     <loc>https://chrisalbon.com/machine_learning/feature_engineering/select_best_number_of_components_in_tsvd/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/python/data_wrangling/pandas_selecting_rows_on_conditions/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
   
@@ -3244,6 +3389,11 @@
   
   <url>
     <loc>https://chrisalbon.com/machine_learning/support_vector_machines/support_vector_classifier/</loc>
+    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/machine_learning/support_vector_machines/svc_parameters_using_rbf_kernel/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
   
@@ -3408,52 +3558,12 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/scala/basics/zip_together_two_lists/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/python/basics/any_all_max_min_sum/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/mathematics/basics/argmin_and_argmax/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/python/basics/if_and_if_else_statements/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/deep_learning/keras/k-fold_cross-validating_neural_networks/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/machine_learning/clustering/k-means_clustering/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/python/data_wrangling/pandas_data_structures/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/python/data_wrangling/pandas_time_series_basics/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/python/basics/repr_vs_str/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://chrisalbon.com/python/basics/while_statements/</loc>
+    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/scala/basics/zip_together_two_lists/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
   
@@ -3484,126 +3594,6 @@
   
   <url>
     <loc>https://chrisalbon.com/python/basics/untitled/</loc>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/about/index.xml</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/articles/index.xml</loc>
-    <lastmod>2016-02-01T11:53:49-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/aws/index.xml</loc>
-    <lastmod>2018-06-17T00:00:00-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/</loc>
-    <lastmod>2020-07-22T00:00:00-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/computer_science/index.xml</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/data_science_management/index.xml</loc>
-    <lastmod>2020-03-23T00:00:00-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/deep_learning/index.xml</loc>
-    <lastmod>2020-02-01T00:00:00-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/docker/index.xml</loc>
-    <lastmod>2020-07-22T00:00:00-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/git_and_github/index.xml</loc>
-    <lastmod>2020-02-01T00:00:00-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/linux/index.xml</loc>
-    <lastmod>2020-07-17T00:00:00-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/machine_learning_engineering/index.xml</loc>
-    <lastmod>2020-07-03T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/machine_learning/index.xml</loc>
-    <lastmod>2019-12-20T11:53:49-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/mathematics/index.xml</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/php/index.xml</loc>
-    <lastmod>2020-07-22T00:00:00-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/postgresql/index.xml</loc>
-    <lastmod>2018-06-18T11:53:49-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/python/index.xml</loc>
-    <lastmod>2020-07-12T11:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/regex/index.xml</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/scala/index.xml</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/snowflake/index.xml</loc>
-    <lastmod>2019-01-28T00:00:00-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/statistics/index.xml</loc>
-    <lastmod>2019-12-20T11:53:49-07:00</lastmod>
-    <priority>0</priority>
   </url>
   
 </urlset>

@@ -20,27 +20,13 @@
 <meta property="og:description" content="How to write for loop statements strings using the Linux command line." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/linux/flow_control/for_loops/" />
-
-
-
-<meta property="article:published_time" content="2018-06-17T00:00:00-07:00"/>
-
-<meta property="article:modified_time" content="2018-06-17T00:00:00-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2018-06-17T00:00:00-07:00" />
+<meta property="article:modified_time" content="2018-06-17T00:00:00-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="For Loops"/>
 <meta name="twitter:description" content="How to write for loop statements strings using the Linux command line."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,8 +34,8 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "For Loops",
-  "url": "https://chrisalbon.com/linux/flow_control/for_loops/",
-  "wordCount": "106",
+  "url": "https:\/\/chrisalbon.com\/linux\/flow_control\/for_loops\/",
+  "wordCount": "108",
   "datePublished": "2018-06-17T00:00:00-07:00",
   "dateModified": "2018-06-17T00:00:00-07:00",
   "author": {
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,33 +170,22 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<h2 id="create-for-loop">Create For Loop</h2>
-
+  <h2 id="create-for-loop">Create For Loop</h2>
 <p>In plain English: For each name in Lucien, Maurice, Renald, Johnson, and Alfred, print the name.</p>
-
-<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">for name in Lucien Maurice Renald Johnson Alfred; do<span class="err">
-</span><span class="err"></span>    echo $name<span class="err">
-</span><span class="err"></span>done</code></pre></div>
-
+<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">for name in Lucien Maurice Renald Johnson Alfred; do
+    echo $name
+done</code></pre></div>
 <pre><code>Lucien
 Maurice
 Renald
 Johnson
 Alfred
-</code></pre>
-
-<h2 id="create-c-style-for-loop">Create C Style For Loop</h2>
-
+</code></pre><h2 id="create-c-style-for-loop">Create C Style For Loop</h2>
 <p>Alternatively, we can use a style of for loop seen in the programming language C.</p>
-
 <p>In plain English: Starting with <code>i</code> being 0, (<code>i=0</code>), as long as <code>i</code> is less than 10 (<code>i&lt;10</code>), keep returning <code>i</code>, adding one to <code>i</code> (<code>i=i+1</code>) at the end of each loop.</p>
-
-<p><div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">for (( i=0; i&lt;10; i=i+1 )); do<span class="err">
-</span><span class="err"></span>        echo $i<span class="err">
-</span><span class="err"></span>done</code></pre></div></p>
-
+<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">for (( i=0; i<span class="p">&lt;</span><span class="nt">10</span><span class="err">;</span> <span class="na">i</span><span class="o">=</span><span class="s">i+1</span> <span class="err">));</span> <span class="na">do</span>
+        <span class="na">echo</span> <span class="err">$</span><span class="na">i</span>
+<span class="na">done</span></code></pre></div>
 <pre><code>0
 1
 2
@@ -214,7 +197,6 @@ Alfred
 8
 9
 </code></pre>
-
 </div>
   <aside>
       <div class="bug_reporting">
@@ -238,7 +220,7 @@ Alfred
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

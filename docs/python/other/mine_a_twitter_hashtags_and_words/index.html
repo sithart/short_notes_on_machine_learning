@@ -20,35 +20,21 @@
 <meta property="og:description" content="Mine Twitter&#39;s stream for hashtags or words." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/python/other/mine_a_twitter_hashtags_and_words/" />
-
-
-
-<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
-
-<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00" />
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Mine Twitter&#39;s Stream For Hashtags Or Words"/>
 <meta name="twitter:description" content="Mine Twitter&#39;s stream for hashtags or words."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
 {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
-  "headline": "Mine Twitter&#39;s Stream For Hashtags Or Words",
-  "url": "https://chrisalbon.com/python/other/mine_a_twitter_hashtags_and_words/",
+  "headline": "Mine Twitter\u0027s Stream For Hashtags Or Words",
+  "url": "https:\/\/chrisalbon.com\/python\/other\/mine_a_twitter_hashtags_and_words\/",
   "wordCount": "555",
   "datePublished": "2017-12-20T11:53:49-07:00",
   "dateModified": "2017-12-20T11:53:49-07:00",
@@ -56,7 +42,7 @@
     "@type": "Person",
     "name": "Chris Albon"
   },
-  "description": "Mine Twitter&#39;s stream for hashtags or words."
+  "description": "Mine Twitter\u0027s stream for hashtags or words."
 }
 </script> 
 
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,12 +170,8 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<p>This is a script which monitor&rsquo;s Twitter for tweets containing certain hashtags, words, or phrases. When one of those appears, it saves that tweet, and the user&rsquo;s information to a csv file. A similar version of this script is available on <a href="https://github.com/chrisalbon/twitter_miner">GitHub here</a>. The main difference between the code presented here and the repo is that here I am added extensive comments in the code explaining what is happening. Also, the code below runs as a Jupyter notebook.</p>
-
+  <p>This is a script which monitor&rsquo;s Twitter for tweets containing certain hashtags, words, or phrases. When one of those appears, it saves that tweet, and the user&rsquo;s information to a csv file. A similar version of this script is available on <a href="https://github.com/chrisalbon/twitter_miner">GitHub here</a>. The main difference between the code presented here and the repo is that here I am added extensive comments in the code explaining what is happening. Also, the code below runs as a Jupyter notebook.</p>
 <p>To get the code below to run, you need to added your own Twitter API credentials.</p>
-
 <h2 id="preliminaries">Preliminaries</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1">#Import libraries</span>
 <span class="kn">from</span> <span class="nn">tweepy.streaming</span> <span class="kn">import</span> <span class="n">StreamListener</span>
@@ -189,8 +179,8 @@ MathJax.Hub.Config({
 <span class="kn">from</span> <span class="nn">tweepy</span> <span class="kn">import</span> <span class="n">Stream</span>
 <span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">csv</span>
-<span class="kn">import</span> <span class="nn">sys</span></code></pre></div>
-<h2 id="create-a-twitter-stream-miner">Create A Twitter Stream Miner</h2>
+<span class="kn">import</span> <span class="nn">sys</span>
+</code></pre></div><h2 id="create-a-twitter-stream-miner">Create A Twitter Stream Miner</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a streamer object</span>
 <span class="k">class</span> <span class="nc">StdOutListener</span><span class="p">(</span><span class="n">StreamListener</span><span class="p">):</span>
     
@@ -266,7 +256,7 @@ MathJax.Hub.Config({
                                     <span class="n">status</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">statuses_count</span><span class="p">,</span>
                                     <span class="n">status</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">description</span><span class="p">,</span>
                                     <span class="n">status</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">location</span><span class="p">,</span>
-                                    <span class="n">status</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="nb">id</span><span class="p">,</span>
+                                    <span class="n">status</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
                                     <span class="n">status</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">created_at</span><span class="p">,</span>
                                     <span class="n">status</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">verified</span><span class="p">,</span>
                                     <span class="n">status</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">following</span><span class="p">,</span>
@@ -284,7 +274,7 @@ MathJax.Hub.Config({
                                     <span class="n">status</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">profile_background_color</span><span class="p">,</span>
                                     <span class="n">status</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">profile_image_url</span><span class="p">,</span>
                                     <span class="n">status</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">time_zone</span><span class="p">,</span>
-                                    <span class="n">status</span><span class="o">.</span><span class="nb">id</span><span class="p">,</span>
+                                    <span class="n">status</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
                                     <span class="n">status</span><span class="o">.</span><span class="n">favorite_count</span><span class="p">,</span>
                                     <span class="n">status</span><span class="o">.</span><span class="n">retweeted</span><span class="p">,</span>
                                     <span class="n">status</span><span class="o">.</span><span class="n">source</span><span class="p">,</span>
@@ -341,8 +331,8 @@ MathJax.Hub.Config({
         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
         
         <span class="c1"># Return nothing</span>
-        <span class="k">return</span></code></pre></div>
-<h2 id="create-a-wrapper-for-the-miner">Create A Wrapper For The Miner</h2>
+        <span class="k">return</span>
+</code></pre></div><h2 id="create-a-wrapper-for-the-miner">Create A Wrapper For The Miner</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a mining function</span>
 <span class="k">def</span> <span class="nf">start_mining</span><span class="p">(</span><span class="n">queries</span><span class="p">):</span>
     <span class="s1">&#39;&#39;&#39;
@@ -366,11 +356,11 @@ MathJax.Hub.Config({
     <span class="n">stream</span> <span class="o">=</span> <span class="n">Stream</span><span class="p">(</span><span class="n">auth</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
 
     <span class="c1"># Run the stream object using the user defined queries</span>
-    <span class="n">stream</span><span class="o">.</span><span class="nb">filter</span><span class="p">(</span><span class="n">track</span><span class="o">=</span><span class="n">queries</span><span class="p">)</span></code></pre></div>
-<h2 id="run-the-stream-miner">Run The Stream Miner</h2>
+    <span class="n">stream</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">track</span><span class="o">=</span><span class="n">queries</span><span class="p">)</span>
+</code></pre></div><h2 id="run-the-stream-miner">Run The Stream Miner</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Start the miner</span>
-<span class="n">start_mining</span><span class="p">([</span><span class="s1">&#39;python&#39;</span><span class="p">,</span> <span class="s1">&#39;#Python&#39;</span><span class="p">])</span></code></pre></div>
-<pre><code>Encountered error with status code: 401
+<span class="n">start_mining</span><span class="p">([</span><span class="s1">&#39;python&#39;</span><span class="p">,</span> <span class="s1">&#39;#Python&#39;</span><span class="p">])</span>
+</code></pre></div><pre><code>Encountered error with status code: 401
 </code></pre>
 
 </div>
@@ -396,7 +386,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

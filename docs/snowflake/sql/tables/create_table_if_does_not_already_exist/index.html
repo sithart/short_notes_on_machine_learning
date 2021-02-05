@@ -20,35 +20,21 @@
 <meta property="og:description" content="How to create a table using SQL in Snowflake if it doesn&#39;t already exist." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/snowflake/sql/tables/create_table_if_does_not_already_exist/" />
-
-
-
-<meta property="article:published_time" content="2019-01-28T00:00:00-07:00"/>
-
-<meta property="article:modified_time" content="2019-01-28T00:00:00-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2019-01-28T00:00:00-07:00" />
+<meta property="article:modified_time" content="2019-01-28T00:00:00-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Create Table If It Doesn&#39;t Already Exist"/>
 <meta name="twitter:description" content="How to create a table using SQL in Snowflake if it doesn&#39;t already exist."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
 {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
-  "headline": "Create Table If It Doesn&#39;t Already Exist",
-  "url": "https://chrisalbon.com/snowflake/sql/tables/create_table_if_does_not_already_exist/",
+  "headline": "Create Table If It Doesn\u0027t Already Exist",
+  "url": "https:\/\/chrisalbon.com\/snowflake\/sql\/tables\/create_table_if_does_not_already_exist\/",
   "wordCount": "106",
   "datePublished": "2019-01-28T00:00:00-07:00",
   "dateModified": "2019-01-28T00:00:00-07:00",
@@ -56,7 +42,7 @@
     "@type": "Person",
     "name": "Chris Albon"
   },
-  "description": "How to create a table using SQL in Snowflake if it doesn&#39;t already exist."
+  "description": "How to create a table using SQL in Snowflake if it doesn\u0027t already exist."
 }
 </script> 
 
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,12 +170,8 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<h2 id="create-table">Create Table</h2>
-
+  <h2 id="create-table">Create Table</h2>
 <p><code>IF NOT EXISTS</code> tells Snowflake to only create the table if another table with the same name does not already exist. This can be useful if you don&rsquo;t want to run an expensive operation if the data is already there.</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- Create a table called SUPERHEROES.
 </span><span class="c1"></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="k">IF</span> <span class="k">NOT</span> <span class="k">EXISTS</span> <span class="n">SUPERHEROES</span> <span class="p">(</span>
   <span class="c1">-- Column called ID allowing up to five characters
@@ -217,7 +207,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

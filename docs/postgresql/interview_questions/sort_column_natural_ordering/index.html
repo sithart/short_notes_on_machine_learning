@@ -20,27 +20,13 @@
 <meta property="og:description" content="How to sort by natural ordering in an SQL database." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/postgresql/interview_questions/sort_column_natural_ordering/" />
-
-
-
-<meta property="article:published_time" content="2018-06-17T00:00:00-07:00"/>
-
-<meta property="article:modified_time" content="2018-06-17T00:00:00-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2018-06-17T00:00:00-07:00" />
+<meta property="article:modified_time" content="2018-06-17T00:00:00-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Sort By Natural Ordering"/>
 <meta name="twitter:description" content="How to sort by natural ordering in an SQL database."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Sort By Natural Ordering",
-  "url": "https://chrisalbon.com/postgresql/interview_questions/sort_column_natural_ordering/",
+  "url": "https:\/\/chrisalbon.com\/postgresql\/interview_questions\/sort_column_natural_ordering\/",
   "wordCount": "203",
   "datePublished": "2018-06-17T00:00:00-07:00",
   "dateModified": "2018-06-17T00:00:00-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,25 +170,16 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<h2 id="question">Question</h2>
-
+  <h2 id="question">Question</h2>
 <p>You are given a column of strings, sort them in natural order.</p>
-
 <h2 id="answer">Answer</h2>
-
 <p>Natural ordering is simply the ordering that a human would expect.</p>
-
 <h3 id="create-table">Create Table</h3>
-
 <div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">documents</span> <span class="p">(</span>
     <span class="c1">-- string variable
 </span><span class="c1"></span>    <span class="n">name</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span>
 <span class="p">)</span></code></pre></div>
-
 <h3 id="insert-values-into-table">Insert Values Into Table</h3>
-
 <div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- Insert into the table documents
 </span><span class="c1"></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">documents</span> <span class="p">(</span><span class="n">name</span><span class="p">)</span>
 <span class="c1">-- a list of files (notice the numbering)
@@ -214,10 +199,8 @@ MathJax.Hub.Config({
     <span class="p">(</span><span class="s1">&#39;file13.txt&#39;</span><span class="p">),</span>
     <span class="p">(</span><span class="s1">&#39;file14.txt&#39;</span><span class="p">),</span>
     <span class="p">(</span><span class="s1">&#39;file15.txt&#39;</span><span class="p">)</span></code></pre></div>
-
 <h3 id="view-table">View Table</h3>
-
-<p><div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- View all the rows
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- View all the rows
 </span><span class="c1"></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">documents</span></code></pre></div>
 <table>
 <tr><th>name</th></tr>
@@ -235,13 +218,10 @@ MathJax.Hub.Config({
 <tr><td>file12.txt</td></tr>
 <tr><td>file13.txt</td></tr>
 <tr><td>file14.txt</td></tr>
-<tr><td>file15.txt</td></tr></table></p>
-
+<tr><td>file15.txt</td></tr></table>
 <h3 id="view-table-sorted-in-non-natural-order">View Table Sorted In Non-Natural Order</h3>
-
 <p>Notice that simply using <code>ORDER BY</code> creates a non-natural ordering.</p>
-
-<p><div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- View all the rows
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- View all the rows
 </span><span class="c1"></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">documents</span>
 <span class="c1">-- Order them alphanumerically
 </span><span class="c1"></span><span class="k">ORDER</span> <span class="k">BY</span> <span class="n">name</span></code></pre></div>
@@ -261,13 +241,10 @@ MathJax.Hub.Config({
 <tr><td>file6.txt</td></tr>
 <tr><td>file7.txt</td></tr>
 <tr><td>file8.txt</td></tr>
-<tr><td>file9.txt</td></tr></table></p>
-
+<tr><td>file9.txt</td></tr></table>
 <h3 id="view-table-sorted-in-natural-order">View Table Sorted In Natural Order</h3>
-
 <p>The solution is to sort by length and then alphanumerically.</p>
-
-<p><div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- View all the rows
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- View all the rows
 </span><span class="c1"></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">documents</span>
 <span class="c1">-- Order them by length and then alphanumerically
 </span><span class="c1"></span><span class="k">ORDER</span> <span class="k">BY</span> <span class="k">LENGTH</span><span class="p">(</span><span class="n">name</span><span class="p">),</span> <span class="n">name</span></code></pre></div>
@@ -287,8 +264,7 @@ MathJax.Hub.Config({
 <tr><td>file12.txt</td></tr>
 <tr><td>file13.txt</td></tr>
 <tr><td>file14.txt</td></tr>
-<tr><td>file15.txt</td></tr></table></p>
-
+<tr><td>file15.txt</td></tr></table>
 </div>
   <aside>
       <div class="bug_reporting">
@@ -312,7 +288,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

@@ -20,27 +20,13 @@
 <meta property="og:description" content="Add Metadata in Dockerfiles." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/docker/dockerfiles/add_metadata/" />
-
-
-
-<meta property="article:published_time" content="2020-07-22T00:00:00-07:00"/>
-
-<meta property="article:modified_time" content="2020-07-22T00:00:00-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2020-07-22T00:00:00-07:00" />
+<meta property="article:modified_time" content="2020-07-22T00:00:00-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Add Metadata"/>
 <meta name="twitter:description" content="Add Metadata in Dockerfiles."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Add Metadata",
-  "url": "https://chrisalbon.com/docker/dockerfiles/add_metadata/",
+  "url": "https:\/\/chrisalbon.com\/docker\/dockerfiles\/add_metadata\/",
   "wordCount": "212",
   "datePublished": "2020-07-22T00:00:00-07:00",
   "dateModified": "2020-07-22T00:00:00-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,30 +170,23 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
+  <h2 id="create-dockerfile">Create Dockerfile</h2>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Build from the Python 3.8 slim image</span>
+FROM python:3.8-slim
 
-<h2 id="create-dockerfile">Create Dockerfile</h2>
+<span class="c1"># Maintainer label</span>
+LABEL <span class="nv">maintainer</span><span class="o">=</span><span class="s2">&#34;coder@chrisalbon.com&#34;</span>
 
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Build from the Python 3.8 slim image
-</span><span class="c1"></span>FROM python:3.8-slim
-
-<span class="c1"># Maintainer label
-</span><span class="c1"></span>LABEL <span class="nv">maintainer</span><span class="o">=</span><span class="s2">&#34;coder@chrisalbon.com&#34;</span>
-
-<span class="c1"># Labels from http://label-schema.org/rc1/
-</span><span class="c1"></span>LABEL org.label-schema.name<span class="o">=</span><span class="s2">&#34;chrisalbon/python-slim-3.8&#34;</span>
+<span class="c1"># Labels from http://label-schema.org/rc1/</span>
+LABEL org.label-schema.name<span class="o">=</span><span class="s2">&#34;chrisalbon/python-slim-3.8&#34;</span>
 LABEL org.label-schema.description<span class="o">=</span><span class="s2">&#34;A test container for ChrisAlbon.com&#34;</span>
 LABEL org.label-schema.url<span class="o">=</span><span class="s2">&#34;https://chrisalbon.com/&#34;</span>
 
-<span class="c1"># Update packages
-</span><span class="c1"></span>RUN apt-get update</code></pre></div>
-
+<span class="c1"># Update packages</span>
+RUN apt-get update</code></pre></div>
 <h2 id="build-image-from-dockerfile">Build Image From Dockerfile</h2>
-
 <p>Build the Dockerfile (<code>docker build</code>) in the current directory (<code>.</code>) and call the image chrisalbon/python-slim-3.8 (<code>--tag chrisalbon/python-slim-3.8</code>).</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">docker build --tag chrisalbon/python:updated .</code></pre></div>
-
 <pre><code>Sending build context to Docker daemon  2.048kB
 Step 1/6 : FROM python:3.8-slim
  ---&gt; 07ea617545cd
@@ -234,7 +221,6 @@ Removing intermediate container a9a53039186e
 Successfully built 1ac7fee0c377
 Successfully tagged big-project:v2
 </code></pre>
-
 </div>
   <aside>
       <div class="bug_reporting">
@@ -258,7 +244,7 @@ Successfully tagged big-project:v2
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

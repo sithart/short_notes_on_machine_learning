@@ -20,27 +20,13 @@
 <meta property="og:description" content="Lightweight Parallel Processing in Python." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/python/basics/parallel_processing/" />
-
-
-
-<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
-
-<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00" />
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Parallel Processing"/>
 <meta name="twitter:description" content="Lightweight Parallel Processing in Python."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Parallel Processing",
-  "url": "https://chrisalbon.com/python/basics/parallel_processing/",
+  "url": "https:\/\/chrisalbon.com\/python\/basics\/parallel_processing\/",
   "wordCount": "180",
   "datePublished": "2017-12-20T11:53:49-07:00",
   "dateModified": "2017-12-20T11:53:49-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,22 +170,19 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<p>This tutorial is inspired by Chris Kiehl&rsquo;s <a href="http://chriskiehl.com/article/parallelism-in-one-line/">great post on multiprocessing</a>.</p>
-
+  <p>This tutorial is inspired by Chris Kiehl&rsquo;s <a href="http://chriskiehl.com/article/parallelism-in-one-line/">great post on multiprocessing</a>.</p>
 <h2 id="preliminaries">Preliminaries</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Pool</span>
-<span class="kn">from</span> <span class="nn">multiprocessing.dummy</span> <span class="kn">import</span> <span class="n">Pool</span> <span class="k">as</span> <span class="n">ThreadPool</span> </code></pre></div>
-<h2 id="create-some-data">Create Some Data</h2>
+<span class="kn">from</span> <span class="nn">multiprocessing.dummy</span> <span class="kn">import</span> <span class="n">Pool</span> <span class="k">as</span> <span class="n">ThreadPool</span> 
+</code></pre></div><h2 id="create-some-data">Create Some Data</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a list of some data</span>
-<span class="n">data</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">29999</span><span class="p">)</span></code></pre></div>
-<h2 id="create-an-operation-to-execute-on-the-data">Create An Operation To Execute On The Data</h2>
+<span class="n">data</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">29999</span><span class="p">)</span>
+</code></pre></div><h2 id="create-an-operation-to-execute-on-the-data">Create An Operation To Execute On The Data</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a function that takes a data point</span>
 <span class="k">def</span> <span class="nf">some_function</span><span class="p">(</span><span class="n">datum</span><span class="p">):</span>
     <span class="c1"># and returns the datum raised to the power of itself</span>
-    <span class="k">return</span> <span class="n">datum</span><span class="o">**</span><span class="n">datum</span></code></pre></div>
-<h2 id="traditional-approach">Traditional Approach</h2>
+    <span class="k">return</span> <span class="n">datum</span><span class="o">**</span><span class="n">datum</span>
+</code></pre></div><h2 id="traditional-approach">Traditional Approach</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">%%</span><span class="n">time</span>
 
 <span class="c1"># Create an empty for the results</span>
@@ -200,24 +191,24 @@ MathJax.Hub.Config({
 <span class="c1"># For each value in the data</span>
 <span class="k">for</span> <span class="n">datum</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
     <span class="c1"># Append the output of the function when applied to that datum</span>
-    <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">some_function</span><span class="p">(</span><span class="n">datum</span><span class="p">))</span></code></pre></div>
-<pre><code>CPU times: user 2min 2s, sys: 1.7 s, total: 2min 4s
+    <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">some_function</span><span class="p">(</span><span class="n">datum</span><span class="p">))</span>
+</code></pre></div><pre><code>CPU times: user 2min 2s, sys: 1.7 s, total: 2min 4s
 Wall time: 2min 8s
 </code></pre>
-
 <h2 id="parallelism-approach">Parallelism Approach</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a pool of workers equaling cores on the machine</span>
-<span class="n">pool</span> <span class="o">=</span> <span class="n">ThreadPool</span><span class="p">()</span> </code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">%%</span><span class="n">time</span>
+<span class="n">pool</span> <span class="o">=</span> <span class="n">ThreadPool</span><span class="p">()</span> 
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">%%</span><span class="n">time</span>
 
 <span class="c1"># Apply (map) some_function to the data using the pool of workers</span>
-<span class="n">results</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="nb">map</span><span class="p">(</span><span class="n">some_function</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">some_function</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
 
 <span class="c1"># Close the pool</span>
 <span class="n">pool</span><span class="o">.</span><span class="n">close</span><span class="p">()</span> 
 
 <span class="c1"># Combine the results of the workers</span>
-<span class="n">pool</span><span class="o">.</span><span class="n">join</span><span class="p">()</span> </code></pre></div>
-<pre><code>CPU times: user 1min 56s, sys: 1.59 s, total: 1min 57s
+<span class="n">pool</span><span class="o">.</span><span class="n">join</span><span class="p">()</span> 
+</code></pre></div><pre><code>CPU times: user 1min 56s, sys: 1.59 s, total: 1min 57s
 Wall time: 1min 57s
 </code></pre>
 
@@ -244,7 +235,7 @@ Wall time: 1min 57s
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

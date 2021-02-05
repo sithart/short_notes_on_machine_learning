@@ -20,27 +20,13 @@
 <meta property="og:description" content="Chunk sequence in equal sized groups using Scala." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/scala/basics/chuck_sequence_into_equal_sized_groups/" />
-
-
-
-<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
-
-<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00" />
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Chunk Sequence In Equal Sized Groups"/>
 <meta name="twitter:description" content="Chunk sequence in equal sized groups using Scala."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Chunk Sequence In Equal Sized Groups",
-  "url": "https://chrisalbon.com/scala/basics/chuck_sequence_into_equal_sized_groups/",
+  "url": "https:\/\/chrisalbon.com\/scala\/basics\/chuck_sequence_into_equal_sized_groups\/",
   "wordCount": "103",
   "datePublished": "2017-12-20T11:53:49-07:00",
   "dateModified": "2017-12-20T11:53:49-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,21 +170,18 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<h2 id="create-an-array-sequence">Create An Array Sequence</h2>
+  <h2 id="create-an-array-sequence">Create An Array Sequence</h2>
 <div class="highlight"><pre class="chroma"><code class="language-scala" data-lang="scala"><span class="c1">// Create an array that contains arrays with first and last names
-</span><span class="c1"></span><span class="k">val</span> <span class="n">ages</span> <span class="k">=</span> <span class="nc">List</span><span class="o">(</span><span class="mi">42</span><span class="o">,</span><span class="mi">25</span><span class="o">,</span><span class="mi">28</span><span class="o">,</span><span class="mi">38</span><span class="o">,</span><span class="mi">58</span><span class="o">,</span><span class="mi">63</span><span class="o">,</span><span class="mi">23</span><span class="o">,</span><span class="mi">458</span><span class="o">,</span><span class="mi">2569</span><span class="o">,</span><span class="mi">584</span><span class="o">,</span><span class="mi">25</span><span class="o">,</span><span class="mi">25</span><span class="o">,</span><span class="mi">878</span><span class="o">)</span></code></pre></div>
-<h2 id="chunk-array-into-groups-of-two-elements">Chunk Array Into Groups Of Two Elements</h2>
+</span><span class="c1"></span><span class="k">val</span> <span class="n">ages</span> <span class="k">=</span> <span class="nc">List</span><span class="o">(</span><span class="mi">42</span><span class="o">,</span><span class="mi">25</span><span class="o">,</span><span class="mi">28</span><span class="o">,</span><span class="mi">38</span><span class="o">,</span><span class="mi">58</span><span class="o">,</span><span class="mi">63</span><span class="o">,</span><span class="mi">23</span><span class="o">,</span><span class="mi">458</span><span class="o">,</span><span class="mi">2569</span><span class="o">,</span><span class="mi">584</span><span class="o">,</span><span class="mi">25</span><span class="o">,</span><span class="mi">25</span><span class="o">,</span><span class="mi">878</span><span class="o">)</span>
+</code></pre></div><h2 id="chunk-array-into-groups-of-two-elements">Chunk Array Into Groups Of Two Elements</h2>
 <div class="highlight"><pre class="chroma"><code class="language-scala" data-lang="scala"><span class="c1">// Slide over sequence, create a list of two elements, then take two steps
-</span><span class="c1"></span><span class="n">ages</span><span class="o">.</span><span class="n">sliding</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span><span class="mi">2</span><span class="o">).</span><span class="n">toArray</span></code></pre></div>
-<pre><code>Array(List(42, 25), List(28, 38), List(58, 63), List(23, 458), List(2569, 584), List(25, 25), List(878))
+</span><span class="c1"></span><span class="n">ages</span><span class="o">.</span><span class="n">sliding</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span><span class="mi">2</span><span class="o">).</span><span class="n">toArray</span>
+</code></pre></div><pre><code>Array(List(42, 25), List(28, 38), List(58, 63), List(23, 458), List(2569, 584), List(25, 25), List(878))
 </code></pre>
-
 <h2 id="chunk-array-into-groups-of-two-elements-with-overlap">Chunk Array Into Groups Of Two Elements, With Overlap</h2>
 <div class="highlight"><pre class="chroma"><code class="language-scala" data-lang="scala"><span class="c1">// Slide over sequence, create a list of two elements, then take one step
-</span><span class="c1"></span><span class="n">ages</span><span class="o">.</span><span class="n">sliding</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span><span class="mi">1</span><span class="o">).</span><span class="n">toArray</span></code></pre></div>
-<pre><code>Array(List(42, 25), List(25, 28), List(28, 38), List(38, 58), List(58, 63), List(63, 23), List(23, 458), List(458, 2569), List(2569, 584), List(584, 25), List(25, 25), List(25, 878))
+</span><span class="c1"></span><span class="n">ages</span><span class="o">.</span><span class="n">sliding</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span><span class="mi">1</span><span class="o">).</span><span class="n">toArray</span>
+</code></pre></div><pre><code>Array(List(42, 25), List(25, 28), List(28, 38), List(38, 58), List(58, 63), List(63, 23), List(23, 458), List(458, 2569), List(2569, 584), List(584, 25), List(25, 25), List(25, 878))
 </code></pre>
 
 </div>
@@ -216,7 +207,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

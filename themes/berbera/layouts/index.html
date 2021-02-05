@@ -17,17 +17,11 @@
                 <p>
                     <a href="about/chris_albon/">I am the Director of Machine Learning</a> at the <a href="https://wikimediafoundation.org/">Wikimedia Foundation</a>. I have spent over a decade applying statistical learning, artificial intelligence, and software engineering to political, social, and humanitarian
                     efforts.</p>
-                <!--
-                <p>I write a <a href="https://chrisalbon.substack.com/subscribe">newsletter</a> exploring the practical nuts and bolts of building less harmful machine learning systems. </p>
-                -->
+
                 <p>Learning machine learning? Check out my
-                    <a href="https://machinelearningflashcards.com">Machine Learning Flashcards</a> or my book,
-                    <a href="https://amzn.to/2HwnWty">Machine Learning With Python Cookbook</a>.</p>
+                    <a href="https://machinelearningflashcards.com">Machine Learning Flashcards</a>, my book (<a href="https://amzn.to/2HwnWty">Machine Learning With Python Cookbook</a>), or come <a href="https://www.youtube.com/channel/UCnd4Fi-ODvuPbxR2fO2j7kA">study with me</a>.</p> 
             </div>
         </div>
-
-
-
 
         <div class="row" id="machine_learning">
             <div class="col-sm-12">
@@ -41,7 +35,11 @@
                         <h4 class="card-header">Basics</h4>
                         <div class="card-body">
                             <ul>
-                                {{ range (where .Pages "File.Dir" "in" "/machine_learning/basics/").ByTitle }}
+                                {{ $pages := .Pages }}
+                                {{ if .IsHome }}
+                                    {{ $pages = .Site.RegularPages }}
+                                {{ end }}
+                                {{ range (where $pages "File.Dir" "in" "/machine_learning/basics/") }}
                                 <li>
                                     <a href="{{.Permalink}}">{{.Title}}</a>
                                 </li>
@@ -58,7 +56,11 @@
                     <h4 class="card-header">Vectors, Matrices, And Arrays</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/machine_learning/vectors_matrices_and_arrays/").Reverse }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/machine_learning/vectors_matrices_and_arrays/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -75,7 +77,11 @@
                     <h4 class="card-header">Preprocessing Structured Data</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/machine_learning/preprocessing_structured_data/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/machine_learning/preprocessing_structured_data/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -92,7 +98,11 @@
                     <h4 class="card-header">Preprocessing Images</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/machine_learning/preprocessing_images/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/machine_learning/preprocessing_images/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -109,7 +119,11 @@
                     <h4 class="card-header">Preprocessing Text</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/machine_learning/preprocessing_text/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/machine_learning/preprocessing_text/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -126,7 +140,11 @@
                     <h4 class="card-header">Preprocessing Dates And Times</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/machine_learning/preprocessing_dates_and_times/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/machine_learning/preprocessing_dates_and_times/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -143,7 +161,11 @@
                     <h4 class="card-header">Feature Engineering</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/machine_learning/feature_engineering/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/machine_learning/feature_engineering/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -160,7 +182,11 @@
                     <h4 class="card-header">Feature Selection</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/machine_learning/feature_selection/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/machine_learning/feature_selection/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -177,7 +203,11 @@
                     <h4 class="card-header">Model Evaluation</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/machine_learning/model_evaluation/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/machine_learning/model_evaluation/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -194,7 +224,11 @@
                     <h4 class="card-header">Model Selection</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/machine_learning/model_selection/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/machine_learning/model_selection/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -211,7 +245,11 @@
                     <h4 class="card-header">Linear Regression</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/machine_learning/linear_regression/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/machine_learning/linear_regression/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -228,7 +266,11 @@
                     <h4 class="card-header">Logistic Regression</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/machine_learning/logistic_regression/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/machine_learning/logistic_regression/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -245,7 +287,11 @@
                     <h4 class="card-header">Trees And Forests</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/machine_learning/trees_and_forests/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/machine_learning/trees_and_forests/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -262,7 +308,11 @@
                     <h4 class="card-header">Nearest Neighbors</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/machine_learning/nearest_neighbors/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/machine_learning/nearest_neighbors/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -279,7 +329,11 @@
                     <h4 class="card-header">Support Vector Machines</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/machine_learning/support_vector_machines/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/machine_learning/support_vector_machines/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -296,7 +350,11 @@
                     <h4 class="card-header">Naive Bayes</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/machine_learning/naive_bayes/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/machine_learning/naive_bayes/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -313,7 +371,11 @@
                     <h4 class="card-header">Clustering</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/machine_learning/clustering/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/machine_learning/clustering/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -336,7 +398,11 @@
                     <h4 class="card-header">Setup</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/deep_learning/setup/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/deep_learning/setup/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -353,7 +419,11 @@
                     <h4 class="card-header">Keras</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/deep_learning/keras/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/deep_learning/keras/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -370,7 +440,11 @@
                     <h4 class="card-header">PyTorch</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/deep_learning/pytorch/basics/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/deep_learning/pytorch/basics/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -394,7 +468,11 @@
                     <h4 class="card-header">Basics</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/python/basics/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/python/basics/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -411,7 +489,11 @@
                     <h4 class="card-header">Data Wrangling</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/python/data_wrangling/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/python/data_wrangling/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -428,7 +510,11 @@
                     <h4 class="card-header">Data Visualization</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/python/data_visualization/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/python/data_visualization/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -445,7 +531,11 @@
                     <h4 class="card-header">Web Scraping</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/python/web_scraping/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/python/web_scraping/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -462,7 +552,11 @@
                     <h4 class="card-header">Testing</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/python/testing/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/python/testing/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -479,7 +573,11 @@
                     <h4 class="card-header">Logging</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/python/logging/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/python/logging/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -496,7 +594,11 @@
                     <h4 class="card-header">Other</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/python/other/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/python/other/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -519,7 +621,11 @@
                     <h4 class="card-header">Basics</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/statistics/basics/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/statistics/basics/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -536,7 +642,11 @@
                     <h4 class="card-header">Frequentist</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/statistics/frequentist/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/statistics/frequentist/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -558,7 +668,11 @@
                 <div class="card">
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/scala/basics/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/scala/basics/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -580,7 +694,11 @@
                 <div class="card">
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/regex/patterns/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/regex/patterns/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -603,7 +721,11 @@
                     <h4 class="card-header">Basics</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/snowflake/sql/basics/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/snowflake/sql/basics/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -620,7 +742,11 @@
                     <h4 class="card-header">Tables</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/snowflake/sql/tables/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/snowflake/sql/tables/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -643,7 +769,11 @@
                     <h4 class="card-header">Basics</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/postgresql/basics/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/postgresql/basics/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -660,7 +790,11 @@
                     <h4 class="card-header">Add, Delete, Change Rows</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/postgresql/add_delete_change/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/postgresql/add_delete_change/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -677,7 +811,11 @@
                     <h4 class="card-header">Merging And Joining</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/postgresql/merging_and_joining/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/postgresql/merging_and_joining/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -694,7 +832,11 @@
                     <h4 class="card-header">Tables</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/postgresql/tables/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/postgresql/tables/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -711,7 +853,11 @@
                     <h4 class="card-header">Text</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/postgresql/text/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/postgresql/text/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -728,7 +874,11 @@
                     <h4 class="card-header">Numeric</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/postgresql/numeric/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/postgresql/numeric/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -745,7 +895,11 @@
                     <h4 class="card-header">Dates</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/postgresql/dates/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/postgresql/dates/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -762,7 +916,11 @@
                     <h4 class="card-header">Interview Questions</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/postgresql/interview_questions/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/postgresql/interview_questions/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -784,7 +942,11 @@
                 <div class="card">
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/mathematics/basics/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/mathematics/basics/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -806,17 +968,29 @@
                 <div class="card">
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/aws/basics/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/aws/basics/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
                             {{ end }}
-                            {{ range (where .Pages "File.Dir" "in" "/aws/s3/cli/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/aws/s3/cli/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
                             {{ end }}
-                            {{ range (where .Pages "File.Dir" "in" "/s3/boto/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/s3/boto/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -839,7 +1013,11 @@
                     <h4 class="card-header">Algorithms</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/computer_science/algorithms/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/computer_science/algorithms/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -862,7 +1040,11 @@
                     <h4 class="card-header">Basics</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/linux/basics/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/linux/basics/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -879,7 +1061,11 @@
                     <h4 class="card-header">Inputs And Outputs</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/linux/inputs_and_outputs/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/linux/inputs_and_outputs/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -896,7 +1082,11 @@
                     <h4 class="card-header">Search</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/linux/search/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/linux/search/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -913,7 +1103,11 @@
                     <h4 class="card-header">Text</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/linux/text/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/linux/text/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -930,7 +1124,11 @@
                     <h4 class="card-header">Flow Control</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/linux/flow_control/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/linux/flow_control/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -947,7 +1145,11 @@
                     <h4 class="card-header">Processes</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/linux/processes/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/linux/processes/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -964,7 +1166,11 @@
                     <h4 class="card-header">Shell Scripts</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/linux/shell_scripts/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/linux/shell_scripts/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -986,7 +1192,11 @@
                 <div class="card">
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/git_and_github/basics/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/git_and_github/basics/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -1009,7 +1219,11 @@
                     <h4 class="card-header">YAML</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/machine_learning_engineering/yaml/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/machine_learning_engineering/yaml/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -1026,7 +1240,11 @@
                     <h4 class="card-header">Kubeflow</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/machine_learning_engineering/kubeflow/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/machine_learning_engineering/kubeflow/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -1049,7 +1267,11 @@
                     <h4 class="card-header">Command Line</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/docker/command_line/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/docker/command_line/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -1066,7 +1288,11 @@
                     <h4 class="card-header">Dockerfiles</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/docker/dockerfiles/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/docker/dockerfiles/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -1084,7 +1310,11 @@
                     <h4 class="card-header">Docker Compose</h4>
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/docker/docker_compose/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/docker/docker_compose/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -1106,7 +1336,11 @@
                 <div class="card">
                     <div class="card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/php/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/php/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -1135,7 +1369,11 @@
                 <div class="card">
                     <div class="article_list card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/less-harmful-ai/").ByTitle }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/less-harmful-ai/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -1158,7 +1396,11 @@
                 <div class="card">
                     <div class="article_list card-body">
                         <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/articles/") }}
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/articles/") }}
                             <li>
                                 <!-- {{ .PublishDate.Format "Jan 2006" }} -->
                                 <a href="{{.Permalink}}">{{.Title}}</a>

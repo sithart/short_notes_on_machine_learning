@@ -20,27 +20,13 @@
 <meta property="og:description" content="How to query a table in Snowflake using SQL." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/snowflake/sql/basics/query_table/" />
-
-
-
-<meta property="article:published_time" content="2019-01-28T00:00:00-07:00"/>
-
-<meta property="article:modified_time" content="2019-01-28T00:00:00-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2019-01-28T00:00:00-07:00" />
+<meta property="article:modified_time" content="2019-01-28T00:00:00-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Query A Table"/>
 <meta name="twitter:description" content="How to query a table in Snowflake using SQL."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Query A Table",
-  "url": "https://chrisalbon.com/snowflake/sql/basics/query_table/",
+  "url": "https:\/\/chrisalbon.com\/snowflake\/sql\/basics\/query_table\/",
   "wordCount": "165",
   "datePublished": "2019-01-28T00:00:00-07:00",
   "dateModified": "2019-01-28T00:00:00-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,10 +170,7 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<h2 id="create-a-table-for-superheroes">Create A Table For Superheroes</h2>
-
+  <h2 id="create-a-table-for-superheroes">Create A Table For Superheroes</h2>
 <div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- Create a table called SUPERHEROES.
 </span><span class="c1"></span><span class="k">CREATE</span> <span class="k">OR</span> <span class="k">REPLACE</span> <span class="k">TABLE</span> <span class="n">SUPERHEROES</span> <span class="p">(</span>
   <span class="c1">-- Column called ID allowing up to five characters
@@ -193,20 +184,16 @@ MathJax.Hub.Config({
   <span class="c1">-- Column called AGE allowing 3 digits with 0 after the decimal point
 </span><span class="c1"></span>  <span class="s2">&#34;AGE&#34;</span> <span class="nb">NUMBER</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="p">);</span></code></pre></div>
-
 <h2 id="insert-one-row-per-superhero">Insert One Row Per Superhero</h2>
-
-<p><div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- Insert rows into SUPERHEROES
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- Insert rows into SUPERHEROES
 </span><span class="c1"></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">SUPERHEROES</span> 
     <span class="c1">-- With the values
 </span><span class="c1"></span>    <span class="k">VALUES</span>
     <span class="p">(</span><span class="s1">&#39;XF6K4&#39;</span><span class="p">,</span> <span class="s1">&#39;Chris Maki&#39;</span><span class="p">,</span> <span class="s1">&#39;The Bomber&#39;</span><span class="p">,</span> <span class="s1">&#39;-100.20&#39;</span><span class="p">,</span> <span class="s1">&#39;14&#39;</span><span class="p">),</span>
     <span class="p">(</span><span class="s1">&#39;KDEJ4&#39;</span><span class="p">,</span> <span class="s1">&#39;Rich Richardson&#39;</span><span class="p">,</span> <span class="s1">&#39;Mr. Money&#39;</span><span class="p">,</span> <span class="s1">&#39;233.20&#39;</span><span class="p">,</span> <span class="s1">&#39;12&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="s1">&#39;KD5SK&#39;</span><span class="p">,</span> <span class="s1">&#39;Donny Mav&#39;</span><span class="p">,</span> <span class="s1">&#39;Nuke Miner&#39;</span><span class="p">,</span> <span class="s1">&#39;200.30&#39;</span><span class="p">,</span> <span class="s1">&#39;59&#39;</span><span class="p">);</span></code></pre></div></p>
-
+    <span class="p">(</span><span class="s1">&#39;KD5SK&#39;</span><span class="p">,</span> <span class="s1">&#39;Donny Mav&#39;</span><span class="p">,</span> <span class="s1">&#39;Nuke Miner&#39;</span><span class="p">,</span> <span class="s1">&#39;200.30&#39;</span><span class="p">,</span> <span class="s1">&#39;59&#39;</span><span class="p">);</span></code></pre></div>
 <h2 id="query-superhero-table">Query Superhero Table</h2>
-
-<p><div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- Select all columns
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- Select all columns
 </span><span class="c1"></span><span class="k">SELECT</span> <span class="o">*</span> 
 <span class="c1">-- From the SUPERHEROES table
 </span><span class="c1"></span><span class="k">FROM</span> <span class="n">SUPERHEROES</span></code></pre></div>
@@ -243,8 +230,7 @@ MathJax.Hub.Config({
             <td>59</td>
         </tr>
     </tbody>
-</table></p>
-
+</table>
 </div>
   <aside>
       <div class="bug_reporting">
@@ -268,7 +254,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title> - Chris Albon</title>
+    <title>machine_learning - Chris Albon</title>
     <link>https://chrisalbon.com/machine_learning/index.xml</link>
     <description></description>
     <generator>Hugo -- gohugo.io</generator>
@@ -18,17 +17,6 @@
       
       <guid>https://chrisalbon.com/machine_learning/trees_and_forests/outlier_detection_with_isolation_forests/</guid>
       <description>An isolation forest is comprised of many of a special kind of tree. In each node the tree, a random feature is split in a random point (for example, if values in a feature range between 0 and 100, a random split might be 34). This process continues until every data point is isolated in its own brand. This is repeated until the end result is a forest of trees.</description>
-    </item>
-    
-    <item>
-      <title>ANOVA F-value For Feature Selection</title>
-      <link>https://chrisalbon.com/machine_learning/feature_selection/anova_f-value_for_feature_selection/</link>
-      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
-      
-      <guid>https://chrisalbon.com/machine_learning/feature_selection/anova_f-value_for_feature_selection/</guid>
-      <description>If the features are categorical, calculate a chi-square ($\chi^{2}$) statistic between each feature and the target vector. However, if the features are quantitative, compute the ANOVA F-value between each feature and the target vector.
-The F-value scores examine if, when we group the numerical feature by the target vector, the means for each group are significantly different.
-Preliminaries # Load libraries from sklearn.datasets import load_iris from sklearn.feature_selection import SelectKBest from sklearn.</description>
     </item>
     
     <item>
@@ -56,7 +44,7 @@ Preliminaries # Load libraries from sklearn.datasets import load_iris from sklea
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/adding_and_subtracting_matrices/</guid>
-      <description> Preliminaries # Load library import numpy as np Create Matrices # Create matrix matrix_a = np.array([[1, 1, 1], [1, 1, 1], [1, 1, 2]]) # Create matrix matrix_b = np.array([[1, 3, 1], [1, 3, 1], [1, 3, 8]]) Add Matrices # Add two matrices np.add(matrix_a, matrix_b) array([[ 2, 4, 2], [ 2, 4, 2], [ 2, 4, 10]])  Subtract Matrices # Subtract two matrices np.subtract(matrix_a, matrix_b) array([[ 0, -2, 0], [ 0, -2, 0], [ 0, -2, -6]])  </description>
+      <description>Preliminaries # Load library import numpy as np Create Matrices # Create matrix matrix_a = np.array([[1, 1, 1], [1, 1, 1], [1, 1, 2]]) # Create matrix matrix_b = np.array([[1, 3, 1], [1, 3, 1], [1, 3, 8]]) Add Matrices # Add two matrices np.add(matrix_a, matrix_b) array([[ 2, 4, 2], [ 2, 4, 2], [ 2, 4, 10]])  Subtract Matrices # Subtract two matrices np.subtract(matrix_a, matrix_b) array([[ 0, -2, 0], [ 0, -2, 0], [ 0, -2, -6]])  </description>
     </item>
     
     <item>
@@ -78,12 +66,23 @@ Preliminaries # Load libraries from sklearn.datasets import load_iris from sklea
     </item>
     
     <item>
+      <title>ANOVA F-value For Feature Selection</title>
+      <link>https://chrisalbon.com/machine_learning/feature_selection/anova_f-value_for_feature_selection/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning/feature_selection/anova_f-value_for_feature_selection/</guid>
+      <description>If the features are categorical, calculate a chi-square ($\chi^{2}$) statistic between each feature and the target vector. However, if the features are quantitative, compute the ANOVA F-value between each feature and the target vector.
+The F-value scores examine if, when we group the numerical feature by the target vector, the means for each group are significantly different.
+Preliminaries # Load libraries from sklearn.datasets import load_iris from sklearn.feature_selection import SelectKBest from sklearn.</description>
+    </item>
+    
+    <item>
       <title>Apply Operations To Elements</title>
       <link>https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/apply_operations_to_elements/</link>
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/apply_operations_to_elements/</guid>
-      <description> Preliminaries # Load library import numpy as np Create Matrix # Create matrix matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]]) Create Vectorized Function # Create a function that adds 100 to something add_100 = lambda i: i + 100 # Create a vectorized function vectorized_add_100 = np.vectorize(add_100) Apply Function To Elements # Apply function to all elements in matrix vectorized_add_100(matrix) array([[101, 102, 103], [104, 105, 106], [107, 108, 109]])  </description>
+      <description>Preliminaries # Load library import numpy as np Create Matrix # Create matrix matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]]) Create Vectorized Function # Create a function that adds 100 to something add_100 = lambda i: i + 100 # Create a vectorized function vectorized_add_100 = np.vectorize(add_100) Apply Function To Elements # Apply function to all elements in matrix vectorized_add_100(matrix) array([[101, 102, 103], [104, 105, 106], [107, 108, 109]])  </description>
     </item>
     
     <item>
@@ -111,7 +110,7 @@ Preliminaries # Load libraries import numpy as np from sklearn.naive_bayes impor
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/preprocessing_images/binarize_image/</guid>
-      <description> Preliminaries # Load image import cv2 import numpy as np from matplotlib import pyplot as plt Load Image As Greyscale # Load image as greyscale image_grey = cv2.imread(&amp;#39;images/plane_256x256.jpg&amp;#39;, cv2.IMREAD_GRAYSCALE) Apply Adaptive Thresholding # Apply adaptive thresholding max_output_value = 255 neighorhood_size = 99 subtract_from_mean = 10 image_binarized = cv2.adaptiveThreshold(image_grey, max_output_value, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, neighorhood_size, subtract_from_mean) View Image # Show image plt.imshow(image_binarized, cmap=&amp;#39;gray&amp;#39;), plt.axis(&amp;#34;off&amp;#34;) plt.show() </description>
+      <description>Preliminaries # Load image import cv2 import numpy as np from matplotlib import pyplot as plt Load Image As Greyscale # Load image as greyscale image_grey = cv2.imread(&amp;#39;images/plane_256x256.jpg&amp;#39;, cv2.IMREAD_GRAYSCALE) Apply Adaptive Thresholding # Apply adaptive thresholding max_output_value = 255 neighorhood_size = 99 subtract_from_mean = 10 image_binarized = cv2.adaptiveThreshold(image_grey, max_output_value, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, neighorhood_size, subtract_from_mean) View Image # Show image plt.imshow(image_binarized, cmap=&amp;#39;gray&amp;#39;), plt.axis(&amp;#34;off&amp;#34;) plt.show() </description>
     </item>
     
     <item>
@@ -120,7 +119,7 @@ Preliminaries # Load libraries import numpy as np from sklearn.naive_bayes impor
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/preprocessing_images/blurring_images/</guid>
-      <description> Preliminaries # Load image import cv2 import numpy as np from matplotlib import pyplot as plt Load Image As Greyscale # Load image as grayscale image = cv2.imread(&amp;#39;images/plane_256x256.jpg&amp;#39;, cv2.IMREAD_GRAYSCALE) Blur Image # Blur image image_blurry = cv2.blur(image, (5,5)) View Image # Show image plt.imshow(image_blurry, cmap=&amp;#39;gray&amp;#39;), plt.xticks([]), plt.yticks([]) plt.show() </description>
+      <description>Preliminaries # Load image import cv2 import numpy as np from matplotlib import pyplot as plt Load Image As Greyscale # Load image as grayscale image = cv2.imread(&amp;#39;images/plane_256x256.jpg&amp;#39;, cv2.IMREAD_GRAYSCALE) Blur Image # Blur image image_blurry = cv2.blur(image, (5,5)) View Image # Show image plt.imshow(image_blurry, cmap=&amp;#39;gray&amp;#39;), plt.xticks([]), plt.yticks([]) plt.show() </description>
     </item>
     
     <item>
@@ -129,7 +128,7 @@ Preliminaries # Load libraries import numpy as np from sklearn.naive_bayes impor
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/break_up_dates_and_times_into_multiple_features/</guid>
-      <description>Preliminaries # Load library import pandas as pd Create Date And Time Data # Create data frame df = pd.DataFrame() # Create five dates df[&amp;#39;date&amp;#39;] = pd.date_range(&amp;#39;1/1/2001&amp;#39;, periods=150, freq=&amp;#39;W&amp;#39;) Break Up Dates And Times Into Individual Features # Create features for year, month, day, hour, and minute df[&amp;#39;year&amp;#39;] = df[&amp;#39;date&amp;#39;].dt.year df[&amp;#39;month&amp;#39;] = df[&amp;#39;date&amp;#39;].dt.month df[&amp;#39;day&amp;#39;] = df[&amp;#39;date&amp;#39;].dt.day df[&amp;#39;hour&amp;#39;] = df[&amp;#39;date&amp;#39;].dt.hour df[&amp;#39;minute&amp;#39;] = df[&amp;#39;date&amp;#39;].dt.minute # Show three rows df.head(3)   .</description>
+      <description>Preliminaries # Load library import pandas as pd Create Date And Time Data # Create data frame df = pd.DataFrame() # Create five dates df[&amp;#39;date&amp;#39;] = pd.date_range(&amp;#39;1/1/2001&amp;#39;, periods=150, freq=&amp;#39;W&amp;#39;) Break Up Dates And Times Into Individual Features # Create features for year, month, day, hour, and minute df[&amp;#39;year&amp;#39;] = df[&amp;#39;date&amp;#39;].dt.year df[&amp;#39;month&amp;#39;] = df[&amp;#39;date&amp;#39;].dt.month df[&amp;#39;day&amp;#39;] = df[&amp;#39;date&amp;#39;].dt.day df[&amp;#39;hour&amp;#39;] = df[&amp;#39;date&amp;#39;].dt.hour df[&amp;#39;minute&amp;#39;] = df[&amp;#39;date&amp;#39;].dt.minute # Show three rows df.head(3)   .dataframe thead tr:only-child th { text-align: right; } .</description>
     </item>
     
     <item>
@@ -138,7 +137,7 @@ Preliminaries # Load libraries import numpy as np from sklearn.naive_bayes impor
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/calculate_difference_between_dates_and_times/</guid>
-      <description> Preliminaries # Load library import pandas as pd Create Date And Time Data # Create data frame df = pd.DataFrame() # Create two datetime features df[&amp;#39;Arrived&amp;#39;] = [pd.Timestamp(&amp;#39;01-01-2017&amp;#39;), pd.Timestamp(&amp;#39;01-04-2017&amp;#39;)] df[&amp;#39;Left&amp;#39;] = [pd.Timestamp(&amp;#39;01-01-2017&amp;#39;), pd.Timestamp(&amp;#39;01-06-2017&amp;#39;)] Calculate Difference (Method 1) # Calculate duration between features df[&amp;#39;Left&amp;#39;] - df[&amp;#39;Arrived&amp;#39;] 0 0 days 1 2 days dtype: timedelta64[ns]  Calculate Difference (Method 2) # Calculate duration between features pd.Series(delta.days for delta in (df[&amp;#39;Left&amp;#39;] - df[&amp;#39;Arrived&amp;#39;])) 0 0 1 2 dtype: int64  </description>
+      <description>Preliminaries # Load library import pandas as pd Create Date And Time Data # Create data frame df = pd.DataFrame() # Create two datetime features df[&amp;#39;Arrived&amp;#39;] = [pd.Timestamp(&amp;#39;01-01-2017&amp;#39;), pd.Timestamp(&amp;#39;01-04-2017&amp;#39;)] df[&amp;#39;Left&amp;#39;] = [pd.Timestamp(&amp;#39;01-01-2017&amp;#39;), pd.Timestamp(&amp;#39;01-06-2017&amp;#39;)] Calculate Difference (Method 1) # Calculate duration between features df[&amp;#39;Left&amp;#39;] - df[&amp;#39;Arrived&amp;#39;] 0 0 days 1 2 days dtype: timedelta64[ns]  Calculate Difference (Method 2) # Calculate duration between features pd.Series(delta.days for delta in (df[&amp;#39;Left&amp;#39;] - df[&amp;#39;Arrived&amp;#39;])) 0 0 1 2 dtype: int64  </description>
     </item>
     
     <item>
@@ -147,7 +146,7 @@ Preliminaries # Load libraries import numpy as np from sklearn.naive_bayes impor
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/calculate_dot_product_of_two_vectors/</guid>
-      <description> Preliminaries # Load library import numpy as np Create Two Vectors # Create two vectors vector_a = np.array([1,2,3]) vector_b = np.array([4,5,6]) Calculate Dot Product (Method 1) # Calculate dot product np.dot(vector_a, vector_b) 32  Calculate Dot Product (Method 2) # Calculate dot product vector_a @ vector_b 32  </description>
+      <description>Preliminaries # Load library import numpy as np Create Two Vectors # Create two vectors vector_a = np.array([1,2,3]) vector_b = np.array([4,5,6]) Calculate Dot Product (Method 1) # Calculate dot product np.dot(vector_a, vector_b) 32  Calculate Dot Product (Method 2) # Calculate dot product vector_a @ vector_b 32  </description>
     </item>
     
     <item>
@@ -156,7 +155,7 @@ Preliminaries # Load libraries import numpy as np from sklearn.naive_bayes impor
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/calculate_average_variance_and_standard_deviation/</guid>
-      <description> Preliminaries # Load library import numpy as np Create Matrix # Create matrix matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]]) Calculate Mean # Return mean np.mean(matrix) 5.0  Calculate Variance # Return variance np.var(matrix) 6.666666666666667  Calculate Standard Deviation # Return standard deviation np.std(matrix) 2.5819888974716112  </description>
+      <description>Preliminaries # Load library import numpy as np Create Matrix # Create matrix matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]]) Calculate Mean # Return mean np.mean(matrix) 5.0  Calculate Variance # Return variance np.var(matrix) 6.666666666666667  Calculate Standard Deviation # Return standard deviation np.std(matrix) 2.5819888974716112  </description>
     </item>
     
     <item>
@@ -165,7 +164,7 @@ Preliminaries # Load libraries import numpy as np from sklearn.naive_bayes impor
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/calculate_the_determinant_of_a_matrix/</guid>
-      <description> Preliminaries # Load library import numpy as np Create Matrix # Create matrix matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]]) Calculate Determinant # Return determinant of matrix np.linalg.det(matrix) -9.5161973539299405e-16  </description>
+      <description>Preliminaries # Load library import numpy as np Create Matrix # Create matrix matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]]) Calculate Determinant # Return determinant of matrix np.linalg.det(matrix) -9.5161973539299405e-16  </description>
     </item>
     
     <item>
@@ -174,7 +173,7 @@ Preliminaries # Load libraries import numpy as np from sklearn.naive_bayes impor
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/calculate_the_trace_of_a_matrix/</guid>
-      <description> Preliminaries # Load library import numpy as np Create Matrix # Create matrix matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]]) Calculate The Trace # Calculate the trace of the matrix matrix.diagonal().sum() 15  </description>
+      <description>Preliminaries # Load library import numpy as np Create Matrix # Create matrix matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]]) Calculate The Trace # Calculate the trace of the matrix matrix.diagonal().sum() 15  </description>
     </item>
     
     <item>
@@ -211,7 +210,16 @@ $$P(y=1 \mid x)={\frac {1}{1+e^{(A*f(x)+B)}}}$$</description>
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/preprocessing_structured_data/convert_pandas_categorical_column_into_integers_for_scikit-learn/</guid>
-      <description>Preliminaries # Import required packages from sklearn import preprocessing import pandas as pd Create DataFrame raw_data = {&amp;#39;patient&amp;#39;: [1, 1, 1, 2, 2], &amp;#39;obs&amp;#39;: [1, 2, 3, 1, 2], &amp;#39;treatment&amp;#39;: [0, 1, 0, 1, 0], &amp;#39;score&amp;#39;: [&amp;#39;strong&amp;#39;, &amp;#39;weak&amp;#39;, &amp;#39;normal&amp;#39;, &amp;#39;weak&amp;#39;, &amp;#39;strong&amp;#39;]} df = pd.DataFrame(raw_data, columns = [&amp;#39;patient&amp;#39;, &amp;#39;obs&amp;#39;, &amp;#39;treatment&amp;#39;, &amp;#39;score&amp;#39;]) Fit The Label Encoder # Create a label (category) encoder object le = preprocessing.LabelEncoder()# Fit the encoder to the pandas column le.</description>
+      <description>Preliminaries # Import required packages from sklearn import preprocessing import pandas as pd Create DataFrame raw_data = {&amp;#39;patient&amp;#39;: [1, 1, 1, 2, 2], &amp;#39;obs&amp;#39;: [1, 2, 3, 1, 2], &amp;#39;treatment&amp;#39;: [0, 1, 0, 1, 0], &amp;#39;score&amp;#39;: [&amp;#39;strong&amp;#39;, &amp;#39;weak&amp;#39;, &amp;#39;normal&amp;#39;, &amp;#39;weak&amp;#39;, &amp;#39;strong&amp;#39;]} df = pd.DataFrame(raw_data, columns = [&amp;#39;patient&amp;#39;, &amp;#39;obs&amp;#39;, &amp;#39;treatment&amp;#39;, &amp;#39;score&amp;#39;]) Fit The Label Encoder # Create a label (category) encoder object le = preprocessing.LabelEncoder() # Fit the encoder to the pandas column le.</description>
+    </item>
+    
+    <item>
+      <title>Convert pandas Columns Time Zone</title>
+      <link>https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/convert_pandas_column_timezone/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/convert_pandas_column_timezone/</guid>
+      <description>Preliminaries # Load libraries import pandas as pd from pytz import all_timezones View Timezones # Show ten time zones all_timezones[0:10] [&#39;Africa/Abidjan&#39;, &#39;Africa/Accra&#39;, &#39;Africa/Addis_Ababa&#39;, &#39;Africa/Algiers&#39;, &#39;Africa/Asmara&#39;, &#39;Africa/Asmera&#39;, &#39;Africa/Bamako&#39;, &#39;Africa/Bangui&#39;, &#39;Africa/Banjul&#39;, &#39;Africa/Bissau&#39;]  Create pandas Series Of Dates # Create ten dates dates = pd.Series(pd.date_range(&amp;#39;2/2/2002&amp;#39;, periods=10, freq=&amp;#39;M&amp;#39;)) Add Time Zone Of pandas Series # Set time zone dates_with_abidjan_time_zone = dates.dt.tz_localize(&amp;#39;Africa/Abidjan&amp;#39;) # View pandas series dates_with_abidjan_time_zone 0 2002-02-28 00:00:00+00:00 1 2002-03-31 00:00:00+00:00 2 2002-04-30 00:00:00+00:00 3 2002-05-31 00:00:00+00:00 4 2002-06-30 00:00:00+00:00 5 2002-07-31 00:00:00+00:00 6 2002-08-31 00:00:00+00:00 7 2002-09-30 00:00:00+00:00 8 2002-10-31 00:00:00+00:00 9 2002-11-30 00:00:00+00:00 dtype: datetime64[ns, Africa/Abidjan]  Convert Time Zone Of pandas Series # Convert time zone dates_with_london_time_zone = dates_with_abidjan_time_zone.</description>
     </item>
     
     <item>
@@ -225,21 +233,12 @@ $$P(y=1 \mid x)={\frac {1}{1+e^{(A*f(x)+B)}}}$$</description>
     </item>
     
     <item>
-      <title>Convert pandas Columns Time Zone</title>
-      <link>https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/convert_pandas_column_timezone/</link>
-      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
-      
-      <guid>https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/convert_pandas_column_timezone/</guid>
-      <description>Preliminaries # Load libraries import pandas as pd from pytz import all_timezones View Timezones # Show ten time zones all_timezones[0:10] [&#39;Africa/Abidjan&#39;, &#39;Africa/Accra&#39;, &#39;Africa/Addis_Ababa&#39;, &#39;Africa/Algiers&#39;, &#39;Africa/Asmara&#39;, &#39;Africa/Asmera&#39;, &#39;Africa/Bamako&#39;, &#39;Africa/Bangui&#39;, &#39;Africa/Banjul&#39;, &#39;Africa/Bissau&#39;]  Create pandas Series Of Dates # Create ten dates dates = pd.Series(pd.date_range(&amp;#39;2/2/2002&amp;#39;, periods=10, freq=&amp;#39;M&amp;#39;)) Add Time Zone Of pandas Series # Set time zone dates_with_abidjan_time_zone = dates.dt.tz_localize(&amp;#39;Africa/Abidjan&amp;#39;) # View pandas series dates_with_abidjan_time_zone 0 2002-02-28 00:00:00+00:00 1 2002-03-31 00:00:00+00:00 2 2002-04-30 00:00:00+00:00 3 2002-05-31 00:00:00+00:00 4 2002-06-30 00:00:00+00:00 5 2002-07-31 00:00:00+00:00 6 2002-08-31 00:00:00+00:00 7 2002-09-30 00:00:00+00:00 8 2002-10-31 00:00:00+00:00 9 2002-11-30 00:00:00+00:00 dtype: datetime64[ns, Africa/Abidjan]  Convert Time Zone Of pandas Series # Convert time zone dates_with_london_time_zone = dates_with_abidjan_time_zone.</description>
-    </item>
-    
-    <item>
       <title>Converting A Dictionary Into A Matrix</title>
       <link>https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/converting_a_dictionary_into_a_matrix/</link>
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/converting_a_dictionary_into_a_matrix/</guid>
-      <description>Preliminaries # Load library from sklearn.feature_extraction import DictVectorizer Create Dictionary # Our dictionary of data data_dict = [{&amp;#39;Red&amp;#39;: 2, &amp;#39;Blue&amp;#39;: 4}, {&amp;#39;Red&amp;#39;: 4, &amp;#39;Blue&amp;#39;: 3}, {&amp;#39;Red&amp;#39;: 1, &amp;#39;Yellow&amp;#39;: 2}, {&amp;#39;Red&amp;#39;: 2, &amp;#39;Yellow&amp;#39;: 2}] Feature Matrix From Dictionary # Create DictVectorizer object dictvectorizer = DictVectorizer(sparse=False) # Convert dictionary into feature matrix features = dictvectorizer.fit_transform(data_dict) # View feature matrix features array([[ 4., 2., 0.], [ 3., 4., 0.], [ 0., 1., 2.</description>
+      <description>Preliminaries # Load library from sklearn.feature_extraction import DictVectorizer Create Dictionary # Our dictionary of data data_dict = [{&amp;#39;Red&amp;#39;: 2, &amp;#39;Blue&amp;#39;: 4}, {&amp;#39;Red&amp;#39;: 4, &amp;#39;Blue&amp;#39;: 3}, {&amp;#39;Red&amp;#39;: 1, &amp;#39;Yellow&amp;#39;: 2}, {&amp;#39;Red&amp;#39;: 2, &amp;#39;Yellow&amp;#39;: 2}] Feature Matrix From Dictionary # Create DictVectorizer object dictvectorizer = DictVectorizer(sparse=False) # Convert dictionary into feature matrix features = dictvectorizer.fit_transform(data_dict) # View feature matrix features array([[ 4., 2., 0.], [ 3., 4., 0.], [ 0., 1., 2.], [ 0.</description>
     </item>
     
     <item>
@@ -266,7 +265,7 @@ $$P(y=1 \mid x)={\frac {1}{1+e^{(A*f(x)+B)}}}$$</description>
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/create_a_vector/</guid>
-      <description> Preliminaries # Load library import numpy as np Create Row Vector # Create a vector as a row vector_row = np.array([1, 2, 3]) Create Column Vector # Create a vector as a column vector_column = np.array([[1], [2], [3]])</description>
+      <description>Preliminaries # Load library import numpy as np Create Row Vector # Create a vector as a row vector_row = np.array([1, 2, 3]) Create Column Vector # Create a vector as a column vector_column = np.array([[1], [2], [3]]) </description>
     </item>
     
     <item>
@@ -293,7 +292,7 @@ $$P(y=1 \mid x)={\frac {1}{1+e^{(A*f(x)+B)}}}$$</description>
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/linear_regression/create_interaction_features/</guid>
-      <description> Preliminaries # Load libraries from sklearn.preprocessing import PolynomialFeatures import numpy as np Create Feature Matrix # Create feature matrix X = np.array([[2, 3], [2, 3], [2, 3]]) Add Interaction Features # Create PolynomialFeatures object with interaction_only set to True interaction = PolynomialFeatures(degree=2, interaction_only=True, include_bias=False) # Transform feature matrix interaction.fit_transform(X) array([[ 2., 3., 6.], [ 2., 3., 6.], [ 2., 3., 6.]])  </description>
+      <description>Preliminaries # Load libraries from sklearn.preprocessing import PolynomialFeatures import numpy as np Create Feature Matrix # Create feature matrix X = np.array([[2, 3], [2, 3], [2, 3]]) Add Interaction Features # Create PolynomialFeatures object with interaction_only set to True interaction = PolynomialFeatures(degree=2, interaction_only=True, include_bias=False) # Transform feature matrix interaction.fit_transform(X) array([[ 2., 3., 6.], [ 2., 3., 6.], [ 2., 3., 6.]])  </description>
     </item>
     
     <item>
@@ -302,7 +301,7 @@ $$P(y=1 \mid x)={\frac {1}{1+e^{(A*f(x)+B)}}}$$</description>
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/preprocessing_images/cropping_images/</guid>
-      <description> Preliminaries # Load image import cv2 import numpy as np from matplotlib import pyplot as plt Load Image As Greyscale # Load image as grayscale image = cv2.imread(&amp;#39;images/plane_256x256.jpg&amp;#39;, cv2.IMREAD_GRAYSCALE) Crop Image # Select first half of the columns and all rows image_cropped = image[:,:126] View Image # View image plt.imshow(image_cropped, cmap=&amp;#39;gray&amp;#39;), plt.axis(&amp;#34;off&amp;#34;) plt.show() </description>
+      <description>Preliminaries # Load image import cv2 import numpy as np from matplotlib import pyplot as plt Load Image As Greyscale # Load image as grayscale image = cv2.imread(&amp;#39;images/plane_256x256.jpg&amp;#39;, cv2.IMREAD_GRAYSCALE) Crop Image # Select first half of the columns and all rows image_cropped = image[:,:126] View Image # View image plt.imshow(image_cropped, cmap=&amp;#39;gray&amp;#39;), plt.axis(&amp;#34;off&amp;#34;) plt.show() </description>
     </item>
     
     <item>
@@ -378,7 +377,7 @@ $$\text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2$$</description>
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/preprocessing_structured_data/delete_observations_with_missing_values/</guid>
-      <description> Preliminaries # Load libraries import numpy as np import pandas as pd Create Feature Matrix # Create feature matrix X = np.array([[1.1, 11.1], [2.2, 22.2], [3.3, 33.3], [4.4, 44.4], [np.nan, 55]]) Delete Observations With Missing Values # Remove observations with missing values X[~np.isnan(X).any(axis=1)] array([[ 1.1, 11.1], [ 2.2, 22.2], [ 3.3, 33.3], [ 4.4, 44.4]])  </description>
+      <description>Preliminaries # Load libraries import numpy as np import pandas as pd Create Feature Matrix # Create feature matrix X = np.array([[1.1, 11.1], [2.2, 22.2], [3.3, 33.3], [4.4, 44.4], [np.nan, 55]]) Delete Observations With Missing Values # Remove observations with missing values X[~np.isnan(X).any(axis=1)] array([[ 1.1, 11.1], [ 2.2, 22.2], [ 3.3, 33.3], [ 4.4, 44.4]])  </description>
     </item>
     
     <item>
@@ -396,7 +395,7 @@ $$\text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2$$</description>
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/describe_a_matrix/</guid>
-      <description> Preliminaries # Load library import numpy as np Create Matrix # Create matrix matrix = np.array([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]]) View Shape # View number of rows and columns matrix.shape (3, 4)  View Total Elements # View number of elements (rows * columns) matrix.size 12  View Number Of Dimensions # View number of dimensions matrix.ndim 2  </description>
+      <description>Preliminaries # Load library import numpy as np Create Matrix # Create matrix matrix = np.array([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]]) View Shape # View number of rows and columns matrix.shape (3, 4)  View Total Elements # View number of elements (rows * columns) matrix.size 12  View Number Of Dimensions # View number of dimensions matrix.ndim 2  </description>
     </item>
     
     <item>
@@ -432,8 +431,7 @@ $$\text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2$$</description>
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/feature_engineering/dimensionality_reduction_with_kernel_pca/</guid>
-      <description> 
-Preliminaries # Load libraries from sklearn.decomposition import PCA, KernelPCA from sklearn.datasets import make_circles Create Linearly Inseparable Data # Create linearly inseparable data X, _ = make_circles(n_samples=1000, random_state=1, noise=0.1, factor=0.1) Conduct Kernel PCA # Apply kernal PCA with radius basis function (RBF) kernel kpca = KernelPCA(kernel=&amp;#34;rbf&amp;#34;, gamma=15, n_components=1) X_kpca = kpca.fit_transform(X) View Results print(&amp;#39;Original number of features:&amp;#39;, X.shape[1]) print(&amp;#39;Reduced number of features:&amp;#39;, X_kpca.shape[1]) Original number of features: 2 Reduced number of features: 1  </description>
+      <description> Preliminaries # Load libraries from sklearn.decomposition import PCA, KernelPCA from sklearn.datasets import make_circles Create Linearly Inseparable Data # Create linearly inseparable data X, _ = make_circles(n_samples=1000, random_state=1, noise=0.1, factor=0.1) Conduct Kernel PCA # Apply kernal PCA with radius basis function (RBF) kernel kpca = KernelPCA(kernel=&amp;#34;rbf&amp;#34;, gamma=15, n_components=1) X_kpca = kpca.fit_transform(X) View Results print(&amp;#39;Original number of features:&amp;#39;, X.shape[1]) print(&amp;#39;Reduced number of features:&amp;#39;, X_kpca.shape[1]) Original number of features: 2 Reduced number of features: 1  </description>
     </item>
     
     <item>
@@ -451,7 +449,7 @@ Preliminaries # Load libraries from sklearn.decomposition import PCA, KernelPCA 
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/preprocessing_structured_data/discretize_features/</guid>
-      <description> Preliminaries # Load libraries from sklearn.preprocessing import Binarizer import numpy as np Create Data # Create feature age = np.array([[6], [12], [20], [36], [65]]) Option 1: Binarize Feature # Create binarizer binarizer = Binarizer(18) # Transform feature binarizer.fit_transform(age) array([[0], [0], [1], [1], [1]])  Option 2: Break Up Feature Into Bins # Bin feature np.digitize(age, bins=[20,30,64]) array([[0], [0], [1], [2], [3]])  </description>
+      <description>Preliminaries # Load libraries from sklearn.preprocessing import Binarizer import numpy as np Create Data # Create feature age = np.array([[6], [12], [20], [36], [65]]) Option 1: Binarize Feature # Create binarizer binarizer = Binarizer(18) # Transform feature binarizer.fit_transform(age) array([[0], [0], [1], [1], [1]])  Option 2: Break Up Feature Into Bins # Bin feature np.digitize(age, bins=[20,30,64]) array([[0], [0], [1], [2], [3]])  </description>
     </item>
     
     <item>
@@ -479,7 +477,7 @@ Lasso regression is a common modeling technique to do regularization. The math b
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/encode_days_of_the_week/</guid>
-      <description> Preliminaries # Load library import pandas as pd Create Date And Time Data # Create dates dates = pd.Series(pd.date_range(&amp;#39;2/2/2002&amp;#39;, periods=3, freq=&amp;#39;M&amp;#39;)) # View data dates 0 2002-02-28 1 2002-03-31 2 2002-04-30 dtype: datetime64[ns]  Show Days Of The Week # Show days of the week dates.dt.weekday_name 0 Thursday 1 Sunday 2 Tuesday dtype: object  </description>
+      <description>Preliminaries # Load library import pandas as pd Create Date And Time Data # Create dates dates = pd.Series(pd.date_range(&amp;#39;2/2/2002&amp;#39;, periods=3, freq=&amp;#39;M&amp;#39;)) # View data dates 0 2002-02-28 1 2002-03-31 2 2002-04-30 dtype: datetime64[ns]  Show Days Of The Week # Show days of the week dates.dt.weekday_name 0 Thursday 1 Sunday 2 Tuesday dtype: object  </description>
     </item>
     
     <item>
@@ -488,7 +486,8 @@ Lasso regression is a common modeling technique to do regularization. The math b
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/preprocessing_structured_data/encoding_ordinal_categorical_features/</guid>
-      <description>Preliminaries # Load library import pandas as pd Create Feature Matrix # Create features df = pd.DataFrame({&amp;#39;Score&amp;#39;: [&amp;#39;Low&amp;#39;, &amp;#39;Low&amp;#39;, &amp;#39;Medium&amp;#39;, &amp;#39;Medium&amp;#39;, &amp;#39;High&amp;#39;]}) # View data frame df   .dataframe thead tr:only-child th { text-align: right; } .dataframe thead th { text-align: left; } .dataframe tbody tr th { vertical-align: top; }    Score     0 Low   1 Low   2 Medium   3 Medium   4 High     Create Scale Map # Create mapper scale_mapper = {&amp;#39;Low&amp;#39;:1, &amp;#39;Medium&amp;#39;:2, &amp;#39;High&amp;#39;:3} Map Scale To Features # Map feature values to scale df[&amp;#39;Scale&amp;#39;] = df[&amp;#39;Score&amp;#39;].</description>
+      <description>Preliminaries # Load library import pandas as pd Create Feature Matrix # Create features df = pd.DataFrame({&amp;#39;Score&amp;#39;: [&amp;#39;Low&amp;#39;, &amp;#39;Low&amp;#39;, &amp;#39;Medium&amp;#39;, &amp;#39;Medium&amp;#39;, &amp;#39;High&amp;#39;]}) # View data frame df   .dataframe thead tr:only-child th { text-align: right; } .dataframe thead th { text-align: left; } .dataframe tbody tr th { vertical-align: top; }  
+  Score     0 Low   1 Low   2 Medium   3 Medium   4 High     Create Scale Map # Create mapper scale_mapper = {&amp;#39;Low&amp;#39;:1, &amp;#39;Medium&amp;#39;:2, &amp;#39;High&amp;#39;:3} Map Scale To Features # Map feature values to scale df[&amp;#39;Scale&amp;#39;] = df[&amp;#39;Score&amp;#39;].</description>
     </item>
     
     <item>
@@ -497,7 +496,7 @@ Lasso regression is a common modeling technique to do regularization. The math b
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/preprocessing_images/enhance_contrast_of_color_image/</guid>
-      <description>Preliminaries # Load image import cv2 import numpy as np from matplotlib import pyplot as plt Load Image # Load image image_bgr = cv2.imread(&amp;#39;images/plane.jpg&amp;#39;) Convert Image To YUV Color Format # Convert to YUV image_yuv = cv2.cvtColor(image_bgr, cv2.COLOR_BGR2YUV) Enhance Image # Apply histogram equalization image_yuv[:, :, 0] = cv2.equalizeHist(image_yuv[:, :, 0]) Convert To RGB # Convert to RGB image_rgb = cv2.cvtColor(image_yuv, cv2.COLOR_YUV2RGB) View Image # Show image plt.imshow(image_rgb), plt.axis(&amp;#34;off&amp;#34;) plt.</description>
+      <description>Preliminaries # Load image import cv2 import numpy as np from matplotlib import pyplot as plt Load Image # Load image image_bgr = cv2.imread(&amp;#39;images/plane.jpg&amp;#39;) Convert Image To YUV Color Format # Convert to YUV image_yuv = cv2.cvtColor(image_bgr, cv2.COLOR_BGR2YUV) Enhance Image # Apply histogram equalization image_yuv[:, :, 0] = cv2.equalizeHist(image_yuv[:, :, 0]) Convert To RGB # Convert to RGB image_rgb = cv2.cvtColor(image_yuv, cv2.COLOR_YUV2RGB) View Image # Show image plt.imshow(image_rgb), plt.axis(&amp;#34;off&amp;#34;) plt.show() </description>
     </item>
     
     <item>
@@ -506,7 +505,7 @@ Lasso regression is a common modeling technique to do regularization. The math b
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/preprocessing_images/enhance_contrast_of_greyscale_image/</guid>
-      <description> Preliminaries # Load image import cv2 import numpy as np from matplotlib import pyplot as plt Load Image As Greyscale # Load image as grayscale image = cv2.imread(&amp;#39;images/plane_256x256.jpg&amp;#39;, cv2.IMREAD_GRAYSCALE) Enhance Image # Enhance image image_enhanced = cv2.equalizeHist(image) View Image # Show image plt.imshow(image_enhanced, cmap=&amp;#39;gray&amp;#39;), plt.axis(&amp;#34;off&amp;#34;) plt.show() </description>
+      <description>Preliminaries # Load image import cv2 import numpy as np from matplotlib import pyplot as plt Load Image As Greyscale # Load image as grayscale image = cv2.imread(&amp;#39;images/plane_256x256.jpg&amp;#39;, cv2.IMREAD_GRAYSCALE) Enhance Image # Enhance image image_enhanced = cv2.equalizeHist(image) View Image # Show image plt.imshow(image_enhanced, cmap=&amp;#39;gray&amp;#39;), plt.axis(&amp;#34;off&amp;#34;) plt.show() </description>
     </item>
     
     <item>
@@ -515,7 +514,7 @@ Lasso regression is a common modeling technique to do regularization. The math b
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/clustering/evaluating_clustering/</guid>
-      <description>Preliminaries import numpy as np from sklearn.metrics import silhouette_score from sklearn import datasets from sklearn.cluster import KMeans from sklearn.datasets import make_blobs Create Feature Data # Generate feature matrix X, _ = make_blobs(n_samples = 1000, n_features = 10, centers = 2, cluster_std = 0.5, shuffle = True, random_state = 1) Cluster Observations # Cluster data using k-means to predict classes model = KMeans(n_clusters=2, random_state=1).fit(X) # Get predicted classes y_hat = model.</description>
+      <description>Preliminaries import numpy as np from sklearn.metrics import silhouette_score from sklearn import datasets from sklearn.cluster import KMeans from sklearn.datasets import make_blobs Create Feature Data # Generate feature matrix X, _ = make_blobs(n_samples = 1000, n_features = 10, centers = 2, cluster_std = 0.5, shuffle = True, random_state = 1) Cluster Observations # Cluster data using k-means to predict classes model = KMeans(n_clusters=2, random_state=1).fit(X) # Get predicted classes y_hat = model.labels_ Calculate Silhouette Coefficient Formally, the $i$th observation&amp;rsquo;s silhouette coefficient is:</description>
     </item>
     
     <item>
@@ -570,7 +569,8 @@ scikit-learn&amp;rsquo;s LogisticRegressionCV method includes a parameter Cs. If
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/model_selection/find_best_preprocessing_steps_during_model_selection/</guid>
-      <description>We have to be careful to properly handle preprocessing when conducting model selection. First, GridSearchCV uses cross-validation to determine which model has the highest performance. However, in cross-validation we are in effect pretending that the fold held out as the test set is not seen, and thus not part of fitting any preprocessing steps (e.g. scaling or standardization). For this reason, we cannot preprocess the data then run GridSearchCV.</description>
+      <description>We have to be careful to properly handle preprocessing when conducting model selection. First, GridSearchCV uses cross-validation to determine which model has the highest performance. However, in cross-validation we are in effect pretending that the fold held out as the test set is not seen, and thus not part of fitting any preprocessing steps (e.g. scaling or standardization). For this reason, we cannot preprocess the data then run GridSearchCV.
+Second, some preprocessing methods have their own parameter which often have to be supplied by the user.</description>
     </item>
     
     <item>
@@ -607,7 +607,7 @@ scikit-learn&amp;rsquo;s LogisticRegressionCV method includes a parameter Cs. If
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/find_the_rank_of_a_matrix/</guid>
-      <description> Preliminaries # Load library import numpy as np Create Matrix # Create matrix matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]]) Find Rank Of Matrix # Return matrix rank np.linalg.matrix_rank(matrix) 2  </description>
+      <description>Preliminaries # Load library import numpy as np Create Matrix # Create matrix matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]]) Find Rank Of Matrix # Return matrix rank np.linalg.matrix_rank(matrix) 2  </description>
     </item>
     
     <item>
@@ -616,7 +616,7 @@ scikit-learn&amp;rsquo;s LogisticRegressionCV method includes a parameter Cs. If
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/flatten_a_matrix/</guid>
-      <description> Preliminaries # Load library import numpy as np Create Matrix # Create matrix matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]]) Flatten Matrix # Flatten matrix matrix.flatten() array([1, 2, 3, 4, 5, 6, 7, 8, 9])  </description>
+      <description>Preliminaries # Load library import numpy as np Create Matrix # Create matrix matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]]) Flatten Matrix # Flatten matrix matrix.flatten() array([1, 2, 3, 4, 5, 6, 7, 8, 9])  </description>
     </item>
     
     <item>
@@ -644,7 +644,7 @@ Preliminaries # Load libraries from sklearn import datasets from sklearn.naive_b
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/getting_the_diagonal_of_a_matrix/</guid>
-      <description> Preliminaries # Load library import numpy as np Create Matrix # Create matrix matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]]) Get The Diagonal # Return diagonal elements matrix.diagonal() array([1, 5, 9])  Calculate The Trace # Calculate the tracre of the matrix matrix.diagonal().sum() 15  </description>
+      <description>Preliminaries # Load library import numpy as np Create Matrix # Create matrix matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]]) Get The Diagonal # Return diagonal elements matrix.diagonal() array([1, 5, 9])  Calculate The Trace # Calculate the tracre of the matrix matrix.diagonal().sum() 15  </description>
     </item>
     
     <item>
@@ -710,7 +710,8 @@ Preliminaries # Load libraries import numpy as np from sklearn.datasets import l
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/preprocessing_structured_data/handling_outliers/</guid>
-      <description>Preliminaries # Load library import pandas as pd Create Data # Create DataFrame houses = pd.DataFrame() houses[&amp;#39;Price&amp;#39;] = [534433, 392333, 293222, 4322032] houses[&amp;#39;Bathrooms&amp;#39;] = [2, 3.5, 2, 116] houses[&amp;#39;Square_Feet&amp;#39;] = [1500, 2500, 1500, 48000] houses   .dataframe thead tr:only-child th { text-align: right; } .dataframe thead th { text-align: left; } .dataframe tbody tr th { vertical-align: top; }    Price Bathrooms Square_Feet     0 534433 2.</description>
+      <description>Preliminaries # Load library import pandas as pd Create Data # Create DataFrame houses = pd.DataFrame() houses[&amp;#39;Price&amp;#39;] = [534433, 392333, 293222, 4322032] houses[&amp;#39;Bathrooms&amp;#39;] = [2, 3.5, 2, 116] houses[&amp;#39;Square_Feet&amp;#39;] = [1500, 2500, 1500, 48000] houses   .dataframe thead tr:only-child th { text-align: right; } .dataframe thead th { text-align: left; } .dataframe tbody tr th { vertical-align: top; }  
+  Price Bathrooms Square_Feet     0 534433 2.</description>
     </item>
     
     <item>
@@ -786,7 +787,7 @@ Preliminaries import pandas as pd import numpy as np from sklearn.preprocessing 
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/preprocessing_structured_data/imputing_missing_class_labels/</guid>
-      <description>Preliminaries # Load libraries import numpy as np from sklearn.preprocessing import Imputer Create Feature Matrix With Missing Values # Create feature matrix with categorical feature X = np.array([[0, 2.10, 1.45], [1, 1.18, 1.33], [0, 1.22, 1.27], [0, -0.21, -1.19], [np.nan, 0.87, 1.31], [np.nan, -0.67, -0.22]]) Fill Missing Values&amp;rsquo; Class With Most Frequent Class # Create Imputer object imputer = Imputer(strategy=&amp;#39;most_frequent&amp;#39;, axis=0) # Fill missing values with most frequent class imputer.</description>
+      <description>Preliminaries # Load libraries import numpy as np from sklearn.preprocessing import Imputer Create Feature Matrix With Missing Values # Create feature matrix with categorical feature X = np.array([[0, 2.10, 1.45], [1, 1.18, 1.33], [0, 1.22, 1.27], [0, -0.21, -1.19], [np.nan, 0.87, 1.31], [np.nan, -0.67, -0.22]]) Fill Missing Values&#39; Class With Most Frequent Class # Create Imputer object imputer = Imputer(strategy=&amp;#39;most_frequent&amp;#39;, axis=0) # Fill missing values with most frequent class imputer.fit_transform(X) array([[ 0.</description>
     </item>
     
     <item>
@@ -815,7 +816,7 @@ Afterwards, we can check the installation by opening a notebook, importing OpenC
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/invert_a_matrix/</guid>
-      <description> Preliminaries # Load library import numpy as np Create Matrix # Create matrix matrix = np.array([[1, 4], [2, 5]]) Invert Matrix # Calculate inverse of matrix np.linalg.inv(matrix) array([[-1.66666667, 1.33333333], [ 0.66666667, -0.33333333]])  </description>
+      <description>Preliminaries # Load library import numpy as np Create Matrix # Create matrix matrix = np.array([[1, 4], [2, 5]]) Invert Matrix # Calculate inverse of matrix np.linalg.inv(matrix) array([[-1.66666667, 1.33333333], [ 0.66666667, -0.33333333]])  </description>
     </item>
     
     <item>
@@ -824,7 +825,16 @@ Afterwards, we can check the installation by opening a notebook, importing OpenC
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/preprocessing_images/isolate_colors/</guid>
-      <description>Preliminaries # Load image import cv2 import numpy as np from matplotlib import pyplot as plt Load Image # Load image image_bgr = cv2.imread(&amp;#39;images/plane_256x256.jpg&amp;#39;) Convert To HSV Color Format # Convert BGR to HSV image_hsv = cv2.cvtColor(image_bgr, cv2.COLOR_BGR2HSV) Create Mask # Define range of blue values in HSV lower_blue = np.array([50,100,50]) upper_blue = np.array([130,255,255]) # Create mask mask = cv2.inRange(image_hsv, lower_blue, upper_blue) Apply Mask # Mask image image_bgr_masked = cv2.</description>
+      <description>Preliminaries # Load image import cv2 import numpy as np from matplotlib import pyplot as plt Load Image # Load image image_bgr = cv2.imread(&amp;#39;images/plane_256x256.jpg&amp;#39;) Convert To HSV Color Format # Convert BGR to HSV image_hsv = cv2.cvtColor(image_bgr, cv2.COLOR_BGR2HSV) Create Mask # Define range of blue values in HSV lower_blue = np.array([50,100,50]) upper_blue = np.array([130,255,255]) # Create mask mask = cv2.inRange(image_hsv, lower_blue, upper_blue) Apply Mask # Mask image image_bgr_masked = cv2.bitwise_and(image_bgr, image_bgr, mask=mask) Convert To RGB Format # Convert BGR to RGB image_rgb = cv2.</description>
+    </item>
+    
+    <item>
+      <title>k-Means Clustering</title>
+      <link>https://chrisalbon.com/machine_learning/clustering/k-means_clustering/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning/clustering/k-means_clustering/</guid>
+      <description>Preliminaries # Load libraries from sklearn import datasets from sklearn.preprocessing import StandardScaler from sklearn.cluster import KMeans Load Iris Flower Dataset # Load data iris = datasets.load_iris() X = iris.data Standardize Features # Standarize features scaler = StandardScaler() X_std = scaler.fit_transform(X) Conduct k-Means Clustering # Create k-mean object clt = KMeans(n_clusters=3, random_state=0, n_jobs=-1) # Train model model = clt.fit(X_std) Show Each Observation&amp;rsquo;s Cluster Membership # View predict class model.labels_ array([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 2, 2, 2, 0, 2, 2, 2, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 0, 2, 2, 2, 2, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 2, 0, 2, 0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 2], dtype=int32)  Create New Observation # Create new observation new_observation = [[0.</description>
     </item>
     
     <item>
@@ -844,7 +854,7 @@ KNN has three basic parts:
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/lag_a_time_feature/</guid>
-      <description>Preliminaries # Load library import pandas as pd Create Date Data # Create data frame df = pd.DataFrame() # Create data df[&amp;#39;dates&amp;#39;] = pd.date_range(&amp;#39;1/1/2001&amp;#39;, periods=5, freq=&amp;#39;D&amp;#39;) df[&amp;#39;stock_price&amp;#39;] = [1.1,2.2,3.3,4.4,5.5] Lag Time Data By One Row # Lagged values by one row df[&amp;#39;previous_days_stock_price&amp;#39;] = df[&amp;#39;stock_price&amp;#39;].shift(1) # Show data frame df   .dataframe thead tr:only-child th { text-align: right; } .dataframe thead th { text-align: left; } .dataframe tbody tr th { vertical-align: top; }    dates stock_price previous_days_stock_price     0 2001-01-01 1.</description>
+      <description>Preliminaries # Load library import pandas as pd Create Date Data # Create data frame df = pd.DataFrame() # Create data df[&amp;#39;dates&amp;#39;] = pd.date_range(&amp;#39;1/1/2001&amp;#39;, periods=5, freq=&amp;#39;D&amp;#39;) df[&amp;#39;stock_price&amp;#39;] = [1.1,2.2,3.3,4.4,5.5] Lag Time Data By One Row # Lagged values by one row df[&amp;#39;previous_days_stock_price&amp;#39;] = df[&amp;#39;stock_price&amp;#39;].shift(1) # Show data frame df   .dataframe thead tr:only-child th { text-align: right; } .dataframe thead th { text-align: left; } .dataframe tbody tr th { vertical-align: top; }</description>
     </item>
     
     <item>
@@ -888,20 +898,20 @@ Preliminary import pandas as pd from sklearn import linear_model import random i
     
     <item>
       <title>Loading Features From Dictionaries</title>
-      <link>https://chrisalbon.com/machine_learning/basics/untitled/</link>
-      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
-      
-      <guid>https://chrisalbon.com/machine_learning/basics/untitled/</guid>
-      <description>from sklearn import datasetsimport numpy as npiris = datasets.load_iris()X = iris.data[:, [2, 3]]X array([[1.4, 0.2], [1.4, 0.2], [1.3, 0.2], [1.5, 0.2], [1.4, 0.2], [1.7, 0.4], [1.4, 0.3], [1.5, 0.2], [1.4, 0.2], [1.5, 0.1], [1.5, 0.2], [1.6, 0.2], [1.4, 0.1], [1.1, 0.1], [1.2, 0.2], [1.5, 0.4], [1.3, 0.4], [1.4, 0.3], [1.7, 0.3], [1.5, 0.3], [1.7, 0.2], [1.5, 0.4], [1. , 0.2], [1.7, 0.5], [1.9, 0.2], [1.6, 0.2], [1.6, 0.4], [1.5, 0.2], [1.</description>
-    </item>
-    
-    <item>
-      <title>Loading Features From Dictionaries</title>
       <link>https://chrisalbon.com/machine_learning/basics/loading_features_from_dictionaries/</link>
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/basics/loading_features_from_dictionaries/</guid>
-      <description>Preliminaries from sklearn.feature_extraction import DictVectorizer Create A Dictionary staff = [{&amp;#39;name&amp;#39;: &amp;#39;Steve Miller&amp;#39;, &amp;#39;age&amp;#39;: 33.}, {&amp;#39;name&amp;#39;: &amp;#39;Lyndon Jones&amp;#39;, &amp;#39;age&amp;#39;: 12.}, {&amp;#39;name&amp;#39;: &amp;#39;Baxter Morth&amp;#39;, &amp;#39;age&amp;#39;: 18.}] Convert Dictionary To Feature Matrix # Create an object for our dictionary vectorizer vec = DictVectorizer()# Fit then transform the staff dictionary with vec, then output an array vec.fit_transform(staff).toarray() array([[ 33., 0., 0., 1.], [ 12., 0., 1., 0.], [ 18., 1., 0., 0.]])  View Feature Names # Get Feature Names vec.</description>
+      <description>Preliminaries from sklearn.feature_extraction import DictVectorizer Create A Dictionary staff = [{&amp;#39;name&amp;#39;: &amp;#39;Steve Miller&amp;#39;, &amp;#39;age&amp;#39;: 33.}, {&amp;#39;name&amp;#39;: &amp;#39;Lyndon Jones&amp;#39;, &amp;#39;age&amp;#39;: 12.}, {&amp;#39;name&amp;#39;: &amp;#39;Baxter Morth&amp;#39;, &amp;#39;age&amp;#39;: 18.}] Convert Dictionary To Feature Matrix # Create an object for our dictionary vectorizer vec = DictVectorizer() # Fit then transform the staff dictionary with vec, then output an array vec.fit_transform(staff).toarray() array([[ 33., 0., 0., 1.], [ 12., 0., 1., 0.], [ 18., 1., 0., 0.]])  View Feature Names # Get Feature Names vec.</description>
+    </item>
+    
+    <item>
+      <title>Loading Features From Dictionaries</title>
+      <link>https://chrisalbon.com/machine_learning/basics/untitled/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning/basics/untitled/</guid>
+      <description>from sklearn import datasets import numpy as np iris = datasets.load_iris() X = iris.data[:, [2, 3]] X array([[1.4, 0.2], [1.4, 0.2], [1.3, 0.2], [1.5, 0.2], [1.4, 0.2], [1.7, 0.4], [1.4, 0.3], [1.5, 0.2], [1.4, 0.2], [1.5, 0.1], [1.5, 0.2], [1.6, 0.2], [1.4, 0.1], [1.1, 0.1], [1.2, 0.2], [1.5, 0.4], [1.3, 0.4], [1.4, 0.3], [1.7, 0.3], [1.5, 0.3], [1.7, 0.2], [1.5, 0.4], [1. , 0.2], [1.7, 0.5], [1.9, 0.2], [1.6, 0.2], [1.</description>
     </item>
     
     <item>
@@ -910,7 +920,7 @@ Preliminary import pandas as pd from sklearn import linear_model import random i
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/basics/loading_scikit-learns_boston_housing_dataset/</guid>
-      <description>Preliminaries # Load libraries from sklearn import datasets import matplotlib.pyplot as plt  Load Boston Housing Dataset The Boston housing dataset is a famous dataset from the 1970s. It contains 506 observations on housing prices around Boston. It is often used in regression examples and contains 15 features.
+      <description>Preliminaries # Load libraries from sklearn import datasets import matplotlib.pyplot as plt Load Boston Housing Dataset The Boston housing dataset is a famous dataset from the 1970s. It contains 506 observations on housing prices around Boston. It is often used in regression examples and contains 15 features.
 # Load digits dataset boston = datasets.load_boston() # Create feature matrix X = boston.data # Create target vector y = boston.target # View the first observation&amp;#39;s feature values X[0] array([ 6.</description>
     </item>
     
@@ -920,8 +930,8 @@ Preliminary import pandas as pd from sklearn import linear_model import random i
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/basics/loading_scikit-learns_digits-dataset/</guid>
-      <description>Preliminaries # Load libraries from sklearn import datasets import matplotlib.pyplot as plt  Load Digits Dataset Digits is a dataset of handwritten digits. Each feature is the intensity of one pixel of an 8 x 8 image.
-# Load digits dataset digits = datasets.load_digits() # Create feature matrix X = digits.data # Create target vector y = digits.target # View the first observation&amp;#39;s feature values X[0] array([ 0., 0., 5.</description>
+      <description>Preliminaries # Load libraries from sklearn import datasets import matplotlib.pyplot as plt Load Digits Dataset Digits is a dataset of handwritten digits. Each feature is the intensity of one pixel of an 8 x 8 image.
+# Load digits dataset digits = datasets.load_digits() # Create feature matrix X = digits.data # Create target vector y = digits.target # View the first observation&amp;#39;s feature values X[0] array([ 0., 0., 5., 13., 9.</description>
     </item>
     
     <item>
@@ -930,7 +940,7 @@ Preliminary import pandas as pd from sklearn import linear_model import random i
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/basics/loading_scikit-learns_iris_dataset/</guid>
-      <description>Preliminaries # Load libraries from sklearn import datasets import matplotlib.pyplot as plt  Load Iris Dataset The Iris flower dataset is one of the most famous databases for classification. It contains three classes (i.e. three species of flowers) with 50 observations per class.
+      <description>Preliminaries # Load libraries from sklearn import datasets import matplotlib.pyplot as plt Load Iris Dataset The Iris flower dataset is one of the most famous databases for classification. It contains three classes (i.e. three species of flowers) with 50 observations per class.
 # Load digits dataset iris = datasets.load_iris() # Create feature matrix X = iris.data # Create target vector y = iris.target # View the first observation&amp;#39;s feature values X[0] array([ 5.</description>
     </item>
     
@@ -1103,7 +1113,7 @@ Preliminaries # Load libraries import numpy as np from sklearn.naive_bayes impor
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/preprocessing_text/parse_html/</guid>
-      <description> Preliminaries # Load library from bs4 import BeautifulSoup Create HTML # Create some HTML code html = &amp;#34;&amp;lt;div class=&amp;#39;full_name&amp;#39;&amp;gt;&amp;lt;span style=&amp;#39;font-weight:bold&amp;#39;&amp;gt;Masego&amp;lt;/span&amp;gt; Azra&amp;lt;/div&amp;gt;&amp;#34; Parse HTML # Parse html soup = BeautifulSoup(html, &amp;#34;lxml&amp;#34;) # Find the div with the class &amp;#34;full_name&amp;#34;, show text soup.find(&amp;#34;div&amp;#34;, { &amp;#34;class&amp;#34; : &amp;#34;full_name&amp;#34; }).text &#39;Masego Azra&#39;  </description>
+      <description>Preliminaries # Load library from bs4 import BeautifulSoup Create HTML # Create some HTML code html = &amp;#34;&amp;lt;div class=&amp;#39;full_name&amp;#39;&amp;gt;&amp;lt;span style=&amp;#39;font-weight:bold&amp;#39;&amp;gt;Masego&amp;lt;/span&amp;gt; Azra&amp;lt;/div&amp;gt;&amp;#34; Parse HTML # Parse html soup = BeautifulSoup(html, &amp;#34;lxml&amp;#34;) # Find the div with the class &amp;#34;full_name&amp;#34;, show text soup.find(&amp;#34;div&amp;#34;, { &amp;#34;class&amp;#34; : &amp;#34;full_name&amp;#34; }).text &#39;Masego Azra&#39;  </description>
     </item>
     
     <item>
@@ -1178,7 +1188,7 @@ Preliminaries # Load required libraries from sklearn import datasets from sklear
       <guid>https://chrisalbon.com/machine_learning/preprocessing_structured_data/preprocessing_categorical_features/</guid>
       <description>Often, machine learning methods (e.g. logistic regression, SVM with a linear kernel, etc) will require that categorical variables be converted into dummy variables (also called OneHot encoding). For example, a single feature Fruit would be converted into three features, Apples, Oranges, and Bananas, one for each category in the categorical feature.
 There are common ways to preprocess categorical features: using pandas or scikit-learn.
-Preliminaries from sklearn import preprocessing from sklearn.</description>
+Preliminaries from sklearn import preprocessing from sklearn.pipeline import Pipeline import pandas as pd Create Data raw_data = {&amp;#39;first_name&amp;#39;: [&amp;#39;Jason&amp;#39;, &amp;#39;Molly&amp;#39;, &amp;#39;Tina&amp;#39;, &amp;#39;Jake&amp;#39;, &amp;#39;Amy&amp;#39;], &amp;#39;last_name&amp;#39;: [&amp;#39;Miller&amp;#39;, &amp;#39;Jacobson&amp;#39;, &amp;#39;Ali&amp;#39;, &amp;#39;Milner&amp;#39;, &amp;#39;Cooze&amp;#39;], &amp;#39;age&amp;#39;: [42, 52, 36, 24, 73], &amp;#39;city&amp;#39;: [&amp;#39;San Francisco&amp;#39;, &amp;#39;Baltimore&amp;#39;, &amp;#39;Miami&amp;#39;, &amp;#39;Douglas&amp;#39;, &amp;#39;Boston&amp;#39;]} df = pd.</description>
     </item>
     
     <item>
@@ -1223,7 +1233,7 @@ Preliminaries from sklearn import preprocessing from sklearn.</description>
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/trees_and_forests/random_forest_regressor/</guid>
-      <description> Preliminaries # Load libraries from sklearn.ensemble import RandomForestRegressor from sklearn import datasets Load Boston Housing Data # Load data with only two features boston = datasets.load_boston() X = boston.data[:,0:2] y = boston.target Create Random Forest Regressor # Create decision tree classifer object regr = RandomForestRegressor(random_state=0, n_jobs=-1) Train Random Forest Regressor # Train model model = regr.fit(X, y)</description>
+      <description>Preliminaries # Load libraries from sklearn.ensemble import RandomForestRegressor from sklearn import datasets Load Boston Housing Data # Load data with only two features boston = datasets.load_boston() X = boston.data[:,0:2] y = boston.target Create Random Forest Regressor # Create decision tree classifer object regr = RandomForestRegressor(random_state=0, n_jobs=-1) Train Random Forest Regressor # Train model model = regr.fit(X, y) </description>
     </item>
     
     <item>
@@ -1259,7 +1269,7 @@ Preliminaries from sklearn import preprocessing from sklearn.</description>
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/preprocessing_text/remove_punctuation/</guid>
-      <description> Preliminaries # Load libraries import string import numpy as np Create Text Data # Create text text_data = [&amp;#39;Hi!!!! I. Love. This. Song....&amp;#39;, &amp;#39;10000% Agree!!!! #LoveIT&amp;#39;, &amp;#39;Right?!?!&amp;#39;] Remove Punctuation # Create function using string.punctuation to remove all punctuation def remove_punctuation(sentence: str) -&amp;gt; str: return sentence.translate(str.maketrans(&amp;#39;&amp;#39;, &amp;#39;&amp;#39;, string.punctuation)) # Apply function [remove_punctuation(sentence) for sentence in text_data] [&#39;Hi I Love This Song&#39;, &#39;10000 Agree LoveIT&#39;, &#39;Right&#39;]  </description>
+      <description>Preliminaries # Load libraries import string import numpy as np Create Text Data # Create text text_data = [&amp;#39;Hi!!!! I. Love. This. Song....&amp;#39;, &amp;#39;10000% Agree!!!! #LoveIT&amp;#39;, &amp;#39;Right?!?!&amp;#39;] Remove Punctuation # Create function using string.punctuation to remove all punctuation def remove_punctuation(sentence: str) -&amp;gt; str: return sentence.translate(str.maketrans(&amp;#39;&amp;#39;, &amp;#39;&amp;#39;, string.punctuation)) # Apply function [remove_punctuation(sentence) for sentence in text_data] [&#39;Hi I Love This Song&#39;, &#39;10000 Agree LoveIT&#39;, &#39;Right&#39;]  </description>
     </item>
     
     <item>
@@ -1268,7 +1278,7 @@ Preliminaries from sklearn import preprocessing from sklearn.</description>
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/preprocessing_text/remove_stop_words/</guid>
-      <description> Preliminaries # Load library from nltk.corpus import stopwords # You will have to download the set of stop words the first time import nltk nltk.download(&amp;#39;stopwords&amp;#39;) [nltk_data] Downloading package stopwords to [nltk_data] /Users/chrisalbon/nltk_data... [nltk_data] Package stopwords is already up-to-date! True  Create Word Tokens # Create word tokens tokenized_words = [&amp;#39;i&amp;#39;, &amp;#39;am&amp;#39;, &amp;#39;going&amp;#39;, &amp;#39;to&amp;#39;, &amp;#39;go&amp;#39;, &amp;#39;to&amp;#39;, &amp;#39;the&amp;#39;, &amp;#39;store&amp;#39;, &amp;#39;and&amp;#39;, &amp;#39;park&amp;#39;] Load Stop Words # Load stop words stop_words = stopwords.words(&amp;#39;english&amp;#39;) # Show stop words stop_words[:5] [&#39;i&#39;, &#39;me&#39;, &#39;my&#39;, &#39;myself&#39;, &#39;we&#39;]  Remove Stop Words # Remove stop words [word for word in tokenized_words if word not in stop_words] [&#39;going&#39;, &#39;go&#39;, &#39;store&#39;, &#39;park&#39;]  </description>
+      <description>Preliminaries # Load library from nltk.corpus import stopwords # You will have to download the set of stop words the first time import nltk nltk.download(&amp;#39;stopwords&amp;#39;) [nltk_data] Downloading package stopwords to [nltk_data] /Users/chrisalbon/nltk_data... [nltk_data] Package stopwords is already up-to-date! True  Create Word Tokens # Create word tokens tokenized_words = [&amp;#39;i&amp;#39;, &amp;#39;am&amp;#39;, &amp;#39;going&amp;#39;, &amp;#39;to&amp;#39;, &amp;#39;go&amp;#39;, &amp;#39;to&amp;#39;, &amp;#39;the&amp;#39;, &amp;#39;store&amp;#39;, &amp;#39;and&amp;#39;, &amp;#39;park&amp;#39;] Load Stop Words # Load stop words stop_words = stopwords.words(&amp;#39;english&amp;#39;) # Show stop words stop_words[:5] [&#39;i&#39;, &#39;me&#39;, &#39;my&#39;, &#39;myself&#39;, &#39;we&#39;]  Remove Stop Words # Remove stop words [word for word in tokenized_words if word not in stop_words] [&#39;going&#39;, &#39;go&#39;, &#39;store&#39;, &#39;park&#39;]  </description>
     </item>
     
     <item>
@@ -1286,8 +1296,7 @@ Preliminaries from sklearn import preprocessing from sklearn.</description>
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/preprocessing_structured_data/rescale_a_feature/</guid>
-      <description> 
-Preliminaries # Load libraries from sklearn import preprocessing import numpy as np Create Feature # Create feature x = np.array([[-500.5], [-100.1], [0], [100.1], [900.9]]) Rescale Feature Using Min-Max # Create scaler minmax_scale = preprocessing.MinMaxScaler(feature_range=(0, 1)) # Scale feature x_scale = minmax_scale.fit_transform(x) # Show feature x_scale array([[ 0. ], [ 0.28571429], [ 0.35714286], [ 0.42857143], [ 1. ]])  </description>
+      <description> Preliminaries # Load libraries from sklearn import preprocessing import numpy as np Create Feature # Create feature x = np.array([[-500.5], [-100.1], [0], [100.1], [900.9]]) Rescale Feature Using Min-Max # Create scaler minmax_scale = preprocessing.MinMaxScaler(feature_range=(0, 1)) # Scale feature x_scale = minmax_scale.fit_transform(x) # Show feature x_scale array([[ 0. ], [ 0.28571429], [ 0.35714286], [ 0.42857143], [ 1. ]])  </description>
     </item>
     
     <item>
@@ -1296,7 +1305,7 @@ Preliminaries # Load libraries from sklearn import preprocessing import numpy as
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/reshape_an_array/</guid>
-      <description> Preliminaries # Load library import numpy as np Create Array # Create a 4x3 matrix matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]]) Reshape Array # Reshape matrix into 2x6 matrix matrix.reshape(2, 6) array([[ 1, 2, 3, 4, 5, 6], [ 7, 8, 9, 10, 11, 12]])  </description>
+      <description>Preliminaries # Load library import numpy as np Create Array # Create a 4x3 matrix matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]]) Reshape Array # Reshape matrix into 2x6 matrix matrix.reshape(2, 6) array([[ 1, 2, 3, 4, 5, 6], [ 7, 8, 9, 10, 11, 12]])  </description>
     </item>
     
     <item>
@@ -1314,17 +1323,7 @@ Preliminaries # Load libraries from sklearn import preprocessing import numpy as
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/rolling_time_windows/</guid>
-      <description>Preliminaries # Load library import pandas as pd Create Date Data # Create datetimes time_index = pd.date_range(&amp;#39;01/01/2010&amp;#39;, periods=5, freq=&amp;#39;M&amp;#39;) # Create data frame, set index df = pd.DataFrame(index=time_index) # Create feature df[&amp;#39;Stock_Price&amp;#39;] = [1,2,3,4,5] Create A Rolling Time Window Of Two Rows # Calculate rolling mean df.rolling(window=2).mean()   .dataframe thead tr:only-child th { text-align: right; } .dataframe thead th { text-align: left; } .dataframe tbody tr th { vertical-align: top; }    Stock_Price     2010-01-31 NaN   2010-02-28 1.</description>
-    </item>
-    
-    <item>
-      <title>SVC Parameters When Using RBF Kernel</title>
-      <link>https://chrisalbon.com/machine_learning/support_vector_machines/svc_parameters_using_rbf_kernel/</link>
-      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
-      
-      <guid>https://chrisalbon.com/machine_learning/support_vector_machines/svc_parameters_using_rbf_kernel/</guid>
-      <description>In this tutorial we will visually explore the effects of the two parameters from the support vector classifier (SVC) when using the radial basis function kernel (RBF). This tutorial draws heavily on the code used in Sebastian Raschka&amp;rsquo;s book Python Machine Learning.
-Preliminaries # Import packages to visualize the classifer from matplotlib.colors import ListedColormap import matplotlib.pyplot as plt import warnings # Import packages to do the classifying import numpy as np from sklearn.</description>
+      <description>Preliminaries # Load library import pandas as pd Create Date Data # Create datetimes time_index = pd.date_range(&amp;#39;01/01/2010&amp;#39;, periods=5, freq=&amp;#39;M&amp;#39;) # Create data frame, set index df = pd.DataFrame(index=time_index) # Create feature df[&amp;#39;Stock_Price&amp;#39;] = [1,2,3,4,5] Create A Rolling Time Window Of Two Rows # Calculate rolling mean df.rolling(window=2).mean()   .dataframe thead tr:only-child th { text-align: right; } .dataframe thead th { text-align: left; } .dataframe tbody tr th { vertical-align: top; }</description>
     </item>
     
     <item>
@@ -1333,7 +1332,7 @@ Preliminaries # Import packages to visualize the classifer from matplotlib.color
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/preprocessing_images/save_images/</guid>
-      <description> Preliminaries # Load library import cv2 import numpy as np from matplotlib import pyplot as plt Load Image As Greyscale # Load image as grayscale image = cv2.imread(&amp;#39;images/plane.jpg&amp;#39;, cv2.IMREAD_GRAYSCALE) # Show image plt.imshow(image, cmap=&amp;#39;gray&amp;#39;), plt.axis(&amp;#34;off&amp;#34;) plt.show() Save Image # Save image cv2.imwrite(&amp;#39;images/plane_new.jpg&amp;#39;, image) True  </description>
+      <description>Preliminaries # Load library import cv2 import numpy as np from matplotlib import pyplot as plt Load Image As Greyscale # Load image as grayscale image = cv2.imread(&amp;#39;images/plane.jpg&amp;#39;, cv2.IMREAD_GRAYSCALE) # Show image plt.imshow(image, cmap=&amp;#39;gray&amp;#39;), plt.axis(&amp;#34;off&amp;#34;) plt.show() Save Image # Save image cv2.imwrite(&amp;#39;images/plane_new.jpg&amp;#39;, image) True  </description>
     </item>
     
     <item>
@@ -1371,7 +1370,7 @@ Preliminaries from sklearn.linear_model import LogisticRegression from sklearn i
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/selecting_elements_in_an_array/</guid>
-      <description> Preliminaries # Load library import numpy as np Create Vector # Create row vector vector = np.array([1, 2, 3, 4, 5, 6]) Select Element # Select second element vector[1] 2  Create Matrix # Create matrix matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]]) Select Element # Select second row, second column matrix[1,1] 5  Create Tensor # Create matrix tensor = np.array([ [[[1, 1], [1, 1]], [[2, 2], [2, 2]]], [[[3, 3], [3, 3]], [[4, 4], [4, 4]]] ]) Select Element # Select second element of each of the three dimensions tensor[1,1,1] array([4, 4])  </description>
+      <description>Preliminaries # Load library import numpy as np Create Vector # Create row vector vector = np.array([1, 2, 3, 4, 5, 6]) Select Element # Select second element vector[1] 2  Create Matrix # Create matrix matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]]) Select Element # Select second row, second column matrix[1,1] 5  Create Tensor # Create matrix tensor = np.array([ [[[1, 1], [1, 1]], [[2, 2], [2, 2]]], [[[3, 3], [3, 3]], [[4, 4], [4, 4]]] ]) Select Element # Select second element of each of the three dimensions tensor[1,1,1] array([4, 4])  </description>
     </item>
     
     <item>
@@ -1408,7 +1407,7 @@ Specifically, we can run LinearDiscriminantAnalysis with n_components set to Non
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/preprocessing_images/sharpen_images/</guid>
-      <description> Preliminaries # Load image import cv2 import numpy as np from matplotlib import pyplot as plt Load Image As Greyscale # Load image as grayscale image = cv2.imread(&amp;#39;images/plane_256x256.jpg&amp;#39;, cv2.IMREAD_GRAYSCALE) Sharpen Image # Create kernel kernel = np.array([[0, -1, 0], [-1, 5,-1], [0, -1, 0]]) # Sharpen image image_sharp = cv2.filter2D(image, -1, kernel) View Image # Show image plt.imshow(image_sharp, cmap=&amp;#39;gray&amp;#39;), plt.axis(&amp;#34;off&amp;#34;) plt.show() </description>
+      <description>Preliminaries # Load image import cv2 import numpy as np from matplotlib import pyplot as plt Load Image As Greyscale # Load image as grayscale image = cv2.imread(&amp;#39;images/plane_256x256.jpg&amp;#39;, cv2.IMREAD_GRAYSCALE) Sharpen Image # Create kernel kernel = np.array([[0, -1, 0], [-1, 5,-1], [0, -1, 0]]) # Sharpen image image_sharp = cv2.filter2D(image, -1, kernel) View Image # Show image plt.imshow(image_sharp, cmap=&amp;#39;gray&amp;#39;), plt.axis(&amp;#34;off&amp;#34;) plt.show() </description>
     </item>
     
     <item>
@@ -1435,8 +1434,7 @@ Specifically, we can run LinearDiscriminantAnalysis with n_components set to Non
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/preprocessing_structured_data/standardize_a_feature/</guid>
-      <description> 
-Preliminaries # Load libraries from sklearn import preprocessing import numpy as np Create Feature # Create feature x = np.array([[-500.5], [-100.1], [0], [100.1], [900.9]]) Standardize Feature # Create scaler scaler = preprocessing.StandardScaler() # Transform the feature standardized = scaler.fit_transform(x) # Show feature standardized array([[-1.26687088], [-0.39316683], [-0.17474081], [ 0.0436852 ], [ 1.79109332]])  </description>
+      <description> Preliminaries # Load libraries from sklearn import preprocessing import numpy as np Create Feature # Create feature x = np.array([[-500.5], [-100.1], [0], [100.1], [900.9]]) Standardize Feature # Create scaler scaler = preprocessing.StandardScaler() # Transform the feature standardized = scaler.fit_transform(x) # Show feature standardized array([[-1.26687088], [-0.39316683], [-0.17474081], [ 0.0436852 ], [ 1.79109332]])  </description>
     </item>
     
     <item>
@@ -1445,8 +1443,7 @@ Preliminaries # Load libraries from sklearn import preprocessing import numpy as
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/preprocessing_text/stemming_words/</guid>
-      <description> 
-Preliminaries # Load library from nltk.stem.porter import PorterStemmer Create Text Data # Create word tokens tokenized_words = [&amp;#39;i&amp;#39;, &amp;#39;am&amp;#39;, &amp;#39;humbled&amp;#39;, &amp;#39;by&amp;#39;, &amp;#39;this&amp;#39;, &amp;#39;traditional&amp;#39;, &amp;#39;meeting&amp;#39;] Stem Words Stemming reduces a word to its stem by identifying and removing affixes (e.g. gerunds) while keeping the root meaning of the word. NLTK&amp;rsquo;s PorterStemmer implements the widely used Porter stemming algorithm.
+      <description> Preliminaries # Load library from nltk.stem.porter import PorterStemmer Create Text Data # Create word tokens tokenized_words = [&amp;#39;i&amp;#39;, &amp;#39;am&amp;#39;, &amp;#39;humbled&amp;#39;, &amp;#39;by&amp;#39;, &amp;#39;this&amp;#39;, &amp;#39;traditional&amp;#39;, &amp;#39;meeting&amp;#39;] Stem Words Stemming reduces a word to its stem by identifying and removing affixes (e.g. gerunds) while keeping the root meaning of the word. NLTK&amp;rsquo;s PorterStemmer implements the widely used Porter stemming algorithm.
 # Create stemmer porter = PorterStemmer() # Apply stemmer [porter.stem(word) for word in tokenized_words] [&#39;i&#39;, &#39;am&#39;, &#39;humbl&#39;, &#39;by&#39;, &#39;thi&#39;, &#39;tradit&#39;, &#39;meet&#39;]  </description>
     </item>
     
@@ -1456,7 +1453,7 @@ Preliminaries # Load library from nltk.stem.porter import PorterStemmer Create T
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/preprocessing_text/strip_whitespace/</guid>
-      <description> Create Text # Create text text_data = [&amp;#39; Interrobang. By Aishwarya Henriette &amp;#39;, &amp;#39;Parking And Going. By Karl Gautier&amp;#39;, &amp;#39; Today Is The night. By Jarek Prakash &amp;#39;] Remove Whitespace # Strip whitespaces strip_whitespace = [string.strip() for string in text_data] # Show text strip_whitespace [&#39;Interrobang. By Aishwarya Henriette&#39;, &#39;Parking And Going. By Karl Gautier&#39;, &#39;Today Is The night. By Jarek Prakash&#39;]  </description>
+      <description>Create Text # Create text text_data = [&amp;#39; Interrobang. By Aishwarya Henriette &amp;#39;, &amp;#39;Parking And Going. By Karl Gautier&amp;#39;, &amp;#39; Today Is The night. By Jarek Prakash &amp;#39;] Remove Whitespace # Strip whitespaces strip_whitespace = [string.strip() for string in text_data] # Show text strip_whitespace [&#39;Interrobang. By Aishwarya Henriette&#39;, &#39;Parking And Going. By Karl Gautier&#39;, &#39;Today Is The night. By Jarek Prakash&#39;]  </description>
     </item>
     
     <item>
@@ -1466,6 +1463,16 @@ Preliminaries # Load library from nltk.stem.porter import PorterStemmer Create T
       
       <guid>https://chrisalbon.com/machine_learning/support_vector_machines/support_vector_classifier/</guid>
       <description>There is a balance between SVC maximizing the margin of the hyperplane and minimizing the misclassification. In SVC, the later is controlled with the hyperparameter $C$, the penalty imposed on errors. C is a parameter of the SVC learner and is the penalty for misclassifying a data point. When C is small, the classifier is okay with misclassified data points (high bias but low variance). When C is large, the classifier is heavily penalized for misclassified data and therefore bends over backwards avoid any misclassified data points (low bias but high variance).</description>
+    </item>
+    
+    <item>
+      <title>SVC Parameters When Using RBF Kernel</title>
+      <link>https://chrisalbon.com/machine_learning/support_vector_machines/svc_parameters_using_rbf_kernel/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning/support_vector_machines/svc_parameters_using_rbf_kernel/</guid>
+      <description>In this tutorial we will visually explore the effects of the two parameters from the support vector classifier (SVC) when using the radial basis function kernel (RBF). This tutorial draws heavily on the code used in Sebastian Raschka&amp;rsquo;s book Python Machine Learning.
+Preliminaries # Import packages to visualize the classifer from matplotlib.colors import ListedColormap import matplotlib.pyplot as plt import warnings # Import packages to do the classifying import numpy as np from sklearn.</description>
     </item>
     
     <item>
@@ -1502,7 +1509,7 @@ Preliminaries # Load library from nltk.stem.porter import PorterStemmer Create T
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/preprocessing_text/tokenize_text/</guid>
-      <description> Preliminaries # Load library from nltk.tokenize import word_tokenize, sent_tokenize Create Text Data # Create text string = &amp;#34;The science of today is the technology of tomorrow. Tomorrow is today.&amp;#34; Tokenize Words # Tokenize words word_tokenize(string) [&#39;The&#39;, &#39;science&#39;, &#39;of&#39;, &#39;today&#39;, &#39;is&#39;, &#39;the&#39;, &#39;technology&#39;, &#39;of&#39;, &#39;tomorrow&#39;, &#39;.&#39;, &#39;Tomorrow&#39;, &#39;is&#39;, &#39;today&#39;, &#39;.&#39;]  Tokenize Sentences # Tokenize sentences sent_tokenize(string) [&#39;The science of today is the technology of tomorrow.&#39;, &#39;Tomorrow is today.&#39;]  </description>
+      <description>Preliminaries # Load library from nltk.tokenize import word_tokenize, sent_tokenize Create Text Data # Create text string = &amp;#34;The science of today is the technology of tomorrow. Tomorrow is today.&amp;#34; Tokenize Words # Tokenize words word_tokenize(string) [&#39;The&#39;, &#39;science&#39;, &#39;of&#39;, &#39;today&#39;, &#39;is&#39;, &#39;the&#39;, &#39;technology&#39;, &#39;of&#39;, &#39;tomorrow&#39;, &#39;.&#39;, &#39;Tomorrow&#39;, &#39;is&#39;, &#39;today&#39;, &#39;.&#39;]  Tokenize Sentences # Tokenize sentences sent_tokenize(string) [&#39;The science of today is the technology of tomorrow.&#39;, &#39;Tomorrow is today.&#39;]  </description>
     </item>
     
     <item>
@@ -1511,7 +1518,7 @@ Preliminaries # Load library from nltk.stem.porter import PorterStemmer Create T
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/transpose_a_vector_or_matrix/</guid>
-      <description> Preliminaries # Load library import numpy as np Create Vector # Create vector vector = np.array([1, 2, 3, 4, 5, 6]) Create Matrix # Create matrix matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]]) Transpose Vector # Tranpose vector vector.T array([1, 2, 3, 4, 5, 6])  Transpose Matrix # Transpose matrix matrix.T array([[1, 4, 7], [2, 5, 8], [3, 6, 9]])  </description>
+      <description>Preliminaries # Load library import numpy as np Create Vector # Create vector vector = np.array([1, 2, 3, 4, 5, 6]) Create Matrix # Create matrix matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]]) Transpose Vector # Tranpose vector vector.T array([1, 2, 3, 4, 5, 6])  Transpose Matrix # Transpose matrix matrix.T array([[1, 4, 7], [2, 5, 8], [3, 6, 9]])  </description>
     </item>
     
     <item>
@@ -1529,7 +1536,7 @@ Preliminaries # Load library from nltk.stem.porter import PorterStemmer Create T
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/preprocessing_images/using_mean_color_as_a_feature/</guid>
-      <description>Preliminaries # Load image import cv2 import numpy as np from matplotlib import pyplot as plt Load image # Load image as BGR image_bgr = cv2.imread(&amp;#39;images/plane_256x256.jpg&amp;#39;, cv2.IMREAD_COLOR) Calculate Mean Color Of Each Color Channel # Calculate the mean of each channel channels = cv2.mean(image_bgr) # Swap blue and red values (making it RGB, not BGR) observation = np.array([(channels[2], channels[1], channels[0])]) Show Values # Show mean channel values observation array([[ 90.</description>
+      <description>Preliminaries # Load image import cv2 import numpy as np from matplotlib import pyplot as plt Load image # Load image as BGR image_bgr = cv2.imread(&amp;#39;images/plane_256x256.jpg&amp;#39;, cv2.IMREAD_COLOR) Calculate Mean Color Of Each Color Channel # Calculate the mean of each channel channels = cv2.mean(image_bgr) # Swap blue and red values (making it RGB, not BGR) observation = np.array([(channels[2], channels[1], channels[0])]) Show Values # Show mean channel values observation array([[ 90.53204346, 133.</description>
     </item>
     
     <item>
@@ -1539,7 +1546,8 @@ Preliminaries # Load library from nltk.stem.porter import PorterStemmer Create T
       
       <guid>https://chrisalbon.com/machine_learning/feature_selection/variance_thresholding_binary_features/</guid>
       <description>Preliminaries from sklearn.feature_selection import VarianceThreshold Load Data # Create feature matrix with:  # Feature 0: 80% class 0 # Feature 1: 80% class 1 # Feature 2: 60% class 0, 40% class 1 X = [[0, 1, 0], [0, 1, 1], [0, 1, 0], [0, 1, 1], [1, 0, 0]] Conduct Variance Thresholding In binary features (i.e. Bernoulli random variables), variance is calculated as:
-$$\operatorname {Var} (x)= p(1-p)$$</description>
+$$\operatorname {Var} (x)= p(1-p)$$
+where $p$ is the proportion of observations of class 1.</description>
     </item>
     
     <item>
@@ -1558,15 +1566,6 @@ $$\operatorname {Var} (x)= p(1-p)$$</description>
       
       <guid>https://chrisalbon.com/machine_learning/trees_and_forests/visualize_a_decision_tree/</guid>
       <description>Preliminaries # Load libraries from sklearn.tree import DecisionTreeClassifier from sklearn import datasets from IPython.display import Image from sklearn import tree import pydotplus Load Iris Data # Load data iris = datasets.load_iris() X = iris.data y = iris.target Train Decision Tree # Create decision tree classifer object clf = DecisionTreeClassifier(random_state=0) # Train model model = clf.fit(X, y) Visualize Decision Tree # Create DOT data dot_data = tree.export_graphviz(clf, out_file=None, feature_names=iris.feature_names, class_names=iris.target_names) # Draw graph graph = pydotplus.</description>
-    </item>
-    
-    <item>
-      <title>k-Means Clustering</title>
-      <link>https://chrisalbon.com/machine_learning/clustering/k-means_clustering/</link>
-      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
-      
-      <guid>https://chrisalbon.com/machine_learning/clustering/k-means_clustering/</guid>
-      <description>Preliminaries # Load libraries from sklearn import datasets from sklearn.preprocessing import StandardScaler from sklearn.cluster import KMeans Load Iris Flower Dataset # Load data iris = datasets.load_iris() X = iris.data Standardize Features # Standarize features scaler = StandardScaler() X_std = scaler.fit_transform(X) Conduct k-Means Clustering # Create k-mean object clt = KMeans(n_clusters=3, random_state=0, n_jobs=-1) # Train model model = clt.fit(X_std) Show Each Observation&amp;rsquo;s Cluster Membership # View predict class model.labels_ array([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 2, 2, 2, 0, 2, 2, 2, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 0, 2, 2, 2, 2, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 2, 0, 2, 0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 2], dtype=int32)  Create New Observation # Create new observation new_observation = [[0.</description>
     </item>
     
   </channel>

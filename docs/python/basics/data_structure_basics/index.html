@@ -20,27 +20,13 @@
 <meta property="og:description" content="Data structure bBasics in Python." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/python/basics/data_structure_basics/" />
-
-
-
-<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
-
-<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00" />
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Data Structure Basics"/>
 <meta name="twitter:description" content="Data structure bBasics in Python."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,8 +34,8 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Data Structure Basics",
-  "url": "https://chrisalbon.com/python/basics/data_structure_basics/",
-  "wordCount": "558",
+  "url": "https:\/\/chrisalbon.com\/python\/basics\/data_structure_basics\/",
+  "wordCount": "563",
   "datePublished": "2017-12-20T11:53:49-07:00",
   "dateModified": "2017-12-20T11:53:49-07:00",
   "author": {
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,25 +170,21 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<h2 id="lists">Lists</h2>
-
+  <h2 id="lists">Lists</h2>
 <p>&ldquo;A list is a data structure that holds an ordered collection of items i.e. you can store a sequence of items in a list.&rdquo; - A Byte Of Python</p>
-
 <p>Lists are mutable.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a list of countries, then print the results</span>
 <span class="n">allies</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;USA&#39;</span><span class="p">,</span><span class="s1">&#39;UK&#39;</span><span class="p">,</span><span class="s1">&#39;France&#39;</span><span class="p">,</span><span class="s1">&#39;New Zealand&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;Australia&#39;</span><span class="p">,</span><span class="s1">&#39;Canada&#39;</span><span class="p">,</span><span class="s1">&#39;Poland&#39;</span><span class="p">];</span> <span class="n">allies</span></code></pre></div>
-<pre><code>['USA', 'UK', 'France', 'New Zealand', 'Australia', 'Canada', 'Poland']
+          <span class="s1">&#39;Australia&#39;</span><span class="p">,</span><span class="s1">&#39;Canada&#39;</span><span class="p">,</span><span class="s1">&#39;Poland&#39;</span><span class="p">];</span> <span class="n">allies</span>
+</code></pre></div><pre><code>['USA', 'UK', 'France', 'New Zealand', 'Australia', 'Canada', 'Poland']
 </code></pre>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Print the length of the list</span>
-<span class="nb">len</span><span class="p">(</span><span class="n">allies</span><span class="p">)</span></code></pre></div>
-<pre><code>7
+<span class="nb">len</span><span class="p">(</span><span class="n">allies</span><span class="p">)</span>
+</code></pre></div><pre><code>7
 </code></pre>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Add an item to the list, then print the results</span>
-<span class="n">allies</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;China&#39;</span><span class="p">);</span> <span class="n">allies</span></code></pre></div>
-<pre><code>['USA',
+<span class="n">allies</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;China&#39;</span><span class="p">);</span> <span class="n">allies</span>
+</code></pre></div><pre><code>['USA',
  'UK',
  'France',
  'New Zealand',
@@ -204,8 +194,8 @@ MathJax.Hub.Config({
  'China']
 </code></pre>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Sort list, then print the results</span>
-<span class="n">allies</span><span class="o">.</span><span class="n">sort</span><span class="p">();</span> <span class="n">allies</span></code></pre></div>
-<pre><code>['Australia',
+<span class="n">allies</span><span class="o">.</span><span class="n">sort</span><span class="p">();</span> <span class="n">allies</span>
+</code></pre></div><pre><code>['Australia',
  'Canada',
  'China',
  'France',
@@ -215,8 +205,8 @@ MathJax.Hub.Config({
  'USA']
 </code></pre>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Reverse sort list, then print the results</span>
-<span class="n">allies</span><span class="o">.</span><span class="n">reverse</span><span class="p">();</span> <span class="n">allies</span></code></pre></div>
-<pre><code>['USA',
+<span class="n">allies</span><span class="o">.</span><span class="n">reverse</span><span class="p">();</span> <span class="n">allies</span>
+</code></pre></div><pre><code>['USA',
  'UK',
  'Poland',
  'New Zealand',
@@ -226,95 +216,92 @@ MathJax.Hub.Config({
  'Australia']
 </code></pre>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># View the first item of the list</span>
-<span class="n">allies</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></code></pre></div>
-<pre><code>'USA'
+<span class="n">allies</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</code></pre></div><pre><code>'USA'
 </code></pre>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># View the last item of the list</span>
-<span class="n">allies</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span></code></pre></div>
-<pre><code>'Australia'
+<span class="n">allies</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</code></pre></div><pre><code>'Australia'
 </code></pre>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Delete the item in the list</span>
-<span class="k">del</span> <span class="n">allies</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span> <span class="n">allies</span></code></pre></div>
-<pre><code>['UK', 'Poland', 'New Zealand', 'France', 'China', 'Canada', 'Australia']
+<span class="k">del</span> <span class="n">allies</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span> <span class="n">allies</span>
+</code></pre></div><pre><code>['UK', 'Poland', 'New Zealand', 'France', 'China', 'Canada', 'Australia']
 </code></pre>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Add a numeric value to a list of strings</span>
-<span class="n">allies</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">3442</span><span class="p">);</span> <span class="n">allies</span></code></pre></div>
-<pre><code>['UK', 'Poland', 'New Zealand', 'France', 'China', 'Canada', 'Australia', 3442]
+<span class="n">allies</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">3442</span><span class="p">);</span> <span class="n">allies</span>
+</code></pre></div><pre><code>['UK', 'Poland', 'New Zealand', 'France', 'China', 'Canada', 'Australia', 3442]
 </code></pre>
-
 <h2 id="tuples">Tuples</h2>
-
 <p>&ldquo;Though tuples may seem similar to lists, they are often used in different situations and for different purposes. Tuples are immutable, and usually contain an heterogeneous sequence of elements that are accessed via unpacking (or indexing (or even by attribute in the case of namedtuples). Lists are mutable, and their elements are usually homogeneous and are accessed by iterating over the list.&rdquo; - Python Documentation</p>
-
 <p>&ldquo;Tuples are heterogeneous data structures (i.e., their entries have different meanings), while lists are homogeneous sequences.&rdquo; - StackOverflow</p>
-
 <p>Parentheses are optional, but useful.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a tuple of state names</span>
-<span class="n">usa</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Texas&#39;</span><span class="p">,</span> <span class="s1">&#39;California&#39;</span><span class="p">,</span> <span class="s1">&#39;Maryland&#39;</span><span class="p">);</span> <span class="n">usa</span></code></pre></div>
-<pre><code>('Texas', 'California', 'Maryland')
+<span class="n">usa</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Texas&#39;</span><span class="p">,</span> <span class="s1">&#39;California&#39;</span><span class="p">,</span> <span class="s1">&#39;Maryland&#39;</span><span class="p">);</span> <span class="n">usa</span>
+</code></pre></div><pre><code>('Texas', 'California', 'Maryland')
 </code></pre>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a tuple of countries</span>
 <span class="c1"># (notice the USA has a state names in the nested tuple)</span>
-<span class="n">countries</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;canada&#39;</span><span class="p">,</span> <span class="s1">&#39;mexico&#39;</span><span class="p">,</span> <span class="n">usa</span><span class="p">);</span> <span class="n">countries</span></code></pre></div>
-<pre><code>('canada', 'mexico', ('Texas', 'California', 'Maryland'))
+<span class="n">countries</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;canada&#39;</span><span class="p">,</span> <span class="s1">&#39;mexico&#39;</span><span class="p">,</span> <span class="n">usa</span><span class="p">);</span> <span class="n">countries</span>
+</code></pre></div><pre><code>('canada', 'mexico', ('Texas', 'California', 'Maryland'))
 </code></pre>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># View the third item of the top tuple</span>
-<span class="n">countries</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span></code></pre></div>
-<pre><code>('Texas', 'California', 'Maryland')
+<span class="n">countries</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</code></pre></div><pre><code>('Texas', 'California', 'Maryland')
 </code></pre>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># View the third item of the third tuple</span>
-<span class="n">countries</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span></code></pre></div>
-<pre><code>'Maryland'
+<span class="n">countries</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
+</code></pre></div><pre><code>'Maryland'
 </code></pre>
-
 <h2 id="dictionaries">Dictionaries</h2>
-
 <p>&ldquo;A dictionary is like an address-book where you can find the address or contact details of a person by knowing only his/her name i.e. we associate keys (name) with values (details). Note that the key must be unique just like you cannot find out the correct information if you have two persons with the exact same name.&rdquo; - A Byte Of Python</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a dictionary with key:value combos</span>
 <span class="n">staff</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Chris&#39;</span> <span class="p">:</span> <span class="s1">&#39;chris@stater.org&#39;</span><span class="p">,</span>
          <span class="s1">&#39;Jake&#39;</span> <span class="p">:</span> <span class="s1">&#39;jake@stater.org&#39;</span><span class="p">,</span>
          <span class="s1">&#39;Ashley&#39;</span> <span class="p">:</span> <span class="s1">&#39;ashley@stater.org&#39;</span><span class="p">,</span>
          <span class="s1">&#39;Shelly&#39;</span> <span class="p">:</span> <span class="s1">&#39;shelly@stater.org&#39;</span>
-        <span class="p">}</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Print the value using the key</span>
-<span class="n">staff</span><span class="p">[</span><span class="s1">&#39;Chris&#39;</span><span class="p">]</span></code></pre></div>
-<pre><code>'chris@stater.org'
+        <span class="p">}</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Print the value using the key</span>
+<span class="n">staff</span><span class="p">[</span><span class="s1">&#39;Chris&#39;</span><span class="p">]</span>
+</code></pre></div><pre><code>'chris@stater.org'
 </code></pre>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Delete a dictionary entry based on the key</span>
-<span class="k">del</span> <span class="n">staff</span><span class="p">[</span><span class="s1">&#39;Chris&#39;</span><span class="p">];</span> <span class="n">staff</span></code></pre></div>
-<pre><code>{'Ashley': 'ashley@stater.org',
+<span class="k">del</span> <span class="n">staff</span><span class="p">[</span><span class="s1">&#39;Chris&#39;</span><span class="p">];</span> <span class="n">staff</span>
+</code></pre></div><pre><code>{'Ashley': 'ashley@stater.org',
  'Jake': 'jake@stater.org',
  'Shelly': 'shelly@stater.org'}
 </code></pre>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Add an item to the dictionary</span>
-<span class="n">staff</span><span class="p">[</span><span class="s1">&#39;Guido&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;guido@python.org&#39;</span><span class="p">;</span> <span class="n">staff</span></code></pre></div>
-<pre><code>{'Ashley': 'ashley@stater.org',
+<span class="n">staff</span><span class="p">[</span><span class="s1">&#39;Guido&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;guido@python.org&#39;</span><span class="p">;</span> <span class="n">staff</span>
+</code></pre></div><pre><code>{'Ashley': 'ashley@stater.org',
  'Guido': 'guido@python.org',
  'Jake': 'jake@stater.org',
  'Shelly': 'shelly@stater.org'}
 </code></pre>
-
 <h2 id="sets">Sets</h2>
-
 <p>Sets are unordered collections of simple objects.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a set of BRI countries</span>
-<span class="n">BRI</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s1">&#39;brazil&#39;</span><span class="p">,</span> <span class="s1">&#39;russia&#39;</span><span class="p">,</span> <span class="s1">&#39;india&#39;</span><span class="p">])</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Is India in the set BRI?</span>
-<span class="s1">&#39;india&#39;</span> <span class="ow">in</span> <span class="n">BRI</span></code></pre></div>
-<pre><code>True
+<span class="n">BRI</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s1">&#39;brazil&#39;</span><span class="p">,</span> <span class="s1">&#39;russia&#39;</span><span class="p">,</span> <span class="s1">&#39;india&#39;</span><span class="p">])</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Is India in the set BRI?</span>
+<span class="s1">&#39;india&#39;</span> <span class="ow">in</span> <span class="n">BRI</span>
+</code></pre></div><pre><code>True
 </code></pre>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Is the US in the set BRI?</span>
-<span class="s1">&#39;usa&#39;</span> <span class="ow">in</span> <span class="n">BRI</span></code></pre></div>
-<pre><code>False
+<span class="s1">&#39;usa&#39;</span> <span class="ow">in</span> <span class="n">BRI</span>
+</code></pre></div><pre><code>False
 </code></pre>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a copy of BRI called BRIC</span>
-<span class="n">BRIC</span> <span class="o">=</span> <span class="n">BRI</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Add China to BRIC</span>
-<span class="n">BRIC</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;china&#39;</span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Is BRIC a super-set of BRI?</span>
-<span class="n">BRIC</span><span class="o">.</span><span class="n">issuperset</span><span class="p">(</span><span class="n">BRI</span><span class="p">)</span></code></pre></div>
-<pre><code>True
+<span class="n">BRIC</span> <span class="o">=</span> <span class="n">BRI</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Add China to BRIC</span>
+<span class="n">BRIC</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;china&#39;</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Is BRIC a super-set of BRI?</span>
+<span class="n">BRIC</span><span class="o">.</span><span class="n">issuperset</span><span class="p">(</span><span class="n">BRI</span><span class="p">)</span>
+</code></pre></div><pre><code>True
 </code></pre>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Remove Russia from BRI</span>
-<span class="n">BRI</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;russia&#39;</span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># What items are the union of BRI and BRIC?</span>
-<span class="n">BRI</span> <span class="o">&amp;</span> <span class="n">BRIC</span></code></pre></div>
-<pre><code>{'brazil', 'india'}
+<span class="n">BRI</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;russia&#39;</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># What items are the union of BRI and BRIC?</span>
+<span class="n">BRI</span> <span class="o">&amp;</span> <span class="n">BRIC</span>
+</code></pre></div><pre><code>{'brazil', 'india'}
 </code></pre>
 
 </div>
@@ -340,7 +327,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

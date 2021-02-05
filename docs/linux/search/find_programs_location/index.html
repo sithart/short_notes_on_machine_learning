@@ -20,35 +20,21 @@
 <meta property="og:description" content="How to find a program&#39;s location using the Linux command line." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/linux/search/find_programs_location/" />
-
-
-
-<meta property="article:published_time" content="2018-06-17T00:00:00-07:00"/>
-
-<meta property="article:modified_time" content="2018-06-17T00:00:00-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2018-06-17T00:00:00-07:00" />
+<meta property="article:modified_time" content="2018-06-17T00:00:00-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Find Program&#39;s Location"/>
 <meta name="twitter:description" content="How to find a program&#39;s location using the Linux command line."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
 {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
-  "headline": "Find Program&#39;s Location",
-  "url": "https://chrisalbon.com/linux/search/find_programs_location/",
+  "headline": "Find Program\u0027s Location",
+  "url": "https:\/\/chrisalbon.com\/linux\/search\/find_programs_location\/",
   "wordCount": "172",
   "datePublished": "2018-06-17T00:00:00-07:00",
   "dateModified": "2018-06-17T00:00:00-07:00",
@@ -56,7 +42,7 @@
     "@type": "Person",
     "name": "Chris Albon"
   },
-  "description": "How to find a program&#39;s location using the Linux command line."
+  "description": "How to find a program\u0027s location using the Linux command line."
 }
 </script> 
 
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,29 +170,16 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<p>Use the <code>which</code> command to find the location of a program on the system. This is particularly useful when you are trying to figure out which version of Python is currently set in the environment.</p>
-
-<h2 id="find-program-s-location">Find Program&rsquo;s Location</h2>
-
+  <p>Use the <code>which</code> command to find the location of a program on the system. This is particularly useful when you are trying to figure out which version of Python is currently set in the environment.</p>
+<h2 id="find-programs-location">Find Program&rsquo;s Location</h2>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">which python3</code></pre></div>
-
 <pre><code>/home/chris/anaconda3/bin/python3
-</code></pre>
-
-<p>Just to prove that this is true, we can change directory, <code>cd</code>, to that location and find the file itself.</p>
-
-<h2 id="go-to-program-s-location">Go To Program&rsquo;s Location</h2>
-
+</code></pre><p>Just to prove that this is true, we can change directory, <code>cd</code>, to that location and find the file itself.</p>
+<h2 id="go-to-programs-location">Go To Program&rsquo;s Location</h2>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">cd /home/chris/anaconda3/bin/</code></pre></div>
-
 <h2 id="list-contents-of-directory">List Contents Of Directory</h2>
-
 <p>The <code>python*</code> selection means we are only listing files starting with <code>python</code>.</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">ls -l python*</code></pre></div>
-
 <pre><code>lrwxrwxrwx 1 chris chris       9 Oct 11  2017 python -&gt; python3.6
 lrwxrwxrwx 1 chris chris       9 Oct 11  2017 python3 -&gt; python3.6
 -rwxrwxr-x 1 chris chris 3747848 Oct 11  2017 python3.6
@@ -206,9 +187,7 @@ lrwxrwxrwx 1 chris chris      17 Oct 11  2017 python3.6-config -&gt; python3.6m-
 lrwxrwxrwx 1 chris chris       9 Oct 11  2017 python3.6m -&gt; python3.6
 -rwxrwxr-x 1 chris chris    3249 Oct 11  2017 python3.6m-config
 lrwxrwxrwx 1 chris chris      17 Oct 11  2017 python3-config -&gt; python3.6m-config
-</code></pre>
-
-<p>And there it is! Both <code>python</code> and <code>python3</code> are symbolic links to <code>python3.6</code>.</p>
+</code></pre><p>And there it is! Both <code>python</code> and <code>python3</code> are symbolic links to <code>python3.6</code>.</p>
 
 </div>
   <aside>
@@ -233,7 +212,7 @@ lrwxrwxrwx 1 chris chris      17 Oct 11  2017 python3-config -&gt; python3.6m-co
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

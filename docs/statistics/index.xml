@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title> - Chris Albon</title>
+    <title>statistics - Chris Albon</title>
     <link>https://chrisalbon.com/statistics/index.xml</link>
     <description></description>
     <generator>Hugo -- gohugo.io</generator>
@@ -40,7 +39,7 @@ When we calculate sample variance, we are attempting to estimate the population 
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/statistics/frequentist/demonstrate_the_central_limit_theorem/</guid>
-      <description>Preliminaries # Import packages import pandas as pd import numpy as np # Set matplotlib as inline %matplotlib inline  Create Population Data From Non-Normal Distribution # Create an empty dataframe population = pd.DataFrame() # Create an column that is 10000 random numbers drawn from a uniform distribution population[&amp;#39;numbers&amp;#39;] = np.random.uniform(0,10000,size=10000)# Plot a histogram of the score data. # This confirms the data is not a normal distribution. population[&amp;#39;numbers&amp;#39;].hist(bins=100) &amp;lt;matplotlib.</description>
+      <description>Preliminaries # Import packages import pandas as pd import numpy as np # Set matplotlib as inline %matplotlib inline Create Population Data From Non-Normal Distribution # Create an empty dataframe population = pd.DataFrame() # Create an column that is 10000 random numbers drawn from a uniform distribution population[&amp;#39;numbers&amp;#39;] = np.random.uniform(0,10000,size=10000) # Plot a histogram of the score data. # This confirms the data is not a normal distribution. population[&amp;#39;numbers&amp;#39;].hist(bins=100) &amp;lt;matplotlib.axes._subplots.AxesSubplot at 0x112c72710&amp;gt;  View the True Mean Of Population # View the mean of the numbers population[&amp;#39;numbers&amp;#39;].</description>
     </item>
     
     <item>

@@ -20,27 +20,13 @@
 <meta property="og:description" content="All Combinations For A List Of Objects." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/python/basics/all_combinations_of_a_list_of_objects/" />
-
-
-
-<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
-
-<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00" />
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="All Combinations For A List Of Objects"/>
 <meta name="twitter:description" content="All Combinations For A List Of Objects."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "All Combinations For A List Of Objects",
-  "url": "https://chrisalbon.com/python/basics/all_combinations_of_a_list_of_objects/",
+  "url": "https:\/\/chrisalbon.com\/python\/basics\/all_combinations_of_a_list_of_objects\/",
   "wordCount": "165",
   "datePublished": "2017-12-20T11:53:49-07:00",
   "dateModified": "2017-12-20T11:53:49-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,23 +170,21 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<h2 id="preliminary">Preliminary</h2>
+  <h2 id="preliminary">Preliminary</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Import combinations with replacements from itertools</span>
-<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">combinations_with_replacement</span></code></pre></div>
-<h2 id="create-a-list-of-objects">Create a list of objects</h2>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">combinations_with_replacement</span>
+</code></pre></div><h2 id="create-a-list-of-objects">Create a list of objects</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a list of objects to combine</span>
-<span class="n">list_of_objects</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;warplanes&#39;</span><span class="p">,</span> <span class="s1">&#39;armor&#39;</span><span class="p">,</span> <span class="s1">&#39;infantry&#39;</span><span class="p">]</span></code></pre></div>
-<h2 id="find-all-combinations-with-replacement-for-the-list">Find all combinations (with replacement) for the list</h2>
+<span class="n">list_of_objects</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;warplanes&#39;</span><span class="p">,</span> <span class="s1">&#39;armor&#39;</span><span class="p">,</span> <span class="s1">&#39;infantry&#39;</span><span class="p">]</span>
+</code></pre></div><h2 id="find-all-combinations-with-replacement-for-the-list">Find all combinations (with replacement) for the list</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create an empty list object to hold the results of the loop</span>
 <span class="n">combinations</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="c1"># Create a loop for every item in the length of list_of_objects, that,</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">list_of_objects</span><span class="p">))):</span>
     <span class="c1"># Finds every combination (with replacement) for each object in the list</span>
-    <span class="n">combinations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">combinations_with_replacement</span><span class="p">(</span><span class="n">list_of_objects</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span></code></pre></div>
-<pre><code>[&lt;itertools.combinations_with_replacement at 0x7f85d03c6408&gt;,
+    <span class="n">combinations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">combinations_with_replacement</span><span class="p">(</span><span class="n">list_of_objects</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+</code></pre></div><pre><code>[&lt;itertools.combinations_with_replacement at 0x7f85d03c6408&gt;,
  &lt;itertools.combinations_with_replacement at 0x7f85d03c6458&gt;,
  &lt;itertools.combinations_with_replacement at 0x7f85d03c64a8&gt;]
 </code></pre>
@@ -200,8 +192,8 @@ MathJax.Hub.Config({
 <span class="n">combinations</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">combinations</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">row</span><span class="p">]</span>
 
 <span class="c1"># View the results</span>
-<span class="n">combinations</span></code></pre></div>
-<pre><code>[('warplanes',),
+<span class="n">combinations</span>
+</code></pre></div><pre><code>[('warplanes',),
  ('armor',),
  ('infantry',),
  ('warplanes', 'warplanes'),
@@ -245,7 +237,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

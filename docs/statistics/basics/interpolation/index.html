@@ -20,27 +20,13 @@
 <meta property="og:description" content="Linear Interpolation Using Python." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/statistics/basics/interpolation/" />
-
-
-
-<meta property="article:published_time" content="2019-12-20T11:53:49-07:00"/>
-
-<meta property="article:modified_time" content="2019-12-20T11:53:49-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2019-12-20T11:53:49-07:00" />
+<meta property="article:modified_time" content="2019-12-20T11:53:49-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Linear Interpolation"/>
 <meta name="twitter:description" content="Linear Interpolation Using Python."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Linear Interpolation",
-  "url": "https://chrisalbon.com/statistics/basics/interpolation/",
+  "url": "https:\/\/chrisalbon.com\/statistics\/basics\/interpolation\/",
   "wordCount": "188",
   "datePublished": "2019-12-20T11:53:49-07:00",
   "dateModified": "2019-12-20T11:53:49-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,14 +170,9 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<p>Linear interpolation is used when we want to calculate a value between two points.</p>
-
+  <p>Linear interpolation is used when we want to calculate a value between two points.</p>
 <p>Imagine we want to calculate some point, $(x, y)$ that is between two other points $(x_1, y_1)$ and $(x_2, y_2)$. To do this, we first select some value $x$ value (often halfway between $x_2$ and $x_1$ on the x-axis) and then calculate $x$&rsquo;s corresponding $y$ value using the following formula:</p>
-
 <p>$$y = y_1 + \frac{y_2 - y_1}{x_2 - x_1} * (x-x_1)$$</p>
-
 <h2 id="create-two-coordinates">Create Two Coordinates</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Coordinates for x_1 and y_1</span>
 <span class="n">x1</span> <span class="o">=</span> <span class="mi">0</span>
@@ -191,16 +180,15 @@ MathJax.Hub.Config({
 
 <span class="c1"># Coordinates for x_2 and y_2</span>
 <span class="n">x2</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">y2</span> <span class="o">=</span> <span class="mi">100</span></code></pre></div>
-<h2 id="select-x-value">Select x Value</h2>
+<span class="n">y2</span> <span class="o">=</span> <span class="mi">100</span>
+</code></pre></div><h2 id="select-x-value">Select x Value</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Select an x value half way between x2 and x1 on the x-axis</span>
 <span class="n">x</span> <span class="o">=</span> <span class="p">((</span><span class="n">x2</span> <span class="o">-</span> <span class="n">x1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">x1</span>
 
 <span class="c1"># View x</span>
-<span class="n">x</span></code></pre></div>
-<pre><code>5.0
+<span class="n">x</span>
+</code></pre></div><pre><code>5.0
 </code></pre>
-
 <h2 id="create-function-for-linear-interpolation">Create Function For Linear Interpolation</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a function</span>
 <span class="k">def</span> <span class="nf">interpolate_y</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">):</span>
@@ -209,18 +197,17 @@ MathJax.Hub.Config({
     <span class="n">y</span> <span class="o">=</span> <span class="n">y1</span> <span class="o">+</span> <span class="p">((</span><span class="n">y2</span> <span class="o">-</span> <span class="n">y1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">x2</span> <span class="o">-</span> <span class="n">x1</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">x1</span><span class="p">)</span>
     
     <span class="c1"># Return y</span>
-    <span class="k">return</span> <span class="n">y</span></code></pre></div>
-<h2 id="calculate-y">Calculate y</h2>
+    <span class="k">return</span> <span class="n">y</span>
+</code></pre></div><h2 id="calculate-y">Calculate y</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Interpolate y</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">interpolate_y</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span></code></pre></div>
-<h2 id="print-x">Print x</h2>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">x</span></code></pre></div>
-<pre><code>5.0
+<span class="n">y</span> <span class="o">=</span> <span class="n">interpolate_y</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span>
+</code></pre></div><h2 id="print-x">Print x</h2>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">x</span>
+</code></pre></div><pre><code>5.0
 </code></pre>
-
 <h2 id="print-y">Print y</h2>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">y</span></code></pre></div>
-<pre><code>50.0
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">y</span>
+</code></pre></div><pre><code>50.0
 </code></pre>
 
 </div>
@@ -246,7 +233,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

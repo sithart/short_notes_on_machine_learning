@@ -20,27 +20,13 @@
 <meta property="og:description" content="Add a file from a URL to images using Dockerfiles." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/docker/dockerfiles/add_a_file_from_a_url_to_images/" />
-
-
-
-<meta property="article:published_time" content="2020-07-22T00:00:00-07:00"/>
-
-<meta property="article:modified_time" content="2020-07-22T00:00:00-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2020-07-22T00:00:00-07:00" />
+<meta property="article:modified_time" content="2020-07-22T00:00:00-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Add A File From A URL To Images"/>
 <meta name="twitter:description" content="Add a file from a URL to images using Dockerfiles."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Add A File From A URL To Images",
-  "url": "https://chrisalbon.com/docker/dockerfiles/add_a_file_from_a_url_to_images/",
+  "url": "https:\/\/chrisalbon.com\/docker\/dockerfiles\/add_a_file_from_a_url_to_images\/",
   "wordCount": "164",
   "datePublished": "2020-07-22T00:00:00-07:00",
   "dateModified": "2020-07-22T00:00:00-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,22 +170,15 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
+  <h2 id="create-dockerfile">Create Dockerfile</h2>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Build from base image</span>
+FROM ubuntu:latest
 
-<h2 id="create-dockerfile">Create Dockerfile</h2>
-
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Build from base image
-</span><span class="c1"></span>FROM ubuntu:latest
-
-<span class="c1"># Add file from URL to tmp directory
-</span><span class="c1"></span>ADD <span class="o">[</span><span class="s2">&#34;https://raw.githubusercontent.com/chrisalbon/notes/master/LICENSE.txt&#34;</span>, <span class="s2">&#34;/tmp/&#34;</span><span class="o">]</span></code></pre></div>
-
+<span class="c1"># Add file from URL to tmp directory</span>
+ADD <span class="o">[</span><span class="s2">&#34;https://raw.githubusercontent.com/chrisalbon/notes/master/LICENSE.txt&#34;</span>, <span class="s2">&#34;/tmp/&#34;</span><span class="o">]</span></code></pre></div>
 <h2 id="build-image-from-dockerfile">Build Image From Dockerfile</h2>
-
 <p>Build the Dockerfile (<code>docker build</code>) in the current directory (<code>.</code>) and call the image chrisalbon/ubuntu:file-from-url (<code>--tag chrisalbon/ubuntu:file-from-url</code>).</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">docker build --tag chrisalbon/ubuntu:file-from-url .</code></pre></div>
-
 <pre><code>Sending build context to Docker daemon  4.608kB
 Step 1/2 : FROM ubuntu:latest
  ---&gt; 1e4467b07108
@@ -200,29 +187,18 @@ Downloading     223B
  ---&gt; 9ef46cc7fd3a
 Successfully built 9ef46cc7fd3a
 Successfully tagged chrisalbon/ubuntu:file-from-url
-</code></pre>
-
-<h2 id="run-docker-container-from-image">Run Docker Container From Image</h2>
-
+</code></pre><h2 id="run-docker-container-from-image">Run Docker Container From Image</h2>
 <p>Start and create (<code>docker run</code>) an interative (<code>-it</code>) Docker container from the image called <code>chrisalbon/ubuntu:file-from-url</code>. Remove the container after it stops (<code>-rm</code>)</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">docker run --rm -it chrisalbon/ubuntu:file-from-url</code></pre></div>
-
 <pre><code>root@7a5f4dbb0dc7:/#
-</code></pre>
-
-<h2 id="view-destination-directory">View Destination Directory</h2>
-
+</code></pre><h2 id="view-destination-directory">View Destination Directory</h2>
 <p>View all files and folders (<code>ls</code>) that displays using long format and shows hidden files (<code>-al</code>) in the directory <code>tmp</code>.</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">ls -al tmp/</code></pre></div>
-
 <pre><code>total 12
 drwxrwxrwt 1 root root 4096 Aug 20 00:38 .
 drwxr-xr-x 1 root root 4096 Aug 20 00:42 ..
 -rw------- 1 root root  223 Jan  1  1970 LICENSE.txt
 </code></pre>
-
 </div>
   <aside>
       <div class="bug_reporting">
@@ -246,7 +222,7 @@ drwxr-xr-x 1 root root 4096 Aug 20 00:42 ..
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

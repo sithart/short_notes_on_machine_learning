@@ -20,27 +20,13 @@
 <meta property="og:description" content="How to join columns of text using the Linux command line." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/linux/text/join_columns/" />
-
-
-
-<meta property="article:published_time" content="2018-06-17T00:00:00-07:00"/>
-
-<meta property="article:modified_time" content="2018-06-17T00:00:00-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2018-06-17T00:00:00-07:00" />
+<meta property="article:modified_time" content="2018-06-17T00:00:00-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Join Columns"/>
 <meta name="twitter:description" content="How to join columns of text using the Linux command line."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,8 +34,8 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Join Columns",
-  "url": "https://chrisalbon.com/linux/text/join_columns/",
-  "wordCount": "238",
+  "url": "https:\/\/chrisalbon.com\/linux\/text\/join_columns\/",
+  "wordCount": "246",
   "datePublished": "2018-06-17T00:00:00-07:00",
   "dateModified": "2018-06-17T00:00:00-07:00",
   "author": {
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,61 +170,42 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<p>The Linux command <code>join</code> operates similar to the join command in SQL, merging two sets of data along a common key.</p>
-
+  <p>The Linux command <code>join</code> operates similar to the join command in SQL, merging two sets of data along a common key.</p>
 <h2 id="make-file-with-soldier-names-and-soldier-age-data">Make File With Soldier Names And Soldier Age Data</h2>
-
-<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">echo &#34;Steve Case, 23&#34; &gt;&gt; soldiers.txt<span class="err">
-</span><span class="err"></span>echo &#34;Mary Mills, 35&#34; &gt;&gt; soldiers.txt<span class="err">
-</span><span class="err"></span>echo &#34;Bob Dosjki, 22&#34; &gt;&gt; soldiers.txt<span class="err">
-</span><span class="err"></span>echo &#34;Jack Doi, 45&#34; &gt;&gt; soldiers.txt<span class="err">
-</span><span class="err"></span>echo &#34;Poe Domi, 23&#34; &gt;&gt; soldiers.txt</code></pre></div>
-
+<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">echo &#34;Steve Case, 23&#34; &gt;&gt; soldiers.txt
+echo &#34;Mary Mills, 35&#34; &gt;&gt; soldiers.txt
+echo &#34;Bob Dosjki, 22&#34; &gt;&gt; soldiers.txt
+echo &#34;Jack Doi, 45&#34; &gt;&gt; soldiers.txt
+echo &#34;Poe Domi, 23&#34; &gt;&gt; soldiers.txt</code></pre></div>
 <h2 id="make-file-with-soldier-names-and-regiment-names">Make File With Soldier Names And Regiment Names</h2>
-
-<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">echo &#34;Steve Case, The Hell Hosts&#34; &gt;&gt; regiments.txt<span class="err">
-</span><span class="err"></span>echo &#34;Mary Mills, The Hell Hosts&#34; &gt;&gt; regiments.txt<span class="err">
-</span><span class="err"></span>echo &#34;Bob Dosjki, The Red Riders&#34; &gt;&gt; regiments.txt<span class="err">
-</span><span class="err"></span>echo &#34;Jack Doi, The Red Riders&#34; &gt;&gt; regiments.txt<span class="err">
-</span><span class="err"></span>echo &#34;Poe Domi, The Forsaken Battalion&#34; &gt;&gt; regiments.txt</code></pre></div>
-
+<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">echo &#34;Steve Case, The Hell Hosts&#34; &gt;&gt; regiments.txt
+echo &#34;Mary Mills, The Hell Hosts&#34; &gt;&gt; regiments.txt
+echo &#34;Bob Dosjki, The Red Riders&#34; &gt;&gt; regiments.txt
+echo &#34;Jack Doi, The Red Riders&#34; &gt;&gt; regiments.txt
+echo &#34;Poe Domi, The Forsaken Battalion&#34; &gt;&gt; regiments.txt</code></pre></div>
 <h2 id="view-soldier-file">View Soldier File</h2>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">cat soldiers.txt</code></pre></div>
-
 <pre><code>Steve Case, 23
 Mary Mills, 35
 Bob Dosjki, 22
 Jack Doi, 45
 Poe Domi, 23
-</code></pre>
-
-<h2 id="view-regiment-file">View Regiment File</h2>
-
+</code></pre><h2 id="view-regiment-file">View Regiment File</h2>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">cat regiments.txt</code></pre></div>
-
 <pre><code>Steve Case, The Hell Hosts
 Mary Mills, The Hell Hosts
 Bob Dosjki, The Red Riders
 Jack Doi, The Red Riders
 Poe Domi, The Forsaken Battalion
-</code></pre>
-
-<h2 id="join-soldier-and-regiment-data">Join Soldier And Regiment Data</h2>
-
+</code></pre><h2 id="join-soldier-and-regiment-data">Join Soldier And Regiment Data</h2>
 <p>In the below code we <code>join</code> the two comma delimited (<code>-t ,</code>) files using the first column of file 1 (<code>-1 1</code>) and the first column of file 2 (<code>-2 1</code>) as merge keys. File 1 and file 2 are <code>soldiers.txt</code> and <code>regiments.txt</code> respectively.</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">join -t , -1 1 -2 1 soldiers.txt regiments.txt</code></pre></div>
-
 <pre><code>Steve Case, 23, The Hell Hosts
 Mary Mills, 35, The Hell Hosts
 Bob Dosjki, 22, The Red Riders
 Jack Doi, 45, The Red Riders
 Poe Domi, 23, The Forsaken Battalion
 </code></pre>
-
 </div>
   <aside>
       <div class="bug_reporting">
@@ -254,7 +229,7 @@ Poe Domi, 23, The Forsaken Battalion
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

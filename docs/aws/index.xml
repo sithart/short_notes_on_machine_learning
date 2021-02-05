@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title> - Chris Albon</title>
+    <title>aws - Chris Albon</title>
     <link>https://chrisalbon.com/aws/index.xml</link>
     <description></description>
     <generator>Hugo -- gohugo.io</generator>
@@ -17,8 +16,8 @@
       <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
       
       <guid>https://chrisalbon.com/aws/s3/cli/create_bucket/</guid>
-      <description> Create Bucket Make a bucket (mb) on AWS S3 called kicks-pasta-steer. The bucket name you choose must be globally unique, meaning nobody else in the world must have used that bucket name before.
-aws s3 mb s3://kicks-pasta-steer make_bucket: kicks-pasta-steer  </description>
+      <description>Create Bucket Make a bucket (mb) on AWS S3 called kicks-pasta-steer. The bucket name you choose must be globally unique, meaning nobody else in the world must have used that bucket name before.
+aws s3 mb s3://kicks-pasta-steer make_bucket: kicks-pasta-steer </description>
     </item>
     
     <item>
@@ -27,8 +26,8 @@ aws s3 mb s3://kicks-pasta-steer make_bucket: kicks-pasta-steer  </description>
       <pubDate>Sun, 17 Jun 2018 00:00:00 -0700</pubDate>
       
       <guid>https://chrisalbon.com/aws/s3/cli/list_buckets/</guid>
-      <description> Create First Bucket Make a bucket (mb) on AWS S3 called kicks-pasta-steer. The bucket name you choose must be globally unique, meaning nobody else in the world must have used that bucket name before.
-aws s3 mb s3://kicks-pasta-steer make_bucket: kicks-pasta-steer  Create Second Bucket aws s3 mb s3://assume-laser-rental make_bucket: assume-laser-rental  List All Buckets aws s3 ls 2018-09-23 18:48:46 assume-laser-rental 2018-09-23 18:36:23 kicks-pasta-steer  </description>
+      <description>Create First Bucket Make a bucket (mb) on AWS S3 called kicks-pasta-steer. The bucket name you choose must be globally unique, meaning nobody else in the world must have used that bucket name before.
+aws s3 mb s3://kicks-pasta-steer make_bucket: kicks-pasta-steer Create Second Bucket aws s3 mb s3://assume-laser-rental make_bucket: assume-laser-rental List All Buckets aws s3 ls 2018-09-23 18:48:46 assume-laser-rental 2018-09-23 18:36:23 kicks-pasta-steer </description>
     </item>
     
     <item>

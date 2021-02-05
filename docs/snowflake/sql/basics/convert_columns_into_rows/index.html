@@ -20,27 +20,13 @@
 <meta property="og:description" content="How to convert columns into rows (i.e. unpivoting) in Snowflake using SQL." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/snowflake/sql/basics/convert_columns_into_rows/" />
-
-
-
-<meta property="article:published_time" content="2019-01-28T00:00:00-07:00"/>
-
-<meta property="article:modified_time" content="2019-01-28T00:00:00-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2019-01-28T00:00:00-07:00" />
+<meta property="article:modified_time" content="2019-01-28T00:00:00-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Convert Columns Into Rows"/>
 <meta name="twitter:description" content="How to convert columns into rows (i.e. unpivoting) in Snowflake using SQL."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Convert Columns Into Rows",
-  "url": "https://chrisalbon.com/snowflake/sql/basics/convert_columns_into_rows/",
+  "url": "https:\/\/chrisalbon.com\/snowflake\/sql\/basics\/convert_columns_into_rows\/",
   "wordCount": "441",
   "datePublished": "2019-01-28T00:00:00-07:00",
   "dateModified": "2019-01-28T00:00:00-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,12 +170,8 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<p><code>UNPIVOT</code> converts a table&rsquo;s columns into rows.</p>
-
+  <p><code>UNPIVOT</code> converts a table&rsquo;s columns into rows.</p>
 <h2 id="create-table-of-superheroes">Create Table Of Superheroes</h2>
-
 <div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- Create a table called SUPERHEROES.
 </span><span class="c1"></span><span class="k">CREATE</span> <span class="k">OR</span> <span class="k">REPLACE</span> <span class="k">TABLE</span> <span class="n">SUPERHEROES</span> <span class="p">(</span>
   <span class="c1">-- Column called ALTER_EGO allowing up to 100 characters
@@ -199,9 +189,7 @@ MathJax.Hub.Config({
   <span class="c1">-- Column called 2019 of integers
 </span><span class="c1"></span>  <span class="s2">&#34;2019&#34;</span> <span class="nb">INT</span>
 <span class="p">);</span></code></pre></div>
-
 <h2 id="insert-rows-for-each-superhero">Insert Rows For Each Superhero</h2>
-
 <div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- Insert rows into SUPERHEROES
 </span><span class="c1"></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">SUPERHEROES</span> 
     <span class="c1">-- With the values
@@ -215,10 +203,8 @@ MathJax.Hub.Config({
     <span class="p">(</span><span class="s1">&#39;Augustine&#39;</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
     <span class="p">(</span><span class="s1">&#39;The Kid&#39;</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
     <span class="p">(</span><span class="s1">&#39;The Viking&#39;</span><span class="p">,</span> <span class="mi">291</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span></code></pre></div>
-
 <h2 id="convert-years-columns-into-rows">Convert Years Columns Into Rows</h2>
-
-<p><div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- Select all columns from SUPERHEROES
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- Select all columns from SUPERHEROES
 </span><span class="c1"></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">SUPERHEROES</span>
 <span class="c1">-- Convert the columns &#34;2015&#34;, &#34;2016&#34;, &#34;2017&#34;, &#34;2018&#34;, &#34;2019&#34; into
 </span><span class="c1">-- rows with appropriate values in a new a YEARS column 
@@ -504,8 +490,7 @@ MathJax.Hub.Config({
             <td>0</td>
         </tr>
     </tbody>
-</table></p>
-
+</table>
 </div>
   <aside>
       <div class="bug_reporting">
@@ -529,7 +514,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

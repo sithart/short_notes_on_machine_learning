@@ -20,27 +20,13 @@
 <meta property="og:description" content="Using wildcard characters in the Linux command line." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/linux/basics/select_files_based_on_filename/" />
-
-
-
-<meta property="article:published_time" content="2018-06-17T00:00:00-07:00"/>
-
-<meta property="article:modified_time" content="2018-06-17T00:00:00-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2018-06-17T00:00:00-07:00" />
+<meta property="article:modified_time" content="2018-06-17T00:00:00-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Select Files Based On Filename"/>
 <meta name="twitter:description" content="Using wildcard characters in the Linux command line."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,8 +34,8 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Select Files Based On Filename",
-  "url": "https://chrisalbon.com/linux/basics/select_files_based_on_filename/",
-  "wordCount": "123",
+  "url": "https:\/\/chrisalbon.com\/linux\/basics\/select_files_based_on_filename\/",
+  "wordCount": "128",
   "datePublished": "2018-06-17T00:00:00-07:00",
   "dateModified": "2018-06-17T00:00:00-07:00",
   "author": {
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,75 +170,39 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<p>Often we want to select files based on their file name or file extension. In Linux, we can use wildcard characters to accomplish this.</p>
-
+  <p>Often we want to select files based on their file name or file extension. In Linux, we can use wildcard characters to accomplish this.</p>
 <h2 id="create-some-files">Create Some Files</h2>
-
-<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">touch hello_world.txt<span class="err">
-</span><span class="err"></span>touch HELLO_world.txt<span class="err">
-</span><span class="err"></span>touch HELLO_world.md<span class="err">
-</span><span class="err"></span>touch hello_america.txt<span class="err">
-</span><span class="err"></span>touch goodbye_america.txt<span class="err">
-</span><span class="err"></span>touch goodbye_america_2.txt</code></pre></div>
-
+<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">touch hello_world.txt
+touch HELLO_world.txt
+touch HELLO_world.md
+touch hello_america.txt
+touch goodbye_america.txt
+touch goodbye_america_2.txt</code></pre></div>
 <h2 id="view-directory-contents">View Directory Contents</h2>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">ls</code></pre></div>
-
 <pre><code>goodbye_america_2.txt  goodbye_america.txt  hello_america.txt  hello_world.txt  HELLO_world.txt
-</code></pre>
-
-<h2 id="select-files-containing-hello">Select Files Containing &ldquo;Hello&rdquo;</h2>
-
+</code></pre><h2 id="select-files-containing-hello">Select Files Containing &ldquo;Hello&rdquo;</h2>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">ls hello*</code></pre></div>
-
 <pre><code>hello_america.txt  hello_world.txt
-</code></pre>
-
-<h2 id="select-files-starting-with-g-or-i">Select Files Starting With &ldquo;g&rdquo; or &ldquo;i&rdquo;</h2>
-
+</code></pre><h2 id="select-files-starting-with-g-or-i">Select Files Starting With &ldquo;g&rdquo; or &ldquo;i&rdquo;</h2>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">ls [gi]*</code></pre></div>
-
 <pre><code>goodbye_america_2.txt  goodbye_america.txt
-</code></pre>
-
-<h2 id="select-all-markdown-files">Select All Markdown Files</h2>
-
+</code></pre><h2 id="select-all-markdown-files">Select All Markdown Files</h2>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">ls *.md</code></pre></div>
-
 <pre><code>HELLO_world.md
-</code></pre>
-
-<h2 id="select-all-files-that-are-markdown-or-text">Select All Files That Are Markdown Or Text</h2>
-
+</code></pre><h2 id="select-all-files-that-are-markdown-or-text">Select All Files That Are Markdown Or Text</h2>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">ls <span class="ge">*.md *</span>.txt</code></pre></div>
-
 <pre><code>goodbye_america_2.txt  goodbye_america.txt  hello_america.txt  HELLO_world.md  hello_world.txt  HELLO_world.txt
-</code></pre>
-
-<h2 id="select-all-files-with-a-two-character-file-extension">Select All Files With A Two Character File Extension</h2>
-
+</code></pre><h2 id="select-all-files-with-a-two-character-file-extension">Select All Files With A Two Character File Extension</h2>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">ls *.??</code></pre></div>
-
 <pre><code>HELLO_world.md
-</code></pre>
-
-<h2 id="select-all-files-with-a-three-character-file-extension">Select All Files With A Three Character File Extension</h2>
-
+</code></pre><h2 id="select-all-files-with-a-three-character-file-extension">Select All Files With A Three Character File Extension</h2>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">ls *.???</code></pre></div>
-
 <pre><code>goodbye_america_2.txt  goodbye_america.txt  hello_america.txt  hello_world.txt  HELLO_world.txt
-</code></pre>
-
-<h2 id="select-all-files-containing-a-digit">Select All Files Containing A Digit</h2>
-
+</code></pre><h2 id="select-all-files-containing-a-digit">Select All Files Containing A Digit</h2>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">ls *[0-9]*</code></pre></div>
-
 <pre><code>goodbye_america_2.txt
 </code></pre>
-
 </div>
   <aside>
       <div class="bug_reporting">
@@ -268,7 +226,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

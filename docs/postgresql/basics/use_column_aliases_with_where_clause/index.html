@@ -20,27 +20,13 @@
 <meta property="og:description" content="How to use column aliases with a where clause in an SQL database." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/postgresql/basics/use_column_aliases_with_where_clause/" />
-
-
-
-<meta property="article:published_time" content="2018-06-17T00:00:00-07:00"/>
-
-<meta property="article:modified_time" content="2018-06-17T00:00:00-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2018-06-17T00:00:00-07:00" />
+<meta property="article:modified_time" content="2018-06-17T00:00:00-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Use Column Aliases With Where Clause"/>
 <meta name="twitter:description" content="How to use column aliases with a where clause in an SQL database."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Use Column Aliases With Where Clause",
-  "url": "https://chrisalbon.com/postgresql/basics/use_column_aliases_with_where_clause/",
+  "url": "https:\/\/chrisalbon.com\/postgresql\/basics\/use_column_aliases_with_where_clause\/",
   "wordCount": "139",
   "datePublished": "2018-06-17T00:00:00-07:00",
   "dateModified": "2018-06-17T00:00:00-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,10 +170,7 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<h2 id="create-table">Create Table</h2>
-
+  <h2 id="create-table">Create Table</h2>
 <div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- Create table called adventurers
 </span><span class="c1"></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">adventurers</span> <span class="p">(</span>
     <span class="c1">-- string variable
@@ -191,21 +182,16 @@ MathJax.Hub.Config({
     <span class="c1">-- string variable
 </span><span class="c1"></span>    <span class="n">weapon</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span>
 <span class="p">)</span></code></pre></div>
-
 <h2 id="insert-rows">Insert Rows</h2>
-
-<p><div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- Insert into the table adventurers
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- Insert into the table adventurers
 </span><span class="c1"></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">adventurers</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">race</span><span class="p">,</span> <span class="n">weapon</span><span class="p">)</span>
 <span class="k">VALUES</span> <span class="p">(</span><span class="s1">&#39;Fjoak Doom-Wife&#39;</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="s1">&#39;Human&#39;</span><span class="p">,</span> <span class="s1">&#39;Axe&#39;</span><span class="p">),</span>
        <span class="p">(</span><span class="s1">&#39;Alooneric Cortte&#39;</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="s1">&#39;Elf&#39;</span><span class="p">,</span> <span class="s1">&#39;Bow&#39;</span><span class="p">),</span>
        <span class="p">(</span><span class="s1">&#39;Piperel Ramsay&#39;</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="s1">&#39;Elf&#39;</span><span class="p">,</span> <span class="s1">&#39;Sword&#39;</span><span class="p">),</span>
-       <span class="p">(</span><span class="s1">&#39;Casimir Yardley&#39;</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="s1">&#39;Elf&#39;</span><span class="p">,</span> <span class="s1">&#39;Magic&#39;</span><span class="p">)</span></code></pre></div></p>
-
+       <span class="p">(</span><span class="s1">&#39;Casimir Yardley&#39;</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="s1">&#39;Elf&#39;</span><span class="p">,</span> <span class="s1">&#39;Magic&#39;</span><span class="p">)</span></code></pre></div>
 <h2 id="retrieve-two-columns">Retrieve Two Columns</h2>
-
 <p>The trick is to wrap the column aliasing in paratheses.</p>
-
-<p><div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- Retrieve rows from
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- Retrieve rows from
 </span><span class="c1"></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span>
     <span class="c1">-- Create alias for columns
 </span><span class="c1"></span>    <span class="p">(</span>
@@ -218,8 +204,7 @@ MathJax.Hub.Config({
 </span><span class="c1"></span><span class="k">WHERE</span> <span class="n">primary_weapon</span> <span class="o">=</span> <span class="s1">&#39;Axe&#39;</span></code></pre></div>
 <table border="1" style="border-collapse:collapse">
 <tr><th>full_name</th><th>primary_weapon</th></tr>
-<tr><td>Fjoak Doom-Wife</td><td>Axe</td></tr></table></p>
-
+<tr><td>Fjoak Doom-Wife</td><td>Axe</td></tr></table>
 </div>
   <aside>
       <div class="bug_reporting">
@@ -243,7 +228,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

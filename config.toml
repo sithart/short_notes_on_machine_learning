@@ -12,3 +12,8 @@ disableKinds = ["taxonomy", "taxonomyTerm"]
 [outputs]
   home = ["HTML", "RSS"]
   section = ["RSS"]
+
+# Allows raw HTML to render in markdown content files.
+# Used to add linked images (i.e. flashcard images)
+[markup.goldmark.renderer]
+unsafe= true

@@ -20,27 +20,13 @@
 <meta property="og:description" content="How to append the standard error of a command or program to a file using the Linux command line." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/linux/inputs_and_outputs/append_error_to_file/" />
-
-
-
-<meta property="article:published_time" content="2018-06-17T00:00:00-07:00"/>
-
-<meta property="article:modified_time" content="2018-06-17T00:00:00-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2018-06-17T00:00:00-07:00" />
+<meta property="article:modified_time" content="2018-06-17T00:00:00-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Append Error To File"/>
 <meta name="twitter:description" content="How to append the standard error of a command or program to a file using the Linux command line."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Append Error To File",
-  "url": "https://chrisalbon.com/linux/inputs_and_outputs/append_error_to_file/",
+  "url": "https:\/\/chrisalbon.com\/linux\/inputs_and_outputs\/append_error_to_file\/",
   "wordCount": "108",
   "datePublished": "2018-06-17T00:00:00-07:00",
   "dateModified": "2018-06-17T00:00:00-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,32 +170,18 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<p>We can append the errors of a program to a file by using the <code>2&gt;&gt;</code> operator.</p>
-
+  <p>We can append the errors of a program to a file by using the <code>2&gt;&gt;</code> operator.</p>
 <h2 id="run-error-producing-code-to-see-error">Run Error Producing Code To See Error</h2>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">pwd -thiswillproduceerror</code></pre></div>
-
 <pre><code>-bash: pwd: -t: invalid option
 pwd: usage: pwd [-LP]
-</code></pre>
-
-<h2 id="create-file">Create File</h2>
-
+</code></pre><h2 id="create-file">Create File</h2>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">touch errors.txt</code></pre></div>
-
 <h2 id="append-the-standard-error-to-file">Append The Standard Error To File</h2>
-
 <p>Note that we run <code>pwd -thiswillproduceerror</code> three times, each time appending the results to <code>errors.txt</code>.</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">pwd -thiswillproduceerror 2&gt;&gt; errors.txt; pwd -thiswillproduceerror 2&gt;&gt; errors.txt; pwd -thiswillproduceerror 2&gt;&gt; errors.txt</code></pre></div>
-
-<h2 id="view-file-s-contents-to-see-redirected-standard-output">View File&rsquo;s Contents To See Redirected Standard Output</h2>
-
+<h2 id="view-files-contents-to-see-redirected-standard-output">View File&rsquo;s Contents To See Redirected Standard Output</h2>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">cat errors.txt</code></pre></div>
-
 <pre><code>-bash: pwd: -t: invalid option
 pwd: usage: pwd [-LP]
 -bash: pwd: -t: invalid option
@@ -209,7 +189,6 @@ pwd: usage: pwd [-LP]
 -bash: pwd: -t: invalid option
 pwd: usage: pwd [-LP]
 </code></pre>
-
 </div>
   <aside>
       <div class="bug_reporting">
@@ -233,7 +212,7 @@ pwd: usage: pwd [-LP]
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

@@ -20,27 +20,13 @@
 <meta property="og:description" content="How to create a sequential list of files and directories in the Linux command line." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/linux/basics/create_sequential_list_of_files_or_directories/" />
-
-
-
-<meta property="article:published_time" content="2018-06-17T00:00:00-07:00"/>
-
-<meta property="article:modified_time" content="2018-06-17T00:00:00-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2018-06-17T00:00:00-07:00" />
+<meta property="article:modified_time" content="2018-06-17T00:00:00-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Create Sequential List Of Files And Directories"/>
 <meta name="twitter:description" content="How to create a sequential list of files and directories in the Linux command line."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Create Sequential List Of Files And Directories",
-  "url": "https://chrisalbon.com/linux/basics/create_sequential_list_of_files_or_directories/",
+  "url": "https:\/\/chrisalbon.com\/linux\/basics\/create_sequential_list_of_files_or_directories\/",
   "wordCount": "103",
   "datePublished": "2018-06-17T00:00:00-07:00",
   "dateModified": "2018-06-17T00:00:00-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,20 +170,12 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<h2 id="create-sequential-list-of-files">Create Sequential List Of Files</h2>
-
+  <h2 id="create-sequential-list-of-files">Create Sequential List Of Files</h2>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">touch script_version_{1..5}.py</code></pre></div>
-
 <h2 id="create-sequential-list-of-directories">Create Sequential List Of Directories</h2>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">mkdir data_{2015..2018}</code></pre></div>
-
 <h2 id="view-files-and-directories">View Files And Directories</h2>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">ls -l</code></pre></div>
-
 <pre><code>total 16
 drwxrwxr-x 2 chris chris 4096 Jul 29 11:17 data_2015
 drwxrwxr-x 2 chris chris 4096 Jul 29 11:17 data_2016
@@ -201,7 +187,6 @@ drwxrwxr-x 2 chris chris 4096 Jul 29 11:17 data_2018
 -rw-rw-r-- 1 chris chris    0 Jul 29 11:18 script_version_4.py
 -rw-rw-r-- 1 chris chris    0 Jul 29 11:18 script_version_5.py
 </code></pre>
-
 </div>
   <aside>
       <div class="bug_reporting">
@@ -225,7 +210,7 @@ drwxrwxr-x 2 chris chris 4096 Jul 29 11:17 data_2018
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

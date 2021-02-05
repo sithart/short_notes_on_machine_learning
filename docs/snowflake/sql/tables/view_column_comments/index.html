@@ -20,35 +20,21 @@
 <meta property="og:description" content="How to view a column&#39;s comments in SQL using Snowflake.." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/snowflake/sql/tables/view_column_comments/" />
-
-
-
-<meta property="article:published_time" content="2019-01-28T00:00:00-07:00"/>
-
-<meta property="article:modified_time" content="2019-01-28T00:00:00-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2019-01-28T00:00:00-07:00" />
+<meta property="article:modified_time" content="2019-01-28T00:00:00-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="View A Column&#39;s Comments"/>
 <meta name="twitter:description" content="How to view a column&#39;s comments in SQL using Snowflake.."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
 {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
-  "headline": "View A Column&#39;s Comments",
-  "url": "https://chrisalbon.com/snowflake/sql/tables/view_column_comments/",
+  "headline": "View A Column\u0027s Comments",
+  "url": "https:\/\/chrisalbon.com\/snowflake\/sql\/tables\/view_column_comments\/",
   "wordCount": "143",
   "datePublished": "2019-01-28T00:00:00-07:00",
   "dateModified": "2019-01-28T00:00:00-07:00",
@@ -56,7 +42,7 @@
     "@type": "Person",
     "name": "Chris Albon"
   },
-  "description": "How to view a column&#39;s comments in SQL using Snowflake.."
+  "description": "How to view a column\u0027s comments in SQL using Snowflake.."
 }
 </script> 
 
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,12 +170,8 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<h2 id="create-table-of-superheroes-with-comments">Create Table Of Superheroes With Comments</h2>
-
+  <h2 id="create-table-of-superheroes-with-comments">Create Table Of Superheroes With Comments</h2>
 <p>Column comments concern a particular column, while table comments are about the entire table.</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- Create a table called SUPERHEROES. If it already exists, replace it.
 </span><span class="c1"></span><span class="k">CREATE</span> <span class="k">OR</span> <span class="k">REPLACE</span> <span class="k">TABLE</span> <span class="n">SUPERHEROES</span> <span class="p">(</span>
   <span class="c1">-- Column called ID allowing up to five characters with a comment.
@@ -192,15 +182,11 @@ MathJax.Hub.Config({
 </span><span class="s1">-- A comment for the entire table.
 </span><span class="s1">COMMENT=&#39;</span><span class="n">A</span> <span class="k">table</span> <span class="k">to</span> <span class="n">superheroes</span><span class="p">.</span><span class="s1">&#39;
 </span><span class="s1">;</span></code></pre></div>
-
 <h2 id="describe-the-table">Describe The Table</h2>
-
-<p><div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- Describe the table SUPERHEROES
-</span><span class="c1"></span><span class="k">DESCRIBE</span> <span class="k">TABLE</span> <span class="n">SUPERHEROES</span><span class="p">;</span></code></pre></div></p>
-
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- Describe the table SUPERHEROES
+</span><span class="c1"></span><span class="k">DESCRIBE</span> <span class="k">TABLE</span> <span class="n">SUPERHEROES</span><span class="p">;</span></code></pre></div>
 <h2 id="view-table-comments">View Table Comments</h2>
-
-<p><div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- Select the &#34;name&#34; and &#34;comment&#34; columns
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- Select the &#34;name&#34; and &#34;comment&#34; columns
 </span><span class="c1"></span><span class="k">SELECT</span> <span class="s2">&#34;name&#34;</span><span class="p">,</span> <span class="s2">&#34;comment&#34;</span> 
 <span class="c1">-- Of the last query (in this case the DESCRIBE TABLE query)
 </span><span class="c1"></span><span class="k">FROM</span> <span class="k">TABLE</span><span class="p">(</span><span class="n">RESULT_SCAN</span><span class="p">(</span><span class="n">LAST_QUERY_ID</span><span class="p">()))</span>
@@ -219,11 +205,10 @@ MathJax.Hub.Config({
         </tr>
         <tr>
             <td>ALTER_EGO</td>
-            <td>The superhero&rsquo;s pseudonym.</td>
+            <td>The superhero's pseudonym.</td>
         </tr>
     </tbody>
-</table></p>
-
+</table>
 </div>
   <aside>
       <div class="bug_reporting">
@@ -247,7 +232,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

@@ -1,15 +1,25 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title> - Chris Albon</title>
+    <title>articles - Chris Albon</title>
     <link>https://chrisalbon.com/articles/index.xml</link>
     <description></description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 01 Feb 2016 11:53:49 -0700</lastBuildDate>
+    <lastBuildDate>Tue, 01 Dec 2020 11:53:49 -0700</lastBuildDate>
     
         <atom:link href="https://chrisalbon.com/articles/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>100 Day Sprint</title>
+      <link>https://chrisalbon.com/articles/100_day_sprint/</link>
+      <pubDate>Tue, 01 Dec 2020 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/articles/100_day_sprint/</guid>
+      <description>Introduction COVIDSTARTEDMARCH17 LONG YEAR TALKINGABOUTHOWHARDTHEYEAR FRIENDMENTIONED BROKENPLACES QUOTE
+ “The world breaks everyone and afterward many are strong at the broken places.&amp;quot; – Ernest Hemingway in A Farewell to Arms
+ IF MY COVID YEAR ANNIVERSAY IN 100DAYS, HOW CAN I BE STRONGER IN THOSE BROKEN PLACES I CHOSE X THINGS Running Reading Writing Coding Weight GOAL IS TO COME OUT OUT THE FIRST YEAR OF COVID STRONGER</description>
+    </item>
     
     <item>
       <title>What I Learned Tracking My Time At Techstars</title>

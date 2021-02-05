@@ -20,27 +20,13 @@
 <meta property="og:description" content="Add volumes to images using Dockerfiles." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/docker/dockerfiles/add_a_volume/" />
-
-
-
-<meta property="article:published_time" content="2020-07-22T00:00:00-07:00"/>
-
-<meta property="article:modified_time" content="2020-07-22T00:00:00-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2020-07-22T00:00:00-07:00" />
+<meta property="article:modified_time" content="2020-07-22T00:00:00-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Add A Volume"/>
 <meta name="twitter:description" content="Add volumes to images using Dockerfiles."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Add A Volume",
-  "url": "https://chrisalbon.com/docker/dockerfiles/add_a_volume/",
+  "url": "https:\/\/chrisalbon.com\/docker\/dockerfiles\/add_a_volume\/",
   "wordCount": "473",
   "datePublished": "2020-07-22T00:00:00-07:00",
   "dateModified": "2020-07-22T00:00:00-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,26 +170,17 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<h2 id="create-dockerfile">Create Dockerfile</h2>
-
+  <h2 id="create-dockerfile">Create Dockerfile</h2>
 <p><code>VOLUME</code> creates volume that both exists as a directory inside the container&rsquo;s filesystem <em>and</em> is accessible on the host&rsquo;s file system. However, note that the name of the volume in the host file system is a long string of random characters, <em>NOT</em> the same name as the directory in the container&rsquo;s filesystem.</p>
-
 <p>Volumes are the prefered way to store persistence data from a container and can be used to share data between containers.</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Build from base image</span>
+FROM ubuntu:latest
 
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Build from base image
-</span><span class="c1"></span>FROM ubuntu:latest
-
-<span class="c1"># Add volume
-</span><span class="c1"></span>VOLUME <span class="o">[</span><span class="s2">&#34;project_data&#34;</span><span class="o">]</span></code></pre></div>
-
+<span class="c1"># Add volume</span>
+VOLUME <span class="o">[</span><span class="s2">&#34;project_data&#34;</span><span class="o">]</span></code></pre></div>
 <h2 id="build-image-from-dockerfile">Build Image From Dockerfile</h2>
-
 <p>Build the Dockerfile (<code>docker build</code>) in the current directory (<code>.</code>) and call the image chrisalbon/ubuntu:volume-example (<code>--tag chrisalbon/big-project:volume-example</code>).</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">docker build --tag chrisalbon/big-project:volume-example .</code></pre></div>
-
 <pre><code>Sending build context to Docker daemon  4.608kB
 Step 1/2 : FROM ubuntu:latest
  ---&gt; 1e4467b07108
@@ -205,23 +190,13 @@ Removing intermediate container bc20457b6aba
  ---&gt; 91de40c6d3f0
 Successfully built 91de40c6d3f0
 Successfully tagged chrisalbon/big-project:volume-example
-</code></pre>
-
-<h2 id="run-docker-container-from-image">Run Docker Container From Image</h2>
-
+</code></pre><h2 id="run-docker-container-from-image">Run Docker Container From Image</h2>
 <p>Start and create (<code>docker run</code>) an interative (<code>-it</code>) Docker container called volume-example (<code>--name volume-example</code>) from the image called <code>chrisalbon/big-project:volume-example</code>. Remove the container after it stops (<code>-rm</code>)</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">docker container run -it --name volume-example chrisalbon/big-project:volume-example /bin/bash</code></pre></div>
-
 <pre><code>root@bff8d32d1675:/#
-</code></pre>
-
-<h2 id="view-destination-directory">View Destination Directory</h2>
-
+</code></pre><h2 id="view-destination-directory">View Destination Directory</h2>
 <p>View all files and folders (<code>ls</code>) that displays using long format and shows hidden files (<code>-al</code>).</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">ls -al</code></pre></div>
-
 <pre><code>total 60
 drwxr-xr-x   1 root root 4096 Aug 19 06:00 .
 drwxr-xr-x   1 root root 4096 Aug 19 06:00 ..
@@ -248,9 +223,7 @@ dr-xr-xr-x  13 root root    0 Aug 19 05:08 sys
 drwxrwxrwt   2 root root 4096 Jul 20 14:57 tmp
 drwxr-xr-x   1 root root 4096 Jul 20 14:43 usr
 drwxr-xr-x   1 root root 4096 Jul 20 14:57 var
-</code></pre>
-
-<p>Notice that the directory <code>project_data</code> exists. The directory is avaliable inside the consider as <code>project_data</code> and on the host filesystem as a directory in <code>/var/lib/docker/volumes/</code>.</p>
+</code></pre><p>Notice that the directory <code>project_data</code> exists. The directory is avaliable inside the consider as <code>project_data</code> and on the host filesystem as a directory in <code>/var/lib/docker/volumes/</code>.</p>
 
 </div>
   <aside>
@@ -275,7 +248,7 @@ drwxr-xr-x   1 root root 4096 Jul 20 14:57 var
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

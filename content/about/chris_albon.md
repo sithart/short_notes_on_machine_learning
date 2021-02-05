@@ -9,14 +9,13 @@ outputs:
     - html
 ---
 
-
 <img src="chris_albon_banner.jpg"></img>
 
 I have spent over a decade applying statistical learning, artificial intelligence, and software engineering to political, social, and humanitarian efforts. I am the Director of Machine Learning at the [Wikimedia Foundation](https://wikimediafoundation.org/). Previously, I was the Director of Data Science at [Devoted Health](https://www.devoted.com/), Director of Data Science at the Kenyan startup [BRCK](https://www.brck.com/), cofounded the AI startup [Yonder](https://www.Yonder.co), created the data science podcast [Partially Derivative](https://www.partiallyderivative.com), was the Director of Data Science at the humanitarian non-profit [Ushahidi](https://www.ushahidi.com), and was the director of the low-resource technology governance project at [FrontlineSMS](http://www.frontlinesms.com). I also wrote [Machine Learning For Python Cookbook](https://www.amazon.com/Machine-Learning-Python-Cookbook-Preprocessing/dp/1491989386) (O'Reilly 2018) and created [Machine Learning Flashcards](https://machinelearningflashcards.com/).
 
 I earned a Ph.D. in Political Science from the University of California, Davis researching the quantitative impact of civil wars on health care systems. I earned a B.A. from the University of Miami, where I triple majored in political science, international studies, and religious studies.
 
--   Email: &#099;&#114;&#097;&#108;&#098;&#111;&#110;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;
+-   Email: cralbon@gmail.com
 -   Twitter: [@chrisalbon](https://twitter.com/chrisalbon)
 
 ## Selected Experience

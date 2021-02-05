@@ -20,27 +20,13 @@
 <meta property="og:description" content="Binary Search using Python." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/computer_science/algorithms/binary_search/" />
-
-
-
-<meta property="article:published_time" content="2017-12-20T11:53:49-07:00"/>
-
-<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2017-12-20T11:53:49-07:00" />
+<meta property="article:modified_time" content="2017-12-20T11:53:49-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Binary Search"/>
 <meta name="twitter:description" content="Binary Search using Python."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Binary Search",
-  "url": "https://chrisalbon.com/computer_science/algorithms/binary_search/",
+  "url": "https:\/\/chrisalbon.com\/computer_science\/algorithms\/binary_search\/",
   "wordCount": "297",
   "datePublished": "2017-12-20T11:53:49-07:00",
   "dateModified": "2017-12-20T11:53:49-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,14 +170,11 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<h2 id="create-sorted-list">Create Sorted List</h2>
+  <h2 id="create-sorted-list">Create Sorted List</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">sorted_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">sorted_list</span><span class="p">)</span></code></pre></div>
-<pre><code>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 16, 18, 20]
+<span class="k">print</span><span class="p">(</span><span class="n">sorted_list</span><span class="p">)</span>
+</code></pre></div><pre><code>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 16, 18, 20]
 </code></pre>
-
 <h2 id="create-binary-search-algorithm">Create Binary Search Algorithm</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">binary_search</span><span class="p">(</span><span class="n">sorted_list</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
 
@@ -215,13 +206,12 @@ MathJax.Hub.Config({
             <span class="k">return</span> <span class="p">(</span><span class="s2">&#34;Found it at index: {}&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">middle</span><span class="p">))</span>
 
     <span class="c1"># If we&#39;ve fallen out of the while loop the target value is not in the list</span>
-    <span class="k">return</span> <span class="k">print</span><span class="p">(</span><span class="s2">&#34;Not in list!&#34;</span><span class="p">)</span></code></pre></div>
-<h2 id="conduct-binary-search">Conduct Binary Search</h2>
+    <span class="k">return</span> <span class="k">print</span><span class="p">(</span><span class="s2">&#34;Not in list!&#34;</span><span class="p">)</span>
+</code></pre></div><h2 id="conduct-binary-search">Conduct Binary Search</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Run binary search</span>
-<span class="n">binary_search</span><span class="p">(</span><span class="n">sorted_list</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span></code></pre></div>
-<pre><code>'Found it at index: 1'
+<span class="n">binary_search</span><span class="p">(</span><span class="n">sorted_list</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</code></pre></div><pre><code>'Found it at index: 1'
 </code></pre>
-
 <p>Thanks for <a href="https://github.com/jss367">Julius</a> for the improved code.</p>
 
 </div>
@@ -247,7 +237,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

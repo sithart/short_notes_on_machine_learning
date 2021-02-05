@@ -20,27 +20,13 @@
 <meta property="og:description" content="How to silence standard error of a command or program to a file using the Linux command line." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/linux/inputs_and_outputs/silence_errors/" />
-
-
-
-<meta property="article:published_time" content="2018-06-17T00:00:00-07:00"/>
-
-<meta property="article:modified_time" content="2018-06-17T00:00:00-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2018-06-17T00:00:00-07:00" />
+<meta property="article:modified_time" content="2018-06-17T00:00:00-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Silence Errors"/>
 <meta name="twitter:description" content="How to silence standard error of a command or program to a file using the Linux command line."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Silence Errors",
-  "url": "https://chrisalbon.com/linux/inputs_and_outputs/silence_errors/",
+  "url": "https:\/\/chrisalbon.com\/linux\/inputs_and_outputs\/silence_errors\/",
   "wordCount": "82",
   "datePublished": "2018-06-17T00:00:00-07:00",
   "dateModified": "2018-06-17T00:00:00-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,21 +170,12 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<p>The most common method of silencing an error in Linux is to redirect than error to <code>/dev/null</code> which is like the trash bucket of the system. We can do that by including <code>2&gt; /dev/null</code> to the end of a command.</p>
-
+  <p>The most common method of silencing an error in Linux is to redirect than error to <code>/dev/null</code> which is like the trash bucket of the system. We can do that by including <code>2&gt; /dev/null</code> to the end of a command.</p>
 <h2 id="create-code-that-will-produce-error">Create Code That Will Produce Error</h2>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">ls a_fake_directory/</code></pre></div>
-
 <pre><code>ls: a_fake_directory/: No such file or directory
-</code></pre>
-
-<h2 id="silence-error">Silence Error</h2>
-
+</code></pre><h2 id="silence-error">Silence Error</h2>
 <p>Notice that we aren&rsquo;t silencing so much as redirecting into <code>/dev/null</code>. This is like sending the error into a black hole.</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">ls a_fake_directory/ 2&gt; /dev/null</code></pre></div>
 
 </div>
@@ -216,7 +201,7 @@ MathJax.Hub.Config({
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

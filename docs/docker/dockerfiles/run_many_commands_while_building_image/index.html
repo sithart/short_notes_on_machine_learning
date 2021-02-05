@@ -20,27 +20,13 @@
 <meta property="og:description" content="Run many commands while building image using Dockerfiles." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chrisalbon.com/docker/dockerfiles/run_many_commands_while_building_image/" />
-
-
-
-<meta property="article:published_time" content="2020-07-22T00:00:00-07:00"/>
-
-<meta property="article:modified_time" content="2020-07-22T00:00:00-07:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2020-07-22T00:00:00-07:00" />
+<meta property="article:modified_time" content="2020-07-22T00:00:00-07:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Run Many Commands While Building Image"/>
 <meta name="twitter:description" content="Run many commands while building image using Dockerfiles."/>
-<meta name="generator" content="Hugo 0.40.1" />
+
 
     
 <script type="application/ld+json">
@@ -48,7 +34,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Run Many Commands While Building Image",
-  "url": "https://chrisalbon.com/docker/dockerfiles/run_many_commands_while_building_image/",
+  "url": "https:\/\/chrisalbon.com\/docker\/dockerfiles\/run_many_commands_while_building_image\/",
   "wordCount": "2158",
   "datePublished": "2020-07-22T00:00:00-07:00",
   "dateModified": "2020-07-22T00:00:00-07:00",
@@ -72,26 +58,34 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" /> 
+    <link href="" rel="alternate" type="application/rss+xml" title="Chris Albon All Notes And Articles" />  
+    
+
     
     <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -176,17 +170,13 @@ MathJax.Hub.Config({
   </header>
   <div class="content">
       
-  
-
-<h2 id="create-dockerfile">Create Dockerfile</h2>
-
+  <h2 id="create-dockerfile">Create Dockerfile</h2>
 <p>A new image layer is created every time <code>RUN</code> is executed, therefore it is most often advisable to chain build steps using <code>&amp;&amp;</code>.</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Build from base image</span>
+FROM ubuntu:latest
 
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Build from base image
-</span><span class="c1"></span>FROM ubuntu:latest
-
-<span class="c1"># Run many commands
-</span><span class="c1"></span>RUN apt-get update <span class="se">\
+<span class="c1"># Run many commands</span>
+RUN apt-get update <span class="se">\
 </span><span class="se"></span>    <span class="o">&amp;&amp;</span> apt-get install -y git <span class="se">\
 </span><span class="se"></span>    <span class="o">&amp;&amp;</span> touch config.txt <span class="se">\
 </span><span class="se"></span>    <span class="o">&amp;&amp;</span> mkdir secret_project <span class="se">\
@@ -194,13 +184,9 @@ MathJax.Hub.Config({
 </span><span class="se"></span>    <span class="o">&amp;&amp;</span> touch secret_project/project_beta.txt <span class="se">\
 </span><span class="se"></span>    <span class="o">&amp;&amp;</span> touch secret_project/project_delta.txt <span class="se">\
 </span><span class="se"></span>    <span class="o">&amp;&amp;</span> touch secret_project/project_omega.txt <span class="err">\</span></code></pre></div>
-
 <h2 id="build-image-from-dockerfile">Build Image From Dockerfile</h2>
-
 <p>Build the Dockerfile (<code>docker build</code>) in the current directory (<code>.</code>) and call the image chrisalbon/ubuntu:many-commands (<code>--tag chrisalbon/ubuntu:many-commands</code>).</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">docker build --tag chrisalbon/ubuntu:many-commands .</code></pre></div>
-
 <pre><code>Sending build context to Docker daemon  4.608kB
 Step 1/2 : FROM ubuntu:latest
  ---&gt; 1e4467b07108
@@ -563,7 +549,6 @@ Removing intermediate container 6e2cf592c9ea
 Successfully built 86915597532f
 Successfully tagged chrisalbon/ubuntu:many-commands
 </code></pre>
-
 </div>
   <aside>
       <div class="bug_reporting">
@@ -587,7 +572,7 @@ Successfully tagged chrisalbon/ubuntu:many-commands
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 697 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 
