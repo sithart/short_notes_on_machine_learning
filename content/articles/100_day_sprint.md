@@ -1,5 +1,5 @@
 ---
-title: "100 Day Sprint"
+title: "I Will Not Waste An Hour Away From Them"
 author: "Chris Albon"
 date: 2021-02-01T00:00:00-07:00
 description: "Let's see what I can accomplish in 100 days."

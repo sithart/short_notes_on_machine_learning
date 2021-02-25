@@ -37,7 +37,7 @@ While you can use `\` to break up lines of code. A more simple and readable opti
 
 ```python
 # Create a variable with the count of members per age
-member_years_by_age = [# multiple the first list's element by the second list's element
+member_years_by_age = [# multiply the first list's element by the second list's element
                            first_list_element * second_list_element 
                            # for the first list's elements and second list's element 
                            for first_list_element, second_list_element 

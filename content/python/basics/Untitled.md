@@ -1,5 +1,3 @@
-
-
 ```python
 # Load library
 import pandas as pd
