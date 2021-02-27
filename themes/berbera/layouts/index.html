@@ -1372,29 +1372,23 @@
             </div>
         </div>
 
-<!--
-        <div class="row" id="less-harmful-ai">
+        <div class="row" id="research">
             <div class="col-sm-12">
-                <h3 class="category_header">Less Harmful AI</h3>
+                <h3 class="category_header">Research Notes</h3>
             </div>
         </div>
-
-        <div class="row">
-            <div class="col-sm-12 blurb">
-                <p class='mb-0'>This is a series of posts exploring the practical side of building less harmful machine learning systems. For the latest posts in this series, subscribe to the <a href="https://chrisalbon.substack.com/subscribe">Less Harmful AI newsletter</a>.</p>
-            </div>
-        </div>
-
+    
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
-                    <div class="article_list card-body">
+                    <h4 class="card-header">AI Ethics</h4>
+                    <div class="card-body">
                         <ul>
                             {{ $pages := .Pages }}
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/less-harmful-ai/") }}
+                            {{ range (where $pages "File.Dir" "in" "/research/ai_ethics/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -1404,7 +1398,8 @@
                 </div>
             </div>
         </div>
--->
+
+
         <div class="row" id="articles">
             <div class="col-sm-12">
                 <h3 class="category_header">Articles<!-- <a style="float: right;" href="{{ .Site.BaseURL }}/articles/index.xml">RSS</a>-->
