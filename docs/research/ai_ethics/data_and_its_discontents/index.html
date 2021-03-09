@@ -35,7 +35,7 @@
   "@type": "BlogPosting",
   "headline": "Data And Its (Dis)contents: A Survey Of Dataset Development And Use In Machine Learning",
   "url": "https:\/\/chrisalbon.com\/research\/ai_ethics\/data_and_its_discontents\/",
-  "wordCount": "105",
+  "wordCount": "603",
   "datePublished": "2021-03-01T11:53:49-07:00",
   "dateModified": "2021-03-01T11:53:49-07:00",
   "author": {
@@ -175,7 +175,8 @@
       
   <h2 id="summary">Summary</h2>
 <p><a href="https://arxiv.org/abs/2012.05345">Paullada et al. 2020</a> conducts a review of the existing research literature around the ethical and socialogical issues around (typical large) datasets commonly used in machine learning such as ImageNet and others.</p>
-<h2 id="notes">Notes</h2>
+<h2 id="selective-notes">Selective Notes</h2>
+<p><em>This note isn&rsquo;t a comprehensive summary of the entire review, just certain takeaways of particular interest.</em></p>
 <ul>
 <li>
 <p>Poor Representation</p>
@@ -187,9 +188,59 @@
 </ul>
 </li>
 <li>
-<p>Poor Data Collection, Annotation And Documentation</p>
+<p>Poor Data Collection</p>
 <ul>
 <li>Millions of non-consenual pornographic images in large image datasets (<a href="https://arxiv.org/abs/2006.16923">Prabhu and Birhane 2020</a>)</li>
+<li>Annotating databases with labels is subjective and not ground truth (<a href="https://arxiv.org/abs/2007.14886">Miceli et al., 2020</a>)</li>
+<li><a href="https://arxiv.org/abs/2005.11295">Tsipras et al. 2020</a> argue ImageNet:
+<ul>
+<li>Applies only one label to an image that might contain multiple objects</li>
+<li>Crowdworkers (Mechanical Turk, etc.) are biased towards the labeling processes.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Poor Data Documentation</p>
+<ul>
+<li>Widespread variation in datasets reporting how they produced their data (<a href="https://arxiv.org/abs/1912.08320">Geiger et al. 2019</a>)</li>
+</ul>
+</li>
+<li>
+<p>Miopic Focus On Benchmarks</p>
+<ul>
+<li>Leaderboards aren&rsquo;t everything (<a href="https://arxiv.org/abs/2009.13888">Ethayarajh and Jurafsky 2009</a>)</li>
+<li>Performance metrics aren&rsquo;t everything(<a href="https://www.aclweb.org/anthology/2020.acl-main.463/">Bender and Koller 2020</a>)</li>
+</ul>
+</li>
+<li>
+<p>Data management</p>
+<ul>
+<li>&ldquo;&hellip; the machine learning community still has much to learn from other disciplines with respect to how they handle the data of human subjects. Unlike in the social sciences or medicine, the machine learning field has yet to develop the data management practices required to store and transmit sensitive human data&rdquo; (Paullada et al. 2020).</li>
+<li>Data science should be human subject research and require IRB approval (<a href="https://journals.sagepub.com/doi/full/10.1177/2053951716650211">Metcalf and Crawford 2016</a>).</li>
+<li>&ldquo;However, machine learning researchers developing such datasets rarely pay attention to this necessary consideration. Researchers will regularly distribute biometric information— for example, face image data— without so much as a distribution request form, or required privacy policy in place&rdquo; (Paullada et al. 2020).</li>
+</ul>
+</li>
+<li>
+<p>Data Use And Reuse</p>
+<ul>
+<li>It might not always be a good idea to take data gathered for one purpose and use it for another purpose.</li>
+<li>The DukeMTMC database was from eight security cameras around the campus, distributed without the conscent of the individuals in the videos. Eventually the database was taken down but is still widely avaliable online.</li>
+</ul>
+</li>
+<li>
+<p>Legal</p>
+<ul>
+<li>ImageNet uses a number of sources of data where the licensing/copyright are unclear. ImageNet gets around this by not hosting the images themselves.</li>
+<li>Creative Commons license allows for training of machine learning models from it under fair use doctrine (<a href="https://creativecommons.org/2019/03/13/statement-on-shared-images-in-facial-recognition-ai/">Merkely 2019</a>])</li>
+<li>Legal scholars argue it is okay to use copyrighted text to train machine learning models (<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3331606">Sag 2019</a>).</li>
+<li>Using copyrighted text can combat bias by creating a larger corpus from which to train on (<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3024938">Levendowski 2017</a>)</li>
+</ul>
+</li>
+<li>
+<p>Solution</p>
+<ul>
+<li>&ldquo;In closing, we advocate for a turn in the culture towards carefully collected datasets, rooted in their original contexts, distributed only in ways that respect the intellectual property and privacy rights of data creators and data subjects, and constructed in conversation with the relevant scientific and scholarly fields required to create datasets that faithfully model tasks and tasks which target relevant and realistic capabilities. Such datasets will undoubtedly be more expensive to create, in time, money and effort, and therefore smaller than today’s most celebrated benchmarks. This, in turn, will encourage work on approaches to machine learning (and to artificial intelligence beyond machine learning) that go beyond the current paradigm of techniques idolizing scale. Should this come to pass, we predict that machine learning as a field will be better positioned to understand how its technology impacts people and to design solutions that work with fidelity and equity in their deployment contexts.&rdquo; (Paullada et al. 2020).</li>
 </ul>
 </li>
 </ul>
@@ -217,7 +268,7 @@
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 704 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 705 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 
