@@ -365,6 +365,10 @@ Technical Notes
   margin-top: 1em;
 }
 
+.technical_note li p {
+  margin-bottom: 0rem;
+}
+
 /* ---------------------------------------------------------
 Non-Technical Notes
 ---------------------------------------------------------*/
@@ -653,3 +657,4 @@ Newsletter
 .newsletter_ad {
   font-size: 1.05em;
 }
+

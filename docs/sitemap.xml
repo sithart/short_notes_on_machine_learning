@@ -3,6 +3,41 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://chrisalbon.com/</loc>
+    <lastmod>2021-03-01T11:53:49-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/research/ai_ethics/data_and_its_discontents/</loc>
+    <lastmod>2021-03-01T11:53:49-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/research/index.xml</loc>
+    <lastmod>2021-03-01T11:53:49-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/python/clean_code/annotate_functions/</loc>
+    <lastmod>2021-02-19T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/python/clean_code/annotate_nested_function_parameters/</loc>
+    <lastmod>2021-02-19T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/python/index.xml</loc>
+    <lastmod>2021-02-19T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chrisalbon.com/python/clean_code/static_typing/</loc>
+    <lastmod>2021-02-19T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chrisalbon.com/articles/100_day_sprint/</loc>
     <lastmod>2021-02-01T00:00:00-07:00</lastmod>
   </url>
@@ -13,17 +48,7 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/</loc>
-    <lastmod>2021-02-01T00:00:00-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://chrisalbon.com/python/object_oriented/override_parent_class/</loc>
-    <lastmod>2020-12-16T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/python/index.xml</loc>
     <lastmod>2020-12-16T11:53:49-07:00</lastmod>
   </url>
   

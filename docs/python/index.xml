@@ -5,10 +5,41 @@
     <description></description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 16 Dec 2020 11:53:49 -0700</lastBuildDate>
+    <lastBuildDate>Fri, 19 Feb 2021 00:00:00 -0700</lastBuildDate>
     
         <atom:link href="https://chrisalbon.com/python/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Annotate Functions</title>
+      <link>https://chrisalbon.com/python/clean_code/annotate_functions/</link>
+      <pubDate>Fri, 19 Feb 2021 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/python/clean_code/annotate_functions/</guid>
+      <description>This tutorial is inspired by Clean Code in Python by Mariano Anaya.
+Functions can include annotations providing additional information about the data type of a function&amp;rsquo;s inputs and outputs. This information is not used by Python by default, but can be used by other libraries like Mypy to create static-typing.
+Create Variables # Create two variables to use as inputs to the function fruit = &amp;#39;Apple&amp;#39; pieces = 12 Create Function # Create a function called describe_fruit that has two parameters, # fruit_type that should be a string and fruit_number which should be an integer.</description>
+    </item>
+    
+    <item>
+      <title>Annotate Nested Function Parameters</title>
+      <link>https://chrisalbon.com/python/clean_code/annotate_nested_function_parameters/</link>
+      <pubDate>Fri, 19 Feb 2021 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/python/clean_code/annotate_nested_function_parameters/</guid>
+      <description>This tutorial is inspired by Clean Code in Python by Mariano Anaya.
+Python annotations allow us to softly define the data types of function inputs. However, commonly the parameter is a data type that contains other data types, for example a list containing integers.
+Preliminaries # Import typing library import typing Create Variables # Create two variables to use as inputs to the function fruit = &amp;#39;Apple&amp;#39; pieces = 12 basket = (fruit, pieces) Create Function # Create a function called describe_fruit that has one parameter, # called &amp;#34;container&amp;#34; that is expected to be a tuple containing a string and an integer.</description>
+    </item>
+    
+    <item>
+      <title>Static Typing Checking</title>
+      <link>https://chrisalbon.com/python/clean_code/static_typing/</link>
+      <pubDate>Fri, 19 Feb 2021 00:00:00 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/python/clean_code/static_typing/</guid>
+      <description>Create Variables # Create two variables to use as inputs to the function fruit = &amp;#39;Apple&amp;#39; pieces = &amp;#39;twelve&amp;#39; Create Function # Create a function called describe_fruit that has two parameters, # fruit_type that should be a string and fruit_number which should be an integer. # The output of the function should be a string. def describe_fruit(fruit_type: str, fruit_number: int) -&amp;gt; str: # Create output from the inputs description = &amp;#34;We have &amp;#34; + str(fruit_number) + &amp;#34; pieces of &amp;#34; + fruit_type # Return the output return description Run Function # Run function with inputs describe_fruit(fruit, pieces) &amp;lsquo;We have twelve pieces of Apple&amp;rsquo;</description>
+    </item>
     
     <item>
       <title>Override Parent Class</title>

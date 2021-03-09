@@ -1,0 +1,25 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>research - Chris Albon</title>
+    <link>https://chrisalbon.com/research/index.xml</link>
+    <description></description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 01 Mar 2021 11:53:49 -0700</lastBuildDate>
+    
+        <atom:link href="https://chrisalbon.com/research/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Data And Its (Dis)contents: A Survey Of Dataset Development And Use In Machine Learning</title>
+      <link>https://chrisalbon.com/research/ai_ethics/data_and_its_discontents/</link>
+      <pubDate>Mon, 01 Mar 2021 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/research/ai_ethics/data_and_its_discontents/</guid>
+      <description>Summary Paullada et al. 2020 conducts a review of the existing research literature around the ethical and socialogical issues around (typical large) datasets commonly used in machine learning such as ImageNet and others.
+Notes   Poor Representation
+ Databases of faces under-represent darker skinned faces (Buolamwini and Gebru 2018). Databases of images under-represent non-Western countries (DeVries et al. 2019). Databases of images reflect social stereotypes (Zhao et al. 2017, Burns et al.</description>
+    </item>
+    
+  </channel>
+</rss>

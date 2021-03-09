@@ -35,7 +35,7 @@
   "@type": "BlogPosting",
   "headline": "Adding Interaction Terms",
   "url": "https:\/\/chrisalbon.com\/machine_learning\/linear_regression\/adding_interaction_terms\/",
-  "wordCount": "174",
+  "wordCount": "173",
   "datePublished": "2017-12-20T11:53:49-07:00",
   "dateModified": "2017-12-20T11:53:49-07:00",
   "author": {
@@ -125,6 +125,7 @@
                             <a class="dropdown-item" href="https://chrisalbon.com/#git_and_github">Git &amp; GitHub</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#computer_science">Computer Science</a>
                             <a class="dropdown-item" href="https://chrisalbon.com/#php">PHP</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#research">Research Notes</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -191,7 +192,7 @@
 <span class="n">y</span> <span class="o">=</span> <span class="n">boston</span><span class="o">.</span><span class="n">target</span>
 </code></pre></div><h2 id="add-interaction-term">Add Interaction Term</h2>
 <p>Interaction effects can be account for by including a new feature comprising the product of corresponding values from the interacting features:</p>
-<p>$$\hat{y} = \hat{\beta_{0}} + \hat{\beta_{1}}x_{1} + \hat{\beta_{2}}x_{2} + \hat{\beta_{3}}x_{1}x_{2} + \epsilon$$</p>
+<p>$$\hat_{y} = \hat_{{\beta_{0}} + \hat_{\beta_{1}}x_{1}+ \hat_{\beta_{2}}x_{2} + \hat_{\beta_{3}}x_{1}x_{2} + \epsilon$$</p>
 <p>where $x_{1}$ and $ x_{2}$ are the values of the two features, respectively and $x_{1}x_{2}$ represents the interaction between the two. It can be useful to use scikit-learn&rsquo;s <code>PolynomialFeatures</code> to creative interaction terms for all combination of features. We can then use model selection strategies to identify the combination of features and interaction terms which produce the best model.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create interaction term (not polynomial features)</span>
 <span class="n">interaction</span> <span class="o">=</span> <span class="n">PolynomialFeatures</span><span class="p">(</span><span class="n">degree</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">include_bias</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">interaction_only</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
@@ -226,7 +227,7 @@
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 700 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 704 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 
