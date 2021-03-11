@@ -1,15 +1,15 @@
 ---
-title: "100 Day Sprint"
+title: "Chasing Albon"
 author: "Chris Albon"
-date: 2021-02-01T00:00:00-07:00
-description: "Let's see what I can accomplish in 100 days."
+date: 2021-03-11T00:00:00-07:00
+description: "Let's see what I can be."
 type: article
 draft: false
 ---
 
 The last few years have been hard for me. Entering 2021, I am out of shape, obese, have high blood pressure, and a pretty high heart rate. All these give me an elevated risk of hospitalization and death from COVID-19, which spreads with no end in sight. I have also stalled intellectually. I am learning and creating less than ever. 
 
-Ten years ago I'd go for a run at midnight and study till dawn. Can I get back there? This page is a small record of a 100 day sprint to find out.
+Ten years ago I'd go for a run at midnight and study till dawn. Can I get back there? This page is a small record of a sprint to find out.
 
 All study sessions are [published on YouTube](https://www.youtube.com/c/ChrisAlbonVideos) and daily metrics are presented here:
 
