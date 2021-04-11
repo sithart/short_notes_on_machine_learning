@@ -5,6 +5,8 @@ date: 2017-12-20T11:53:49-07:00
 description: "How to select the best features for machine learning using variance thresholding in Python."
 type: technical_note
 draft: false
+images:
+ - /images/machine_learning_flashcards/Variance_Thresholding_For_Feature_Selection_print.png
 ---
 <a alt="Variance Thresholding For Feature Selection" href="https://machinelearningflashcards.com">
     <img src="/images/machine_learning_flashcards/Variance_Thresholding_For_Feature_Selection_print.png" class="flashcard center-block">

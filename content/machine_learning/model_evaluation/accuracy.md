@@ -5,6 +5,9 @@ date: 2017-12-20T11:53:49-07:00
 description: "How to evaluate a Python machine learning using accuracy."
 type: technical_note
 draft: false
+images:
+ - /images/machine_learning_flashcards/Accuracy_print.png
+---
 ---
 <a alt="Accuracy" href="https://machinelearningflashcards.com">
     <img src="/images/machine_learning_flashcards/Accuracy_print.png" class="flashcard center-block">
