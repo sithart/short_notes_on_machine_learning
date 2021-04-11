@@ -23,7 +23,7 @@ import os
 
 
 
-    ['create_a_new_file_and_the_write_to_it.ipynb',
+    ['create_a_new_file_and_the_write_to_it',
      'unpacking_a_tuple.ipynb',
      'unpacking_function_arguments.ipynb',
      'convert_html_symbols_to_strings.ipynb',
