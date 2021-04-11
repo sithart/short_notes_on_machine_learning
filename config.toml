@@ -20,6 +20,6 @@ unsafe= true
 
 [params]
   description = "Machine Learning Tutorials"
-  images = ["images/site_main_page.png"]
+  images = ["images/frontpage_twitter_card.png"]
 
 
