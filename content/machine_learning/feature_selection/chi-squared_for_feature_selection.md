@@ -5,6 +5,8 @@ date: 2017-12-20T11:53:49-07:00
 description: "How to remove irrelevant features using chi-squared for machine learning in Python."
 type: technical_note
 draft: false
+images:
+ - /images/machine_learning_flashcards/Chi-Squared_For_Feature_Selection_print.png
 ---
 <a alt="chi-squared_for_feature_selection" href="https://machinelearningflashcards.com">
     <img src="/images/machine_learning_flashcards/Chi-Squared_For_Feature_Selection_print.png" class="flashcard center-block">

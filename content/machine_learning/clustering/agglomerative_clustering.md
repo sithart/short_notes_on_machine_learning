@@ -5,6 +5,8 @@ date: 2017-12-20T11:53:49-07:00
 description: "How to conduct agglomerative clustering in scikit-learn. "
 type: technical_note
 draft: false
+images:
+ - /images/machine_learning_flashcards/Aggomerative_Clustering_print.png
 ---
 <a alt="Agglomerative Clustering" href="https://machinelearningflashcards.com">
     <img src="/images/machine_learning_flashcards/Aggomerative_Clustering_print.png" class="flashcard center-block">

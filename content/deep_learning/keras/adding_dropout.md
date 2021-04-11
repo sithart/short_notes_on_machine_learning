@@ -5,6 +5,8 @@ date: 2017-12-20T11:53:49-07:00
 description: "How to add dropout to a neural networking for deep learning in Python.."
 type: technical_note
 draft: false
+images:
+ - /images/machine_learning_flashcards/Dropout_print.png
 ---
 <a alt="Dropout" href="https://machinelearningflashcards.com">
     <img src="/images/machine_learning_flashcards/Dropout_print.png" class="flashcard center-block">

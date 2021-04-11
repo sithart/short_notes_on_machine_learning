@@ -5,6 +5,8 @@ date: 2017-12-20T11:53:49-07:00
 description: "How to reduce the dimensions of the feature matrix for machine learning in Python."
 type: technical_note
 draft: false
+images:
+ - /images/machine_learning_flashcards/Principal_Component_Analysis_print.png
 ---
 <a alt="Dimensionality Reduction With PCA" href="https://machinelearningflashcards.com">
     <img src="/images/machine_learning_flashcards/Principal_Component_Analysis_print.png" class="flashcard center-block">
