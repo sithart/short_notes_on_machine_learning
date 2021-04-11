@@ -17,3 +17,9 @@ disableKinds = ["taxonomy", "taxonomyTerm"]
 # Used to add linked images (i.e. flashcard images)
 [markup.goldmark.renderer]
 unsafe= true
+
+[params]
+  description = "Machine Learning Tutorials"
+  images = ["site_main_page.png"]
+
+
