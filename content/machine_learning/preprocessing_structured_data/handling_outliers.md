@@ -5,6 +5,8 @@ date: 2017-12-20T11:53:49-07:00
 description: "How to handling outliers for machine learning in Python."
 type: technical_note
 draft: false
+images:
+ - /images/machine_learning_flashcards/Outlier_print.png
 ---
 <a alt="Handling outliers" href="https://machinelearningflashcards.com">
     <img src="/images/machine_learning_flashcards/Outlier_print.png" class="flashcard center-block">

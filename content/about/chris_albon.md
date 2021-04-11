@@ -7,6 +7,8 @@ type: page
 draft: false
 outputs:
     - html
+images:
+    - chris_albon_banner.jpg
 ---
 
 <img src="chris_albon_banner.jpg"></img>

@@ -5,6 +5,8 @@ date: 2017-12-20T11:53:49-07:00
 description: "Training a decision tree regression in scikit-learn."
 type: technical_note
 draft: false
+images:
+ - /images/machine_learning_flashcards/Decision_Tree_Regression_print.png
 ---
 <a alt="Decision Tree Regression" href="https://machinelearningflashcards.com">
     <img src="/images/machine_learning_flashcards/Decision_Tree_Regression_print.png" class="flashcard center-block">

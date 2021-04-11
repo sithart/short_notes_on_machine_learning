@@ -5,6 +5,8 @@ date: 2017-12-20T11:53:49-07:00
 description: "How to stem words in unstructured text data for machine learning in Python."
 type: technical_note
 draft: false
+images:
+ - /images/machine_learning_flashcards/Stemming_Words_print.png
 ---
 <a alt="Stemming Words" href="https://machinelearningflashcards.com">
     <img src="/images/machine_learning_flashcards/Stemming_Words_print.png" class="flashcard center-block">

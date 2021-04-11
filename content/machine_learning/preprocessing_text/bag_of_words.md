@@ -5,6 +5,8 @@ date: 2017-12-20T11:53:49-07:00
 description: "How to encode unstructured text data as bags of words for machine learning in Python."
 type: technical_note
 draft: false
+images:
+ - /images/machine_learning_flashcards/Bag_Of_Words_print.png
 ---
 <a alt="Bag Of Words" href="https://machinelearningflashcards.com">
     <img src="/images/machine_learning_flashcards/Bag_Of_Words_print.png" class="flashcard center-block">

@@ -5,6 +5,8 @@ date: 2017-12-20T11:53:49-07:00
 description: "How to plot the receiving operating characteristic curve in scikit-learn for machine learning in Python."
 type: technical_note
 draft: false
+images:
+ - /images/machine_learning_flashcards/Receiver_Operating_Characteristic_print.png
 ---
 <a alt="ROC Curve" href="https://machinelearningflashcards.com">
     <img src="/images/machine_learning_flashcards/Receiver_Operating_Characteristic_print.png" class="flashcard center-block">

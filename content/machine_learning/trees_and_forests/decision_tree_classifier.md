@@ -5,6 +5,8 @@ date: 2017-12-20T11:53:49-07:00
 description: "Training a decision tree classifier in scikit-learn."
 type: technical_note
 draft: false
+images:
+ - /images/machine_learning_flashcards/Gini_Index_print.png
 ---
 <a alt="Gini Index" href="https://machinelearningflashcards.com">
     <img src="/images/machine_learning_flashcards/Gini_Index_print.png" class="flashcard center-block">

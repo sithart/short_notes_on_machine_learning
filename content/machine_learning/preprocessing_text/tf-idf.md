@@ -5,6 +5,8 @@ date: 2017-12-20T11:53:49-07:00
 description: "How to weight word importance in unstructured text data as bags of words for machine learning in Python."
 type: technical_note
 draft: false
+images:
+ - /images/machine_learning_flashcards/TF-IDF_print.png
 ---
 <a alt="tf-idf" href="https://machinelearningflashcards.com">
     <img src="/images/machine_learning_flashcards/TF-IDF_print.png" class="flashcard center-block">

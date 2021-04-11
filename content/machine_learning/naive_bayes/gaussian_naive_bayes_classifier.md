@@ -5,6 +5,8 @@ date: 2017-12-20T11:53:49-07:00
 description: "How to train a Gaussian naive bayes classifer in Scikit-Learn"
 type: technical_note
 draft: false
+images:
+ - /images/machine_learning_flashcards/Gaussian_Naive_Bayes_Classifier_print.png
 ---
 <a alt="Gaussian Naive Bayes Classifier" href="https://machinelearningflashcards.com">
     <img src="/images/machine_learning_flashcards/Gaussian_Naive_Bayes_Classifier_print.png" class="flashcard center-block">
