@@ -113,6 +113,24 @@ Preliminaries # Load libraries from sklearn.datasets import load_iris from sklea
     </item>
     
     <item>
+      <title>Break Up Dates And Times Into Multiple Features</title>
+      <link>https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/break_up_dates_and_times_into_multiple_features/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/break_up_dates_and_times_into_multiple_features/</guid>
+      <description>Preliminaries # Load library import pandas as pd Create Date And Time Data # Create data frame df = pd.DataFrame() # Create five dates df[&amp;#39;date&amp;#39;] = pd.date_range(&amp;#39;1/1/2001&amp;#39;, periods=150, freq=&amp;#39;W&amp;#39;) Break Up Dates And Times Into Individual Features # Create features for year, month, day, hour, and minute df[&amp;#39;year&amp;#39;] = df[&amp;#39;date&amp;#39;].dt.year df[&amp;#39;month&amp;#39;] = df[&amp;#39;date&amp;#39;].dt.month df[&amp;#39;day&amp;#39;] = df[&amp;#39;date&amp;#39;].dt.day df[&amp;#39;hour&amp;#39;] = df[&amp;#39;date&amp;#39;].dt.hour df[&amp;#39;minute&amp;#39;] = df[&amp;#39;date&amp;#39;].dt.minute # Show three rows df.head(3)   .dataframe thead tr:only-child th { text-align: right; } .</description>
+    </item>
+    
+    <item>
+      <title>Calculate Difference Between Dates And Times</title>
+      <link>https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/calculate_difference_between_dates_and_times/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/calculate_difference_between_dates_and_times/</guid>
+      <description>Preliminaries # Load library import pandas as pd Create Date And Time Data # Create data frame df = pd.DataFrame() # Create two datetime features df[&amp;#39;Arrived&amp;#39;] = [pd.Timestamp(&amp;#39;01-01-2017&amp;#39;), pd.Timestamp(&amp;#39;01-04-2017&amp;#39;)] df[&amp;#39;Left&amp;#39;] = [pd.Timestamp(&amp;#39;01-01-2017&amp;#39;), pd.Timestamp(&amp;#39;01-06-2017&amp;#39;)] Calculate Difference (Method 1) # Calculate duration between features df[&amp;#39;Left&amp;#39;] - df[&amp;#39;Arrived&amp;#39;] 0 0 days 1 2 days dtype: timedelta64[ns]  Calculate Difference (Method 2) # Calculate duration between features pd.Series(delta.days for delta in (df[&amp;#39;Left&amp;#39;] - df[&amp;#39;Arrived&amp;#39;])) 0 0 1 2 dtype: int64  </description>
+    </item>
+    
+    <item>
       <title>Calculate Dot Product Of Two Vectors</title>
       <link>https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/calculate_dot_product_of_two_vectors/</link>
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
@@ -165,6 +183,34 @@ $$P(y=1 \mid x)={\frac {1}{1+e^{(A*f(x)+B)}}}$$</description>
       
       <guid>https://chrisalbon.com/machine_learning/feature_selection/chi-squared_for_feature_selection/</guid>
       <description>Preliminaries # Load libraries from sklearn.datasets import load_iris from sklearn.feature_selection import SelectKBest from sklearn.feature_selection import chi2 Load Data # Load iris data iris = load_iris() # Create features and target X = iris.data y = iris.target # Convert to categorical data by converting data to integers X = X.astype(int) Compare Chi-Squared Statistics # Select two features with highest chi-squared statistics chi2_selector = SelectKBest(chi2, k=2) X_kbest = chi2_selector.fit_transform(X, y) View Results # Show results print(&amp;#39;Original number of features:&amp;#39;, X.</description>
+    </item>
+    
+    <item>
+      <title>Convert Pandas Categorical Data For Scikit-Learn</title>
+      <link>https://chrisalbon.com/machine_learning/preprocessing_structured_data/convert_pandas_categorical_column_into_integers_for_scikit-learn/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning/preprocessing_structured_data/convert_pandas_categorical_column_into_integers_for_scikit-learn/</guid>
+      <description>Preliminaries # Import required packages from sklearn import preprocessing import pandas as pd Create DataFrame raw_data = {&amp;#39;patient&amp;#39;: [1, 1, 1, 2, 2], &amp;#39;obs&amp;#39;: [1, 2, 3, 1, 2], &amp;#39;treatment&amp;#39;: [0, 1, 0, 1, 0], &amp;#39;score&amp;#39;: [&amp;#39;strong&amp;#39;, &amp;#39;weak&amp;#39;, &amp;#39;normal&amp;#39;, &amp;#39;weak&amp;#39;, &amp;#39;strong&amp;#39;]} df = pd.DataFrame(raw_data, columns = [&amp;#39;patient&amp;#39;, &amp;#39;obs&amp;#39;, &amp;#39;treatment&amp;#39;, &amp;#39;score&amp;#39;]) Fit The Label Encoder # Create a label (category) encoder object le = preprocessing.LabelEncoder() # Fit the encoder to the pandas column le.</description>
+    </item>
+    
+    <item>
+      <title>Convert pandas Columns Time Zone</title>
+      <link>https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/convert_pandas_column_timezone/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/convert_pandas_column_timezone/</guid>
+      <description>Preliminaries # Load libraries import pandas as pd from pytz import all_timezones View Timezones # Show ten time zones all_timezones[0:10] [&#39;Africa/Abidjan&#39;, &#39;Africa/Accra&#39;, &#39;Africa/Addis_Ababa&#39;, &#39;Africa/Algiers&#39;, &#39;Africa/Asmara&#39;, &#39;Africa/Asmera&#39;, &#39;Africa/Bamako&#39;, &#39;Africa/Bangui&#39;, &#39;Africa/Banjul&#39;, &#39;Africa/Bissau&#39;]  Create pandas Series Of Dates # Create ten dates dates = pd.Series(pd.date_range(&amp;#39;2/2/2002&amp;#39;, periods=10, freq=&amp;#39;M&amp;#39;)) Add Time Zone Of pandas Series # Set time zone dates_with_abidjan_time_zone = dates.dt.tz_localize(&amp;#39;Africa/Abidjan&amp;#39;) # View pandas series dates_with_abidjan_time_zone 0 2002-02-28 00:00:00+00:00 1 2002-03-31 00:00:00+00:00 2 2002-04-30 00:00:00+00:00 3 2002-05-31 00:00:00+00:00 4 2002-06-30 00:00:00+00:00 5 2002-07-31 00:00:00+00:00 6 2002-08-31 00:00:00+00:00 7 2002-09-30 00:00:00+00:00 8 2002-10-31 00:00:00+00:00 9 2002-11-30 00:00:00+00:00 dtype: datetime64[ns, Africa/Abidjan]  Convert Time Zone Of pandas Series # Convert time zone dates_with_london_time_zone = dates_with_abidjan_time_zone.</description>
+    </item>
+    
+    <item>
+      <title>Convert Strings To Dates</title>
+      <link>https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/convert_strings_to_dates/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/convert_strings_to_dates/</guid>
+      <description>Preliminaries # Load libraries import numpy as np import pandas as pd Create Strings # Create strings date_strings = np.array([&amp;#39;03-04-2005 11:35 PM&amp;#39;, &amp;#39;23-05-2010 12:01 AM&amp;#39;, &amp;#39;04-09-2009 09:09 PM&amp;#39;]) Convert Strings To Timestamps If errors=&amp;quot;coerce&amp;quot; then any problem will not raise an error (the default behavior) but instead will set the value causing the error to NaT (i.e. a missing value).
+  Code Description Example   %Y Full year `2001`   %m Month w/ zero padding `04`   %d Day of the month w/ zero padding `09`   %I Hour (12hr clock) w/ zero padding `02`   %p AM or PM `AM`   %M Minute w/ zero padding `05`   %S Second w/ zero padding `09`   # Convert to datetimes [pd.</description>
     </item>
     
     <item>
@@ -307,6 +353,24 @@ $$\text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2$$</description>
     </item>
     
     <item>
+      <title>Delete Observations With Missing Values</title>
+      <link>https://chrisalbon.com/machine_learning/preprocessing_structured_data/delete_observations_with_missing_values/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning/preprocessing_structured_data/delete_observations_with_missing_values/</guid>
+      <description>Preliminaries # Load libraries import numpy as np import pandas as pd Create Feature Matrix # Create feature matrix X = np.array([[1.1, 11.1], [2.2, 22.2], [3.3, 33.3], [4.4, 44.4], [np.nan, 55]]) Delete Observations With Missing Values # Remove observations with missing values X[~np.isnan(X).any(axis=1)] array([[ 1.1, 11.1], [ 2.2, 22.2], [ 3.3, 33.3], [ 4.4, 44.4]])  </description>
+    </item>
+    
+    <item>
+      <title>Deleting Missing Values</title>
+      <link>https://chrisalbon.com/machine_learning/preprocessing_structured_data/deleting_missing_values/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning/preprocessing_structured_data/deleting_missing_values/</guid>
+      <description>Preliminaries # Load library import numpy as np import pandas as pd Create Data Frame # Create feature matrix X = np.array([[1, 2], [6, 3], [8, 4], [9, 5], [np.nan, 4]]) Drop Missing Values Using NumPy # Remove observations with missing values X[~np.isnan(X).any(axis=1)] array([[ 1., 2.], [ 6., 3.], [ 8., 4.], [ 9., 5.]])  Drop Missing Values Using pandas # Load data as a data frame df = pd.</description>
+    </item>
+    
+    <item>
       <title>Describe An Array</title>
       <link>https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/describe_a_matrix/</link>
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
@@ -322,6 +386,15 @@ $$\text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2$$</description>
       
       <guid>https://chrisalbon.com/machine_learning/preprocessing_images/detect_edges/</guid>
       <description>Preliminaries # Load image import cv2 import numpy as np from matplotlib import pyplot as plt Load image # Load image as greyscale image_gray = cv2.imread(&amp;#39;images/plane_256x256.jpg&amp;#39;, cv2.IMREAD_GRAYSCALE) Detect Edges # Calculate median intensity median_intensity = np.median(image_gray) # Set thresholds to be one standard deviation above and below median intensity lower_threshold = int(max(0, (1.0 - 0.33) * median_intensity)) upper_threshold = int(min(255, (1.0 + 0.33) * median_intensity)) # Apply canny edge detector image_canny = cv2.</description>
+    </item>
+    
+    <item>
+      <title>Detecting Outliers</title>
+      <link>https://chrisalbon.com/machine_learning/preprocessing_structured_data/detecting_outliers/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning/preprocessing_structured_data/detecting_outliers/</guid>
+      <description>Preliminaries # Load libraries import numpy as np from sklearn.covariance import EllipticEnvelope from sklearn.datasets import make_blobs Create Data # Create simulated data X, _ = make_blobs(n_samples = 10, n_features = 2, centers = 1, random_state = 1) # Replace the first observation&amp;#39;s values with extreme values X[0,0] = 10000 X[0,1] = 10000 Detect Outliers EllipticEnvelope assumes the data is normally distributed and based on that assumption &amp;ldquo;draws&amp;rdquo; an ellipse around the data, classifying any observation inside the ellipse as an inlier (labeled as 1) and any observation outside the ellipse as an outlier (labeled as -1).</description>
     </item>
     
     <item>
@@ -352,6 +425,15 @@ $$\text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2$$</description>
     </item>
     
     <item>
+      <title>Discretize Features</title>
+      <link>https://chrisalbon.com/machine_learning/preprocessing_structured_data/discretize_features/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning/preprocessing_structured_data/discretize_features/</guid>
+      <description>Preliminaries # Load libraries from sklearn.preprocessing import Binarizer import numpy as np Create Data # Create feature age = np.array([[6], [12], [20], [36], [65]]) Option 1: Binarize Feature # Create binarizer binarizer = Binarizer(18) # Transform feature binarizer.fit_transform(age) array([[0], [0], [1], [1], [1]])  Option 2: Break Up Feature Into Bins # Bin feature np.digitize(age, bins=[20,30,64]) array([[0], [0], [1], [2], [3]])  </description>
+    </item>
+    
+    <item>
       <title>Drop Highly Correlated Features</title>
       <link>https://chrisalbon.com/machine_learning/feature_selection/drop_highly_correlated_features/</link>
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
@@ -368,6 +450,25 @@ $$\text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2$$</description>
       <guid>https://chrisalbon.com/machine_learning/linear_regression/effect_of_alpha_on_lasso_regression/</guid>
       <description>Often we want conduct a process called regularization, wherein we penalize the number of features in a model in order to only keep the most important features. This can be particularly important when you have a dataset with 100,000+ features.
 Lasso regression is a common modeling technique to do regularization. The math behind it is pretty interesting, but practically, what you need to know is that Lasso regression comes with a parameter, alpha, and the higher the alpha, the most feature coefficients are zero.</description>
+    </item>
+    
+    <item>
+      <title>Encode Days Of The Week</title>
+      <link>https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/encode_days_of_the_week/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/encode_days_of_the_week/</guid>
+      <description>Preliminaries # Load library import pandas as pd Create Date And Time Data # Create dates dates = pd.Series(pd.date_range(&amp;#39;2/2/2002&amp;#39;, periods=3, freq=&amp;#39;M&amp;#39;)) # View data dates 0 2002-02-28 1 2002-03-31 2 2002-04-30 dtype: datetime64[ns]  Show Days Of The Week # Show days of the week dates.dt.weekday_name 0 Thursday 1 Sunday 2 Tuesday dtype: object  </description>
+    </item>
+    
+    <item>
+      <title>Encoding Ordinal Categorical Features</title>
+      <link>https://chrisalbon.com/machine_learning/preprocessing_structured_data/encoding_ordinal_categorical_features/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning/preprocessing_structured_data/encoding_ordinal_categorical_features/</guid>
+      <description>Preliminaries # Load library import pandas as pd Create Feature Matrix # Create features df = pd.DataFrame({&amp;#39;Score&amp;#39;: [&amp;#39;Low&amp;#39;, &amp;#39;Low&amp;#39;, &amp;#39;Medium&amp;#39;, &amp;#39;Medium&amp;#39;, &amp;#39;High&amp;#39;]}) # View data frame df   .dataframe thead tr:only-child th { text-align: right; } .dataframe thead th { text-align: left; } .dataframe tbody tr th { vertical-align: top; }  
+  Score     0 Low   1 Low   2 Medium   3 Medium   4 High     Create Scale Map # Create mapper scale_mapper = {&amp;#39;Low&amp;#39;:1, &amp;#39;Medium&amp;#39;:2, &amp;#39;High&amp;#39;:3} Map Scale To Features # Map feature values to scale df[&amp;#39;Scale&amp;#39;] = df[&amp;#39;Score&amp;#39;].</description>
     </item>
     
     <item>
@@ -441,6 +542,16 @@ scikit-learn&amp;rsquo;s LogisticRegressionCV method includes a parameter Cs. If
       
       <guid>https://chrisalbon.com/machine_learning/trees_and_forests/feature_selection_using_random_forest/</guid>
       <description>Often in data science we have hundreds or even millions of features and we want a way to create a model that only includes the most important features. This has three benefits. First, we make our model more simple to interpret. Second, we can reduce the variance of the model, and therefore overfitting. Finally, we can reduce the computational cost (and time) of training a model. The process of identifying only the most relevant features is called &amp;ldquo;feature selection.</description>
+    </item>
+    
+    <item>
+      <title>Find Best Preprocessing Steps During Model Selection</title>
+      <link>https://chrisalbon.com/machine_learning/model_selection/find_best_preprocessing_steps_during_model_selection/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning/model_selection/find_best_preprocessing_steps_during_model_selection/</guid>
+      <description>We have to be careful to properly handle preprocessing when conducting model selection. First, GridSearchCV uses cross-validation to determine which model has the highest performance. However, in cross-validation we are in effect pretending that the fold held out as the test set is not seen, and thus not part of fitting any preprocessing steps (e.g. scaling or standardization). For this reason, we cannot preprocess the data then run GridSearchCV.
+Second, some preprocessing methods have their own parameter which often have to be supplied by the user.</description>
     </item>
     
     <item>
@@ -536,6 +647,54 @@ $$w_j = \frac{n}{kn_{j}}$$</description>
     </item>
     
     <item>
+      <title>Handling Imbalanced Classes With Downsampling</title>
+      <link>https://chrisalbon.com/machine_learning/preprocessing_structured_data/handling_imbalanced_classes_with_downsampling/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning/preprocessing_structured_data/handling_imbalanced_classes_with_downsampling/</guid>
+      <description>In downsampling, we randomly sample without replacement from the majority class (i.e. the class with more observations) to create a new subset of observation equal in size to the minority class.
+Preliminaries # Load libraries import numpy as np from sklearn.datasets import load_iris Load Iris Dataset # Load iris data iris = load_iris() # Create feature matrix X = iris.data # Create target vector y = iris.target Make Iris Dataset Imbalanced # Remove first 40 observations X = X[40:,:] y = y[40:] # Create binary target vector indicating if class 0 y = np.</description>
+    </item>
+    
+    <item>
+      <title>Handling Imbalanced Classes With Upsampling</title>
+      <link>https://chrisalbon.com/machine_learning/preprocessing_structured_data/handling_imbalanced_classes_with_upsampling/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning/preprocessing_structured_data/handling_imbalanced_classes_with_upsampling/</guid>
+      <description>In upsampling, for every observation in the majority class, we randomly select an observation from the minority class with replacement. The end result is the same number of observations from the minority and majority classes.
+Preliminaries # Load libraries import numpy as np from sklearn.datasets import load_iris Load Iris Dataset # Load iris data iris = load_iris() # Create feature matrix X = iris.data # Create target vector y = iris.</description>
+    </item>
+    
+    <item>
+      <title>Handling Missing Values In Time Series</title>
+      <link>https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/handling_missing_values_in_time_series/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/handling_missing_values_in_time_series/</guid>
+      <description>Preliminaries # Load libraries import pandas as pd import numpy as np Create Date Data With Gap In Values # Create date time_index = pd.date_range(&amp;#39;01/01/2010&amp;#39;, periods=5, freq=&amp;#39;M&amp;#39;) # Create data frame, set index df = pd.DataFrame(index=time_index) # Create feature with a gap of missing values df[&amp;#39;Sales&amp;#39;] = [1.0,2.0,np.nan,np.nan,5.0] Interpolate Missing Values # Interpolate missing values df.interpolate()   .dataframe thead tr:only-child th { text-align: right; } .dataframe thead th { text-align: left; } .</description>
+    </item>
+    
+    <item>
+      <title>Handling Outliers</title>
+      <link>https://chrisalbon.com/machine_learning/preprocessing_structured_data/handling_outliers/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning/preprocessing_structured_data/handling_outliers/</guid>
+      <description>Preliminaries # Load library import pandas as pd Create Data # Create DataFrame houses = pd.DataFrame() houses[&amp;#39;Price&amp;#39;] = [534433, 392333, 293222, 4322032] houses[&amp;#39;Bathrooms&amp;#39;] = [2, 3.5, 2, 116] houses[&amp;#39;Square_Feet&amp;#39;] = [1500, 2500, 1500, 48000] houses   .dataframe thead tr:only-child th { text-align: right; } .dataframe thead th { text-align: left; } .dataframe tbody tr th { vertical-align: top; }  
+  Price Bathrooms Square_Feet     0 534433 2.</description>
+    </item>
+    
+    <item>
+      <title>Handling Time Zones</title>
+      <link>https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/handling_time_zones/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/handling_time_zones/</guid>
+      <description>Preliminaries # Load libraries import pandas as pd from pytz import all_timezones View Timezones # Show ten time zones all_timezones[0:10] [&#39;Africa/Abidjan&#39;, &#39;Africa/Accra&#39;, &#39;Africa/Addis_Ababa&#39;, &#39;Africa/Algiers&#39;, &#39;Africa/Asmara&#39;, &#39;Africa/Asmera&#39;, &#39;Africa/Bamako&#39;, &#39;Africa/Bangui&#39;, &#39;Africa/Banjul&#39;, &#39;Africa/Bissau&#39;]  Create Timestamp With Time Zone # Create datetime pd.Timestamp(&amp;#39;2017-05-01 06:00:00&amp;#39;, tz=&amp;#39;Europe/London&amp;#39;) Timestamp(&#39;2017-05-01 06:00:00+0100&#39;, tz=&#39;Europe/London&#39;)  Create Timestamp Without Time Zone # Create datetime date = pd.Timestamp(&amp;#39;2017-05-01 06:00:00&amp;#39;) Add Time Zone # Set time zone date_in_london = date.tz_localize(&amp;#39;Europe/London&amp;#39;) Convert Time Zone # Change time zone date_in_london.</description>
+    </item>
+    
+    <item>
       <title>Harris Corner Detector</title>
       <link>https://chrisalbon.com/machine_learning/preprocessing_images/harris_corner_detector/</link>
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
@@ -543,6 +702,24 @@ $$w_j = \frac{n}{kn_{j}}$$</description>
       <guid>https://chrisalbon.com/machine_learning/preprocessing_images/harris_corner_detector/</guid>
       <description>The Harris Corner Detector is a commonly used method of detecting the intersection of two edges. It looks for windows (also called neighborhoods or patches) where small movements of the window (imagine shaking the window) creates big changes in the contents of the pixels inside the window.
 Preliminaries # Load image import cv2 import numpy as np from matplotlib import pyplot as plt Load image # Load image as grayscale image_bgr = cv2.</description>
+    </item>
+    
+    <item>
+      <title>Hyperparameter Tuning Using Grid Search</title>
+      <link>https://chrisalbon.com/machine_learning/model_selection/hyperparameter_tuning_using_grid_search/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning/model_selection/hyperparameter_tuning_using_grid_search/</guid>
+      <description>Preliminaries # Load libraries import numpy as np from sklearn import linear_model, datasets from sklearn.model_selection import GridSearchCV Load Iris Dataset # Load data iris = datasets.load_iris() X = iris.data y = iris.target Create Logistic Regression # Create logistic regression logistic = linear_model.LogisticRegression() Create Hyperparameter Search Space # Create regularization penalty space penalty = [&amp;#39;l1&amp;#39;, &amp;#39;l2&amp;#39;] # Create regularization hyperparameter space C = np.logspace(0, 4, 10) # Create hyperparameter options hyperparameters = dict(C=C, penalty=penalty) Create Grid Search # Create grid search using 5-fold cross validation clf = GridSearchCV(logistic, hyperparameters, cv=5, verbose=0) Conduct Grid Search # Fit grid search best_model = clf.</description>
+    </item>
+    
+    <item>
+      <title>Hyperparameter Tuning Using Random Search</title>
+      <link>https://chrisalbon.com/machine_learning/model_selection/hyperparameter_tuning_using_random_search/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning/model_selection/hyperparameter_tuning_using_random_search/</guid>
+      <description>Preliminaries # Load libraries from scipy.stats import uniform from sklearn import linear_model, datasets from sklearn.model_selection import RandomizedSearchCV Load Iris Dataset # Load data iris = datasets.load_iris() X = iris.data y = iris.target Create Logistic Regression # Create logistic regression logistic = linear_model.LogisticRegression() Create Hyperparameter Search Space # Create regularization penalty space penalty = [&amp;#39;l1&amp;#39;, &amp;#39;l2&amp;#39;] # Create regularization hyperparameter distribution using uniform distribution C = uniform(loc=0, scale=4) # Create hyperparameter options hyperparameters = dict(C=C, penalty=penalty) Create Random Search # Create randomized search 5-fold cross validation and 100 iterations clf = RandomizedSearchCV(logistic, hyperparameters, random_state=1, n_iter=100, cv=5, verbose=0, n_jobs=-1) Conduct Random Search # Fit randomized search best_model = clf.</description>
     </item>
     
     <item>
@@ -563,6 +740,34 @@ Preliminaries # Load image import cv2 import numpy as np from matplotlib import 
       <description>In support vector machines, $C$ is a hyperparameter determining the penalty for misclassifying an observation. One method for handling imbalanced classes in support vector machines is to weight $C$ by classes, so that
 $$C_k = C * w_j$$
 where $C$ is the penalty for misclassification, $w_j$ is a weight inversely proportional to class $j$&amp;rsquo;s frequency, and $C_j$ is the $C$ value for class $j$. The general idea is to increase the penalty for misclassifying minority classes to prevent them from being &amp;ldquo;overwhelmed&amp;rdquo; by the majority class.</description>
+    </item>
+    
+    <item>
+      <title>Impute Missing Values With Means</title>
+      <link>https://chrisalbon.com/machine_learning/preprocessing_structured_data/impute_missing_values_with_means/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning/preprocessing_structured_data/impute_missing_values_with_means/</guid>
+      <description>Mean imputation replaces missing values with the mean value of that feature/variable. Mean imputation is one of the most &amp;lsquo;naive&amp;rsquo; imputation methods because unlike more complex methods like k-nearest neighbors imputation, it does not use the information we have about an observation to estimate a value for it.
+Preliminaries import pandas as pd import numpy as np from sklearn.preprocessing import Imputer Create Data # Create an empty dataset df = pd.</description>
+    </item>
+    
+    <item>
+      <title>Imputing Missing Class Labels</title>
+      <link>https://chrisalbon.com/machine_learning/preprocessing_structured_data/imputing_missing_class_labels/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning/preprocessing_structured_data/imputing_missing_class_labels/</guid>
+      <description>Preliminaries # Load libraries import numpy as np from sklearn.preprocessing import Imputer Create Feature Matrix With Missing Values # Create feature matrix with categorical feature X = np.array([[0, 2.10, 1.45], [1, 1.18, 1.33], [0, 1.22, 1.27], [0, -0.21, -1.19], [np.nan, 0.87, 1.31], [np.nan, -0.67, -0.22]]) Fill Missing Values&#39; Class With Most Frequent Class # Create Imputer object imputer = Imputer(strategy=&amp;#39;most_frequent&amp;#39;, axis=0) # Fill missing values with most frequent class imputer.fit_transform(X) array([[ 0.</description>
+    </item>
+    
+    <item>
+      <title>Imputing Missing Class Labels Using k-Nearest Neighbors</title>
+      <link>https://chrisalbon.com/machine_learning/preprocessing_structured_data/imputing_missing_class_labels_using_k-nearest_neighbors/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning/preprocessing_structured_data/imputing_missing_class_labels_using_k-nearest_neighbors/</guid>
+      <description>Preliminaries # Load libraries import numpy as np from sklearn.neighbors import KNeighborsClassifier Create Feature Matrix # Create feature matrix with categorical feature X = np.array([[0, 2.10, 1.45], [1, 1.18, 1.33], [0, 1.22, 1.27], [1, -0.21, -1.19]]) Create Feature Matrix With Missing Values # Create feature matrix with missing values in the categorical feature X_with_nan = np.array([[np.nan, 0.87, 1.31], [np.nan, -0.67, -0.22]]) Train k-Nearest Neighbor Classifier # Train KNN learner clf = KNeighborsClassifier(3, weights=&amp;#39;distance&amp;#39;) trained_model = clf.</description>
     </item>
     
     <item>
@@ -612,6 +817,15 @@ Afterwards, we can check the installation by opening a notebook, importing OpenC
       <description>K-nearest neighbors classifier (KNN) is a simple and powerful classification learner.
 KNN has three basic parts:
  $y_i$: The class of an observation (what we are trying to predict in the test data). $X_i$: The predictors/IVs/attributes of an observation. $K$: A positive number specified by the researcher. K denotes the number of observations closest to a particular observation that define its &amp;ldquo;neighborhood&amp;rdquo;. For example, K=2 means that each observation&amp;rsquo;s has a neighorhood comprising of the two other observations closest to it.</description>
+    </item>
+    
+    <item>
+      <title>Lag A Time Feature</title>
+      <link>https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/lag_a_time_feature/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/lag_a_time_feature/</guid>
+      <description>Preliminaries # Load library import pandas as pd Create Date Data # Create data frame df = pd.DataFrame() # Create data df[&amp;#39;dates&amp;#39;] = pd.date_range(&amp;#39;1/1/2001&amp;#39;, periods=5, freq=&amp;#39;D&amp;#39;) df[&amp;#39;stock_price&amp;#39;] = [1.1,2.2,3.3,4.4,5.5] Lag Time Data By One Row # Lagged values by one row df[&amp;#39;previous_days_stock_price&amp;#39;] = df[&amp;#39;stock_price&amp;#39;].shift(1) # Show data frame df   .dataframe thead tr:only-child th { text-align: right; } .dataframe thead th { text-align: left; } .dataframe tbody tr th { vertical-align: top; }</description>
     </item>
     
     <item>
@@ -769,6 +983,15 @@ Preliminaries import numpy as np from sklearn.linear_model import LogisticRegres
     </item>
     
     <item>
+      <title>Model Selection Using Grid Search</title>
+      <link>https://chrisalbon.com/machine_learning/model_selection/model_selection_using_grid_search/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning/model_selection/model_selection_using_grid_search/</guid>
+      <description>Preliminaries # Load libraries import numpy as np from sklearn import datasets from sklearn.linear_model import LogisticRegression from sklearn.ensemble import RandomForestClassifier from sklearn.model_selection import GridSearchCV from sklearn.pipeline import Pipeline # Set random seed np.random.seed(0) Load Iris Dataset # Load data iris = datasets.load_iris() X = iris.data y = iris.target Create Pipeline With Model Selection Search Space Notice that we include both multiple possible learning algorithms and multiple possible hyperparameter values to search over.</description>
+    </item>
+    
+    <item>
       <title>Nested Cross Validation</title>
       <link>https://chrisalbon.com/machine_learning/model_evaluation/nested_cross_validation/</link>
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
@@ -779,12 +1002,40 @@ Preliminaries import numpy as np from sklearn.linear_model import LogisticRegres
     </item>
     
     <item>
+      <title>Normalizing Observations</title>
+      <link>https://chrisalbon.com/machine_learning/preprocessing_structured_data/normalizing_observations/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning/preprocessing_structured_data/normalizing_observations/</guid>
+      <description>Preliminaries # Load libraries from sklearn.preprocessing import Normalizer import numpy as np Create Feature Matrix # Create feature matrix X = np.array([[0.5, 0.5], [1.1, 3.4], [1.5, 20.2], [1.63, 34.4], [10.9, 3.3]]) Normalize Observations Normalizer rescales the values on individual observations to have unit norm (the sum of their lengths is one).
+# Create normalizer normalizer = Normalizer(norm=&amp;#39;l2&amp;#39;) # Transform feature matrix normalizer.transform(X) array([[ 0.70710678, 0.70710678], [ 0.30782029, 0.95144452], [ 0.</description>
+    </item>
+    
+    <item>
       <title>One Vs. Rest Logistic Regression</title>
       <link>https://chrisalbon.com/machine_learning/logistic_regression/one-vs-rest_logistic_regression/</link>
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/machine_learning/logistic_regression/one-vs-rest_logistic_regression/</guid>
       <description>On their own, logistic regressions are only binary classifiers, meaning they cannot handle target vectors with more than two classes. However, there are clever extensions to logistic regression to do just that. In one-vs-rest logistic regression (OVR) a separate model is trained for each class predicted whether an observation is that class or not (thus making it a binary classification problem). It assumes that each classification problem (e.g. class 0 or not) is independent.</description>
+    </item>
+    
+    <item>
+      <title>One-Hot Encode Features With Multiple Labels</title>
+      <link>https://chrisalbon.com/machine_learning/preprocessing_structured_data/one-hot_encode_features_with_multiple_labels/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning/preprocessing_structured_data/one-hot_encode_features_with_multiple_labels/</guid>
+      <description>Preliminaries # Load libraries from sklearn.preprocessing import MultiLabelBinarizer import numpy as np Create Data # Create NumPy array y = [(&amp;#39;Texas&amp;#39;, &amp;#39;Florida&amp;#39;), (&amp;#39;California&amp;#39;, &amp;#39;Alabama&amp;#39;), (&amp;#39;Texas&amp;#39;, &amp;#39;Florida&amp;#39;), (&amp;#39;Delware&amp;#39;, &amp;#39;Florida&amp;#39;), (&amp;#39;Texas&amp;#39;, &amp;#39;Alabama&amp;#39;)] One-hot Encode Data # Create MultiLabelBinarizer object one_hot = MultiLabelBinarizer() # One-hot encode data one_hot.fit_transform(y) array([[0, 0, 0, 1, 1], [1, 1, 0, 0, 0], [0, 0, 0, 1, 1], [0, 0, 1, 1, 0], [1, 0, 0, 0, 1]])  View Column Headers # View classes one_hot.</description>
+    </item>
+    
+    <item>
+      <title>One-Hot Encode Nominal Categorical Features</title>
+      <link>https://chrisalbon.com/machine_learning/preprocessing_structured_data/one-hot_encode_nominal_categorical_features/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning/preprocessing_structured_data/one-hot_encode_nominal_categorical_features/</guid>
+      <description>Preliminaries # Load libraries import numpy as np import pandas as pd from sklearn.preprocessing import OneHotEncoder Create Data With One Class Label # Create NumPy array x = np.array([[&amp;#39;Texas&amp;#39;], [&amp;#39;California&amp;#39;], [&amp;#39;Texas&amp;#39;], [&amp;#39;Delaware&amp;#39;], [&amp;#39;Texas&amp;#39;]]) One-hot Encode Data (Method 1) # Create LabelBinzarizer object one_hot = OneHotEncoder() # One-hot encode data one_hot.fit_transform(x) &amp;lt;5x3 sparse matrix of type &#39;&amp;lt;class &#39;numpy.float64&#39;&amp;gt;&#39; with 5 stored elements in Compressed Sparse Row format&amp;gt;  View Column Headers # View classes one_hot.</description>
     </item>
     
     <item>
@@ -804,6 +1055,15 @@ Preliminaries import numpy as np from sklearn.linear_model import LogisticRegres
       <guid>https://chrisalbon.com/machine_learning/basics/perceptron_in_scikit-learn/</guid>
       <description>A perceptron learner was one of the earliest machine learning techniques and still from the foundation of many modern neural networks. In this tutorial we use a perceptron learner to classify the famous iris dataset. This tutorial was inspired by Python Machine Learning by Sebastian Raschka.
 Preliminaries # Load required libraries from sklearn import datasets from sklearn.preprocessing import StandardScaler from sklearn.linear_model import Perceptron from sklearn.model_selection import train_test_split from sklearn.metrics import accuracy_score import numpy as np Load The Iris Data # Load the iris dataset iris = datasets.</description>
+    </item>
+    
+    <item>
+      <title>Pipelines With Parameter Optimization</title>
+      <link>https://chrisalbon.com/machine_learning/model_selection/pipelines_with_parameter_optimization/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning/model_selection/pipelines_with_parameter_optimization/</guid>
+      <description>Preliminaries # Import required packages import numpy as np from sklearn import linear_model, decomposition, datasets from sklearn.pipeline import Pipeline from sklearn.model_selection import GridSearchCV, cross_val_score from sklearn.preprocessing import StandardScaler Load Data # Load the breast cancer data dataset = datasets.load_breast_cancer() # Create X from the dataset&amp;#39;s features X = dataset.data # Create y from the dataset&amp;#39;s output y = dataset.target Create Pipelines # Create an scaler object sc = StandardScaler() # Create a pca object pca = decomposition.</description>
     </item>
     
     <item>
@@ -849,6 +1109,26 @@ Preliminaries # Load required libraries from sklearn import datasets from sklear
       
       <guid>https://chrisalbon.com/machine_learning/model_evaluation/precision/</guid>
       <description>Preliminaries # Load libraries from sklearn.model_selection import cross_val_score from sklearn.linear_model import LogisticRegression from sklearn.datasets import make_classification Generate Features And Target Data # Generate features matrix and target vector X, y = make_classification(n_samples = 10000, n_features = 3, n_informative = 3, n_redundant = 0, n_classes = 2, random_state = 1) Create Logistic Regression # Create logistic regression logit = LogisticRegression() Cross-Validate Model Using Precision # Cross-validate model using precision cross_val_score(logit, X, y, scoring=&amp;#34;precision&amp;#34;) array([ 0.</description>
+    </item>
+    
+    <item>
+      <title>Preprocessing Categorical Features</title>
+      <link>https://chrisalbon.com/machine_learning/preprocessing_structured_data/preprocessing_categorical_features/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning/preprocessing_structured_data/preprocessing_categorical_features/</guid>
+      <description>Often, machine learning methods (e.g. logistic regression, SVM with a linear kernel, etc) will require that categorical variables be converted into dummy variables (also called OneHot encoding). For example, a single feature Fruit would be converted into three features, Apples, Oranges, and Bananas, one for each category in the categorical feature.
+There are common ways to preprocess categorical features: using pandas or scikit-learn.
+Preliminaries from sklearn import preprocessing from sklearn.pipeline import Pipeline import pandas as pd Create Data raw_data = {&amp;#39;first_name&amp;#39;: [&amp;#39;Jason&amp;#39;, &amp;#39;Molly&amp;#39;, &amp;#39;Tina&amp;#39;, &amp;#39;Jake&amp;#39;, &amp;#39;Amy&amp;#39;], &amp;#39;last_name&amp;#39;: [&amp;#39;Miller&amp;#39;, &amp;#39;Jacobson&amp;#39;, &amp;#39;Ali&amp;#39;, &amp;#39;Milner&amp;#39;, &amp;#39;Cooze&amp;#39;], &amp;#39;age&amp;#39;: [42, 52, 36, 24, 73], &amp;#39;city&amp;#39;: [&amp;#39;San Francisco&amp;#39;, &amp;#39;Baltimore&amp;#39;, &amp;#39;Miami&amp;#39;, &amp;#39;Douglas&amp;#39;, &amp;#39;Boston&amp;#39;]} df = pd.</description>
+    </item>
+    
+    <item>
+      <title>Preprocessing Iris Data</title>
+      <link>https://chrisalbon.com/machine_learning/preprocessing_structured_data/preprocessing_iris_data/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning/preprocessing_structured_data/preprocessing_iris_data/</guid>
+      <description>Preliminaries from sklearn import datasets import numpy as np from sklearn.cross_validation import train_test_split from sklearn.preprocessing import StandardScaler Load Data # Load the iris data iris = datasets.load_iris() # Create a variable for the feature data X = iris.data # Create a variable for the target data y = iris.target Split Data For Cross Validation # Random split the data into four new datasets, training features, training outcome, test features,  # and test outcome.</description>
     </item>
     
     <item>
@@ -942,6 +1222,15 @@ Preliminaries # Load required libraries from sklearn import datasets from sklear
     </item>
     
     <item>
+      <title>Rescale A Feature</title>
+      <link>https://chrisalbon.com/machine_learning/preprocessing_structured_data/rescale_a_feature/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning/preprocessing_structured_data/rescale_a_feature/</guid>
+      <description> Preliminaries # Load libraries from sklearn import preprocessing import numpy as np Create Feature # Create feature x = np.array([[-500.5], [-100.1], [0], [100.1], [900.9]]) Rescale Feature Using Min-Max # Create scaler minmax_scale = preprocessing.MinMaxScaler(feature_range=(0, 1)) # Scale feature x_scale = minmax_scale.fit_transform(x) # Show feature x_scale array([[ 0. ], [ 0.28571429], [ 0.35714286], [ 0.42857143], [ 1. ]])  </description>
+    </item>
+    
+    <item>
       <title>Reshape An Array</title>
       <link>https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/reshape_an_array/</link>
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
@@ -957,6 +1246,15 @@ Preliminaries # Load required libraries from sklearn import datasets from sklear
       
       <guid>https://chrisalbon.com/machine_learning/linear_regression/ridge_regression/</guid>
       <description>Preliminaries # Load libraries from sklearn.linear_model import Ridge from sklearn.datasets import load_boston from sklearn.preprocessing import StandardScaler Load Boston Housing Dataset # Load data boston = load_boston() X = boston.data y = boston.target Standardize Features # Standarize features scaler = StandardScaler() X_std = scaler.fit_transform(X) Fit Ridge Regression The hyperparameter, $\alpha$, lets us control how much we penalize the coefficients, with higher values of $\alpha$ creating simpler modelers. The ideal value of $\alpha$ should be tuned like any other hyperparameter.</description>
+    </item>
+    
+    <item>
+      <title>Rolling Time Window</title>
+      <link>https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/rolling_time_windows/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/rolling_time_windows/</guid>
+      <description>Preliminaries # Load library import pandas as pd Create Date Data # Create datetimes time_index = pd.date_range(&amp;#39;01/01/2010&amp;#39;, periods=5, freq=&amp;#39;M&amp;#39;) # Create data frame, set index df = pd.DataFrame(index=time_index) # Create feature df[&amp;#39;Stock_Price&amp;#39;] = [1,2,3,4,5] Create A Rolling Time Window Of Two Rows # Calculate rolling mean df.rolling(window=2).mean()   .dataframe thead tr:only-child th { text-align: right; } .dataframe thead th { text-align: left; } .dataframe tbody tr th { vertical-align: top; }</description>
     </item>
     
     <item>
@@ -976,6 +1274,16 @@ Preliminaries # Load required libraries from sklearn import datasets from sklear
       <guid>https://chrisalbon.com/machine_learning/basics/saving_machine_learning_models/</guid>
       <description>In scikit there are two main ways to save a model for future use: a pickle string and a pickled model as a file.
 Preliminaries from sklearn.linear_model import LogisticRegression from sklearn import datasets import pickle from sklearn.externals import joblib Load Data # Load the iris data iris = datasets.load_iris() # Create a matrix, X, of features and a vector, y. X, y = iris.data, iris.target Train Model # Train a naive logistic regression model clf = LogisticRegression(random_state=0) clf.</description>
+    </item>
+    
+    <item>
+      <title>Select Date And Time Ranges</title>
+      <link>https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/select_date_and_time_ranges/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/select_date_and_time_ranges/</guid>
+      <description>Preliminaries # Load library import pandas as pd Create pandas Series Time Data # Create data frame df = pd.DataFrame() # Create datetimes df[&amp;#39;date&amp;#39;] = pd.date_range(&amp;#39;1/1/2001&amp;#39;, periods=100000, freq=&amp;#39;H&amp;#39;) Select Time Range (Method 1) Use this method if your data frame is not indexed by time.
+# Select observations between two datetimes df[(df[&amp;#39;date&amp;#39;] &amp;gt; &amp;#39;2002-1-1 01:00:00&amp;#39;) &amp;amp; (df[&amp;#39;date&amp;#39;] &amp;lt;= &amp;#39;2002-1-1 04:00:00&amp;#39;)]   .dataframe thead tr:only-child th { text-align: right; } .</description>
     </item>
     
     <item>
@@ -1049,6 +1357,15 @@ Specifically, we can run LinearDiscriminantAnalysis with n_components set to Non
       
       <guid>https://chrisalbon.com/machine_learning/model_evaluation/split_data_into_training_and_test_sets/</guid>
       <description>Preliminaries # Load libraries from sklearn import datasets from sklearn.preprocessing import StandardScaler from sklearn.model_selection import train_test_split Load Digits Dataset # Load the digits dataset digits = datasets.load_digits() # Create the features matrix X = digits.data # Create the target vector y = digits.target Split Into Training And Test Sets # Create training and test sets X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1, random_state=1) Fit Standardizer To Training Set # Create standardizer standardizer = StandardScaler() # Fit standardizer to training set standardizer.</description>
+    </item>
+    
+    <item>
+      <title>Standardize A Feature</title>
+      <link>https://chrisalbon.com/machine_learning/preprocessing_structured_data/standardize_a_feature/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning/preprocessing_structured_data/standardize_a_feature/</guid>
+      <description> Preliminaries # Load libraries from sklearn import preprocessing import numpy as np Create Feature # Create feature x = np.array([[-500.5], [-100.1], [0], [100.1], [900.9]]) Standardize Feature # Create scaler scaler = preprocessing.StandardScaler() # Transform the feature standardized = scaler.fit_transform(x) # Show feature standardized array([[-1.26687088], [-0.39316683], [-0.17474081], [ 0.0436852 ], [ 1.79109332]])  </description>
     </item>
     
     <item>
