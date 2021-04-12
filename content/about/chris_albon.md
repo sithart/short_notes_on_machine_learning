@@ -8,7 +8,7 @@ draft: false
 outputs:
     - html
 images:
-    - chris_albon_banner.jpg
+    - /about/chris_albon/chris_albon_banner.jpg
 ---
 
 <img src="chris_albon_banner.jpg"></img>
