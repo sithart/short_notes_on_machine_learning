@@ -3,7 +3,7 @@ title: "What I Said To My Team During COVID-19"
 author: "Chris Albon"
 date: 2020-03-23T00:00:00-07:00
 description: "A few points on leadership."
-type: non-technical_note
+type: article
 draft: false
 ---
 

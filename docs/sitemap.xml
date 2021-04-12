@@ -343,12 +343,12 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/data_science_management/index.xml</loc>
+    <loc>https://chrisalbon.com/articles/index.xml</loc>
     <lastmod>2020-03-23T00:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/data_science_management/what_i_said_to_my_team_during_covid-19/</loc>
+    <loc>https://chrisalbon.com/articles/what_i_said_to_my_team_during_covid-19/</loc>
     <lastmod>2020-03-23T00:00:00-07:00</lastmod>
   </url>
   
@@ -3590,11 +3590,6 @@
   <url>
     <loc>https://chrisalbon.com/scala/basics/zip_together_two_lists/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/articles/index.xml</loc>
-    <lastmod>2016-02-01T11:53:49-07:00</lastmod>
   </url>
   
   <url>

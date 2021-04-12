@@ -465,9 +465,7 @@ Articles
 
 .article .content p, .article .content li{
   font-size: 1.25em;
-}
-
-.article .content p{
+  line-height: 1.4em;
   padding-top:.25em;
   padding-bottom:.25em;
 }
