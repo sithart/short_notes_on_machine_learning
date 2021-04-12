@@ -127,7 +127,7 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
-  color: #3b3b3b;
+  color: #333333;
   font-family: 'Muli', sans-serif;
 }
 .footer {
