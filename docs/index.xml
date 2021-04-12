@@ -101,6 +101,15 @@
     </item>
     
     <item>
+      <title>Statistics</title>
+      <link>https://chrisalbon.com/statistics/index.xml</link>
+      <pubDate>Fri, 20 Dec 2019 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/statistics/index.xml</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Snowflakes</title>
       <link>https://chrisalbon.com/snowflake/index.xml</link>
       <pubDate>Mon, 28 Jan 2019 00:00:00 -0700</pubDate>
@@ -169,15 +178,6 @@
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
       
       <guid>https://chrisalbon.com/scala/index.xml</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Statistics</title>
-      <link>https://chrisalbon.com/statistics/index.xml</link>
-      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
-      
-      <guid>https://chrisalbon.com/statistics/index.xml</guid>
       <description></description>
     </item>
     

@@ -309,6 +309,15 @@ Create Function # Define a function called word_count that takes in a argument  
     </item>
     
     <item>
+      <title>Beautiful Soup Basic HTML Scraping</title>
+      <link>https://chrisalbon.com/python/web_scraping/beautiful_soup_html_basics/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/python/web_scraping/beautiful_soup_html_basics/</guid>
+      <description>Import the modules # Import required modules import requests from bs4 import BeautifulSoup Scrape the html and turn into a beautiful soup object # Create a variable with the url url = &amp;#39;http://chrisralbon.com&amp;#39; # Use requests to get the contents r = requests.get(url) # Get the text of the contents html_content = r.text # Convert the html content into a beautiful soup object soup = BeautifulSoup(html_content, &amp;#39;lxml&amp;#39;) Select the website&amp;rsquo;s title # View the title tag of the soup object soup.</description>
+    </item>
+    
+    <item>
       <title>Break A List Into N-Sized Chunks</title>
       <link>https://chrisalbon.com/python/data_wrangling/break_list_into_chunks_of_equal_size/</link>
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
@@ -646,6 +655,15 @@ Lists are mutable.
       
       <guid>https://chrisalbon.com/python/basics/display_scientific_notation_as_floats/</guid>
       <description>Create Values # Create a numbers in scientific notation value_scientific_notation = 6.32000000e-03 # Create a vector of numbers in scientific notation vector_scientific_notation = [6.32000000e-03, 1.80000000e+01, 2.31000000e+00, 0.00000000e+00, 5.38000000e-01, 6.57500000e+00, 6.52000000e+01, 4.09000000e+00, 1.00000000e+00, 2.96000000e+02, 1.53000000e+01, 3.96900000e+02, 4.98000000e+00] Display Values As Floats # Display value as a float &amp;#39;{:f}&amp;#39;.format(value_scientific_notation) &#39;0.006320&#39;  # Display vector values as floats [&amp;#39;{:f}&amp;#39;.format(x) for x in vector_scientific_notation] [&#39;0.006320&#39;, &#39;18.000000&#39;, &#39;2.310000&#39;, &#39;0.000000&#39;, &#39;0.538000&#39;, &#39;6.575000&#39;, &#39;65.200000&#39;, &#39;4.090000&#39;, &#39;1.000000&#39;, &#39;296.000000&#39;, &#39;15.</description>
+    </item>
+    
+    <item>
+      <title>Drilling Down With Beautiful Soup</title>
+      <link>https://chrisalbon.com/python/web_scraping/beautiful_soup_drill_down/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/python/web_scraping/beautiful_soup_drill_down/</guid>
+      <description>Preliminaries # Import required modules import requests from bs4 import BeautifulSoup import pandas as pd Download the HTML and create a Beautiful Soup object # Create a variable with the URL to this tutorial url = &amp;#39;http://en.wikipedia.org/wiki/List_of_A_Song_of_Ice_and_Fire_characters&amp;#39; # Scrape the HTML at the url r = requests.get(url) # Turn the HTML into a Beautiful Soup object soup = BeautifulSoup(r.text, &amp;#34;lxml&amp;#34;) If we looked at the soup object, we&amp;rsquo;d see that the names we want are in a heirarchical list.</description>
     </item>
     
     <item>
@@ -1156,6 +1174,16 @@ Preliminaries # Import modules import pandas as pd # Set ipython&amp;#39;s max r
       <guid>https://chrisalbon.com/python/basics/mocking_functions/</guid>
       <description>Preliminaries import unittest import mock from math import exp The Scenario Imagine we have a function that takes in some external API or database and we want to test that function, but with fake (or mocked) inputs. The Python mock library lets us do that.
 For this tutorial pretend that math.exp is some expensive operation (e.g. database query, API call, etc) that costs $10,000 every time we use it. To test it without paying $10,000, we can create mock_function which imitates the behavior of math.</description>
+    </item>
+    
+    <item>
+      <title>Monitor A Website For Changes With Python</title>
+      <link>https://chrisalbon.com/python/web_scraping/monitor_a_website/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/python/web_scraping/monitor_a_website/</guid>
+      <description>In this snippet, we create a continous loop that, at set times, scrapes a website, checks to see if it contains some text and if so, emails me. Specifically I used this script to find when Venture Beat had published an article about my company.
+It should be noted that there are more efficient ways of setting scripts to run at certain times, notable cron. However, this is a quick and dirty solution.</description>
     </item>
     
     <item>

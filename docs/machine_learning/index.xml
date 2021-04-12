@@ -95,6 +95,16 @@ Preliminaries # Load libraries from sklearn.datasets import load_iris from sklea
     </item>
     
     <item>
+      <title>Bernoulli Naive Bayes Classifier</title>
+      <link>https://chrisalbon.com/machine_learning/naive_bayes/bernoulli_naive_bayes_classifier/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning/naive_bayes/bernoulli_naive_bayes_classifier/</guid>
+      <description>The Bernoulli naive Bayes classifier assumes that all our features are binary such that they take only two values (e.g. a nominal categorical feature that has been one-hot encoded).
+Preliminaries # Load libraries import numpy as np from sklearn.naive_bayes import BernoulliNB Create Binary Feature And Target Data # Create three binary features X = np.random.randint(2, size=(100, 3)) # Create a binary target vector y = np.random.randint(2, size=(100, 1)).ravel() View Feature Data # View first ten observations X[0:10] array([[1, 1, 1], [0, 1, 0], [1, 1, 1], [0, 0, 0], [1, 0, 1], [1, 1, 1], [0, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 0]])  Train Bernoulli Naive Bayes Classifier # Create Bernoulli Naive Bayes object with prior probabilities of each class clf = BernoulliNB(class_prior=[0.</description>
+    </item>
+    
+    <item>
       <title>Binarize Images</title>
       <link>https://chrisalbon.com/machine_learning/preprocessing_images/binarize_image/</link>
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
@@ -164,6 +174,15 @@ Preliminaries # Load libraries from sklearn.datasets import load_iris from sklea
       
       <guid>https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/calculate_the_trace_of_a_matrix/</guid>
       <description>Preliminaries # Load library import numpy as np Create Matrix # Create matrix matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]]) Calculate The Trace # Calculate the trace of the matrix matrix.diagonal().sum() 15  </description>
+    </item>
+    
+    <item>
+      <title>Calibrate Predicted Probabilities</title>
+      <link>https://chrisalbon.com/machine_learning/naive_bayes/calibrate_predicted_probabilities/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning/naive_bayes/calibrate_predicted_probabilities/</guid>
+      <description>Class probabilities are a common and useful part of machine learning models. In scikit-learn, most learning algortihms allow us to see the predicted probabilities of class membership using predict_proba. This can be extremely useful if, for instance, we want to only predict a certain class if the model predicts the probability that they are that class is over 90%. However, some models, including naive Bayes classifiers output probabilities that are not based on the real world.</description>
     </item>
     
     <item>
@@ -601,6 +620,16 @@ Second, some preprocessing methods have their own parameter which often have to 
     </item>
     
     <item>
+      <title>Gaussian Naive Bayes Classifier</title>
+      <link>https://chrisalbon.com/machine_learning/naive_bayes/gaussian_naive_bayes_classifier/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning/naive_bayes/gaussian_naive_bayes_classifier/</guid>
+      <description>Because of the assumption of the normal distribution, Gaussian Naive Bayes is best used in cases when all our features are continuous.
+Preliminaries # Load libraries from sklearn import datasets from sklearn.naive_bayes import GaussianNB Load Iris Flower Dataset # Load data iris = datasets.load_iris() X = iris.data y = iris.target Train Gaussian Naive Bayes Classifier # Create Gaussian Naive Bayes object with prior probabilities of each class clf = GaussianNB(priors=[0.</description>
+    </item>
+    
+    <item>
       <title>Generate Text Reports On Performance</title>
       <link>https://chrisalbon.com/machine_learning/model_evaluation/generate_text_reports_on_performance/</link>
       <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
@@ -989,6 +1018,37 @@ Preliminaries import numpy as np from sklearn.linear_model import LogisticRegres
       
       <guid>https://chrisalbon.com/machine_learning/model_selection/model_selection_using_grid_search/</guid>
       <description>Preliminaries # Load libraries import numpy as np from sklearn import datasets from sklearn.linear_model import LogisticRegression from sklearn.ensemble import RandomForestClassifier from sklearn.model_selection import GridSearchCV from sklearn.pipeline import Pipeline # Set random seed np.random.seed(0) Load Iris Dataset # Load data iris = datasets.load_iris() X = iris.data y = iris.target Create Pipeline With Model Selection Search Space Notice that we include both multiple possible learning algorithms and multiple possible hyperparameter values to search over.</description>
+    </item>
+    
+    <item>
+      <title>Multinomial Logistic Regression</title>
+      <link>https://chrisalbon.com/machine_learning/naive_bayes/multinomial_logistic_regression/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning/naive_bayes/multinomial_logistic_regression/</guid>
+      <description>In multinomial logistic regression (MLR) the logistic function we saw in Recipe 15.1 is replaced with a softmax function:
+$$P(y_i=k \mid X)={\frac {e^{\beta_{k}x_{i}}}{{\sum_{j=1}^{K}}e^{\beta_{j}x_{i}}}}$$
+where $P(y_i=k \mid X)$ is the probability the $i$th observation&amp;rsquo;s target value, $y_i$, is class $k$, and $K$ is the total number of classes. One practical advantage of the MLR is that its predicted probabilities using the predict_proba method are more reliable (i.e. better calibrated).
+Preliminaries # Load libraries from sklearn.</description>
+    </item>
+    
+    <item>
+      <title>Multinomial Naive Bayes Classifier</title>
+      <link>https://chrisalbon.com/machine_learning/naive_bayes/multinomial_naive_bayes_classifier/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning/naive_bayes/multinomial_naive_bayes_classifier/</guid>
+      <description>Multinomial naive Bayes works similar to Gaussian naive Bayes, however the features are assumed to be multinomially distributed. In practice, this means that this classifier is commonly used when we have discrete data (e.g. movie ratings ranging 1 and 5).
+Preliminaries # Load libraries import numpy as np from sklearn.naive_bayes import MultinomialNB from sklearn.feature_extraction.text import CountVectorizer Create Text Data # Create text text_data = np.array([&amp;#39;I love Brazil. Brazil!&amp;#39;, &amp;#39;Brazil is best&amp;#39;, &amp;#39;Germany beats both&amp;#39;]) Create Bag Of Words # Create bag of words count = CountVectorizer() bag_of_words = count.</description>
+    </item>
+    
+    <item>
+      <title>Naive Bayes Classifier From Scratch</title>
+      <link>https://chrisalbon.com/machine_learning/naive_bayes/naive_bayes_classifier_from_scratch/</link>
+      <pubDate>Wed, 20 Dec 2017 11:53:49 -0700</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning/naive_bayes/naive_bayes_classifier_from_scratch/</guid>
+      <description>Naive bayes is simple classifier known for doing well when only a small number of observations is available. In this tutorial we will create a gaussian naive bayes classifier from scratch and use it to predict the class of a previously unseen data point. This tutorial is based on an example on Wikipedia&amp;rsquo;s naive bayes classifier page, I have implemented it in Python and tweaked some notation to improve explanation.</description>
     </item>
     
     <item>
