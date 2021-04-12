@@ -1,6 +1,6 @@
 baseURL = "https://chrisalbon.com/"
 languageCode = "en-us"
-title = "Machine Learning"
+title = "Machine Learning Tutorials"
 theme = "berbera"
 
 pygmentsCodeFences=true

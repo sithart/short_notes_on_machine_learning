@@ -1583,11 +1583,6 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/machine_learning/naive_bayes/bernoulli_naive_bayes_classifier/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://chrisalbon.com/statistics/frequentist/bessel_correction/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
@@ -1623,11 +1618,6 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/break_up_dates_and_times_into_multiple_features/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://chrisalbon.com/python/data_wrangling/pandas_regex_to_create_columns/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
@@ -1648,11 +1638,6 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/calculate_difference_between_dates_and_times/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/calculate_dot_product_of_two_vectors/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
@@ -1669,11 +1654,6 @@
   
   <url>
     <loc>https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/calculate_the_trace_of_a_matrix/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/machine_learning/naive_bayes/calibrate_predicted_probabilities/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
   
@@ -1774,21 +1754,6 @@
   
   <url>
     <loc>https://chrisalbon.com/python/basics/convert_html_symbols_to_strings/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/machine_learning/preprocessing_structured_data/convert_pandas_categorical_column_into_integers_for_scikit-learn/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/convert_pandas_column_timezone/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/convert_strings_to_dates/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
   
@@ -1953,16 +1918,6 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/machine_learning/preprocessing_structured_data/delete_observations_with_missing_values/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/machine_learning/preprocessing_structured_data/deleting_missing_values/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://chrisalbon.com/statistics/frequentist/demonstrate_the_central_limit_theorem/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
@@ -1983,11 +1938,6 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/machine_learning/preprocessing_structured_data/detecting_outliers/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://chrisalbon.com/python/basics/dictionary_basics/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
@@ -2004,11 +1954,6 @@
   
   <url>
     <loc>https://chrisalbon.com/machine_learning/feature_engineering/dimensionality_reduction_with_pca/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/machine_learning/preprocessing_structured_data/discretize_features/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
   
@@ -2034,16 +1979,6 @@
   
   <url>
     <loc>https://chrisalbon.com/machine_learning/linear_regression/effect_of_alpha_on_lasso_regression/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/encode_days_of_the_week/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/machine_learning/preprocessing_structured_data/encoding_ordinal_categorical_features/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
   
@@ -2129,11 +2064,6 @@
   
   <url>
     <loc>https://chrisalbon.com/python/data_wrangling/filter_dataframes/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/machine_learning/model_selection/find_best_preprocessing_steps_during_model_selection/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
   
@@ -2233,11 +2163,6 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/machine_learning/naive_bayes/gaussian_naive_bayes_classifier/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://chrisalbon.com/machine_learning/model_evaluation/generate_text_reports_on_performance/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
@@ -2323,31 +2248,6 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/machine_learning/preprocessing_structured_data/handling_imbalanced_classes_with_downsampling/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/machine_learning/preprocessing_structured_data/handling_imbalanced_classes_with_upsampling/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/handling_missing_values_in_time_series/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/machine_learning/preprocessing_structured_data/handling_outliers/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/handling_time_zones/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://chrisalbon.com/python/basics/hard_wrapping_text/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
@@ -2373,16 +2273,6 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/machine_learning/model_selection/hyperparameter_tuning_using_grid_search/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/machine_learning/model_selection/hyperparameter_tuning_using_random_search/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://chrisalbon.com/machine_learning/nearest_neighbors/identifying_best_value_of_k/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
@@ -2404,21 +2294,6 @@
   
   <url>
     <loc>https://chrisalbon.com/machine_learning/support_vector_machines/imbalanced_classes_in_svm/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/machine_learning/preprocessing_structured_data/impute_missing_values_with_means/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/machine_learning/preprocessing_structured_data/imputing_missing_class_labels/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/machine_learning/preprocessing_structured_data/imputing_missing_class_labels_using_k-nearest_neighbors/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
   
@@ -2503,11 +2378,6 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/lag_a_time_feature/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://chrisalbon.com/python/basics/lambda_functions/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
@@ -2559,11 +2429,6 @@
   
   <url>
     <loc>https://chrisalbon.com/machine_learning/basics/loading_features_from_dictionaries/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/machine_learning/basics/untitled/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
   
@@ -2803,22 +2668,7 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/machine_learning/model_selection/model_selection_using_grid_search/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://chrisalbon.com/python/data_wrangling/pandas_moving_average/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/machine_learning/naive_bayes/multinomial_logistic_regression/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/machine_learning/naive_bayes/multinomial_naive_bayes_classifier/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
   
@@ -2829,11 +2679,6 @@
   
   <url>
     <loc>https://chrisalbon.com/scala/basics/n_dimension_arrays/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/machine_learning/naive_bayes/naive_bayes_classifier_from_scratch/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
   
@@ -2868,27 +2713,12 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/machine_learning/preprocessing_structured_data/normalizing_observations/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://chrisalbon.com/python/basics/numpy_array_basics/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://chrisalbon.com/machine_learning/logistic_regression/one-vs-rest_logistic_regression/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/machine_learning/preprocessing_structured_data/one-hot_encode_features_with_multiple_labels/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/machine_learning/preprocessing_structured_data/one-hot_encode_nominal_categorical_features/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
   
@@ -2938,11 +2768,6 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/machine_learning/model_selection/pipelines_with_parameter_optimization/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://chrisalbon.com/python/data_wrangling/pandas_pivot_tables/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
@@ -2973,17 +2798,7 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/machine_learning/preprocessing_structured_data/preprocessing_categorical_features/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://chrisalbon.com/deep_learning/keras/preprocessing_data_for_neural_networks/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/machine_learning/preprocessing_structured_data/preprocessing_iris_data/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
   
@@ -3123,22 +2938,12 @@
   </url>
   
   <url>
-    <loc>https://chrisalbon.com/machine_learning/preprocessing_structured_data/rescale_a_feature/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://chrisalbon.com/machine_learning/vectors_matrices_and_arrays/reshape_an_array/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://chrisalbon.com/machine_learning/linear_regression/ridge_regression/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/rolling_time_windows/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
   
@@ -3199,11 +3004,6 @@
   
   <url>
     <loc>https://chrisalbon.com/scala/basics/search_strings_with_regex/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/machine_learning/preprocessing_dates_and_times/select_date_and_time_ranges/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
   
@@ -3344,11 +3144,6 @@
   
   <url>
     <loc>https://chrisalbon.com/python/data_visualization/matplotlib_percentage_stacked_bar_plot/</loc>
-    <lastmod>2017-12-20T11:53:49-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chrisalbon.com/machine_learning/preprocessing_structured_data/standardize_a_feature/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url>
   
