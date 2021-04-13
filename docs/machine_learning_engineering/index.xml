@@ -5,10 +5,20 @@
     <description></description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 03 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 11 Feb 2021 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://chrisalbon.com/machine_learning_engineering/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Fundamentals Of Software Architecture</title>
+      <link>https://chrisalbon.com/machine_learning_engineering/fundamentals_of_software_architecture/</link>
+      <pubDate>Thu, 11 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning_engineering/fundamentals_of_software_architecture/</guid>
+      <description>These are notes on Neal Ford and Mark Richards&#39; Fundamentals of Software Architecture.
+ Chapter 1: Introduction  Eight core expectations of a software architect:  Make architecture decisions  &amp;ldquo;An architect is expected to define the architecture decisions and design principles used to guide technology decisions within the team, the department, or across the enterprise.&amp;rdquo;   Continually analyze the architecture  &amp;ldquo;An architect is expected to continually analyze the architecture and current technology environment and then recommend solutions for improvement.</description>
+    </item>
     
     <item>
       <title>Basic YAML File</title>

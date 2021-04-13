@@ -29,6 +29,15 @@
     </item>
     
     <item>
+      <title>Machine_learning_engineerings</title>
+      <link>https://chrisalbon.com/machine_learning_engineering/index.xml</link>
+      <pubDate>Thu, 11 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://chrisalbon.com/machine_learning_engineering/index.xml</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Dockers</title>
       <link>https://chrisalbon.com/docker/index.xml</link>
       <pubDate>Wed, 22 Jul 2020 00:00:00 -0700</pubDate>
@@ -52,15 +61,6 @@
       <pubDate>Fri, 17 Jul 2020 00:00:00 -0700</pubDate>
       
       <guid>https://chrisalbon.com/linux/index.xml</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Machine_learning_engineerings</title>
-      <link>https://chrisalbon.com/machine_learning_engineering/index.xml</link>
-      <pubDate>Fri, 03 Jul 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://chrisalbon.com/machine_learning_engineering/index.xml</guid>
       <description></description>
     </item>
     
