@@ -4,7 +4,7 @@ author: "Chris Albon"
 date: 2021-05-18T01:01:00-07:00
 description: "A summer of machine learning in 2021."
 type: article
-draft: false
+draft: true
 images:
  - /images/summer_of_machine_learning.png
 ---
