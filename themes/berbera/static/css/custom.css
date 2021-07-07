@@ -3,7 +3,7 @@
 /* ---------------------------------------------------------
 /* Computer Modern font
 ---------------------------------------------------------*/
-
+/*
 @font-face {
   font-family: "Computer Modern";
   src: url(../fonts/cmunbi.ttf);
@@ -26,7 +26,7 @@
   font-weight: normal;
   font-style: normal;
 }
-
+*/
 
 /* ---------------------------------------------------------
 /* Fontawesome
@@ -127,7 +127,7 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
-  color: #444444;
+  color:#2c2c2c;
   font-family: 'Muli', sans-serif;
 }
 .footer {
@@ -184,7 +184,7 @@ Navbar
 ---------------------------------------------------------*/
 
 .navbar {
-  background-color: #e84038;
+  background-color: #e8332b;
   border-bottom: 0px;
 }
 
@@ -228,10 +228,14 @@ Homepage
 }
 
 .homepage h2 {
-  text-align: center;
-  font-size: 1.85em;
+  text-align: left;
+  font-size: 1.65em;
   font-weight: 700;
-  margin: 20px 0px 20px 0px
+  color: #626262;
+  margin: 0px 0px 20px 0px;
+  padding: 7px 20px 7px 20px;
+  border: solid 1px #bbb;
+  background-color: #e4e4e4;
 }
 
 .homepage h3 {
@@ -324,7 +328,7 @@ Homepage cards
 Technical Notes
 ---------------------------------------------------------*/
 
-.technica_note, .page {
+.technical_note, .page {
   font-family: 'Muli', sans-serif;
 }
 
@@ -370,81 +374,6 @@ Technical Notes
 }
 
 /* ---------------------------------------------------------
-Non-Technical Notes
----------------------------------------------------------*/
-
-.non-technical_note h1{
-  font-weight: bold;
-  font-family: 'Muli', sans-serif;
-  text-align: center;
-  margin-bottom:10px;
-}
-
-.non-technical_note header {
-  margin: 30px 0 30px 0;
-}
-
-.non-technical_note .content{
-  font-family: "Computer Modern", serif;
-}
-
-.non-technical_note .content p, .non-technical_note .content li{
-  font-size: 1.25em;
-}
-
-.non-technical_note .content p{
-  padding-top:.25em;
-  padding-bottom:.25em;
-}
-
-.non-technical_note .content p .mjx-math {
-  font-size: 1em;
-}
-
-.non-technical_note .content blockquote{
-  font-style: italic;
-  padding: 0 4em 0 4em;
-  line-height: 1.4em;
-  color: #776f68;
-}
-
-.non-technical_note .non-technical_note_date{
-  font-size: 1.4em;
-  text-align: center;
-  font-family: 'Muli', sans-serif;
-}
-
-.non-technical_note h2{
-  font-size: 1.6em;
-  margin-top: 1em;
-  margin-bottom: .5em;
-  font-family: 'Muli', sans-serif;
-  font-weight: bold;
-}
-
-.non-technical_note h3{
-  font-size: 1.4em;
-  font-family: 'Muli', sans-serif;
-  font-weight: bold;
-}
-
-.non-technical_note h4{
-  font-size: 1.2em;
-  font-family: 'Muli', sans-serif;
-  font-weight: bold;
-}
-
-.non-technical_note h5{
-  font-size: 1.1em;
-  font-family: 'Muli', sans-serif;
-  font-weight: bold;
-}
-
-.non-technical_note p code{
-  font-size: .7em;
-}
-
-/* ---------------------------------------------------------
 Articles
 ---------------------------------------------------------*/
 
@@ -456,28 +385,29 @@ Articles
 }
 
 .article header {
-  margin: 30px 0 30px 0;
+  margin: 0 0 30px 0;
 }
 
 .article .content{
-  font-family: "Computer Modern", serif;
-}
+  font-family: "Crimson Text", serif;
+} 
 
-.article .content p, .article .content li{
-  font-size: 1.25em;
-  line-height: 1.4em;
+.article .content p {
+  font-size: 1.3em;
+  line-height: 1.5em;
   padding-top:.25em;
   padding-bottom:.25em;
 }
 
-.article .content p .mjx-math {
-  font-size: 1em;
+.article .content li {
+  font-size: 1.3em;
+  line-height: 1.5em;
 }
 
 .article .content blockquote{
   font-style: italic;
+  font-size: 1.1em;
   padding: 0 4em 0 4em;
-  line-height: 1.4em;
   color: #776f68;
 }
 
@@ -496,39 +426,26 @@ Articles
 }
 
 .article h3{
-  font-size: 1.4em;
+  font-size: 1.5em;
   font-family: 'Muli', sans-serif;
   font-weight: bold;
 }
 
 .article h4{
-  font-size: 1.2em;
+  font-size: 1.4em;
   font-family: 'Muli', sans-serif;
   font-weight: bold;
 }
 
 .article h5{
-  font-size: 1.1em;
+  font-size: 1.4em;
   font-family: 'Muli', sans-serif;
-  font-weight: bold;
+  font-style:italic;
 }
 
-/* ---------------------------------------------------------
-Biography
----------------------------------------------------------*/
-
-.biography{
-  padding: 1em;
-  border: solid 1px #e6e6e6;
-  margin-top: 3em;
-}
-
-.biography p{
-  margin: 0;
-  font-style: italic;
-  font-family: "Computer Modern";
-  font-size: 1.2em;
-  color:#666666;
+.article .footnotes li {
+  font-size: .9em;
+  color: #444444;
 }
 
 /* ---------------------------------------------------------
@@ -594,17 +511,17 @@ Flashcards
 
 .flashcard {
   max-height: 400px !important;
-  -webkit-box-shadow: 8px 8px 5px -4px rgba(140,140,140,0.8);
-  -moz-box-shadow: 8px 8px 5px -4px rgba(140,140,140,0.8);
-  box-shadow: 8px 8px 5px -4px rgba(140,140,140,0.8);
+  -webkit-box-shadow: 8px 8px 5px -4px rgba(175, 175, 175, 0.8);
+  -moz-box-shadow: 8px 8px 5px -4px rgba(175, 175, 175, 0.8);
+  box-shadow: 8px 8px 5px -4px rgba(175, 175, 175, 0.8);
   display: block;
   margin-right: auto;
   margin-left: auto;
 }
 
-.flashcard_ad {
+.flashcard_banner {
   margin-bottom: 1.5em;
-  font-size: 1.2em;
+  font-size: 1.1em;
   text-align: center;
 }
 

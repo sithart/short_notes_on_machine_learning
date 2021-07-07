@@ -8,7 +8,7 @@
                     <br>
                     <span class="major_line">Data Science &amp; Machine Learning</span>
                     <br>
-                    <span class="minor_line">To Fight For Something That Matters</span>
+                    <span class="minor_line">To Fight For Things That Matters</span>
                 </h1>
             </div>
         </div>
@@ -23,7 +23,16 @@
             </div>
         </div>
 
-        <div class="row" id="machine_learning">
+<!-- CODE SECTION -->
+
+        <div class="row" id="code_snippets">
+            <div class=" col-sm-12">
+                <h2 class="category_header mt-0">Code Tutorials <small class="text-muted">- short annotated coding guides</small></h2>
+            </div>
+        </div>
+        
+
+        <div class="row" id="code_machine_learning">
             <div class="col-sm-12">
                 <h3 class="category_header">Machine Learning</h3>
             </div>
@@ -39,7 +48,7 @@
                                 {{ if .IsHome }}
                                     {{ $pages = .Site.RegularPages }}
                                 {{ end }}
-                                {{ range (where $pages "File.Dir" "in" "/machine_learning/basics/") }}
+                                {{ range (where $pages "File.Dir" "in" "/code/machine_learning/basics/") }}
                                 <li>
                                     <a href="{{.Permalink}}">{{.Title}}</a>
                                 </li>
@@ -60,7 +69,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/machine_learning/vectors_matrices_and_arrays/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/machine_learning/vectors_matrices_and_arrays/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -81,7 +90,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/machine_learning/preprocessing_structured_data/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/machine_learning/preprocessing_structured_data/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -102,7 +111,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/machine_learning/preprocessing_images/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/machine_learning/preprocessing_images/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -123,7 +132,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/machine_learning/preprocessing_text/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/machine_learning/preprocessing_text/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -144,7 +153,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/machine_learning/preprocessing_dates_and_times/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/machine_learning/preprocessing_dates_and_times/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -165,7 +174,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/machine_learning/feature_engineering/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/machine_learning/feature_engineering/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -186,7 +195,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/machine_learning/feature_selection/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/machine_learning/feature_selection/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -207,7 +216,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/machine_learning/model_evaluation/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/machine_learning/model_evaluation/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -228,7 +237,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/machine_learning/model_selection/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/machine_learning/model_selection/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -249,7 +258,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/machine_learning/linear_regression/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/machine_learning/linear_regression/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -270,7 +279,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/machine_learning/logistic_regression/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/machine_learning/logistic_regression/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -291,7 +300,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/machine_learning/trees_and_forests/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/machine_learning/trees_and_forests/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -312,7 +321,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/machine_learning/nearest_neighbors/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/machine_learning/nearest_neighbors/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -333,7 +342,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/machine_learning/support_vector_machines/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/machine_learning/support_vector_machines/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -354,7 +363,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/machine_learning/naive_bayes/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/machine_learning/naive_bayes/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -375,7 +384,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/machine_learning/clustering/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/machine_learning/clustering/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -386,7 +395,7 @@
             </div>
         </div>
 
-        <div class="row" id="deep_learning">
+        <div class="row" id="code_sdeep_learning">
             <div class="col-sm-12">
                 <h3 class="category_header">Deep Learning</h3>
             </div>
@@ -402,7 +411,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/deep_learning/setup/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/deep_learning/setup/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -423,7 +432,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/deep_learning/keras/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/deep_learning/keras/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -444,7 +453,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/deep_learning/pytorch/basics/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/deep_learning/pytorch/basics/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -455,7 +464,7 @@
             </div>
         </div>
 
-        <div class="row" id="python">
+        <div class="row" id="code_python">
             <div class="col-sm-12">
                 <h3 class="category_header">Python</h3>
             </div>
@@ -472,7 +481,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/python/basics/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/python/basics/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -493,7 +502,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/python/data_wrangling/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/python/data_wrangling/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -514,7 +523,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/python/data_visualization/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/python/data_visualization/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -535,7 +544,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/python/web_scraping/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/python/web_scraping/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -556,7 +565,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/python/testing/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/python/testing/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -577,7 +586,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/python/logging/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/python/logging/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -598,7 +607,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/python/clean_code/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/python/clean_code/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -619,7 +628,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/python/other/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/python/other/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -630,7 +639,7 @@
             </div>
         </div>
 
-        <div class="row" id="statistics">
+        <div class="row" id="code_statistics">
             <div class="col-sm-12">
                 <h3 class="category_header">Statistics</h3>
             </div>
@@ -646,7 +655,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/statistics/basics/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/statistics/basics/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -667,7 +676,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/statistics/frequentist/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/statistics/frequentist/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -678,7 +687,7 @@
             </div>
         </div>
 
-        <div class="row" id="scala">
+        <div class="row" id="code_scala">
             <div class="col-sm-12">
                 <h3 class="category_header">Scala</h3>
             </div>
@@ -693,7 +702,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/scala/basics/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/scala/basics/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -704,7 +713,7 @@
             </div>
         </div>
 
-        <div class="row" id="regex">
+        <div class="row" id="code_regex">
             <div class="col-sm-12">
                 <h3 class="category_header">Regular Expressions</h3>
             </div>
@@ -719,7 +728,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/regex/patterns/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/regex/patterns/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -730,7 +739,7 @@
             </div>
         </div>
 
-        <div class="row" id="snowflake">
+        <div class="row" id="code_snowflake">
             <div class="col-sm-12">
                 <h3 class="category_header">Snowflake</h3>
             </div>
@@ -746,7 +755,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/snowflake/sql/basics/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/snowflake/sql/basics/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -767,7 +776,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/snowflake/sql/tables/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/snowflake/sql/tables/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -778,7 +787,7 @@
             </div>
         </div>
 
-        <div class="row" id="postgresql">
+        <div class="row" id="code_postgresql">
             <div class="col-sm-12">
                 <h3 class="category_header">PostgreSQL</h3>
             </div>
@@ -794,7 +803,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/postgresql/basics/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/postgresql/basics/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -815,7 +824,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/postgresql/add_delete_change/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/postgresql/add_delete_change/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -836,7 +845,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/postgresql/merging_and_joining/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/postgresql/merging_and_joining/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -857,7 +866,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/postgresql/tables/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/postgresql/tables/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -878,7 +887,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/postgresql/text/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/postgresql/text/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -899,7 +908,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/postgresql/numeric/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/postgresql/numeric/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -920,7 +929,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/postgresql/dates/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/postgresql/dates/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -941,7 +950,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/postgresql/interview_questions/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/postgresql/interview_questions/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -952,33 +961,7 @@
             </div>
         </div>
 
-        <div class="row" id="mathematics">
-            <div class="col-sm-12">
-                <h3 class="category_header">Mathematics</h3>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="card">
-                    <div class="card-body">
-                        <ul>
-                            {{ $pages := .Pages }}
-                            {{ if .IsHome }}
-                                {{ $pages = .Site.RegularPages }}
-                            {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/mathematics/basics/") }}
-                            <li>
-                                <a href="{{.Permalink}}">{{.Title}}</a>
-                            </li>
-                            {{ end }}
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row" id="aws">
+        <div class="row" id="code_aws">
             <div class="col-sm-12">
                 <h3 class="category_header">AWS</h3>
             </div>
@@ -993,7 +976,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/aws/basics/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/aws/basics/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -1002,7 +985,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/aws/s3/cli/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/aws/s3/cli/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -1011,7 +994,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/s3/boto/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/s3/boto/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -1022,34 +1005,7 @@
             </div>
         </div>
 
-        <div class="row" id="computer_science">
-            <div class="col-sm-12">
-                <h3 class="category_header">Computer Science</h3>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="card">
-                    <h4 class="card-header">Algorithms</h4>
-                    <div class="card-body">
-                        <ul>
-                            {{ $pages := .Pages }}
-                            {{ if .IsHome }}
-                                {{ $pages = .Site.RegularPages }}
-                            {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/computer_science/algorithms/") }}
-                            <li>
-                                <a href="{{.Permalink}}">{{.Title}}</a>
-                            </li>
-                            {{ end }}
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row" id="linux">
+        <div class="row" id="code_linux">
             <div class="col-sm-12">
                 <h3 class="category_header">Linux Command Line</h3>
             </div>
@@ -1065,7 +1021,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/linux/basics/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/linux/basics/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -1086,7 +1042,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/linux/inputs_and_outputs/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/linux/inputs_and_outputs/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -1107,7 +1063,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/linux/search/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/linux/search/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -1128,7 +1084,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/linux/text/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/linux/text/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -1149,7 +1105,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/linux/flow_control/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/linux/flow_control/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -1170,7 +1126,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/linux/processes/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/linux/processes/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -1191,7 +1147,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/linux/shell_scripts/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/linux/shell_scripts/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -1202,7 +1158,7 @@
             </div>
         </div>
 
-        <div class="row" id="git_and_github">
+        <div class="row" id="code_git_and_github">
             <div class="col-sm-12">
                 <h3 class="category_header">Git And GitHub</h3>
             </div>
@@ -1217,7 +1173,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/git_and_github/basics/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/git_and_github/basics/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -1228,7 +1184,7 @@
             </div>
         </div>
 
-        <div class="row" id="machine_learning_engineering">
+        <div class="row" id="code_machine_learning_engineering">
             <div class="col-sm-12">
                 <h3 class="category_header">Machine Learning Engineering</h3>
             </div>
@@ -1244,7 +1200,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/machine_learning_engineering/yaml/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/machine_learning_engineering/yaml/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -1265,7 +1221,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/machine_learning_engineering/kubeflow/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/machine_learning_engineering/kubeflow/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -1276,7 +1232,7 @@
             </div>
         </div>
 
-        <div class="row" id="docker">
+        <div class="row" id="code_docker">
             <div class="col-sm-12">
                 <h3 class="category_header">Docker</h3>
             </div>
@@ -1292,7 +1248,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/docker/command_line/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/docker/command_line/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -1313,7 +1269,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/docker/dockerfiles/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/docker/dockerfiles/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -1324,29 +1280,7 @@
             </div>
         </div>
 
-
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="card">
-                    <h4 class="card-header">Docker Compose</h4>
-                    <div class="card-body">
-                        <ul>
-                            {{ $pages := .Pages }}
-                            {{ if .IsHome }}
-                                {{ $pages = .Site.RegularPages }}
-                            {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/docker/docker_compose/") }}
-                            <li>
-                                <a href="{{.Permalink}}">{{.Title}}</a>
-                            </li>
-                            {{ end }}
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row" id="php">
+        <div class="row" id="code_php">
             <div class="col-sm-12">
                 <h3 class="category_header">PHP</h3>
             </div>
@@ -1361,7 +1295,7 @@
                             {{ if .IsHome }}
                                 {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/php/") }}
+                            {{ range (where $pages "File.Dir" "in" "/code/php/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
@@ -1372,61 +1306,169 @@
             </div>
         </div>
 
-        <div class="row" id="research">
-            <div class="col-sm-12">
-                <h3 class="category_header">Research Notes</h3>
-            </div>
-        </div>
-    
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="card">
-                    <h4 class="card-header">AI Ethics</h4>
-                    <div class="card-body">
-                        <ul>
-                            {{ $pages := .Pages }}
-                            {{ if .IsHome }}
-                                {{ $pages = .Site.RegularPages }}
-                            {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/research/ai_ethics/") }}
-                            <li>
-                                <a href="{{.Permalink}}">{{.Title}}</a>
-                            </li>
-                            {{ end }}
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!-- NOTES SECTION -->
 
+<div class="row" id="notes">
+    <div class="col-sm-12">
+        <h2 class="category_header mt-0">Notes <small class="text-muted">- explanations, ideas, and lessons learned</small></h2>
+    </div>
+</div>
 
-        <div class="row" id="articles">
-            <div class="col-sm-12">
-                <h3 class="category_header">Articles<!-- <a style="float: right;" href="{{ .Site.BaseURL }}/articles/index.xml">RSS</a>-->
-                </h3>
+<div class="row" id="notes_machine_learning">
+    <div class="col-sm-12">
+        <h3 class="category_header">Machine Learning</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <ul>
+                    {{ $pages := .Pages }}
+                    {{ if .IsHome }}
+                        {{ $pages = .Site.RegularPages }}
+                    {{ end }}
+                    {{ range (where $pages "File.Dir" "in" "/notes/machine_learning/") }}
+                    <li>
+                        <a href="{{.Permalink}}">{{.Title}}</a>
+                    </li>
+                    {{ end }}
+                </ul>
             </div>
         </div>
+    </div>
+</div>
 
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="card">
-                    <div class="article_list card-body">
-                        <ul>
-                            {{ $pages := .Pages }}
-                            {{ if .IsHome }}
-                                {{ $pages = .Site.RegularPages }}
-                            {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/articles/") }}
-                            <li>
-                                <!-- {{ .PublishDate.Format "Jan 2006" }} -->
-                                <a href="{{.Permalink}}">{{.Title}}</a>
-                            </li>
-                            {{ end }}
-                        </ul>
-                    </div>
-                </div>
+<div class="row" id="notes_machine_learning">
+    <div class="col-sm-12">
+        <h3 class="category_header">Ethical Machine Learning</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <ul>
+                    {{ $pages := .Pages }}
+                    {{ if .IsHome }}
+                        {{ $pages = .Site.RegularPages }}
+                    {{ end }}
+                    {{ range (where $pages "File.Dir" "in" "/notes/machine_learning/") }}
+                    <li>
+                        <a href="{{.Permalink}}">{{.Title}}</a>
+                    </li>
+                    {{ end }}
+                </ul>
             </div>
         </div>
+    </div>
+</div>
+
+<div class="row" id="notes_machine_learning">
+    <div class="col-sm-12">
+        <h3 class="category_header">Software Engineering</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <ul>
+                    {{ $pages := .Pages }}
+                    {{ if .IsHome }}
+                        {{ $pages = .Site.RegularPages }}
+                    {{ end }}
+                    {{ range (where $pages "File.Dir" "in" "/notes/software_engineering/") }}
+                    <li>
+                        <a href="{{.Permalink}}">{{.Title}}</a>
+                    </li>
+                    {{ end }}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row" id="notes_social_science">
+    <div class="col-sm-12">
+        <h3 class="category_header">Social Good</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <ul>
+                    {{ $pages := .Pages }}
+                    {{ if .IsHome }}
+                        {{ $pages = .Site.RegularPages }}
+                    {{ end }}
+                    {{ range (where $pages "File.Dir" "in" "/notes/social_good/") }}
+                    <li>
+                        <a href="{{.Permalink}}">{{.Title}}</a>
+                    </li>
+                    {{ end }}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row" id="notes_technical_management">
+    <div class="col-sm-12">
+        <h3 class="category_header">Technical Management</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <ul>
+                    {{ $pages := .Pages }}
+                    {{ if .IsHome }}
+                        {{ $pages = .Site.RegularPages }}
+                    {{ end }}
+                    {{ range (where $pages "File.Dir" "in" "/notes/technical_management/") }}
+                    <li>
+                        <a href="{{.Permalink}}">{{.Title}}</a>
+                    </li>
+                    {{ end }}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row" id="notes_personal">
+    <div class="col-sm-12">
+        <h3 class="category_header">Personal</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <ul>
+                    {{ $pages := .Pages }}
+                    {{ if .IsHome }}
+                        {{ $pages = .Site.RegularPages }}
+                    {{ end }}
+                    {{ range (where $pages "File.Dir" "in" "/notes/personal/") }}
+                    <li>
+                        <a href="{{.Permalink}}">{{.Title}}</a>
+                    </li>
+                    {{ end }}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
 
     </div>
 
