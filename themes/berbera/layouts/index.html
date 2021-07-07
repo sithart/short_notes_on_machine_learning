@@ -1340,7 +1340,7 @@
     </div>
 </div>
 
-<div class="row" id="notes_machine_learning">
+<div class="row" id="notes_ethical_machine_learning">
     <div class="col-sm-12">
         <h3 class="category_header">Ethical Machine Learning</h3>
     </div>
@@ -1355,7 +1355,7 @@
                     {{ if .IsHome }}
                         {{ $pages = .Site.RegularPages }}
                     {{ end }}
-                    {{ range (where $pages "File.Dir" "in" "/notes/machine_learning/") }}
+                    {{ range (where $pages "File.Dir" "in" "/notes/ethical_machine_learning/") }}
                     <li>
                         <a href="{{.Permalink}}">{{.Title}}</a>
                     </li>

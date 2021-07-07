@@ -3,7 +3,7 @@
 /* ---------------------------------------------------------
 /* Computer Modern font
 ---------------------------------------------------------*/
-
+/*
 @font-face {
   font-family: "Computer Modern";
   src: url(../fonts/cmunbi.ttf);
@@ -26,7 +26,7 @@
   font-weight: normal;
   font-style: normal;
 }
-
+*/
 
 /* ---------------------------------------------------------
 /* Fontawesome
@@ -127,7 +127,7 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
-  color: #444444;
+  color:#2c2c2c;
   font-family: 'Muli', sans-serif;
 }
 .footer {
@@ -184,7 +184,7 @@ Navbar
 ---------------------------------------------------------*/
 
 .navbar {
-  background-color: #e84038;
+  background-color: #e8332b;
   border-bottom: 0px;
 }
 
@@ -328,7 +328,7 @@ Homepage cards
 Technical Notes
 ---------------------------------------------------------*/
 
-.technica_note, .page {
+.technical_note, .page {
   font-family: 'Muli', sans-serif;
 }
 
@@ -389,24 +389,25 @@ Articles
 }
 
 .article .content{
-  font-family: "Computer Modern", serif;
-}
+  font-family: "Crimson Text", serif;
+} 
 
-.article .content p, .article .content li{
-  font-size: 1.2em;
-  line-height: 1.4em;
+.article .content p {
+  font-size: 1.3em;
+  line-height: 1.5em;
   padding-top:.25em;
   padding-bottom:.25em;
 }
 
-.article .content p .mjx-math {
-  font-size: 1em;
+.article .content li {
+  font-size: 1.3em;
+  line-height: 1.5em;
 }
 
 .article .content blockquote{
   font-style: italic;
+  font-size: 1.1em;
   padding: 0 4em 0 4em;
-  line-height: 1.4em;
   color: #776f68;
 }
 
@@ -425,25 +426,26 @@ Articles
 }
 
 .article h3{
-  font-size: 1.4em;
+  font-size: 1.5em;
   font-family: 'Muli', sans-serif;
   font-weight: bold;
 }
 
 .article h4{
-  font-size: 1.2em;
+  font-size: 1.4em;
   font-family: 'Muli', sans-serif;
   font-weight: bold;
 }
 
 .article h5{
-  font-size: 1.1em;
+  font-size: 1.4em;
   font-family: 'Muli', sans-serif;
-  font-weight: bold;
+  font-style:italic;
 }
 
 .article .footnotes li {
   font-size: .9em;
+  color: #444444;
 }
 
 /* ---------------------------------------------------------
@@ -509,9 +511,9 @@ Flashcards
 
 .flashcard {
   max-height: 400px !important;
-  -webkit-box-shadow: 8px 8px 5px -4px rgba(140,140,140,0.8);
-  -moz-box-shadow: 8px 8px 5px -4px rgba(140,140,140,0.8);
-  box-shadow: 8px 8px 5px -4px rgba(140,140,140,0.8);
+  -webkit-box-shadow: 8px 8px 5px -4px rgba(175, 175, 175, 0.8);
+  -moz-box-shadow: 8px 8px 5px -4px rgba(175, 175, 175, 0.8);
+  box-shadow: 8px 8px 5px -4px rgba(175, 175, 175, 0.8);
   display: block;
   margin-right: auto;
   margin-left: auto;

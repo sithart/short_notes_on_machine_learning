@@ -3,13 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://chrisalbon.com/</loc>
-    <lastmod>2021-05-18T01:01:00-07:00</lastmod>
+    <lastmod>2021-07-07T00:00:00-07:00</lastmod>
   </url><url>
-    <loc>https://chrisalbon.com/note/personal/test_article/</loc>
-    <lastmod>2021-05-18T01:01:00-07:00</lastmod>
+    <loc>https://chrisalbon.com/notes/ethical_machine_learning/model_cards/</loc>
+    <lastmod>2021-07-07T00:00:00-07:00</lastmod>
   </url><url>
-    <loc>https://chrisalbon.com/note/index.xml</loc>
-    <lastmod>2021-05-18T01:01:00-07:00</lastmod>
+    <loc>https://chrisalbon.com/notes/index.xml</loc>
+    <lastmod>2021-07-07T00:00:00-07:00</lastmod>
   </url><url>
     <loc>https://chrisalbon.com/code/python/clean_code/annotate_functions/</loc>
     <lastmod>2021-02-19T00:00:00-07:00</lastmod>
@@ -194,7 +194,7 @@
     <loc>https://chrisalbon.com/code/machine_learning_engineering/kubeflow/installing_kubeflow_on_ubuntu/</loc>
     <lastmod>2020-06-23T00:00:00-07:00</lastmod>
   </url><url>
-    <loc>https://chrisalbon.com/note/technical_management/what_i_said_to_my_team_during_covid-19/</loc>
+    <loc>https://chrisalbon.com/notes/technical_management/what_i_said_to_my_team_during_covid-19/</loc>
     <lastmod>2020-03-23T00:00:00-07:00</lastmod>
   </url><url>
     <loc>https://chrisalbon.com/code/deep_learning/pytorch/basics/check_if_pytorch_is_using_gpu/</loc>
@@ -2108,19 +2108,19 @@
     <loc>https://chrisalbon.com/code/scala/basics/zip_together_two_lists/</loc>
     <lastmod>2017-12-20T11:53:49-07:00</lastmod>
   </url><url>
-    <loc>https://chrisalbon.com/note/technical_management/what_i_learned_from_tracking_my_time_at_techstars/</loc>
+    <loc>https://chrisalbon.com/notes/personal/what_i_learned_from_tracking_my_time_at_techstars/</loc>
     <lastmod>2016-02-01T11:53:49-07:00</lastmod>
   </url><url>
-    <loc>https://chrisalbon.com/note/social_science/health_system_destruction_renamo_mozambique/</loc>
+    <loc>https://chrisalbon.com/notes/social_good/health_system_destruction_renamo_mozambique/</loc>
     <lastmod>2011-12-20T11:53:49-07:00</lastmod>
   </url><url>
-    <loc>https://chrisalbon.com/note/social_science/health_system_reconstruction_post_war_kosovo/</loc>
+    <loc>https://chrisalbon.com/notes/social_good/health_system_reconstruction_post_war_kosovo/</loc>
     <lastmod>2011-12-20T11:53:49-07:00</lastmod>
   </url><url>
-    <loc>https://chrisalbon.com/note/social_science/puzzle_of_rebel_mobilization/</loc>
+    <loc>https://chrisalbon.com/notes/social_good/puzzle_of_rebel_mobilization/</loc>
     <lastmod>2011-12-20T11:53:49-07:00</lastmod>
   </url><url>
-    <loc>https://chrisalbon.com/note/social_science/health_systems/</loc>
+    <loc>https://chrisalbon.com/notes/social_good/health_systems/</loc>
     <lastmod>2011-12-20T11:53:49-07:00</lastmod>
   </url><url>
     <loc>https://chrisalbon.com/code/python/basics/untitled/</loc>
