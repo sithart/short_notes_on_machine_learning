@@ -4,7 +4,7 @@ author: "Chris Albon"
 date: 2021-07-07T00:00:00-07:00
 description: "Model cards for ethical machine learning"
 type: article
-draft: false
+draft: true
 ---
 
 Models are are proposed in a 2019 paper by the then Google team. The basic idea, as proposed. Is to create a
@@ -17,3 +17,4 @@ Models are are proposed in a 2019 paper by the then Google team. The basic idea,
     - Original proposal 
         - "As a step towards this goal, we propose that released machine learning models be accompanied by short (one to two page) records we call model cards As a step towards this goal, we propose that released machine learning models be accompanied by short (one to two page) records we call model cards As a step towards this goal, we propose that released machine learning models be accompanied by short (one to two page) records we call model cards" 
 -->
+
