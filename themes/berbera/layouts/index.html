@@ -8,7 +8,7 @@
                     <br>
                     <span class="major_line">Data Science &amp; Machine Learning</span>
                     <br>
-                    <span class="minor_line">To Fight For Things That Matters</span>
+                    <span class="minor_line">To Fight For Things That Matter</span>
                 </h1>
             </div>
         </div>
@@ -22,6 +22,170 @@
                     <a href="https://machinelearningflashcards.com">Machine Learning Flashcards</a>, my book (<a href="https://amzn.to/2HwnWty">Machine Learning With Python Cookbook</a>), or come <a href="https://www.youtube.com/channel/UCnd4Fi-ODvuPbxR2fO2j7kA">study with me</a>.</p> 
             </div>
         </div>
+
+<!-- NOTES SECTION -->
+
+<div class="row" id="notes">
+    <div class="col-sm-12">
+        <h2 class="category_header mt-0">Notes <small class="text-muted">- explanations, ideas, and lessons learned</small></h2>
+    </div>
+</div>
+
+<div class="row" id="notes_machine_learning">
+    <div class="col-sm-12">
+        <h3 class="category_header">Machine Learning</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <ul>
+                    {{ $pages := .Pages }}
+                    {{ if .IsHome }}
+                        {{ $pages = .Site.RegularPages }}
+                    {{ end }}
+                    {{ range (where $pages "File.Dir" "in" "/notes/machine_learning/") }}
+                    <li>
+                        <a href="{{.Permalink}}">{{.Title}}</a>
+                    </li>
+                    {{ end }}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row" id="notes_ethical_machine_learning">
+    <div class="col-sm-12">
+        <h3 class="category_header">Ethical Machine Learning</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <ul>
+                    {{ $pages := .Pages }}
+                    {{ if .IsHome }}
+                        {{ $pages = .Site.RegularPages }}
+                    {{ end }}
+                    {{ range (where $pages "File.Dir" "in" "/notes/ethical_machine_learning/") }}
+                    <li>
+                        <a href="{{.Permalink}}">{{.Title}}</a>
+                    </li>
+                    {{ end }}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row" id="notes_software_engineering">
+    <div class="col-sm-12">
+        <h3 class="category_header">Software Engineering</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <ul>
+                    {{ $pages := .Pages }}
+                    {{ if .IsHome }}
+                        {{ $pages = .Site.RegularPages }}
+                    {{ end }}
+                    {{ range (where $pages "File.Dir" "in" "/notes/software_engineering/") }}
+                    <li>
+                        <a href="{{.Permalink}}">{{.Title}}</a>
+                    </li>
+                    {{ end }}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row" id="notes_social_good">
+    <div class="col-sm-12">
+        <h3 class="category_header">Social Good</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <ul>
+                    {{ $pages := .Pages }}
+                    {{ if .IsHome }}
+                        {{ $pages = .Site.RegularPages }}
+                    {{ end }}
+                    {{ range (where $pages "File.Dir" "in" "/notes/social_good/") }}
+                    <li>
+                        <a href="{{.Permalink}}">{{.Title}}</a>
+                    </li>
+                    {{ end }}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row" id="notes_engineering_management">
+    <div class="col-sm-12">
+        <h3 class="category_header">Engineering Management</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <ul>
+                    {{ $pages := .Pages }}
+                    {{ if .IsHome }}
+                        {{ $pages = .Site.RegularPages }}
+                    {{ end }}
+                    {{ range (where $pages "File.Dir" "in" "/notes/technical_management/") }}
+                    <li>
+                        <a href="{{.Permalink}}">{{.Title}}</a>
+                    </li>
+                    {{ end }}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row" id="notes_personal">
+    <div class="col-sm-12">
+        <h3 class="category_header">Personal</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <ul>
+                    {{ $pages := .Pages }}
+                    {{ if .IsHome }}
+                        {{ $pages = .Site.RegularPages }}
+                    {{ end }}
+                    {{ range (where $pages "File.Dir" "in" "/notes/personal/") }}
+                    <li>
+                        <a href="{{.Permalink}}">{{.Title}}</a>
+                    </li>
+                    {{ end }}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- CODE SECTION -->
 
@@ -1305,170 +1469,6 @@
                 </div>
             </div>
         </div>
-
-<!-- NOTES SECTION -->
-
-<div class="row" id="notes">
-    <div class="col-sm-12">
-        <h2 class="category_header mt-0">Notes <small class="text-muted">- explanations, ideas, and lessons learned</small></h2>
-    </div>
-</div>
-
-<div class="row" id="notes_machine_learning">
-    <div class="col-sm-12">
-        <h3 class="category_header">Machine Learning</h3>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-sm-12">
-        <div class="card">
-            <div class="card-body">
-                <ul>
-                    {{ $pages := .Pages }}
-                    {{ if .IsHome }}
-                        {{ $pages = .Site.RegularPages }}
-                    {{ end }}
-                    {{ range (where $pages "File.Dir" "in" "/notes/machine_learning/") }}
-                    <li>
-                        <a href="{{.Permalink}}">{{.Title}}</a>
-                    </li>
-                    {{ end }}
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="row" id="notes_ethical_machine_learning">
-    <div class="col-sm-12">
-        <h3 class="category_header">Ethical Machine Learning</h3>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-sm-12">
-        <div class="card">
-            <div class="card-body">
-                <ul>
-                    {{ $pages := .Pages }}
-                    {{ if .IsHome }}
-                        {{ $pages = .Site.RegularPages }}
-                    {{ end }}
-                    {{ range (where $pages "File.Dir" "in" "/notes/ethical_machine_learning/") }}
-                    <li>
-                        <a href="{{.Permalink}}">{{.Title}}</a>
-                    </li>
-                    {{ end }}
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="row" id="notes_machine_learning">
-    <div class="col-sm-12">
-        <h3 class="category_header">Software Engineering</h3>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-sm-12">
-        <div class="card">
-            <div class="card-body">
-                <ul>
-                    {{ $pages := .Pages }}
-                    {{ if .IsHome }}
-                        {{ $pages = .Site.RegularPages }}
-                    {{ end }}
-                    {{ range (where $pages "File.Dir" "in" "/notes/software_engineering/") }}
-                    <li>
-                        <a href="{{.Permalink}}">{{.Title}}</a>
-                    </li>
-                    {{ end }}
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="row" id="notes_social_science">
-    <div class="col-sm-12">
-        <h3 class="category_header">Social Good</h3>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-sm-12">
-        <div class="card">
-            <div class="card-body">
-                <ul>
-                    {{ $pages := .Pages }}
-                    {{ if .IsHome }}
-                        {{ $pages = .Site.RegularPages }}
-                    {{ end }}
-                    {{ range (where $pages "File.Dir" "in" "/notes/social_good/") }}
-                    <li>
-                        <a href="{{.Permalink}}">{{.Title}}</a>
-                    </li>
-                    {{ end }}
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="row" id="notes_technical_management">
-    <div class="col-sm-12">
-        <h3 class="category_header">Technical Management</h3>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-sm-12">
-        <div class="card">
-            <div class="card-body">
-                <ul>
-                    {{ $pages := .Pages }}
-                    {{ if .IsHome }}
-                        {{ $pages = .Site.RegularPages }}
-                    {{ end }}
-                    {{ range (where $pages "File.Dir" "in" "/notes/technical_management/") }}
-                    <li>
-                        <a href="{{.Permalink}}">{{.Title}}</a>
-                    </li>
-                    {{ end }}
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="row" id="notes_personal">
-    <div class="col-sm-12">
-        <h3 class="category_header">Personal</h3>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-sm-12">
-        <div class="card">
-            <div class="card-body">
-                <ul>
-                    {{ $pages := .Pages }}
-                    {{ if .IsHome }}
-                        {{ $pages = .Site.RegularPages }}
-                    {{ end }}
-                    {{ range (where $pages "File.Dir" "in" "/notes/personal/") }}
-                    <li>
-                        <a href="{{.Permalink}}">{{.Title}}</a>
-                    </li>
-                    {{ end }}
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
 
     </div>
 
