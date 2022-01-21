@@ -184,7 +184,7 @@ Navbar
 ---------------------------------------------------------*/
 
 .navbar {
-  background-color: #e8332b;
+  background-color: #d61c14;
   border-bottom: 0px;
 }
 
@@ -555,22 +555,13 @@ th{
 Render Math
 ---------------------------------------------------------*/
 
-div.math{
-  font-size: 1em;
-}
-
-code.has-jax {
+.technical_note .MathJax {
   -webkit-font-smoothing: antialiased;
   background: inherit !important;
   border: none !important;
-  font-size: 100%;
+  font-size: 1.3em !important;
 }
 
-/* ---------------------------------------------------------
-Newsletter
----------------------------------------------------------*/
-
-.newsletter_ad {
-  font-size: 1.05em;
-}
-
+.article .MathJax {
+  font-size: 1em !important;;
+  }

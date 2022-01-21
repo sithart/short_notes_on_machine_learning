@@ -66,7 +66,7 @@
     
 
     
-    <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
+    <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon" />
 
     <script>
   MathJax = {
@@ -107,6 +107,19 @@
                     <ul class="nav navbar-nav mr-auto"></ul>
                 <ul class="navbar-nav">
 
+                   <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            Notes
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="https://chrisalbon.com/#notes_machine_learning">Machine Learning</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#notes_engineering management">Engineering Management</a>
+                                                      
+                            <a class="dropdown-item" href="https://chrisalbon.com/#notes_personal">Self</a>
+
+                        </div>
+                    </li>
 
 
                     <li class="nav-item dropdown">
@@ -131,10 +144,6 @@
                             <a class="dropdown-item" href="https://chrisalbon.com/#code_php">PHP</a>
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://www.youtube.com/channel/UCnd4Fi-ODvuPbxR2fO2j7kA">Study With Me</a>
-                    </li>
-
 
 
                     <li class="nav-item dropdown">
@@ -148,6 +157,10 @@
                             <a class="dropdown-item" href="https://www.amazon.com/Machine-Learning-Python-Cookbook-Preprocessing/dp/1491989386">ML Book</a>
                             <a class="dropdown-item" href="https://machinelearningflashcards.com/">ML Flashcards</a>
                         </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://chrisalbon.com//articles/index.xml">RSS</a>
                     </li>
                 </ul>
 
@@ -169,7 +182,7 @@
   <div class="technical_note">
   <header>
       <div class="alert alert-primary flashcard_banner" role="alert">
-        Learning machine learning with <a href="https://machinelearningflashcards.com" class="alert-link">machine learning flashcards</a>, <a href='https://amzn.to/2HwnWty' class="alert-link">Python ML book</a>, or <a href='https://www.youtube.com/channel/UCnd4Fi-ODvuPbxR2fO2j7kA' class="alert-link">study with me videos</a>.
+        Learning machine learning? Try my <a href="https://machinelearningflashcards.com" class="alert-link">machine learning flashcards</a> to memorize key concepts.
       </div>
     <h1 class="technical_note_title">k-Fold Cross-Validating Neural Networks</h1>
     <div class="technical_note_date">
@@ -179,7 +192,7 @@
   <div class="content">
   <p>If we have smaller data it can be useful to benefit from k-fold cross-validation to maximize our ability to evaluate the neural network&rsquo;s performance. This is possible in Keras because we can &ldquo;wrap&rdquo; any neural network such that it can use the evaluation features available in scikit-learn, including k-fold cross-validation. To accomplish this, we first have to create a function that returns a compiled neural network. Next we use <code>KerasClassifier</code> (if we have a classifier, if we have a regressor we can use <code>KerasRegressor</code>) to wrap the model so it can be used by scikit-learn. After this, we can use our neural network like any other scikit-learn learning algorithm (e.g. random forests, logistic regression). In our solution, we used <code>cross_val_score</code> to run a 3-fold cross-validation on our neural network.</p>
 <h2 id="preliminaries">Preliminaries</h2>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Load libraries</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Load libraries</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">keras</span> <span class="kn">import</span> <span class="n">models</span>
 <span class="kn">from</span> <span class="nn">keras</span> <span class="kn">import</span> <span class="n">layers</span>
@@ -192,7 +205,7 @@
 </code></pre></div><pre><code>Using TensorFlow backend.
 </code></pre>
 <h2 id="create-feature-and-target-data">Create Feature And Target Data</h2>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Number of features</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Number of features</span>
 <span class="n">number_of_features</span> <span class="o">=</span> <span class="mi">100</span>
 
 <span class="c1"># Generate features matrix and target vector</span>
@@ -204,7 +217,7 @@
                                        <span class="n">weights</span> <span class="o">=</span> <span class="p">[</span><span class="mf">.5</span><span class="p">,</span> <span class="mf">.5</span><span class="p">],</span>
                                        <span class="n">random_state</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
 </code></pre></div><h2 id="create-function-that-constructs-neural-network">Create Function That Constructs Neural Network</h2>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create function returning a compiled network</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create function returning a compiled network</span>
 <span class="k">def</span> <span class="nf">create_network</span><span class="p">():</span>
     
     <span class="c1"># Start neural network</span>
@@ -227,13 +240,13 @@
     <span class="c1"># Return compiled network</span>
     <span class="k">return</span> <span class="n">network</span>
 </code></pre></div><h2 id="wrap-function-in-kerasclassifier">Wrap Function In KerasClassifier</h2>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Wrap Keras model so it can be used by scikit-learn</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Wrap Keras model so it can be used by scikit-learn</span>
 <span class="n">neural_network</span> <span class="o">=</span> <span class="n">KerasClassifier</span><span class="p">(</span><span class="n">build_fn</span><span class="o">=</span><span class="n">create_network</span><span class="p">,</span> 
                                  <span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> 
                                  <span class="n">batch_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> 
                                  <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </code></pre></div><h2 id="conduct-k-fold-cross-validation-using-scikit-learn">Conduct k-Fold Cross-Validation Using scikit-learn</h2>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Evaluate neural network using three-fold cross-validation</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Evaluate neural network using three-fold cross-validation</span>
 <span class="n">cross_val_score</span><span class="p">(</span><span class="n">neural_network</span><span class="p">,</span> <span class="n">features</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </code></pre></div><pre><code>array([ 0.90491901,  0.77827782,  0.87038704])
 </code></pre>
@@ -261,7 +274,7 @@
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 704 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

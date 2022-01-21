@@ -66,7 +66,7 @@
     
 
     
-    <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
+    <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon" />
 
     <script>
   MathJax = {
@@ -107,6 +107,19 @@
                     <ul class="nav navbar-nav mr-auto"></ul>
                 <ul class="navbar-nav">
 
+                   <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            Notes
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="https://chrisalbon.com/#notes_machine_learning">Machine Learning</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#notes_engineering management">Engineering Management</a>
+                                                      
+                            <a class="dropdown-item" href="https://chrisalbon.com/#notes_personal">Self</a>
+
+                        </div>
+                    </li>
 
 
                     <li class="nav-item dropdown">
@@ -131,10 +144,6 @@
                             <a class="dropdown-item" href="https://chrisalbon.com/#code_php">PHP</a>
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://www.youtube.com/channel/UCnd4Fi-ODvuPbxR2fO2j7kA">Study With Me</a>
-                    </li>
-
 
 
                     <li class="nav-item dropdown">
@@ -148,6 +157,10 @@
                             <a class="dropdown-item" href="https://www.amazon.com/Machine-Learning-Python-Cookbook-Preprocessing/dp/1491989386">ML Book</a>
                             <a class="dropdown-item" href="https://machinelearningflashcards.com/">ML Flashcards</a>
                         </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://chrisalbon.com//articles/index.xml">RSS</a>
                     </li>
                 </ul>
 
@@ -169,7 +182,7 @@
   <div class="technical_note">
   <header>
       <div class="alert alert-primary flashcard_banner" role="alert">
-        Learning machine learning with <a href="https://machinelearningflashcards.com" class="alert-link">machine learning flashcards</a>, <a href='https://amzn.to/2HwnWty' class="alert-link">Python ML book</a>, or <a href='https://www.youtube.com/channel/UCnd4Fi-ODvuPbxR2fO2j7kA' class="alert-link">study with me videos</a>.
+        Learning machine learning? Try my <a href="https://machinelearningflashcards.com" class="alert-link">machine learning flashcards</a> to memorize key concepts.
       </div>
     <h1 class="technical_note_title">Impute Missing Values With Means</h1>
     <div class="technical_note_date">
@@ -179,11 +192,11 @@
   <div class="content">
   <p>Mean imputation replaces missing values with the mean value of that feature/variable. Mean imputation is one of the most &lsquo;naive&rsquo; imputation methods because unlike more complex methods like k-nearest neighbors imputation, it does not use the information we have about an observation to estimate a value for it.</p>
 <h2 id="preliminaries">Preliminaries</h2>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">Imputer</span>
 </code></pre></div><h2 id="create-data">Create Data</h2>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create an empty dataset</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create an empty dataset</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
 
 <span class="c1"># Create two variables called x0 and x1. Make the first value of x1 a missing value</span>
@@ -256,16 +269,16 @@
 </table>
 </div>
 <h2 id="fit-imputer">Fit Imputer</h2>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create an imputer object that looks for &#39;Nan&#39; values, then replaces them with the mean value of the feature by columns (axis=0)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create an imputer object that looks for &#39;Nan&#39; values, then replaces them with the mean value of the feature by columns (axis=0)</span>
 <span class="n">mean_imputer</span> <span class="o">=</span> <span class="n">Imputer</span><span class="p">(</span><span class="n">missing_values</span><span class="o">=</span><span class="s1">&#39;NaN&#39;</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="c1"># Train the imputor on the df dataset</span>
 <span class="n">mean_imputer</span> <span class="o">=</span> <span class="n">mean_imputer</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </code></pre></div><h2 id="apply-imputer">Apply Imputer</h2>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Apply the imputer to the df dataset</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Apply the imputer to the df dataset</span>
 <span class="n">imputed_df</span> <span class="o">=</span> <span class="n">mean_imputer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
 </code></pre></div><h2 id="view-data">View Data</h2>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># View the data</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># View the data</span>
 <span class="n">imputed_df</span>
 </code></pre></div><pre><code>array([[ 0.3051    ,  0.49273333],
        [ 0.4949    ,  0.2654    ],
@@ -303,7 +316,7 @@
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 704 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

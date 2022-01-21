@@ -66,7 +66,7 @@
     
 
     
-    <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
+    <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon" />
 
     <script>
   MathJax = {
@@ -107,6 +107,19 @@
                     <ul class="nav navbar-nav mr-auto"></ul>
                 <ul class="navbar-nav">
 
+                   <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            Notes
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="https://chrisalbon.com/#notes_machine_learning">Machine Learning</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#notes_engineering management">Engineering Management</a>
+                                                      
+                            <a class="dropdown-item" href="https://chrisalbon.com/#notes_personal">Self</a>
+
+                        </div>
+                    </li>
 
 
                     <li class="nav-item dropdown">
@@ -131,10 +144,6 @@
                             <a class="dropdown-item" href="https://chrisalbon.com/#code_php">PHP</a>
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://www.youtube.com/channel/UCnd4Fi-ODvuPbxR2fO2j7kA">Study With Me</a>
-                    </li>
-
 
 
                     <li class="nav-item dropdown">
@@ -148,6 +157,10 @@
                             <a class="dropdown-item" href="https://www.amazon.com/Machine-Learning-Python-Cookbook-Preprocessing/dp/1491989386">ML Book</a>
                             <a class="dropdown-item" href="https://machinelearningflashcards.com/">ML Flashcards</a>
                         </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://chrisalbon.com//articles/index.xml">RSS</a>
                     </li>
                 </ul>
 
@@ -169,7 +182,7 @@
   <div class="technical_note">
   <header>
       <div class="alert alert-primary flashcard_banner" role="alert">
-        Learning machine learning with <a href="https://machinelearningflashcards.com" class="alert-link">machine learning flashcards</a>, <a href='https://amzn.to/2HwnWty' class="alert-link">Python ML book</a>, or <a href='https://www.youtube.com/channel/UCnd4Fi-ODvuPbxR2fO2j7kA' class="alert-link">study with me videos</a>.
+        Learning machine learning? Try my <a href="https://machinelearningflashcards.com" class="alert-link">machine learning flashcards</a> to memorize key concepts.
       </div>
     <h1 class="technical_note_title">Random Forest Classifier Example</h1>
     <div class="technical_note_date">
@@ -182,7 +195,7 @@
 <h3 id="a-note-about-the-data">A Note About The Data</h3>
 <p>The data for this tutorial is famous. Called, <a href="https://en.wikipedia.org/wiki/Iris_flower_data_set">the iris dataset</a>, it contains four variables measuring various parts of iris flowers of three related species, and then a fourth variable with the species name. The reason it is so famous in machine learning and statistics communities is because the data requires very little preprocessing (i.e. no missing values, all features are floating numbers, etc.).</p>
 <h2 id="preliminaries">Preliminaries</h2>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Load the library with the iris dataset</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Load the library with the iris dataset</span>
 <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
 
 <span class="c1"># Load scikit&#39;s random forest classifier library</span>
@@ -197,7 +210,7 @@
 <span class="c1"># Set random seed</span>
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </code></pre></div><h2 id="load-data">Load Data</h2>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create an object called iris with the iris data</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create an object called iris with the iris data</span>
 <span class="n">iris</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">()</span>
 
 <span class="c1"># Create a dataframe with the four feature variables</span>
@@ -268,7 +281,7 @@
   </tbody>
 </table>
 </div>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Add a new column with the species names, this is what we are going to try to predict</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Add a new column with the species names, this is what we are going to try to predict</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="o">.</span><span class="n">from_codes</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">target</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">target_names</span><span class="p">)</span>
 
 <span class="c1"># View the top 5 rows</span>
@@ -343,7 +356,7 @@
 </table>
 </div>
 <h2 id="create-training-and-test-data">Create Training And Test Data</h2>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a new column that for each row, generates a random number between 0 and 1, and</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a new column that for each row, generates a random number between 0 and 1, and</span>
 <span class="c1"># if that value is less than or equal to .75, then sets the value of that cell as True</span>
 <span class="c1"># and false otherwise. This is a quick and dirty way of randomly assigning some rows to</span>
 <span class="c1"># be used as the training data and some as the test data.</span>
@@ -426,16 +439,16 @@
   </tbody>
 </table>
 </div>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create two new dataframes, one with the training rows, one with the test rows</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create two new dataframes, one with the training rows, one with the test rows</span>
 <span class="n">train</span><span class="p">,</span> <span class="n">test</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;is_train&#39;</span><span class="p">]</span><span class="o">==</span><span class="kc">True</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;is_train&#39;</span><span class="p">]</span><span class="o">==</span><span class="kc">False</span><span class="p">]</span>
-</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Show the number of observations for the test and training dataframes</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Show the number of observations for the test and training dataframes</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of observations in the training data:&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">train</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of observations in the test data:&#39;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">test</span><span class="p">))</span>
 </code></pre></div><pre><code>Number of observations in the training data: 118
 Number of observations in the test data: 32
 </code></pre>
 <h2 id="preprocess-data">Preprocess Data</h2>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a list of the feature column&#39;s names</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a list of the feature column&#39;s names</span>
 <span class="n">features</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span>
 
 <span class="c1"># View features</span>
@@ -444,7 +457,7 @@ Number of observations in the test data: 32
        'petal width (cm)'],
       dtype='object')
 </code></pre>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># train[&#39;species&#39;] contains the actual species names. Before we can use it,</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># train[&#39;species&#39;] contains the actual species names. Before we can use it,</span>
 <span class="c1"># we need to convert each species name into a digit. So, in this case there</span>
 <span class="c1"># are three species, which have been coded as 0, 1, or 2.</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">factorize</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
@@ -459,7 +472,7 @@ Number of observations in the test data: 32
        2, 2, 2])
 </code></pre>
 <h2 id="train-the-random-forest-classifier">Train The Random Forest Classifier</h2>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a random forest Classifier. By convention, clf means &#39;Classifier&#39;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a random forest Classifier. By convention, clf means &#39;Classifier&#39;</span>
 <span class="n">clf</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="c1"># Train the Classifier to take the training features and learn how they relate</span>
@@ -476,13 +489,13 @@ Number of observations in the test data: 32
 <h2 id="apply-classifier-to-test-data">Apply Classifier To Test Data</h2>
 <p>If you have been following along, you will know we only trained our classifier on part of the data, leaving the rest out. This is, in my humble opinion, the most important part of machine learning. Why? Because by leaving out a portion of the data, we have a set of data to test the accuracy of our model!</p>
 <p>Let&rsquo;s do that now.</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Apply the Classifier we trained to the test data (which, remember, it has never seen before)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Apply the Classifier we trained to the test data (which, remember, it has never seen before)</span>
 <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="n">features</span><span class="p">])</span>
 </code></pre></div><pre><code>array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2, 2, 1, 1, 2, 2, 2,
        2, 2, 2, 2, 2, 2, 2, 2, 2])
 </code></pre>
 <p>What are you looking at above? Remember that we coded each of the three species of plant as 0, 1, or 2. What the list of numbers above is showing you is what species our model predicts each plant is based on the the sepal length, sepal width, petal length, and petal width. How confident is the classifier about each plant? We can see that too.</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># View the predicted probabilities of the first 10 observations</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># View the predicted probabilities of the first 10 observations</span>
 <span class="n">clf</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="n">features</span><span class="p">])[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
 </code></pre></div><pre><code>array([[ 1. ,  0. ,  0. ],
        [ 1. ,  0. ,  0. ],
@@ -498,14 +511,14 @@ Number of observations in the test data: 32
 <p>There are three species of plant, thus <code>[ 1. ,  0. ,  0. ]</code> tells us that the classifier is certain that the plant is the first class. Taking another example, <code>[ 0.9,  0.1,  0. ]</code> tells us that the classifier gives a 90% probability the plant belongs to the first class and a 10% probability the plant belongs to the second class. Because 90 is greater than 10, the classifier predicts the plant is the first class.</p>
 <h2 id="evaluate-classifier">Evaluate Classifier</h2>
 <p>Now that we have predicted the species of all plants in the test data, we can compare our predicted species with the that plant&rsquo;s actual species.</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create actual english names for the plants for each predicted plant class</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create actual english names for the plants for each predicted plant class</span>
 <span class="n">preds</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">target_names</span><span class="p">[</span><span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="n">features</span><span class="p">])]</span>
-</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># View the PREDICTED species for the first five observations</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># View the PREDICTED species for the first five observations</span>
 <span class="n">preds</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
 </code></pre></div><pre><code>array(['setosa', 'setosa', 'setosa', 'setosa', 'setosa'],
       dtype='&lt;U10')
 </code></pre>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># View the ACTUAL species for the first five observations</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># View the ACTUAL species for the first five observations</span>
 <span class="n">test</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </code></pre></div><pre><code>7     setosa
 8     setosa
@@ -519,7 +532,7 @@ Categories (3, object): [setosa, versicolor, virginica]
 <h3 id="create-a-confusion-matrix">Create a confusion matrix</h3>
 <p>A <a href="https://en.wikipedia.org/wiki/Confusion_matrix">confusion matrix</a> can be, no pun intended, a little confusing to interpret at first, but it is actually very straightforward. The columns are the species we predicted for the test data and the rows are the actual species for the test data. So, if we take the top row, we can wee that we predicted all 13 setosa plants in the test data perfectly. However, in the next row, we predicted 5 of the versicolor plants correctly, but mis-predicted two of the versicolor plants as virginica.</p>
 <p>The short explanation of how to interpret a confusion matrix is: anything on the diagonal was classified correctly and anything off the diagonal was classified incorrectly.</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create confusion matrix</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create confusion matrix</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">],</span> <span class="n">preds</span><span class="p">,</span> <span class="n">rownames</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Actual Species&#39;</span><span class="p">],</span> <span class="n">colnames</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Predicted Species&#39;</span><span class="p">])</span>
 </code></pre></div><div>
 <style>
@@ -574,7 +587,7 @@ Categories (3, object): [setosa, versicolor, virginica]
 </div>
 <h2 id="view-feature-importance">View Feature Importance</h2>
 <p>While we don&rsquo;t get regression coefficients like with OLS, we do get a score telling us how important each feature was in classifying. This is one of the most powerful parts of random forests, because we can clearly see that petal width was more important in classification than sepal width.</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># View a list of the features and their importance scores</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># View a list of the features and their importance scores</span>
 <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="n">features</span><span class="p">],</span> <span class="n">clf</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">))</span>
 </code></pre></div><pre><code>[('sepal length (cm)', 0.11185992930506346),
  ('sepal width (cm)', 0.016341813006098178),
@@ -605,7 +618,7 @@ Categories (3, object): [setosa, versicolor, virginica]
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 704 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

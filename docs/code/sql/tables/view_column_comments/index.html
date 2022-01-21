@@ -66,7 +66,7 @@
     
 
     
-    <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
+    <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon" />
 
     <script>
   MathJax = {
@@ -107,6 +107,19 @@
                     <ul class="nav navbar-nav mr-auto"></ul>
                 <ul class="navbar-nav">
 
+                   <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            Notes
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="https://chrisalbon.com/#notes_machine_learning">Machine Learning</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#notes_engineering management">Engineering Management</a>
+                                                      
+                            <a class="dropdown-item" href="https://chrisalbon.com/#notes_personal">Self</a>
+
+                        </div>
+                    </li>
 
 
                     <li class="nav-item dropdown">
@@ -131,10 +144,6 @@
                             <a class="dropdown-item" href="https://chrisalbon.com/#code_php">PHP</a>
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://www.youtube.com/channel/UCnd4Fi-ODvuPbxR2fO2j7kA">Study With Me</a>
-                    </li>
-
 
 
                     <li class="nav-item dropdown">
@@ -148,6 +157,10 @@
                             <a class="dropdown-item" href="https://www.amazon.com/Machine-Learning-Python-Cookbook-Preprocessing/dp/1491989386">ML Book</a>
                             <a class="dropdown-item" href="https://machinelearningflashcards.com/">ML Flashcards</a>
                         </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://chrisalbon.com//articles/index.xml">RSS</a>
                     </li>
                 </ul>
 
@@ -169,7 +182,7 @@
   <div class="technical_note">
   <header>
       <div class="alert alert-primary flashcard_banner" role="alert">
-        Learning machine learning with <a href="https://machinelearningflashcards.com" class="alert-link">machine learning flashcards</a>, <a href='https://amzn.to/2HwnWty' class="alert-link">Python ML book</a>, or <a href='https://www.youtube.com/channel/UCnd4Fi-ODvuPbxR2fO2j7kA' class="alert-link">study with me videos</a>.
+        Learning machine learning? Try my <a href="https://machinelearningflashcards.com" class="alert-link">machine learning flashcards</a> to memorize key concepts.
       </div>
     <h1 class="technical_note_title">View A Column&#39;s Comments</h1>
     <div class="technical_note_date">
@@ -179,7 +192,7 @@
   <div class="content">
   <h2 id="create-table-of-superheroes-with-comments">Create Table Of Superheroes With Comments</h2>
 <p>Column comments concern a particular column, while table comments are about the entire table.</p>
-<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- Create a table called SUPERHEROES. If it already exists, replace it.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- Create a table called SUPERHEROES. If it already exists, replace it.
 </span><span class="c1"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="k">REPLACE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">SUPERHEROES</span><span class="w"> </span><span class="p">(</span><span class="w">
 </span><span class="w">  </span><span class="c1">-- Column called ID allowing up to five characters with a comment.
 </span><span class="c1"></span><span class="w">  </span><span class="s2">&#34;ID&#34;</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="w"> </span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;A unique ID for each superhero.&#39;</span><span class="p">,</span><span class="w"> 
@@ -190,10 +203,10 @@
 </span><span class="s1">COMMENT=&#39;</span><span class="n">A</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">superheroes</span><span class="p">.</span><span class="s1">&#39;
 </span><span class="s1">;</span></code></pre></div>
 <h2 id="describe-the-table">Describe The Table</h2>
-<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- Describe the table SUPERHEROES
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- Describe the table SUPERHEROES
 </span><span class="c1"></span><span class="k">DESCRIBE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">SUPERHEROES</span><span class="p">;</span></code></pre></div>
 <h2 id="view-table-comments">View Table Comments</h2>
-<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- Select the &#34;name&#34; and &#34;comment&#34; columns
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- Select the &#34;name&#34; and &#34;comment&#34; columns
 </span><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="s2">&#34;name&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;comment&#34;</span><span class="w"> 
 </span><span class="w"></span><span class="c1">-- Of the last query (in this case the DESCRIBE TABLE query)
 </span><span class="c1"></span><span class="k">FROM</span><span class="w"> </span><span class="k">TABLE</span><span class="p">(</span><span class="n">RESULT_SCAN</span><span class="p">(</span><span class="n">LAST_QUERY_ID</span><span class="p">()))</span><span class="w">
@@ -239,7 +252,7 @@
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 704 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 

@@ -66,7 +66,7 @@
     
 
     
-    <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon Articles" />
+    <link href="https://chrisalbon.com//articles/index.xml" rel="alternate" type="application/rss+xml" title="Chris Albon" />
 
     <script>
   MathJax = {
@@ -107,6 +107,19 @@
                     <ul class="nav navbar-nav mr-auto"></ul>
                 <ul class="navbar-nav">
 
+                   <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            Notes
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="https://chrisalbon.com/#notes_machine_learning">Machine Learning</a>
+                            <a class="dropdown-item" href="https://chrisalbon.com/#notes_engineering management">Engineering Management</a>
+                                                      
+                            <a class="dropdown-item" href="https://chrisalbon.com/#notes_personal">Self</a>
+
+                        </div>
+                    </li>
 
 
                     <li class="nav-item dropdown">
@@ -131,10 +144,6 @@
                             <a class="dropdown-item" href="https://chrisalbon.com/#code_php">PHP</a>
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://www.youtube.com/channel/UCnd4Fi-ODvuPbxR2fO2j7kA">Study With Me</a>
-                    </li>
-
 
 
                     <li class="nav-item dropdown">
@@ -148,6 +157,10 @@
                             <a class="dropdown-item" href="https://www.amazon.com/Machine-Learning-Python-Cookbook-Preprocessing/dp/1491989386">ML Book</a>
                             <a class="dropdown-item" href="https://machinelearningflashcards.com/">ML Flashcards</a>
                         </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://chrisalbon.com//articles/index.xml">RSS</a>
                     </li>
                 </ul>
 
@@ -169,7 +182,7 @@
   <div class="technical_note">
   <header>
       <div class="alert alert-primary flashcard_banner" role="alert">
-        Learning machine learning with <a href="https://machinelearningflashcards.com" class="alert-link">machine learning flashcards</a>, <a href='https://amzn.to/2HwnWty' class="alert-link">Python ML book</a>, or <a href='https://www.youtube.com/channel/UCnd4Fi-ODvuPbxR2fO2j7kA' class="alert-link">study with me videos</a>.
+        Learning machine learning? Try my <a href="https://machinelearningflashcards.com" class="alert-link">machine learning flashcards</a> to memorize key concepts.
       </div>
     <h1 class="technical_note_title">What Is The Probability An Economy Class Seat Is An Aisle Seat?</h1>
     <div class="technical_note_date">
@@ -181,7 +194,7 @@
 <p>Last flight, on Turkish Airlines, I ran into a curious situation. I recieved my boarding pass with my seat number, 18C, but the ticket did not specify if C was an aisle seat or not. Making matters worse, the airline counter was swamped with a few dozen people. So I asked myself: <strong>given only the seat letter, C, what is the probability that it is an aisle seat?</strong></p>
 <p>Later, on the flight, I decided to find out.</p>
 <h2 id="preliminaries">Preliminaries</h2>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Import required modules</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Import required modules</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
@@ -195,7 +208,7 @@
 <li>No flight has more than nine rows.</li>
 </ul>
 <p>Based on these rules, here are the &ldquo;typical&rdquo; seating configurations from aircraft with between two and nine seats per row. A &lsquo;1&rsquo; codifies that a seat is an aisle seat, a &lsquo;0&rsquo; codifies that it is a non-aisle seat (i.e. window or middle), and &lsquo;np.nan&rsquo; denotes that the aircraft has less than nine seats (this is so all the list lengths are the same).</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># An aircraft with two seats per row</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># An aircraft with two seats per row</span>
 <span class="n">rows2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">]</span>
 
 <span class="c1"># An aircraft with three seats per row</span>
@@ -231,14 +244,14 @@
 <li>no seat</li>
 </ol>
 <p>Next, I&rsquo;m take advantage of pandas row summation options, but to do this I need to wrangle the data into a pandas dataframe. Essentially I am using the pandas dataframe as a matrix.</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a list variable of all possible aircraft configurations</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a list variable of all possible aircraft configurations</span>
 <span class="n">seating_map</span> <span class="o">=</span> <span class="p">[</span><span class="n">rows2</span><span class="p">,</span> <span class="n">rows3</span><span class="p">,</span> <span class="n">rows4</span><span class="p">,</span> <span class="n">rows5</span><span class="p">,</span> <span class="n">rows6</span><span class="p">,</span> <span class="n">rows7</span><span class="p">,</span> <span class="n">rows8</span><span class="p">,</span> <span class="n">rows9</span><span class="p">]</span>
-</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a dataframe from the seating_map variable</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a dataframe from the seating_map variable</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">seating_map</span><span class="p">,</span> 
                   <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="s1">&#39;I&#39;</span><span class="p">],</span>
                   <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;rows2&#39;</span><span class="p">,</span> <span class="s1">&#39;rows3&#39;</span><span class="p">,</span> <span class="s1">&#39;rows4&#39;</span><span class="p">,</span> <span class="s1">&#39;rows5&#39;</span><span class="p">,</span> <span class="s1">&#39;rows6&#39;</span><span class="p">,</span> <span class="s1">&#39;rows7&#39;</span><span class="p">,</span> <span class="s1">&#39;rows8&#39;</span><span class="p">,</span> <span class="s1">&#39;rows9&#39;</span><span class="p">])</span>
 </code></pre></div><p>Here is all the data we need to construct our probabilities. The columns represent individual seat letters (A, B, etc.) while the rows represent the number of seats-per-row in the aircraft.</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># View the dataframe</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># View the dataframe</span>
 <span class="n">df</span>
 </code></pre></div><div>
 <style>
@@ -371,7 +384,7 @@
 </div>
 <h2 id="calculate-aisle-probability">Calculate aisle probability</h2>
 <p>Because each aircraft seats-per-row configuration (i.e. row) is binary (1 if aisle, 0 if non-aisle), the probability that a seat is an aisle is simply the mean value of each seat letter (i.e. column).</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a list wherein each element is the mean value of a column</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a list wherein each element is the mean value of a column</span>
 <span class="n">aisle_probability</span> <span class="o">=</span> <span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> 
                      <span class="n">df</span><span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
                      <span class="n">df</span><span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
@@ -381,17 +394,17 @@
                      <span class="n">df</span><span class="p">[</span><span class="s1">&#39;G&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
                      <span class="n">df</span><span class="p">[</span><span class="s1">&#39;H&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
                      <span class="n">df</span><span class="p">[</span><span class="s1">&#39;I&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()]</span>
-</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Display the variable</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Display the variable</span>
 <span class="n">aisle_probability</span>
 </code></pre></div><pre><code>[0.25, 0.75, 0.8571428571428571, 0.5, 0.6, 0.75, 0.3333333333333333, 0.0, 0.0]
 </code></pre>
 <p>So there you have it, the probability that each seat letter is an aisle. However, we can make the presentation a little more intituative.</p>
 <h2 id="visualize-seat-letter-probabilities">Visualize seat letter probabilities</h2>
 <p>The most obvious visualization to convey the probabilities would be seat letters on the x-axis and probabilities on the y-axis. Panda&rsquo;s plot function makes that easy.</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a list of strings to use as the x-axis labels</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a list of strings to use as the x-axis labels</span>
 <span class="n">seats</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Seat A&#39;</span><span class="p">,</span> <span class="s1">&#39;Seat B&#39;</span><span class="p">,</span> <span class="s1">&#39;Seat C&#39;</span><span class="p">,</span> <span class="s1">&#39;Seat D&#39;</span><span class="p">,</span> 
          <span class="s1">&#39;Seat E&#39;</span><span class="p">,</span> <span class="s1">&#39;Seat F&#39;</span><span class="p">,</span> <span class="s1">&#39;Seat G&#39;</span><span class="p">,</span> <span class="s1">&#39;Seat H&#39;</span><span class="p">,</span> <span class="s1">&#39;Seat I&#39;</span><span class="p">]</span>
-</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Plot the probabilities, using &#39;seats&#39; as the index as a bar chart</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Plot the probabilities, using &#39;seats&#39; as the index as a bar chart</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">aisle_probability</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">seats</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="c1"># set y to range between 0 and 1</span>
                                                     <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
                                                     <span class="c1"># set the figure size</span>
@@ -427,7 +440,7 @@
 
     <footer class="footer text-center">
         <div class="container">
-            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 704 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
+            <span class="text-muted"><a href="https://github.com/chrisalbon/notes/blob/master/LICENSE.txt">License</a>. All 699 notes and articles are available on <a href="https://github.com/chrisalbon/notes">GitHub</a>.</span>
         </div>
     </footer>
 
