@@ -37,7 +37,7 @@
     
 
     <!-- RSS feed for articles posts -->
-    <link href="{{ .Site.BaseURL }}/articles/index.xml" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }} Articles" />
+    <link href="{{ .Site.BaseURL }}/articles/index.xml" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
 
     {{ partial "mathjax_support.html" . }}
 
@@ -64,11 +64,12 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ .Site.BaseURL }}#notes_machine_learning">Machine Learning</a>
-                            <a class="dropdown-item" href="{{ .Site.BaseURL }}#notes_ethical_machine_learning">Ethical Machine Learning</a>
-                            <a class="dropdown-item" href="{{ .Site.BaseURL }}#notes_engineering_management">Engineering Management</a>
-                            <a class="dropdown-item" href="{{ .Site.BaseURL }}#notes_software_engineering">Software Engineering</a>
+                            <a class="dropdown-item" href="{{ .Site.BaseURL }}#notes_engineering management">Engineering Management</a>
+                            <!--<a class="dropdown-item" href="{{ .Site.BaseURL }}#notes_software_engineering">Software Engineering</a>  -->                          
+                            <a class="dropdown-item" href="{{ .Site.BaseURL }}#notes_personal">Self</a>
+<!--
                             <a class="dropdown-item" href="{{ .Site.BaseURL }}#notes_social_good">Social Good</a>
-                            <a class="dropdown-item" href="{{ .Site.BaseURL }}#notes_personal">Personal</a>
+-->
                         </div>
                     </li>
 
@@ -95,25 +96,7 @@
                             <a class="dropdown-item" href="{{ .Site.BaseURL }}#code_php">PHP</a>
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://www.youtube.com/channel/UCnd4Fi-ODvuPbxR2fO2j7kA">Study With Me</a>
-                    </li>
-<!--
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false">
-                            Less Harmful AI
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="https://chrisalbon.substack.com/subscribe">Newsletter</a>
-                            <a class="dropdown-item" href="{{ .Site.BaseURL }}#less-harmful-ai">Archive</a>
-                        </div>
-                    </li>
--->
-<!--
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://chrisalbon.substack.com/">Newsletter</a>
-                    </li>-->
+
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -126,6 +109,10 @@
                             <a class="dropdown-item" href="https://www.amazon.com/Machine-Learning-Python-Cookbook-Preprocessing/dp/1491989386">ML Book</a>
                             <a class="dropdown-item" href="https://machinelearningflashcards.com/">ML Flashcards</a>
                         </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ .Site.BaseURL }}/articles/index.xml">RSS</a>
                     </li>
                 </ul>
 

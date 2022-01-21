@@ -4,7 +4,7 @@ author: "Chris Albon"
 date: 2011-12-20T11:53:49-07:00
 description: "A descriptive overview of the structure of health systems."
 type: article
-draft: false
+draft: true
 ---
 
 While health systems vary in the role of the private sector, the priority given to primary and specialized care, the level of access enjoyed by citizens, and a host of other characteristics, most health systems (particularly in less developed states) share a basic structure based on a hierarchical organization of health care provision. Most citizens’ primary point of contact with health systems is usually through health posts, health clinics, and health centers.

@@ -4,7 +4,7 @@ author: "Chris Albon"
 date: 2011-12-20T11:53:49-07:00
 description: "A history of health system reconstruction in post-war Kosovo."
 type: article
-draft: false
+draft: true
 ---
 
 In 1963, Kosovo became an autonomous province of Serbia in Yugoslavia under Josip Tito. Long before then, friction had existed between the ethnically Albanian and Serbian communities living inside and around Kosovo. These tensions escalated in the 1980s as ethnic Albanians pushed for greater autonomy for Kosovo and stronger connections to neighboring Albania, while Serbians wanted to maintain strong ties with Belgrade.

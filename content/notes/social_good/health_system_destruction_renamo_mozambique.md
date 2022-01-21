@@ -4,7 +4,7 @@ author: "Chris Albon"
 date: 2011-12-20T11:53:49-07:00
 description: "A case study of health system destruction by RENAMO during the Mozambican Civil War."
 type: article
-draft: false
+draft: true
 ---
 
 Mozambique’s political history has been shaped by its geography. Stretched from north to south along more than 1,500 miles of coastline, the territory was first colonized by the Portuguese, who established a series of trading ports. Through these ports the colonists extracted the agricultural and commercial wealth of the territory. Under Portuguese rule, the health system in Mozambique centered on the needs of the European settler community and their economic interests. The colony maintained a series of health facilities for settlers and a “cordon sanitarie” around the urban areas where many Europeans lived (Cabral and Noormahomed 1990, 175). Health care access for indigenous Mozambicans was limited. Colonists conducted public health campaigns to reduce endemic diseases such as malaria in areas with economic potential so as to make them more accessible for development. Settlers also often provided rudimentary health services to local forced laborers to protect against tuberculosis and other infectious diseases that, if unchecked, would reduce the size of the colonist’s workforce (Cabral and Noormahomed 1990, 175).

@@ -19,7 +19,7 @@
                     efforts.</p>
 
                 <p>Learning machine learning? Check out my
-                    <a href="https://machinelearningflashcards.com">Machine Learning Flashcards</a>, my book (<a href="https://amzn.to/2HwnWty">Machine Learning With Python Cookbook</a>), or come <a href="https://www.youtube.com/channel/UCnd4Fi-ODvuPbxR2fO2j7kA">study with me</a>.</p> 
+                    <a href="https://machinelearningflashcards.com">Machine Learning Flashcards</a> and my book, (<a href="https://amzn.to/2HwnWty">Machine Learning With Python Cookbook</a>).</p> 
             </div>
         </div>
 
@@ -57,9 +57,9 @@
     </div>
 </div>
 
-<div class="row" id="notes_ethical_machine_learning">
+<div class="row" id="notes_engineering_management">
     <div class="col-sm-12">
-        <h3 class="category_header">Ethical Machine Learning</h3>
+        <h3 class="category_header">Engineering Management</h3>
     </div>
 </div>
 
@@ -72,7 +72,7 @@
                     {{ if .IsHome }}
                         {{ $pages = .Site.RegularPages }}
                     {{ end }}
-                    {{ range (where $pages "File.Dir" "in" "/notes/ethical_machine_learning/") }}
+                    {{ range (where $pages "File.Dir" "in" "/notes/engineering_management/") }}
                     <li>
                         <a href="{{.Permalink}}">{{.Title}}</a>
                     </li>
@@ -82,8 +82,8 @@
         </div>
     </div>
 </div>
-
-<div class="row" id="notes_software_engineering">
+<!--
+<div class="row" id="notes_engineering_engineering">
     <div class="col-sm-12">
         <h3 class="category_header">Software Engineering</h3>
     </div>
@@ -108,6 +108,36 @@
         </div>
     </div>
 </div>
+
+-->
+
+<div class="row" id="notes_self">
+    <div class="col-sm-12">
+        <h3 class="category_header">Self</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <ul>
+                    {{ $pages := .Pages }}
+                    {{ if .IsHome }}
+                        {{ $pages = .Site.RegularPages }}
+                    {{ end }}
+                    {{ range (where $pages "File.Dir" "in" "/notes/self/") }}
+                    <li>
+                        <a href="{{.Permalink}}">{{.Title}}</a>
+                    </li>
+                    {{ end }}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--
 
 <div class="row" id="notes_social_good">
     <div class="col-sm-12">
@@ -135,58 +165,10 @@
     </div>
 </div>
 
-<div class="row" id="notes_engineering_management">
-    <div class="col-sm-12">
-        <h3 class="category_header">Engineering Management</h3>
-    </div>
-</div>
 
-<div class="row">
-    <div class="col-sm-12">
-        <div class="card">
-            <div class="card-body">
-                <ul>
-                    {{ $pages := .Pages }}
-                    {{ if .IsHome }}
-                        {{ $pages = .Site.RegularPages }}
-                    {{ end }}
-                    {{ range (where $pages "File.Dir" "in" "/notes/technical_management/") }}
-                    <li>
-                        <a href="{{.Permalink}}">{{.Title}}</a>
-                    </li>
-                    {{ end }}
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
 
-<div class="row" id="notes_personal">
-    <div class="col-sm-12">
-        <h3 class="category_header">Personal</h3>
-    </div>
-</div>
 
-<div class="row">
-    <div class="col-sm-12">
-        <div class="card">
-            <div class="card-body">
-                <ul>
-                    {{ $pages := .Pages }}
-                    {{ if .IsHome }}
-                        {{ $pages = .Site.RegularPages }}
-                    {{ end }}
-                    {{ range (where $pages "File.Dir" "in" "/notes/personal/") }}
-                    <li>
-                        <a href="{{.Permalink}}">{{.Title}}</a>
-                    </li>
-                    {{ end }}
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
+-->
 <!-- CODE SECTION -->
 
         <div class="row" id="code_snippets">

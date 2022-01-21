@@ -4,7 +4,7 @@ author: "Chris Albon"
 date: 2011-12-20T11:53:49-07:00
 description: "Many non-state actors wish to violently oppose their political leaders, however most do not develop into active rebellions."
 type: article
-draft: false
+draft: true
 ---
 
 ## The Puzzle
